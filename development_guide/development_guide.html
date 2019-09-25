@@ -1,0 +1,432 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Guida per lo sviluppo software &#8212; Stima 3 documentazione</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="next" title="Documentazione del codice" href="../stimacode.html" />
+    <link rel="prev" title="Howto per Stima versione 3" href="../howto_stima_v3/howto_stima_v3.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="guida-per-lo-sviluppo-software">
+<h1>Guida per lo sviluppo software<a class="headerlink" href="#guida-per-lo-sviluppo-software" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="macchina-a-stati-finiti">
+<h2>Macchina a stati finiti<a class="headerlink" href="#macchina-a-stati-finiti" title="Link a questa intestazione">¶</a></h2>
+<p>L’intero software è stato riscritto e sviluppato secondo il modello
+della macchina a stati finiti ed in particolare, secondo un automa di
+Mealy in cui la transizione da uno stato ad un altro dipende dallo stato
+attuale e da eventi esterni. Tale approccio consente di specificare con
+chiarezza le transizioni da eseguire tra gli stati in base agli eventi
+ed evitare stati di incoerenza causanti il malfunzionamento o il blocco
+del sistema.</p>
+<p>Ogni sequenza di operazioni è chiaramente identificata e modellata
+attraverso stati ben precisi. L’implementazione dell’intero automa è
+realizzata attraverso una variabile indicante lo stato corrente,
+aggiornata ad ogni passaggio di stato. La scelta dell’esecuzione di un
+particolare stato avviene per merito di un costrutto switch il quale,
+ciclo dopo ciclo, processando la variabile indicante lo stato corrente,
+eseguirà il codice relativo. Tale codice è implementato attraverso l’uso
+di funzioni non bloccanti: tale approccio consente uno pseudo
+parallelismo del codice, evitando di assegnare il microcontrollore ad
+una specifica esecuzione per un periodo di tempo eccessivo tale da
+penalizzare l’esecuzione di altre funzioni.</p>
+<p>La scrittura del software mediante le regole appena descritte consentono
+un’assoluta modularità ed una rapida scalabilità dello stesso con
+l’aggiunta di funzionalità che in seguito potrebbero essere richieste.</p>
+<p>Inoltre, tale approccio è in piena sintonia con la filosofia del
+progetto Stima, rendendo l’intero software facilmente comprensibile a
+chiunque abbia voglia di realizzare la propria stazione meteorologica,
+in accordo all’idea che sta alla base dell’open source e delle
+specifiche tecniche RMAP.</p>
+<p>Ogni task del sistema è composto da:</p>
+<ol class="arabic simple">
+<li>Metodo implementativo delle funzionalità</li>
+<li>Variabile di stato</li>
+<li>Variabile booleana indicante se il task è in esecuzione</li>
+</ol>
+<p>Per implementare un ipotetico task di esempio, è necessario creare:</p>
+<ol class="arabic simple">
+<li>Una variabile globale booleana indicante se il task è in esecuzione:</li>
+</ol>
+<p>bool is_event_esempio = false;</p>
+<ol class="arabic simple">
+<li>Un nuovo tipo di variabile definendo i vari stati necessari ad
+implementare le funzionalità del task, come enumerazioni:</li>
+</ol>
+<p>typedef enum {</p>
+<blockquote>
+<div>ESEMPIO_INIT,</div></blockquote>
+<p>.</p>
+<blockquote>
+<div><p>ESEMPIO_END,</p>
+<p>ESEMPIO_WAIT_STATE</p>
+</div></blockquote>
+<p>} esempio_state_t;</p>
+<ol class="arabic simple">
+<li>Una variabile globale del tipo appena definito:</li>
+</ol>
+<p>esempio_state_t esempio_state = ESEMPIO_INIT;</p>
+<ol class="arabic simple">
+<li>La funzione implementante il task:</li>
+</ol>
+<p>void esempio_task () {</p>
+<blockquote>
+<div>static esempio_state_t state_after_wait;</div></blockquote>
+<blockquote>
+<div><p>static uint32_t delay_ms;</p>
+<p>static uint32_t start_time_ms;</p>
+</div></blockquote>
+<blockquote>
+<div>switch (esempio_state) {</div></blockquote>
+<p>case ESEMPIO_INIT:</p>
+<blockquote>
+<div>state_after_wait = ESEMPIO_INIT;</div></blockquote>
+<blockquote>
+<div>esempio_state = “stato successivo”;</div></blockquote>
+<p>break;</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>case ESEMPIO_END:</p>
+<blockquote>
+<div>noInterrupts();</div></blockquote>
+<blockquote>
+<div><p>is_event_esempio = false;</p>
+<p>ready_tasks_count–;</p>
+</div></blockquote>
+<blockquote>
+<div><p>interrupts();</p>
+<p>esempio_state = ESEMPIO_INIT;</p>
+</div></blockquote>
+<p>break;</p>
+<p>case ESEMPIO_WAIT_STATE:</p>
+<blockquote>
+<div>if (millis() - start_time_ms &gt; delay_ms) {</div></blockquote>
+<p>esempio_state = state_after_wait;</p>
+<blockquote>
+<div>}</div></blockquote>
+<p>break;</p>
+<blockquote>
+<div>}</div></blockquote>
+<p>}</p>
+<p>Se nel corso dell’esecuzione del task è necessario attendere un certo
+intervallo di tempo attraverso lo stato di attesa non bloccante è
+possibile farlo mediante:</p>
+<p>delay_ms = 10;</p>
+<p>start_time_ms = millis();</p>
+<p>state_after_wait = “stato successivo allo scadere del timeout di 10 ms”;</p>
+<p>esempio_state = ESEMPIO_WAIT_STATE;</p>
+<p>La chiamata al task viene fatta nel loop() e implementata mediante la
+forma:</p>
+<p>if (is_event_esempio) {</p>
+<blockquote>
+<div>esempio_task();</div></blockquote>
+<blockquote>
+<div>wdt_reset();</div></blockquote>
+<p>}</p>
+<p>Per attivare il task in un punto qualsiasi del codice, è possibile
+adottare la forma:</p>
+<p>&lt;noInterrupts();</p>
+<p>if (!is_event_esempio) {</p>
+<blockquote>
+<div>is_event_esempio = true;</div></blockquote>
+<blockquote>
+<div>ready_tasks_count++;</div></blockquote>
+<p>}</p>
+<p>interrupts();</p>
+</div>
+<div class="section" id="sensordriver">
+<h2>SensorDriver<a class="headerlink" href="#sensordriver" title="Link a questa intestazione">¶</a></h2>
+<p>SensorDriver è la libreria scritta in C++ OOP che implementa la lettura
+dei sensori attraverso interfacce standard su bus I<sup>2</sup>C.</p>
+<p>Per la lettura dei sensori, viene creato un array del tipo SensorDriver
+*sensors[COUNT] a cui ad ogni elemento dell’array corrisponde un
+oggetto di tipo SensorDriver che implementa i metodi descritti nel
+seguito.</p>
+<ul class="simple">
+<li>SensorDriver(const char* driver, const char* type)<ul>
+<li>Costruttore</li>
+<li>const char* driver: stringa di 3 caratteri contenente il nome del
+driver</li>
+<li>const char* type: stringa di 3 caratteri contenente il nome del
+sensore</li>
+</ul>
+</li>
+<li>virtual void setup(const uint8_t address, const uint8_t node = 0)<ul>
+<li>operazioni di inizializzazione del sensore</li>
+<li>const uint8_t address: indirizzo I<sup>2</sup>C del sensore</li>
+<li>const uint8_t node: nodo all’interno della rete</li>
+</ul>
+</li>
+<li>virtual void prepare(bool is_test = false)<ul>
+<li>inizializzazione del sensore precedente alla lettura</li>
+<li>bool is_test: se false il sensore viene preparato per effettuare
+le normali procedura di lettura, se true il sensore si predispone
+per leggere valori particolari “di test” utili alla verifica di
+funzionamento dello stesso</li>
+</ul>
+</li>
+<li>virtual void get(int32_t *values, uint8_t length)<ul>
+<li>lettura dei valori dal sensore in formato numerico intero a 32 bit
+con segno</li>
+<li>int32_t *values: puntatore all’array di ritorno dei valori</li>
+<li>uint8_t length: numero di valori da leggere dal sensore</li>
+</ul>
+</li>
+<li>virtual void getJson(int32_t *values, uint8_t length, char
+*json_buffer, size_t json_buffer_length = JSON_BUFFER_LENGTH)<ul>
+<li>lettura dei valori dal sensore in formato JSON</li>
+<li>int32_t *values: puntatore all’array di ritorno dei valori</li>
+<li>uint8_t length: numero di valori da leggere dal sensore</li>
+<li>char *json_buffer: buffer di ritorno della stringa contente il
+JSON</li>
+<li>size_t json_buffer_length: lunghezza del buffer</li>
+</ul>
+</li>
+<li>static SensorDriver *create(const char* driver, const char* type)<ul>
+<li>crea un’istanza di SensorDriver per un sensore specifico</li>
+<li>const char* driver: stringa di 3 caratteri contenente il nome del
+driver</li>
+<li>const char* type: stringa di 3 caratteri contenente il nome del
+sensore</li>
+</ul>
+</li>
+<li>static void createAndSetup(const char* driver, const char* type,
+const uint8_t address, const uint8_t node, SensorDriver *sensors[],
+uint8_t *sensors_count)<ul>
+<li>richiama in sequenza i metodi create e setup assegnando la nuova
+istanza del sensore all’array delle istanze dei sensori
+incrementandone la variabile corrispondente che ne indica la
+dimensione</li>
+<li>const char* driver: stringa di 3 caratteri contenente il nome del
+driver</li>
+<li>const char* type: stringa di 3 caratteri contenente il nome del
+sensore</li>
+<li>const uint8_t address: indirizzo I<sup>2</sup>C del sensore</li>
+<li>int8_t node: nodo all’interno della rete</li>
+<li>const u SensorDriver *sensors[]: array delle istanze dei sensori</li>
+<li>uint8_t *sensors_count: numero di istanze create</li>
+</ul>
+</li>
+<li>char *getDriver()<ul>
+<li>ritorna il puntatore alla stringa contente il driver del sensore</li>
+</ul>
+</li>
+<li>char *getType()<ul>
+<li>ritorna il puntatore alla stringa contente il tipo del sensore</li>
+</ul>
+</li>
+<li>uint8_t getAddress()<ul>
+<li>ritorna l’indirizzo I<sup>2</sup>C del sensore</li>
+</ul>
+</li>
+<li>uint8_t getNode()<ul>
+<li>ritorna il nodo del sensore</li>
+</ul>
+</li>
+<li>uint32_t_t getStartTime()<ul>
+<li>ritorna il valore in millisecondi relativo all’istante iniziale in
+cui viene richiesto il delay</li>
+</ul>
+</li>
+<li>uint32_t_t getDelay()<ul>
+<li>ritorna il valore in millisecondi indicante l’attesa richiesta</li>
+</ul>
+</li>
+<li>bool isEnd()<ul>
+<li>ritorna true quando la procedura get del sensore è terminata,
+false se la procedura è in corso</li>
+</ul>
+</li>
+<li>bool isSuccess()<ul>
+<li>ritorna true se la procedura get termina con successo, false in
+caso contrario</li>
+</ul>
+</li>
+<li>bool isSetted()<ul>
+<li>ritorna true se l’operazione setup è stata eseguita con successo,
+false in caso contrario</li>
+</ul>
+</li>
+<li>bool isPrepared()<ul>
+<li>ritorna true se l’operazione prepare è stata eseguita con
+successo, false in caso contrario</li>
+</ul>
+</li>
+<li>void resetPrepared()<ul>
+<li>resetta il flag indicante la corretta esecuzione della procedura
+prepare (flag ritornato dalla procedura isPrepared())</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="microcontrollori-e-hardware-in-modalita-risparmio-energetico">
+<h2>Microcontrollori e hardware in modalità risparmio energetico<a class="headerlink" href="#microcontrollori-e-hardware-in-modalita-risparmio-energetico" title="Link a questa intestazione">¶</a></h2>
+<p>Per garantire il funzionamento della stazione con batteria e pannello
+fotovoltaico, i microcontrollori sono impostati in modalità a basso
+consumo. Tale modalità è raggiunta con lo spegnimento fisico di tutta la
+strumentazione non strettamente necessaria che sarà alimentata solo nel
+momento in cui risulti utile (ad esempio: il modulo GSM/GPRS ed alcune
+periferiche dei microprocessori).</p>
+<p>In particolare i moduli Stima Ethernet o Stima GSM/GPRS sono posti in
+modalità power down e risvegliati con interrupt dell’RTC con cadenza del
+secondo.</p>
+<p>Analogamente, il modulo Stima I2C-Rain è risvegliato dall’interrupt
+dovuto ad una basculata del pluviometro e il modulo Stima I2C-TH viene
+svegliato tramite interrupt del timer interno.</p>
+<p>Entrambi i moduli Stima I2C-Rain e Stima I2C-TH possono essere
+risvegliati attraverso matching dell’indirizzo I<sup>2</sup>C del
+microcontrollore. Ciò consente di porre tutta la strumentazione in
+modalità risparmio energetico e qualora un qualsiasi dispositivo
+multi-master sul bus, si risvegli autonomamente o in seguito ad un
+evento esterno (esempio: segnalazione di pioggia dal pluviometro), potrà
+risvegliare tutti i moduli multi-master necessari, con un semplice
+indirizzamento I<sup>2</sup>C del dispositivo specifico.</p>
+<p>Tutti i dati acquisiti e le relative ed eventuali elaborazioni
+effettuate, sono salvate su scheda SD-Card e conseguentemente inviati al
+server RMAP.</p>
+<p>Per assolvere tali funzioni ed ottimizzare il funzionamento complessivo
+della stazione meteorologica in merito ad overhead del tempo di cpu per
+la ricerca dei file ed all’uso dello spazio sul disco, viene creato un
+file per ogni giorno di registrazione di dati, salvando all’interno
+tutti i dati dei sensori relativi a quel giorno.</p>
+<p>Per gestire la modalità di invio dati al server, è presente un unico
+file in cui viene scritto di volta in volta, il puntatore corrispondente
+alla data ed ora dell’ultimo dato trasmesso al server RMAP. Per
+effettuare un nuovo trasferimento dei dati a partire da una specifica
+data antecedente a quella del puntatore ai dati correnti, è sufficiente
+un aggiornamento di tale puntatore con la data desiderata: sarà compito
+del software ricercare il primo dato utile successivo a tale data.</p>
+<p>Nello specifico, ogni file di dati assume il nome nel formato
+aaaa_mm_gg.txt in cui:</p>
+<ul class="simple">
+<li><ol class="first loweralpha">
+<li><ul class="first">
+<li>aaaa: anno con 4 cifre</li>
+<li>mm: mese con 2 cifre</li>
+<li>gg: giorno con 2 cifre</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>In ogni file, ogni riga corrisponde ad un dato di un sensore ed in
+particolare, ogni riga è della lunghezza di MQTT_SENSOR_TOPIC_LENGTH +
+MQTT_MESSAGE_LENGTH bytes. Tali valori sono delle #define situate nel
+file mqtt_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig.</p>
+<p>Ogni riga è salvata nel formato: TRANGE/LEVEL/VAR {“v”: VALUE, “t”:
+TIME}</p>
+<p>Il file contenente il puntatore all’ultimo dato trasmetto assume il nome
+mqtt_ptr.txt e contiene un dato binario della dimensione di 4 bytes
+senza segno corrispondente al numero di secondi dal 00:00:00 del
+01/01/1970 indicante la data ed ora dell’ultimo dato trasmetto
+attraverso MQTT.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stima</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigazione</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guida per lo sviluppo software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#macchina-a-stati-finiti">Macchina a stati finiti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensordriver">SensorDriver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#microcontrollori-e-hardware-in-modalita-risparmio-energetico">Microcontrollori e hardware in modalità risparmio energetico</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../howto_stima_v3/howto_stima_v3.html" title="capitolo precedente">Howto per Stima versione 3</a></li>
+      <li>Next: <a href="../stimacode.html" title="capitolo successivo">Documentazione del codice</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Ricerca veloce</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Vai" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Various.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/development_guide/development_guide.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
