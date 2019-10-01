@@ -72,95 +72,94 @@ specifiche tecniche RMAP.</p>
 <li>Variabile booleana indicante se il task è in esecuzione</li>
 </ol>
 <p>Per implementare un ipotetico task di esempio, è necessario creare:</p>
-<ol class="arabic simple">
-<li>Una variabile globale booleana indicante se il task è in esecuzione:</li>
+<ol class="arabic">
+<li><p class="first">Una variabile globale booleana indicante se il task è in esecuzione:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_event_esempio</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Un nuovo tipo di variabile definendo i vari stati necessari ad
+implementare le funzionalità del task, come enumerazioni:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span>
+  <span class="n">ESEMPIO_INIT</span><span class="p">,</span>
+  <span class="o">.</span>
+  <span class="n">ESEMPIO_END</span><span class="p">,</span>
+  <span class="n">ESEMPIO_WAIT_STATE</span>
+<span class="p">}</span> <span class="n">esempio_state_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Una variabile globale del tipo appena definito:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">esempio_state_t</span> <span class="n">esempio_state</span> <span class="o">=</span> <span class="n">ESEMPIO_INIT</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">La funzione implementante il task:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>void esempio_task () {
+  static esempio_state_t state_after_wait;
+  ..
+  static uint32_t delay_ms;
+  static uint32_t start_time_ms;
+  ..
+  switch (esempio_state) {
+  case ESEMPIO_INIT:
+    state_after_wait = ESEMPIO_INIT;
+    ..
+    esempio_state = “stato successivo”;
+    break;
+  .
+  .
+  .
+  case ESEMPIO_END:
+    noInterrupts();
+    ..
+    is_event_esempio = false;
+    ready_tasks_count--;
+    ..
+    interrupts();
+    esempio_state = ESEMPIO_INIT;
+    break;
+  case ESEMPIO_WAIT_STATE:
+    if (millis() - start_time_ms &gt; delay_ms) {
+    esempio_state = state_after_wait;
+    }
+    break;
+  }
+}
+</pre></div>
+</div>
+</li>
 </ol>
-<p>bool is_event_esempio = false;</p>
-<ol class="arabic simple">
-<li>Un nuovo tipo di variabile definendo i vari stati necessari ad
-implementare le funzionalità del task, come enumerazioni:</li>
-</ol>
-<p>typedef enum {</p>
-<blockquote>
-<div>ESEMPIO_INIT,</div></blockquote>
-<p>.</p>
-<blockquote>
-<div><p>ESEMPIO_END,</p>
-<p>ESEMPIO_WAIT_STATE</p>
-</div></blockquote>
-<p>} esempio_state_t;</p>
-<ol class="arabic simple">
-<li>Una variabile globale del tipo appena definito:</li>
-</ol>
-<p>esempio_state_t esempio_state = ESEMPIO_INIT;</p>
-<ol class="arabic simple">
-<li>La funzione implementante il task:</li>
-</ol>
-<p>void esempio_task () {</p>
-<blockquote>
-<div>static esempio_state_t state_after_wait;</div></blockquote>
-<blockquote>
-<div><p>static uint32_t delay_ms;</p>
-<p>static uint32_t start_time_ms;</p>
-</div></blockquote>
-<blockquote>
-<div>switch (esempio_state) {</div></blockquote>
-<p>case ESEMPIO_INIT:</p>
-<blockquote>
-<div>state_after_wait = ESEMPIO_INIT;</div></blockquote>
-<blockquote>
-<div>esempio_state = “stato successivo”;</div></blockquote>
-<p>break;</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>case ESEMPIO_END:</p>
-<blockquote>
-<div>noInterrupts();</div></blockquote>
-<blockquote>
-<div><p>is_event_esempio = false;</p>
-<p>ready_tasks_count–;</p>
-</div></blockquote>
-<blockquote>
-<div><p>interrupts();</p>
-<p>esempio_state = ESEMPIO_INIT;</p>
-</div></blockquote>
-<p>break;</p>
-<p>case ESEMPIO_WAIT_STATE:</p>
-<blockquote>
-<div>if (millis() - start_time_ms &gt; delay_ms) {</div></blockquote>
-<p>esempio_state = state_after_wait;</p>
-<blockquote>
-<div>}</div></blockquote>
-<p>break;</p>
-<blockquote>
-<div>}</div></blockquote>
-<p>}</p>
 <p>Se nel corso dell’esecuzione del task è necessario attendere un certo
 intervallo di tempo attraverso lo stato di attesa non bloccante è
 possibile farlo mediante:</p>
-<p>delay_ms = 10;</p>
-<p>start_time_ms = millis();</p>
-<p>state_after_wait = “stato successivo allo scadere del timeout di 10 ms”;</p>
-<p>esempio_state = ESEMPIO_WAIT_STATE;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>delay_ms = 10;
+start_time_ms = millis();
+state_after_wait = “stato successivo allo scadere del timeout di 10 ms”;
+esempio_state = ESEMPIO_WAIT_STATE;
+</pre></div>
+</div>
 <p>La chiamata al task viene fatta nel loop() e implementata mediante la
 forma:</p>
-<p>if (is_event_esempio) {</p>
-<blockquote>
-<div>esempio_task();</div></blockquote>
-<blockquote>
-<div>wdt_reset();</div></blockquote>
-<p>}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">is_event_esempio</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">esempio_task</span><span class="p">();</span>
+  <span class="o">..</span>
+  <span class="n">wdt_reset</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Per attivare il task in un punto qualsiasi del codice, è possibile
 adottare la forma:</p>
-<p>&lt;noInterrupts();</p>
-<p>if (!is_event_esempio) {</p>
-<blockquote>
-<div>is_event_esempio = true;</div></blockquote>
-<blockquote>
-<div>ready_tasks_count++;</div></blockquote>
-<p>}</p>
-<p>interrupts();</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>noInterrupts();
+if (!is_event_esempio) {
+  is_event_esempio = true;
+  ..
+  ready_tasks_count++;
+}
+
+interrupts();
+</pre></div>
+</div>
 </div>
 <div class="section" id="sensordriver">
 <h2>SensorDriver<a class="headerlink" href="#sensordriver" title="Link a questa intestazione">¶</a></h2>
@@ -324,26 +323,44 @@ effettuare un nuovo trasferimento dei dati a partire da una specifica
 data antecedente a quella del puntatore ai dati correnti, è sufficiente
 un aggiornamento di tale puntatore con la data desiderata: sarà compito
 del software ricercare il primo dato utile successivo a tale data.</p>
-<p>Nello specifico, ogni file di dati assume il nome nel formato
-aaaa_mm_gg.txt in cui:</p>
-<ul class="simple">
-<li><ol class="first loweralpha">
-<li><ul class="first">
-<li>aaaa: anno con 4 cifre</li>
-<li>mm: mese con 2 cifre</li>
-<li>gg: giorno con 2 cifre</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
+<p>Nello specifico, ogni file di dati assume il nome nel formato:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aaaa_mm_gg</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>in cui:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Simbolo</th>
+<th class="head">Descrizione</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>aaaa</td>
+<td>anno con 4 cifre</td>
+</tr>
+<tr class="row-odd"><td>mm</td>
+<td>mese con 2 cifre</td>
+</tr>
+<tr class="row-even"><td>gg</td>
+<td>giorno con 2 cifre</td>
+</tr>
+</tbody>
+</table>
 <p>In ogni file, ogni riga corrisponde ad un dato di un sensore ed in
-particolare, ogni riga è della lunghezza di MQTT_SENSOR_TOPIC_LENGTH +
-MQTT_MESSAGE_LENGTH bytes. Tali valori sono delle #define situate nel
-file mqtt_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig.</p>
-<p>Ogni riga è salvata nel formato: TRANGE/LEVEL/VAR {“v”: VALUE, “t”:
-TIME}</p>
+particolare, ogni riga è della lunghezza di:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MQTT_SENSOR_TOPIC_LENGTH</span> <span class="o">+</span> <span class="n">MQTT_MESSAGE_LENGTH</span> <span class="nb">bytes</span>
+</pre></div>
+</div>
+<p>Tali valori sono delle #define situate nel
+file mqtt_config.h nella cartella arduino/sketchbook/libraries/RmapConfig.</p>
+<dl class="docutils">
+<dt>Ogni riga è salvata nel formato::</dt>
+<dd>TRANGE/LEVEL/VAR {“v”: VALUE, “t”:TIME}</dd>
+</dl>
 <p>Il file contenente il puntatore all’ultimo dato trasmetto assume il nome
 mqtt_ptr.txt e contiene un dato binario della dimensione di 4 bytes
 senza segno corrispondente al numero di secondi dal 00:00:00 del
