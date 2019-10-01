@@ -20,5 +20,4 @@ __ doxygen/index.html
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
