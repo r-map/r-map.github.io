@@ -1,0 +1,1748 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>RFC rmap versione 2.3 &#8212; Stima 3 documentazione</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="next" title="Howto per Stima versione 3" href="../howto_stima_v3/howto_stima_v3.html" />
+    <link rel="prev" title="Benvetuti alla documentazione di Stima" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rfc-rmap-versione-2-3">
+<h1>RFC rmap versione 2.3<a class="headerlink" href="#rfc-rmap-versione-2-3" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="storia-del-documento">
+<h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link a questa intestazione">¶</a></h2>
+<p>2019/06/18 v. 2.3 : aggiunte specifiche JSRPC</p>
+</div>
+<div class="section" id="definizioni">
+<h2>Definizioni<a class="headerlink" href="#definizioni" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="campionamento-e-processo-di-misurazione">
+<h3>Campionamento e processo di misurazione<a class="headerlink" href="#campionamento-e-processo-di-misurazione" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Campionamento è il processo per ottenere una discretizzata sequenza
+di misure di una quantità.</p></li>
+<li><p>Misurazione: processo volto a ottenere sperimentalmente uno o più
+valori che possono essere ragionevolmente attribuiti a una grandezza
+(UNI CEI 70099:2008);</p></li>
+<li><p>Valore: elemento di un sistema di misura che è direttamente
+influenzato dal fenomeno, corpo o sostanza che propongono la
+grandezza da sottoporre a misurazione (UNI CEI 70099:2008). Una
+osservazione (valore di una grandezza) è il risultato del processo di
+campionamento. Nel contesto di analisi di serie, un’osservazione è
+derivata da un numero di campioni.</p></li>
+<li><p>Risultato di misura: insieme di valori attribuiti a un misurando
+congiuntamente a ogni altra informazione pertinente disponibile (UNI
+CEI 70099:2008);</p></li>
+<li><p>Taratura (Calibration): operazione eseguita in condizioni
+specificate, che in una prima fase stabilisce una relazione tra i
+valori di una grandezza, con le rispettive incertezze di misura,
+forniti da campioni di misura, e le corrispondenti indicazioni,
+comprensive delle incertezze di misura associate, e in una seconda
+fase usa queste informazioni per stabilire una relazione che consente
+di ottenere un risultato di misura a partire da un’indicazione (UNI
+CEI 70099:2008). NOTA: Il termine «calibrazione» non dovrebbe essere
+usato per designare la taratura.</p></li>
+<li><p>Trasduttore di misura: dispositivo, impiegato in una misurazione, che
+fornisce una grandezza di uscita avente una relazione specificata con
+la grandezza di ingresso (UNI CEI 70099:2008). ESEMPI Termocoppia,
+trasformatore di corrente elettrica, estensimetro, elettrodo per la
+misurazione del pH, tubo di Bourdon, lama bimetallica.</p></li>
+<li><p>Variabili atmosferiche come la velocità del vento, temperatura,
+pressione e umidità sono funzioni di quattro dimensioni - due
+orizzontali, una verticale e una temporale. Esse variano
+irregolarmente in tutte e quattro, e lo scopo dello studio del
+campionamento è quello di definire le procedure di misura pratiche
+per ottenere osservazioni rappresentative con incertezze accettabili
+nelle stime delle medie e variabilità.</p></li>
+</ul>
+</div>
+<div class="section" id="data-level">
+<h3>Data Level<a class="headerlink" href="#data-level" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Dati Level I , sono le letture dirette degli strumenti espresse in
+appropriate unità fisiche e georeferenziate (campionamenti)</p></li>
+<li><p>Dati Level II, dati riconosciuti come variabili meteorologiche
+(osservazioni/misurazioni); possono essere ottenuti direttamente da
+strumenti o derivati dai dati Level I</p></li>
+<li><p>Dati Level III sono quelli contenuti in dataset internamente
+consistenti, generalmente su grigliato.</p></li>
+</ul>
+<p>I dati scambiati a livello internazionale sono livello II o livello III</p>
+</div>
+<div class="section" id="report">
+<h3>Report<a class="headerlink" href="#report" title="Link a questa intestazione">¶</a></h3>
+<p>Un report è un insieme (sincrono) di osservazioni a livello II completo
+di metadati o con la possibilità di ricostruire i metadati.</p>
+</div>
+<div class="section" id="protocolli-per-r-map">
+<h3>Protocolli per R-map<a class="headerlink" href="#protocolli-per-r-map" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>MQTT (Message Queue Telemetry Transport) è un protocollo
+publish/subscribe particolarmente leggero, adatto per la
+comunicazione M2M tra dispositivi con poca memoria o potenza di
+calcolo e server o message broker.</p></li>
+<li><p>AMQP (Advanced Message Queuing Protocol) è protocollo per
+comunicazioni attraverso code di messaggi. Sono garantite
+l’interoperabilità, la sicurezza, l’affidabilità, la persistenza.
+Nella sua implementazione Rabbitmq exporta un broker MQTT e fornisce
+delle api web</p></li>
+</ul>
+</div>
+<div class="section" id="sistema-di-misura">
+<h3>Sistema di misura<a class="headerlink" href="#sistema-di-misura" title="Link a questa intestazione">¶</a></h3>
+<p>Un <cite>sistema di misura</cite> è costituito da 3
+componenti:</p>
+<ul class="simple">
+<li><p>sensore: trasforma le variazioni di una grandezza misurata in variazioni di una grandezza di tipo elettrico;</p></li>
+<li><p>sistema di controllo deputato a svolgere le seguenti funzioni:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>acquisizione ad intervalli prestabiliti dei segnali provenienti dal
+sensore;</p></li>
+<li><p>eventuale memorizzazione locale dei dati;</p></li>
+<li><p>trasmissione dei dati.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>sistema di alimentazione.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="visione-generale">
+<h2>Visione generale<a class="headerlink" href="#visione-generale" title="Link a questa intestazione">¶</a></h2>
+<p>Seguendo un semplice flusso dei dati di una rete rmap compatibile si
+possono prevedere le seguenti fasi:</p>
+<ul class="simple">
+<li><p>digitalizzazione dei campionamenti o osservazioni</p></li>
+<li><p>pubblicazione dei campionamenti su broker MQTT con root topic sample/</p></li>
+<li><p>pubblicazione delle osservazioni su broker MQTT con root topic
+report/</p></li>
+<li><p>eventuale trasformazione dei campionamenti (level I) in osservazioni
+(level II) e eventuale pubblicazione sul broker MQTT</p></li>
+<li><p>composizione di un report</p></li>
+<li><p>invio del report ad un broker tramite AMQP</p></li>
+<li><p>archiviazione dei dati in modo permanente</p></li>
+<li><p>disponibilità dei dati in archivio tramite web services</p></li>
+</ul>
+<p>Questo è uno schema tra i più semplici; rimane la possibilità di
+articolarlo replicando i servizi, distribuendoli in rete etc.</p>
+</div>
+<div class="section" id="data-model-dati-e-metadati">
+<h2>Data Model: Dati e Metadati<a class="headerlink" href="#data-model-dati-e-metadati" title="Link a questa intestazione">¶</a></h2>
+<p>Ogni dato è un valore associato a 6 metadati univoci.</p>
+<ul class="simple">
+<li><p>Time: date time della osservazione o di termine del periodo di
+osservazione</p></li>
+<li><p>Longitudine, latitudine e identificativo: coordinate geografiche e
+identificativo del generatore del dati</p></li>
+<li><p>Network: definisce stazioni con caratteristiche omogenee (classe
+degli strumenti, rappresentatività e/o stazioni mobili o fisse)</p></li>
+<li><p>Time range: indica osservazione o tempo della previsione ed eventuale
+elaborazione “statistica” in forma codificata tramite tabella</p></li>
+<li><p>Level: le coordinate verticali (eventualmente strato) in forma
+codificata tramite tabella</p></li>
+<li><p>Variabile: parametro fisico definito con una descrizione, unità di
+misura , campo di misura e cifre significative</p></li>
+</ul>
+<p>Ogni dato può essere dotato inoltre di attributi (a esempio prodotti dal
+controllo di qualità) definiti dalla stessa tabella variabili. E”
+inoltre possibile associare dei dati statici (di anagrafica, ossia
+invariabili nel tempo, timerange e level) con i soli metadati
+longitudine, latitudine, identicativo, report</p>
+<div class="section" id="time">
+<h3>Time<a class="headerlink" href="#time" title="Link a questa intestazione">¶</a></h3>
+<p>L’istante di riferimento del dato in ora GMT: si riferisce all’istante
+finale della misurazione. Di conseguenza, una precipitazione cumulata su
+30 minuti con istante di riferimento «2015-08-05T12:00:00Z» è la
+precipitazione cumulata tra le 11:30:00Z e le 12:00:00Z del giorno
+2015-08-05.</p>
+</div>
+<div class="section" id="longitudine-latitudine-e-identificativo">
+<h3>Longitudine, latitudine e identificativo<a class="headerlink" href="#longitudine-latitudine-e-identificativo" title="Link a questa intestazione">¶</a></h3>
+<p>Le coordinate sono espresse con rappresentazione sessadecimale.</p>
+<ul class="simple">
+<li><p>longitudine: coordinate geografiche (ETRF89 - WGS84)</p></li>
+<li><p>latitudine: coordinate geografiche (ETRF89 - WGS84)</p></li>
+<li><p>identificativo : identificativo fornitore dati/volo aereo/nave
+(obbligatorio nel caso di stazioni mobili)</p></li>
+</ul>
+</div>
+<div class="section" id="network">
+<h3>Network<a class="headerlink" href="#network" title="Link a questa intestazione">¶</a></h3>
+<p>Definisce stazioni con caratteristiche omogenee: classe degli strumenti,
+rappresentatività e/o stazioni mobili o fisse. Per le stazioni che non
+appartengono a reti omogenee con un ente gestore il valore di «network»
+segue la seguente regola:</p>
+<ul class="simple">
+<li><p>«fixed» per tutte le stazioni fisse, le cui coordinate non variano
+nel tempo</p></li>
+<li><p>«mobile» per tutte le stazioni/punti di misura le cui coordinate
+cambiano nel tempo</p></li>
+</ul>
+</div>
+<div class="section" id="time-range">
+<h3>Time range<a class="headerlink" href="#time-range" title="Link a questa intestazione">¶</a></h3>
+<p>Definition of the main concepts related to the description of time range
+and statistical processing for observed and forecast data:</p>
+<p>Validity time is defined as the time at which the data are measured or
+at which forecast is valid; for statistically processed data, the
+validity time is the end of the time interval.</p>
+<p>Reference time is defined as the nominal time of an observation for
+observed values, or as the time at which a model forecast starts for
+forecast values.</p>
+<p>The date and time in rmap are always the validity date and time of a
+value, regardless of the value being an observation or a forecast.</p>
+<p>The Timerange field is composed by:</p>
+<ul class="simple">
+<li><p>pindicator : integer from table timerange ( unsigned integer)</p></li>
+<li><p>P1 is defined as the difference in seconds between validity time and
+reference time. For forecasts it is the positive forecast time. For
+observed values, the reference time is usually the same as the
+validity time, therefore P1 is zero. However P1 &lt; 0 is a valid case
+for reports containing data in the past with respect to the nominal
+report time. (unsigned integer)</p></li>
+<li><p>P2 is defined as the duration of the period over which statistical
+processing is performed, and is always nonnegative. Note that, for
+instantaneous values, P2 is always zero. (usigned integer)</p></li>
+</ul>
+<p>The following table lists the possible values for pindicator and the
+interpretation of the corresponding values of P1 and P2 specifying a
+time range:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Pindicator</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Average</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Accumulation</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Maximum</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Minimum</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Difference (value at the end of
+the time range minus value at the
+beginning)</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Root Mean Square</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Standard Deviation</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Covariance (temporal variance)</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Difference (value at the
+beginning of the time range minus
+value at the end)</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Ratio</p></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>Climatological Mean Value</p></td>
+</tr>
+<tr class="row-odd"><td><p>10-191</p></td>
+<td><p>Reserved</p></td>
+</tr>
+<tr class="row-even"><td><p>192-254</p></td>
+<td><p>Reserved for Local Use</p></td>
+</tr>
+<tr class="row-odd"><td><p>200</p></td>
+<td><p>Vectorial mean</p></td>
+</tr>
+<tr class="row-even"><td><p>201</p></td>
+<td><p>Mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>202</p></td>
+<td><p>Standard deviation vectorial mean</p></td>
+</tr>
+<tr class="row-even"><td><p>203</p></td>
+<td><p>Vectorial maximum</p></td>
+</tr>
+<tr class="row-odd"><td><p>204</p></td>
+<td><p>Vectorial minimum</p></td>
+</tr>
+<tr class="row-even"><td><p>205</p></td>
+<td><p>Product with a valid time ranging
+inside the given period</p></td>
+</tr>
+<tr class="row-odd"><td><p>254</p></td>
+<td><p>Istantaneous value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level">
+<h3>Level<a class="headerlink" href="#level" title="Link a questa intestazione">¶</a></h3>
+<p>Level/layer</p>
+<p>This table lists the possible values for leveltype1 or leveltype2 and
+the interpretation of the corresponding numerical value l1 or l2.
+Leveltype values in the range 0-255 can be used for defining either a
+single level (leveltype1) or a surface delimiting a layer (leveltype1
+and leveltype2) with any meaningful combination of leveltypes; values of
+leveltype &gt;255 have a special use for encoding cloud values in SYNOP
+reports and they do not strictly define physical surfaces.</p>
+<p>The idea is borrowed from the GRIB edition 2 fixed surface concept and
+the values for leveltype coincide with the GRIB standard where possible.</p>
+<p>The level field is composed by:</p>
+<ul class="simple">
+<li><p>leveltype : from level table (unsigned integer value)</p></li>
+<li><p>l1 : first level defined by leveltype (unsigned integer value)</p></li>
+<li><p>l2 : second level defined by leveltype ; needed with layer only,
+missing otherwise (unsigned integer value)</p></li>
+</ul>
+<p>Should be everytime l1 &lt; l2</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>leveltype</p></td>
+<td><p>Meaning</p></td>
+<td><p>unit/contents of
+l1/l2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Ground or Water
+Surface</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Cloud Base Level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Level of Cloud Tops</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Level of 0C Isotherm</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Level of Adiabatic
+Condensation Lifted
+from the Surface</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Maximum Wind Level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Tropopause</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Nominal Top of the
+Atmosphere</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Sea Bottom</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>10-19</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Isothermal Level</p></td>
+<td><p>K/10</p></td>
+</tr>
+<tr class="row-even"><td><p>21-99</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>Isobaric Surface</p></td>
+<td><p>Pa</p></td>
+</tr>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>Mean Sea Level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>102</p></td>
+<td><p>Specific Altitude
+Above Mean Sea Level</p></td>
+<td><p>mm</p></td>
+</tr>
+<tr class="row-even"><td><p>103</p></td>
+<td><p>Specified Height
+Level Above Ground</p></td>
+<td><p>mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>104</p></td>
+<td><p>Sigma Level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>Hybrid Level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>106</p></td>
+<td><p>Depth Below Land
+Surface</p></td>
+<td><p>mm</p></td>
+</tr>
+<tr class="row-even"><td><p>107</p></td>
+<td><p>Isentropic (theta)
+Level</p></td>
+<td><p>K/10</p></td>
+</tr>
+<tr class="row-odd"><td><p>108</p></td>
+<td><p>Level at Specified
+Pressure Difference
+from Ground to Level</p></td>
+<td><p>Pa</p></td>
+</tr>
+<tr class="row-even"><td><p>109</p></td>
+<td><p>Potential Vorticity
+Surface</p></td>
+<td><p>10-9 K m2 kg-1 s-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>110</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>111</p></td>
+<td><p>Eta (NAM) Level (see
+note below)</p></td>
+<td><p>1/10000</p></td>
+</tr>
+<tr class="row-odd"><td><p>112</p></td>
+<td><p>116 Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>117</p></td>
+<td><p>Mixed Layer Depth</p></td>
+<td><p>mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>118-159</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>160</p></td>
+<td><p>Depth Below Sea Level</p></td>
+<td><p>mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>161-191</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>Entire atmosphere
+(considered as a
+single layer)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>201</p></td>
+<td><p>Entire ocean
+(considered as a
+single layer)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>204</p></td>
+<td><p>Highest tropospheric
+freezing level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>206</p></td>
+<td><p>Grid scale cloud
+bottom level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>207</p></td>
+<td><p>Grid scale cloud top
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>209</p></td>
+<td><p>Boundary layer cloud
+bottom level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>210</p></td>
+<td><p>Boundary layer cloud
+top level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>211</p></td>
+<td><p>Boundary layer cloud
+layer</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>212</p></td>
+<td><p>Low cloud bottom
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>213</p></td>
+<td><p>Low cloud top level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>214</p></td>
+<td><p>Low cloud layer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>215</p></td>
+<td><p>Cloud ceiling</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>220</p></td>
+<td><p>Planetary Boundary
+Layer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>222</p></td>
+<td><p>Middle cloud bottom
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>223</p></td>
+<td><p>Middle cloud top
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>224</p></td>
+<td><p>Middle cloud layer</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>232</p></td>
+<td><p>High cloud bottom
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>233</p></td>
+<td><p>High cloud top level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>234</p></td>
+<td><p>High cloud layer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>235</p></td>
+<td><p>Ocean Isotherm Level</p></td>
+<td><p>K/10</p></td>
+</tr>
+<tr class="row-even"><td><p>240</p></td>
+<td><p>Ocean Mixed Layer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>241</p></td>
+<td><p>Ordered Sequence of
+Data</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>242</p></td>
+<td><p>Convective cloud
+bottom level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>243</p></td>
+<td><p>Convective cloud top
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>244</p></td>
+<td><p>Convective cloud
+layer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>245</p></td>
+<td><p>Lowest level of the
+wet bulb zero</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>246</p></td>
+<td><p>Maximum equivalent
+potential temperature
+level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>247</p></td>
+<td><p>Equilibrium level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>248</p></td>
+<td><p>Shallow convective
+cloud bottom level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>249</p></td>
+<td><p>Shallow convective
+cloud top level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>251</p></td>
+<td><p>Deep convective cloud
+bottom level</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>252</p></td>
+<td><p>Deep convective cloud
+top level</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>253</p></td>
+<td><p>Lowest bottom level
+of supercooled liquid
+water layer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>254</p></td>
+<td><p>Highest top level of
+supercooled liquid
+water layer</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>256</p></td>
+<td><p>Clouds</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>257</p></td>
+<td><p>Information about the
+station that
+generated the data</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>258</p></td>
+<td><p>(use when ltype1=256)
+Cloud Data group, L1
+= 1 low clouds, 2
+middle clouds, 3 high
+clouds, 0 others</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>259</p></td>
+<td><p>(use when ltype1=256)
+Individual cloud
+groups, L1 = group
+number</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>260</p></td>
+<td><p>(use when ltype1=256)
+Cloud drift, L1 =
+group number</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>261</p></td>
+<td><p>(use when ltype1=256)
+Cloud elevation, L1 =
+group number; (use
+when ltype1=264) L2 =
+swell wave group
+number</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>262</p></td>
+<td><p>(use when ltype1=256)
+Direction and
+elevation of clouds,
+L1 is ignored</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>263</p></td>
+<td><p>(use when ltype1=256)
+Cloud groups with
+bases below station
+level, L1 = group
+number</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>264</p></td>
+<td><p>Waves</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>265</p></td>
+<td><p>Non-physical data
+level</p></td>
+<td><p>engineering ordinal
+level</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="variabile">
+<h3>Variabile<a class="headerlink" href="#variabile" title="Link a questa intestazione">¶</a></h3>
+<p>La tabella B (vedi codifica BUFR del WMO) descrive i dati e la loro
+eventuale codifica.</p>
+<p>I dati possono essere inviati come numeri a virgola mobile, interi con
+segno o stringhe di caratteri. Nell’utilizzo del formato JSON i numeri a
+virgola mobile vendono distinti da quelli interi per la presenza del
+carattere «.». Il formato consigliato è quello intero con segno per
+evitare problemi di troncamento nella rappresentazione dei valori. E”
+anche possibile rappresentare i dati convertendo gli interi con segno in
+una rappresentazione decimale in una stringa (es. «27315» per una
+temperatura di 273.15K) Il valore intero con segno si ottiene
+moltiplicando la variabile rappresentata con la unità di misura
+descritta da «units» per il fattore di scala «scale».</p>
+<p>Le restanti colonne della tabella B vengono utilizzate nella de/codifica
+in formato Bufr e Crex. Fare riferimento a
+<a class="reference external" href="http://www.wmo.int/pages/prog/www/WMOCodes.html">http://www.wmo.int/pages/prog/www/WMOCodes.html</a></p>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Link a questa intestazione">¶</a></h3>
+<p>The description in table B is a simple description of the data.</p>
+</div>
+<div class="section" id="units">
+<h3>Units<a class="headerlink" href="#units" title="Link a questa intestazione">¶</a></h3>
+<p>The units of Table B entries refer to the format of how the data is
+represented. The data may be numeric or character. When data is in
+character form, the character representation is always according to the
+CCITT International Alphabet No. 5. The units may also refer to a code
+or flag table, where the code or flag table is described in the WMO
+Manual On Codes or if not provided by WMO defined as local table. Other
+units are in Standard International (SI) units, such as meters or
+degrees Kelvin.</p>
+</div>
+<div class="section" id="scale">
+<h3>Scale<a class="headerlink" href="#scale" title="Link a questa intestazione">¶</a></h3>
+<p>The scale refers to the power of 10 that the element has been multiplied
+by in order to retain the desired precision in the transmitted data when
+the integer format is used. For example, the units of temperature are
+whole Kelvin degrees in Table B. But this is not precise enough for most
+usages, therefore the elements are to be multipli ed by 100 (10^2) so
+that the transmitted precision will be centidegrees, a more useful
+precision. On the other hand, the (SI) unit of pressure in Table B is
+Pascal, a rather small unit that would result in unnecessarily precise
+numbers being transmitted. The BUFR Ta ble B calls for pressure to be
+divided by 10 (10^-1) resulting in a transmitted unit of 10ths of hPa,
+or tenths of millibars, a more reasonable precision for meteorological
+usage.</p>
+</div>
+<div class="section" id="other-values-in-the-table-b-used-in-bufr-de-coding">
+<h3>Other values in the table B used in Bufr de/coding<a class="headerlink" href="#other-values-in-the-table-b-used-in-bufr-de-coding" title="Link a questa intestazione">¶</a></h3>
+<p>The reference value is a value that is to be subtracted from the data
+after multiplication by the scale factor, if any, before encoding into
+Section 4 in order to produce, in all cases, a positive value. In the
+case of lati tude and longitude, south latitude and west longitude are
+negative before applying the refe rence value. If, for example, a
+position of 35.50 degrees south latitude were being encoded, multiplying
+-35.50 by 100 (scale of 2) would produce -3550. Subtracting the refere
+nce value -9000 would give 5450 that would be encoded.</p>
+<p>To obtain the original value in decoding, adding back the -9000
+reference value to 5450 would result in -3550, then dividing by the
+scale (100) would obtain -35.50.</p>
+<p>The data width of Table B entries is a count of how many bits the
+largest possible value of an individual data item occupies.</p>
+</div>
+<div class="section" id="tabella-variabile-b-table">
+<h3>Tabella variabile (B table)<a class="headerlink" href="#tabella-variabile-b-table" title="Link a questa intestazione">¶</a></h3>
+<p>B table example; SAMPLE VALUES ONLY ! (the full table is big !)</p>
+<p>Get the full table from:
+<a class="reference external" href="https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt">https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Code</p></td>
+<td><p>Description</p></td>
+<td><p>Units</p></td>
+<td><p>Scale</p></td>
+</tr>
+<tr class="row-even"><td><p>001001</p></td>
+<td><p>WMO BLOCK
+NUMBER</p></td>
+<td><p>Numeric</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>001002</p></td>
+<td><p>WMO STATION
+NUMBER</p></td>
+<td><p>Numeric</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>001006</p></td>
+<td><p>AIRCRAFT FLIGHT
+NUMBER</p></td>
+<td><p>Character</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>001007</p></td>
+<td><p>SATELLITE
+IDENTIFIER</p></td>
+<td><p>CODE TABLE 1007</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>001008</p></td>
+<td><p>AIRCRAFT
+REGISTRATION
+NUMBER OR OTHER
+IDENTIFICATION</p></td>
+<td><p>Character</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>001011</p></td>
+<td><p>SHIP OR MOBILE
+LAND STATION
+IDENTIFIER</p></td>
+<td><p>Character</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>001012</p></td>
+<td><p>DIRECTION OF
+MOTION OF
+MOVING
+OBSERVING
+PLATFORM**</p></td>
+<td><p>DEGREE TRUE</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>001013</p></td>
+<td><p>SPEED OF MOTION
+OF MOVING
+OBSERVING
+PLATFORM*</p></td>
+<td><p>M/S</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>012101</p></td>
+<td><p>TEMPERATURE/DRY
+-BULB
+TEMPERATURE</p></td>
+<td><p>K</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>012102</p></td>
+<td><p>WET-BULB
+TEMPERATURE</p></td>
+<td><p>K</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>012103</p></td>
+<td><p>DEW-POINT
+TEMPERATURE</p></td>
+<td><p>K</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="formati">
+<h2>Formati<a class="headerlink" href="#formati" title="Link a questa intestazione">¶</a></h2>
+<p>L’accentramento dei dati della rete comprende due passaggi:</p>
+<ul class="simple">
+<li><p>composizione di un report composto da una selezione di osservazioni
+(sincrone) di tipo II</p></li>
+<li><p>invio a un concentratore tramite protocollo AMQP</p></li>
+</ul>
+<div class="section" id="bufr">
+<h3>BUFR<a class="headerlink" href="#bufr" title="Link a questa intestazione">¶</a></h3>
+<p>Il formato BUFR è definito dal WMO:
+<a class="reference external" href="http://www.wmo.int/pages/prog/www/WMOCodes.html">http://www.wmo.int/pages/prog/www/WMOCodes.html</a></p>
+<p>Sono utilizzabili solo alcuni template definiti dal WMO o da ECMWF:</p>
+<ul class="simple">
+<li><p>acars-ecmwf - ACARS ECMWF (4.145)</p></li>
+<li><p>acars-wmo - ACARS WMO</p></li>
+<li><p>airep-ecmwf - AIREP ECMWF (4.142)</p></li>
+<li><p>amdar-ecmwf - AMDAR ECMWF (4.144)</p></li>
+<li><p>amdar-wmo - AMDAR WMO</p></li>
+<li><p>buoy - Buoy (1.21)</p></li>
+<li><p>metar - Metar (0.140)</p></li>
+<li><p>pilot-ecmwf - Pilot (2.91)</p></li>
+<li><p>pilot-wmo - Pilot (2.1, 2.2, 2.3)</p></li>
+<li><p>pollution - Pollution (8.171)</p></li>
+<li><p>ship - Synop ship (autodetect)</p></li>
+<li><p>ship-abbr - Synop ship (abbreviated) (1.9)</p></li>
+<li><p>ship-auto - Synop ship (auto) (1.13)</p></li>
+<li><p>ship-plain - Synop ship (normal) (1.11)</p></li>
+<li><p>ship-reduced - Synop ship (reduced) (1.19)</p></li>
+<li><p>ship-second - Synop ship (second record) (1.12)</p></li>
+<li><p>ship-wmo - Ship WMO</p></li>
+<li><p>synop-ecmwf - Synop ECMWF (autodetect) (0.1)</p></li>
+<li><p>synop-ecmwf-auto - Synop ECMWF land auto (0.3)</p></li>
+<li><p>synop-ecmwf-land - Synop ECMWF land (0.1)</p></li>
+<li><p>synop-ecmwf-land-high - Synop ECMWF land high level station (0.1)</p></li>
+<li><p>synop-wmo - Synop WMO (0.1)</p></li>
+<li><p>temp-ecmwf - Temp ECMWF (autodetect)</p></li>
+<li><p>temp-ecmwf-land - Temp ECMWF land (2.101)</p></li>
+<li><p>temp-ecmwf-ship - Temp ECMWF ship (2.102)</p></li>
+<li><p>temp-radar - Temp radar doppler wind profile (6.1)</p></li>
+<li><p>temp-ship - Temp ship (autodetect)</p></li>
+<li><p>temp-wmo - Temp WMO (2.101)</p></li>
+</ul>
+<p>E” possibile e consigliato usare un template denominato «generic»
+specifico per il Data Model descritto sopra con il quale è possibile la
+codifica di tutti i dati pubblicabili secondo lo standard RMAP.</p>
+</div>
+<div class="section" id="generic-template">
+<h3>generic template<a class="headerlink" href="#generic-template" title="Link a questa intestazione">¶</a></h3>
+<p>Il template generic non è qui documentato in quanto al momento non
+esistono specifiche stabili. Per la scrittura e lettura di un messaggio
+BUFR con template «generic» si consiglia vivamente l’utilizzo della
+libreria software DB-all.e <a class="reference external" href="https://github.com/ARPA-SIMC/dballe">https://github.com/ARPA-SIMC/dballe</a> anche
+tramite tools disponibili.</p>
+</div>
+<div class="section" id="json">
+<h3>Json<a class="headerlink" href="#json" title="Link a questa intestazione">¶</a></h3>
+<p>Ogni oggetto json è un report con tutti i dati di una certa stazione per
+un certo istante di riferimento.</p>
+<p>La stazione è identificata univocamente dai seguenti campi:</p>
+<ul class="simple">
+<li><p>`ident`: identificativo opzionale della stazione (necessario solo se
+la stazione è mobile, generalmente nullo per stazioni fisse).</p></li>
+<li><p>`lon`: longitudine</p></li>
+<li><p>`lat`: latitudine</p></li>
+<li><p>`network`: nome della rete a cui appartiene la stazione (minuscolo).</p></li>
+</ul>
+<p>Le latitudini e longitudini devono essere scritte come coordinate
+geodetiche espresse in sessadecimale, come numero intero dopo aver
+moltiplicato per 10^5 (quindi espresso in 10^-5 gradi sessadecimali).</p>
+<p>L’istante di riferimento è il campo `datetime` (ISO 8601) che si
+riferisce all’istante finale della misurazione. Di conseguenza, una
+precipitazione cumulata su 30 minuti con istante di riferimento
+«2015-08-05T12:00:00Z» è la precipitazione cumulata tra le 11:30:00Z e
+le 12:00:00Z del giorno 2015-08-05.</p>
+<p>I dati sono nel campo `data` sotto forma di array. Ogni elemento
+dell’array è un oggetto con i seguenti campi:</p>
+<ul class="simple">
+<li><p>livello: coordinate verticali. Si veda il capitolo dedicato.</p></li>
+<li><p>timerange: definisce il periodo di tempo e l’eventuale processamento
+(e.g. dato istantaneo, media oraria, etc). Si veda il capitolo
+dedicato.</p></li>
+<li><p>vars: oggetto i cui campi sono i codici della tabella B locale, i.e.
+i parametri misurati (vedi tabella relativa). Ognuno di questi è
+associato ad un oggetto con i campi `v` (il valore) e `a`
+(oggetto degli attributi del dato, in cui i campi sono altri codici
+della tabella B a cui è associato un valore).</p></li>
+</ul>
+<p>Tra questi, un solo elemento non ha i campi `level` e `timerange`.
+Tali dati sono relativi a dati invarianti della stazione in se (e.g. il
+nome, l’altezza, etc.)</p>
+</div>
+<div class="section" id="esempio">
+<h3>Esempio<a class="headerlink" href="#esempio" title="Link a questa intestazione">¶</a></h3>
+<p>Stazione fissa (<cite>ident: null</cite>) delle rete (<cite>network</cite>) `rer`
+posizionata nel punto `(9.15454, 4451485)` (<cite>lon</cite>, `lat`) con i
+seguenti dati (<cite>data</cite>) statici (l’elemento dell’array che non ha
+`level` e `timerange`):</p>
+<ul class="simple">
+<li><p>Nome della stazione (<cite>B01019</cite>): «Torriglia»</p></li>
+<li><p>Altezza della stazione (<cite>B07030</cite>): 769.0m</p></li>
+<li><p>Altezza barometrica della stazione (<cite>B07031</cite>): 769.0m</p></li>
+</ul>
+<p>E per l’istante di riferimento «2015-07-30T15:30:00Z» ha registrato i
+seguenti dati:</p>
+<ul class="simple">
+<li><p>Al suolo (<cite>level: [1, null, null, null]</cite>) le seguenti cumulate orarie
+(<cite>timerange: [1, 0, 3600]</cite>):</p>
+<ul>
+<li><p>Precipitazione (<cite>B13011</cite>): 0.0</p></li>
+</ul>
+</li>
+<li><p>A 2m dal suolo (<cite>level: [103, 2000, null, null]</cite>) i seguenti valori
+istantanei:</p>
+<ul>
+<li><p>Temperatura (<cite>B12101</cite>): 297.15K. Il dato è stato invalidato
+manualmente (attributo `B33196: 1`).</p></li>
+<li><p>Umidità relativa (<cite>B13003</cite>): 50%</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ident&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;rer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mi">915454</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-07-30T15:30:00Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mi">4451485</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;vars&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;B01019&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;Torriglia&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;B07030&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mf">769.0</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;B07031&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mf">769.0</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;timerange&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">1</span><span class="p">,</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">3600</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;vars&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;B13011&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mf">0.0</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">1</span><span class="p">,</span>
+                <span class="n">null</span><span class="p">,</span>
+                <span class="n">null</span><span class="p">,</span>
+                <span class="n">null</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;timerange&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">254</span><span class="p">,</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">0</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;vars&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;B12101&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;B33196&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mf">297.15</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;B13003&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">50</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">103</span><span class="p">,</span>
+                <span class="mi">2000</span><span class="p">,</span>
+                <span class="n">null</span><span class="p">,</span>
+                <span class="n">null</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-lines-text-format">
+<h3>JSON Lines text format<a class="headerlink" href="#json-lines-text-format" title="Link a questa intestazione">¶</a></h3>
+<p>In alternativa al formato json è possibile utilizzare questa variante
+che in molti casi risulta vantaggiosa.</p>
+<p>La documentazione del formato JSON Lines text format, chiamato anche
+newline-delimited JSON è reperibile qui: <a class="reference external" href="http://jsonlines.org/">http://jsonlines.org/</a></p>
+</div>
+</div>
+<div class="section" id="protocolli">
+<h2>Protocolli<a class="headerlink" href="#protocolli" title="Link a questa intestazione">¶</a></h2>
+<p>L’accentramento dei dati della rete può essere effettuato a differenti
+livelli determinati dall’hardware disponibile, dal tipo di connettività
+e dai dati da inviare:</p>
+<ul class="simple">
+<li><p>invio dei dati (campionamenti o osservazioni) a un broker tramite
+protocollo MQTT</p></li>
+<li><p>invio di un report composto da un insieme di osservazioni (sincrone)
+di tipo II a un broker tramite protocollo AMQP</p></li>
+</ul>
+<div class="section" id="dati-e-metadati-su-mqtt">
+<h3>Dati e Metadati su MQTT<a class="headerlink" href="#dati-e-metadati-su-mqtt" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="versioni-del-protocollo-utilizzabili">
+<h3>Versioni del protocollo utilizzabili<a class="headerlink" href="#versioni-del-protocollo-utilizzabili" title="Link a questa intestazione">¶</a></h3>
+<p>MQTT protocol versions 3.1 and 3.1.1</p>
+<p>Non utilizzare SSL/TLS</p>
+</div>
+<div class="section" id="autenticazione">
+<h3>Autenticazione<a class="headerlink" href="#autenticazione" title="Link a questa intestazione">¶</a></h3>
+<p>MQTT provides username/password authentication as part of the protocol.
+To pubblish mqtt messages on a rmap server follow standard registration
+procedure on rmap server and get username and password.</p>
+</div>
+<div class="section" id="quality-of-service">
+<h3>Quality of Service<a class="headerlink" href="#quality-of-service" title="Link a questa intestazione">¶</a></h3>
+<p>E possibile utilizzare Quality of Service 0 o 1. Ovviamente quando
+possibile è consigliato utilizzare QoS 1.</p>
+</div>
+<div class="section" id="client-id">
+<h3>Client ID<a class="headerlink" href="#client-id" title="Link a questa intestazione">¶</a></h3>
+<p>MQTT 3.1.1 allows clients to connect with a zero length client id and
+have the broker generate a client id for them. Use this method as
+alternative method to the only allowed method that is to use an ID
+starting with the username used in authentication.</p>
+</div>
+<div class="section" id="data-level-1">
+<span id="id1"></span><h3>Data Level<a class="headerlink" href="#data-level-1" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>I dati pubblicati nel root path MQTT <strong>sample/</strong> appartengono solo al
+level type I</p></li>
+<li><p>I dati pubblicati nel root path MQTT <strong>report/</strong> appartengono solo al
+level type II</p></li>
+</ul>
+</div>
+<div class="section" id="stato-della-connessione">
+<h3>Stato della connessione<a class="headerlink" href="#stato-della-connessione" title="Link a questa intestazione">¶</a></h3>
+<p>Alla connessione deve essere inviato dalla stazione una eventuale
+segnalazione di sconnessione gestita male con will (retained):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maint</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>payload : <strong>{«v»: «error01»}</strong></p>
+<p>poi questo messaggio viene «ricoperto» con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maint</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>payload : <strong>{ «v»: «conn»}</strong></p>
+<p>alla disconnessione allo stesso topic dovrà essere inviato:</p>
+<p>payload : <strong>{ «v»: «disconn»}</strong></p>
+</div>
+<div class="section" id="data-e-constant-data">
+<h3>Data e Constant Data<a class="headerlink" href="#data-e-constant-data" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="data">
+<h4>Data<a class="headerlink" href="#data" title="Link a questa intestazione">¶</a></h4>
+<p>Ogni topic corrisponde ai metadati univoci, mentre il payload è composto
+dal valore, eventuali attributi e dall’instante temporale. Json è il
+formato per il payload.</p>
+<p>Forma simbilica del topic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">rootpath</span><span class="o">&gt;/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="n">TRANGE</span><span class="o">/</span><span class="n">LEVEL</span><span class="o">/</span><span class="n">VAR</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>IDENT</strong>: identificativo dell’utente che pubblica i dati o
+identificativo della stazione per stazioni mobili, “-” per stazioni
+fisse non associate a un singolo utente</p></li>
+<li><p><strong>COORDS</strong>: nella forma lon,lat. Le coordinate sono espresse con
+rappresentazione sessadecimale nella forma int(valore*10^5) con
+eventuale segno negativo</p></li>
+<li><p><strong>NETWORK</strong>: etichetta massimo 16 caratteri</p></li>
+<li><p><strong>TRANGE</strong>: nella forma indicator,p1,p2; Indicator e p2 interi senza
+segno, p1 intero con eventuale segno negativo. “-” per valori non
+significativi</p></li>
+<li><p><strong>LEVEL</strong>: nella forma type1,l1,type2,l2; Type1, type2 interi con
+eventuale segno negativo, l1e l2 interi con eventuale segno negativo.
+“-” per valori non significativi</p></li>
+<li><p><strong>VAR</strong>: nella forma BXXYYY come da tabelle B codice BUFR WMO</p></li>
+</ul>
+<p>Il payload è in formato JSON: <strong>{ “v”: VALUE, “t”: TIME, “a”: {
+“BXXYYY”: VALUE, … } }</strong></p>
+<ul class="simple">
+<li><p><strong>VALUE</strong>: valore in formato intero o a virgola mobile o stringa
+(vedi specifiche precedenti)</p></li>
+<li><p><strong>TIME</strong>: formato YYYY-mm-ddTHH:MM:SS.MSC (secondi e millisecondi
+opzionali) un sottoinsime delle specifiche in
+https://tools.ietf.org/html/rfc3339</p></li>
+</ul>
+<p>Gli attributi (“a”) solitamente per controllo di qualità sono opzionali;
+la chiave fa riferimento alla tabella B e VALUE ha la stessa
+rappresentazione di VALUE descritto sopra.</p>
+</div>
+<div class="section" id="constant-data">
+<h4>Constant Data<a class="headerlink" href="#constant-data" title="Link a questa intestazione">¶</a></h4>
+<p>I metadati per i dati costanti (anagrafica) sono caratterizzati da
+questo path:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">rootpath</span><span class="o">&gt;/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span>
+</pre></div>
+</div>
+<p>con payload simile a quello dei dati, in particolare dovrà essere omessa
+la chiave “t”: <strong>{ “v”: VALUE, “a”: { “BXXYYY”: VALUE, … } }</strong></p>
+</div>
+</div>
+<div class="section" id="estensioni">
+<h3>Estensioni<a class="headerlink" href="#estensioni" title="Link a questa intestazione">¶</a></h3>
+<p>Queste estensioni sono state create per ottimizzare in alcuni casi
+l’invio dei dati. Possono essere utilizzate solo quando il loro utilizzo
+comporti un risparmio sul numero di byte necessari per la trasmissione.</p>
+<div class="section" id="prima-forma-contratta-tabella-d">
+<h4>Prima forma contratta tabella D<a class="headerlink" href="#prima-forma-contratta-tabella-d" title="Link a questa intestazione">¶</a></h4>
+<p>In questa forma contratta non è previsto l’invio di attributi del dato.
+In questa forma contratta non è necessario inviare messaggi relativi
+allo stato della connessione.</p>
+<p>Il topic e come quello della forma standard senza l’ultimo parametro
+«VAR». Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">/</span><span class="n">myuser</span><span class="o">/</span><span class="mi">1131908</span><span class="p">,</span><span class="mi">4449301</span><span class="o">/</span><span class="n">fixed</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Il payload prevede due parametri:</p>
+<ul class="simple">
+<li><p>«d» che descrive quale elemento della tabella D è preso in
+considerazione</p></li>
+<li><p>«p» con un array di valori corrispondenti ai «VAR» descritti
+nell’elemento in tabella D</p></li>
+</ul>
+<p>Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Tabella D</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtable</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;50&quot;</span><span class="p">:[</span><span class="s2">&quot;B49198&quot;</span><span class="p">,</span><span class="s2">&quot;B49199&quot;</span><span class="p">,</span><span class="s2">&quot;B49200&quot;</span><span class="p">,</span><span class="s2">&quot;B49201&quot;</span><span class="p">,</span><span class="s2">&quot;B49202&quot;</span><span class="p">,</span><span class="s2">&quot;B49203&quot;</span><span class="p">,</span><span class="s2">&quot;B49204&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;B49205&quot;</span><span class="p">,</span><span class="s2">&quot;B49206&quot;</span><span class="p">,</span><span class="s2">&quot;B49207&quot;</span><span class="p">,</span><span class="s2">&quot;B49208&quot;</span><span class="p">,</span><span class="s2">&quot;B49209&quot;</span><span class="p">,</span><span class="s2">&quot;B49210&quot;</span><span class="p">,</span><span class="s2">&quot;B49211&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;B49212&quot;</span><span class="p">,</span><span class="s2">&quot;B49213&quot;</span><span class="p">,</span><span class="s2">&quot;B49214&quot;</span><span class="p">,</span><span class="s2">&quot;B49215&quot;</span><span class="p">,</span><span class="s2">&quot;B49216&quot;</span><span class="p">,</span><span class="s2">&quot;B49217&quot;</span><span class="p">,</span><span class="s2">&quot;B49218&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;B49219&quot;</span><span class="p">,</span><span class="s2">&quot;B49220&quot;</span><span class="p">,</span><span class="s2">&quot;B49221&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;51&quot;</span><span class="p">:[</span><span class="s2">&quot;B11211&quot;</span><span class="p">,</span><span class="s2">&quot;B11212&quot;</span><span class="p">,</span><span class="s2">&quot;B11213&quot;</span><span class="p">,</span><span class="s2">&quot;B11214&quot;</span><span class="p">,</span><span class="s2">&quot;B11215&quot;</span><span class="p">,</span><span class="s2">&quot;B11216&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;52&quot;</span><span class="p">:[</span><span class="s2">&quot;B49198&quot;</span><span class="p">,</span><span class="s2">&quot;B49199&quot;</span><span class="p">,</span><span class="s2">&quot;B49200&quot;</span><span class="p">,</span><span class="s2">&quot;B49201&quot;</span><span class="p">,</span><span class="s2">&quot;B49202&quot;</span><span class="p">,</span><span class="s2">&quot;B49203&quot;</span><span class="p">,</span><span class="s2">&quot;B49204&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;B49205&quot;</span><span class="p">,</span><span class="s2">&quot;B49206&quot;</span><span class="p">,</span><span class="s2">&quot;B49207&quot;</span><span class="p">,</span><span class="s2">&quot;B49208&quot;</span><span class="p">,</span><span class="s2">&quot;B49209&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="seconda-forma-contratta-tabella-e">
+<h4>Seconda forma contratta tabella E<a class="headerlink" href="#seconda-forma-contratta-tabella-e" title="Link a questa intestazione">¶</a></h4>
+<p>In questa forma contratta non è previsto l’invio di attributi del dato.
+In questa forma contratta non è necessario inviare messaggi relativi
+allo stato della connessione. Il topic e come quello della forma
+standard senza i parametri «VAR», «LEVEL» e «TRANGE». Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">/</span><span class="n">myuser</span><span class="o">/</span><span class="mi">1131908</span><span class="p">,</span><span class="mi">4449301</span><span class="o">/</span><span class="n">fixed</span>
+</pre></div>
+</div>
+<p>Il payload prevede due parametri:</p>
+<ul class="simple">
+<li><p>«e» che descrive quale elemento della tabella E è preso in
+considerazione</p></li>
+<li><p>«p» con un array di valori corrispondenti ai «VAR», «LEVEL» e
+«TRANGE» descritti nell’elemento in tabella E</p></li>
+</ul>
+<p>Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">27315</span><span class="p">,</span><span class="mi">73</span><span class="p">],</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Tabella E</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># template 1: temperature and humidity``</span>
+  <span class="n">etable</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;1&quot;</span><span class="p">:{</span><span class="s2">&quot;B12101&quot;</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;timerange&quot;</span><span class="p">:</span><span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">},</span>
+               <span class="s2">&quot;B13003&quot;</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;timerange&quot;</span><span class="p">:</span><span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">}},</span>
+<span class="c1"># template 2: temperature, humidity and PM2.5</span>
+          <span class="s2">&quot;2&quot;</span><span class="p">:{</span><span class="s2">&quot;B12101&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;timerange&quot;</span><span class="p">:</span><span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">},</span>
+               <span class="s2">&quot;B13003&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;timerange&quot;</span><span class="p">:</span><span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">},</span>
+               <span class="s2">&quot;B15198&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;timerange&quot;</span><span class="p">:</span><span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">}}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="remote-procedure-over-mqtt">
+<h3>Remote procedure over MQTT<a class="headerlink" href="#remote-procedure-over-mqtt" title="Link a questa intestazione">¶</a></h3>
+<p>Le RPC sono in formato json (json-rpc) e utilizzano due topics MQTT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topiccom</span><span class="o">=</span><span class="s2">&quot;rpc/&lt;user&gt;/&lt;mac&gt;/com&quot;</span>
+<span class="n">topicres</span><span class="o">=</span><span class="s2">&quot;rpc/&lt;user&gt;/&lt;mac&gt;/res&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>topiccom è il topic utilizzato per l’invio delle richieste RPC al
+server mentre topicres è il topic utilizzato dal server per le
+risposte.</p></li>
+<li><p>user è l’utente e dovrà essere lo stesso utilizzato per
+l’autenticazione al broker MQTT.</p></li>
+<li><p>mac è l’identificativo univoco del device (numerico 12 cifre, ossia 6
+numeri di 2 cifre)</p></li>
+</ul>
+<p>Il payload seguirà le specifiche <a class="reference external" href="https://www.jsonrpc.org/specification">JSON-RPC 2.0
+Specification</a></p>
+<p>Ogni payload comando/risposta Jsonrpc non deve superare i 144 caratteri.</p>
+<p>Non sono ammessi accessi concorrenziali e ogni utente è tenuto a gestire
+di conseguenza gli accessi.</p>
+<div class="section" id="remote-procedure-supportate">
+<h4>Remote procedure supportate<a class="headerlink" href="#remote-procedure-supportate" title="Link a questa intestazione">¶</a></h4>
+<p>config</p>
+<p>Configura la stazione.</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>bool reset: se true riporta le configurazioni ai valori di default e
+rimuove ogni sensore precedentemente configurato; questa operazione è
+la prima ad essere effettuata dal server (default false)</p></li>
+<li><p>char datalevel: «sample» o «report»; prima parte del path di
+pubblicazione su MQTT per i dati (default «report»)</p></li>
+<li><p>char network: «fixed» o «mobile»; prima parte del path di
+pubblicazione su MQTT per i dati (default «fixed»)</p></li>
+<li><p>int lat: latitudine espressa con rappresentazione sessadecimale nella
+forma int(valore*10^5) con eventuale segno negativo</p></li>
+<li><p>int lon: longitudine espressa con rappresentazione sessadecimale
+nella forma int(valore*10^5) con eventuale segno negativo</p></li>
+<li><p>char mqttmaintpath: prima parte del path di pubblicazione su MQTT per
+i messaggi di funzionamento (default «maint»)</p></li>
+<li><p>int sampletime: intervallo tra le misure in secondi (default 900)</p></li>
+<li><p>char mqttserver: server MQTT (default «rmap.cc»)</p></li>
+<li><p>char mqttuser: MQTT user ( no default)</p></li>
+<li><p>char mqttpass: MQTT password ( no default)</p></li>
+<li><p>char ntpserver: NTP server (no default)</p></li>
+<li><p>array int[6] date: set date and time [esempio: 2014,2,10,18,45,18]
+(no default)</p></li>
+<li><p>array byte mac[6]: ethernet mac address (esempio: use (0,0,0,0,0,1)
+for board1, use (0,0,0,0,0,2) for board2 etc.) (no default)</p></li>
+<li><p>bool save: if true save configuration into permanent memory; questa
+operazione è l’ultima ad essere effettuata dal server (default false)</p></li>
+<li><p>array sens:</p>
+<ul>
+<li><p>char tr: timerange (esempio: «1,0,60») (no default)</p></li>
+<li><p>char lev: level (esempio «1,-,-,-«) (no default)</p></li>
+<li><p>char var: variabile tabella B (esempio «B13011») (no default)</p></li>
+<li><p>any ext: configurazione relativa a una implementazione specifica
+di un sensore nella stazione OPZIONALE:</p></li>
+</ul>
+</li>
+</ul>
+<p>ad esempio nella implementazione Stima ext contiene:</p>
+<ul class="simple">
+<li><p>char driver: driver locale del sensore</p></li>
+<li><p>char type: driver remoto</p></li>
+<li><p>int address: address I2C</p></li>
+</ul>
+<p>esempi:</p>
+<ul class="simple">
+<li><p>reset, configurazione e salvatataggio in una unica RPC</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;reset&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s2">&quot;save&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s2">&quot;mqttserver&quot;</span><span class="p">:</span><span class="s2">&quot;rmap.cc&quot;</span><span class="p">,</span> <span class="s2">&quot;sensors&quot;</span><span class="p">:[{</span><span class="s2">&quot;mqttpath&quot;</span><span class="p">:</span><span class="s2">&quot;105,2000,,/1,0,900&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="s2">&quot;:{&quot;</span><span class="n">driver</span><span class="s2">&quot;:&quot;</span><span class="n">HIH</span><span class="s2">&quot;}}]}, &quot;</span><span class="nb">id</span><span class="s2">&quot;: 0}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>reset, configurazione, addizione sensori e salvataggio in differenti
+RPC</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;reset&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttserver&quot;</span><span class="p">:</span><span class="s2">&quot;rmap.cc&quot;</span><span class="p">,</span> <span class="s2">&quot;mqttuser&quot;</span><span class="p">:</span><span class="s2">&quot;myuser&quot;</span><span class="p">,</span> <span class="s2">&quot;mqttpass&quot;</span><span class="p">:</span><span class="s2">&quot;mypassword&quot;</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;datalevel&quot;</span><span class="p">:</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="s2">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;fixed&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span><span class="mi">1112345</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span><span class="mi">4412345</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sens&quot;</span><span class="p">:[{</span><span class="s2">&quot;tr&quot;</span><span class="p">:</span><span class="s2">&quot;1,0,60&quot;</span><span class="p">,</span> <span class="s2">&quot;lev&quot;</span><span class="p">:</span><span class="s2">&quot;1,-,-,-&quot;</span><span class="p">,</span> <span class="s2">&quot;var&quot;</span><span class="p">:</span><span class="s2">&quot;B130111&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="s2">&quot;:{&quot;</span><span class="n">driver</span><span class="s2">&quot;:&quot;</span><span class="n">HIH</span><span class="s2">&quot;}}]}, &quot;</span><span class="nb">id</span><span class="s2">&quot;: 2}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sens&quot;</span><span class="p">:[{</span><span class="s2">&quot;tr&quot;</span><span class="p">:</span><span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span> <span class="s2">&quot;lev&quot;</span><span class="p">:</span><span class="s2">&quot;105,2000,-,-&quot;</span><span class="p">,</span> <span class="s2">&quot;var&quot;</span><span class="p">:</span><span class="s2">&quot;B12101&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="s2">&quot;:{&quot;</span><span class="n">driver</span><span class="s2">&quot;:&quot;</span><span class="n">TMP</span><span class="s2">&quot;}}]}, &quot;</span><span class="nb">id</span><span class="s2">&quot;: 3}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;save&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>pinout</p></li>
+</ul>
+<p>Attuatore che accende/spegne uno o più pin.</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>array di oggetti con la seguente struttura:</p>
+<ul>
+<li><p>integer n: pin number</p></li>
+<li><p>bool s: true=on; false=off</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;pinout&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">}],</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>recovery</p></li>
+</ul>
+<p>Richiede il re-invio dei dati non trasmessi al server; senza parametri</p>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sdrecovery&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>resend</p></li>
+</ul>
+<p>Richiede il re-invio dei dati non trasmessi al server da una data
+iniziale a una data finale</p>
+<ul class="simple">
+<li><p>int[6] dts: start date and time; anno, mese, giorno, ora, minuti,
+secondi [esempio: 2014,2,10,18,45,18]</p></li>
+<li><p>int[6] dte: end date and time; anno, mese, giorno, ora, minuti,
+secondi [esempio: 2015,3,25,12,0,0]</p></li>
+</ul>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;resend&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dts&quot;</span><span class="p">:[</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">18</span><span class="p">],</span><span class="s2">&quot;dte&quot;</span><span class="p">:[</span><span class="mi">2015</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>reboot</p>
+<p>Richiede il riavvio della stazione</p>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="http">
+<h3>HTTP<a class="headerlink" href="#http" title="Link a questa intestazione">¶</a></h3>
+<p>E” possibile utilizzare il protocollo http con una get per inviare i
+dati; la get http sarà immediatamente convertita dal server in una «pub»
+al broker mqtt. Http è molto inefficiente rispetto mqtt e qui è
+utilizzato solo come «bridge» a mqtt quando dovesse essere necessario.</p>
+<p>I parametri della get sono:</p>
+<ul class="simple">
+<li><p><strong>topic</strong> il topic mqtt</p></li>
+<li><p><strong>payload</strong> il payload mqtt</p></li>
+<li><p><strong>username</strong> username dell’utente</p></li>
+<li><p><strong>password</strong> password dell’utente</p></li>
+<li><p><strong>time</strong> richiede data e ora nella risposta del server (opzionale)</p></li>
+</ul>
+<p>Se l’invio dei dati ha successo la risposta terminerà con la stringa
+«OK».</p>
+<p>Ad esempio:</p>
+<ul class="simple">
+<li><p>get:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://rmap.cc/http2mqtt/?user=&lt;myuser&gt;&amp;password=&lt;password&gt;&amp;topic=sample/&lt;myuser&gt;/945000,4530000/fixed/1,0,60/1,-,-,-/B13011&amp;payload={&quot;v&quot;:0, &quot;t&quot;:&quot;2015-07-30T15:30:00&quot;}
+</pre></div>
+</div>
+<p>risposta:</p>
+<p><code class="docutils literal notranslate"><span class="pre">OK</span></code></p>
+<p>Per dati non differiti è possibile omettere la chiave «t» nel payload.</p>
+<ul class="simple">
+<li><p>get:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://rmap.cc/http2mqtt/?user=&lt;myuser&gt;&amp;password=&lt;password&gt;&amp;topic=sample/&lt;myuser&gt;/945000,4530000/fixed/1,0,60/1,-,-,-/B13011&amp;payload={&quot;v&quot;:0}
+</pre></div>
+</div>
+<p>risposta:</p>
+<p><code class="docutils literal notranslate"><span class="pre">OK</span></code></p>
+<ul class="simple">
+<li><p>get:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://rmap.cc/http2mqtt/?time
+</pre></div>
+</div>
+<p>risposta:</p>
+<p><code class="docutils literal notranslate"><span class="pre">19/06/18,13:06:59+00</span> <span class="pre">please</span> <span class="pre">set</span> <span class="pre">topic</span></code></p>
+</div>
+<div class="section" id="amqp">
+<h3>AMQP<a class="headerlink" href="#amqp" title="Link a questa intestazione">¶</a></h3>
+<p>AMQP is a binary messaging protocol and semantic framework for
+microservices and enterprise messaging.</p>
+<p><a class="reference external" href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf</a></p>
+</div>
+<div class="section" id="versioni-del-protocollo-supportate">
+<h3>Versioni del protocollo supportate<a class="headerlink" href="#versioni-del-protocollo-supportate" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>0-9-1</p></li>
+<li><p>0-9</p></li>
+<li><p>0-8</p></li>
+</ul>
+</div>
+<div class="section" id="autenticazione-1">
+<span id="id2"></span><h3>Autenticazione<a class="headerlink" href="#autenticazione-1" title="Link a questa intestazione">¶</a></h3>
+<p>La pubblicazione dei messaggi è ammessa solo dopo autenticazione.</p>
+<p>L’autenticazione si effettua tramite una coppia username/password
+fornite dall’amministratore del server.</p>
+</div>
+<div class="section" id="tls">
+<h3>Tls<a class="headerlink" href="#tls" title="Link a questa intestazione">¶</a></h3>
+<p>L’uso di TLS (amqps) non è richiesto, ma potrà essere implementato in
+future versioni di queste specifiche.</p>
+</div>
+<div class="section" id="formati-dei-messaggi">
+<h3>Formati dei messaggi<a class="headerlink" href="#formati-dei-messaggi" title="Link a questa intestazione">¶</a></h3>
+<p>Il report che costituisce il messaggio dovrà essere scritto nei formati
+json, jsonline o bufr sopra descritti.</p>
+<div class="section" id="bufr-messages-over-amqp">
+<h4>BUFR messages over AMQP<a class="headerlink" href="#bufr-messages-over-amqp" title="Link a questa intestazione">¶</a></h4>
+<p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
+autenticazione su exchange «rmap_bufr».</p>
+</div>
+<div class="section" id="json-line-messages-over-amqp">
+<h4>JSON Line messages over AMQP<a class="headerlink" href="#json-line-messages-over-amqp" title="Link a questa intestazione">¶</a></h4>
+<p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
+autenticazione su exchange «rmap_jsonline».</p>
+</div>
+<div class="section" id="json-messages-over-amqp">
+<h4>JSON messages over AMQP<a class="headerlink" href="#json-messages-over-amqp" title="Link a questa intestazione">¶</a></h4>
+<p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
+autenticazione su exchange «rmap_dbajson».</p>
+</div>
+</div>
+</div>
+<div class="section" id="rmap-web-services">
+<h2>RMAP web services<a class="headerlink" href="#rmap-web-services" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="composizione-degli-url-per-un-http-get-request">
+<h3>Composizione degli URL per un HTTP GET request<a class="headerlink" href="#composizione-degli-url-per-un-http-get-request" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="versioning">
+<h3>Versioning<a class="headerlink" href="#versioning" title="Link a questa intestazione">¶</a></h3>
+<p>Le `API` avranno come prefisso la versione in uso.</p>
+<p>Ad esempio, serie temporale mensile usando la versione 1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">borinud</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span><span class="n">emr</span><span class="o">.</span><span class="n">it</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">dbajson</span><span class="o">/-/</span><span class="mi">1120000</span><span class="p">,</span><span class="mi">4450000</span><span class="o">/</span><span class="n">generic</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2013</span><span class="o">/</span><span class="mi">09</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="format">
+<h3>Format<a class="headerlink" href="#format" title="Link a questa intestazione">¶</a></h3>
+<p>Il secondo prametro delle api è il formato; questa la scelta:</p>
+<ul class="simple">
+<li><p>dbajson</p></li>
+<li><p>jsonline</p></li>
+<li><p>geojson</p></li>
+</ul>
+<p>ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">borinud</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span><span class="n">emr</span><span class="o">.</span><span class="n">it</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">geojson</span><span class="o">/-/</span><span class="mi">1120000</span><span class="p">,</span><span class="mi">4450000</span><span class="o">/</span><span class="n">generic</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2013</span><span class="o">/</span><span class="mi">09</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metadati">
+<h3>metadati<a class="headerlink" href="#metadati" title="Link a questa intestazione">¶</a></h3>
+<p>La «base» della richiesta è quella descritta per il topic MQTT, i.e.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/</span><span class="mi">1207738</span><span class="p">,</span><span class="mi">4460016</span><span class="o">/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span>
+</pre></div>
+</div>
+<p>E” l’URL che identifica la misurazione effettuata dalla stazione fissa
+(<cite>-</cite>) con longitudine 12,07738 e latitudine 44.60016 (<cite>1207738,4460016</cite>)
+per la rete `locali`; la grandezza misurata è istantanea (<cite>254,0,0</cite>), è
+stata presa a 2 metri dal suolo (<cite>103,2000,-,-</cite>) ed è una temperatura
+(<cite>B12101</cite>).</p>
+<p>Ogni parametro incluso nelle «/» può essere sostituito con «*»
+equivalente a dire «tutti».</p>
+<div class="section" id="anagrafica">
+<h4>Anagrafica<a class="headerlink" href="#anagrafica" title="Link a questa intestazione">¶</a></h4>
+<p>Elenco stazioni indipendenti dal timerange e livello sono specificati così:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/*/</span><span class="n">stations</span>
+
+<span class="o">/&lt;</span><span class="n">ident</span><span class="o">&gt;/*/&lt;</span><span class="n">network</span><span class="o">&gt;/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/*/</span><span class="n">stations</span>
+</pre></div>
+</div>
+<p>I dati restituiti sono analoghi a quelli restituiti con una richiesta dati.</p>
+<p>I dati costanti nel tempo e indipendenti dal timerange e livello sono
+specificati così:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/*/</span><span class="n">stationdata</span>
+
+<span class="o">/&lt;</span><span class="n">ident</span><span class="o">&gt;/*/&lt;</span><span class="n">network</span><span class="o">&gt;/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/*/</span><span class="n">stationdata</span>
+</pre></div>
+</div>
+<p>I dati restituiti sono analoghi a quelli restituiti con una richiesta
+dati.</p>
+</div>
+</div>
+<div class="section" id="serie-dei-dati-o-sommario">
+<h3>Serie dei dati o sommario<a class="headerlink" href="#serie-dei-dati-o-sommario" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="serie-temporale">
+<h4>Serie temporale<a class="headerlink" href="#serie-temporale" title="Link a questa intestazione">¶</a></h4>
+<p>Serie temporale annuale,mensile, giornaliera e oraria:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="n">year</span>
+<span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span>
+<span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span><span class="o">/</span><span class="n">day</span>
+<span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span><span class="o">/</span><span class="n">day</span><span class="o">/</span><span class="n">hour</span>
+</pre></div>
+</div>
+<p>nel dettaglio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/&lt;</span><span class="n">ident</span><span class="o">&gt;/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/&lt;</span><span class="n">pind</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p2</span><span class="o">&gt;/&lt;</span><span class="n">lt1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lt2</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l2</span><span class="o">&gt;/&lt;</span><span class="n">bcode</span><span class="o">&gt;/</span><span class="n">timeseries</span><span class="o">/&lt;</span><span class="n">year</span><span class="o">&gt;/&lt;</span><span class="n">month</span><span class="o">&gt;/&lt;</span><span class="n">day</span><span class="o">&gt;/&lt;</span><span class="n">hour</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/</span><span class="mi">1207738</span><span class="p">,</span><span class="mi">4460016</span><span class="o">/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2011</span>
+<span class="o">/-/</span><span class="mi">1207738</span><span class="p">,</span><span class="mi">4460016</span><span class="o">/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2011</span><span class="o">/</span><span class="mi">01</span>
+<span class="o">/-/</span><span class="mi">1207738</span><span class="p">,</span><span class="mi">4460016</span><span class="o">/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2011</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">13</span>
+<span class="o">/-/</span><span class="mi">1207738</span><span class="p">,</span><span class="mi">4460016</span><span class="o">/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2011</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">13</span><span class="o">/</span><span class="mi">06</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serie-spaziale">
+<h4>Serie spaziale<a class="headerlink" href="#serie-spaziale" title="Link a questa intestazione">¶</a></h4>
+<p>Serie spaziale di una rete, con granularità giornaliera o oraria (± 30
+minuti):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">spatialseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span><span class="o">/</span><span class="n">day</span>
+<span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">spatialseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span><span class="o">/</span><span class="n">day</span><span class="o">/</span><span class="n">hour</span>
+</pre></div>
+</div>
+<p>«ident» e «coords» possono assumere il valore «*»</p>
+<p>nel dettaglio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/&lt;</span><span class="n">ident</span><span class="o">&gt;/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/&lt;</span><span class="n">pind</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p2</span><span class="o">&gt;/&lt;</span><span class="n">lt1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lt2</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l2</span><span class="o">&gt;/&lt;</span><span class="n">bcode</span><span class="o">&gt;/</span><span class="n">spatialseries</span><span class="o">/&lt;</span><span class="n">year</span><span class="o">&gt;/&lt;</span><span class="n">month</span><span class="o">&gt;/&lt;</span><span class="n">day</span><span class="o">&gt;/&lt;</span><span class="n">hour</span>
+</pre></div>
+</div>
+<p>Ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/*/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">spatialseries</span><span class="o">/</span><span class="mi">2011</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">13</span>
+<span class="o">/-/*/*/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">spatialseries</span><span class="o">/</span><span class="mi">2011</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">13</span><span class="o">/</span><span class="mi">06</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="riassuntivo">
+<h4>Riassuntivo<a class="headerlink" href="#riassuntivo" title="Link a questa intestazione">¶</a></h4>
+<p>Riassuntivo di tutto il database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*/*/*/*/*/*/</span><span class="n">summaries</span>
+</pre></div>
+</div>
+<p>Riassuntivo di una stazione (fissa o mobile):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/*/*/*/</span><span class="n">summaries</span>
+
+<span class="o">/&lt;</span><span class="n">ident</span><span class="o">&gt;/*/&lt;</span><span class="n">network</span><span class="o">&gt;/*/*/*/</span><span class="n">summaries</span>
+</pre></div>
+</div>
+<p>Riassuntivo di una misurazione in un dato mese:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*/*/&lt;</span><span class="n">network</span><span class="o">&gt;/&lt;</span><span class="n">pind</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p2</span><span class="o">&gt;/&lt;</span><span class="n">lt1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lt2</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l2</span><span class="o">&gt;/&lt;</span><span class="n">bcode</span><span class="o">&gt;/</span><span class="n">summaries</span><span class="o">/&lt;</span><span class="n">year</span><span class="o">&gt;/&lt;</span><span class="n">month</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>I dati restituiti sono analoghi a quelli restituiti con una richiesta
+dati.</p>
+</div>
+</div>
+</div>
+<div class="section" id="formati-dati">
+<h2>Formati dati<a class="headerlink" href="#formati-dati" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="id3">
+<h3>Json<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
+<p>Vedi sopra formato `Json`</p>
+</div>
+<div class="section" id="jsonline">
+<h3>Jsonline<a class="headerlink" href="#jsonline" title="Link a questa intestazione">¶</a></h3>
+<p>Vedi sopra formato `Jsonline`</p>
+</div>
+<div class="section" id="geojson">
+<h3>Geojson<a class="headerlink" href="#geojson" title="Link a questa intestazione">¶</a></h3>
+<p><a class="reference external" href="http://geojson.org/">http://geojson.org/</a></p>
+<p>Questo un esempio di `GeoJSON`:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="s2">&quot;geometry&quot;</span><span class="p">:</span>  <span class="p">{</span>
+                                 <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                                 <span class="mf">10.26667</span><span class="p">,</span>
+                                                 <span class="mf">46.81667</span>
+                                               <span class="p">]</span>
+                                <span class="p">},</span>
+                  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                 <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2011-01-25T00:00:00&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="n">null</span><span class="p">,</span><span class="n">null</span><span class="p">],</span>
+                                 <span class="s2">&quot;ident&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                                 <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;locali&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;bcode&quot;</span><span class="p">:</span> <span class="s2">&quot;B12101&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">263.75</span><span class="p">,</span>
+                                 <span class="s2">&quot;trange&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+                 <span class="p">},</span>
+                 <span class="o">...</span>
+              <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ritrasmissioni-e-correzioni">
+<h2>Ritrasmissioni e correzioni<a class="headerlink" href="#ritrasmissioni-e-correzioni" title="Link a questa intestazione">¶</a></h2>
+<p>I dati possono essere ritrasmessi e sarà l’ultimo dato ricevuto a
+vincere sui vecchi.</p>
+<p>Attenzione va posta alla gestione degli attributi che possono contenere
+il risultato del controllo di qualità dei dati. AI dati che non superano
+il controllo di qualità viene aggiunta loro una flag corrispondente
+all’attributo B33007, che fornisce una % di confidenza del dato ( = 0
+per valore invalidato). I dati con attributo B33007 dovranno quindi
+essere offuscati ( mancante, valore = null) alle applicazioni. In questo
+modo vengono gestite le correzioni, ossia è possibile che un dato sia
+inviato prima senza attributo B33007; poi in seguito alle procedure di
+controllo di qualità il dato viene invalidato e ritrasmesso con valore
+null e attributo B33007=0; in questo caso chi riceve il dato dovrebbe
+procedere a invalidarlo/rimuoverlo. Nella gestione di questo flusso dati
+i tools forniti insieme alla libreria software DB-all.e possono
+agevolare molto il lavoro.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Stima</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigazione</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visione-generale">Visione generale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-model-dati-e-metadati">Data Model: Dati e Metadati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formati">Formati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protocolli">Protocolli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rmap-web-services">RMAP web services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formati-dati">Formati dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ritrasmissioni-e-correzioni">Ritrasmissioni e correzioni</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="capitolo precedente">Benvetuti alla documentazione di Stima</a></li>
+      <li>Next: <a href="../howto_stima_v3/howto_stima_v3.html" title="capitolo successivo">Howto per Stima versione 3</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Ricerca veloce</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Vai" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Various.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rmap-rfc/rfc.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
