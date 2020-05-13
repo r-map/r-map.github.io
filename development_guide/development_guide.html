@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Guida per lo sviluppo software &#8212; Stima 3 documentazione</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -67,18 +65,18 @@ in accordo all’idea che sta alla base dell’open source e delle
 specifiche tecniche RMAP.</p>
 <p>Ogni task del sistema è composto da:</p>
 <ol class="arabic simple">
-<li>Metodo implementativo delle funzionalità</li>
-<li>Variabile di stato</li>
-<li>Variabile booleana indicante se il task è in esecuzione</li>
+<li><p>Metodo implementativo delle funzionalità</p></li>
+<li><p>Variabile di stato</p></li>
+<li><p>Variabile booleana indicante se il task è in esecuzione</p></li>
 </ol>
 <p>Per implementare un ipotetico task di esempio, è necessario creare:</p>
 <ol class="arabic">
-<li><p class="first">Una variabile globale booleana indicante se il task è in esecuzione:</p>
+<li><p>Una variabile globale booleana indicante se il task è in esecuzione:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_event_esempio</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Un nuovo tipo di variabile definendo i vari stati necessari ad
+<li><p>Un nuovo tipo di variabile definendo i vari stati necessari ad
 implementare le funzionalità del task, come enumerazioni:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span>
   <span class="n">ESEMPIO_INIT</span><span class="p">,</span>
@@ -89,12 +87,12 @@ implementare le funzionalità del task, come enumerazioni:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Una variabile globale del tipo appena definito:</p>
+<li><p>Una variabile globale del tipo appena definito:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">esempio_state_t</span> <span class="n">esempio_state</span> <span class="o">=</span> <span class="n">ESEMPIO_INIT</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">La funzione implementante il task:</p>
+<li><p>La funzione implementante il task:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>void esempio_task () {
   static esempio_state_t state_after_wait;
   ..
@@ -170,118 +168,136 @@ dei sensori attraverso interfacce standard su bus I<sup>2</sup>C.</p>
 oggetto di tipo SensorDriver che implementa i metodi descritti nel
 seguito.</p>
 <ul class="simple">
-<li>SensorDriver(const char* driver, const char* type)<ul>
-<li>Costruttore</li>
-<li>const char* driver: stringa di 3 caratteri contenente il nome del
-driver</li>
-<li>const char* type: stringa di 3 caratteri contenente il nome del
-sensore</li>
+<li><p>SensorDriver(const char* driver, const char* type)</p>
+<ul>
+<li><p>Costruttore</p></li>
+<li><p>const char* driver: stringa di 3 caratteri contenente il nome del
+driver</p></li>
+<li><p>const char* type: stringa di 3 caratteri contenente il nome del
+sensore</p></li>
 </ul>
 </li>
-<li>virtual void setup(const uint8_t address, const uint8_t node = 0)<ul>
-<li>operazioni di inizializzazione del sensore</li>
-<li>const uint8_t address: indirizzo I<sup>2</sup>C del sensore</li>
-<li>const uint8_t node: nodo all’interno della rete</li>
+<li><p>virtual void setup(const uint8_t address, const uint8_t node = 0)</p>
+<ul>
+<li><p>operazioni di inizializzazione del sensore</p></li>
+<li><p>const uint8_t address: indirizzo I<sup>2</sup>C del sensore</p></li>
+<li><p>const uint8_t node: nodo all’interno della rete</p></li>
 </ul>
 </li>
-<li>virtual void prepare(bool is_test = false)<ul>
-<li>inizializzazione del sensore precedente alla lettura</li>
-<li>bool is_test: se false il sensore viene preparato per effettuare
+<li><p>virtual void prepare(bool is_test = false)</p>
+<ul>
+<li><p>inizializzazione del sensore precedente alla lettura</p></li>
+<li><p>bool is_test: se false il sensore viene preparato per effettuare
 le normali procedura di lettura, se true il sensore si predispone
 per leggere valori particolari “di test” utili alla verifica di
-funzionamento dello stesso</li>
+funzionamento dello stesso</p></li>
 </ul>
 </li>
-<li>virtual void get(int32_t *values, uint8_t length)<ul>
-<li>lettura dei valori dal sensore in formato numerico intero a 32 bit
-con segno</li>
-<li>int32_t *values: puntatore all’array di ritorno dei valori</li>
-<li>uint8_t length: numero di valori da leggere dal sensore</li>
+<li><p>virtual void get(int32_t *values, uint8_t length)</p>
+<ul>
+<li><p>lettura dei valori dal sensore in formato numerico intero a 32 bit
+con segno</p></li>
+<li><p>int32_t *values: puntatore all’array di ritorno dei valori</p></li>
+<li><p>uint8_t length: numero di valori da leggere dal sensore</p></li>
 </ul>
 </li>
-<li>virtual void getJson(int32_t *values, uint8_t length, char
-*json_buffer, size_t json_buffer_length = JSON_BUFFER_LENGTH)<ul>
-<li>lettura dei valori dal sensore in formato JSON</li>
-<li>int32_t *values: puntatore all’array di ritorno dei valori</li>
-<li>uint8_t length: numero di valori da leggere dal sensore</li>
-<li>char *json_buffer: buffer di ritorno della stringa contente il
-JSON</li>
-<li>size_t json_buffer_length: lunghezza del buffer</li>
+<li><p>virtual void getJson(int32_t *values, uint8_t length, char
+*json_buffer, size_t json_buffer_length = JSON_BUFFER_LENGTH)</p>
+<ul>
+<li><p>lettura dei valori dal sensore in formato JSON</p></li>
+<li><p>int32_t *values: puntatore all’array di ritorno dei valori</p></li>
+<li><p>uint8_t length: numero di valori da leggere dal sensore</p></li>
+<li><p>char *json_buffer: buffer di ritorno della stringa contente il
+JSON</p></li>
+<li><p>size_t json_buffer_length: lunghezza del buffer</p></li>
 </ul>
 </li>
-<li>static SensorDriver *create(const char* driver, const char* type)<ul>
-<li>crea un’istanza di SensorDriver per un sensore specifico</li>
-<li>const char* driver: stringa di 3 caratteri contenente il nome del
-driver</li>
-<li>const char* type: stringa di 3 caratteri contenente il nome del
-sensore</li>
+<li><p>static SensorDriver *create(const char* driver, const char* type)</p>
+<ul>
+<li><p>crea un’istanza di SensorDriver per un sensore specifico</p></li>
+<li><p>const char* driver: stringa di 3 caratteri contenente il nome del
+driver</p></li>
+<li><p>const char* type: stringa di 3 caratteri contenente il nome del
+sensore</p></li>
 </ul>
 </li>
-<li>static void createAndSetup(const char* driver, const char* type,
+<li><p>static void createAndSetup(const char* driver, const char* type,
 const uint8_t address, const uint8_t node, SensorDriver *sensors[],
-uint8_t *sensors_count)<ul>
-<li>richiama in sequenza i metodi create e setup assegnando la nuova
+uint8_t *sensors_count)</p>
+<ul>
+<li><p>richiama in sequenza i metodi create e setup assegnando la nuova
 istanza del sensore all’array delle istanze dei sensori
 incrementandone la variabile corrispondente che ne indica la
-dimensione</li>
-<li>const char* driver: stringa di 3 caratteri contenente il nome del
-driver</li>
-<li>const char* type: stringa di 3 caratteri contenente il nome del
-sensore</li>
-<li>const uint8_t address: indirizzo I<sup>2</sup>C del sensore</li>
-<li>int8_t node: nodo all’interno della rete</li>
-<li>const u SensorDriver *sensors[]: array delle istanze dei sensori</li>
-<li>uint8_t *sensors_count: numero di istanze create</li>
+dimensione</p></li>
+<li><p>const char* driver: stringa di 3 caratteri contenente il nome del
+driver</p></li>
+<li><p>const char* type: stringa di 3 caratteri contenente il nome del
+sensore</p></li>
+<li><p>const uint8_t address: indirizzo I<sup>2</sup>C del sensore</p></li>
+<li><p>int8_t node: nodo all’interno della rete</p></li>
+<li><p>const u SensorDriver *sensors[]: array delle istanze dei sensori</p></li>
+<li><p>uint8_t *sensors_count: numero di istanze create</p></li>
 </ul>
 </li>
-<li>char *getDriver()<ul>
-<li>ritorna il puntatore alla stringa contente il driver del sensore</li>
+<li><p>char *getDriver()</p>
+<ul>
+<li><p>ritorna il puntatore alla stringa contente il driver del sensore</p></li>
 </ul>
 </li>
-<li>char *getType()<ul>
-<li>ritorna il puntatore alla stringa contente il tipo del sensore</li>
+<li><p>char *getType()</p>
+<ul>
+<li><p>ritorna il puntatore alla stringa contente il tipo del sensore</p></li>
 </ul>
 </li>
-<li>uint8_t getAddress()<ul>
-<li>ritorna l’indirizzo I<sup>2</sup>C del sensore</li>
+<li><p>uint8_t getAddress()</p>
+<ul>
+<li><p>ritorna l’indirizzo I<sup>2</sup>C del sensore</p></li>
 </ul>
 </li>
-<li>uint8_t getNode()<ul>
-<li>ritorna il nodo del sensore</li>
+<li><p>uint8_t getNode()</p>
+<ul>
+<li><p>ritorna il nodo del sensore</p></li>
 </ul>
 </li>
-<li>uint32_t_t getStartTime()<ul>
-<li>ritorna il valore in millisecondi relativo all’istante iniziale in
-cui viene richiesto il delay</li>
+<li><p>uint32_t_t getStartTime()</p>
+<ul>
+<li><p>ritorna il valore in millisecondi relativo all’istante iniziale in
+cui viene richiesto il delay</p></li>
 </ul>
 </li>
-<li>uint32_t_t getDelay()<ul>
-<li>ritorna il valore in millisecondi indicante l’attesa richiesta</li>
+<li><p>uint32_t_t getDelay()</p>
+<ul>
+<li><p>ritorna il valore in millisecondi indicante l’attesa richiesta</p></li>
 </ul>
 </li>
-<li>bool isEnd()<ul>
-<li>ritorna true quando la procedura get del sensore è terminata,
-false se la procedura è in corso</li>
+<li><p>bool isEnd()</p>
+<ul>
+<li><p>ritorna true quando la procedura get del sensore è terminata,
+false se la procedura è in corso</p></li>
 </ul>
 </li>
-<li>bool isSuccess()<ul>
-<li>ritorna true se la procedura get termina con successo, false in
-caso contrario</li>
+<li><p>bool isSuccess()</p>
+<ul>
+<li><p>ritorna true se la procedura get termina con successo, false in
+caso contrario</p></li>
 </ul>
 </li>
-<li>bool isSetted()<ul>
-<li>ritorna true se l’operazione setup è stata eseguita con successo,
-false in caso contrario</li>
+<li><p>bool isSetted()</p>
+<ul>
+<li><p>ritorna true se l’operazione setup è stata eseguita con successo,
+false in caso contrario</p></li>
 </ul>
 </li>
-<li>bool isPrepared()<ul>
-<li>ritorna true se l’operazione prepare è stata eseguita con
-successo, false in caso contrario</li>
+<li><p>bool isPrepared()</p>
+<ul>
+<li><p>ritorna true se l’operazione prepare è stata eseguita con
+successo, false in caso contrario</p></li>
 </ul>
 </li>
-<li>void resetPrepared()<ul>
-<li>resetta il flag indicante la corretta esecuzione della procedura
-prepare (flag ritornato dalla procedura isPrepared())</li>
+<li><p>void resetPrepared()</p>
+<ul>
+<li><p>resetta il flag indicante la corretta esecuzione della procedura
+prepare (flag ritornato dalla procedura isPrepared())</p></li>
 </ul>
 </li>
 </ul>
@@ -328,25 +344,25 @@ del software ricercare il primo dato utile successivo a tale data.</p>
 </pre></div>
 </div>
 <p>in cui:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="19%" />
-<col width="81%" />
+<col style="width: 19%" />
+<col style="width: 81%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Simbolo</th>
-<th class="head">Descrizione</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simbolo</p></th>
+<th class="head"><p>Descrizione</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>aaaa</td>
-<td>anno con 4 cifre</td>
+<tbody>
+<tr class="row-even"><td><p>aaaa</p></td>
+<td><p>anno con 4 cifre</p></td>
 </tr>
-<tr class="row-odd"><td>mm</td>
-<td>mese con 2 cifre</td>
+<tr class="row-odd"><td><p>mm</p></td>
+<td><p>mese con 2 cifre</p></td>
 </tr>
-<tr class="row-even"><td>gg</td>
-<td>giorno con 2 cifre</td>
+<tr class="row-even"><td><p>gg</p></td>
+<td><p>giorno con 2 cifre</p></td>
 </tr>
 </tbody>
 </table>
@@ -357,9 +373,9 @@ particolare, ogni riga è della lunghezza di:</p>
 </div>
 <p>Tali valori sono delle #define situate nel
 file mqtt_config.h nella cartella arduino/sketchbook/libraries/RmapConfig.</p>
-<dl class="docutils">
-<dt>Ogni riga è salvata nel formato::</dt>
-<dd>TRANGE/LEVEL/VAR {“v”: VALUE, “t”:TIME}</dd>
+<dl class="simple">
+<dt>Ogni riga è salvata nel formato::</dt><dd><p>TRANGE/LEVEL/VAR {“v”: VALUE, “t”:TIME}</p>
+</dd>
 </dl>
 <p>Il file contenente il puntatore all’ultimo dato trasmetto assume il nome
 mqtt_ptr.txt e contiene un dato binario della dimensione di 4 bytes
@@ -387,6 +403,7 @@ attraverso MQTT.</p>
 
 <h3>Navigazione</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rmap-rfc/rfc.html">RFC rmap versione 2.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guida per lo sviluppo software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#macchina-a-stati-finiti">Macchina a stati finiti</a></li>
@@ -407,13 +424,11 @@ attraverso MQTT.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Ricerca veloce</h3>
+  <h3 id="searchlabel">Ricerca veloce</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Vai" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -434,7 +449,7 @@ attraverso MQTT.</p>
       &copy;2019, Various.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

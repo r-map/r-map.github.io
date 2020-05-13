@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Howto per Stima versione 3 &#8212; Stima 3 documentazione</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -18,7 +16,7 @@
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
     <link rel="next" title="Guida per lo sviluppo software" href="../development_guide/development_guide.html" />
-    <link rel="prev" title="Benvetuti alla documentazione di Stima" href="../index.html" />
+    <link rel="prev" title="RFC rmap versione 2.3" href="../rmap-rfc/rfc.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -202,17 +200,17 @@ gsm_config.h nella cartella arduino/sketchbook/libraries/RmapConfig.</p>
 funzionamento e sullo stato della rete. In particolare, osservando il
 modulo frontalmente, il led di sinistra:</p>
 <ul class="simple">
-<li>Acceso: il modulo è acceso ed è in funzionamento</li>
-<li>Spento: il modulo è spento</li>
+<li><p>Acceso: il modulo è acceso ed è in funzionamento</p></li>
+<li><p>Spento: il modulo è spento</p></li>
 </ul>
 <p>Il led di destra:</p>
 <ul class="simple">
-<li>Spento: il modulo è spento</li>
-<li>Acceso per 64ms e spento per 800ms: il modulo non è registrato sulla
-rete</li>
-<li>Acceso per 64ms e spento per 3000ms: il modulo è registrato sulla
-rete</li>
-<li>Acceso per 64ms e spento per 300ms: comunicazione GPRS in corso</li>
+<li><p>Spento: il modulo è spento</p></li>
+<li><p>Acceso per 64ms e spento per 800ms: il modulo non è registrato sulla
+rete</p></li>
+<li><p>Acceso per 64ms e spento per 3000ms: il modulo è registrato sulla
+rete</p></li>
+<li><p>Acceso per 64ms e spento per 300ms: comunicazione GPRS in corso</p></li>
 </ul>
 <p>Si consiglia quindi di impilare per prima la board Stima SIM800C Power,
 di interporre un’ulteriore fila di pin del connettore UPIN-27 e di
@@ -278,76 +276,76 @@ alla porta a quattro pin in ingresso al HUB.</p>
 <p>In particolare, i valori monitorabili ed acquisiti attraverso la
 libreria DigitecoPower implementata nella libreria SensorDriver, sono:</p>
 <ul class="simple">
-<li>Tensione di alimentazione</li>
-<li>Corrente di alimentazione</li>
-<li>Tensione di batteria</li>
-<li>Corrente di batteria</li>
-<li>Percentuale di carica della batteria</li>
-<li>Tensione a 5V</li>
+<li><p>Tensione di alimentazione</p></li>
+<li><p>Corrente di alimentazione</p></li>
+<li><p>Tensione di batteria</p></li>
+<li><p>Corrente di batteria</p></li>
+<li><p>Percentuale di carica della batteria</p></li>
+<li><p>Tensione a 5V</p></li>
 </ul>
 <p>Per la verifica istantanea del funzionamento, è presente un led di
 notifica tri-colore (rosso, giallo, verde) in grado di indicare la
 carica o meno della batteria ed il livello di energia della stessa:</p>
 <ul class="simple">
-<li>Led rosso: batteria scarica</li>
-<li>Led giallo: batteria mediamente carica</li>
-<li>Led verde: batteria carica</li>
-<li>Led lampeggiante lentamente: batteria in scarica</li>
-<li>Led lampeggiante velocemente: batteria in carica</li>
+<li><p>Led rosso: batteria scarica</p></li>
+<li><p>Led giallo: batteria mediamente carica</p></li>
+<li><p>Led verde: batteria carica</p></li>
+<li><p>Led lampeggiante lentamente: batteria in scarica</p></li>
+<li><p>Led lampeggiante velocemente: batteria in carica</p></li>
 </ul>
 <p>Ad esempio, un led rosso con un lampeggio veloce indica che la batteria
 è scarica e si sta caricando, diversamente, un led verde con lampeggio
 lento, indica che la batteria è carica ma si sta scaricando.</p>
 <p>Per l’interfacciamento di tale modulo, si faccia riferimento al seguente
 schema di collegamento:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="17%" />
-<col width="11%" />
-<col width="72%" />
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 72%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Collegamento</th>
-<th class="head">Nome</th>
-<th class="head">Descrizione</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Collegamento</p></th>
+<th class="head"><p>Nome</p></th>
+<th class="head"><p>Descrizione</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1</td>
-<td>VCC_IN</td>
-<td>ingresso alimentazione 12-30V DC VCC (+)</td>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC_IN</p></td>
+<td><p>ingresso alimentazione 12-30V DC VCC (+)</p></td>
 </tr>
-<tr class="row-odd"><td>2</td>
-<td>GND_IN</td>
-<td>ingresso alimentazione 12-30V DC GND (-)</td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>GND_IN</p></td>
+<td><p>ingresso alimentazione 12-30V DC GND (-)</p></td>
 </tr>
-<tr class="row-even"><td>3</td>
-<td>VCC_BAT</td>
-<td>uscita alimentazione batteria 12V DC VCC (+)</td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>VCC_BAT</p></td>
+<td><p>uscita alimentazione batteria 12V DC VCC (+)</p></td>
 </tr>
-<tr class="row-odd"><td>4</td>
-<td>GND_BAT</td>
-<td>uscita alimentazione batteria 12V DC GND (-)</td>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND_BAT</p></td>
+<td><p>uscita alimentazione batteria 12V DC GND (-)</p></td>
 </tr>
-<tr class="row-even"><td>5</td>
-<td>LED</td>
-<td>LED di stato</td>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>LED</p></td>
+<td><p>LED di stato</p></td>
 </tr>
-<tr class="row-odd"><td>6</td>
-<td>VCC_OUT</td>
-<td>uscita tensione di alimentazione HUB 5V DC VCC (+)</td>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>VCC_OUT</p></td>
+<td><p>uscita tensione di alimentazione HUB 5V DC VCC (+)</p></td>
 </tr>
-<tr class="row-even"><td>7</td>
-<td>SCL</td>
-<td>I2C SCL HUB</td>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>SCL</p></td>
+<td><p>I2C SCL HUB</p></td>
 </tr>
-<tr class="row-odd"><td>8</td>
-<td>SDA</td>
-<td>I2C SDA HUB</td>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>SDA</p></td>
+<td><p>I2C SDA HUB</p></td>
 </tr>
-<tr class="row-even"><td>9</td>
-<td>GND_OUT</td>
-<td>uscita tensione di alimentazione HUB 5V DC GND (-)</td>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>GND_OUT</p></td>
+<td><p>uscita tensione di alimentazione HUB 5V DC GND (-)</p></td>
 </tr>
 </tbody>
 </table>
@@ -372,21 +370,21 @@ retroilluminazione, evitando inutilmente il consumo della batteria.</p>
 attraverso Ethernet con eventuale alimentazione PoE ed è realizzabile
 assemblando i seguenti moduli (dal basso verso l’alto):</p>
 <ol class="arabic simple">
-<li>Stima I2C-Base &#64; 5V</li>
-<li>Microduino Ethernet WIZ</li>
-<li>Microduino RJ45</li>
-<li>Stima core+1284 &#64; 5V</li>
-<li>Stima I2C-RTC &#64; 5V</li>
-<li>Stima FT232RL</li>
-<li>Stima SD-Card</li>
+<li><p>Stima I2C-Base &#64; 5V</p></li>
+<li><p>Microduino Ethernet WIZ</p></li>
+<li><p>Microduino RJ45</p></li>
+<li><p>Stima core+1284 &#64; 5V</p></li>
+<li><p>Stima I2C-RTC &#64; 5V</p></li>
+<li><p>Stima FT232RL</p></li>
+<li><p>Stima SD-Card</p></li>
 </ol>
 <p>Successivamente sarà necessario fornire connettività Ethernet e
 alimentazione attraverso una delle seguenti modalità:</p>
 <ul class="simple">
-<li>Power over ethernet (PoE)</li>
-<li>Connettore micro USB posto sulla board Stima FT232RL</li>
-<li>Connettore a quattro pin posto sulla board Stima I2C-Base</li>
-<li>Collegando il modulo a Stima I2C-HUB</li>
+<li><p>Power over ethernet (PoE)</p></li>
+<li><p>Connettore micro USB posto sulla board Stima FT232RL</p></li>
+<li><p>Connettore a quattro pin posto sulla board Stima I2C-Base</p></li>
+<li><p>Collegando il modulo a Stima I2C-HUB</p></li>
 </ul>
 </div>
 <div class="section" id="modulo-stima-gsm-gprs">
@@ -396,21 +394,21 @@ alimentazione attraverso una delle seguenti modalità:</p>
 attraverso GPRS ed è realizzabile assemblando i seguenti moduli (dal
 basso verso l’alto):</p>
 <ol class="arabic simple">
-<li>Stima I2C-Base &#64; 5V</li>
-<li>Stima SIM800C Power</li>
-<li>Stima SIM800C Module</li>
-<li>Stima core+1284 &#64; 5V</li>
-<li>Stima I2C-RTC &#64; 5V</li>
-<li>Stima FT232RL</li>
-<li>Stima SD-Card</li>
+<li><p>Stima I2C-Base &#64; 5V</p></li>
+<li><p>Stima SIM800C Power</p></li>
+<li><p>Stima SIM800C Module</p></li>
+<li><p>Stima core+1284 &#64; 5V</p></li>
+<li><p>Stima I2C-RTC &#64; 5V</p></li>
+<li><p>Stima FT232RL</p></li>
+<li><p>Stima SD-Card</p></li>
 </ol>
 <p>Infine, è necessario collegare un’antenna GPRS Dual Band 850/1900 MHz
 attraverso il connettore SMA posto sulla board Stima SIM800C Module e
 fornire alimentazione attraverso una delle seguenti modalità:</p>
 <ul class="simple">
-<li>Connettore micro USB posto sulla board Stima FT232RL</li>
-<li>Connettore a quattro pin posto sulla board Stima I2C-Base</li>
-<li>Collegando il modulo a Stima I2C-HUB</li>
+<li><p>Connettore micro USB posto sulla board Stima FT232RL</p></li>
+<li><p>Connettore a quattro pin posto sulla board Stima I2C-Base</p></li>
+<li><p>Collegando il modulo a Stima I2C-HUB</p></li>
 </ul>
 </div>
 <div class="section" id="modulo-stima-passivo">
@@ -420,17 +418,17 @@ I<sup>2</sup>C e di esporre i dati ad un altro modulo “attivo”
 attraverso Remote Procedure Call (RPC) ed è realizzabile assemblando i
 seguenti moduli (dal basso verso l’alto):</p>
 <ol class="arabic simple">
-<li>Stima I2C-Base &#64; 5V / 3.3V</li>
-<li>Stima core+1284 &#64; 5V / Stima core+644 &#64; 3.3V</li>
-<li>Stima I2C-RTC &#64; 5V / 3.3V</li>
-<li>Stima FT232RL</li>
+<li><p>Stima I2C-Base &#64; 5V / 3.3V</p></li>
+<li><p>Stima core+1284 &#64; 5V / Stima core+644 &#64; 3.3V</p></li>
+<li><p>Stima I2C-RTC &#64; 5V / 3.3V</p></li>
+<li><p>Stima FT232RL</p></li>
 </ol>
 <p>A tale modulo, è possibile fornire alimentazione attraverso una delle
 seguenti modalità:</p>
 <ul class="simple">
-<li>Connettore micro USB posto sulla board Stima FT232RL</li>
-<li>Connettore a quattro pin posto sulla board Stima I2C-Base</li>
-<li>Collegando il modulo a Stima I2C-HUB</li>
+<li><p>Connettore micro USB posto sulla board Stima FT232RL</p></li>
+<li><p>Connettore a quattro pin posto sulla board Stima I2C-Base</p></li>
+<li><p>Collegando il modulo a Stima I2C-HUB</p></li>
 </ul>
 </div>
 <div class="section" id="modulo-stima-i2c-th">
@@ -443,10 +441,10 @@ moduli atti a tale operazione, attraverso la libreria SensorDriver.</p>
 <p>Nello specifico, assemblare il modulo con le seguenti board (dal basso
 verso l’alto):</p>
 <ol class="arabic simple">
-<li>Stima I2C-Base &#64; 3.3V</li>
-<li>Stima core+644 &#64; 3.3V</li>
-<li>Stima FT232RL</li>
-<li>Stima SD-Card</li>
+<li><p>Stima I2C-Base &#64; 3.3V</p></li>
+<li><p>Stima core+644 &#64; 3.3V</p></li>
+<li><p>Stima FT232RL</p></li>
+<li><p>Stima SD-Card</p></li>
 </ol>
 <p>Per garantire il risparmio energetico della stazione, il modulo Stima
 I2C-TH è perennemente posto in risparmio energetico sufficiente al
@@ -469,11 +467,11 @@ moduli atti a tale operazione, attraverso la libreria SensorDriver.</p>
 <p>Nello specifico, assemblare il modulo con le seguenti board
 (dal basso verso l’alto):</p>
 <ol class="arabic simple">
-<li>Stima I2C-Base &#64; 3.3V</li>
-<li>Stima core+644 &#64; 3.3V</li>
-<li>Stima I2C-Digital</li>
-<li>Stima FT232RL</li>
-<li>Stima SD-Card</li>
+<li><p>Stima I2C-Base &#64; 3.3V</p></li>
+<li><p>Stima core+644 &#64; 3.3V</p></li>
+<li><p>Stima I2C-Digital</p></li>
+<li><p>Stima FT232RL</p></li>
+<li><p>Stima SD-Card</p></li>
 </ol>
 <p>In genere la segnalazione di una basculata del pluviometro viene fornita
 con la chiusura di un contatto elettrico. Tale collegamento può essere
@@ -499,36 +497,38 @@ riaprirlo.</p>
 <div class="section" id="id1">
 <h3>Modulo Stima Ethernet<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic simple">
-<li>Aprire lo sketch stima.ino nella cartella
-arduino/sketchbook/stima_v3/stima</li>
-<li>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima:<ul>
-<li>Impostare la #define MODULE_TYPE con il valore
+<li><p>Aprire lo sketch stima.ino nella cartella
+arduino/sketchbook/stima_v3/stima</p></li>
+<li><p>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima:</p>
+<ul class="simple">
+<li><p>Impostare la #define MODULE_TYPE con il valore
 STIMA_MODULE_TYPE_REPORT_ETH per definire una stazione di tipo
 report o STIMA_MODULE_TYPE_SAMPLE_ETH per definire una stazione di
-tipo sample</li>
+tipo sample</p></li>
 </ul>
 </li>
-<li>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:<ul>
-<li>Settare la #define USE_JSON con il valore true</li>
-<li>Settare le altre #define USE_SENSOR_XXX con valori true o false a
-seconda dei sensori che si vuole abilitare o disabilitare</li>
-<li>Impostare il valore in decimi di mm di pioggia per ogni basculata
-del pluviometro nella #define RAIN_FOR_TIP</li>
-<li>Impostare il numero di valori da leggere per ogni singolo sensore
+<li><p>Aprire il file sensors_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig:</p>
+<ul class="simple">
+<li><p>Settare la #define USE_JSON con il valore true</p></li>
+<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
+seconda dei sensori che si vuole abilitare o disabilitare</p></li>
+<li><p>Impostare il valore in decimi di mm di pioggia per ogni basculata
+del pluviometro nella #define RAIN_FOR_TIP</p></li>
+<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
 nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
-a disposizione, inserire quello più alto)</li>
-<li>Impostare il valore in minuti per il calcolo di un’osservazione
-nella #define OBSERVATIONS_MINUTES (in genere 1)</li>
-<li>Impostare il numero di osservazioni necessarie a produrre un dato
+a disposizione, inserire quello più alto)</p></li>
+<li><p>Impostare il valore in minuti per il calcolo di un’osservazione
+nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
+<li><p>Impostare il numero di osservazioni necessarie a produrre un dato
 utile per il report nella #define STATISTICAL_DATA_COUNT (in
-genere 15)</li>
+genere 15)</p></li>
 </ul>
 </li>
-<li>Impostare il microcontrollore su core+1284 a 5V</li>
-<li>Compilare il firmware e caricarlo attraverso il cavo USB</li>
-<li>Inserire il jumper sulla board Stima I2C-Base, configurare la
-stazione e rimuovere il jumper a configurazione terminata.</li>
+<li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
+stazione e rimuovere il jumper a configurazione terminata.</p></li>
 </ol>
 <p>Per la configurazione è possibile fare riferimento al seguente link:
 <a class="reference external" href="http://www.raspibo.org/wiki/index.php?title=Gruppo_Meteo/HowTo#Configurazione_5">http://www.raspibo.org/wiki/index.php?title=Gruppo_Meteo/HowTo#Configurazione_5</a></p>
@@ -536,53 +536,56 @@ stazione e rimuovere il jumper a configurazione terminata.</li>
 <div class="section" id="id2">
 <h3>Modulo Stima GSM/GPRS<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic simple">
-<li>Aprire lo sketch stima.ino nella cartella
-arduino/sketchbook/stima_v3/stima</li>
-<li>Aprire il file rmap-config.h arduino/sketchbook/stima_v3/stima:<ul>
-<li>Impostare la #define MODULE_TYPE con il valore
+<li><p>Aprire lo sketch stima.ino nella cartella
+arduino/sketchbook/stima_v3/stima</p></li>
+<li><p>Aprire il file rmap-config.h arduino/sketchbook/stima_v3/stima:</p>
+<ul class="simple">
+<li><p>Impostare la #define MODULE_TYPE con il valore
 STIMA_MODULE_TYPE_REPORT_GSM per definire una stazione di tipo
 report o STIMA_MODULE_TYPE_SAMPLE_GSM per definire una stazione di
-tipo sample</li>
+tipo sample</p></li>
 </ul>
 </li>
-<li>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:<ul>
-<li>Settare la #define USE_JSON con il valore true</li>
-<li>Settare le altre #define USE_SENSOR_XXX con valori true o false a
-seconda dei sensori che si vuole abilitare o disabilitare</li>
-<li>Impostare il valore in decimi di mm di pioggia per ogni basculata
-del pluviometro nella #define RAIN_FOR_TIP</li>
+<li><p>Aprire il file sensors_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig:</p>
+<ul class="simple">
+<li><p>Settare la #define USE_JSON con il valore true</p></li>
+<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
+seconda dei sensori che si vuole abilitare o disabilitare</p></li>
+<li><p>Impostare il valore in decimi di mm di pioggia per ogni basculata
+del pluviometro nella #define RAIN_FOR_TIP</p></li>
 </ul>
 </li>
 </ol>
 <ol class="arabic simple">
-<li><ul class="first">
-<li>Impostare il numero di valori da leggere per ogni singolo sensore
+<li><ul class="simple">
+<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
 nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
-a disposizione, inserire quello più alto)</li>
+a disposizione, inserire quello più alto)</p></li>
 </ul>
 </li>
 </ol>
 <ol class="arabic simple">
-<li><ul class="first">
-<li>Impostare il valore in minuti per il calcolo di un’osservazione
-nella #define OBSERVATIONS_MINUTES (in genere 1)</li>
-<li>Impostare il numero di osservazioni necessarie a produrre un dato
+<li><ul class="simple">
+<li><p>Impostare il valore in minuti per il calcolo di un’osservazione
+nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
+<li><p>Impostare il numero di osservazioni necessarie a produrre un dato
 utile per il report nella #define STATISTICAL_DATA_COUNT (in
-genere 15)</li>
+genere 15)</p></li>
 </ul>
 </li>
-<li>Aprire il file gsm_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:<ul>
-<li>Settare la #define GSM_DEFAULT_APN con il valore dell’APN o con il
+<li><p>Aprire il file gsm_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig:</p>
+<ul class="simple">
+<li><p>Settare la #define GSM_DEFAULT_APN con il valore dell’APN o con il
 valore di una delle #define predefinite ed incluse nel medesimo
-file</li>
+file</p></li>
 </ul>
 </li>
-<li>Impostare il microcontrollore su core+1284 a 5V</li>
-<li>Compilare il firmware e caricarlo attraverso il cavo USB</li>
-<li>Inserire il jumper sulla board Stima I2C-Base, configurare la
-stazione e rimuovere il jumper a configurazione terminata</li>
+<li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
+stazione e rimuovere il jumper a configurazione terminata</p></li>
 </ol>
 <p>Per la configurazione è possibile fare riferimento al seguente link:
 <a class="reference external" href="http://www.raspibo.org/wiki/index.php?title=Gruppo_Meteo/HowTo#Configurazione_4">http://www.raspibo.org/wiki/index.php?title=Gruppo_Meteo/HowTo#Configurazione_4</a></p>
@@ -590,120 +593,125 @@ stazione e rimuovere il jumper a configurazione terminata</li>
 <div class="section" id="modulo-stima-passive">
 <h3>Modulo Stima Passive<a class="headerlink" href="#modulo-stima-passive" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic simple">
-<li>Aprire lo sketch stima.ino nella cartella
-arduino/sketchbook/stima_v3/stima</li>
-<li>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima:<ul>
-<li>Impostare la #define MODULE_TYPE con il valore
+<li><p>Aprire lo sketch stima.ino nella cartella
+arduino/sketchbook/stima_v3/stima</p></li>
+<li><p>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima:</p>
+<ul class="simple">
+<li><p>Impostare la #define MODULE_TYPE con il valore
 STIMA_MODULE_TYPE_PASSIVE per definire una stazione di tipo
-passivo</li>
+passivo</p></li>
 </ul>
 </li>
-<li>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:<ul>
-<li>Settare la #define USE_JSON con il valore true</li>
-<li>Settare le altre #define USE_SENSOR_XXX con valori true o false a
-seconda dei sensori che si vuole abilitare o disabilitare</li>
-<li>Impostare il valore in decimi di mm di pioggia per ogni basculata
-del pluviometro nella #define RAIN_FOR_TIP</li>
-<li>Impostare il numero di valori da leggere per ogni singolo sensore
+<li><p>Aprire il file sensors_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig:</p>
+<ul class="simple">
+<li><p>Settare la #define USE_JSON con il valore true</p></li>
+<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
+seconda dei sensori che si vuole abilitare o disabilitare</p></li>
+<li><p>Impostare il valore in decimi di mm di pioggia per ogni basculata
+del pluviometro nella #define RAIN_FOR_TIP</p></li>
+<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
 nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
-a disposizione, inserire quello più alto)</li>
-<li>Impostare il valore in minuti per il calcolo di un’osservazione
-nella #define OBSERVATIONS_MINUTES (in genere 1)</li>
-<li>Impostare il numero di osservazioni necessarie a produrre un dato
+a disposizione, inserire quello più alto)</p></li>
+<li><p>Impostare il valore in minuti per il calcolo di un’osservazione
+nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
+<li><p>Impostare il numero di osservazioni necessarie a produrre un dato
 utile per il report nella #define STATISTICAL_DATA_COUNT (in
-genere 15)</li>
+genere 15)</p></li>
 </ul>
 </li>
-<li>Impostare il microcontrollore su core+1284 a 5V</li>
-<li>Compilare il firmware e caricarlo attraverso il cavo USB</li>
-<li>Inserire il jumper sulla board Stima I2C-Base, configurare la
-stazione e rimuovere il jumper a configurazione terminata</li>
+<li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
+stazione e rimuovere il jumper a configurazione terminata</p></li>
 </ol>
 </div>
 <div class="section" id="id3">
 <h3>Modulo Stima I2C-TH<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic simple">
-<li>Aprire lo sketch i2c-th.ino nella cartella
-arduino/sketchbook/stima_v3/i2c-th</li>
-<li>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:<ul>
-<li>Settare la #define USE_JSON con il valore false</li>
-<li>Settare le altre #define USE_SENSOR_XXX con valori true o false a
-seconda dei sensori che si vuole abilitare o disabilitare</li>
-<li>Impostare il numero di valori da leggere per ogni singolo sensore
+<li><p>Aprire lo sketch i2c-th.ino nella cartella
+arduino/sketchbook/stima_v3/i2c-th</p></li>
+<li><p>Aprire il file sensors_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig:</p>
+<ul class="simple">
+<li><p>Settare la #define USE_JSON con il valore false</p></li>
+<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
+seconda dei sensori che si vuole abilitare o disabilitare</p></li>
+<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
 nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
-a disposizione, inserire quello più alto)</li>
-<li>Impostare il valore in minuti per il calcolo di un’osservazione
+a disposizione, inserire quello più alto)</p></li>
+<li><p>Impostare il valore in minuti per il calcolo di un’osservazione
 nella #define OBSERVATIONS_MINUTES (in genere 1 o in accordo con
-quanto impostato per la compilazione dello sketch stima.ino)</li>
-<li>Impostare il numero di osservazioni necessarie a produrre un dato
+quanto impostato per la compilazione dello sketch stima.ino)</p></li>
+<li><p>Impostare il numero di osservazioni necessarie a produrre un dato
 utile per il report nella #define STATISTICAL_DATA_COUNT (in
 genere 15 o in accordo con quanto impostato per la compilazione
-dello sketch stima.ino)</li>
+dello sketch stima.ino)</p></li>
 </ul>
 </li>
-<li>Impostare il microcontrollore su core+644 a 3.3V</li>
-<li>Compilare il firmware e caricarlo attraverso il cavo USB</li>
-<li>Configurare il suddetto modulo attraverso lo sketch sensor_config
-presente nella cartella arduinosketchbookstima_v3</li>
+<li><p>Impostare il microcontrollore su core+644 a 3.3V</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Configurare il suddetto modulo attraverso lo sketch sensor_config
+presente nella cartella arduinosketchbookstima_v3</p></li>
 </ol>
 </div>
 <div class="section" id="id4">
 <h3>Modulo Stima I2C-Rain<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic simple">
-<li>Aprire lo sketch i2c-rain.ino nella cartella
-arduino/sketchbook/stima_v3/i2c- rain</li>
-<li>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:<ul>
-<li>Settare la #define USE_JSON con il valore false</li>
-<li>Settare le altre #define USE_SENSOR_XXX con valori true o false a
-seconda dei sensori che si vuole abilitare o disabilitare</li>
-<li>Impostare il numero di valori da leggere per ogni singolo sensore
+<li><p>Aprire lo sketch i2c-rain.ino nella cartella
+arduino/sketchbook/stima_v3/i2c- rain</p></li>
+<li><p>Aprire il file sensors_config.h nella cartella
+arduino/sketchbook/libraries/RmapConfig:</p>
+<ul class="simple">
+<li><p>Settare la #define USE_JSON con il valore false</p></li>
+<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
+seconda dei sensori che si vuole abilitare o disabilitare</p></li>
+<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
 nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
-a disposizione, inserire quello più alto)</li>
-<li>Impostare la quantità di pioggia espressa in decimi di millimetro
+a disposizione, inserire quello più alto)</p></li>
+<li><p>Impostare la quantità di pioggia espressa in decimi di millimetro
 da conteggiare per ogni basculata del pluviometro nella #define
-RAIN_FOR_TIP</li>
+RAIN_FOR_TIP</p></li>
 </ul>
 </li>
-<li>Impostare il microcontrollore su core+644 a 3.3V</li>
-<li>Compilare il firmware e caricarlo attraverso il cavo USB</li>
-<li>Configurare il suddetto modulo attraverso lo sketch sensor_config
-presente nella cartella arduinosketchbookstima_v3</li>
+<li><p>Impostare il microcontrollore su core+644 a 3.3V</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Configurare il suddetto modulo attraverso lo sketch sensor_config
+presente nella cartella arduinosketchbookstima_v3</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="compilazione-e-caricamento-del-bootloader-digitecoboot">
 <h2>Compilazione e caricamento del bootloader Digitecoboot<a class="headerlink" href="#compilazione-e-caricamento-del-bootloader-digitecoboot" title="Link a questa intestazione">¶</a></h2>
 <ol class="arabic simple">
-<li>Aprire il file avr_conf nella cartella digitecoboot</li>
-<li>Editare la variabile AVR_DIR inserendo il percorso corretto per la
-directory AVR</li>
-<li>Nella cartella digitecoboot compilare il bootloader attraverso
+<li><p>Aprire il file avr_conf nella cartella digitecoboot</p></li>
+<li><p>Editare la variabile AVR_DIR inserendo il percorso corretto per la
+directory AVR</p></li>
+<li><p>Nella cartella digitecoboot compilare il bootloader attraverso
 -  make atmega644p
--  make atmega1284p</li>
-<li>La compilazione produce i seguenti files:
+-  make atmega1284p</p></li>
+<li><p>La compilazione produce i seguenti files:
 -  digitecoboot_atmega644p.hex: booatloader per core+644
--  digitecoboot_atmega1284p.hex: booatloader per core+1284</li>
-<li>Caricare il bootloader attraverso un programmatore impostando i
+-  digitecoboot_atmega1284p.hex: booatloader per core+1284</p></li>
+<li><p>Caricare il bootloader attraverso un programmatore impostando i
 seguenti parametri: stk500v1, 19200 baud, Low fuse 0xFF, Extended
-fuse 0xFF, High fuse 0xD8</li>
+fuse 0xFF, High fuse 0xD8</p></li>
 </ol>
 </div>
 <div class="section" id="compilazione-del-firmware-in-formato-binario">
 <h2>Compilazione del firmware in formato binario<a class="headerlink" href="#compilazione-del-firmware-in-formato-binario" title="Link a questa intestazione">¶</a></h2>
 <ol class="arabic simple">
-<li>Compilare il firmware per i moduli Stima secondo quanto scritto ai
-punti precedenti</li>
-<li>Localizzare il file NOME_SKETCH.ino.elf compilato (è possibile
+<li><p>Compilare il firmware per i moduli Stima secondo quanto scritto ai
+punti precedenti</p></li>
+<li><p>Localizzare il file NOME_SKETCH.ino.elf compilato (è possibile
 seguire la seguente guida
-(<a class="reference external" href="http://www.instructables.com/id/HOW-TO-GET-HEX-FILE-FROM-ARDUINO-/">http://www.instructables.com/id/HOW-TO-GET-HEX-FILE-FROM-ARDUINO-/</a>)</li>
-<li>Localizzare la cartella di installazione dell’IDE Arduino</li>
-<li>Entrare nella cartella hardware/tools/avr/bin situata nella cartella
-di installazione dell’IDE Arduino</li>
-<li>Attraverso una consolle o il prompt dei comandi, eseguire<ul>
-<li>avr-objcopy -I ihex -O binary NOME_SKETCH.ino.elf FIRMWARE.BIN</li>
+(<a class="reference external" href="http://www.instructables.com/id/HOW-TO-GET-HEX-FILE-FROM-ARDUINO-/">http://www.instructables.com/id/HOW-TO-GET-HEX-FILE-FROM-ARDUINO-/</a>)</p></li>
+<li><p>Localizzare la cartella di installazione dell’IDE Arduino</p></li>
+<li><p>Entrare nella cartella hardware/tools/avr/bin situata nella cartella
+di installazione dell’IDE Arduino</p></li>
+<li><p>Attraverso una consolle o il prompt dei comandi, eseguire</p>
+<ul class="simple">
+<li><p>avr-objcopy -I ihex -O binary NOME_SKETCH.ino.elf FIRMWARE.BIN</p></li>
 </ul>
 </li>
 </ol>
@@ -711,56 +719,57 @@ di installazione dell’IDE Arduino</li>
 <div class="section" id="upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">
 <h2>Upload del firmware tramite micro SD-Card attraverso Digitecoboot<a class="headerlink" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot" title="Link a questa intestazione">¶</a></h2>
 <ol class="arabic simple">
-<li>Copiare il file FIRMWARE.BIN su una micro SD-Card formattata in FAT32</li>
-<li>Inserire la micro SD-Card in uno dei moduli Stima Ethernet, Stima
-GSM/GPRS, Stima I2C-TH o Stima-Rain</li>
-<li>Alimentare il modulo e attendere 30 secondi per la fine del
-caricamento del firmware</li>
-<li>Spegnere il modulo e rimuovere la micro SD-Card contenente il
-firmware</li>
-<li>Se necessario, inserire la micro SD-Card utile per il funzionamento
-del modulo</li>
-<li>Alimentare il modulo</li>
+<li><p>Copiare il file FIRMWARE.BIN su una micro SD-Card formattata in FAT32</p></li>
+<li><p>Inserire la micro SD-Card in uno dei moduli Stima Ethernet, Stima
+GSM/GPRS, Stima I2C-TH o Stima-Rain</p></li>
+<li><p>Alimentare il modulo e attendere 30 secondi per la fine del
+caricamento del firmware</p></li>
+<li><p>Spegnere il modulo e rimuovere la micro SD-Card contenente il
+firmware</p></li>
+<li><p>Se necessario, inserire la micro SD-Card utile per il funzionamento
+del modulo</p></li>
+<li><p>Alimentare il modulo</p></li>
 </ol>
 </div>
 <div class="section" id="assemblaggio-stazione-stima">
 <h2>Assemblaggio stazione Stima<a class="headerlink" href="#assemblaggio-stazione-stima" title="Link a questa intestazione">¶</a></h2>
 <p>Per assemblare una stazione Stima, è necessario disporre di:</p>
 <ul class="simple">
-<li>Stima I2C-Master nella versione GSM/GPRS o Ethernet</li>
-<li>Stima I2C-HUB</li>
-<li>Stima I2C-TH</li>
-<li>Stima I2C-Rain</li>
-<li>Sensore di temperatura e umidità Digiteco TU022 (con sensore HYT221 o
+<li><p>Stima I2C-Master nella versione GSM/GPRS o Ethernet</p></li>
+<li><p>Stima I2C-HUB</p></li>
+<li><p>Stima I2C-TH</p></li>
+<li><p>Stima I2C-Rain</p></li>
+<li><p>Sensore di temperatura e umidità Digiteco TU022 (con sensore HYT221 o
 HYT271) oppure sensore di temperatura ADT7420 e sensore di umidità
-HIH6100</li>
-<li>Pluviometro Digiteco PL005 o Digiteco PL010 o qualsiasi altro
-pluviometro con uscita a contatto</li>
-<li>Cavi di collegamento:<ul>
-<li>per sensore di temperatura e umidità Digiteco TU022: cavo 4 poli
-con connettore a vite lato sensore e connettore 4 pin lato HUB</li>
-<li>o per sensori ADT7420 e HIH6100 con cavi a 4 poli per sensore a
-saldare lato sensore e connettore 4 pin lato HUB</li>
-<li>per pluviometro a contatto: cavo a 2 poli con connettore 4 pin
-lato modulo Stima I2C-Rain</li>
+HIH6100</p></li>
+<li><p>Pluviometro Digiteco PL005 o Digiteco PL010 o qualsiasi altro
+pluviometro con uscita a contatto</p></li>
+<li><p>Cavi di collegamento:</p>
+<ul>
+<li><p>per sensore di temperatura e umidità Digiteco TU022: cavo 4 poli
+con connettore a vite lato sensore e connettore 4 pin lato HUB</p></li>
+<li><p>o per sensori ADT7420 e HIH6100 con cavi a 4 poli per sensore a
+saldare lato sensore e connettore 4 pin lato HUB</p></li>
+<li><p>per pluviometro a contatto: cavo a 2 poli con connettore 4 pin
+lato modulo Stima I2C-Rain</p></li>
 </ul>
 </li>
-<li>Antenna dual/quad band GPRS con connettore SMA per stazione GSM/GPRS</li>
-<li>Contenitore stagno IP66 310x425x160</li>
-<li>Batteria sigillata al piombo 12V e relativi cavi di collegamento con
-fusibile di protezione</li>
-<li>Pannello fotovoltaico 20W o sorgente di alimentazione continua 12-30
-V</li>
-<li>DigitecoPower: se presente batteria tampone 12V con pannello
-fotovoltaico o sorgente di alimentazione esterna DC</li>
-<li>Palo acciaio inox diametro 48 mm</li>
-<li>Collare alluminio anodizzato per fissaggio a palo diametro 48 mm</li>
-<li>Morsetto alluminio anodizzato per fissaggio a sensore diametro 40 mm</li>
-<li>Braccetto alluminio anodizzato cilindrico per fissaggio del morsetto
-sensore al collare del palo</li>
-<li>Supporto per pluviometro</li>
-<li>Display I2C LCD con supporto in alluminio</li>
-<li>Supporti per moduli Stima su guida DIN</li>
+<li><p>Antenna dual/quad band GPRS con connettore SMA per stazione GSM/GPRS</p></li>
+<li><p>Contenitore stagno IP66 310x425x160</p></li>
+<li><p>Batteria sigillata al piombo 12V e relativi cavi di collegamento con
+fusibile di protezione</p></li>
+<li><p>Pannello fotovoltaico 20W o sorgente di alimentazione continua 12-30
+V</p></li>
+<li><p>DigitecoPower: se presente batteria tampone 12V con pannello
+fotovoltaico o sorgente di alimentazione esterna DC</p></li>
+<li><p>Palo acciaio inox diametro 48 mm</p></li>
+<li><p>Collare alluminio anodizzato per fissaggio a palo diametro 48 mm</p></li>
+<li><p>Morsetto alluminio anodizzato per fissaggio a sensore diametro 40 mm</p></li>
+<li><p>Braccetto alluminio anodizzato cilindrico per fissaggio del morsetto
+sensore al collare del palo</p></li>
+<li><p>Supporto per pluviometro</p></li>
+<li><p>Display I2C LCD con supporto in alluminio</p></li>
+<li><p>Supporti per moduli Stima su guida DIN</p></li>
 </ul>
 <p>Una volta aver collegato i sensori, i moduli Stima, compilato i firmware
 e configurato tutti i moduli, così come illustrato nei capitoli
@@ -768,12 +777,12 @@ precedenti, la stazione è pronta per essere utilizzata.</p>
 <p>Di seguito un esempio di installazione di una stazione Stima GSM/GPRS
 con:</p>
 <ul class="simple">
-<li>Stima I2C-TH</li>
-<li>Stima I2C-Rain</li>
-<li>Stima I2C-HUB</li>
-<li>DigitecoPower</li>
-<li>Batteria sigillata 12V</li>
-<li>Pannello fotovoltaico</li>
+<li><p>Stima I2C-TH</p></li>
+<li><p>Stima I2C-Rain</p></li>
+<li><p>Stima I2C-HUB</p></li>
+<li><p>DigitecoPower</p></li>
+<li><p>Batteria sigillata 12V</p></li>
+<li><p>Pannello fotovoltaico</p></li>
 </ul>
 <p><a class="reference internal" href="../_images/10000000000004660000027A5B0AC97A38FC96F0.jpg"><img alt="image22" src="../_images/10000000000004660000027A5B0AC97A38FC96F0.jpg" style="width: 15cm; height: 8.437cm;" /></a></p>
 <p>A partire da sinistra, è visibile il modulo Stima GSM/GPRS dotato di
@@ -809,6 +818,7 @@ e per i sensori I2C.</p>
 
 <h3>Navigazione</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rmap-rfc/rfc.html">RFC rmap versione 2.3</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Howto per Stima versione 3</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#caratteristiche-hardware-dei-singoli-moduli">Caratteristiche hardware dei singoli moduli</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configurazioni-hardware-dei-moduli-stima">Configurazioni hardware dei moduli Stima</a></li>
@@ -827,19 +837,17 @@ e per i sensori I2C.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="capitolo precedente">Benvetuti alla documentazione di Stima</a></li>
+      <li>Previous: <a href="../rmap-rfc/rfc.html" title="capitolo precedente">RFC rmap versione 2.3</a></li>
       <li>Next: <a href="../development_guide/development_guide.html" title="capitolo successivo">Guida per lo sviluppo software</a></li>
   </ul></li>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Ricerca veloce</h3>
+  <h3 id="searchlabel">Ricerca veloce</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Vai" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -860,7 +868,7 @@ e per i sensori I2C.</p>
       &copy;2019, Various.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
