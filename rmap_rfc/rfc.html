@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>RFC rmap versione 2.3 &#8212; Stima 3 documentazione</title>
+    <title>RFC rmap versione 2.3 &#8212; RMAP e Stima 3 documentazione</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -13,10 +13,11 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
-    <link rel="next" title="Howto per Stima versione 3" href="../howto_stima_v3/howto_stima_v3.html" />
-    <link rel="prev" title="Benvetuti alla documentazione di Stima" href="../index.html" />
+    <link rel="next" title="Stima V3" href="../stima_v3/stima_v3.html" />
+    <link rel="prev" title="Benvetuti alla documentazione di RMAP e Stima" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -1670,7 +1671,10 @@ agevolare molto il lavoro.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Stima</a></h1>
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_stima.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">RMAP e Stima</a></h1>
 
 
 
@@ -1683,27 +1687,106 @@ agevolare molto il lavoro.</p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.3</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-level">Data Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#report">Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocolli-per-r-map">Protocolli per R-map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sistema-di-misura">Sistema di misura</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#visione-generale">Visione generale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-model-dati-e-metadati">Data Model: Dati e Metadati</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#formati">Formati</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#protocolli">Protocolli</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rmap-web-services">RMAP web services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#formati-dati">Formati dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-model-dati-e-metadati">Data Model: Dati e Metadati</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#time">Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#longitudine-latitudine-e-identificativo">Longitudine, latitudine e identificativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network">Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-range">Time range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level">Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variabile">Variabile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#units">Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scale">Scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-values-in-the-table-b-used-in-bufr-de-coding">Other values in the table B used in Bufr de/coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tabella-variabile-b-table">Tabella variabile (B table)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#formati">Formati</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bufr">BUFR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generic-template">generic template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json">Json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#esempio">Esempio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json-lines-text-format">JSON Lines text format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#protocolli">Protocolli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dati-e-metadati-su-mqtt">Dati e Metadati su MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versioni-del-protocollo-utilizzabili">Versioni del protocollo utilizzabili</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autenticazione">Autenticazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quality-of-service">Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-id">Client ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-level-1">Data Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stato-della-connessione">Stato della connessione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-e-constant-data">Data e Constant Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constant-data">Constant Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#estensioni">Estensioni</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prima-forma-contratta-tabella-d">Prima forma contratta tabella D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#seconda-forma-contratta-tabella-e">Seconda forma contratta tabella E</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-procedure-over-mqtt">Remote procedure over MQTT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#remote-procedure-supportate">Remote procedure supportate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#http">HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amqp">AMQP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versioni-del-protocollo-supportate">Versioni del protocollo supportate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autenticazione-1">Autenticazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tls">Tls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formati-dei-messaggi">Formati dei messaggi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bufr-messages-over-amqp">BUFR messages over AMQP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json-line-messages-over-amqp">JSON Line messages over AMQP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json-messages-over-amqp">JSON messages over AMQP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rmap-web-services">RMAP web services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#composizione-degli-url-per-un-http-get-request">Composizione degli URL per un HTTP GET request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#format">Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadati">metadati</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#anagrafica">Anagrafica</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#serie-dei-dati-o-sommario">Serie dei dati o sommario</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#serie-temporale">Serie temporale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serie-spaziale">Serie spaziale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#riassuntivo">Riassuntivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#formati-dati">Formati dati</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jsonline">Jsonline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geojson">Geojson</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#ritrasmissioni-e-correzioni">Ritrasmissioni e correzioni</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="capitolo precedente">Benvetuti alla documentazione di Stima</a></li>
-      <li>Next: <a href="../howto_stima_v3/howto_stima_v3.html" title="capitolo successivo">Howto per Stima versione 3</a></li>
+      <li>Previous: <a href="../index.html" title="capitolo precedente">Benvetuti alla documentazione di RMAP e Stima</a></li>
+      <li>Next: <a href="../stima_v3/stima_v3.html" title="capitolo successivo">Stima V3</a></li>
   </ul></li>
 </ul>
 </div>
@@ -1730,7 +1813,7 @@ agevolare molto il lavoro.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2019, Various.
+      &copy;2020, Various.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
