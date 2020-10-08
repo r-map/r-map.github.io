@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stima-wifi &#8212; RMAP e Stima 3 documentazione</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="prev" title="Documentazione del codice" href="../stima_v3/stimacode.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="stima-wifi">
+<h1>Stima-wifi<a class="headerlink" href="#stima-wifi" title="Link a questa intestazione">¶</a></h1>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/stima_wifi.jpg"><img alt="Stima wifi con Honeywell HPM e sensore Temperatura e Umidità" src="../_images/stima_wifi.jpg" style="width: 400px;" /></a></div>
+</div>
+<div class="section" id="elenco-materiali">
+<h2>Elenco materiali<a class="headerlink" href="#elenco-materiali" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/wemos-schede-cpu/wemos-mini-v310">Wemos D1 mini
+V3</a></p></li>
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/wemos/oled-shield-v110-for-wemos-mini">OLED Shield V2.0.0 for Wemos D1
+mini</a></p></li>
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/wemos-shield-alimentazione/power-shield">Wemos DC Power Shield
+V1.1.0</a></p></li>
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/wemos-shield-prototipazione-cavi/wemos-protoboard">wemos
+protoboard</a></p></li>
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/connettori-morsettiere/connettore-strip-maschio-poli-12mm">connettore strip maschio
+12mm</a></p></li>
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/wemos-shield-prototipazione-cavi/connettori">connettori</a>
+(quando necessari)</p></li>
+</ul>
+<p>NOTA BENE</p>
+<p>In particolare il sensore Honeywell HPMA richiede una alimentazione a 5V
+stabilizzata e molto precisa</p>
+<p>Alimentazione per distanze fino a circa 50m. dall’alimentazione di rete
+a 220V:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/alimentatori/alimentatore-12v-2a">Alimentatore-12v-2a</a></p></li>
+<li><p>cavo bipolare della lunghezza opportuna</p></li>
+</ul>
+<div class="section" id="sensore-polveri-sensirion-sps30">
+<h3>Sensore polveri Sensirion SPS30<a class="headerlink" href="#sensore-polveri-sensirion-sps30" title="Link a questa intestazione">¶</a></h3>
+<div class="figure align-default" id="id6">
+<img alt="sps30 overview" src="../_images/sps30_overview.jpg" />
+<p class="caption"><span class="caption-text">sps30 overview</span><a class="headerlink" href="#id6" title="Link a questa immagine">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sensirion.com/en/environmental-sensors/particulate-matter-sensors-pm25/">sps30</a></p></li>
+<li><p><a class="reference external" href="https://it.rs-online.com/web/p/sensori-di-qualita-dell-aria/1862540/">https://it.rs-online.com/web/p/sensori-di-qualita-dell-aria/1862540/</a></p></li>
+</ul>
+<div class="section" id="in-alternativa">
+<h4>in alternativa<a class="headerlink" href="#in-alternativa" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.plantower.com/en/content/?108.html">Plantower pms5003</a></p></li>
+</ul>
+</div>
+<div class="section" id="in-alternativa-1">
+<span id="id1"></span><h4>in alternativa<a class="headerlink" href="#in-alternativa-1" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://it.rs-online.com/web/p/sensori-di-luce-e-colore/1454279/">Honeywell
+HPM-115S0</a></p></li>
+<li><p><a class="reference external" href="https://it.rs-online.com/web/p/wire-to-board-cable-assemblies/1250750/">Cavo connessione PicoBlade Molex 8
+vie</a></p></li>
+</ul>
+</div>
+<div class="section" id="in-alternativa-2">
+<span id="id2"></span><h4>in alternativa<a class="headerlink" href="#in-alternativa-2" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.homotix.it/vendita/sensori-polveri-sottili/sensore-polveri-sottili-sds011">SDS011</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sensore-temperatura-e-umidita">
+<h3>Sensore temperatura e umidità<a class="headerlink" href="#sensore-temperatura-e-umidita" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sensirion.com/en/environmental-sensors/humidity-sensors/sht85-pin-type-humidity-sensor-enabling-easy-replaceability/">sensirion
+SHT85</a>
+<img alt="sht85 overview" src="../_images/sht85_overview.jpg" /></p></li>
+<li><p><a class="reference external" href="https://it.rs-online.com/web/p/sensori-di-temperatura-e-umidita/1826530/">negozio
+RS</a></p></li>
+</ul>
+<div class="section" id="in-alternativa-3">
+<span id="id3"></span><h4>in alternativa<a class="headerlink" href="#in-alternativa-3" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="temperatura-0-2c-accuratezza">
+<h5>temperatura 0.2C accuratezza<a class="headerlink" href="#temperatura-0-2c-accuratezza" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.analog.com/en/products/adt7420.html">ADT7420</a></p></li>
+</ul>
+</div>
+<div class="section" id="temperatura-0-5c-accuratezza-e-umidita">
+<h5>temperatura 0.5C accuratezza e umidità<a class="headerlink" href="#temperatura-0-5c-accuratezza-e-umidita" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sensing.honeywell.com/honeywell-sensing-humidicon-hih6100-series-product-sheet-009059-6-en.pdf">HIH6121</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="sensore-di-co2">
+<h3>Sensore di CO2<a class="headerlink" href="#sensore-di-co2" title="Link a questa intestazione">¶</a></h3>
+<div class="figure align-default" id="id7">
+<img alt="scd30 overview" src="../_images/scd30_overview.jpg" />
+<p class="caption"><span class="caption-text">scd30 overview</span><a class="headerlink" href="#id7" title="Link a questa immagine">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sensirion.com/en/environmental-sensors/carbon-dioxide-sensors-co2/">Sensirion
+SCD30</a></p></li>
+<li><p><a class="reference external" href="https://it.rs-online.com/web/p/sensori-di-temperatura-e-umidita/1720552/">negozio
+RS</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="configurazioni-sul-server">
+<h2>Configurazioni sul server<a class="headerlink" href="#configurazioni-sul-server" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="registrazione">
+<h3>Registrazione<a class="headerlink" href="#registrazione" title="Link a questa intestazione">¶</a></h3>
+<p><a class="reference external" href="http://rmap.cc/registrazione/register/">Registrasi</a> o fare
+<a class="reference external" href="http://rmap.cc/registrazione/login">1</a> login sul server.</p>
+</div>
+<div class="section" id="configurazione-stazione">
+<h3>Configurazione stazione<a class="headerlink" href="#configurazione-stazione" title="Link a questa intestazione">¶</a></h3>
+<p>Registrare una nuova stazione sul
+<a class="reference external" href="http://rmap.cc/insertdata/newstation">server</a>; dopo aver selezionato
+le coordinate utilizzando l’indirizzo o selezionandole dalla mappa
+inserire il nome stazione ( nome consigliato come predefinito
+«stimawifi») e il modello stazione che sarà</p>
+<ul class="simple">
+<li><p>«airquality_sps_sht_scd» se sono collegati i sensori Sensirion delle
+polveri SPS30, temperatura e umidità SHT85 , sensore di CO2 SCD30</p></li>
+<li><p>«airquality_sps_sht» se sono collegati i sensori Sensirion delle
+polveri SPS30, temperatura e umidità SHT85</p></li>
+<li><p>«airquality_sps» se è collegato solo il sensori Sensirion delle
+polveri SPS30</p></li>
+<li><p>«airquality_sds» se è collegato solo il sensore delle polveri SDS011.</p></li>
+<li><p>«airquality_hpm» se è collegato solo il sensore delle polveri
+Honeywell HPM</p></li>
+<li><p>«airquality_pms» se è collegato solo il sensore delle polveri
+Plantower pms5003</p></li>
+<li><p>«stima_thd» se sono collegati il sensore delle polveri Honeywell HPM
+e il modulo stima_th</p></li>
+<li><p>«stima_thdm» se sono collegati il sensore delle polveri Honeywell
+HPM, il modulo stima_th, il modulo stima_gas</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="attivazione-stazione">
+<h2>Attivazione stazione<a class="headerlink" href="#attivazione-stazione" title="Link a questa intestazione">¶</a></h2>
+<p>Accendere la stazione collegandola tramite l’apposito alimentatore a una
+alimentazione USB.</p>
+<div class="section" id="se-si-ha-il-display">
+<h3>Se si ha il display<a class="headerlink" href="#se-si-ha-il-display" title="Link a questa intestazione">¶</a></h3>
+<p>Tenendo premuto il pulsante A premere il pulsante Reset. Dovranno
+apparire le seguenti scritte:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Clean FS</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Reset wifi configuration</span></code></div>
+</div>
+<p>Con un PC o uno smathphone collegarsi al WIFI con ssed «STIMA-config» e
+password «bellastima» come indicato sul display.</p>
+<p>Una volta attivata la connessione dovrà comparire una pagina di
+configurazione intitolata «STIMA-config».</p>
+<p>Se questo non avviene automaticamente puntare il browser all’indirizzo
+<a class="reference external" href="http://192.168.4.1/">http://192.168.4.1/</a></p>
+<p>Selezionare la prima voce «Configure WiFi».</p>
+<p>Selezionare dall’elenco l’ssed della rete WiFi di accesso alla rete che
+dovrà essere utilizzata dalla stazione e inserire nell’apposita casella
+la relativa password di accesso se necessaria. Nella casella «rmap user»
+inserire il nome utente utilizzato nella registrazione sul server e
+nella casella «rmap password».</p>
+<p>Lasciare «stimawifi» come nome stazione se non è sttao precedentemente
+personalizzato.</p>
+<p>premere il tasto «save» per salvare.</p>
+<p>Se si ottiene la pagina con la scritta «Credentials Saved» la procedura
+ha avuto successo.</p>
+<p>A questo punto sul display dopo la pagina con la scritta «Starting up!»
+e la versione del firmware dovrà comparire la scritta «WIFI OK».</p>
+<p>Se questo non avviene rieseguire le istruzioni di questa sezione.</p>
+</div>
+<div class="section" id="se-non-si-ha-il-display">
+<h3>Se non si ha il display<a class="headerlink" href="#se-non-si-ha-il-display" title="Link a questa intestazione">¶</a></h3>
+<p>Con un filo connettere il pin 7 a massa e premere il pulsante Reset e
+attendere 5 secondi prima di scollegare il filo dal pin 7.</p>
+<p>Con un PC o uno smathphone collegarsi al WIFI con ssed «STIMA-config» e
+password «bellastima» come indicato sul display.</p>
+<p>Una volta attivata la connessione dovrà comparire una pagina di
+configurazione intitolata «STIMA-config».</p>
+<p>Se questo non avviene automaticamente puntare il browser all’indirizzo
+<a class="reference external" href="http://192.168.4.1/">http://192.168.4.1/</a></p>
+<p>Selezionare la prima voce «Configure WiFi».</p>
+<p>Selezionare dall’elenco l’ssed della rete WiFi di accesso alla rete che
+dovrà essere utilizzata dalla stazione e inserire nell’apposita casella
+la relativa password di accesso se necessaria.</p>
+<p>Nella casella «rmap user» inserire il nome utente utilizzato nella
+registrazione sul server e nella casella «rmap password».</p>
+<p>Lasciare «stimawifi» come nome stazione se non è sttao precedentemente
+personalizzato.</p>
+<p>premere il tasto «save» per salvare.</p>
+<p>Se entro 60 secondi si accenderà un led blu per una decina di secondi
+tutto è andato a buon fine.</p>
+<p>Se questo non avviene rieseguire le istruzioni di questa sezione.</p>
+</div>
+</div>
+<div class="section" id="legenda-segnalazioni-tramite-led-blu-onboard">
+<h2>Legenda segnalazioni tramite LED blu onboard<a class="headerlink" href="#legenda-segnalazioni-tramite-led-blu-onboard" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p>riavvio: 3 impulsi luminosi di 1 secondo</p></li>
+<li><p>tentativo aggiornamento firmware in corso: led lampeggiante a 1Hz</p></li>
+<li><p>risultato aggiornamento firmware:</p>
+<ul>
+<li><p>nessun aggiornamento disponibile: 1 impulso luminosi di 1 secondo</p></li>
+<li><p>aggiornamento firmware fallito: 2 impulsi luminosi di 1 secondo</p></li>
+<li><p>firmware aggiornato: 3 impulsi luminosi di 1 secondo</p></li>
+</ul>
+</li>
+<li><p>in attesa di configurazione: led lampeggiante a 1Hz per tutto il
+periodo di configurazione</p></li>
+<li><p>configurazione remota fallita: led lampeggiante a 1Hz per 5 secondi</p></li>
+<li><p>connect MQTT fallita/errore pubblicazione: impulso medio a 1Hz per 5
+secondi</p></li>
+<li><p>sensore assente o rotto/errore comunicazione: impulso lungo a 1Hz per
+5 secondi</p></li>
+<li><p>dato mancante: un impulso luminoso di 1 secondo a 2Hz</p></li>
+</ul>
+<p>Un corretto funzionamento della stazione viene evidenziato dal led blu
+che si accende per circa 5 secondi ogni 60 secondi.</p>
+</div>
+<div class="section" id="visualizzazione-dei-dati">
+<h2>Visualizzazione dei dati<a class="headerlink" href="#visualizzazione-dei-dati" title="Link a questa intestazione">¶</a></h2>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://rmapv.rmap.cc/accounts/profile/">Dati stazione</a></div>
+</div>
+</div>
+<div class="section" id="cancellazione-delle-configurazioni-e-reset-alle-condizioni-di-fabbrica">
+<h2>Cancellazione delle configurazioni e reset alle condizioni di «fabbrica»<a class="headerlink" href="#cancellazione-delle-configurazioni-e-reset-alle-condizioni-di-fabbrica" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="se-si-ha-il-display-1">
+<span id="id4"></span><h3>Se si ha il display<a class="headerlink" href="#se-si-ha-il-display-1" title="Link a questa intestazione">¶</a></h3>
+<p>Tenendo premuto il pulsante A premere il pulsante Reset. Dovranno
+apparire le seguenti scritte:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Clean FS</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Reset wifi configuration</span></code></div>
+</div>
+<p>Potranno essere necessarie alcune decine di secondi prima che queste
+scritte scompaiano e si possa procedere.</p>
+</div>
+<div class="section" id="se-non-si-ha-il-display-1">
+<span id="id5"></span><h3>Se non si ha il display<a class="headerlink" href="#se-non-si-ha-il-display-1" title="Link a questa intestazione">¶</a></h3>
+<p>Con un filo connettere il pin 7 a massa e premere il pulsante Reset e
+attendere 5 secondi prima di scollegare il filo dal pin 7 e attendere
+ulteriori 60 secondi.</p>
+</div>
+</div>
+<div class="section" id="assemblaggio">
+<h2>Assemblaggio<a class="headerlink" href="#assemblaggio" title="Link a questa intestazione">¶</a></h2>
+<p>Infilare i connettori con i pin lunghi e saldarli sul modulo Wemos D1
+mini. Se si dispone di un display Wemos v2 impilarlo sul modulo Wemos D1
+mini. Aggiungere alla pila Wemos il DC Power Shield.</p>
+<p>Saldare alla wemos protoboard i pin necessari a connettere tutti i
+sensori e aggiungerlo alla pila Wemos come da foto.
+<img alt="protoboard shield per wemos d1 mini" src="../_images/protoboard-shield-per-wemos-d1-mini.jpg" />
+<img alt="wemos protoboard connection" src="../_images/wemos_protoboard_connection.png" /> <img alt="protoboard saldata" src="../_images/protoboard_saldata.jpg" />
+<img alt="pila wemos" src="../_images/pila_wemos.jpg" /></p>
+<div class="section" id="opzione-display-oled">
+<h3>opzione display oled<a class="headerlink" href="#opzione-display-oled" title="Link a questa intestazione">¶</a></h3>
+<p>Se si possiede la versione v2.0.0 sul circuito stampato dal lato opposto
+del display interrompere la piazzola sulla destra indicata con D3
+(pulsante A, piazzola indicata con la freccia) e della stessa colonna di
+piazzole saldare quella indicata con D7. Se si possiede la versione v1.x
+(senza pulsanti A e B) è necessario realizzare una saldatura dove
+previsto (sul retro del circuito stampato rispetto al display)
+selezionando l’indirizzo I2C corrispondente a 0x3C.</p>
+</div>
+<div class="section" id="sensore-sensirion-sps30-per-le-polveri">
+<h3>Sensore Sensirion SPS30 per le polveri<a class="headerlink" href="#sensore-sensirion-sps30-per-le-polveri" title="Link a questa intestazione">¶</a></h3>
+<div class="figure align-default" id="id8">
+<img alt="sps30 connector" src="../_images/sps30_connector.png" />
+<p class="caption"><span class="caption-text">sps30 connector</span><a class="headerlink" href="#id8" title="Link a questa immagine">¶</a></p>
+</div>
+<p>Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 14%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>SPS30</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5V</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 2</p></td>
+</tr>
+<tr class="row-even"><td><p>D1</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 4</p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sensore-sensirion-scd30-per-la-co2">
+<h3>Sensore Sensirion SCD30 per la CO2<a class="headerlink" href="#sensore-sensirion-scd30-per-la-co2" title="Link a questa intestazione">¶</a></h3>
+<div class="figure align-default" id="id9">
+<img alt="scds30 connector" src="../_images/scds30_connector.png" />
+<p class="caption"><span class="caption-text">scds30 connector</span><a class="headerlink" href="#id9" title="Link a questa immagine">¶</a></p>
+</div>
+<p>Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 14%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>SCD30</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5V</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>VDD</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-even"><td><p>D1</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>SCL</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>SDA</p></td>
+</tr>
+</tbody>
+</table>
+<p>Assemblaggio del sensore all’uscita del sensore di polveri:
+<img alt="scd30 assemblaggio 1" src="../_images/scd30_assemblaggio_1.jpg" /> <img alt="scd30 assemblaggio 2" src="../_images/scd30_assemblaggio_2.jpg" /></p>
+</div>
+<div class="section" id="opzione-sensore-plantower-pms5003-per-le-polveri">
+<h3>opzione sensore Plantower PMS5003 per le polveri<a class="headerlink" href="#opzione-sensore-plantower-pms5003-per-le-polveri" title="Link a questa intestazione">¶</a></h3>
+<p>numbering pins from left to right with «plantower» stamps on the floor</p>
+<p>Effettuare i seguenti collegamenti tra Wemos e
+<a class="reference external" href="https://github.com/r-map/rmap/blob/master/arduino/sketchbook/libraries/pms/doc/pms5003-manual_v2-3.pdf">PMS5003</a>:
+Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 13%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>PMS5003</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 1</p></td>
+</tr>
+<tr class="row-even"><td><p>D5</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>D6</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 4</p></td>
+</tr>
+</tbody>
+</table>
+<p>eventualmente connettere anche il PIN 6 (reset) e PIN 3 (SET) (DA FARE)</p>
+</div>
+<div class="section" id="opzione-sensore-sds011-per-le-polveri">
+<h3>opzione sensore SDS011 per le polveri<a class="headerlink" href="#opzione-sensore-sds011-per-le-polveri" title="Link a questa intestazione">¶</a></h3>
+<p>Effettuare i seguenti collegamenti tra Wemos e SDS011: Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 12%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>SDS011</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>pin 5 GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>pin 3 5V</p></td>
+</tr>
+<tr class="row-even"><td><p>D5</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>pin 7 TXD</p></td>
+</tr>
+<tr class="row-odd"><td><p>D6</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>pin 6 RXD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="opzione-sensore-honeywell-hpm-per-le-polveri">
+<h3>opzione sensore Honeywell HPM per le polveri<a class="headerlink" href="#opzione-sensore-honeywell-hpm-per-le-polveri" title="Link a questa intestazione">¶</a></h3>
+<div class="line-block">
+<div class="line">Effettuare i seguenti collegamenti tra Wemos e Honeywell hpm:
+<a class="reference internal" href="../_images/Honeywell_hpm_pinout.png"><img alt="Honeywell pinout" src="../_images/Honeywell_hpm_pinout.png" style="width: 300px;" /></a></div>
+<div class="line">Connettere:</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 10%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>Honeywell HPM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 8 GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>5V</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 2 5V</p></td>
+</tr>
+<tr class="row-even"><td><p>D5</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 6 TX</p></td>
+</tr>
+<tr class="row-odd"><td><p>D6</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 7 RX</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/assemblaggioinscatolaelettrica.jpg"><img alt="Assemblaggio moduli in scatola elettrica" src="../_images/assemblaggioinscatolaelettrica.jpg" style="width: 400px;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/assemblaggioinscatolaelettricaflusso.jpg"><img alt="Assemblaggio materiale espanso per flusso aria" src="../_images/assemblaggioinscatolaelettricaflusso.jpg" style="width: 400px;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/presearia.jpg"><img alt="Messa in opera con canaletta angolo a 90 gradi per flusso aria in/out antipioggia" src="../_images/presearia.jpg" style="width: 400px;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/filtroinsetti.jpg"><img alt="Uso di rete zanzariera per filtro contro gli insetti" src="../_images/filtroinsetti.jpg" style="width: 400px;" /></a></div>
+</div>
+</div>
+<div class="section" id="sensore-sht85-per-temperatura-e-umidita">
+<h3>sensore SHT85 per temperatura e umidità<a class="headerlink" href="#sensore-sht85-per-temperatura-e-umidita" title="Link a questa intestazione">¶</a></h3>
+<p><img alt="sht85 connections" src="../_images/sht85_connections.png" /> Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 10%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>modulo Stima-th</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>3V3</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 2</p></td>
+</tr>
+<tr class="row-even"><td><p>D1</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PIN 4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="opzione-modulo-stima-th-con-hih6121-e-adt7420-per-temperatura-e-umidita">
+<h3>Opzione modulo Stima-th con HIH6121 e ADT7420 per temperatura e umidità<a class="headerlink" href="#opzione-modulo-stima-th-con-hih6121-e-adt7420-per-temperatura-e-umidita" title="Link a questa intestazione">¶</a></h3>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/sensoretemperaturaeumidita.jpg"><img alt="Sensore temperatura e umidità all'interno di apposito schermo per le radiazioni" src="../_images/sensoretemperaturaeumidita.jpg" style="width: 400px;" /></a></div>
+</div>
+<ul class="simple">
+<li><p>ponticellare (con un resistore) A1-centrale con A1-</p></li>
+<li><p>ponticellare (con un resistore) A0-centrale con A0+</p></li>
+</ul>
+<p>Una volta saldati i terminali dei cavi e protetti con nastro
+autoagglomerante è importante preservare le connessioni dalla corrosione
+degli agenti atmosferici e consigliamo uno strato di silicone protettivo
+spray del tipo Electrolube DCR200H; solo una volta asciugato lo strato
+di vernice protettiva rimuovere la protezione adesiva del sensore HIH</p>
+<p>Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 10%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wemos D1 mini</p></th>
+<th class="head"></th>
+<th class="head"><p>modulo Stima-th</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>3V3</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>VCC</p></td>
+</tr>
+<tr class="row-even"><td><p>D1</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>SCL</p></td>
+</tr>
+<tr class="row-odd"><td><p>D2</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>SDA</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">Se non si utilizza la wemos_protoboard è necessario fare una modifica
+al modulo wemos per aggiungere un pin di collegamento a GND. Saldare a
+45 gradi di inclinazione un pin aggiuntivo per connettore Dupont a GND
+come da figura: <a class="reference internal" href="../_images/stima_wifi_addpintognd.jpg"><img alt="Pin aggiunto a GND" src="../_images/stima_wifi_addpintognd.jpg" style="width: 300px;" /></a></div>
+</div>
+</div>
+<div class="section" id="opzione-modulo-stima-i2c-sdsmics">
+<h3>Opzione modulo Stima-i2c-sdsmics<a class="headerlink" href="#opzione-modulo-stima-i2c-sdsmics" title="Link a questa intestazione">¶</a></h3>
+<p>vedi:
+<a class="reference external" href="http://www.raspibo.org/wiki/index.php?title=Gruppo_Meteo/HowTo#Modulo_Stima-i2c-sdsmics">http://www.raspibo.org/wiki/index.php?title=Gruppo_Meteo/HowTo#Modulo_Stima-i2c-sdsmics</a></p>
+</div>
+<div class="section" id="opzione-per-alimentazione-con-cavo-di-lunghezza-superiore-a-2m">
+<h3>Opzione per alimentazione con cavo di lunghezza superiore a 2m.<a class="headerlink" href="#opzione-per-alimentazione-con-cavo-di-lunghezza-superiore-a-2m" title="Link a questa intestazione">¶</a></h3>
+<p>Tagliare il cavo dell’alimentatore e inserire una piattina bipolare con
+rame di diametro opportuno ovviamente della lunghezza necessaria.</p>
+</div>
+<div class="section" id="per-caricare-il-firmware">
+<h3>Per caricare il firmware<a class="headerlink" href="#per-caricare-il-firmware" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="installare-il-driver-usb2serial">
+<h4>Installare il driver USB2Serial<a class="headerlink" href="#installare-il-driver-usb2serial" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="windows">
+<h5>Windows<a class="headerlink" href="#windows" title="Link a questa intestazione">¶</a></h5>
+<p>Per comunicare col Wemos c’è bisogno del driver usb2serial.</p>
+</div>
+<div class="section" id="linux">
+<h5>Linux<a class="headerlink" href="#linux" title="Link a questa intestazione">¶</a></h5>
+<p>Nessuna installazione necessaria.</p>
+</div>
+<div class="section" id="macos">
+<h5>MacOS<a class="headerlink" href="#macos" title="Link a questa intestazione">¶</a></h5>
+<p>Per Sierra vedere queste instruzioni che sono state testate:
+<a class="reference external" href="https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-driver">https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-driver</a></p>
+</div>
+</div>
+<div class="section" id="upload-del-firmware">
+<h4>Upload del firmware<a class="headerlink" href="#upload-del-firmware" title="Link a questa intestazione">¶</a></h4>
+<p>Effettuare il download del firmware da
+<a class="reference external" href="http://rmap.cc/media/firmware/rmap_esp8266.ino.d1_mini_yhbp7E2.bin">http://rmap.cc/media/firmware/rmap_esp8266.ino.d1_mini_yhbp7E2.bin</a> e
+caricarlo sul Wemos dopo averlo connesso tramite cavetto USB. Per fare
+questo seguire le istruzioni a: <a class="reference external" href="https://github.com/espressif/esptool">https://github.com/espressif/esptool</a> e
+in particolare:
+<a class="reference external" href="https://github.com/espressif/esptool#writing-binaries-to-flash">https://github.com/espressif/esptool#writing-binaries-to-flash</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_stima.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">RMAP e Stima</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigazione</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 2.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Stima-wifi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#elenco-materiali">Elenco materiali</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sensore-polveri-sensirion-sps30">Sensore polveri Sensirion SPS30</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#in-alternativa">in alternativa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-alternativa-1">in alternativa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-alternativa-2">in alternativa</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sensore-temperatura-e-umidita">Sensore temperatura e umidità</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#in-alternativa-3">in alternativa</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#temperatura-0-2c-accuratezza">temperatura 0.2C accuratezza</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#temperatura-0-5c-accuratezza-e-umidita">temperatura 0.5C accuratezza e umidità</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sensore-di-co2">Sensore di CO2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configurazioni-sul-server">Configurazioni sul server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#registrazione">Registrazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-stazione">Configurazione stazione</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#attivazione-stazione">Attivazione stazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#se-si-ha-il-display">Se si ha il display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#se-non-si-ha-il-display">Se non si ha il display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#legenda-segnalazioni-tramite-led-blu-onboard">Legenda segnalazioni tramite LED blu onboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualizzazione-dei-dati">Visualizzazione dei dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cancellazione-delle-configurazioni-e-reset-alle-condizioni-di-fabbrica">Cancellazione delle configurazioni e reset alle condizioni di «fabbrica»</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#se-si-ha-il-display-1">Se si ha il display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#se-non-si-ha-il-display-1">Se non si ha il display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#assemblaggio">Assemblaggio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-display-oled">opzione display oled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensore-sensirion-sps30-per-le-polveri">Sensore Sensirion SPS30 per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensore-sensirion-scd30-per-la-co2">Sensore Sensirion SCD30 per la CO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-sensore-plantower-pms5003-per-le-polveri">opzione sensore Plantower PMS5003 per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-sensore-sds011-per-le-polveri">opzione sensore SDS011 per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-sensore-honeywell-hpm-per-le-polveri">opzione sensore Honeywell HPM per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensore-sht85-per-temperatura-e-umidita">sensore SHT85 per temperatura e umidità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-modulo-stima-th-con-hih6121-e-adt7420-per-temperatura-e-umidita">Opzione modulo Stima-th con HIH6121 e ADT7420 per temperatura e umidità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-modulo-stima-i2c-sdsmics">Opzione modulo Stima-i2c-sdsmics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opzione-per-alimentazione-con-cavo-di-lunghezza-superiore-a-2m">Opzione per alimentazione con cavo di lunghezza superiore a 2m.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#per-caricare-il-firmware">Per caricare il firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installare-il-driver-usb2serial">Installare il driver USB2Serial</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#upload-del-firmware">Upload del firmware</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../stima_v3/stimacode.html" title="capitolo precedente">Documentazione del codice</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Ricerca veloce</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Vai" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Various.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/stima_wifi/stima_wifi_howto.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

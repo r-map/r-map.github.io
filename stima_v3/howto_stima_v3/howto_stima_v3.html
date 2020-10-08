@@ -489,11 +489,25 @@ pluviometro.</p>
 <h2>Configurazioni software dei moduli Stima<a class="headerlink" href="#configurazioni-software-dei-moduli-stima" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="configurazione-dellide-arduino">
 <h3>Configurazione dell’IDE Arduino<a class="headerlink" href="#configurazione-dellide-arduino" title="Link a questa intestazione">¶</a></h3>
-<p>Per la compilazione del software è necessario settare lo sketchbook del
-progetto rmap nell’ide Arduino cliccando su File  Impostazioni e
+<p>La compilazione del firmware è testata con Arduino IDE versione 1.8.13.
+Per la compilazione del software è necessario settare lo sketchbook del
+progetto rmap nell’ide Arduino cliccando su File -&gt; Impostazioni e
 selezionando la cartella dello sketchbook facendo click su sfoglia in
 alto a destra. Successivamente cliccare su ok, chiudere l’ide per poi
 riaprirlo.</p>
+</div>
+<div class="section" id="installazione-del-software-per-la-configurazione">
+<h3>Installazione del software per la configurazione<a class="headerlink" href="#installazione-del-software-per-la-configurazione" title="Link a questa intestazione">¶</a></h3>
+<p>Installare Centos 8.</p>
+<p>Aggiunta repository e installazione pacchetti da utente amministratore</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
+<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">stable</span>
+<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">pat1</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">PowerTool</span>
+<span class="n">dnf</span> <span class="n">groupinstall</span> <span class="n">rmap</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id1">
 <h3>Modulo Stima Ethernet<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
@@ -890,6 +904,7 @@ e per i sensori I2C.</p>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazioni-software-dei-moduli-stima">Configurazioni software dei moduli Stima</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configurazione-dellide-arduino">Configurazione dell’IDE Arduino</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-configurazione">Installazione del software per la configurazione</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id1">Modulo Stima Ethernet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima GSM/GPRS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passive">Modulo Stima Passive</a></li>
@@ -907,6 +922,8 @@ e per i sensori I2C.</p>
 <li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
 </ul>
 
 <div class="relations">

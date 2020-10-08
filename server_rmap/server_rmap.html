@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Server RMAP &#8212; RMAP e Stima 3 documentazione</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="prev" title="Stima-wifi" href="../stima_wifi/stima_wifi_howto.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="server-rmap">
+<h1>Server RMAP<a class="headerlink" href="#server-rmap" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="installazione-sistema-operativo-centos-8">
+<h2>Installazione sistema operativo Centos 8<a class="headerlink" href="#installazione-sistema-operativo-centos-8" title="Link a questa intestazione">¶</a></h2>
+<p>Installare Centos 8.</p>
+<p>Aggiunta repository e installazione pacchetti</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
+<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">stable</span>
+<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">pat1</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">PowerTool</span>
+<span class="n">dnf</span> <span class="n">groupinstall</span> <span class="n">rmap</span>
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">mosquitto</span> <span class="n">mosquitto</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">plug</span>
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">arkimet</span>
+<span class="n">useradd</span> <span class="n">rmap</span>
+</pre></div>
+</div>
+<p>/etc/selinux/config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELINUX</span><span class="o">=</span><span class="n">disabled</span>
+</pre></div>
+</div>
+<p>/etc/tmpfiles.d/rmap.conf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wsgirmap</span> <span class="mi">0755</span> <span class="n">rmap</span> <span class="n">rmap</span> <span class="o">-</span>
+<span class="n">d</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">rmap</span> <span class="mi">0755</span> <span class="n">rmap</span> <span class="n">rmap</span> <span class="o">-</span>
+<span class="n">d</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">httpd</span> <span class="mi">0755</span> <span class="n">rmap</span> <span class="n">rmap</span> <span class="o">-</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span>
+<span class="n">chmod</span> <span class="n">go</span><span class="o">+</span><span class="n">rx</span> <span class="o">/</span><span class="n">rmap</span>
+</pre></div>
+</div>
+<p>/etc/sysconfig/crond:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CRONDARGS</span><span class="o">=-</span><span class="n">s</span> <span class="o">-</span><span class="n">m</span> <span class="n">off</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rmap</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="postgresql">
+<h2>postgresql<a class="headerlink" href="#postgresql" title="Link a questa intestazione">¶</a></h2>
+<p>dnf module disable postgresql:10 dnf module enable postgresql:12 dnf
+install postgresql-server postgresql-contrib dnf install
+python3-psycopg2</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">postgresql</span><span class="o">-</span><span class="n">setup</span> <span class="o">--</span><span class="n">initdb</span> <span class="o">--</span><span class="n">unit</span> <span class="n">postgresql</span>
+</pre></div>
+</div>
+<p>/var/lib/pgsql/data/pg_hba.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TYPE  DATABASE        USER            ADDRESS                 METHOD</span>
+<span class="c1"># &quot;local&quot; is for Unix domain socket connections only</span>
+<span class="c1"># allow postgres user to use &quot;ident&quot; authentication on Unix sockets</span>
+<span class="n">local</span>   <span class="nb">all</span>             <span class="n">postgres</span>           <span class="n">ident</span>
+<span class="c1"># allow all other users to use &quot;md5&quot; authentication on Unix sockets</span>
+<span class="n">local</span>   <span class="nb">all</span>             <span class="nb">all</span>                                     <span class="n">md5</span>
+<span class="c1"># IPv4 local connections:</span>
+<span class="n">host</span>    <span class="nb">all</span>             <span class="nb">all</span>             <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">32</span>            <span class="n">md5</span>
+<span class="c1"># IPv6 local connections:</span>
+<span class="n">host</span>    <span class="nb">all</span>             <span class="nb">all</span>             <span class="p">::</span><span class="mi">1</span><span class="o">/</span><span class="mi">128</span>                 <span class="n">md5</span>
+</pre></div>
+</div>
+<p>/var/lib/pgsql/data/postgresql.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">max_connections</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">shared_buffers</span> <span class="o">=</span> <span class="mi">128</span><span class="n">MB</span>
+<span class="n">work_mem</span> <span class="o">=</span> <span class="mi">100</span><span class="n">MB</span>
+<span class="n">maintenance_work_mem</span> <span class="o">=</span> <span class="mi">200</span><span class="n">MB</span>
+<span class="n">effective_cache_size</span> <span class="o">=</span> <span class="mi">1</span><span class="n">GB</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">postgresql</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">d</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>/etc/systemd/system/postgresql.service.d/rmap.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="c1"># Location of database directory</span>
+<span class="n">Environment</span><span class="o">=</span><span class="n">PGDATA</span><span class="o">=/</span><span class="n">rmap</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="n">data</span>
+
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span>
+<span class="n">chown</span> <span class="n">postgres</span><span class="p">:</span><span class="n">postgres</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span>
+<span class="n">mv</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="n">data</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span>
+
+<span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+<span class="n">initdb</span>
+<span class="n">exit</span>
+
+<span class="n">systemctl</span> <span class="n">enable</span> <span class="n">postgresql</span><span class="o">.</span><span class="n">service</span>
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">postgresql</span><span class="o">.</span><span class="n">service</span>
+
+<span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+<span class="n">createuser</span> <span class="o">-</span><span class="n">P</span> <span class="o">-</span><span class="n">e</span> <span class="n">rmapadmin</span>
+<span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmapadmin</span> <span class="n">rmapadmin</span>
+<span class="n">exit</span>
+</pre></div>
+</div>
+<p>/etc/rmap/rmap-site.cfg</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">database</span><span class="p">]</span>
+<span class="n">DATABASE_ENGINE</span> <span class="o">=</span> <span class="s1">&#39;postgresql_psycopg2&#39;</span> <span class="c1"># &#39;postgresql_psycopg2&#39;, &#39;postgresql&#39;, &#39;mysql&#39;, &#39;sqlite3&#39; or &#39;ado_mssql&#39;.</span>
+<span class="n">DATABASE_NAME</span> <span class="o">=</span> <span class="s1">&#39;rmapadmin&#39;</span>             <span class="c1"># Or path to database file if using sqlite3.</span>
+<span class="n">DATABASE_USER</span> <span class="o">=</span> <span class="s1">&#39;rmapadmin&#39;</span>             <span class="c1"># Not used with sqlite3.</span>
+<span class="n">DATABASE_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;rmapadmin&#39;</span>         <span class="c1"># Not used with sqlite3.</span>
+<span class="n">DATABASE_HOST</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>             <span class="c1"># Set to empty string for localhost. Not used with sqlite3.</span>
+<span class="n">DATABASE_PORT</span> <span class="o">=</span> <span class="s1">&#39;5432&#39;</span>                  <span class="c1"># Set to empty string for default. Not used with sqlite3.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">syncdb</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+<span class="n">createuser</span> <span class="o">-</span><span class="n">P</span> <span class="o">-</span><span class="n">e</span> <span class="n">rmap</span>
+<span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">report_fixed</span>
+<span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">report_mobile</span>
+<span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">sample_fixed</span>
+<span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">sample_mobile</span>
+
+<span class="n">exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="apache">
+<h2>apache<a class="headerlink" href="#apache" title="Link a questa intestazione">¶</a></h2>
+<p>Collect static files from django apps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">global_static</span>
+<span class="n">export</span> <span class="n">DJANGO_SETTINGS_MODULE</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">settings</span>
+<span class="n">django</span><span class="o">-</span><span class="n">admin</span> <span class="n">collectstatic</span>
+<span class="n">rmdir</span> <span class="n">global_static</span>
+
+<span class="n">yum</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">mod_wsgi</span>
+
+<span class="n">useradd</span> <span class="o">-</span><span class="n">r</span> <span class="n">rmap</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">cache</span>
+<span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">cache</span>
+</pre></div>
+</div>
+<p>/etc/httpd/conf.modules.d/00-mpm.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>LoadModule mpm_worker_module modules/mod_mpm_worker.so``
+
+#StartServers          2
+#MaxClients          150
+#MinSpareThreads      25
+#MaxSpareThreads      75
+#ThreadsPerChild      25
+#MaxRequestsPerChild   0
+ServerLimit         16
+StartServers         2
+MaxRequestWorkers  150
+MinSpareThreads     10
+MaxSpareThreads     35
+ThreadsPerChild     15
+MaxRequestWorkers      240
+MaxConnectionsPerChild 10000
+</pre></div>
+</div>
+<p>/etc/httpd/conf.d/rmap.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ServerName</span> <span class="n">rmap</span><span class="o">.</span><span class="n">it</span>
+<span class="n">WSGISocketPrefix</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wsgirmap</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">WSGIDaemonProcess</span> <span class="n">www</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="n">user</span><span class="o">=</span><span class="n">rmap</span> <span class="n">group</span><span class="o">=</span><span class="n">rmap</span> <span class="n">maximum</span><span class="o">-</span><span class="n">requests</span><span class="o">=</span><span class="mi">100</span> <span class="n">graceful</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="mi">200</span> <span class="n">processes</span><span class="o">=</span><span class="mi">10</span> <span class="n">threads</span><span class="o">=</span><span class="mi">5</span> <span class="n">request</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="mi">180</span> <span class="n">socket</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="mi">180</span> <span class="n">header</span><span class="o">-</span><span class="n">buffer</span><span class="o">-</span>  <span class="n">size</span><span class="o">=</span><span class="mi">65000</span>
+<span class="n">WSGIProcessGroup</span> <span class="n">www</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span>
+<span class="n">WSGIApplicationGroup</span> <span class="o">%</span><span class="p">{</span><span class="n">GLOBAL</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">80</span> <span class="o">&gt;</span>
+<span class="n">ServerName</span> <span class="n">rmap</span><span class="o">.</span><span class="n">it</span>
+<span class="n">ServerAlias</span> <span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="n">rmapv</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="n">rmapv</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">it</span> <span class="n">www</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="n">www</span><span class="o">.</span><span class="n">rmapv</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="n">www</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">it</span> <span class="n">www</span><span class="o">.</span><span class="n">rmapv</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">it</span> <span class="n">localhost</span> <span class="n">localhost</span><span class="o">.</span><span class="n">localdomain</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="n">partecipa</span><span class="o">.</span><span class="n">rainbolife</span><span class="o">.</span><span class="n">eu</span>
+<span class="n">Include</span> <span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">rmap</span><span class="o">.</span><span class="n">inc</span>
+</pre></div>
+</div>
+<p>/etc/httpd/conf.d/rmap.inc</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Alias</span> <span class="o">/</span><span class="n">download</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">download</span>
+<span class="n">Alias</span> <span class="o">/</span><span class="n">repo</span>     <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">repo</span>
+<span class="n">Alias</span> <span class="o">/</span><span class="n">showroom</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">showroom</span>
+<span class="n">Alias</span> <span class="o">/</span><span class="n">arkiweb</span>  <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">arkiweb</span>
+
+<span class="c1">#Alias /static/admin /usr/lib/python2.7/site-packages/django/contrib/admin/static/admin</span>
+<span class="c1">#&lt;Directory &quot;/usr/lib/python2.7/site-packages/django/contrib/admin/static/admin&quot;&gt;</span>
+<span class="c1">#        Require all granted</span>
+<span class="c1">#&lt;/Directory&gt;</span>
+
+<span class="n">Alias</span> <span class="o">/</span><span class="n">static</span>   <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">static</span>
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">static</span><span class="o">&gt;</span>
+  <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
+  <span class="n">SetHandler</span> <span class="kc">None</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+
+<span class="n">Alias</span> <span class="o">/</span><span class="n">media</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span>
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span><span class="o">&gt;</span>
+  <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
+  <span class="n">SetHandler</span> <span class="kc">None</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+
+<span class="n">WSGIScriptAlias</span> <span class="o">/</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rmap</span><span class="o">.</span><span class="n">wsgi</span>
+<span class="c1">#WSGIImportScript /usr/bin/rmap.wsgi process-group=%{GLOBAL} application-group=%{GLOBAL}</span>
+<span class="c1">#WSGIPythonPath /path/to/mysite.com</span>
+
+<span class="c1">#WSGIDaemonProcess rmap processes=5 threads=5</span>
+<span class="c1">#WSGIDaemonProcess rmap</span>
+<span class="c1">#WSGIProcessGroup rmap</span>
+
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Files</span> <span class="n">rmap</span><span class="o">.</span><span class="n">wsgi</span><span class="o">&gt;</span>
+    <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
+  <span class="o">&lt;/</span><span class="n">Files</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">Location</span> <span class="o">/</span><span class="n">auth</span><span class="o">&gt;</span>
+  <span class="n">Order</span> <span class="n">Deny</span><span class="p">,</span><span class="n">Allow</span>
+  <span class="n">Deny</span> <span class="kn">from</span> <span class="nn">all</span>
+  <span class="n">Allow</span> <span class="kn">from</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="o">&lt;/</span><span class="n">Location</span><span class="o">&gt;</span>
+
+<span class="n">SecRuleEngine</span> <span class="n">On</span>
+
+<span class="c1">#The first SecAction initializes the state, in this case by IP address.</span>
+<span class="c1">#The second SecAction deprecates the counter by 1 every 60 second.</span>
+<span class="c1">#This is setting the base rate of our rate limit</span>
+<span class="c1">#Then the Header definition ensures a header is set whenever a request</span>
+<span class="c1">#is rate limited, giving a hint to the client that they shouldn’t try</span>
+<span class="c1">#again for 10 seconds. This is obviously just a guide and a lot of</span>
+<span class="c1">#clients don’t implement it (and it’s really only valid on a 503 status</span>
+<span class="c1">#anyway) so it’s a little bit of wishful thinking really.</span>
+<span class="c1">#Then we define a neat ErrorDocument for the 509 response to give a better clue to the client about what is happening.</span>
+
+
+<span class="o">&lt;</span><span class="n">Location</span> <span class="o">/</span><span class="n">borinud</span><span class="o">&gt;</span>
+
+<span class="c1"># whitelist localhost</span>
+<span class="c1">#SecRule REMOTE_ADDR &quot;@contains 127.0.0.1&quot; &quot;id:1,phase:1,nolog,allow,ctl:ruleEngine=Off&quot;</span>
+<span class="n">SecRule</span> <span class="n">REMOTE_ADDR</span> <span class="s2">&quot;^127.0.0.1$&quot;</span> <span class="n">nolog</span><span class="p">,</span><span class="n">allow</span><span class="p">,</span><span class="nb">id</span><span class="p">:</span><span class="mi">1</span>
+
+<span class="c1"># initialise the state based on ip address</span>
+<span class="n">SecAction</span> <span class="nb">id</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="n">initcol</span><span class="p">:</span><span class="n">IP</span><span class="o">=%</span><span class="p">{</span><span class="n">REMOTE_ADDR</span><span class="p">}</span>
+
+<span class="c1"># set the base rate to one per 15 minutes</span>
+<span class="n">SecAction</span> <span class="nb">id</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">deprecatevar</span><span class="p">:</span><span class="n">IP</span><span class="o">.</span><span class="n">CALLS_LIMIT</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">900</span>
+
+<span class="c1"># if greater then burst_rate_limit then pause set RATELIMITED var and then return 503</span>
+<span class="n">SecRule</span> <span class="n">IP</span><span class="p">:</span><span class="n">CALLS_LIMIT</span> <span class="s2">&quot;@gt 60&quot;</span> <span class="s2">&quot;id:4,phase:2,pause:300,deny,status:503,setenv:RATELIMITED,skip:1&quot;</span>
+
+<span class="c1"># if above rule doesnt match increment the count</span>
+<span class="n">SecAction</span> <span class="nb">id</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="n">setvar</span><span class="p">:</span><span class="n">IP</span><span class="o">.</span><span class="n">CALLS_LIMIT</span><span class="o">=+</span><span class="mi">1</span>
+
+<span class="c1"># set a header when ratelimited</span>
+<span class="n">Header</span> <span class="n">always</span> <span class="nb">set</span> <span class="n">Retry</span><span class="o">-</span><span class="n">After</span> <span class="s2">&quot;10&quot;</span> <span class="n">env</span><span class="o">=</span><span class="n">RATELIMITED</span>
+
+<span class="o">&lt;/</span><span class="n">Location</span><span class="o">&gt;</span>
+
+<span class="n">ErrorDocument</span> <span class="mi">503</span> <span class="s2">&quot;Service Unavailable&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chkconfig httpd on``
+service httpd start``
+</pre></div>
+</div>
+</div>
+<div class="section" id="arkimet">
+<h2>Arkimet<a class="headerlink" href="#arkimet" title="Link a questa intestazione">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">arkimet</span> <span class="n">arkimet</span><span class="o">-</span><span class="n">postprocessor</span><span class="o">-</span><span class="n">suite</span>
+<span class="n">useradd</span>  <span class="o">-</span><span class="n">r</span> <span class="n">arkimet</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">arkimet</span>
+<span class="n">chown</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">arkimet</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">arkimet</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
+<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">arkimet</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">arkimet</span>
+<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">arkimet</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">arkimet</span>
+</pre></div>
+</div>
+<p>/etc/sysconfig/arkimet</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DATASET_CONFIG</span><span class="o">=</span><span class="s2">&quot;/rmap/arkimet/arkimet.conf&quot;</span>
+</pre></div>
+</div>
+<p>Create file /etc/arkimet/scan/bufr_generic_mobile_rmap.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">arkimet.scan.bufr</span> <span class="k">import</span> <span class="n">Scanner</span><span class="p">,</span> <span class="n">read_area_mobile</span><span class="p">,</span> <span class="n">read_proddef</span>
+
+
+<span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">report</span> <span class="o">==</span> <span class="s2">&quot;mobile&quot;</span><span class="p">:</span>
+       <span class="n">area</span> <span class="o">=</span> <span class="n">read_area_mobile</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+       <span class="n">proddef</span> <span class="o">=</span> <span class="n">read_proddef</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+       <span class="k">if</span> <span class="n">area</span><span class="p">:</span>
+           <span class="n">md</span><span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;GRIB&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">area</span><span class="p">}</span>
+       <span class="k">if</span> <span class="n">proddef</span><span class="p">:</span>
+           <span class="n">md</span><span class="p">[</span><span class="s2">&quot;proddef&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;GRIB&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">proddef</span><span class="p">}</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="n">Scanner</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;generic&quot;</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">daemon</span><span class="o">-</span><span class="n">reload</span>
+<span class="n">chkconfig</span> <span class="n">arkimet</span> <span class="n">on</span>
+<span class="n">service</span> <span class="n">arkimet</span> <span class="n">start</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sincronizzazione-db">
+<h2>Sincronizzazione DB<a class="headerlink" href="#sincronizzazione-db" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="server-di-origine">
+<h3>Server di origine<a class="headerlink" href="#server-di-origine" title="Link a questa intestazione">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">dumpdata</span> <span class="o">&gt;</span> <span class="n">dumpdata</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>rimuovere le prime righe che non sono json</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dbadb</span> <span class="n">export</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;mysql:///report_fixed?user=rmap&amp;password=****&quot;</span> <span class="o">&gt;</span> <span class="n">report_fixed</span><span class="o">.</span><span class="n">bufr</span>
+<span class="n">dbadb</span> <span class="n">export</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;mysql:///report_mobile?user=rmap&amp;password=****&quot;</span> <span class="o">&gt;</span> <span class="n">report_mobile</span><span class="o">.</span><span class="n">bufr</span>
+<span class="n">dbadb</span> <span class="n">export</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;mysql:///sample_fixed?user=rmap&amp;password=****&quot;</span> <span class="o">&gt;</span> <span class="n">sample_fixed</span><span class="o">.</span><span class="n">bufr</span>
+<span class="n">dbadb</span> <span class="n">export</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;mysql:///sample_mobile?user=rmap&amp;password=****&quot;</span> <span class="o">&gt;</span> <span class="n">sample_mobile</span><span class="o">.</span><span class="n">bufr</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="server-di-destinazione">
+<h3>Server di destinazione<a class="headerlink" href="#server-di-destinazione" title="Link a questa intestazione">¶</a></h3>
+<p>Da interfaccia web admin rimuovere TUTTI gli utenti (compreso rmap)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">loaddata</span><span class="o">=</span><span class="n">dumpdata</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dbadb</span> <span class="kn">import</span> <span class="o">--</span><span class="n">wipe</span><span class="o">-</span><span class="n">first</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;postgresql://rmap:***@localhost/report_fixed&quot;</span> <span class="n">report_fixed</span><span class="o">.</span><span class="n">bufr</span>
+<span class="n">dbadb</span> <span class="kn">import</span> <span class="o">--</span><span class="n">wipe</span><span class="o">-</span><span class="n">first</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;postgresql://rmap:***@localhost/report_mobile&quot;</span> <span class="n">report_mobile</span><span class="o">.</span><span class="n">bufr</span>
+<span class="n">dbadb</span> <span class="kn">import</span> <span class="o">--</span><span class="n">wipe</span><span class="o">-</span><span class="n">first</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;postgresql://rmap:***@localhost/sample_mobile&quot;</span> <span class="n">sample_mobile</span><span class="o">.</span><span class="n">bufr</span>
+<span class="n">dbadb</span> <span class="kn">import</span> <span class="o">--</span><span class="n">wipe</span><span class="o">-</span><span class="n">first</span> <span class="o">--</span><span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;postgresql://rmap:***@localhost/sample_fixed&quot;</span> <span class="n">sample_fixed</span><span class="o">.</span><span class="n">bufr</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span>
+<span class="n">rsync</span> <span class="o">-</span><span class="n">av</span> <span class="n">utente</span><span class="nd">@serverorigine</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mosquitto">
+<h2>Mosquitto<a class="headerlink" href="#mosquitto" title="Link a questa intestazione">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
+<span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
+</pre></div>
+</div>
+<p>/etc/mosquitto/conf.d/rmap.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">persistent_client_expiration</span> <span class="mi">1</span><span class="n">d</span>
+<span class="n">allow_anonymous</span> <span class="n">true</span>
+<span class="n">password_file</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">pwfile</span>
+<span class="n">acl_file</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">aclfile</span>
+<span class="n">log_type</span> <span class="n">error</span>
+<span class="n">log_type</span> <span class="n">warning</span>
+<span class="n">auth_plugin</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">auth</span><span class="o">-</span><span class="n">plug</span><span class="o">.</span><span class="n">so</span>
+<span class="n">auth_opt_backends</span> <span class="n">http</span>
+<span class="n">auth_opt_http_hostname</span> <span class="n">localhost</span>
+<span class="n">auth_opt_http_ip</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">auth_opt_http_port</span> <span class="mi">80</span>
+<span class="n">auth_opt_http_getuser_uri</span> <span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">auth</span>
+<span class="n">auth_opt_http_superuser_uri</span> <span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">superuser</span>
+<span class="n">auth_opt_http_aclcheck_uri</span> <span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">acl</span>
+<span class="n">persistence</span> <span class="n">true</span>
+<span class="n">persistence_location</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>/etc/mosquitto/aclfile</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topic</span> <span class="n">read</span> <span class="c1">#</span>
+<span class="n">topic</span> <span class="n">write</span> <span class="n">test</span><span class="o">/</span><span class="c1">#</span>
+
+<span class="c1"># This only affects clients with username &quot;rmap&quot;.</span>
+<span class="n">user</span> <span class="n">rmap</span>
+<span class="n">topic</span> <span class="c1">#</span>
+
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">rmap</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">sample</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">report</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">fixed</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">mobile</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">maint</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+
+<span class="n">pattern</span> <span class="n">write</span> <span class="n">rpc</span><span class="o">/%</span><span class="n">u</span><span class="o">/</span><span class="c1">#</span>
+</pre></div>
+</div>
+<p>remove everythings and add in /etc/mosquitto/mosquitto.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include_dir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
+<span class="n">pid_file</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pid</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">pwfile</span>
+<span class="n">chkconfig</span> <span class="n">mosquitto</span> <span class="n">on</span>
+<span class="n">service</span> <span class="n">mosquitto</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>if the package use systemd:</p>
+<p>create /etc/systemd/system/mosquitto.service.d/rmap.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">always</span>
+<span class="n">RestartSec</span><span class="o">=</span><span class="mi">15</span>
+</pre></div>
+</div>
+<p>if the package use systemV:</p>
+<p>/etc/monit.d/mosquitto</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">check</span> <span class="n">process</span> <span class="n">mosquitto</span> <span class="k">with</span> <span class="n">pidfile</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pid</span>
+ <span class="n">start</span> <span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;/etc/init.d/mosquitto restart&quot;</span>
+ <span class="n">stop</span> <span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;/etc/init.d/mosquitto stop&quot;</span>
+ <span class="k">if</span> <span class="n">failed</span> <span class="n">host</span> <span class="n">localhost</span> <span class="n">port</span> <span class="mi">1883</span> <span class="n">timeout</span> <span class="mi">30</span> <span class="n">seconds</span> <span class="n">retry</span> <span class="mi">3</span> <span class="n">then</span> <span class="n">restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rabbitmq">
+<h2>Rabbitmq<a class="headerlink" href="#rabbitmq" title="Link a questa intestazione">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span><span class="n">bash</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">erlang</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">bash</span>
+
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p>in /etc/rabbitmq/rabbitmq.config</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span><span class="n">rabbit</span><span class="p">,</span>
+    <span class="p">[</span>
+      <span class="p">{</span><span class="n">auth_backends</span><span class="p">,</span> <span class="p">[</span><span class="n">rabbit_auth_backend_internal</span><span class="p">,</span> <span class="n">rabbit_auth_backend_http</span><span class="p">]},</span>
+      <span class="p">{</span><span class="n">loopback_users</span><span class="p">,</span> <span class="p">[]}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span><span class="n">rabbitmq_auth_backend_http</span><span class="p">,</span>
+    <span class="p">[{</span><span class="n">user_path</span><span class="p">,</span>     <span class="s2">&quot;http://localhost/auth/user&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="n">vhost_path</span><span class="p">,</span>    <span class="s2">&quot;http://localhost/auth/vhost&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="n">resource_path</span><span class="p">,</span> <span class="s2">&quot;http://localhost/auth/resource&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span><span class="o">.</span>
+
+
+<span class="n">rabbitmq</span><span class="o">-</span><span class="n">plugins</span> <span class="n">enable</span> <span class="n">rabbitmq_auth_backend_http</span>
+<span class="n">rabbitmq</span><span class="o">-</span><span class="n">plugins</span> <span class="n">enable</span> <span class="n">rabbitmq_management</span>
+<span class="c1">#rabbitmq-plugins enable rabbitmq_management_visualiser</span>
+<span class="n">rabbitmq</span><span class="o">-</span><span class="n">plugins</span> <span class="n">enable</span> <span class="n">rabbitmq_shovel</span>
+<span class="n">rabbitmq</span><span class="o">-</span><span class="n">plugins</span> <span class="n">enable</span> <span class="n">rabbitmq_shovel_management</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">on</span>
+<span class="n">service</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>login at management interface with user «guest» and password «guest»
+on overview page use import definition to configure exchange, queue and users
+with the same management interface remove «guest» user and login with a new real user</p>
+<p>Per attivare uno showell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rabbitmqctl</span> <span class="n">set_parameter</span> <span class="n">shovel</span> <span class="n">report_mobile</span> <span class="s1">&#39;{&quot;src-protocol&quot;: &quot;amqp091&quot;, &quot;src-uri&quot;: &quot;amqp://rmap:&lt;password&gt;@rmap.cc&quot;, &quot;src-queue&quot;: &quot;report_mobile_saved&quot;, &quot;dest-protocol&quot;: &quot;amqp091&quot;, &quot;dest-uri&quot;: &quot;amqp://rmap:&lt;password&gt;@&quot;, &quot;dest-queue&quot;: &quot;report_mobile&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>problema non risolto:
+se si trasferiscono dati scritti da un utente autenticandosi con un altro utente la security su user_id lo vieta.
+<a class="reference external" href="https://www.rabbitmq.com/shovel-dynamic.html">https://www.rabbitmq.com/shovel-dynamic.html</a>
+bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-properties» nel formato json sopra ma non funziona</p>
+</div>
+<div class="section" id="monit">
+<h2>Monit<a class="headerlink" href="#monit" title="Link a questa intestazione">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
+</pre></div>
+</div>
+<p>comment everithings and add in /etc/monitrc</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">daemon</span>  <span class="mi">60</span>              <span class="c1"># check services at 1-minute intervals</span>
+<span class="nb">set</span> <span class="n">log</span> <span class="n">syslog</span>
+<span class="nb">set</span> <span class="n">httpd</span> <span class="n">port</span> <span class="mi">5925</span> <span class="ow">and</span>
+   <span class="n">allow</span> <span class="n">rmap</span><span class="p">:</span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>        <span class="c1"># require user &#39;admin&#39; with password &#39;monit&#39;</span>
+   <span class="n">allow</span> <span class="nd">@monit</span>           <span class="c1"># allow users of group &#39;monit&#39; to connect (rw)</span>
+   <span class="n">allow</span> <span class="nd">@users</span> <span class="n">readonly</span>  <span class="c1"># allow users of group &#39;users&#39; to connect readonly</span>
+<span class="n">include</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monit</span><span class="o">.</span><span class="n">d</span><span class="o">/*</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monit</span><span class="o">.</span><span class="n">d</span><span class="o">/</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="nb">map</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monit</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">rmap</span>
+
+<span class="n">chkconfig</span> <span class="n">monit</span> <span class="n">on</span>
+<span class="n">service</span> <span class="n">monit</span> <span class="n">start</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cron">
+<h2>Cron<a class="headerlink" href="#cron" title="Link a questa intestazione">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="nb">map</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">arpae_aq_ckan</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="nb">map</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">dballe2arkimet</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="nb">map</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">luftdaten</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="nb">map</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">server</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">rmap_generate_summary_cache</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arkiweb">
+<h2>Arkiweb<a class="headerlink" href="#arkiweb" title="Link a questa intestazione">¶</a></h2>
+<p>AL MOMENTO NON DISPONIBILE SU CENTOS 8
+NOT AVAILABLE ON CENTOS 8</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">arkiweb</span>
+</pre></div>
+</div>
+<p>/etc/httpd/conf.d/arkiweb.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScriptAlias</span> <span class="o">/</span><span class="n">services</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">/</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">/</span>
+<span class="n">Alias</span> <span class="o">/</span><span class="n">arkiweb</span>  <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">arkiweb</span>
+
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;/usr/lib64/arkiweb&quot;</span><span class="o">&gt;</span>
+       <span class="n">AllowOverride</span> <span class="kc">None</span>
+       <span class="n">Options</span> <span class="o">+</span><span class="n">ExecCGI</span>
+
+       <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+       <span class="n">Allow</span> <span class="kn">from</span> <span class="nn">all</span>
+
+       <span class="c1"># ARKIWEB_CONFIG is mandatory!</span>
+       <span class="n">SetEnv</span> <span class="n">ARKIWEB_CONFIG</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">.</span><span class="n">config</span>
+
+
+       <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
+
+       <span class="c1"># Authentication (optional)</span>
+       <span class="c1">#</span>
+       <span class="c1"># Basic authentication example:</span>
+       <span class="c1"># SetEnv ARKIWEB_RESTRICT REMOTE_USER</span>
+       <span class="c1"># AuthType Basic</span>
+       <span class="c1"># AuthUserFile /etc/arkiweb.passwords</span>
+       <span class="c1"># require valid-user</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+
+<span class="n">Alias</span> <span class="o">/</span><span class="n">arkiwebjs</span><span class="o">/</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">/</span><span class="n">public</span><span class="o">/</span>
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;/usr/share/arkiweb/public&quot;</span><span class="o">&gt;</span>
+          <span class="c1">#Require all granted</span>
+          <span class="n">AllowOverride</span> <span class="kc">None</span>
+
+          <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+          <span class="n">Allow</span> <span class="kn">from</span> <span class="nn">all</span>
+
+          <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
+
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">/</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">arkiweb</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>/rmap/arkimet/arkiweb.config</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">arpav</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">12.3693200000000001</span> <span class="mf">44.9166299999999978</span><span class="p">,</span> <span class="mf">11.3025699999999993</span> <span class="mf">45.0306599999999975</span><span class="p">,</span> <span class="mf">11.0090299999999992</span> <span class="mf">45.2172600000000031</span><span class="p">,</span> <span class="mf">10.8328900000000008</span> <span class="mf">45.3717499999999987</span><span class="p">,</span> <span class="mf">10.7659300000000009</span> <span class="mf">45.5176999999999978</span><span class="p">,</span> <span class="mf">11.8763699999999996</span> <span class="mf">46.4992599999999996</span><span class="p">,</span> <span class="mf">12.4241600000000005</span> <span class="mf">46.6514799999999994</span><span class="p">,</span> <span class="mf">12.7082800000000002</span> <span class="mf">46.5699699999999979</span><span class="p">,</span> <span class="mf">13.0772700000000004</span> <span class="mf">45.6406399999999977</span><span class="p">,</span> <span class="mf">12.3693200000000001</span> <span class="mf">44.9166299999999978</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">arpav</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">arpav</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">arpav</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">meteonetwork</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">12.0994399999999995</span> <span class="mf">43.7931499999999971</span><span class="p">,</span> <span class="mf">9.8880599999999994</span> <span class="mf">44.5129299999999972</span><span class="p">,</span> <span class="mf">9.4983599999999999</span> <span class="mf">44.6443500000000029</span><span class="p">,</span> <span class="mf">9.4705399999999997</span> <span class="mf">44.6982100000000031</span><span class="p">,</span> <span class="mf">9.4444999999999997</span> <span class="mf">44.9392799999999966</span><span class="p">,</span> <span class="mf">9.4909800000000004</span> <span class="mf">45.0587200000000010</span><span class="p">,</span> <span class="mf">11.8647899999999993</span> <span class="mf">46.5125900000000030</span><span class="p">,</span> <span class="mf">12.1300000000000008</span> <span class="mf">46.5499999999999972</span><span class="p">,</span> <span class="mf">12.9021600000000003</span> <span class="mf">45.6111099999999965</span><span class="p">,</span> <span class="mf">12.7495600000000007</span> <span class="mf">43.9628200000000007</span><span class="p">,</span> <span class="mf">12.6686999999999994</span> <span class="mf">43.8718500000000020</span><span class="p">,</span> <span class="mf">12.6577099999999998</span> <span class="mf">43.8649699999999996</span><span class="p">,</span> <span class="mf">12.0994399999999995</span> <span class="mf">43.7931499999999971</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">mnw</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">meteonetwork</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">meteonetwork</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">opendata</span><span class="o">-</span><span class="n">er</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">1.1372199999999999</span> <span class="mf">4.4391400000000001</span><span class="p">,</span> <span class="mf">8.4514200000000006</span> <span class="mf">44.2992399999999975</span><span class="p">,</span> <span class="mf">9.2314900000000009</span> <span class="mf">44.8656700000000015</span><span class="p">,</span> <span class="mf">9.5297699999999992</span> <span class="mf">45.0566800000000001</span><span class="p">,</span> <span class="mf">9.7055399999999992</span> <span class="mf">45.0605199999999968</span><span class="p">,</span> <span class="mf">11.8957999999999995</span> <span class="mf">44.9680000000000035</span><span class="p">,</span> <span class="mf">12.1221499999999995</span> <span class="mf">44.9429000000000016</span><span class="p">,</span> <span class="mf">12.2213899999999995</span> <span class="mf">44.8950600000000009</span><span class="p">,</span> <span class="mf">12.7393999999999998</span> <span class="mf">43.9584699999999984</span><span class="p">,</span> <span class="mf">1.1372199999999999</span> <span class="mf">4.4391400000000001</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">spdsra</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">locali</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">agrmet</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">profe</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">simnpr</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">simnbo</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">rer</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">simc</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">urbane</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">arpae</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">boa</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">cer</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">provpc</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">syrep</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">umsuol</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">opendata</span><span class="o">-</span><span class="n">er</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">opendata</span><span class="o">-</span><span class="n">er</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">opendata</span><span class="o">-</span><span class="n">aq</span><span class="o">-</span><span class="n">er</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">1.1372199999999999</span> <span class="mf">4.4391400000000001</span><span class="p">,</span> <span class="mf">8.4514200000000006</span> <span class="mf">44.2992399999999975</span><span class="p">,</span> <span class="mf">9.2314900000000009</span> <span class="mf">44.8656700000000015</span><span class="p">,</span> <span class="mf">9.5297699999999992</span> <span class="mf">45.0566800000000001</span><span class="p">,</span> <span class="mf">9.7055399999999992</span> <span class="mf">45.0605199999999968</span><span class="p">,</span> <span class="mf">11.8957999999999995</span> <span class="mf">44.9680000000000035</span><span class="p">,</span> <span class="mf">12.1221499999999995</span> <span class="mf">44.9429000000000016</span><span class="p">,</span> <span class="mf">12.2213899999999995</span> <span class="mf">44.8950600000000009</span><span class="p">,</span> <span class="mf">12.7393999999999998</span> <span class="mf">43.9584699999999984</span><span class="p">,</span> <span class="mf">1.1372199999999999</span> <span class="mf">4.4391400000000001</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">arpae</span><span class="o">-</span><span class="n">aq</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">opendata</span><span class="o">-</span><span class="n">aq</span><span class="o">-</span><span class="n">er</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">opendata</span><span class="o">-</span><span class="n">er</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">luftdaten</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">1.1372199999999999</span> <span class="mf">4.4391400000000001</span><span class="p">,</span> <span class="mf">8.4514200000000006</span> <span class="mf">44.2992399999999975</span><span class="p">,</span> <span class="mf">9.2314900000000009</span> <span class="mf">44.8656700000000015</span><span class="p">,</span> <span class="mf">9.5297699999999992</span> <span class="mf">45.0566800000000001</span><span class="p">,</span> <span class="mf">9.7055399999999992</span> <span class="mf">45.0605199999999968</span><span class="p">,</span> <span class="mf">11.8957999999999995</span> <span class="mf">44.9680000000000035</span><span class="p">,</span> <span class="mf">12.1221499999999995</span> <span class="mf">44.9429000000000016</span><span class="p">,</span> <span class="mf">12.2213899999999995</span> <span class="mf">44.8950600000000009</span><span class="p">,</span> <span class="mf">12.7393999999999998</span> <span class="mf">43.9584699999999984</span><span class="p">,</span> <span class="mf">1.1372199999999999</span> <span class="mf">4.4391400000000001</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">luftdaten</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">luftdaten</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">luftdaten</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">report_fixed</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">11.2500000000000000</span> <span class="mf">44.3458499999999987</span><span class="p">,</span> <span class="mf">11.2939500000000006</span> <span class="mf">44.5252300000000005</span><span class="p">,</span> <span class="mf">11.5576200000000000</span> <span class="mf">44.8620999999999981</span><span class="p">,</span> <span class="mf">11.6186500000000006</span> <span class="mf">44.8371899999999997</span><span class="p">,</span> <span class="mf">11.6233599999999999</span> <span class="mf">44.6534600000000026</span><span class="p">,</span> <span class="mf">11.6230100000000007</span> <span class="mf">44.6530500000000004</span><span class="p">,</span> <span class="mf">11.2500000000000000</span> <span class="mf">44.3458499999999987</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">rmap</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">fixed</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">report_fixed</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">report_fixed</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">report_mobile</span><span class="p">]</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">rmap</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">mobile</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">report_mobile</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">report_mobile</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+
+<span class="p">[</span><span class="n">sample_fixed</span><span class="p">]</span>
+<span class="n">bounding</span> <span class="o">=</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">0.0000000000000000</span> <span class="mf">0.0000000000000000</span><span class="p">,</span> <span class="mf">9.1569500000000001</span> <span class="mf">45.4436499999999981</span><span class="p">,</span> <span class="mf">9.1570599999999995</span> <span class="mf">45.4440700000000035</span><span class="p">,</span> <span class="mf">11.6006800000000005</span> <span class="mf">46.3956500000000034</span><span class="p">,</span>   <span class="mf">11.6742399999999993</span> <span class="mf">46.4202500000000029</span><span class="p">,</span> <span class="mf">11.6745000000000001</span> <span class="mf">46.4202900000000014</span><span class="p">,</span> <span class="mf">11.6747899999999998</span> <span class="mf">46.4201400000000035</span><span class="p">,</span> <span class="mf">12.4200400000000002</span> <span class="mf">44.1349099999999979</span><span class="p">,</span> <span class="mf">12.4458099999999998</span>  <span class="mf">43.9353399999999965</span><span class="p">,</span> <span class="mf">12.5000000000000000</span> <span class="mf">41.8999999999999986</span><span class="p">,</span> <span class="mf">0.0000000000000000</span> <span class="mf">0.0000000000000000</span><span class="p">))</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">rmap</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">fixed</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">arpae</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">sample_fixed</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">sample_fixed</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+
+<span class="p">[</span><span class="n">sample_mobile</span><span class="p">]</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">product</span><span class="p">:</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">rmap</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">mobile</span> <span class="ow">or</span> <span class="n">BUFR</span><span class="p">:</span><span class="n">t</span><span class="o">=</span><span class="n">arpae</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">sample_mobile</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">sample_mobile</span>
+<span class="n">postprocess</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">bufr</span><span class="p">,</span> <span class="n">bufr</span><span class="o">-</span><span class="nb">filter</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">arkiserver</span><span class="p">:</span><span class="mi">8090</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">daily</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">remote</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">reftime</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">proddef</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_stima.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">RMAP e Stima</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigazione</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 2.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Server RMAP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installazione-sistema-operativo-centos-8">Installazione sistema operativo Centos 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#postgresql">postgresql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apache">apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arkimet">Arkimet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sincronizzazione-db">Sincronizzazione DB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server-di-origine">Server di origine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server-di-destinazione">Server di destinazione</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mosquitto">Mosquitto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rabbitmq">Rabbitmq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monit">Monit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cron">Cron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arkiweb">Arkiweb</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../stima_wifi/stima_wifi_howto.html" title="capitolo precedente">Stima-wifi</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Ricerca veloce</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Vai" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Various.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/server_rmap/server_rmap.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
