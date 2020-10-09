@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>RFC rmap versione 2.3 &#8212; RMAP e Stima 3 documentazione</title>
+    <title>RFC rmap versione 2.4 &#8212; RMAP e Stima 3 documentazione</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -34,11 +34,14 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="rfc-rmap-versione-2-3">
-<h1>RFC rmap versione 2.3<a class="headerlink" href="#rfc-rmap-versione-2-3" title="Link a questa intestazione">¶</a></h1>
+  <div class="section" id="rfc-rmap-versione-2-4">
+<h1>RFC rmap versione 2.4<a class="headerlink" href="#rfc-rmap-versione-2-4" title="Link a questa intestazione">¶</a></h1>
 <div class="section" id="storia-del-documento">
 <h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link a questa intestazione">¶</a></h2>
-<p>2019/06/18 v. 2.3 : aggiunte specifiche JSRPC</p>
+<ul class="simple">
+<li><p>2020/10/09 v. 2.4 : specificato il formato della data in json</p></li>
+<li><p>2019/06/18 v. 2.3 : aggiunte specifiche JSRPC</p></li>
+</ul>
 </div>
 <div class="section" id="definizioni">
 <h2>Definizioni<a class="headerlink" href="#definizioni" title="Link a questa intestazione">¶</a></h2>
@@ -941,11 +944,15 @@ la stazione è mobile, generalmente nullo per stazioni fisse).</p></li>
 <p>Le latitudini e longitudini devono essere scritte come coordinate
 geodetiche espresse in sessadecimale, come numero intero dopo aver
 moltiplicato per 10^5 (quindi espresso in 10^-5 gradi sessadecimali).</p>
-<p>L’istante di riferimento è il campo `datetime` (ISO 8601) che si
+<p>L’istante di riferimento è il campo `datetime` che si
 riferisce all’istante finale della misurazione. Di conseguenza, una
 precipitazione cumulata su 30 minuti con istante di riferimento
 «2015-08-05T12:00:00Z» è la precipitazione cumulata tra le 11:30:00Z e
-le 12:00:00Z del giorno 2015-08-05.</p>
+le 12:00:00Z del giorno 2015-08-05.
+Il formato è ISO 8601 con alcune limitazioni:
+<code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:MM:SSZ</span></code>. Uno spazio è accettato al posto di <code class="docutils literal notranslate"><span class="pre">T</span></code>,
+il carattere <code class="docutils literal notranslate"><span class="pre">Z</span></code> alla fine può essere omesso. Il formato
+<code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:MM:SSZ</span></code> rimane quello consigliato.</p>
 <p>I dati sono nel campo `data` sotto forma di array. Ogni elemento
 dell’array è un oggetto con i seguenti campi:</p>
 <ul class="simple">
@@ -1685,7 +1692,7 @@ agevolare molto il lavoro.</p>
 
 <h3>Navigazione</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.3</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.4</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
@@ -1779,6 +1786,8 @@ agevolare molto il lavoro.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server_rmap/server_rmap.html">Server RMAP</a></li>
 </ul>
 
 <div class="relations">
