@@ -39,6 +39,7 @@
 <div class="section" id="storia-del-documento">
 <h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link a questa intestazione">¶</a></h2>
 <ul class="simple">
+<li><p>2021/03/10 v. 2.6 : aggiunte alcune jsonrpc: prepare, getjson, prepandget</p></li>
 <li><p>2021/03/03 v. 2.5 : bug nella descrizione del livello; rimozione dei valori interi nel formato json;</p></li>
 <li><p>2020/10/09 v. 2.4 : specificato il formato della data in json</p></li>
 <li><p>2019/06/18 v. 2.3 : aggiunte specifiche JSRPC</p></li>
@@ -1391,8 +1392,70 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 </div>
 <p>reboot</p>
 <p>Richiede il riavvio della stazione</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>bool update: true=update firmware available on SDcard</p></li>
+</ul>
 <p>esempio:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;update&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>prepare</p>
+<p>Richiede l’attivazione di un sensore e inizio misurazione.</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>int    node: nodo per l’eventuale comunicazione radio</p></li>
+<li><p>char driver: nome del driver del sensore (trasporto) ( 3 caratteri)</p></li>
+<li><p>char   type: nome del tipo del sensore ( driver sensore) (3 caratteri)</p></li>
+<li><p>int address: indirizzo del sensore</p></li>
+</ul>
+<p>ritorna:</p>
+<ul class="simple">
+<li><p>int waittime: tempo di attesa prima di poter richiedere il risultato della misura (millisec)</p></li>
+</ul>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;prepare&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;node&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;driver&quot;</span><span class="p">:</span><span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="mi">72</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>getjson</p>
+<p>Richiede i valori delle misure; necessita una precedente rpc «prepare»</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>int    node: nodo per l’eventuale comunicazione radio</p></li>
+<li><p>char driver: nome del driver del sensore (trasporto) ( 3 caratteri)</p></li>
+<li><p>char   type: nome del tipo del sensore ( driver sensore) (3 caratteri)</p></li>
+<li><p>int address: indirizzo del sensore</p></li>
+</ul>
+<p>ritorna una serie di Bcode:value :</p>
+<ul class="simple">
+<li><p>char Bcode: codice della variabile come da tabella B</p></li>
+<li><p>int  value: valore della misura espresso come intero</p></li>
+</ul>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getjson&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;node&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;driver&quot;</span><span class="p">:</span><span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="mi">72</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{</span><span class="s2">&quot;B12101&quot;</span><span class="p">:</span><span class="mi">27315</span><span class="p">},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>prepandget</p>
+<p>Prepara il sensore per le misure e dopo apportuna attesa restituisce i valori delle misure.</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>int    node: nodo per l’eventuale comunicazione radio</p></li>
+<li><p>char driver: nome del driver del sensore (trasporto) ( 3 caratteri)</p></li>
+<li><p>char   type: nome del tipo del sensore ( driver sensore) (3 caratteri)</p></li>
+<li><p>int address: indirizzo del sensore</p></li>
+</ul>
+<p>ritorna una serie di Bcode:value :</p>
+<ul class="simple">
+<li><p>char Bcode: codice della variabile come da tabella B</p></li>
+<li><p>int  value: valore della misura espresso come intero</p></li>
+</ul>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;prepandget&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;node&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;driver&quot;</span><span class="p">:</span><span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="mi">72</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="n">torna</span><span class="p">:</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{</span><span class="s2">&quot;B12101&quot;</span><span class="p">:</span><span class="mi">27315</span><span class="p">},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
