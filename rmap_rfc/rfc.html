@@ -1292,7 +1292,7 @@ di conseguenza gli accessi.</p>
 <p>configure</p>
 <p>Configura la stazione.</p>
 <p>parametri:</p>
-<ul>
+<ul class="simple">
 <li><p>bool reset: se true riporta le configurazioni ai valori di default e
 rimuove ogni sensore precedentemente configurato; questa operazione è
 la prima ad essere effettuata dal server (default false)</p></li>
@@ -1315,16 +1315,16 @@ i messaggi di funzionamento (default «maint»)</p></li>
 (no default)</p></li>
 <li><p>array byte mac[6]: ethernet mac address (esempio: use (0,0,0,0,0,1)
 for board1, use (0,0,0,0,0,2) for board2 etc.) (no default)</p></li>
-<li><p>JSON object sd:
--  char btable: constant station data (e.g. station name and heigth)</p>
-<blockquote>
-<div><p>coded as described by bufr table B btable and written as string</p>
-</div></blockquote>
+<li><p>JSON object sd:</p>
+<ul>
+<li><p>char btable: constant station data (e.g. station name and heigth)
+coded as described by bufr table B btable and written as string</p></li>
+</ul>
 </li>
 <li><p>bool save: if true save configuration into permanent memory; questa
 operazione è l’ultima ad essere effettuata dal server (default false)</p></li>
 <li><p>array sens:</p>
-<ul class="simple">
+<ul>
 <li><p>char tr: timerange (esempio: «1,0,60») (no default)</p></li>
 <li><p>char lev: level (esempio «1,-,-,-«) (no default)</p></li>
 <li><p>char var: variabile tabella B (esempio «B13011») (no default)</p></li>

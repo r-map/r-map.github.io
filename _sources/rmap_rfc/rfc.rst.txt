@@ -1123,8 +1123,10 @@ parametri:
 -  array byte mac[6]: ethernet mac address (esempio: use (0,0,0,0,0,1)
    for board1, use (0,0,0,0,0,2) for board2 etc.) (no default)
 -  JSON object sd:
+   
    -  char btable: constant station data (e.g. station name and heigth)
       coded as described by bufr table B btable and written as string
+
 -  bool save: if true save configuration into permanent memory; questa
    operazione è l'ultima ad essere effettuata dal server (default false)
 -  array sens:
