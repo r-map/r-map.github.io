@@ -49,8 +49,7 @@ microcontrollore, è sufficiente un punto di saldatura sullo switch delle
 piste del circuito stampato della scheda, a patto di aver selezionato il
 giusto quarzo in funzione della tensione di alimentazione.</p>
 <p>Entrambe le board sono realizzate sullo standard UPIN-27.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_Core+_DE</p>
 </div>
 <div class="section" id="stima-i2c-base">
@@ -86,8 +85,7 @@ attraverso porta seriale.</p>
 <p>A causa dell’ingombro in altezza maggiorato rispetto ad una board
 standard dovuto al connettore a quattro pin, tale scheda è impilabile
 solamente attraverso l’adozione di due file di pin del tipo UPIN-27.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_BASE_DE</p>
 </div>
 <div class="section" id="stima-i2c-digital">
@@ -103,8 +101,7 @@ comune alle tre linee.</p>
 <p>A causa dell’ingombro in altezza maggiorato rispetto ad una board
 standard dovuto al connettore a quattro pin, tale scheda è impilabile
 solamente attraverso l’adozione di due file di pin del tipo UPIN-27.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_DIGITALE_DE</p>
 </div>
 <div class="section" id="stima-i2c-rtc">
@@ -127,8 +124,7 @@ essere convogliata su una delle tre linee digitali ad interrupt del
 microcontrollore, utilizzabile come segnale di risveglio per il
 microcontrollore impostato in risparmio energetico profondo, in modo
 tale da poter ridurre i consumi energetici dell’intera stazione.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_RTC_DE</p>
 </div>
 <div class="section" id="stima-i2c-ft232rl">
@@ -147,8 +143,7 @@ stesso quando non è alimentato da una fonte di alimentazione esterna.</p>
 <p>Tale tensione può o meno essere fornita al microcontrollore effettuando
 o meno una saldatura sul circuito stampato della board. L’intero modulo
 è realizzato secondo lo standard UPIN-27.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_FT232R_DE</p>
 </div>
 <div class="section" id="stima-sd-card">
@@ -158,8 +153,7 @@ github rmap al seguente link:</p>
 microcontrollore permettendo il salvataggio dei dati dei sensori e
 l’upload del firmware con il bootloader Digitecoboot. L’intera board è
 anch’essa basata sullo standard UPIN-27.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_SD_DE</p>
 </div>
 <div class="section" id="stima-sim800c-power">
@@ -178,8 +172,7 @@ dalla tensione di alimentazione primaria di 5V.</p>
 standard dovuto alla componentistica elettronica, tale scheda è
 impilabile solamente attraverso l’adozione di una fila di pin del tipo
 UPIN-27.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_GSM_DE/SIM_shield_DE</p>
 </div>
 <div class="section" id="stima-sim800c-module">
@@ -195,7 +188,7 @@ Microduino.</p>
 necessario il suo utilizzo. L’operazione di accensione o spegnimento è
 effettuata ponendo a livello logico basso il pin dedicato del modulo per
 almeno un secondo. L’identificazione di tale pin è inserita nel file
-gsm_config.h nella cartella arduino/sketchbook/libraries/RmapConfig.</p>
+gsm_config.h nella cartella platformio/stima_ve/stima/include.</p>
 <p>Il modulo è provvisto di due led di stato che forniscono indicazioni sul
 funzionamento e sullo stato della rete. In particolare, osservando il
 modulo frontalmente, il led di sinistra:</p>
@@ -215,8 +208,7 @@ rete</p></li>
 <p>Si consiglia quindi di impilare per prima la board Stima SIM800C Power,
 di interporre un’ulteriore fila di pin del connettore UPIN-27 e di
 impilare in testa la board Stima SIM800C Module.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_GSM_DE/SIM800C_DE</p>
 </div>
 <div class="section" id="stima-i2c-hub">
@@ -257,8 +249,7 @@ garantendo molteplici topologie di collegamento dei moduli o dei
 sensori, facilitandone la connessione ed il cablaggio e dimenticandosi
 di calcolare di volta in volta i giusti valori di resistenze di pull-up
 e il massimo limite di capacità del bus I<sup>2</sup>C.</p>
-<p>Gli schemi elettrici realizzati in KiCad sono disponibili sul repository
-github rmap al seguente link:</p>
+<p>Gli schemi elettrici realizzati in KiCad sono disponibili nella cartella:</p>
 <p>kicad/r-map_v3/Microduino_HUB_DE</p>
 </div>
 <div class="section" id="regolatore-di-tensione-e-carica-della-batteria-con-bus-i2c-digitecopower">
@@ -486,15 +477,6 @@ pluviometro.</p>
 </div>
 <div class="section" id="configurazioni-software-dei-moduli-stima">
 <h2>Configurazioni software dei moduli Stima<a class="headerlink" href="#configurazioni-software-dei-moduli-stima" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="configurazione-dellide-arduino">
-<h3>Configurazione dell’IDE Arduino<a class="headerlink" href="#configurazione-dellide-arduino" title="Link a questa intestazione">¶</a></h3>
-<p>La compilazione del firmware è testata con Arduino IDE versione 1.8.13.
-Per la compilazione del software è necessario settare lo sketchbook del
-progetto rmap nell’ide Arduino cliccando su File -&gt; Impostazioni e
-selezionando la cartella dello sketchbook facendo click su sfoglia in
-alto a destra. Successivamente cliccare su ok, chiudere l’ide per poi
-riaprirlo.</p>
-</div>
 <div class="section" id="installazione-del-software-per-la-configurazione">
 <h3>Installazione del software per la configurazione<a class="headerlink" href="#installazione-del-software-per-la-configurazione" title="Link a questa intestazione">¶</a></h3>
 <p>Installare Centos 8.</p>
@@ -508,66 +490,26 @@ riaprirlo.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="installazione-del-software-per-la-compilazione-dei-firmware">
+<h3>Installazione del software per la compilazione dei firmware<a class="headerlink" href="#installazione-del-software-per-la-compilazione-dei-firmware" title="Link a questa intestazione">¶</a></h3>
+<p>Per compilazione del firmware è necessario installare PlatformIO
+<a class="reference external" href="https://platformio.org">https://platformio.org</a></p>
+<p>Utilizzeremo per la copilazione i comandi a CLI tramite Command Line Tool.
+Quindi seguire le istruzioni a:
+<a class="reference external" href="https://platformio.org/install/cli">https://platformio.org/install/cli</a></p>
+</div>
+<div class="section" id="installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad">
+<h3>Installazione dei sorgenti dei firmware e dei progetti kicad<a class="headerlink" href="#installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad" title="Link a questa intestazione">¶</a></h3>
+<p>Scaricare e scompattare l’ultima release denominata Stima disponibile a:
+<a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a>
+ad esempio:
+<a class="reference external" href="https://github.com/r-map/rmap/archive/refs/tags/3.4.tar.gz">https://github.com/r-map/rmap/archive/refs/tags/3.4.tar.gz</a></p>
+</div>
 <div class="section" id="id1">
-<h3>Modulo Stima Ethernet<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Aprire lo sketch stima.ino nella cartella
-arduino/sketchbook/stima_v3/stima</p></li>
-<li><p>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima:</p>
-<ul class="simple">
-<li><p>Impostare la #define MODULE_TYPE con il valore
-STIMA_MODULE_TYPE_REPORT_ETH per definire una stazione di tipo
-report o STIMA_MODULE_TYPE_SAMPLE_ETH per definire una stazione di
-tipo sample</p></li>
-</ul>
-</li>
-<li><p>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:</p>
-<ul class="simple">
-<li><p>Settare la #define USE_JSON con il valore true</p></li>
-<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
-seconda dei sensori che si vuole abilitare o disabilitare</p></li>
-<li><p>Impostare il valore in decimi di mm di pioggia per ogni basculata
-del pluviometro nella #define RAIN_FOR_TIP</p></li>
-<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
-nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
-a disposizione, inserire quello più alto)</p></li>
-<li><p>Impostare il valore in minuti per il calcolo di un’osservazione
-nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
-<li><p>Impostare il numero di osservazioni necessarie a produrre un dato
-utile per il report nella #define STATISTICAL_DATA_COUNT (in
-genere 15)</p></li>
-</ul>
-</li>
-<li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>
-<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
-<li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
-stazione e rimuovere il jumper a configurazione terminata.</p></li>
-</ol>
-<p>Per la configurazione:</p>
-<ul class="simple">
-<li><p>Per ottenere una username e una password iscriversi al sito <a class="reference external" href="http://rmap.cc/registrazione/register/">http://rmap.cc/registrazione/register/</a></p></li>
-<li><p>Eventualmente (dopo la prima configurazione) ponticellare sulla scheda i pin «Set».</p></li>
-<li><p>Eseguire i comandi:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">syncdb</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">height</span><span class="o">=&lt;</span><span class="n">height</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=&lt;</span><span class="n">nome_descrittivo</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">lat</span><span class="o">=&lt;</span><span class="n">xx</span><span class="o">.</span><span class="n">xxxxx</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">lon</span><span class="o">=&lt;</span><span class="n">xx</span><span class="o">.</span><span class="n">xxxxx</span><span class="o">&gt;</span>  <span class="o">--</span><span class="n">mqttrootpath</span><span class="o">=</span><span class="n">report</span> <span class="o">--</span><span class="n">mqttmaintpath</span><span class="o">=</span><span class="n">maint</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="n">stima_report_thpb</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">upload_to_server</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">baudrate</span> <span class="mi">115200</span>
-
-<span class="n">sostituendo</span> <span class="n">i</span> <span class="n">valori</span> <span class="n">tra</span> <span class="o">&lt;&gt;</span> <span class="n">con</span> <span class="n">opportuni</span> <span class="n">valori</span><span class="o">.</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Rimuovere il ponticello ai pin «Set».</p></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3>Modulo Stima GSM/GPRS<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Aprire lo sketch stima.ino nella cartella
-arduino/sketchbook/stima_v3/stima</p></li>
+<h3>Modulo Stima GSM/GPRS<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<ol class="arabic">
+<li><p>Il progetto per platformio si trova in:
+platformio/stima_v3/stima</p></li>
 <li><p>Aprire il file stima-config.h in arduino/sketchbook/stima_v3/stima:</p>
 <ul class="simple">
 <li><p>Impostare la #define MODULE_TYPE con il valore
@@ -577,7 +519,7 @@ tipo sample</p></li>
 </ul>
 </li>
 <li><p>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:</p>
+platformio/stima_v3/stima/include:</p>
 <ul class="simple">
 <li><p>Settare la #define USE_JSON con il valore true</p></li>
 <li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
@@ -586,16 +528,12 @@ seconda dei sensori che si vuole abilitare o disabilitare</p></li>
 del pluviometro nella #define RAIN_FOR_TIP</p></li>
 </ul>
 </li>
-</ol>
-<ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Impostare il numero di valori da leggere per ogni singolo sensore
 nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
 a disposizione, inserire quello più alto)</p></li>
 </ul>
 </li>
-</ol>
-<ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Impostare il valore in minuti per il calcolo di un’osservazione
 nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
@@ -605,7 +543,7 @@ genere 15)</p></li>
 </ul>
 </li>
 <li><p>Aprire il file gsm_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:</p>
+platformio/stima_v3/stima/include:</p>
 <ul class="simple">
 <li><p>Settare la #define GSM_DEFAULT_APN con il valore dell’APN o con il
 valore di una delle #define predefinite ed incluse nel medesimo
@@ -613,43 +551,48 @@ file</p></li>
 </ul>
 </li>
 <li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>
-<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB
+tramite il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">platformio</span><span class="o">/</span><span class="n">stima_v3</span><span class="o">/</span><span class="n">stima</span>
+<span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">1284</span><span class="n">p16m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
+</pre></div>
+</div>
+</li>
 <li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
 stazione e rimuovere il jumper a configurazione terminata</p></li>
 </ol>
 <p>Per la configurazione:</p>
-<ul class="simple">
+<ul>
 <li><p>Per ottenere una username e una password iscriversi al sito <a class="reference external" href="http://rmap.cc/registrazione/register/">http://rmap.cc/registrazione/register/</a></p></li>
 <li><p>Eventualmente (dopo la prima configurazione) ponticellare sulla scheda i pin «Set».</p></li>
-<li><p>Eseguire i comandi:</p></li>
-</ul>
+<li><p>Eseguire i comandi:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">syncdb</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">height</span><span class="o">=&lt;</span><span class="n">height</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=&lt;</span><span class="n">nome_descrittivo</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">lat</span><span class="o">=&lt;</span><span class="n">xx</span><span class="o">.</span><span class="n">xxxxx</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">lon</span><span class="o">=&lt;</span><span class="n">xx</span><span class="o">.</span><span class="n">xxxxx</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttrootpath</span><span class="o">=</span><span class="n">report</span> <span class="o">--</span><span class="n">mqttmaintpath</span><span class="o">=</span><span class="n">maint</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">board_name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="n">stima_report_thpb</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">upload_to_server</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">baudrate</span> <span class="mi">115200</span>
-
-<span class="n">sostituendo</span> <span class="n">i</span> <span class="n">valori</span> <span class="o">&lt;&gt;</span> <span class="n">con</span> <span class="n">opportuni</span> <span class="n">valori</span><span class="o">.</span>
 </pre></div>
 </div>
-<ul class="simple">
+<p>sostituendo i valori &lt;&gt; con opportuni valori.</p>
+</li>
 <li><p>Rimuovere il ponticello ai pin «Set».</p></li>
 </ul>
 </div>
-<div class="section" id="modulo-stima-passive">
-<h3>Modulo Stima Passive<a class="headerlink" href="#modulo-stima-passive" title="Link a questa intestazione">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Aprire lo sketch stima.ino nella cartella
-arduino/sketchbook/stima_v3/stima</p></li>
-<li><p>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima:</p>
+<div class="section" id="id2">
+<h3>Modulo Stima Ethernet<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
+<ol class="arabic">
+<li><p>Il progetto per platformio si trova in:
+platformio/stima_v3/stima</p></li>
+<li><p>Aprire il file stima-config.h in platformio/stima_v3/stima/src:</p>
 <ul class="simple">
 <li><p>Impostare la #define MODULE_TYPE con il valore
-STIMA_MODULE_TYPE_PASSIVE per definire una stazione di tipo
-passivo</p></li>
+STIMA_MODULE_TYPE_REPORT_ETH per definire una stazione di tipo
+report o STIMA_MODULE_TYPE_SAMPLE_ETH per definire una stazione di
+tipo sample</p></li>
 </ul>
 </li>
 <li><p>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:</p>
+platformio/stima_v3/stima/include:</p>
 <ul class="simple">
 <li><p>Settare la #define USE_JSON con il valore true</p></li>
 <li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
@@ -667,18 +610,81 @@ genere 15)</p></li>
 </ul>
 </li>
 <li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>
-<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB
+tramite il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">platformio</span><span class="o">/</span><span class="n">stima_v3</span><span class="o">/</span><span class="n">stima</span>
+<span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">1284</span><span class="n">p16m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
+</pre></div>
+</div>
+</li>
+<li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
+stazione e rimuovere il jumper a configurazione terminata.</p></li>
+</ol>
+<p>Per la configurazione:</p>
+<ul>
+<li><p>Per ottenere una username e una password iscriversi al sito <a class="reference external" href="http://rmap.cc/registrazione/register/">http://rmap.cc/registrazione/register/</a></p></li>
+<li><p>Eventualmente (dopo la prima configurazione) ponticellare sulla scheda i pin «Set».</p></li>
+<li><p>Eseguire i comandi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">syncdb</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">height</span><span class="o">=&lt;</span><span class="n">height</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=&lt;</span><span class="n">nome_descrittivo</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">lat</span><span class="o">=&lt;</span><span class="n">xx</span><span class="o">.</span><span class="n">xxxxx</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">lon</span><span class="o">=&lt;</span><span class="n">xx</span><span class="o">.</span><span class="n">xxxxx</span><span class="o">&gt;</span>  <span class="o">--</span><span class="n">mqttrootpath</span><span class="o">=</span><span class="n">report</span> <span class="o">--</span><span class="n">mqttmaintpath</span><span class="o">=</span><span class="n">maint</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="n">stima_report_thpb</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">upload_to_server</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=&lt;</span><span class="n">nome_stazione</span><span class="o">&gt;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=&lt;</span><span class="n">nome_board</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">baudrate</span> <span class="mi">115200</span>
+</pre></div>
+</div>
+<p>sostituendo i valori tra &lt;&gt; con opportuni valori.</p>
+</li>
+<li><p>Rimuovere il ponticello ai pin «Set».</p></li>
+</ul>
+</div>
+<div class="section" id="modulo-stima-passive">
+<h3>Modulo Stima Passive<a class="headerlink" href="#modulo-stima-passive" title="Link a questa intestazione">¶</a></h3>
+<ol class="arabic">
+<li><p>Il progetto per platformio si trova in:
+platformio/stima_v3/stima</p></li>
+<li><p>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima/src:</p>
+<ul class="simple">
+<li><p>Impostare la #define MODULE_TYPE con il valore
+STIMA_MODULE_TYPE_PASSIVE per definire una stazione di tipo
+passivo</p></li>
+</ul>
+</li>
+<li><p>Aprire il file sensors_config.h nella cartella
+platformio/stima_v3/stima/include:</p>
+<ul class="simple">
+<li><p>Settare la #define USE_JSON con il valore true</p></li>
+<li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
+seconda dei sensori che si vuole abilitare o disabilitare</p></li>
+<li><p>Impostare il valore in decimi di mm di pioggia per ogni basculata
+del pluviometro nella #define RAIN_FOR_TIP</p></li>
+<li><p>Impostare il numero di valori da leggere per ogni singolo sensore
+nella #define VALUES_TO_READ_FROM_SENSOR_COUNT (tra tutti i valori
+a disposizione, inserire quello più alto)</p></li>
+<li><p>Impostare il valore in minuti per il calcolo di un’osservazione
+nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
+<li><p>Impostare il numero di osservazioni necessarie a produrre un dato
+utile per il report nella #define STATISTICAL_DATA_COUNT (in
+genere 15)</p></li>
+</ul>
+</li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB
+tramite il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">platformio</span><span class="o">/</span><span class="n">stima_v3</span><span class="o">/</span><span class="n">stima</span>
+<span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">1284</span><span class="n">p16m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
+</pre></div>
+</div>
+</li>
 <li><p>Inserire il jumper sulla board Stima I2C-Base, configurare la
 stazione e rimuovere il jumper a configurazione terminata</p></li>
 </ol>
 </div>
 <div class="section" id="id4">
 <h3>Modulo Stima I2C-TH<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Aprire lo sketch i2c-th.ino nella cartella
-arduino/sketchbook/stima_v3/i2c-th</p></li>
+platformio/stima_v3/i2c-th</p></li>
 <li><p>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:</p>
+platformio/stima_v3/i2c-th/include:</p>
 <ul class="simple">
 <li><p>Settare la #define USE_JSON con il valore false</p></li>
 <li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
@@ -695,19 +701,24 @@ genere 15 o in accordo con quanto impostato per la compilazione
 dello sketch stima.ino)</p></li>
 </ul>
 </li>
-<li><p>Impostare il microcontrollore su core+644 a 3.3V</p></li>
-<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB
+tramite il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">platformio</span><span class="o">/</span><span class="n">stima_v3</span><span class="o">/</span><span class="n">i2c</span><span class="o">-</span><span class="n">th</span>
+<span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">644</span><span class="n">pa8m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
+</pre></div>
+</div>
+</li>
 <li><p>Configurare il suddetto modulo attraverso lo sketch sensor_config
 presente nella cartella arduinosketchbookstima_v3</p></li>
 </ol>
 </div>
 <div class="section" id="id5">
 <h3>Modulo Stima I2C-Rain<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Aprire lo sketch i2c-rain.ino nella cartella
-arduino/sketchbook/stima_v3/i2c- rain</p></li>
+<ol class="arabic">
+<li><p>Il progetto platformio si trova nella cartella:
+platformio/stima_v3/i2c-rain</p></li>
 <li><p>Aprire il file sensors_config.h nella cartella
-arduino/sketchbook/libraries/RmapConfig:</p>
+platformio/stima_v3/i2c-rain/include:</p>
 <ul class="simple">
 <li><p>Settare la #define USE_JSON con il valore false</p></li>
 <li><p>Settare le altre #define USE_SENSOR_XXX con valori true o false a
@@ -720,8 +731,13 @@ da conteggiare per ogni basculata del pluviometro nella #define
 RAIN_FOR_TIP</p></li>
 </ul>
 </li>
-<li><p>Impostare il microcontrollore su core+644 a 3.3V</p></li>
-<li><p>Compilare il firmware e caricarlo attraverso il cavo USB</p></li>
+<li><p>Compilare il firmware e caricarlo attraverso il cavo USB
+tramite il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">platformio</span><span class="o">/</span><span class="n">stima_v3</span><span class="o">/</span><span class="n">i2c</span><span class="o">-</span><span class="n">rain</span>
+<span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">644</span><span class="n">pa8m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
+</pre></div>
+</div>
+</li>
 <li><p>Configurare il suddetto modulo attraverso lo sketch sensor_config
 presente nella cartella arduinosketchbookstima_v3</p></li>
 </ol>
@@ -758,17 +774,10 @@ e questo è un esempio dei comandi da impartire a avrdude:</p>
 <ol class="arabic simple">
 <li><p>Compilare il firmware per i moduli Stima secondo quanto scritto ai
 punti precedenti</p></li>
-<li><p>Localizzare il file NOME_SKETCH.ino.elf compilato (è possibile
-seguire la seguente guida
-(<a class="reference external" href="http://www.instructables.com/id/HOW-TO-GET-HEX-FILE-FROM-ARDUINO-/">http://www.instructables.com/id/HOW-TO-GET-HEX-FILE-FROM-ARDUINO-/</a>)</p></li>
-<li><p>Localizzare la cartella di installazione dell’IDE Arduino</p></li>
-<li><p>Entrare nella cartella hardware/tools/avr/bin situata nella cartella
-di installazione dell’IDE Arduino</p></li>
-<li><p>Attraverso una consolle o il prompt dei comandi, eseguire</p>
-<ul class="simple">
-<li><p>avr-objcopy -I ihex -O binary NOME_SKETCH.ino.elf FIRMWARE.BIN</p></li>
-</ul>
-</li>
+<li><p>Localizzare il file firmware.elf compilato, solitamente
+-  rmap/platformio/stima_v3/stima/.pio/build/1284p16m</p></li>
+<li><p>Attraverso una consolle o il prompt dei comandi, eseguire
+-  ~/.platformio/packages/toolchain-atmelavr/bin//avr-objcopy -I ihex -O binary firmware.elf FIRMWARE.BIN</p></li>
 </ol>
 </div>
 <div class="section" id="upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">
@@ -782,7 +791,7 @@ caricamento del firmware</p></li>
 <li><p>Spegnere il modulo e rimuovere la micro SD-Card contenente il
 firmware</p></li>
 <li><p>Se necessario, inserire la micro SD-Card utile per il funzionamento
-del modulo</p></li>
+del modulo (senza il file FIRMWARE.BIN)</p></li>
 <li><p>Alimentare il modulo</p></li>
 </ol>
 </div>
@@ -902,10 +911,11 @@ e per i sensori I2C.</p>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazioni-software-dei-moduli-stima">Configurazioni software dei moduli Stima</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configurazione-dellide-arduino">Configurazione dell’IDE Arduino</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-configurazione">Installazione del software per la configurazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Modulo Stima Ethernet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima GSM/GPRS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-compilazione-dei-firmware">Installazione del software per la compilazione dei firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad">Installazione dei sorgenti dei firmware e dei progetti kicad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Modulo Stima GSM/GPRS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima Ethernet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passive">Modulo Stima Passive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id4">Modulo Stima I2C-TH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id5">Modulo Stima I2C-Rain</a></li>
@@ -959,7 +969,7 @@ e per i sensori I2C.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, Various.
+      &copy;2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
