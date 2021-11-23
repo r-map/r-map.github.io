@@ -777,9 +777,9 @@ Compilazione e caricamento del bootloader Digitecoboot
    https://www.arduino.cc/en/pmwiki.php?n=Tutorial/ArduinoISP
    e questo è un esempio dei comandi da impartire a avrdude:
    
-   - avrdude  -v -patmega1284p -cavrisp -P/dev/ttyACM0 -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xD0:m -Ulfuse:w:0xFF:
-   - avrdude  -v -patmega1284p -cavrisp -P/dev/ttyACM0 -b19200 -V -U digitecoboot_atmega1284p.hex
-   - avrdude  -v -patmega1284p -cavrisp -P/dev/ttyACM0 -b19200 -U lock:w:0x0F:m
+   - avrdude  -v -patmega1284p -cavrisp -P/dev/ttyUSB0 -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xD0:m -Ulfuse:w:0xFF:m
+   - avrdude  -v -patmega1284p -cavrisp -P/dev/ttyUSB0 -b19200 -V -U digitecoboot_atmega1284p.hex
+   - avrdude  -v -patmega1284p -cavrisp -P/dev/ttyUSB0 -b19200 -U lock:w:0x0F:m
 
 
 Compilazione del firmware in formato binario

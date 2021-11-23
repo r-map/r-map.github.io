@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>RFC rmap versione 2.7 &#8212; RMAP e Stima 3 documentazione</title>
+    <title>RFC rmap versione 2.8 &#8212; RMAP e Stima 3 documentazione</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -33,12 +33,13 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="rfc-rmap-versione-2-7">
-<h1>RFC rmap versione 2.7<a class="headerlink" href="#rfc-rmap-versione-2-7" title="Link a questa intestazione">¶</a></h1>
+  <div class="section" id="rfc-rmap-versione-2-8">
+<h1>RFC rmap versione 2.8<a class="headerlink" href="#rfc-rmap-versione-2-8" title="Link a questa intestazione">¶</a></h1>
 <div class="section" id="storia-del-documento">
 <h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link a questa intestazione">¶</a></h2>
 <ul class="simple">
-<li><p>2021/10/15 v. 2.7 : corretto topic MQTT per constant station data; corretto configure RPC e aggiunto parametro «sd»</p></li>
+<li><p>2021/11/21 v. 2.8 : corretto topic MQTT per RPC</p></li>
+<li><p>2021/10/15 v. 2.7 : corretto topic MQTT per constant station data; corretto configure RPC e aggiunto parametro “sd”</p></li>
 <li><p>2021/03/10 v. 2.6 : aggiunte alcune jsonrpc: prepare, getjson, prepandget</p></li>
 <li><p>2021/03/03 v. 2.5 : bug nella descrizione del livello; rimozione dei valori interi nel formato json;</p></li>
 <li><p>2020/10/09 v. 2.4 : specificato il formato della data in json</p></li>
@@ -177,7 +178,7 @@ codificata tramite tabella</p></li>
 misura , campo di misura e cifre significative</p></li>
 </ul>
 <p>Ogni dato può essere dotato inoltre di attributi (a esempio prodotti dal
-controllo di qualità) definiti dalla stessa tabella variabili. E”
+controllo di qualità) definiti dalla stessa tabella variabili. E`
 inoltre possibile associare dei dati statici (di anagrafica, ossia
 invariabili nel tempo, timerange e level) con i soli metadati
 longitudine, latitudine, identicativo, report</p>
@@ -981,7 +982,7 @@ posizionata nel punto `(9.15454, 4451485)` (<cite>lon</cite>, `lat`) con i
 seguenti dati (<cite>data</cite>) statici (l’elemento dell’array che non ha
 `level` e `timerange`):</p>
 <ul class="simple">
-<li><p>Nome della stazione (<cite>B01019</cite>): «Torriglia»</p></li>
+<li><p>Nome della stazione (<cite>B01019</cite>): “Torriglia”</p></li>
 <li><p>Altezza della stazione (<cite>B07030</cite>): 769.0m</p></li>
 <li><p>Altezza barometrica della stazione (<cite>B07031</cite>): 769.0m</p></li>
 </ul>
@@ -1135,14 +1136,14 @@ segnalazione di sconnessione gestita male con will (retained):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maint</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>payload : <strong>{«v»: «error01»}</strong></p>
+<p>payload : <strong>{“v”: “error01”}</strong></p>
 <p>poi questo messaggio viene «ricoperto» con:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maint</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>payload : <strong>{ «v»: «conn»}</strong></p>
 <p>alla disconnessione allo stesso topic dovrà essere inviato:</p>
-<p>payload : <strong>{ «v»: «disconn»}</strong></p>
+<p>payload : <strong>{ “v”: “disconn”}</strong></p>
 </div>
 <div class="section" id="data-e-constant-data">
 <h3>Data e Constant Data<a class="headerlink" href="#data-e-constant-data" title="Link a questa intestazione">¶</a></h3>
@@ -1213,9 +1214,9 @@ allo stato della connessione.</p>
 </div>
 <p>Il payload prevede due parametri:</p>
 <ul class="simple">
-<li><p>«d» che descrive quale elemento della tabella D è preso in
+<li><p>“d” che descrive quale elemento della tabella D è preso in
 considerazione</p></li>
-<li><p>«p» con un array di valori corrispondenti ai «VAR» descritti
+<li><p>“p” con un array di valori corrispondenti ai «VAR» descritti
 nell’elemento in tabella D</p></li>
 </ul>
 <p>Ad esempio:</p>
@@ -1244,10 +1245,10 @@ standard senza i parametri «VAR», «LEVEL» e «TRANGE». Ad esempio:</p>
 </div>
 <p>Il payload prevede due parametri:</p>
 <ul class="simple">
-<li><p>«e» che descrive quale elemento della tabella E è preso in
+<li><p>“”e” che descrive quale elemento della tabella E è preso in
 considerazione</p></li>
-<li><p>«p» con un array di valori corrispondenti ai «VAR», «LEVEL» e
-«TRANGE» descritti nell’elemento in tabella E</p></li>
+<li><p>“p” con un array di valori corrispondenti ai «VAR», «LEVEL» e
+“TRANGE” descritti nell’elemento in tabella E</p></li>
 </ul>
 <p>Ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">27315</span><span class="p">,</span><span class="mi">73</span><span class="p">],</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
@@ -1269,19 +1270,21 @@ considerazione</p></li>
 <div class="section" id="remote-procedure-over-mqtt">
 <h3>Remote procedure over MQTT<a class="headerlink" href="#remote-procedure-over-mqtt" title="Link a questa intestazione">¶</a></h3>
 <p>Le RPC sono in formato json (json-rpc) e utilizzano due topics MQTT:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">topiccom</span><span class="o">=</span><span class="s2">&quot;rpc/&lt;user&gt;/&lt;mac&gt;/com&quot;</span>
-<span class="n">topicres</span><span class="o">=</span><span class="s2">&quot;rpc/&lt;user&gt;/&lt;mac&gt;/res&quot;</span>
+<ul class="simple">
+<li><p>topiccom è il topic utilizzato per l’invio delle richieste RPC al
+server</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpc</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="n">com</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>topiccom è il topic utilizzato per l’invio delle richieste RPC al
-server mentre topicres è il topic utilizzato dal server per le
+<li><p>topicres è il topic utilizzato dal server per le
 risposte.</p></li>
-<li><p>user è l’utente e dovrà essere lo stesso utilizzato per
-l’autenticazione al broker MQTT.</p></li>
-<li><p>mac è l’identificativo univoco del device (numerico 12 cifre, ossia 6
-numeri di 2 cifre)</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpc</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="n">res</span>
+</pre></div>
+</div>
+<p>IDENT corrisponde all’utente utilizzato per l’autenticazione al broker MQTT.</p>
 <p>Il payload seguirà le specifiche <a class="reference external" href="https://www.jsonrpc.org/specification">JSON-RPC 2.0
 Specification</a></p>
 <p>Ogni payload comando/risposta Jsonrpc non deve superare i 144 caratteri.</p>
@@ -1325,9 +1328,9 @@ coded as described by bufr table B btable and written as string</p></li>
 operazione è l’ultima ad essere effettuata dal server (default false)</p></li>
 <li><p>array sens:</p>
 <ul>
-<li><p>char tr: timerange (esempio: «1,0,60») (no default)</p></li>
-<li><p>char lev: level (esempio «1,-,-,-«) (no default)</p></li>
-<li><p>char var: variabile tabella B (esempio «B13011») (no default)</p></li>
+<li><p>char tr: timerange (esempio: “1,0,60”) (no default)</p></li>
+<li><p>char lev: level (esempio “1,-,-,-“) (no default)</p></li>
+<li><p>char var: variabile tabella B (esempio “B13011”) (no default)</p></li>
 <li><p>any ext: configurazione relativa a una implementazione specifica
 di un sensore nella stazione OPZIONALE:</p></li>
 </ul>
@@ -1381,7 +1384,7 @@ RPC</p></li>
 </ul>
 <p>Richiede il re-invio dei dati non trasmessi al server; senza parametri</p>
 <p>esempio:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sdrecovery&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;recovery&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1767,7 +1770,7 @@ agevolare molto il lavoro.</p>
 
 <h3>Navigazione</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.7</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.8</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
