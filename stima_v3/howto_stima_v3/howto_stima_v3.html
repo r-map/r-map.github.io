@@ -745,7 +745,7 @@ presente nella cartella arduinosketchbookstima_v3</p></li>
 </div>
 <div class="section" id="compilazione-e-caricamento-del-bootloader-digitecoboot">
 <h2>Compilazione e caricamento del bootloader Digitecoboot<a class="headerlink" href="#compilazione-e-caricamento-del-bootloader-digitecoboot" title="Link a questa intestazione">¶</a></h2>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Aprire il file avr_conf nella cartella digitecoboot</p></li>
 <li><p>Editare la variabile AVR_DIR inserendo il percorso corretto per la
 directory AVR</p></li>
@@ -757,10 +757,8 @@ directory AVR</p></li>
 -  digitecoboot_atmega1284p.hex: booatloader per core+1284</p></li>
 <li><p>Caricare il bootloader attraverso un programmatore impostando i
 seguenti parametri: stk500v1, 19200 baud, Low fuse 0xFF, Extended
-fuse 0xFD, High fuse 0xD0
-Per usare arduino come programmatore riferirsi a:
-<a class="reference external" href="https://www.arduino.cc/en/pmwiki.php?n=Tutorial/ArduinoISP">https://www.arduino.cc/en/pmwiki.php?n=Tutorial/ArduinoISP</a>
-e questo è un esempio dei comandi da impartire a avrdude:</p>
+fuse 0xFD, High fuse 0xD0</p>
+<p>Questo è un esempio dei comandi da impartire a avrdude:</p>
 <ul class="simple">
 <li><p>avrdude  -v -patmega1284p -cavrisp -P/dev/ttyUSB0 -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xD0:m -Ulfuse:w:0xFF:m</p></li>
 <li><p>avrdude  -v -patmega1284p -cavrisp -P/dev/ttyUSB0 -b19200 -V -U digitecoboot_atmega1284p.hex</p></li>
@@ -768,6 +766,25 @@ e questo è un esempio dei comandi da impartire a avrdude:</p>
 </ul>
 </li>
 </ol>
+<dl class="simple">
+<dt>Per usare arduino come programmatore riferirsi a:</dt><dd><p><a class="reference external" href="https://www.arduino.cc/en/pmwiki.php?n=Tutorial/ArduinoISP">https://www.arduino.cc/en/pmwiki.php?n=Tutorial/ArduinoISP</a></p>
+</dd>
+</dl>
+<p>E” possibile utilizzare due moduli microduino core+, uno 1284p16m da usare come programmatore e il secondo con la stessa tensione di funzionamento da programmare collegati come da schema:
+<img alt="image_arduino_isp_schema" src="../../_images/microduino-arduino-isp.png" /></p>
+<p>Un esempio di connessione rapida:
+<img alt="image_arduino_microduino_photo" src="../../_images/microduino-microduino-isp.png" /></p>
+<p>Programmare il microduino-core+ da usare come ISP con il firmware
+ArduinoIsp in ambiente platformio che si trova in
+platformio/stima_v3/arduino_isp</p>
+<p>ed eseguire:</p>
+<ul class="simple">
+<li><p>make atmega644p_isp</p></li>
+</ul>
+<p>oppure:</p>
+<ul class="simple">
+<li><p>make atmega1284p_isp</p></li>
+</ul>
 </div>
 <div class="section" id="compilazione-del-firmware-in-formato-binario">
 <h2>Compilazione del firmware in formato binario<a class="headerlink" href="#compilazione-del-firmware-in-formato-binario" title="Link a questa intestazione">¶</a></h2>
