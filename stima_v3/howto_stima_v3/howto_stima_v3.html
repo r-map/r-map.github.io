@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Indice" href="../../genindex.html" />
     <link rel="search" title="Cerca" href="../../search.html" />
     <link rel="next" title="Guida per lo sviluppo software" href="../development_guide/development_guide.html" />
@@ -801,14 +802,21 @@ punti precedenti</p></li>
 <h2>Upload del firmware tramite micro SD-Card attraverso Digitecoboot<a class="headerlink" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot" title="Link a questa intestazione">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Copiare il file FIRMWARE.BIN su una micro SD-Card formattata in FAT32</p></li>
+<li><p>Creare un file sulla scheda SD con il nome esattamente corrispondente alla
+versione del firmware: ad esempio «3.6»</p></li>
 <li><p>Inserire la micro SD-Card in uno dei moduli Stima Ethernet, Stima
 GSM/GPRS, Stima I2C-TH o Stima-Rain</p></li>
 <li><p>Alimentare il modulo e attendere 30 secondi per la fine del
 caricamento del firmware</p></li>
-<li><p>Spegnere il modulo e rimuovere la micro SD-Card contenente il
+<li><p>Spegnere il modulo e rimuovere eventualmente la micro SD-Card contenente il
 firmware</p></li>
-<li><p>Se necessario, inserire la micro SD-Card utile per il funzionamento
-del modulo (senza il file FIRMWARE.BIN)</p></li>
+</ol>
+<p>6. Verificare sul display LCD la corretta versione del firmware
+6. Se necessario, inserire la micro SD-Card utile per il funzionamento</p>
+<blockquote>
+<div><p>del modulo (senza il file FIRMWARE.BIN)</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
 <li><p>Alimentare il modulo</p></li>
 </ol>
 </div>
@@ -946,6 +954,7 @@ e per i sensori I2C.</p>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/user_manual.html">Manuale Utente</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
