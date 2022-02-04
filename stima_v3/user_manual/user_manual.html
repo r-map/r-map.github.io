@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Manuale Utente &#8212; RMAP e Stima 3 documentazione</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Stima-wifi" href="../../stima_wifi/stima_wifi_howto.html" />
+    <link rel="prev" title="Documentazione del codice" href="../stimacode.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="manuale-utente">
+<h1>Manuale Utente<a class="headerlink" href="#manuale-utente" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Link a questa intestazione">¶</a></h2>
+<p>Descrizione dell’hardware e delle sue principali funzioni.</p>
+<p>Il datalogger è composto da moduli a loro volta composti board.
+Una descrizione con alcune foto si trova a <a class="reference external" href="https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html">https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html</a> e <a class="reference external" href="https://doc.rmap.cc/stima_v3/doxygen/index.html">https://doc.rmap.cc/stima_v3/doxygen/index.html</a>
+a cui fare riferimento per maggiori dettagli.
+I moduli si interconnettono tra loro tramite bus I2C.
+Le board si interconnettono tramite interfaccia basata sullo standard UPIN-27.</p>
+<div class="section" id="funzioni-svolte-dalle-board">
+<h3>funzioni svolte dalle Board<a class="headerlink" href="#funzioni-svolte-dalle-board" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="rtc">
+<h4>RTC<a class="headerlink" href="#rtc" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>determina la base dei tempi per il modulo master</p></li>
+<li><p>conserva data e ora anche in mancanza di alimentazione tramite la
+carica accumulata in un supercondensatore per non più di ~24h</p></li>
+</ul>
+</div>
+<div class="section" id="core">
+<h4>Core+<a class="headerlink" href="#core" title="Link a questa intestazione">¶</a></h4>
+<p>Contiene il microcontrollore in queste due versioni:
+* 8 MHz 3.3V
+* 16 MHz 5V</p>
+</div>
+<div class="section" id="usb">
+<h4>USB<a class="headerlink" href="#usb" title="Link a questa intestazione">¶</a></h4>
+<p>E” una interfaccia USB con la porta seriale del microcontrollore.
+Permette di:
+* caricare firmware
+* effettuare debug</p>
+</div>
+<div class="section" id="sdcard">
+<h4>SDcard<a class="headerlink" href="#sdcard" title="Link a questa intestazione">¶</a></h4>
+<p>Permette di utilizzare una SDcard per effettuare:
+* aggiornamento firmware
+* salvataggio dati
+* debug</p>
+</div>
+<div class="section" id="i2c">
+<h4>I2C<a class="headerlink" href="#i2c" title="Link a questa intestazione">¶</a></h4>
+<p>Espone una
+* connessione e reset</p>
+</div>
+<div class="section" id="gsm">
+<h4>GSM<a class="headerlink" href="#gsm" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>SIM</p></li>
+<li><p>antenna</p></li>
+</ul>
+</div>
+<div class="section" id="hub">
+<h4>HUB<a class="headerlink" href="#hub" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>interconnessione</p></li>
+<li><p>alimentazione</p></li>
+<li><p>separazione BUS I2C e adattamento tensioni</p></li>
+</ul>
+</div>
+<div class="section" id="display">
+<h4>Display<a class="headerlink" href="#display" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Diagnostica</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="funzioni-software">
+<h2>Funzioni software<a class="headerlink" href="#funzioni-software" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="accensione-e-supervisione-supervisor-task">
+<h3>Accensione e supervisione (supervisor task)<a class="headerlink" href="#accensione-e-supervisione-supervisor-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="rtc-task">
+<h3>RTC task<a class="headerlink" href="#rtc-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="time-task">
+<h3>Time task<a class="headerlink" href="#time-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="gsm-task">
+<h3>GSM task<a class="headerlink" href="#gsm-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="sensors-reading-task">
+<h3>Sensors reading task<a class="headerlink" href="#sensors-reading-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="data-saving-task">
+<h3>Data saving task<a class="headerlink" href="#data-saving-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="mqtt-task">
+<h3>MQTT task<a class="headerlink" href="#mqtt-task" title="Link a questa intestazione">¶</a></h3>
+</div>
+</div>
+<div class="section" id="messa-in-opera">
+<h2>Messa in opera<a class="headerlink" href="#messa-in-opera" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="connessione-e-disconnessione">
+<h3>Connessione e disconnessione<a class="headerlink" href="#connessione-e-disconnessione" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="impilamento-board">
+<h4>Impilamento board<a class="headerlink" href="#impilamento-board" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="connessione-moduli">
+<h4>Connessione moduli<a class="headerlink" href="#connessione-moduli" title="Link a questa intestazione">¶</a></h4>
+</div>
+</div>
+<div class="section" id="regolazione-display">
+<h3>Regolazione Display<a class="headerlink" href="#regolazione-display" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="assemblaggio-scatola-stazione">
+<h3>Assemblaggio scatola stazione<a class="headerlink" href="#assemblaggio-scatola-stazione" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="id1">
+<h3>SDcard<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="formattazione">
+<h4>Formattazione<a class="headerlink" href="#formattazione" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="aggiornamento-firmware">
+<h4>Aggiornamento Firmware<a class="headerlink" href="#aggiornamento-firmware" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="logging">
+<h4>Logging<a class="headerlink" href="#logging" title="Link a questa intestazione">¶</a></h4>
+<p>(vedi sotto in diagnostica)</p>
+</div>
+<div class="section" id="recupero-dati">
+<h4>Recupero dati<a class="headerlink" href="#recupero-dati" title="Link a questa intestazione">¶</a></h4>
+<p>(vedi sotto)</p>
+</div>
+</div>
+</div>
+<div class="section" id="configurazione">
+<h2>Configurazione<a class="headerlink" href="#configurazione" title="Link a questa intestazione">¶</a></h2>
+</div>
+<div class="section" id="id2">
+<h2>Recupero dati<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h2>
+</div>
+<div class="section" id="diagnostica">
+<h2>Diagnostica<a class="headerlink" href="#diagnostica" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="tramite-display">
+<h3>tramite DISPLAY<a class="headerlink" href="#tramite-display" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="temporizzazioni">
+<h4>Temporizzazioni<a class="headerlink" href="#temporizzazioni" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="segnale-radio-gsm-gprs">
+<h4>Segnale Radio GSM/GPRS<a class="headerlink" href="#segnale-radio-gsm-gprs" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="dati-sensori">
+<h4>Dati sensori<a class="headerlink" href="#dati-sensori" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="salvataggio-e-invio-dati">
+<h4>Salvataggio e invio dati<a class="headerlink" href="#salvataggio-e-invio-dati" title="Link a questa intestazione">¶</a></h4>
+</div>
+<div class="section" id="messaggi-di-errore">
+<h4>Messaggi di errore<a class="headerlink" href="#messaggi-di-errore" title="Link a questa intestazione">¶</a></h4>
+</div>
+</div>
+<div class="section" id="tramite-porta-seriale">
+<h3>Tramite porta seriale<a class="headerlink" href="#tramite-porta-seriale" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="tramite-sdcard">
+<h3>Tramite SDcard<a class="headerlink" href="#tramite-sdcard" title="Link a questa intestazione">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/logo_stima.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../../index.html">RMAP e Stima</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigazione</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.8</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manuale Utente</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#funzioni-svolte-dalle-board">funzioni svolte dalle Board</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#rtc">RTC</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#core">Core+</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#usb">USB</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#sdcard">SDcard</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#i2c">I2C</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#gsm">GSM</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#hub">HUB</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#display">Display</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#funzioni-software">Funzioni software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accensione-e-supervisione-supervisor-task">Accensione e supervisione (supervisor task)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rtc-task">RTC task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time-task">Time task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gsm-task">GSM task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensors-reading-task">Sensors reading task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-saving-task">Data saving task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mqtt-task">MQTT task</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#messa-in-opera">Messa in opera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connessione-e-disconnessione">Connessione e disconnessione</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#impilamento-board">Impilamento board</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#connessione-moduli">Connessione moduli</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#regolazione-display">Regolazione Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assemblaggio-scatola-stazione">Assemblaggio scatola stazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">SDcard</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#formattazione">Formattazione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#aggiornamento-firmware">Aggiornamento Firmware</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#recupero-dati">Recupero dati</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Recupero dati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostica">Diagnostica</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-display">tramite DISPLAY</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#temporizzazioni">Temporizzazioni</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#segnale-radio-gsm-gprs">Segnale Radio GSM/GPRS</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#dati-sensori">Dati sensori</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#salvataggio-e-invio-dati">Salvataggio e invio dati</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#messaggi-di-errore">Messaggi di errore</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-porta-seriale">Tramite porta seriale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-sdcard">Tramite SDcard</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../stima_v3.html">Stima V3</a><ul>
+      <li>Previous: <a href="../stimacode.html" title="capitolo precedente">Documentazione del codice</a></li>
+      <li>Next: <a href="../../stima_wifi/stima_wifi_howto.html" title="capitolo successivo">Stima-wifi</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Ricerca veloce</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Vai" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/stima_v3/user_manual/user_manual.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
