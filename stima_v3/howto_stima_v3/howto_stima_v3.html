@@ -1,38 +1,206 @@
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <title>Howto per Stima versione 3 &#8212; RMAP e Stima 3 documentazione</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/translations.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Howto per Stima versione 3 &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../genindex.html" />
     <link rel="search" title="Cerca" href="../../search.html" />
     <link rel="next" title="Guida per lo sviluppo software" href="../development_guide/development_guide.html" />
-    <link rel="prev" title="Stima V3" href="../stima_v3.html" />
+    <link rel="prev" title="Stima V3" href="../stima_v3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.8</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Howto per Stima versione 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caratteristiche-hardware-dei-singoli-moduli">Caratteristiche hardware dei singoli moduli</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stima-core-644-e-stima-core-1284">Stima core+644 e Stima core+1284</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-base">Stima I2C-Base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-digital">Stima I2C-Digital</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-rtc">Stima I2C-RTC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-ft232rl">Stima I2C-FT232RL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-sd-card">Stima SD-Card</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-sim800c-power">Stima SIM800C Power</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-sim800c-module">Stima SIM800C Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-hub">Stima I2C-HUB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regolatore-di-tensione-e-carica-della-batteria-con-bus-i2c-digitecopower">Regolatore di tensione e carica della batteria con bus I<sup>2</sup>C DigitecoPower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-lcd-20x4-con-interfaccia-i2c">Display LCD 20x4 con interfaccia I2C</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazioni-hardware-dei-moduli-stima">Configurazioni hardware dei moduli Stima</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-ethernet">Modulo Stima Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-gsm-gprs">Modulo Stima GSM/GPRS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passivo">Modulo Stima Passivo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-th">Modulo Stima I2C-TH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-rain">Modulo Stima I2C-Rain</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazioni-software-dei-moduli-stima">Configurazioni software dei moduli Stima</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-configurazione">Installazione del software per la configurazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-compilazione-dei-firmware">Installazione del software per la compilazione dei firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad">Installazione dei sorgenti dei firmware e dei progetti kicad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Modulo Stima GSM/GPRS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passive">Modulo Stima Passive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Modulo Stima I2C-TH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Modulo Stima I2C-Rain</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#compilazione-e-caricamento-del-bootloader-digitecoboot">Compilazione e caricamento del bootloader Digitecoboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compilazione-del-firmware-in-formato-binario">Compilazione del firmware in formato binario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware tramite micro SD-Card attraverso Digitecoboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assemblaggio-stazione-stima">Assemblaggio stazione Stima</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/user_manual.html">Manuale Utente</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../stima_v3.html">Stima V3</a> &raquo;</li>
+        
+      <li>Howto per Stima versione 3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/stima_v3/howto_stima_v3/howto_stima_v3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="howto-per-stima-versione-3">
 <h1>Howto per Stima versione 3<a class="headerlink" href="#howto-per-stima-versione-3" title="Link a questa intestazione">¶</a></h1>
@@ -890,124 +1058,52 @@ e per i sensori I2C.</p>
 </div>
 
 
+           </div>
+           
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../../index.html">
-              <img class="logo" src="../../_static/logo_stima.png" alt="Logo"/>
-            </a></p>
-<h1 class="logo"><a href="../../index.html">RMAP e Stima</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigazione</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.8</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Howto per Stima versione 3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#caratteristiche-hardware-dei-singoli-moduli">Caratteristiche hardware dei singoli moduli</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stima-core-644-e-stima-core-1284">Stima core+644 e Stima core+1284</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-base">Stima I2C-Base</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-digital">Stima I2C-Digital</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-rtc">Stima I2C-RTC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-ft232rl">Stima I2C-FT232RL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-sd-card">Stima SD-Card</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-sim800c-power">Stima SIM800C Power</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-sim800c-module">Stima SIM800C Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stima-i2c-hub">Stima I2C-HUB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#regolatore-di-tensione-e-carica-della-batteria-con-bus-i2c-digitecopower">Regolatore di tensione e carica della batteria con bus I<sup>2</sup>C DigitecoPower</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#display-lcd-20x4-con-interfaccia-i2c">Display LCD 20x4 con interfaccia I2C</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#configurazioni-hardware-dei-moduli-stima">Configurazioni hardware dei moduli Stima</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-ethernet">Modulo Stima Ethernet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-gsm-gprs">Modulo Stima GSM/GPRS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passivo">Modulo Stima Passivo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-th">Modulo Stima I2C-TH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-rain">Modulo Stima I2C-Rain</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#configurazioni-software-dei-moduli-stima">Configurazioni software dei moduli Stima</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-configurazione">Installazione del software per la configurazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-compilazione-dei-firmware">Installazione del software per la compilazione dei firmware</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad">Installazione dei sorgenti dei firmware e dei progetti kicad</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Modulo Stima GSM/GPRS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima Ethernet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passive">Modulo Stima Passive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Modulo Stima I2C-TH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Modulo Stima I2C-Rain</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#compilazione-e-caricamento-del-bootloader-digitecoboot">Compilazione e caricamento del bootloader Digitecoboot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compilazione-del-firmware-in-formato-binario">Compilazione del firmware in formato binario</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware tramite micro SD-Card attraverso Digitecoboot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#assemblaggio-stazione-stima">Assemblaggio stazione Stima</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user_manual/user_manual.html">Manuale Utente</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../stima_v3.html">Stima V3</a><ul>
-      <li>Previous: <a href="../stima_v3.html" title="capitolo precedente">Stima V3</a></li>
-      <li>Next: <a href="../development_guide/development_guide.html" title="capitolo successivo">Guida per lo sviluppo software</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Ricerca veloce</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Vai" />
-    </form>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development_guide/development_guide.html" class="btn btn-neutral float-right" title="Guida per lo sviluppo software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../stima_v3.html" class="btn btn-neutral float-left" title="Stima V3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it
 
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
-
+</footer>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/stima_v3/howto_stima_v3/howto_stima_v3.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>

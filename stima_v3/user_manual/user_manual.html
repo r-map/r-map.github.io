@@ -1,38 +1,216 @@
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <title>Manuale Utente &#8212; RMAP e Stima 3 documentazione</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/translations.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Manuale Utente &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../genindex.html" />
     <link rel="search" title="Cerca" href="../../search.html" />
     <link rel="next" title="Stima-wifi" href="../../stima_wifi/stima_wifi_howto.html" />
-    <link rel="prev" title="Documentazione del codice" href="../stimacode.html" />
+    <link rel="prev" title="Documentazione del codice" href="../stimacode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.8</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manuale Utente</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#funzioni-svolte-dalle-board">funzioni svolte dalle Board</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#funzioni-software">Funzioni software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accensione-e-supervisione-supervisor-task">Accensione e supervisione (supervisor task)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rtc-task">RTC task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time-task">Time task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gsm-task">GSM task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensors-reading-task">Sensors reading task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-saving-task">Data saving task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mqtt-task">MQTT task</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#messa-in-opera">Messa in opera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connessione-e-disconnessione">Connessione e disconnessione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regolazione-display">Regolazione Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assemblaggio-scatola-stazione">Assemblaggio scatola stazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">SDcard</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creare-un-nuovo-utente-rmap">Creare un nuovo utente RMAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configurare-una-nuova-stazione">Configurare una nuova stazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modificare-la-configurazione-di-una-stazione-esistente">Modificare la configurazione di una stazione esistente</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trasferire-la-configurazione-al-datalogger">Trasferire la configurazione al datalogger</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Aggiornamento Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-sdcard">Tramite SDcard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-porta-usb">Tramite porta USB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Recupero dati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-procedure-call">Remote Procedure Call</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configure">configure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reboot">reboot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recovery">recovery</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostica">Diagnostica</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-display">tramite DISPLAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-monitoraggio-mqtt">tramite monitoraggio MQTT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-porta-seriale">Tramite porta seriale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Tramite SDcard</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../stima_v3.html">Stima V3</a> &raquo;</li>
+        
+      <li>Manuale Utente</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/stima_v3/user_manual/user_manual.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="manuale-utente">
 <h1>Manuale Utente<a class="headerlink" href="#manuale-utente" title="Link a questa intestazione">¶</a></h1>
@@ -132,13 +310,37 @@ Permette di:
 <h3>Connessione e disconnessione<a class="headerlink" href="#connessione-e-disconnessione" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="impilamento-board">
 <h4>Impilamento board<a class="headerlink" href="#impilamento-board" title="Link a questa intestazione">¶</a></h4>
+<p>Fare riferimento a:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html">https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html</a> e</p></li>
+<li><p><a class="reference external" href="https://doc.rmap.cc/stima_v3/doxygen/index.html">https://doc.rmap.cc/stima_v3/doxygen/index.html</a></p></li>
+</ul>
 </div>
 <div class="section" id="connessione-moduli">
 <h4>Connessione moduli<a class="headerlink" href="#connessione-moduli" title="Link a questa intestazione">¶</a></h4>
+<p>Fare riferimento a:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html">https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html</a> e</p></li>
+<li><p><a class="reference external" href="https://doc.rmap.cc/stima_v3/doxygen/index.html">https://doc.rmap.cc/stima_v3/doxygen/index.html</a></p></li>
+</ul>
+<p>Effettuare tutte le operazioni senza alimentazione elettrica.</p>
+<p>Per la connessione elettrica tra moduli bisogna quindi conoscere la
+tensione di funzionamento di ciascun modulo/dispositivo da connettere
+e verificare la predisposizione corretta del ponticello di
+configurazione hardware sulla board I2C-hub.</p>
 </div>
 </div>
 <div class="section" id="regolazione-display">
 <h3>Regolazione Display<a class="headerlink" href="#regolazione-display" title="Link a questa intestazione">¶</a></h3>
+<p>Il display dispone di una apposita vite di regolazione (trimmer) del
+contrasto che deve essere regolato per rendere il display leggibile.
+Una cattica regolazione del contrasto rende i caratteri sul display
+completamente invisibili.  Dispone inoltre di un pulsante per attivare
+la retroilluminazione.  Accendere la stazione per avere qualche
+messaggio visualizzato sul display, premere il pulsante di
+retrilluminazione e procedere alla regolazione fino a una
+visualizzazione ottimale.</p>
+<img alt="../../_images/trimmer_regolazione_contrasto.jpg" src="../../_images/trimmer_regolazione_contrasto.jpg" />
 </div>
 <div class="section" id="assemblaggio-scatola-stazione">
 <h3>Assemblaggio scatola stazione<a class="headerlink" href="#assemblaggio-scatola-stazione" title="Link a questa intestazione">¶</a></h3>
@@ -147,9 +349,33 @@ Permette di:
 <h3>SDcard<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="formattazione">
 <h4>Formattazione<a class="headerlink" href="#formattazione" title="Link a questa intestazione">¶</a></h4>
+<p>La formattazione della SDcard deve essere eseguita in modo corretto
+per garantire il funzionamento del datalogger.
+Sono accettati due tipi di formattazione:</p>
+<ul class="simple">
+<li><p>FAT16</p></li>
+<li><p>FAT32</p></li>
+</ul>
+<p>Per essere certi di formattare correttamentela card ci sono due possibilità:</p>
+<ul class="simple">
+<li><p>per windows e MAC <a class="reference external" href="https://www.sdcard.org/downloads/formatter/">https://www.sdcard.org/downloads/formatter/</a></p></li>
+<li><p>per tutti i sistemi l’apposito firmware SdFormatter messo a disposizione con Stima V3</p></li>
+</ul>
+<p>Il metodo consigliato è il secondo.</p>
+<div class="section" id="come-formattare-l-sdcard-con-il-firmware-sdformatter">
+<h5>Come formattare l’SDcard con il firmware SdFormatter.<a class="headerlink" href="#come-formattare-l-sdcard-con-il-firmware-sdformatter" title="Link a questa intestazione">¶</a></h5>
+<p>Inserire l’SDcard nel modulo master e collegare solo il modulo master tramite cavo USB.
+eseguire:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">1284</span><span class="n">p16m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
+<span class="n">pio</span> <span class="n">device</span> <span class="n">monitor</span>
+</pre></div>
+</div>
+<p>e seguire le indicazioni del programma.</p>
+</div>
 </div>
 <div class="section" id="aggiornamento-firmware">
 <h4>Aggiornamento Firmware<a class="headerlink" href="#aggiornamento-firmware" title="Link a questa intestazione">¶</a></h4>
+<p>(Vedi sotto)</p>
 </div>
 <div class="section" id="logging">
 <h4>Logging<a class="headerlink" href="#logging" title="Link a questa intestazione">¶</a></h4>
@@ -163,9 +389,304 @@ Permette di:
 </div>
 <div class="section" id="configurazione">
 <h2>Configurazione<a class="headerlink" href="#configurazione" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="creare-un-nuovo-utente-rmap">
+<h3>Creare un nuovo utente RMAP<a class="headerlink" href="#creare-un-nuovo-utente-rmap" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="tramite-interfaccia-web">
+<h4>Tramite interfaccia WEB<a class="headerlink" href="#tramite-interfaccia-web" title="Link a questa intestazione">¶</a></h4>
+<p>Per iscriversi alla piattarforma RMAP bisogna collegarsi al sito:
+<a class="reference external" href="http://rmap.cc/">http://rmap.cc/</a></p>
+<p>andare con il mouse sul menù «Il mio RMAP», sulla destra della barra
+nera, e clickare su «Entra».</p>
+<p>Apparirà una maschera che chiede utente e password.  Nella seconda
+riga sotto a questa maschera clickare sul bottone blu «Registrazione»
+e si verrà inoltrati automaticamente alla maschera di registrazione.</p>
+<p>Per registrarsi bisognerà scegliere ed inviare le seguenti informazioni:</p>
+<ul class="simple">
+<li><p>username (una stringa lunga al massimo 9 caratteri che possono essere sia lettere che numeri);</p></li>
+<li><p>la propria e-mail</p></li>
+<li><p>la password (da inserire due volte per sicurezza).</p></li>
+</ul>
+<p>Quindi bisogna clickare sul quadratino per dichiarare di aver letto le
+Condizioni di Servizio (descritte nel quadrato sotto riportato).
+Completate queste operazioni si può procedere a clickare su «Invia».
+Fatto questo il server RMAP invierà una mail di conferma all’indirizzo
+indicato nella maschera di registrazione.  La registrazione verrà
+conclusa aprendo il mail e confermando la propria intenzione di
+iscriversi seguendo il link indicato.</p>
 </div>
+</div>
+<div class="section" id="configurare-una-nuova-stazione">
+<h3>Configurare una nuova stazione<a class="headerlink" href="#configurare-una-nuova-stazione" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="id2">
-<h2>Recupero dati<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h2>
+<h4>Tramite interfaccia WEB<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h4>
+<p>Tramite interfaccia WEB è possibile definire solo stazioni di modello
+(tipo e sensori) predefinito. Per modelli di stazione non predefiniti
+utilizzare la modalità a linea di comando.</p>
+<div class="section" id="in-modalita-guidata">
+<h5>In modalità guidata<a class="headerlink" href="#in-modalita-guidata" title="Link a questa intestazione">¶</a></h5>
+<p>Per poter registrare una nuova stazione è utile aver configurato un
+utente RMAP.</p>
+<p>Seguire il link:
+<a class="reference external" href="https://rmap.cc/insertdata/newstation">https://rmap.cc/insertdata/newstation</a></p>
+<p>Si può seguire alternativamente una delle due seguenti procedure:</p>
+<ul class="simple">
+<li><p>indicare l’indirizzo esatto della stazione (il sito utilizza il
+DataBase geografico di OpenStreetMap che riconosce gli indirizzi
+solo se indicati con precisione, quindi è necessario inserire
+l’indirizzo con nome completo della via, es: «viale Antonio Silvani
+6, Bologna», oppure » via degli Albergati 32, Zola Predosa,
+Bologna»).</p></li>
+<li><p>utilizzare la mappa sottostante, clickare sul segnaposto (quello a
+forma di goccia, ultimo in basso dei quattro centrali a sinistra
+della mappa) e posizionarlo sul punto preciso della mappa, con
+doppio click bottone sinistro del mouse. Se la posizione scelta non
+è corretta, si potrà cancellare la posizione (selezionare l’ultimo
+bottone a sinistra nella mappa a forma di bidone e poi clickare sul
+segnaposto) e riposizionare il marker, oppure spostare il segnaposto
+nella posizione corretta direttamente sulla mappa (selezionando
+prima il penultimo bottone a sinistra a forma di matita su foglio
+«edit layers», spostando il segnaposto e riclickando su «edit layer»
+per salvare la nuova posizione). Queste funzionalità potrebbero non
+essere disponibili su Android.</p></li>
+</ul>
+<p>Individuata la posizione bisognerà indicare il nome della nuova
+stazione ed infine il modello (tipo e template sensori).</p>
+<p>La procedura di inserimento della nuova stazione si concluderà quindi
+clickando su «invia».</p>
+<p>In questa modalità non è possibile inserire i dati relativi al nome
+stazione e altezza dal livello medio del mare, ma poi è possibile
+integrarli tramite il modulo qui di seguito descritto</p>
+</div>
+<div class="section" id="tramite-modulo">
+<h5>Tramite modulo<a class="headerlink" href="#tramite-modulo" title="Link a questa intestazione">¶</a></h5>
+<p>Per poter registrare una nuova stazione è utile aver configurato un
+utente RMAP.</p>
+<p>Seguire il link:
+<a class="reference external" href="https://rmap.cc/insertdata/newstationdetail">https://rmap.cc/insertdata/newstationdetail</a>
+e autenticarsi</p>
+<p>compilare con i dati e confermare.</p>
+</div>
+</div>
+<div class="section" id="a-linea-di-comando">
+<h4>A linea di comando<a class="headerlink" href="#a-linea-di-comando" title="Link a questa intestazione">¶</a></h4>
+<p>Il tool a linea di comando da utilizzare per configurare le stazioni è:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span>
+</pre></div>
+</div>
+<p>Quando si utizzano i tool a linea di comando bisogna sempre
+considerare che saranno presenti due database:</p>
+<ul class="simple">
+<li><p>database sul server RMAP (persistente)</p></li>
+<li><p>database locale (volatile)</p></li>
+</ul>
+<p>Mentre il database sul server RMAP è per definizione persistente
+quello locale se non già presente va creato utilizzando il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">syncdb</span>
+</pre></div>
+</div>
+<p>Successivamente sono disponibili due comandi per mantenere i due
+database sincronizzati:</p>
+<ul class="simple">
+<li><p>rmap-configure –upload_to_server : upload configuration to server</p></li>
+<li><p>rmap-configure –download_from_server : download station
+configuration from server</p></li>
+</ul>
+<div class="section" id="con-modello-tipo-e-template-sensori-predefinito">
+<h5>Con modello (tipo e template sensori) predefinito<a class="headerlink" href="#con-modello-tipo-e-template-sensori-predefinito" title="Link a questa intestazione">¶</a></h5>
+<p>In questa modalità bisogna disporre di:</p>
+<ul class="simple">
+<li><p>myuser: nome utente RMAP</p></li>
+<li><p>mypassword: password utente RMAP</p></li>
+<li><p>mystationname: nome stazione esteso</p></li>
+<li><p>myslug: nome stazione breve</p></li>
+<li><p>mystationmodel: modello stazione e template sensori connessi</p></li>
+<li><p>mystationname: nome stazione esteso</p></li>
+<li><p>myheight: altezza stazione in metri</p></li>
+<li><p>mqttsamplerate: ogni quanti secondi deve essere elaborato e inviato un report</p></li>
+<li><p>mytcpipntpserver: NTP server da utilizzare per sincronizzare l’ora</p></li>
+<li><p>myapn: apn del provider GSM corrispondente alla schda SIM inserita in stazione (default=»ibox.tim.it»)</p></li>
+</ul>
+<p>Comandi da impartire per configurare la stazione:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;myheight&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;mystationname&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myusername --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --server=rmap.cc --lat=&quot;</span><span class="n">mylat</span><span class="s2">&quot; --lon=&quot;</span><span class="n">mylon</span><span class="s2">&quot;  --mqttrootpath=report --mqttmaintpath=maint</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="s2">&quot;mymqttsamplerate&quot;</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;mytcpipntpserver&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span><span class="o">=</span><span class="s2">&quot;myapn&quot;</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="s2">&quot;mystationmodel&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
+</pre></div>
+</div>
+<p>Esempio di configurazione:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="mi">2</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;Malborghetto di Boara&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">lat</span><span class="o">=</span><span class="mf">44.85892</span> <span class="o">--</span><span class="n">lon</span><span class="o">=</span><span class="mf">11.65625</span>  <span class="o">--</span><span class="n">mqttrootpath</span><span class="o">=</span><span class="n">report</span> <span class="o">--</span><span class="n">mqttmaintpath</span><span class="o">=</span><span class="n">maint</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span> <span class="n">internet</span><span class="o">.</span><span class="n">wind</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="n">stima_report_thpbwr</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="con-modello-tipo-e-template-sensori-non-predefinito">
+<h5>Con modello (tipo e template sensori) non predefinito<a class="headerlink" href="#con-modello-tipo-e-template-sensori-non-predefinito" title="Link a questa intestazione">¶</a></h5>
+<p>In questa modalità bisogna avere piena padronanza del data model, dei sensori connessi e dei relativi metadati.</p>
+<p>Qui un esempio di configurazione:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;altezzametri&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&quot;nome stazione&quot;&quot;&quot;&quot; --username=&quot;</span><span class="n">myuser</span><span class="s2">&quot; --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --server=rmap.cc --lat=&quot;</span><span class="n">latitudine</span><span class="s2">&quot; --lon=&quot;</span><span class="n">longitudine</span><span class="s2">&quot;  --mqttrootpath=report --mqttmaintpath=maint</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span> <span class="n">ibox</span><span class="o">.</span><span class="n">tim</span><span class="o">.</span><span class="n">it</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">delsensors</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità istantanea&quot;</span> <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">ITH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;254,0,0&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità minima&quot;</span>     <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">NTH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;3,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità media&quot;</span>      <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">MTH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;0,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità massima&quot;</span>    <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">XTH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;2,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;pioggia&quot;</span>                          <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">TBR</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">33</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;1,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;1,-,-,-&quot;</span>
+
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span> <span class="o">--</span><span class="n">device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modificare-la-configurazione-di-una-stazione-esistente">
+<h3>Modificare la configurazione di una stazione esistente<a class="headerlink" href="#modificare-la-configurazione-di-una-stazione-esistente" title="Link a questa intestazione">¶</a></h3>
+</div>
+<div class="section" id="trasferire-la-configurazione-al-datalogger">
+<h3>Trasferire la configurazione al datalogger<a class="headerlink" href="#trasferire-la-configurazione-al-datalogger" title="Link a questa intestazione">¶</a></h3>
+<p>Ecco il comando da impartire per trasferire e salvare la configurazione nel datalogger:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span>  <span class="o">--</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span> <span class="o">--</span><span class="n">device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Aggiornamento Firmware<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="tramite-sdcard">
+<h3>Tramite SDcard<a class="headerlink" href="#tramite-sdcard" title="Link a questa intestazione">¶</a></h3>
+<p>Per l’aggiornamento del firmware è necessario avere a disposizione due file:</p>
+<ul class="simple">
+<li><p>FIRMWARE.BIN</p></li>
+<li><p>«majorversion» . «minorversion»</p></li>
+</ul>
+<p>majorversion e minorversion indicano la versione del firmware in oggetto ad esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FIRMWARE</span><span class="o">.</span><span class="n">BIN</span>
+<span class="mf">3.7</span>
+</pre></div>
+</div>
+<p>I due file andranno posti nella cartella principale della SDcard.
+Inserire l’SDcard nel modulo che necessita aggiornamento a modulo non
+alimentato e alimentare il modulo e attendere almeno 30 secondi.</p>
+<p>E” possibile verificare se l’aggiornamento ha avuto buon fine con il
+modulo master tramite il display LCD che all’accensione deve
+visualizzare la nuova versione del firmware.</p>
+</div>
+<div class="section" id="tramite-porta-usb">
+<h3>Tramite porta USB<a class="headerlink" href="#tramite-porta-usb" title="Link a questa intestazione">¶</a></h3>
+<p>Per l’aggiornamento del firmware è necessario avere a disposizione un file:</p>
+<ul class="simple">
+<li><p>FIRMWARE.BIN</p></li>
+</ul>
+<p>che dorà risiedere nella cartella corrente da dove si eseguiranno i comandi.</p>
+<p>Collegare il modulo tramite cavo USB e dovrà essere l’unico
+dispositivo USB collegato in modalità seriale.</p>
+<p>Per il modulo master e impartire il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avrdude</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">p</span> <span class="n">atmega1284p</span> <span class="o">-</span><span class="n">c</span> <span class="n">arduino</span> <span class="o">-</span><span class="n">b</span> <span class="mi">115200</span> <span class="o">-</span><span class="n">D</span> <span class="o">-</span><span class="n">P</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span> <span class="o">-</span><span class="n">U</span> <span class="n">flash</span><span class="p">:</span><span class="n">w</span><span class="p">:</span><span class="n">FIRMWARE</span><span class="o">.</span><span class="n">BIN</span><span class="p">:</span><span class="n">i</span>
+</pre></div>
+</div>
+<p>Per gli altri moduli impartire il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avrdude</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">p</span> <span class="n">atmega644p</span> <span class="o">-</span><span class="n">c</span> <span class="n">arduino</span> <span class="o">-</span><span class="n">b</span> <span class="mi">115200</span> <span class="o">-</span><span class="n">D</span> <span class="o">-</span><span class="n">P</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span> <span class="o">-</span><span class="n">U</span> <span class="n">flash</span><span class="p">:</span><span class="n">w</span><span class="p">:</span><span class="n">FIRMWARE</span><span class="o">.</span><span class="n">BIN</span><span class="p">:</span><span class="n">i</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Recupero dati<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h2>
+<p>Una volta recuperata la scheda Sdcard dal datalogger i dati possono
+essere letti con apposito tool linea di comando.</p>
+<p>Sono necessari almeno due file:</p>
+<ul class="simple">
+<li><p>AAAA_MM_GG.txt : AAAA = anno ; MM = mese ; GG = giorno</p></li>
+<li><p>info.dat  : metadati</p></li>
+</ul>
+<p>Eseguire il seguente comando dalla stessa cartella contenete i file con i dati:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mqtt2bufr</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">f</span> <span class="n">AAAA_MM_GG</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">a</span> <span class="n">info</span><span class="o">.</span><span class="n">dat</span> <span class="o">|</span> <span class="n">bufr2mqtt</span> <span class="o">-</span><span class="n">h</span> <span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">-</span><span class="n">u</span> <span class="s2">&quot;myusername&quot;</span> <span class="o">-</span><span class="n">P</span> <span class="s2">&quot;mypassword&quot;</span>
+</pre></div>
+</div>
+<p>dove:</p>
+<ul class="simple">
+<li><p>myuser: nome utente RMAP</p></li>
+<li><p>mypassword: password utente RMAP</p></li>
+</ul>
+</div>
+<div class="section" id="remote-procedure-call">
+<h2>Remote Procedure Call<a class="headerlink" href="#remote-procedure-call" title="Link a questa intestazione">¶</a></h2>
+<p>Le remote procedure call permettono di far eseguire delle operazioni
+dal datalogger da remoto.</p>
+<div class="section" id="configure">
+<h3>configure<a class="headerlink" href="#configure" title="Link a questa intestazione">¶</a></h3>
+<p>la configurazione da remoto è possibile tramite tool a linea di comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">stima3</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">transport</span><span class="o">=</span><span class="n">mqtt</span>
+</pre></div>
+</div>
+<p>Tramite un programma python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rmap</span> <span class="kn">import</span> <span class="n">jsonrpc</span>
+
+<span class="n">MQTT_HOST</span> <span class="o">=</span> <span class="s1">&#39;rmap.cc&#39;</span>
+<span class="n">MQTT_RPCTOPIC</span> <span class="o">=</span> <span class="s1">&#39;rpc/myuser/1112345,4412345/fixed/&#39;</span><span class="p">)</span>
+<span class="n">MQTT_USERNAME</span> <span class="o">=</span> <span class="s1">&#39;myuser&#39;</span>
+<span class="n">MQTT_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
+<span class="n">DATETIMESTART</span><span class="o">=</span><span class="p">[</span><span class="mi">2021</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">JsonRpc20</span><span class="p">(),</span>\
+          <span class="n">jsonrpc</span><span class="o">.</span><span class="n">TransportMQTT</span><span class="p">(</span>
+              <span class="n">host</span><span class="o">=</span><span class="n">MQTT_HOST</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">MQTT_USERNAME</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">MQTT_PASSWORD</span><span class="p">,</span>
+              <span class="n">rpctopic</span><span class="o">=</span><span class="n">MQTT_RPCTOPIC</span><span class="p">,</span>
+              <span class="n">logfunc</span><span class="o">=</span><span class="n">jsonrpc</span><span class="o">.</span><span class="n">log_stdout</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span> <span class="k">as</span> <span class="n">rpcproxy</span> <span class="p">:</span>
+
+          <span class="n">rpcproxy</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
+          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+          <span class="c1">#rpcproxy.configure(mqttrootpath=&#39;report/myuser/1112345,4412345/fixed/&#39;)</span>
+          <span class="c1">#rpcproxy.configure(mqttmaintpath=&#39;maint/myuser/1112345,4412345/fixed/&#39;)</span>
+          <span class="c1">#rpcproxy.configure(mqttrpcpath=&#39;rpc/myuser/1165625,4485892/fixed/&#39;)</span>
+          <span class="n">rpcproxy</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">mqttsampletime</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+          <span class="n">rpcproxy</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">save</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+          <span class="n">rpcproxy</span><span class="o">.</span><span class="n">reboot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reboot">
+<h3>reboot<a class="headerlink" href="#reboot" title="Link a questa intestazione">¶</a></h3>
+<p>Tramite un programma python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rmap</span> <span class="kn">import</span> <span class="n">jsonrpc</span>
+
+<span class="n">MQTT_HOST</span> <span class="o">=</span> <span class="s1">&#39;rmap.cc&#39;</span>
+<span class="n">MQTT_RPCTOPIC</span> <span class="o">=</span> <span class="s1">&#39;rpc/myuser/1112345,4412345/fixed/&#39;</span><span class="p">)</span>
+<span class="n">MQTT_USERNAME</span> <span class="o">=</span> <span class="s1">&#39;myuser&#39;</span>
+<span class="n">MQTT_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
+<span class="n">DATETIMESTART</span><span class="o">=</span><span class="p">[</span><span class="mi">2021</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">JsonRpc20</span><span class="p">(),</span>\
+          <span class="n">jsonrpc</span><span class="o">.</span><span class="n">TransportMQTT</span><span class="p">(</span>
+              <span class="n">host</span><span class="o">=</span><span class="n">MQTT_HOST</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">MQTT_USERNAME</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">MQTT_PASSWORD</span><span class="p">,</span>
+              <span class="n">rpctopic</span><span class="o">=</span><span class="n">MQTT_RPCTOPIC</span><span class="p">,</span>
+              <span class="n">logfunc</span><span class="o">=</span><span class="n">jsonrpc</span><span class="o">.</span><span class="n">log_stdout</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span> <span class="k">as</span> <span class="n">rpcproxy</span> <span class="p">:</span>
+
+          <span class="n">rpcproxy</span><span class="o">.</span><span class="n">reboot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recovery">
+<h3>recovery<a class="headerlink" href="#recovery" title="Link a questa intestazione">¶</a></h3>
+<p>Tramite un programma python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rmap</span> <span class="kn">import</span> <span class="n">jsonrpc</span>
+
+<span class="n">MQTT_HOST</span> <span class="o">=</span> <span class="s1">&#39;rmap.cc&#39;</span>
+<span class="n">MQTT_RPCTOPIC</span> <span class="o">=</span> <span class="s1">&#39;rpc/myuser/1112345,4412345/fixed/&#39;</span><span class="p">)</span>
+<span class="n">MQTT_USERNAME</span> <span class="o">=</span> <span class="s1">&#39;myuser&#39;</span>
+<span class="n">MQTT_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
+<span class="n">DATETIMESTART</span><span class="o">=</span><span class="p">[</span><span class="mi">2021</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">JsonRpc20</span><span class="p">(),</span>\
+          <span class="n">jsonrpc</span><span class="o">.</span><span class="n">TransportMQTT</span><span class="p">(</span>
+              <span class="n">host</span><span class="o">=</span><span class="n">MQTT_HOST</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">MQTT_USERNAME</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">MQTT_PASSWORD</span><span class="p">,</span>
+              <span class="n">rpctopic</span><span class="o">=</span><span class="n">MQTT_RPCTOPIC</span><span class="p">,</span>
+              <span class="n">logfunc</span><span class="o">=</span><span class="n">jsonrpc</span><span class="o">.</span><span class="n">log_stdout</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span> <span class="k">as</span> <span class="n">rpcproxy</span> <span class="p">:</span>
+
+          <span class="n">rpcproxy</span><span class="o">.</span><span class="n">recovery</span><span class="p">(</span><span class="n">dts</span><span class="o">=</span><span class="n">DATETIMESTART</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="diagnostica">
 <h2>Diagnostica<a class="headerlink" href="#diagnostica" title="Link a questa intestazione">¶</a></h2>
@@ -187,153 +708,65 @@ Permette di:
 <h4>Messaggi di errore<a class="headerlink" href="#messaggi-di-errore" title="Link a questa intestazione">¶</a></h4>
 </div>
 </div>
+<div class="section" id="tramite-monitoraggio-mqtt">
+<h3>tramite monitoraggio MQTT<a class="headerlink" href="#tramite-monitoraggio-mqtt" title="Link a questa intestazione">¶</a></h3>
+</div>
 <div class="section" id="tramite-porta-seriale">
 <h3>Tramite porta seriale<a class="headerlink" href="#tramite-porta-seriale" title="Link a questa intestazione">¶</a></h3>
 </div>
-<div class="section" id="tramite-sdcard">
-<h3>Tramite SDcard<a class="headerlink" href="#tramite-sdcard" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id5">
+<h3>Tramite SDcard<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h3>
 </div>
 </div>
 </div>
 
 
+           </div>
+           
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../../index.html">
-              <img class="logo" src="../../_static/logo_stima.png" alt="Logo"/>
-            </a></p>
-<h1 class="logo"><a href="../../index.html">RMAP e Stima</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigazione</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.8</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Manuale Utente</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#funzioni-svolte-dalle-board">funzioni svolte dalle Board</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#rtc">RTC</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#core">Core+</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#usb">USB</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#sdcard">SDcard</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#i2c">I2C</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#gsm">GSM</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#hub">HUB</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#display">Display</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#funzioni-software">Funzioni software</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#accensione-e-supervisione-supervisor-task">Accensione e supervisione (supervisor task)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rtc-task">RTC task</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#time-task">Time task</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gsm-task">GSM task</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sensors-reading-task">Sensors reading task</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-saving-task">Data saving task</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mqtt-task">MQTT task</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#messa-in-opera">Messa in opera</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#connessione-e-disconnessione">Connessione e disconnessione</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#impilamento-board">Impilamento board</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#connessione-moduli">Connessione moduli</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#regolazione-display">Regolazione Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#assemblaggio-scatola-stazione">Assemblaggio scatola stazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">SDcard</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#formattazione">Formattazione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#aggiornamento-firmware">Aggiornamento Firmware</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#logging">Logging</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#recupero-dati">Recupero dati</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Recupero dati</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#diagnostica">Diagnostica</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tramite-display">tramite DISPLAY</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#temporizzazioni">Temporizzazioni</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#segnale-radio-gsm-gprs">Segnale Radio GSM/GPRS</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#dati-sensori">Dati sensori</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#salvataggio-e-invio-dati">Salvataggio e invio dati</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#messaggi-di-errore">Messaggi di errore</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#tramite-porta-seriale">Tramite porta seriale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tramite-sdcard">Tramite SDcard</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../stima_v3.html">Stima V3</a><ul>
-      <li>Previous: <a href="../stimacode.html" title="capitolo precedente">Documentazione del codice</a></li>
-      <li>Next: <a href="../../stima_wifi/stima_wifi_howto.html" title="capitolo successivo">Stima-wifi</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Ricerca veloce</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Vai" />
-    </form>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../stima_wifi/stima_wifi_howto.html" class="btn btn-neutral float-right" title="Stima-wifi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../stimacode.html" class="btn btn-neutral float-left" title="Documentazione del codice" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it
 
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
-
+</footer>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/stima_v3/user_manual/user_manual.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>
