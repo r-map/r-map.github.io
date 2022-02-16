@@ -667,7 +667,7 @@ essere asportata dopo aver scollegato l’alimentazione.</p>
 dal datalogger da remoto.</p>
 <div class="section" id="configure">
 <h3>configure<a class="headerlink" href="#configure" title="Link a questa intestazione">¶</a></h3>
-<p>la configurazione da remoto è possibile tramite tool a linea di comando:</p>
+<p>La configurazione da remoto è possibile tramite tool a linea di comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">transport</span><span class="o">=</span><span class="n">mqtt</span>
 </pre></div>
 </div>
@@ -678,7 +678,6 @@ dal datalogger da remoto.</p>
 <span class="n">MQTT_RPCTOPIC</span> <span class="o">=</span> <span class="s1">&#39;rpc/myuser/1112345,4412345/fixed/&#39;</span><span class="p">)</span>
 <span class="n">MQTT_USERNAME</span> <span class="o">=</span> <span class="s1">&#39;myuser&#39;</span>
 <span class="n">MQTT_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
-<span class="n">DATETIMESTART</span><span class="o">=</span><span class="p">[</span><span class="mi">2021</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="k">with</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">JsonRpc20</span><span class="p">(),</span>\
           <span class="n">jsonrpc</span><span class="o">.</span><span class="n">TransportMQTT</span><span class="p">(</span>
@@ -699,14 +698,17 @@ dal datalogger da remoto.</p>
 </div>
 <div class="section" id="reboot">
 <h3>reboot<a class="headerlink" href="#reboot" title="Link a questa intestazione">¶</a></h3>
-<p>Tramite un programma python:</p>
+<p>Il reboot del modulo master è possibile tramite tool a linea di comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_reboot</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>
+</pre></div>
+</div>
+<p>oppure tramite un programma python:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rmap</span> <span class="kn">import</span> <span class="n">jsonrpc</span>
 
 <span class="n">MQTT_HOST</span> <span class="o">=</span> <span class="s1">&#39;rmap.cc&#39;</span>
 <span class="n">MQTT_RPCTOPIC</span> <span class="o">=</span> <span class="s1">&#39;rpc/myuser/1112345,4412345/fixed/&#39;</span><span class="p">)</span>
 <span class="n">MQTT_USERNAME</span> <span class="o">=</span> <span class="s1">&#39;myuser&#39;</span>
 <span class="n">MQTT_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
-<span class="n">DATETIMESTART</span><span class="o">=</span><span class="p">[</span><span class="mi">2021</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="k">with</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span> <span class="n">jsonrpc</span><span class="o">.</span><span class="n">JsonRpc20</span><span class="p">(),</span>\
           <span class="n">jsonrpc</span><span class="o">.</span><span class="n">TransportMQTT</span><span class="p">(</span>
@@ -720,7 +722,12 @@ dal datalogger da remoto.</p>
 </div>
 <div class="section" id="recovery">
 <h3>recovery<a class="headerlink" href="#recovery" title="Link a questa intestazione">¶</a></h3>
-<p>Tramite un programma python:</p>
+<p>Il recupero dei dati salvati su SDcard è possibile tramite tool a linea di comando
+specificando la data iniziale dei dati da recuperare (fino a data e ora corrente):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_recovery</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2022-02-16T12:00&quot;</span>
+</pre></div>
+</div>
+<p>oppure tramite un programma python:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rmap</span> <span class="kn">import</span> <span class="n">jsonrpc</span>
 
 <span class="n">MQTT_HOST</span> <span class="o">=</span> <span class="s1">&#39;rmap.cc&#39;</span>
