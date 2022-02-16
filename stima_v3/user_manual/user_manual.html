@@ -344,6 +344,49 @@ visualizzazione ottimale.</p>
 </div>
 <div class="section" id="assemblaggio-scatola-stazione">
 <h3>Assemblaggio scatola stazione<a class="headerlink" href="#assemblaggio-scatola-stazione" title="Link a questa intestazione">¶</a></h3>
+<p>I moduli possono essere montati in qualsiasi ordine.  Sulla piastra
+HUB deve verificare se l’alimentazione e’ impostat a 3.3 V o 5 V; Tale
+tensione si può impostare spostando il ponticello corrispondente. Nei
+moduli nell board base e’ riportata una piccola saldatura in
+prossimita’ della del valore stampato 3 V o 5 V che indica a quale
+tensione funziona il modulo.  Il modulo primario ed il display hanno
+una tensione di funzionamento di 5V.  I cavi interni di collegamento
+tra moduli ed HUB hanno come differenza solo da lunghezza.</p>
+<p>Quando si connette un cavo fare attenzione nel momento
+dell’inserimento a non piegare i pin sulla scheda HUB.</p>
+<div class="section" id="sostituzione-batteria">
+<h4>Sostituzione  batteria<a class="headerlink" href="#sostituzione-batteria" title="Link a questa intestazione">¶</a></h4>
+<p>Per misurare la tensione della batteria a vuoto è necessario staccare
+un polo per misurare la tensione reale senza il contributo del
+pannello solare.</p>
+<p>Se c’è da cambiare la batteria bisogna staccare il connettore in hub,
+in modo da non bloccare la stazione. Staccando il connettore non si
+incorre infatti nel problema di alimentare il datalogger con una
+tensione sotto i 6 V.</p>
+<p>Per il cambio batteria procedere prima staccando il polo nero (-) e
+poi il rosso (+). Poi connettere prima il polo rosso e poi il nero
+alla nuova batteria.</p>
+<p>Per togliere e ridare tensione alla stazione occorre agire sul
+regolatore di carica pannello-batteria nel modo seguente:</p>
+<p>Facendo riferimento alla figura</p>
+<img alt="../../_images/regolatore_di_carica.png" src="../../_images/regolatore_di_carica.png" />
+<ul class="simple">
+<li><p>rimuovere il positivo del pannello dal regolatore di carica, individuato dal numero 1</p></li>
+<li><p>rimuovere il positivo della batteria dal regolatore di carica, individuato dal numero 3</p></li>
+<li><p>aspettare 10 secondi</p></li>
+<li><p>ricollegare la batteria attraverso il pin numero 3</p></li>
+<li><p>ricollegare la batteria attraverso il pin numero 1</p></li>
+</ul>
+<p>Quindi la sequenza dei collegamenti è 1-3-3-1</p>
+</div>
+<div class="section" id="antenna">
+<h4>Antenna<a class="headerlink" href="#antenna" title="Link a questa intestazione">¶</a></h4>
+<p>Di solito l’antenna e’ posizionata internamento della scatola
+stazione, ma può essere posizionata all’esterno praticando un foro
+alla base della scatola e facendo uscire il cavo tramite un passacavo.
+Il connettore e’ standard quindi si può usare anche una antenna
+esterna di tipo direzionale.</p>
+</div>
 </div>
 <div class="section" id="id1">
 <h3>SDcard<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
@@ -618,6 +661,8 @@ essere letti con apposito tool linea di comando.</p>
 </div>
 <div class="section" id="remote-procedure-call">
 <h2>Remote Procedure Call<a class="headerlink" href="#remote-procedure-call" title="Link a questa intestazione">¶</a></h2>
+<p>I dati vengono salvati sul modulo master ed è quella SD card che deve
+essere asportata dopo aver scollegato l’alimentazione.</p>
 <p>Le remote procedure call permettono di far eseguire delle operazioni
 dal datalogger da remoto.</p>
 <div class="section" id="configure">

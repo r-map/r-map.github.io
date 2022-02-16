@@ -133,6 +133,59 @@ visualizzazione ottimale.
 Assemblaggio scatola stazione
 .............................
 
+
+I moduli possono essere montati in qualsiasi ordine.  Sulla piastra
+HUB deve verificare se l’alimentazione e’ impostat a 3.3 V o 5 V; Tale
+tensione si può impostare spostando il ponticello corrispondente. Nei
+moduli nell board base e’ riportata una piccola saldatura in
+prossimita’ della del valore stampato 3 V o 5 V che indica a quale
+tensione funziona il modulo.  Il modulo primario ed il display hanno
+una tensione di funzionamento di 5V.  I cavi interni di collegamento
+tra moduli ed HUB hanno come differenza solo da lunghezza.
+
+Quando si connette un cavo fare attenzione nel momento
+dell'inserimento a non piegare i pin sulla scheda HUB.
+
+Sostituzione  batteria
+^^^^^^^^^^^^^^^^^^^^^^
+
+Per misurare la tensione della batteria a vuoto è necessario staccare
+un polo per misurare la tensione reale senza il contributo del
+pannello solare.
+
+Se c'è da cambiare la batteria bisogna staccare il connettore in hub,
+in modo da non bloccare la stazione. Staccando il connettore non si
+incorre infatti nel problema di alimentare il datalogger con una
+tensione sotto i 6 V.
+
+Per il cambio batteria procedere prima staccando il polo nero (-) e
+poi il rosso (+). Poi connettere prima il polo rosso e poi il nero
+alla nuova batteria.
+
+Per togliere e ridare tensione alla stazione occorre agire sul
+regolatore di carica pannello-batteria nel modo seguente:
+
+Facendo riferimento alla figura
+
+.. image:: regolatore_di_carica.png
+
+* rimuovere il positivo del pannello dal regolatore di carica, individuato dal numero 1
+* rimuovere il positivo della batteria dal regolatore di carica, individuato dal numero 3
+* aspettare 10 secondi
+* ricollegare la batteria attraverso il pin numero 3
+* ricollegare la batteria attraverso il pin numero 1
+
+Quindi la sequenza dei collegamenti è 1-3-3-1
+
+Antenna
+^^^^^^^
+
+Di solito l’antenna e’ posizionata internamento della scatola
+stazione, ma può essere posizionata all'esterno praticando un foro
+alla base della scatola e facendo uscire il cavo tramite un passacavo.
+Il connettore e’ standard quindi si può usare anche una antenna
+esterna di tipo direzionale.
+
 SDcard
 ......
 
@@ -437,6 +490,9 @@ dove:
 
 Remote Procedure Call
 ---------------------
+
+I dati vengono salvati sul modulo master ed è quella SD card che deve
+essere asportata dopo aver scollegato l'alimentazione.
 
 Le remote procedure call permettono di far eseguire delle operazioni
 dal datalogger da remoto.
