@@ -90,20 +90,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server RMAP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installazione-sistema-operativo-centos-8">Installazione sistema operativo Centos 8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#postgresql">postgresql</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#apache">apache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#arkimet">Arkimet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mosquitto">Mosquitto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rabbitmq">Rabbitmq</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#monit">Monit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cron">Cron</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sincronizzazione-db-da-un-server">Sincronizzazione DB da un server</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#server-di-origine">Server di origine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#server-di-destinazione">Server di destinazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analisi-funzionalita-rmap">Analisi funzionalità RMAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduzione">Introduzione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-ingestion">Data ingestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-delle-stazioni">Configurazione delle stazioni</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#registrazione-utenti">Registrazione utenti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualizzazione-dei-dati">Visualizzazione dei dati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosudo">Cosudo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserimento-manuale-dei-dati">Inserimento manuale dei dati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rainbo">RainBO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interfaccia-web">Interfaccia web</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#arkiweb">Arkiweb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installazione-sistema-operativo-centos-8">Installazione sistema operativo Centos 8</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installazione-sistema-operativo">Installazione sistema operativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#postgresql">postgresql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apache">apache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arkimet">Arkimet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosquitto">Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rabbitmq">Rabbitmq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monit">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cron">Cron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-db-da-un-server">Sincronizzazione DB da un server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#server-di-origine">Server di origine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#server-di-destinazione">Server di destinazione</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#arkiweb">Arkiweb</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,8 +187,140 @@
             
   <div class="section" id="server-rmap">
 <h1>Server RMAP<a class="headerlink" href="#server-rmap" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="analisi-funzionalita-rmap">
+<h2>Analisi funzionalità RMAP<a class="headerlink" href="#analisi-funzionalita-rmap" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="introduzione">
+<h3>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h3>
+<p>Le funzionalità offerte dal server RMAP
+(<a class="reference external" href="https://rmap.cc/">https://rmap.cc</a>) sono implementate usando i
+seguenti software e servizi (sono elencati solo quelli significativi):</p>
+<ul class="simple">
+<li><p>Broker AMQP (RabbitMQ) per la distribuzione di dati in tempo reale
+attraverso un sistema di code, sia da stazione a server che da server
+a server.</p></li>
+<li><p>Broker MQTT (Mosquitto) per l’invio di dati da stazioni al server.</p></li>
+<li><p>Arkimet per l’archiviazione dei dati storici</p></li>
+<li><p>DB-All.e per l’archiviazione dei dati recenti</p></li>
+<li><p>Una singola applicazione web (Django web framework) che gestisce</p>
+<ul>
+<li><p>Sistema di autenticazione</p></li>
+<li><p>Visualizzazione dei dati</p></li>
+<li><p>Registrazione utenti</p></li>
+<li><p>Configurazione di metadati e firmware delle stazioni</p></li>
+<li><p>Inserimento manuale dati e immagini georeferenziati</p></li>
+<li><p>Visualizzazione personalizzata per RainBO</p></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../_images/100000000000070A0000053E6107640098E107D3.png"><img alt="image0" src="../_images/100000000000070A0000053E6107640098E107D3.png" style="width: 16.51cm; height: 12.312cm;" /></a></p>
+</div>
+<div class="section" id="data-ingestion">
+<h3>Data ingestion<a class="headerlink" href="#data-ingestion" title="Link a questa intestazione">¶</a></h3>
+<p>Il data ingestion riguarda principalmente l’accoglimento di dati da
+stazioni via MQTT e AMQP. I dati che arrivano via MQTT sono poi
+inoltrati al broker AMQP, che è il nucleo della movimentazione dei dati
+all’interno del sistema. I client che devono inviare dati via MQTT o
+AMQP devono passare da un sistema di autenticazione e autorizzazione,
+sostanzialmente per garantire che i dati siano inviati solo da utenti
+autenticati e che non vadano a sovrapporsi a dati altrui. Entrambi i
+broker interrogano il sistema di autenticazione<strong>,</strong> un servizio web
+che implementa gli endpoint richiesti da RabbitMQ e Mosquitto. Il
+servizio di autorizzazione su AMQP (cioè cosa può pubblicare un utente
+autenticato) è invece delegato al demone <em>identvalidationd</em>, che prende
+i dati dalla coda di ingresso dell’utente e passa alla coda di ingestion
+solo i dati per cui il campo ident è uguale al nome utente. I dati che
+passano quest’ultimo controllo sono poi inviati:</p>
+<ul class="simple">
+<li><p>Ad altre code AMQP, ad esempio per forniture esterne o per altri
+processamenti. Su due di queste code sono inoltrati i dati per il
+SIMC (archiviati in Arkimet in formato VM2), una per le stazioni
+delle reti <em>claster</em> e <em>rmap</em> e l’altra per la rete <em>profe</em>.</p></li>
+<li><p>Al database DB-All.e che contiene i dati recenti.</p></li>
+</ul>
+<p>Ci sono inoltre alcuni moduli per l’accoglimento di dati da sorgenti che
+non usano AMQP o non usano il formato BUFR (e.g. Luftdaten).</p>
+<p><a class="reference internal" href="../_images/10000000000006F3000006BFD6FD52DC1D86FE41.png"><img alt="image1" src="../_images/10000000000006F3000006BFD6FD52DC1D86FE41.png" style="width: 16.51cm; height: 16.016cm;" /></a></p>
+</div>
+<div class="section" id="configurazione-delle-stazioni">
+<h3>Configurazione delle stazioni<a class="headerlink" href="#configurazione-delle-stazioni" title="Link a questa intestazione">¶</a></h3>
+<p>Questa funzionalità permette l’aggiornamento della configurazione e del
+firmware delle stazioni STIMA. L’aggiornamento può essere fatto via HTTP
+o AMQP, previa autenticazione presso il corrispondente servizio di
+autenticazione.
+<a class="reference internal" href="../_images/100002010000080000000507B85AB66754A5EF29.png"><img alt="image2" src="../_images/100002010000080000000507B85AB66754A5EF29.png" style="width: 16.51cm; height: 10.372cm;" /></a></p>
+</div>
+<div class="section" id="registrazione-utenti">
+<h3>Registrazione utenti<a class="headerlink" href="#registrazione-utenti" title="Link a questa intestazione">¶</a></h3>
+<p>Questa funzionalità permette di registrare gli utenti attraverso un
+classico processo di iscrizione: l’utente compila una form e riceve una
+email per la conferma dell’avvenuta registrazione. Ovviamente, c’è un
+dialogo con il servizio di autenticazione.
+<a class="reference internal" href="../_images/10000000000005B80000043555ABB73FC42635F9.png"><img alt="image3" src="../_images/10000000000005B80000043555ABB73FC42635F9.png" style="width: 16.51cm; height: 12.136cm;" /></a></p>
+</div>
+<div class="section" id="visualizzazione-dei-dati">
+<h3>Visualizzazione dei dati<a class="headerlink" href="#visualizzazione-dei-dati" title="Link a questa intestazione">¶</a></h3>
+<p>Questo servizio permette di visualizzare i dati archiviati (DB-All.e e
+Arkimet) sia su mappa che su grafico. Non c’è servizio di autenticazione
+e autorizzazione perchè si presuppone che tutti i dati siano pubblici.
+Questo sistema è probabilmente necessario per i dati della rete
+amatoriale e quindi è necessario che il servizio corrispondente di data
+ingestion sia collegato all’importatore dei dati su DB-All.e e Arkimet.
+<a class="reference internal" href="../_images/1000020100000800000003D765E8704309FFEAAE.png"><img alt="image4" src="../_images/1000020100000800000003D765E8704309FFEAAE.png" style="width: 16.51cm; height: 7.938cm;" /></a></p>
+</div>
+<div class="section" id="cosudo">
+<h3>Cosudo<a class="headerlink" href="#cosudo" title="Link a questa intestazione">¶</a></h3>
+<p>Cosudo permette di analizzare i dati osservati per identificare
+anomalie, confrontando i dati da stazione con dati radar, satellite e
+previsti. Inoltre, permette all’operatore di invalidare dei dati: tali
+invalidazioni sono poi inviate ai sistemi del SIMC per applicarle
+sull’archivio.</p>
+<p>È una applicazione che non necessita di accesso dall’esterno e deve
+avere a disposizione i dati dall’archivio del SIMC.</p>
+<p>Il sistema di autenticazione è necessario poiché, essendo ospitato sul
+server rmap.cc, deve essere reso privato.</p>
+<p>Non è ancora operativo e mancano i flussi di alimentazione dei dati.
+<a class="reference internal" href="../_images/1000020100000800000007ABE34B7E3A4D8E30E3.png"><img alt="image5" src="../_images/1000020100000800000007ABE34B7E3A4D8E30E3.png" style="width: 16.51cm; height: 15.84cm;" /></a></p>
+</div>
+<div class="section" id="inserimento-manuale-dei-dati">
+<h3>Inserimento manuale dei dati<a class="headerlink" href="#inserimento-manuale-dei-dati" title="Link a questa intestazione">¶</a></h3>
+<p>Questa funzionalità permette l’inserimento manuale, da parte di
+operatori, di dati e immagini via HTTP e AMQP. I dati attualmente sono
+le osservazioni della neve e del tempo (quest’ultimo all’interno del
+progetto RainBO). Si appoggia al sistema di autenticazione.
+<a class="reference internal" href="../_images/1000020100000800000004695F2A049FAE8C7BE3.png"><img alt="image6" src="../_images/1000020100000800000004695F2A049FAE8C7BE3.png" style="width: 16.51cm; height: 9.102cm;" /></a></p>
+</div>
+<div class="section" id="rainbo">
+<h3>RainBO<a class="headerlink" href="#rainbo" title="Link a questa intestazione">¶</a></h3>
+<p>È l’interfaccia per un progetto, che permette la visualizzazione con
+delle viste personalizzate per i seguenti servizi:</p>
+<ul class="simple">
+<li><p>Visualizzazione dei dati</p></li>
+<li><p>Inserimento manuale dei dati</p></li>
+<li><p>Registrazione utenti</p></li>
+</ul>
+</div>
+<div class="section" id="interfaccia-web">
+<h3>Interfaccia web<a class="headerlink" href="#interfaccia-web" title="Link a questa intestazione">¶</a></h3>
+<p>L’accesso da browser al sistema per alcune funzionalità, quali</p>
+<ul class="simple">
+<li><p>Registrazione utente</p></li>
+<li><p>Configurazione manuale delle stazioni</p></li>
+<li><p>Visualizzazione dati</p></li>
+<li><p>Inserimento manuale di dati</p></li>
+</ul>
+<p>Sono offerte da un sistema monolitico, in cui tutti i vari pezzi sono
+interconnessi. È possibile separarli, ma è richiesto un intervento non
+banale sul frontend che può essere eseguito solo a valle
+dell’organizzazione dei vari pezzi di RMAP su diversi host.</p>
+<p>Se una funzionalità usa varie app Django e deve quindi “assemblare”
+varie interfacce insieme, allora è necessario fare un repository per la
+singola funzionalità che dipende dalle app Django richieste.</p>
+</div>
+</div>
 <div class="section" id="installazione-sistema-operativo-centos-8">
 <h2>Installazione sistema operativo Centos 8<a class="headerlink" href="#installazione-sistema-operativo-centos-8" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="installazione-sistema-operativo">
+<h3>Installazione sistema operativo<a class="headerlink" href="#installazione-sistema-operativo" title="Link a questa intestazione">¶</a></h3>
 <p>Installare Centos 8.</p>
 <p>Aggiunta repository e installazione pacchetti</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
@@ -205,7 +352,7 @@
 </div>
 </div>
 <div class="section" id="postgresql">
-<h2>postgresql<a class="headerlink" href="#postgresql" title="Link a questa intestazione">¶</a></h2>
+<h3>postgresql<a class="headerlink" href="#postgresql" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">module</span> <span class="n">disable</span> <span class="n">postgresql</span><span class="p">:</span><span class="mi">10</span>
 <span class="n">dnf</span> <span class="n">module</span> <span class="n">enable</span> <span class="n">postgresql</span><span class="p">:</span><span class="mi">12</span>
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">postgresql</span><span class="o">-</span><span class="n">server</span> <span class="n">postgresql</span><span class="o">-</span><span class="n">contrib</span>
@@ -256,7 +403,7 @@
 </div>
 </div>
 <div class="section" id="apache">
-<h2>apache<a class="headerlink" href="#apache" title="Link a questa intestazione">¶</a></h2>
+<h3>apache<a class="headerlink" href="#apache" title="Link a questa intestazione">¶</a></h3>
 <p>Collect static files from django apps:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">global_static</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">collectstatic</span>
@@ -280,7 +427,7 @@ service httpd start``
 </div>
 </div>
 <div class="section" id="arkimet">
-<h2>Arkimet<a class="headerlink" href="#arkimet" title="Link a questa intestazione">¶</a></h2>
+<h3>Arkimet<a class="headerlink" href="#arkimet" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">arkimet</span> <span class="n">arkimet</span><span class="o">-</span><span class="n">postprocessor</span><span class="o">-</span><span class="n">suite</span>
 <span class="n">useradd</span>  <span class="o">-</span><span class="n">r</span> <span class="n">arkimet</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">arkimet</span>
@@ -302,7 +449,7 @@ service httpd start``
 </div>
 </div>
 <div class="section" id="mosquitto">
-<h2>Mosquitto<a class="headerlink" href="#mosquitto" title="Link a questa intestazione">¶</a></h2>
+<h3>Mosquitto<a class="headerlink" href="#mosquitto" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
 <span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
@@ -324,7 +471,7 @@ service httpd start``
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/monit.d/mosquitto">/etc/monit.d/mosquitto</a></p>
 </div>
 <div class="section" id="rabbitmq">
-<h2>Rabbitmq<a class="headerlink" href="#rabbitmq" title="Link a questa intestazione">¶</a></h2>
+<h3>Rabbitmq<a class="headerlink" href="#rabbitmq" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span><span class="n">bash</span>
 <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">erlang</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">bash</span>
 
@@ -351,7 +498,7 @@ se si trasferiscono dati scritti da un utente autenticandosi con un altro utente
 bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-properties» nel formato json sopra ma non funziona</p>
 </div>
 <div class="section" id="monit">
-<h2>Monit<a class="headerlink" href="#monit" title="Link a questa intestazione">¶</a></h2>
+<h3>Monit<a class="headerlink" href="#monit" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
@@ -363,16 +510,16 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 </div>
 </div>
 <div class="section" id="cron">
-<h2>Cron<a class="headerlink" href="#cron" title="Link a questa intestazione">¶</a></h2>
+<h3>Cron<a class="headerlink" href="#cron" title="Link a questa intestazione">¶</a></h3>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/arpae_aq_ckan">/etc/cron.d/arpae_aq_ckan</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/dballe2arkimet">/etc/cron.d/dballe2arkimet</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/luftdaten">/etc/cron.d/luftdaten</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/makeexplorer">/etc/cron.d/makeexplorer</a></p>
 </div>
 <div class="section" id="sincronizzazione-db-da-un-server">
-<h2>Sincronizzazione DB da un server<a class="headerlink" href="#sincronizzazione-db-da-un-server" title="Link a questa intestazione">¶</a></h2>
+<h3>Sincronizzazione DB da un server<a class="headerlink" href="#sincronizzazione-db-da-un-server" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="server-di-origine">
-<h3>Server di origine<a class="headerlink" href="#server-di-origine" title="Link a questa intestazione">¶</a></h3>
+<h4>Server di origine<a class="headerlink" href="#server-di-origine" title="Link a questa intestazione">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">dumpdata</span> <span class="o">&gt;</span> <span class="n">dumpdata</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 </div>
@@ -385,7 +532,7 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 </div>
 </div>
 <div class="section" id="server-di-destinazione">
-<h3>Server di destinazione<a class="headerlink" href="#server-di-destinazione" title="Link a questa intestazione">¶</a></h3>
+<h4>Server di destinazione<a class="headerlink" href="#server-di-destinazione" title="Link a questa intestazione">¶</a></h4>
 <p>Da interfaccia web admin rimuovere TUTTI gli utenti (compreso rmap)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">loaddata</span><span class="o">=</span><span class="n">dumpdata</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
@@ -403,7 +550,7 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 </div>
 </div>
 <div class="section" id="arkiweb">
-<h2>Arkiweb<a class="headerlink" href="#arkiweb" title="Link a questa intestazione">¶</a></h2>
+<h3>Arkiweb<a class="headerlink" href="#arkiweb" title="Link a questa intestazione">¶</a></h3>
 <p>AL MOMENTO NON DISPONIBILE SU CENTOS 8
 NOT AVAILABLE ON CENTOS 8</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">arkiweb</span>
@@ -453,6 +600,7 @@ NOT AVAILABLE ON CENTOS 8</p>
 </pre></div>
 </div>
 <p>/rmap/arkimet/arkiweb.config</p>
+</div>
 </div>
 </div>
 

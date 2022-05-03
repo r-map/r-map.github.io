@@ -557,24 +557,29 @@ database sincronizzati:</p>
 <li><p>myapn: apn del provider GSM corrispondente alla schda SIM inserita in stazione (default=»ibox.tim.it»)</p></li>
 </ul>
 <p>Comandi da impartire per configurare la stazione:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;myheight&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;mystationname&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myusername --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --server=rmap.cc --lat=&quot;</span><span class="n">mylat</span><span class="s2">&quot; --lon=&quot;</span><span class="n">mylon</span><span class="s2">&quot;  --mqttrootpath=report --mqttmaintpath=maint</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;myheight&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;mystationname&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myusername --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --lat=&quot;</span><span class="n">mylat</span><span class="s2">&quot; --lon=&quot;</span><span class="n">mylon</span><span class="s2">&quot;</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="s2">&quot;mymqttsamplerate&quot;</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;mytcpipntpserver&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span><span class="o">=</span><span class="s2">&quot;myapn&quot;</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="s2">&quot;mystationmodel&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="s2">&quot;mystationmodel&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">upload_to_server</span>
 </pre></div>
 </div>
 <p>Esempio di configurazione:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="mi">2</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;Malborghetto di Boara&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">lat</span><span class="o">=</span><span class="mf">44.85892</span> <span class="o">--</span><span class="n">lon</span><span class="o">=</span><span class="mf">11.65625</span>  <span class="o">--</span><span class="n">mqttrootpath</span><span class="o">=</span><span class="n">report</span> <span class="o">--</span><span class="n">mqttmaintpath</span><span class="o">=</span><span class="n">maint</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="mi">2</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;Malborghetto di Boara&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">lat</span><span class="o">=</span><span class="mf">44.85892</span> <span class="o">--</span><span class="n">lon</span><span class="o">=</span><span class="mf">11.65625</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span> <span class="n">internet</span><span class="o">.</span><span class="n">wind</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="n">stima_report_thpbwr</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span><span class="o">=</span><span class="n">stima_report_thpbwr</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="n">malborghetto</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span>  <span class="o">--</span><span class="n">upload_to_server</span>
 </pre></div>
 </div>
+<p>Eseguire:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>per avere indicazioni su altri parametri per particolari personalizzazioni.</p>
 </div>
 <div class="section" id="con-modello-tipo-e-template-sensori-non-predefinito">
 <h5>Con modello (tipo e template sensori) non predefinito<a class="headerlink" href="#con-modello-tipo-e-template-sensori-non-predefinito" title="Link a questa intestazione">¶</a></h5>
 <p>In questa modalità bisogna avere piena padronanza del data model, dei sensori connessi e dei relativi metadati.</p>
 <p>Qui un esempio di configurazione:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;altezzametri&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&quot;nome stazione&quot;&quot;&quot;&quot; --username=&quot;</span><span class="n">myuser</span><span class="s2">&quot; --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --server=rmap.cc --lat=&quot;</span><span class="n">latitudine</span><span class="s2">&quot; --lon=&quot;</span><span class="n">longitudine</span><span class="s2">&quot;  --mqttrootpath=report --mqttmaintpath=maint</span>
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span> <span class="n">ibox</span><span class="o">.</span><span class="n">tim</span><span class="o">.</span><span class="n">it</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;altezzametri&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&quot;nome stazione&quot;&quot;&quot;&quot; --username=&quot;</span><span class="n">myuser</span><span class="s2">&quot; --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --server=test.rmap.cc --lat=&quot;</span><span class="n">latitudine</span><span class="s2">&quot; --lon=&quot;</span><span class="n">longitudine</span><span class="s2">&quot;  --mqttrootpath=report --mqttmaintpath=maint</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">mqttuser</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">mqttpassword</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">mqttsamplerate</span><span class="o">=</span><span class="mi">900</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span><span class="o">=</span><span class="s2">&quot;it.pool.ntp.org&quot;</span> <span class="o">--</span><span class="n">tcpipname</span><span class="o">=</span><span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span> <span class="n">ibox</span><span class="o">.</span><span class="n">tim</span><span class="o">.</span><span class="n">it</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">delsensors</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità istantanea&quot;</span> <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">ITH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;254,0,0&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità minima&quot;</span>     <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">NTH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;3,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
@@ -582,7 +587,7 @@ database sincronizzati:</p>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;temperatura e umidità massima&quot;</span>    <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">XTH</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">35</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;2,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;103,2000,-,-&quot;</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensor</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">sensorname</span><span class="o">=</span><span class="s2">&quot;pioggia&quot;</span>                          <span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">I2C</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">TBR</span> <span class="o">--</span><span class="n">address</span><span class="o">=</span><span class="mi">33</span> <span class="o">--</span><span class="n">timerange</span><span class="o">=</span><span class="s2">&quot;1,0,900&quot;</span> <span class="o">--</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;1,-,-,-&quot;</span>
 
-<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span>  <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">upload_to_server</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span> <span class="o">--</span><span class="n">device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span>
 </pre></div>
 </div>
@@ -751,6 +756,377 @@ specificando la data iniziale dei dati da recuperare (fino a data e ora corrente
 <h2>Diagnostica<a class="headerlink" href="#diagnostica" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="tramite-display">
 <h3>tramite DISPLAY<a class="headerlink" href="#tramite-display" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="messaggi-all-accensione">
+<h4>Messaggi all’accensione<a class="headerlink" href="#messaggi-all-accensione" title="Link a questa intestazione">¶</a></h4>
+<p><strong>Prima schermata attesa configurazione:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Wait configuration</p></td>
+</tr>
+<tr class="row-even"><td></td>
+</tr>
+<tr class="row-odd"><td></td>
+</tr>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>E” stato inserito il ponticello per la configurazione e la stazione rimane in attesa;
+Per attivare la stazioen bisogna rimuovere il ponticello.</p>
+<p><strong>Prima schermata, tipo e versioni:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>—- www.rmap.cc —-</p></td>
+</tr>
+<tr class="row-even"><td><p>Stima station</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;station type&gt; V: &lt;firmware version&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>Configuration V: &lt;configuration version&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>station type</strong>: tipo di stazione definito a tempo compilazione</p></li>
+<li><p><strong>firmware version</strong>: versione del firmware</p></li>
+<li><p><strong>configuration version</strong>: versione della configurazione per compatibilità</p></li>
+</ul>
+<p><strong>Seconda schermata, dati costanti di stazione:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>&lt;bcode1&gt;: &lt;constant station data 1&gt;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;bcode2&gt;: &lt;constant station data 2&gt;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>bcode1</strong>: codice della prima variabile come da tabella B; Get the full table from: <a class="reference external" href="https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt">https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt</a></p></li>
+<li><p><strong>constant station data 1</strong>: value 1</p></li>
+<li><p><strong>bcode2</strong>: codice della secondavariabile come da tabella B; Get the full table from: <a class="reference external" href="https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt">https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt</a></p></li>
+<li><p><strong>constant station data 2</strong>: value 2</p></li>
+</ul>
+<p><strong>Terza schermata, stato sensori e metadati di configurazione:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Sensor:</p></td>
+<td><p>&lt;sensor ok&gt;/&lt;sensor total&gt; &lt;OKKO&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>user</p></td>
+<td><p>&lt;user&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>station</p></td>
+<td><p>&lt;station&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>board</p></td>
+<td><p>&lt;board&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>sensor ok</strong>: numero sensori rilevati</p></li>
+<li><p><strong>sensor total</strong>: numero tolale sensori previsti</p></li>
+<li><p><strong>OKKO</strong>: stato riassuntivo dei sensori ( OK: tutto bene; KO: malfunzionamento)</p></li>
+<li><p><strong>user</strong>: mqtt username</p></li>
+<li><p><strong>station</strong>: station slug</p></li>
+<li><p><strong>board</strong>: board slug</p></li>
+</ul>
+<p><strong>Quarta schermata, stato sensori e metadati di configurazione:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Sensor:</p></td>
+<td><p>&lt;sensor ok&gt;/&lt;sensor total&gt; &lt;OKKO&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>server</p></td>
+<td><p>&lt;mqtt server&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>ntp</p></td>
+<td><p>&lt;ntp server&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>board</p></td>
+<td><p>&lt;board&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>sensor ok</strong>: numero sensori rilevati</p></li>
+<li><p><strong>sensor total</strong>: numero tolale sensori previsti</p></li>
+<li><p><strong>OKKO</strong>: stato riassuntivo dei sensori ( OK: tutto bene; KO: malfunzionamento)</p></li>
+<li><p><strong>server</strong>: mqtt server name</p></li>
+<li><p><strong>ntp</strong>: ntp server name</p></li>
+<li><p><strong>board</strong>: board slug</p></li>
+</ul>
+<p><strong>Messaggi visualizzati nella quarta riga del display:</strong></p>
+<ul class="simple">
+<li><p><strong>SD Card: KO</strong>: c’è un problema nell’utilizzo dell’SDcard</p></li>
+<li><p><strong>NEW Firmware loaded</strong>: è stato appena affettuato un aggiornamento del firmware e il firmware è stato rinominato sull’SDcard</p></li>
+</ul>
+</div>
+<div class="section" id="messaggi-durante-il-funzionamento">
+<h4>Messaggi durante il funzionamento<a class="headerlink" href="#messaggi-durante-il-funzionamento" title="Link a questa intestazione">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 26%" />
+<col style="width: 28%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>&lt;SN&gt;:</p></td>
+<td><p>&lt;h&gt;:&lt;m&gt;:&lt;s&gt;</p></td>
+<td colspan="2"><p>rf:&lt;rssi&gt;/&lt;ber&gt; &lt;LCD: KO&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;RT&gt;</p></td>
+<td><p>temp</p></td>
+<td><p>humidity</p></td>
+<td><p>precipitation</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>battery</p></td>
+<td><p>charge</p></td>
+<td><p>solar panel</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>SD&lt;SN&gt;&lt;SOKKO&gt;</p></td>
+<td><p>MQ&lt;MN&gt;&lt;MOKKO&gt;</p></td>
+<td><p>FA&lt;FN&gt;&lt;FOKKO&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>SN</strong>: orario prossima elaborazione: S inizio periodo report; N fine periodo report</p></li>
+<li><p><strong>h</strong>: ora GMT</p></li>
+<li><p><strong>m</strong>: minuti</p></li>
+<li><p><strong>s</strong>: secondi</p></li>
+<li><p><strong>rssi</strong>: qualità segnale radio; vedi tabella sotto (oppure KO in caso di errore)</p></li>
+<li><p><strong>ber</strong>:  qualità segnale radio; vedi tabella sotto (oppure KO in caso di errore)</p></li>
+<li><p><strong>LCD</strong>: KO: messaggio se l’LCD ha avuto errori ed è stato reinizializzato</p></li>
+</ul>
+<p>ultimi dati acquisiti:</p>
+<ul class="simple">
+<li><p><strong>RT</strong>: i dati visualizzati si riferiscono a: T test; R report</p></li>
+<li><p><strong>temp</strong>: temperatura e unità di misura</p></li>
+<li><p><strong>humidity</strong>: umidità e unità di misura</p></li>
+<li><p><strong>precipitation</strong>: precipitazione e unità di misura</p></li>
+<li><p><strong>battery</strong>: tensione batteria e unità di misura</p></li>
+<li><p><strong>charge</strong>: carica batteria e unità di misura</p></li>
+<li><p><strong>solar</strong> panel: tensione pannello solare e unità di misura</p></li>
+</ul>
+<p>ultime oprazioni eseguite:</p>
+<ul class="simple">
+<li><p><strong>SN</strong>: numero di dati scritti su SDcard</p></li>
+<li><p><strong>SOKKO</strong>: stato riassuntivo scrittura SDcard ( OK: tutto bene; KO: malfunzionamento)</p></li>
+<li><p><strong>MN</strong>: numero di dati inviati al broker MQTT</p></li>
+<li><p><strong>MOKKO</strong>: stato riassuntivo invio dati MQTT ( OK: tutto bene; KO: malfunzionamento)</p></li>
+<li><p><strong>FN</strong>: numero di dati con acquisizione fallita dai sensori</p></li>
+<li><p><strong>FOKKO</strong>: stato riassuntivo acquisizione dati dai sensori ( OK: tutto bene; KO: malfunzionamento)</p></li>
+</ul>
+<p><strong>rssi</strong>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>RSI</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>-115 dBm or less</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>-111 dBm</p></td>
+</tr>
+<tr class="row-even"><td><p>2 to 30</p></td>
+<td><p>-110 dBm to -54 dBm</p></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>-52 dBm or greater</p></td>
+</tr>
+<tr class="row-even"><td><p>99</p></td>
+<td><p>not known or not detectable</p></td>
+</tr>
+</tbody>
+</table>
+<p>dBm is short for decibel per milliwatt and is a common unit for signal
+strength. -115 dbm is the lowest signal strength value and would
+typically mean that the station is on a network blind spot. -111 dBm
+is also a bad number for signal reception. I was able to connect to a
+network at -70 dBm. Here is a handy list of dBm levels and what they
+mean:</p>
+<p>RSSI Condition:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>dBm</p></th>
+<th class="head"><p>mean</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-109</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-odd"><td><p>-107</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-even"><td><p>-105</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-odd"><td><p>-103</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-even"><td><p>-101</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-odd"><td><p>-99</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-even"><td><p>-97</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-odd"><td><p>-95</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-even"><td><p>-93</p></td>
+<td><p>OK</p></td>
+</tr>
+<tr class="row-odd"><td><p>-91</p></td>
+<td><p>OK</p></td>
+</tr>
+<tr class="row-even"><td><p>-89</p></td>
+<td><p>OK</p></td>
+</tr>
+<tr class="row-odd"><td><p>-87</p></td>
+<td><p>OK</p></td>
+</tr>
+<tr class="row-even"><td><p>-85</p></td>
+<td><p>OK</p></td>
+</tr>
+<tr class="row-odd"><td><p>-83</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-even"><td><p>-81</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-odd"><td><p>-79</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-even"><td><p>-77</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-odd"><td><p>-75</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-even"><td><p>-73</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>-71</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>-69</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>-67</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>-65</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>-63</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>-61</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>-59</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>-57</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>-55</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>-53</p></td>
+<td><p>Excellent</p></td>
+</tr>
+</tbody>
+</table>
+<p>If you will compare this to smartphones, marginal is one bar, OK is
+two bars, good is three bars and excellent is four bars.</p>
+<p><strong>ber</strong> (bit error rate):</p>
+<p>In digital transmission, the number of bit errors is the number of
+received bits of a data stream over a communication channel that have
+been altered due to noise, interference, distortion or bit
+synchronization errors.</p>
+<p>The bit error rate (BER) is the number of bit errors per unit
+time. The bit error ratio (also BER) is the number of bit errors
+divided by the total number of transferred bits during a studied time
+interval. Bit error ratio is a unitless performance measure, often
+expressed as a percentage</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bear</p></td>
+<td><p>mean</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>BER  &lt; 0.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.2%  &lt; BER &lt; 0.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.4%  &lt; BER &lt; 0.8%</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.8%  &lt; BER &lt; 1.6%</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>1.6%  &lt; BER &lt; 3.2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>3.2%  &lt; BER &lt; 6.4%</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>6.4%  &lt; BER &lt; 12.8%</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>12.8% &lt; BER</p></td>
+</tr>
+<tr class="row-even"><td><p>99</p></td>
+<td><p>not known or not detectable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="temporizzazioni">
 <h4>Temporizzazioni<a class="headerlink" href="#temporizzazioni" title="Link a questa intestazione">¶</a></h4>
 </div>
