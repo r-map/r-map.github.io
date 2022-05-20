@@ -12,7 +12,7 @@ I moduli si interconnettono tra loro tramite bus I2C.
 Le board si interconnettono tramite interfaccia basata sullo standard UPIN-27.
 
 
-funzioni svolte dalle Board
+Funzioni svolte dalle Board
 ...........................
 
 RTC
@@ -43,13 +43,15 @@ Permette di utilizzare una SDcard per effettuare:
 
 I2C
 ^^^
-Espone una 
-* connessione e reset
+Espone una:
+* connessione I2C
+* ponticello per effettuare la configurazione
 
 GSM
 ^^^
-* SIM
-* antenna
+E' in realtà composto da due board:
+* SIM: in cui deve essere inserita la SIM card
+* vero e proprio modulo GSM: a cui deve essere connessa l'antenna
 
 HUB
 ^^^
@@ -65,30 +67,45 @@ Display
 Funzioni software
 -----------------
 
+Da scrivere
+
 Accensione e supervisione (supervisor task)
 ...........................................
 
 RTC task
 ........
 
+Da scrivere
+
 Time task
 .........
+
+Da scrivere
 
 GSM task
 ........
 
+Da scrivere
+
 Sensors reading task
 ....................
+
+Da scrivere
 
 Data saving task
 ................
 
+Da scrivere
+
 MQTT task
 .........
 
+Da scrivere
 
 Messa in opera
 --------------
+
+Da scrivere
 
 Connessione e disconnessione
 ............................
@@ -232,6 +249,8 @@ Recupero dati
 
 Configurazione
 --------------
+
+Qui vengono descritte le fasi per effettuare la configurazione della stazione necessaria al suo funzionamento.
 
 Creare un nuovo utente RMAP
 ...........................
@@ -598,6 +617,16 @@ oppure tramite un programma python:
 			  rpcproxy.recovery(dts=DATETIMESTART)
 
 
+Temporizzazioni
+---------------
+
+Da scrivere
+
+Salvataggio e invio dati
+------------------------
+
+Da scrivere
+			  
 Diagnostica
 -----------
 
@@ -845,7 +874,7 @@ expressed as a percentage
 
 +------+-----------------------------+
 | bear | mean                        |
-+------+-----------------------------+
++======+=============================+
 |  0   |  BER  < 0.2%                |
 +------+-----------------------------+
 |  1   | 0.2%  < BER < 0.4%          |
@@ -866,26 +895,59 @@ expressed as a percentage
 +------+-----------------------------+
 
 
-Temporizzazioni
-^^^^^^^^^^^^^^^
-
-Segnale Radio GSM/GPRS
-^^^^^^^^^^^^^^^^^^^^^^
-
-Dati sensori
-^^^^^^^^^^^^
-
-Salvataggio e invio dati
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Messaggi di errore
-^^^^^^^^^^^^^^^^^^
-
-tramite monitoraggio MQTT
+Tramite monitoraggio MQTT
 .........................
+
+Questo monitoraggio permette di visualizzare tutti i messaggi che la
+stazione invia al server e che il server ha ricevuto correttamente:
+
+     rmap-configure --mqtt_monitor --station_slug="myslug" --user="myuser"
+
+i dati vengo visualizzati così come pubblicati e anche decodificati e
+interpretati.
+
 
 Tramite porta seriale
 .....................
 
+Questo monitoraggio permette di visualizzare tutti i messaggi di
+logging che la stazione invia sulla porta seriale tramite il
+connettore USB:
+
+     rmap-configure --serial_monitor --station_slug="myslug" --user="myuser"
+
+Ogni messaggio è composto da:
+
++------+--------------------------+-----------+
+| data | importanza del messaggio | messaggio | 
++------+--------------------------+-----------+
+
+La data e ora sono in GMT.
+
+La importanza del messaggio è rappresentata da una lettera da interpretare come da legenda:
+
++---+------------------------------------+
+| F | fatal errors                       |
++---+------------------------------------+
+| E | all errors                         |
++---+------------------------------------+
+| W | errors, and warnings               |
++---+------------------------------------+
+| N | errors, warnings and notices       |
++---+------------------------------------+
+| T | errors, warnings, notices & traces |
++---+------------------------------------+
+| V | all                                |
++---+------------------------------------+
+
 Tramite SDcard
 ..............
+
+Per effettuare questo monitoraggio occorre utilizzare un firmware
+appositamente compilato con questa funzione inclusa; il firmware
+utilizzati normalmente in produzione non lo permettono.
+
+Avviata la stazione la stessa messaggistica ottenuta dal monitoraggio
+tramite porta seriale verrà scritta in un file sulla SDcard con
+postfisso ".log".  Il file sarà leggibile da PC una volta recuperata
+la SDcard.
