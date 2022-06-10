@@ -632,7 +632,7 @@ importing the file:
 
 `rabbit_server_data_ingestion.json <https://raw.githubusercontent.com/r-map/rmap/master/rabbitmq/rabbit_server_data_ingestion.json>`_
 
-with the same management interface set all the user's password and remove "guest" user and login with a new real user.
+with the same management interface set all the user's password and remove "guest" user if present and login with a new real user.
 
 
 Monit
