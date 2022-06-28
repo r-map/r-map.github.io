@@ -503,9 +503,9 @@ service httpd start``
 <span class="n">service</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">start</span>
 </pre></div>
 </div>
-<p>login at management interface with user «guest» and password «guest»
+<p>login at management interface with user &quot;guest&quot; and password &quot;guest&quot;
 on overview page use import definition to configure exchange, queue and users
-with the same management interface remove «guest» user and login with a new real user</p>
+with the same management interface remove &quot;guest&quot; user and login with a new real user</p>
 <p>Per attivare uno showell:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rabbitmqctl</span> <span class="n">set_parameter</span> <span class="n">shovel</span> <span class="n">report_mobile</span> <span class="s1">&#39;{&quot;src-protocol&quot;: &quot;amqp091&quot;, &quot;src-uri&quot;: &quot;amqp://rmap:&lt;password&gt;@rmap.cc&quot;, &quot;src-queue&quot;: &quot;report_mobile_saved&quot;, &quot;dest-protocol&quot;: &quot;amqp091&quot;, &quot;dest-uri&quot;: &quot;amqp://rmap:&lt;password&gt;@&quot;, &quot;dest-queue&quot;: &quot;report_mobile&quot;}&#39;</span>
 </pre></div>
@@ -513,7 +513,7 @@ with the same management interface remove «guest» user and login with a new re
 <p>problema non risolto:
 se si trasferiscono dati scritti da un utente autenticandosi con un altro utente la security su user_id lo vieta.
 <a class="reference external" href="https://www.rabbitmq.com/shovel-dynamic.html">https://www.rabbitmq.com/shovel-dynamic.html</a>
-bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-properties» nel formato json sopra ma non funziona</p>
+bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;dest-publish-properties&quot; nel formato json sopra ma non funziona</p>
 </div>
 <div class="section" id="monit">
 <h3>Monit<a class="headerlink" href="#monit" title="Link a questa intestazione">¶</a></h3>
@@ -635,11 +635,11 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 <span class="n">useradd</span> <span class="n">rmap</span>
 </pre></div>
 </div>
-<p>/etc/selinux/config:</p>
+<p>modificare il file /etc/selinux/config:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELINUX</span><span class="o">=</span><span class="n">disabled</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/tmpfiles.d/rmap.conf">/etc/tmpfiles.d/rmap.conf</a></p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/tmpfiles.d/rmap.conf">/etc/tmpfiles.d/rmap.conf</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span>
 <span class="n">chmod</span> <span class="n">go</span><span class="o">+</span><span class="n">rx</span> <span class="o">/</span><span class="n">rmap</span>
 </pre></div>
@@ -648,8 +648,8 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rmap</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rmap/rmap-site.cfg">/etc/rmap/rmap-site.cfg</a></p>
-<p>cambiare la password dell’utente amministratore.</p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rmap/rmap-site.cfg">/etc/rmap/rmap-site.cfg</a></p>
+<p>cambiare la password dell'utente amministratore.</p>
 </div>
 <div class="section" id="id4">
 <h3>Mosquitto<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
@@ -658,14 +658,14 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 <span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/mosquitto/conf.d/rmap.conf">/etc/mosquitto/conf.d/rmap.conf</a></p>
-<p>remove everythings and add in /etc/mosquitto/mosquitto.conf</p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/mosquitto/conf.d/rmap.conf">/etc/mosquitto/conf.d/rmap.conf</a></p>
+<p>cancellare tutto il contenuto del file /etc/mosquitto/mosquitto.conf e sostituirlo con le seguenti righe:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include_dir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
-<span class="n">pid_file</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pid</span>
+<span class="n">pid_file</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pid</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">mosquitto</span> <span class="n">on</span>
-<span class="n">service</span> <span class="n">mosquitto</span> <span class="n">start</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">mosquitto</span>
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">mosquitto</span>
 </pre></div>
 </div>
 </div>
@@ -677,9 +677,9 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/enabled_plugins">/etc/rabbitmq/enabled_plugins</a></p>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/rabbitmq-env.conf">/etc/rabbitmq/rabbitmq-env.conf</a></p>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/rabbitmq.config">/etc/rabbitmq/rabbitmq.config</a></p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/enabled_plugins">/etc/rabbitmq/enabled_plugins</a></p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/rabbitmq-env.conf">/etc/rabbitmq/rabbitmq-env.conf</a></p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/rabbitmq.config">/etc/rabbitmq/rabbitmq.config</a></p>
 <p>Installare il certificato ssl/tls per il dominio del server in:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpaecert</span><span class="o">/</span><span class="n">arpae_it</span><span class="o">.</span><span class="n">pem</span>
 </pre></div>
@@ -687,25 +687,26 @@ bisognerebbe riuscire a settare «user_id» tramite il parametro «dest-publish-
 <p>e impostare gli opportuni privilegi di lettura/scrittura.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">mnesia</span><span class="o">/</span>
 <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rabbitmq</span><span class="p">:</span><span class="n">rabbitmq</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span>
-<span class="n">chkconfig</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">on</span>
-<span class="n">service</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">start</span>
+<span class="n">systemctl</span> <span class="n">enable</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span>
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span>
 </pre></div>
 </div>
-<p>login at management interface with user «guest» and password «guest»
-on overview page use import definition to configure exchange, queue and users
-importing the file:</p>
+<p>effettuare il login all'interfaccia di management web: &lt;<a class="reference external" href="http://server-fqdn:15672/">http://server-fqdn:15672/</a>&gt;
+con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la funzione &quot;import definition&quot; per caricare exchange, queue e users importando il seguente file:</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/rabbitmq/rabbit_server_data_ingestion.json">rabbit_server_data_ingestion.json</a></p>
-<p>with the same management interface set all the user’s password and remove «guest» user if present and login with a new real user.</p>
+<p>dalla stessa interfaccia di management web impostare le password per tutti gli utenti, rimuovere l'utente &quot;guest&quot; e fare login con uno dei nuovi utenti definiti.</p>
 </div>
 <div class="section" id="id10">
 <h3>Monit<a class="headerlink" href="#id10" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/monitrc">/etc/monitrc</a></p>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/monit.d/rmap">/etc/monit.d/rmap</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">monit</span> <span class="n">on</span>
-<span class="n">service</span> <span class="n">monit</span> <span class="n">start</span>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/monitrc">/etc/monitrc</a></p>
+<p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/monit.d/rmap">/etc/monit.d/rmap</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="mi">0700</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monitrc</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monit</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">chown</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monitrc</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">monit</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">systemctl</span> <span class="n">enable</span> <span class="n">monit</span>
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">monit</span>
 </pre></div>
 </div>
 </div>

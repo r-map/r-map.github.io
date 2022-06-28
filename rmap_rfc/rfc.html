@@ -260,7 +260,7 @@
 <ul class="simple">
 <li><p>2022/06/10 v. 2.9 : Versione 1 (precedentemente 0) del protocollo RMAP over MQTT</p></li>
 <li><p>2021/11/21 v. 2.8 : corretto topic MQTT per RPC</p></li>
-<li><p>2021/10/15 v. 2.7 : corretto topic MQTT per constant station data; corretto configure RPC e aggiunto parametro “sd”</p></li>
+<li><p>2021/10/15 v. 2.7 : corretto topic MQTT per constant station data; corretto configure RPC e aggiunto parametro &quot;sd&quot;</p></li>
 <li><p>2021/03/10 v. 2.6 : aggiunte alcune jsonrpc: prepare, getjson, prepandget</p></li>
 <li><p>2021/03/03 v. 2.5 : bug nella descrizione del livello; rimozione dei valori interi nel formato json;</p></li>
 <li><p>2020/10/09 v. 2.4 : specificato il formato della data in json</p></li>
@@ -281,7 +281,7 @@ valori che possono essere ragionevolmente attribuiti a una grandezza
 influenzato dal fenomeno, corpo o sostanza che propongono la
 grandezza da sottoporre a misurazione (UNI CEI 70099:2008). Una
 osservazione (valore di una grandezza) è il risultato del processo di
-campionamento. Nel contesto di analisi di serie, un’osservazione è
+campionamento. Nel contesto di analisi di serie, un'osservazione è
 derivata da un numero di campioni.</p></li>
 <li><p>Risultato di misura: insieme di valori attribuiti a un misurando
 congiuntamente a ogni altra informazione pertinente disponibile (UNI
@@ -292,8 +292,8 @@ valori di una grandezza, con le rispettive incertezze di misura,
 forniti da campioni di misura, e le corrispondenti indicazioni,
 comprensive delle incertezze di misura associate, e in una seconda
 fase usa queste informazioni per stabilire una relazione che consente
-di ottenere un risultato di misura a partire da un’indicazione (UNI
-CEI 70099:2008). NOTA: Il termine «calibrazione» non dovrebbe essere
+di ottenere un risultato di misura a partire da un'indicazione (UNI
+CEI 70099:2008). NOTA: Il termine &quot;calibrazione&quot; non dovrebbe essere
 usato per designare la taratura.</p></li>
 <li><p>Trasduttore di misura: dispositivo, impiegato in una misurazione, che
 fornisce una grandezza di uscita avente una relazione specificata con
@@ -336,7 +336,7 @@ comunicazione M2M tra dispositivi con poca memoria o potenza di
 calcolo e server o message broker.</p></li>
 <li><p>AMQP (Advanced Message Queuing Protocol) è protocollo per
 comunicazioni attraverso code di messaggi. Sono garantite
-l’interoperabilità, la sicurezza, l’affidabilità, la persistenza.
+l'interoperabilità, la sicurezza, l'affidabilità, la persistenza.
 Nella sua implementazione Rabbitmq exporta un broker MQTT e fornisce
 delle api web</p></li>
 </ul>
@@ -368,8 +368,8 @@ sensore;</p></li>
 possono prevedere le seguenti fasi:</p>
 <ul class="simple">
 <li><p>digitalizzazione dei campionamenti o osservazioni</p></li>
-<li><p>pubblicazione dei campionamenti su broker MQTT con root topic «sample»</p></li>
-<li><p>pubblicazione delle osservazioni su broker MQTT con root topic «report»</p></li>
+<li><p>pubblicazione dei campionamenti su broker MQTT con root topic &quot;sample&quot;</p></li>
+<li><p>pubblicazione delle osservazioni su broker MQTT con root topic &quot;report&quot;</p></li>
 <li><p>eventuale trasformazione dei campionamenti (level I) in osservazioni
 (level II) e eventuale pubblicazione sul broker MQTT</p></li>
 <li><p>composizione di un report</p></li>
@@ -404,9 +404,9 @@ invariabili nel tempo, timerange e level) con i soli metadati
 longitudine, latitudine, identicativo, report</p>
 <div class="section" id="time">
 <h3>Time<a class="headerlink" href="#time" title="Link a questa intestazione">¶</a></h3>
-<p>L’istante di riferimento del dato in ora GMT: si riferisce all’istante
+<p>L'istante di riferimento del dato in ora GMT: si riferisce all'istante
 finale della misurazione. Di conseguenza, una precipitazione cumulata su
-30 minuti con istante di riferimento «2015-08-05T12:00:00Z» è la
+30 minuti con istante di riferimento &quot;2015-08-05T12:00:00Z&quot; è la
 precipitazione cumulata tra le 11:30:00Z e le 12:00:00Z del giorno
 2015-08-05.</p>
 </div>
@@ -424,12 +424,12 @@ precipitazione cumulata tra le 11:30:00Z e le 12:00:00Z del giorno
 <h3>Network<a class="headerlink" href="#network" title="Link a questa intestazione">¶</a></h3>
 <p>Definisce stazioni con caratteristiche omogenee: classe degli strumenti,
 rappresentatività e/o stazioni mobili o fisse. Per le stazioni che non
-appartengono a reti omogenee con un ente gestore il valore di «network»
+appartengono a reti omogenee con un ente gestore il valore di &quot;network&quot;
 segue la seguente regola:</p>
 <ul class="simple">
-<li><p>«fixed» per tutte le stazioni fisse, le cui coordinate non variano
+<li><p>&quot;fixed&quot; per tutte le stazioni fisse, le cui coordinate non variano
 nel tempo</p></li>
-<li><p>«mobile» per tutte le stazioni/punti di misura le cui coordinate
+<li><p>&quot;mobile&quot; per tutte le stazioni/punti di misura le cui coordinate
 cambiano nel tempo</p></li>
 </ul>
 </div>
@@ -948,10 +948,10 @@ evitare problemi di troncamento nella rappresentazione dei valori
 visto che al suo interno la rappresentazione è intera.
 La rappresentazione di valori numerici nel formato a stringa di caratteri  si ottiene
 convertendo la rappresentazione del valore in intero con segno in
-una rappresentazione decimale in una stringa (es. «27315» per una
+una rappresentazione decimale in una stringa (es. &quot;27315&quot; per una
 temperatura di 273.15K) Il valore intero con segno si ottiene
 moltiplicando il valore rappresentato con la unità di misura
-descritta da «units» per il fattore di scala «scale».</p>
+descritta da &quot;units&quot; per il fattore di scala &quot;scale&quot;.</p>
 <p>Le restanti colonne della tabella B vengono utilizzate nella de/codifica
 in formato Bufr e Crex. Fare riferimento a
 <a class="reference external" href="http://www.wmo.int/pages/prog/www/WMOCodes.html">http://www.wmo.int/pages/prog/www/WMOCodes.html</a></p>
@@ -1101,7 +1101,7 @@ TEMPERATURE</p></td>
 </div>
 <div class="section" id="formati">
 <h2>Formati<a class="headerlink" href="#formati" title="Link a questa intestazione">¶</a></h2>
-<p>L’accentramento dei dati della rete comprende due passaggi:</p>
+<p>L'accentramento dei dati della rete comprende due passaggi:</p>
 <ul class="simple">
 <li><p>composizione di un report composto da una selezione di osservazioni
 (sincrone) di tipo II</p></li>
@@ -1142,7 +1142,7 @@ TEMPERATURE</p></td>
 <li><p>temp-ship - Temp ship (autodetect)</p></li>
 <li><p>temp-wmo - Temp WMO (2.101)</p></li>
 </ul>
-<p>E” possibile e consigliato usare un template denominato «generic»
+<p>E' possibile e consigliato usare un template denominato &quot;generic&quot;
 specifico per il Data Model descritto sopra con il quale è possibile la
 codifica di tutti i dati pubblicabili secondo lo standard RMAP.</p>
 </div>
@@ -1150,7 +1150,7 @@ codifica di tutti i dati pubblicabili secondo lo standard RMAP.</p>
 <h3>generic template<a class="headerlink" href="#generic-template" title="Link a questa intestazione">¶</a></h3>
 <p>Il template generic non è qui documentato in quanto al momento non
 esistono specifiche stabili. Per la scrittura e lettura di un messaggio
-BUFR con template «generic» si consiglia vivamente l’utilizzo della
+BUFR con template &quot;generic&quot; si consiglia vivamente l'utilizzo della
 libreria software DB-all.e <a class="reference external" href="https://github.com/ARPA-SIMC/dballe">https://github.com/ARPA-SIMC/dballe</a> anche
 tramite tools disponibili.</p>
 </div>
@@ -1169,20 +1169,20 @@ la stazione è mobile, nullo per stazioni fisse).</p></li>
 <p>Le latitudini e longitudini devono essere scritte come coordinate
 geodetiche espresse in sessadecimale, come numero intero dopo aver
 moltiplicato per 10^5 (quindi espresso in 10^-5 gradi sessadecimali).</p>
-<p>L’istante di riferimento è il campo `datetime` che si
-riferisce all’istante finale della misurazione. Di conseguenza, una
+<p>L'istante di riferimento è il campo `datetime` che si
+riferisce all'istante finale della misurazione. Di conseguenza, una
 precipitazione cumulata su 30 minuti con istante di riferimento
-«2015-08-05T12:00:00Z» è la precipitazione cumulata tra le 11:30:00Z e
+&quot;2015-08-05T12:00:00Z&quot; è la precipitazione cumulata tra le 11:30:00Z e
 le 12:00:00Z del giorno 2015-08-05.
 Il formato è ISO 8601 con alcune limitazioni:
 <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:MM:SSZ</span></code>. Uno spazio è accettato al posto di <code class="docutils literal notranslate"><span class="pre">T</span></code>,
 il carattere <code class="docutils literal notranslate"><span class="pre">Z</span></code> alla fine può essere omesso. Il formato
 <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:MM:SSZ</span></code> rimane quello consigliato.</p>
 <p>I dati sono nel campo `data` sotto forma di array. Ogni elemento
-dell’array è un oggetto con i seguenti campi:</p>
+dell'array è un oggetto con i seguenti campi:</p>
 <ul class="simple">
 <li><p>livello: coordinate verticali. Si veda il capitolo dedicato.</p></li>
-<li><p>timerange: definisce il periodo di tempo e l’eventuale processamento
+<li><p>timerange: definisce il periodo di tempo e l'eventuale processamento
 (e.g. dato istantaneo, media oraria, etc). Si veda il capitolo
 dedicato.</p></li>
 <li><p>vars: oggetto i cui campi sono i codici della tabella B locale, i.e.
@@ -1193,20 +1193,20 @@ della tabella B a cui è associato un valore).</p></li>
 </ul>
 <p>Tra questi, un solo elemento non ha i campi `level` e `timerange`.
 Tali dati sono relativi a dati invarianti della stazione in se (e.g. il
-nome, l’altezza, etc.)</p>
+nome, l'altezza, etc.)</p>
 </div>
 <div class="section" id="esempio">
 <h3>Esempio<a class="headerlink" href="#esempio" title="Link a questa intestazione">¶</a></h3>
 <p>Stazione fissa (<cite>ident: null</cite>) delle rete (<cite>network</cite>) `rer`
 posizionata nel punto `(9.15454, 4451485)` (<cite>lon</cite>, `lat`) con i
-seguenti dati (<cite>data</cite>) statici (l’elemento dell’array che non ha
+seguenti dati (<cite>data</cite>) statici (l'elemento dell'array che non ha
 `level` e `timerange`):</p>
 <ul class="simple">
-<li><p>Nome della stazione (<cite>B01019</cite>): “Torriglia”</p></li>
+<li><p>Nome della stazione (<cite>B01019</cite>): 'Torriglia'</p></li>
 <li><p>Altezza della stazione (<cite>B07030</cite>): 769.0m</p></li>
 <li><p>Altezza barometrica della stazione (<cite>B07031</cite>): 769.0m</p></li>
 </ul>
-<p>E per l’istante di riferimento «2015-07-30T15:30:00Z» ha registrato i
+<p>E per l'istante di riferimento &quot;2015-07-30T15:30:00Z&quot; ha registrato i
 seguenti dati:</p>
 <ul class="simple">
 <li><p>Al suolo (<cite>level: [1, null, null, null]</cite>) le seguenti cumulate orarie
@@ -1305,8 +1305,8 @@ newline-delimited JSON è reperibile qui: <a class="reference external" href="ht
 </div>
 <div class="section" id="protocolli">
 <h2>Protocolli<a class="headerlink" href="#protocolli" title="Link a questa intestazione">¶</a></h2>
-<p>L’accentramento dei dati della rete può essere effettuato a differenti
-livelli determinati dall’hardware disponibile, dal tipo di connettività
+<p>L'accentramento dei dati della rete può essere effettuato a differenti
+livelli determinati dall'hardware disponibile, dal tipo di connettività
 e dai dati da inviare:</p>
 <ul class="simple">
 <li><p>invio dei dati (campionamenti o osservazioni) a un broker tramite
@@ -1389,21 +1389,21 @@ segnalazione di sconnessione gestita male con will (retained):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>payload : <strong>{“v”: “error01”}</strong></p>
-<p>poi questo messaggio viene «ricoperto» con:</p>
+<p>payload : <strong>{&quot;v&quot;: &quot;error01&quot;}</strong></p>
+<p>poi questo messaggio viene &quot;ricoperto&quot; con:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">mainttopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>payload : <strong>{ «v»: «conn»}</strong></p>
+<p>payload : <strong>{ &quot;v&quot;: &quot;conn&quot;}</strong></p>
 <p>alla disconnessione allo stesso topic dovrà essere inviato:</p>
-<p>payload : <strong>{ “v”: “disconn”}</strong></p>
+<p>payload : <strong>{ &quot;v&quot;: &quot;disconn&quot;}</strong></p>
 </div>
 <div class="section" id="data-e-constant-data">
 <h3>Data e Constant Data<a class="headerlink" href="#data-e-constant-data" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="data">
 <h4>Data<a class="headerlink" href="#data" title="Link a questa intestazione">¶</a></h4>
 <p>Ogni topic corrisponde ai metadati univoci, mentre il payload è composto
-dal valore, eventuali attributi e dall’instante temporale. Json è il
+dal valore, eventuali attributi e dall'instante temporale. Json è il
 formato per il payload.</p>
 <p>Forma simbilica del topic:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="n">TRANGE</span><span class="o">/</span><span class="n">LEVEL</span><span class="o">/</span><span class="n">VAR</span>
@@ -1411,22 +1411,22 @@ formato per il payload.</p>
 </div>
 <ul class="simple">
 <li><p><strong>USER</strong>: utente che pubblica i dati</p></li>
-<li><p><strong>IDENT</strong>: identificativo della stazione per stazioni mobili, “”
+<li><p><strong>IDENT</strong>: identificativo della stazione per stazioni mobili, &quot;&quot;
 (campo vuoto) per stazioni fisse</p></li>
 <li><p><strong>COORDS</strong>: nella forma lon,lat. Le coordinate sono espresse con
 rappresentazione sessadecimale nella forma int(valore*10^5) con
 eventuale segno negativo</p></li>
 <li><p><strong>NETWORK</strong>: etichetta massimo 16 caratteri</p></li>
 <li><p><strong>TRANGE</strong>: nella forma indicator,p1,p2; Indicator e p2 interi senza
-segno, p1 intero con eventuale segno negativo. “-” per valori non
+segno, p1 intero con eventuale segno negativo. &quot;-&quot; per valori non
 significativi</p></li>
 <li><p><strong>LEVEL</strong>: nella forma type1,l1,type2,l2; Type1, type2 interi con
 eventuale segno negativo, l1e l2 interi con eventuale segno negativo.
-“-” per valori non significativi</p></li>
+&quot;-&quot; per valori non significativi</p></li>
 <li><p><strong>VAR</strong>: nella forma BXXYYY come da tabelle B codice BUFR WMO</p></li>
 </ul>
-<p>Il payload è in formato JSON: <strong>{ “v”: VALUE, “t”: TIME, “a”: {
-“BXXYYY”: VALUE, … } }</strong></p>
+<p>Il payload è in formato JSON: <strong>{ &quot;v&quot;: VALUE, &quot;t&quot;: TIME, &quot;a&quot;: {
+&quot;BXXYYY&quot;: VALUE, … } }</strong></p>
 <ul class="simple">
 <li><p><strong>VALUE</strong>: valore in formato intero o a virgola mobile o stringa
 (vedi specifiche precedenti)</p></li>
@@ -1434,7 +1434,7 @@ eventuale segno negativo, l1e l2 interi con eventuale segno negativo.
 opzionali) un sottoinsime delle specifiche in
 https://tools.ietf.org/html/rfc3339</p></li>
 </ul>
-<p>Gli attributi (“a”) solitamente per controllo di qualità sono opzionali;
+<p>Gli attributi (&quot;a&quot;) solitamente per controllo di qualità sono opzionali;
 la chiave fa riferimento alla tabella B e VALUE ha la stessa
 rappresentazione di VALUE descritto sopra.</p>
 </div>
@@ -1446,31 +1446,31 @@ questo topic:</p>
 </pre></div>
 </div>
 <p>con payload simile a quello dei dati, in particolare dovrà essere omessa
-la chiave “t”.</p>
-<p>payload : <strong>{ “v”: VALUE, “a”: { “BXXYYY”: VALUE, … } }</strong></p>
+la chiave &quot;t&quot;.</p>
+<p>payload : <strong>{ &quot;v&quot;: VALUE, &quot;a&quot;: { &quot;BXXYYY&quot;: VALUE, … } }</strong></p>
 </div>
 </div>
 <div class="section" id="estensioni">
 <h3>Estensioni<a class="headerlink" href="#estensioni" title="Link a questa intestazione">¶</a></h3>
 <p>Queste estensioni sono state create per ottimizzare in alcuni casi
-l’invio dei dati. Possono essere utilizzate solo quando il loro utilizzo
+l'invio dei dati. Possono essere utilizzate solo quando il loro utilizzo
 comporti un risparmio sul numero di byte necessari per la trasmissione.</p>
 <div class="section" id="prima-forma-contratta-tabella-d">
 <h4>Prima forma contratta tabella D<a class="headerlink" href="#prima-forma-contratta-tabella-d" title="Link a questa intestazione">¶</a></h4>
-<p>In questa forma contratta non è previsto l’invio di attributi del dato.
+<p>In questa forma contratta non è previsto l'invio di attributi del dato.
 In questa forma contratta non è necessario inviare messaggi relativi
 allo stato della connessione.</p>
-<p>Il topic e come quello della forma standard senza l’ultimo parametro
-«VAR». Ad esempio:</p>
+<p>Il topic e come quello della forma standard senza l'ultimo parametro
+&quot;VAR&quot;. Ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">myuser</span><span class="o">//</span><span class="mi">1131908</span><span class="p">,</span><span class="mi">4449301</span><span class="o">/</span><span class="n">fixed</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span>
 </pre></div>
 </div>
 <p>Il payload prevede due parametri:</p>
 <ul class="simple">
-<li><p>“d” che descrive quale elemento della tabella D è preso in
+<li><p>&quot;d&quot; che descrive quale elemento della tabella D è preso in
 considerazione</p></li>
-<li><p>“p” con un array di valori corrispondenti ai «VAR» descritti
-nell’elemento in tabella D</p></li>
+<li><p>&quot;p&quot; con un array di valori corrispondenti ai &quot;VAR&quot; descritti
+nell'elemento in tabella D</p></li>
 </ul>
 <p>Ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]}</span>
@@ -1489,19 +1489,19 @@ nell’elemento in tabella D</p></li>
 </div>
 <div class="section" id="seconda-forma-contratta-tabella-e">
 <h4>Seconda forma contratta tabella E<a class="headerlink" href="#seconda-forma-contratta-tabella-e" title="Link a questa intestazione">¶</a></h4>
-<p>In questa forma contratta non è previsto l’invio di attributi del dato.
+<p>In questa forma contratta non è previsto l'invio di attributi del dato.
 In questa forma contratta non è necessario inviare messaggi relativi
 allo stato della connessione. Il topic e come quello della forma
-standard senza i parametri «VAR», «LEVEL» e «TRANGE». Ad esempio:</p>
+standard senza i parametri &quot;VAR&quot;, &quot;LEVEL&quot; e &quot;TRANGE&quot;. Ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">myuser</span><span class="o">//</span><span class="mi">1131908</span><span class="p">,</span><span class="mi">4449301</span><span class="o">/</span><span class="n">fixed</span>
 </pre></div>
 </div>
 <p>Il payload prevede due parametri:</p>
 <ul class="simple">
-<li><p>“”e” che descrive quale elemento della tabella E è preso in
+<li><p>&quot;e&quot; che descrive quale elemento della tabella E è preso in
 considerazione</p></li>
-<li><p>“p” con un array di valori corrispondenti ai «VAR», «LEVEL» e
-“TRANGE” descritti nell’elemento in tabella E</p></li>
+<li><p>&quot;p&quot; con un array di valori corrispondenti ai &quot;VAR&quot;, &quot;LEVEL&quot; e
+&quot;TRANGE&quot; descritti nell'elemento in tabella E</p></li>
 </ul>
 <p>Ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">27315</span><span class="p">,</span><span class="mi">73</span><span class="p">],</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
@@ -1524,7 +1524,7 @@ considerazione</p></li>
 <h3>Remote procedure over MQTT<a class="headerlink" href="#remote-procedure-over-mqtt" title="Link a questa intestazione">¶</a></h3>
 <p>Le RPC sono in formato json (json-rpc) e utilizzano due topics MQTT:</p>
 <ul class="simple">
-<li><p>topiccom è il topic utilizzato per l’invio delle richieste RPC al
+<li><p>topiccom è il topic utilizzato per l'invio delle richieste RPC al
 server</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">rpctopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="n">com</span>
@@ -1537,7 +1537,7 @@ risposte.</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">rpctopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="n">res</span>
 </pre></div>
 </div>
-<p>IDENT corrisponde all’utente utilizzato per l’autenticazione al broker MQTT.</p>
+<p>IDENT corrisponde all'utente utilizzato per l'autenticazione al broker MQTT.</p>
 <p>Il payload seguirà le specifiche <a class="reference external" href="https://www.jsonrpc.org/specification">JSON-RPC 2.0
 Specification</a></p>
 <p>Ogni payload comando/risposta Jsonrpc non deve superare i 144 caratteri.</p>
@@ -1552,18 +1552,18 @@ di conseguenza gli accessi.</p>
 <li><p>bool reset: se true riporta le configurazioni ai valori di default e
 rimuove ogni sensore precedentemente configurato; questa operazione è
 la prima ad essere effettuata dal server (default false)</p></li>
-<li><p>char datalevel: «sample» o «report»; prima parte del topic di
-pubblicazione su MQTT per i dati (default «report»)</p></li>
-<li><p>char network: «fixed» o «mobile»; prima parte del topic di
-pubblicazione su MQTT per i dati (default «fixed»)</p></li>
+<li><p>char datalevel: &quot;sample&quot; o &quot;report&quot;; prima parte del topic di
+pubblicazione su MQTT per i dati (default &quot;report&quot;)</p></li>
+<li><p>char network: &quot;fixed&quot; o &quot;mobile&quot;; prima parte del topic di
+pubblicazione su MQTT per i dati (default &quot;fixed&quot;)</p></li>
 <li><p>int lat: latitudine espressa con rappresentazione sessadecimale nella
 forma int(valore*10^5) con eventuale segno negativo</p></li>
 <li><p>int lon: longitudine espressa con rappresentazione sessadecimale
 nella forma int(valore*10^5) con eventuale segno negativo</p></li>
 <li><p>char mqttmainttopic: prima parte del topic di pubblicazione su MQTT per
-i messaggi di funzionamento (default «maint»)</p></li>
+i messaggi di funzionamento (default &quot;maint&quot;)</p></li>
 <li><p>int sampletime: intervallo tra le misure in secondi (default 900)</p></li>
-<li><p>char mqttserver: server MQTT (default «rmap.cc»)</p></li>
+<li><p>char mqttserver: server MQTT (default &quot;rmap.cc&quot;)</p></li>
 <li><p>char mqttuser: MQTT user ( no default)</p></li>
 <li><p>char mqttpass: MQTT password ( no default)</p></li>
 <li><p>char ntpserver: NTP server (no default)</p></li>
@@ -1578,12 +1578,12 @@ coded as described by bufr table B btable and written as string</p></li>
 </ul>
 </li>
 <li><p>bool save: if true save configuration into permanent memory; questa
-operazione è l’ultima ad essere effettuata dal server (default false)</p></li>
+operazione è l'ultima ad essere effettuata dal server (default false)</p></li>
 <li><p>array sens:</p>
 <ul>
-<li><p>char tr: timerange (esempio: “1,0,60”) (no default)</p></li>
-<li><p>char lev: level (esempio “1,-,-,-“) (no default)</p></li>
-<li><p>char var: variabile tabella B (esempio “B13011”) (no default)</p></li>
+<li><p>char tr: timerange (esempio: &quot;1,0,60&quot;) (no default)</p></li>
+<li><p>char lev: level (esempio &quot;1,-,-,-&quot;) (no default)</p></li>
+<li><p>char var: variabile tabella B (esempio &quot;B13011&quot;) (no default)</p></li>
 <li><p>any ext: configurazione relativa a una implementazione specifica
 di un sensore nella stazione OPZIONALE:</p></li>
 </ul>
@@ -1666,10 +1666,10 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 </pre></div>
 </div>
 <p>prepare</p>
-<p>Richiede l’attivazione di un sensore e inizio misurazione.</p>
+<p>Richiede l'attivazione di un sensore e inizio misurazione.</p>
 <p>parametri:</p>
 <ul class="simple">
-<li><p>int    node: nodo per l’eventuale comunicazione radio</p></li>
+<li><p>int    node: nodo per l'eventuale comunicazione radio</p></li>
 <li><p>char driver: nome del driver del sensore (trasporto) ( 3 caratteri)</p></li>
 <li><p>char   type: nome del tipo del sensore ( driver sensore) (3 caratteri)</p></li>
 <li><p>int address: indirizzo del sensore</p></li>
@@ -1683,10 +1683,10 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 </pre></div>
 </div>
 <p>getjson</p>
-<p>Richiede i valori delle misure; necessita una precedente rpc «prepare»</p>
+<p>Richiede i valori delle misure; necessita una precedente rpc &quot;prepare&quot;</p>
 <p>parametri:</p>
 <ul class="simple">
-<li><p>int    node: nodo per l’eventuale comunicazione radio</p></li>
+<li><p>int    node: nodo per l'eventuale comunicazione radio</p></li>
 <li><p>char driver: nome del driver del sensore (trasporto) ( 3 caratteri)</p></li>
 <li><p>char   type: nome del tipo del sensore ( driver sensore) (3 caratteri)</p></li>
 <li><p>int address: indirizzo del sensore</p></li>
@@ -1706,7 +1706,7 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 <p>Prepara il sensore per le misure e dopo apportuna attesa restituisce i valori delle misure.</p>
 <p>parametri:</p>
 <ul class="simple">
-<li><p>int    node: nodo per l’eventuale comunicazione radio</p></li>
+<li><p>int    node: nodo per l'eventuale comunicazione radio</p></li>
 <li><p>char driver: nome del driver del sensore (trasporto) ( 3 caratteri)</p></li>
 <li><p>char   type: nome del tipo del sensore ( driver sensore) (3 caratteri)</p></li>
 <li><p>int address: indirizzo del sensore</p></li>
@@ -1727,20 +1727,20 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 </div>
 <div class="section" id="http">
 <h3>HTTP<a class="headerlink" href="#http" title="Link a questa intestazione">¶</a></h3>
-<p>E” possibile utilizzare il protocollo http con una get per inviare i
-dati; la get http sarà immediatamente convertita dal server in una «pub»
+<p>E' possibile utilizzare il protocollo http con una get per inviare i
+dati; la get http sarà immediatamente convertita dal server in una &quot;pub&quot;
 al broker mqtt. Http è molto inefficiente rispetto mqtt e qui è
-utilizzato solo come «bridge» a mqtt quando dovesse essere necessario.</p>
+utilizzato solo come &quot;bridge&quot; a mqtt quando dovesse essere necessario.</p>
 <p>I parametri della get sono:</p>
 <ul class="simple">
 <li><p><strong>topic</strong> il topic mqtt</p></li>
 <li><p><strong>payload</strong> il payload mqtt</p></li>
-<li><p><strong>username</strong> username dell’utente</p></li>
-<li><p><strong>password</strong> password dell’utente</p></li>
+<li><p><strong>username</strong> username dell'utente</p></li>
+<li><p><strong>password</strong> password dell'utente</p></li>
 <li><p><strong>time</strong> richiede data e ora nella risposta del server (opzionale)</p></li>
 </ul>
-<p>Se l’invio dei dati ha successo la risposta terminerà con la stringa
-«OK».</p>
+<p>Se l'invio dei dati ha successo la risposta terminerà con la stringa
+&quot;OK&quot;.</p>
 <p>Ad esempio:</p>
 <ul class="simple">
 <li><p>get:</p></li>
@@ -1750,7 +1750,7 @@ utilizzato solo come «bridge» a mqtt quando dovesse essere necessario.</p>
 </div>
 <p>risposta:</p>
 <p><code class="docutils literal notranslate"><span class="pre">OK</span></code></p>
-<p>Per dati non differiti è possibile omettere la chiave «t» nel payload.</p>
+<p>Per dati non differiti è possibile omettere la chiave &quot;t&quot; nel payload.</p>
 <ul class="simple">
 <li><p>get:</p></li>
 </ul>
@@ -1785,12 +1785,12 @@ microservices and enterprise messaging.</p>
 <div class="section" id="autenticazione-1">
 <span id="id2"></span><h3>Autenticazione<a class="headerlink" href="#autenticazione-1" title="Link a questa intestazione">¶</a></h3>
 <p>La pubblicazione dei messaggi è ammessa solo dopo autenticazione.</p>
-<p>L’autenticazione si effettua tramite una coppia username/password
-fornite dall’amministratore del server.</p>
+<p>L'autenticazione si effettua tramite una coppia username/password
+fornite dall'amministratore del server.</p>
 </div>
 <div class="section" id="tls">
 <h3>Tls<a class="headerlink" href="#tls" title="Link a questa intestazione">¶</a></h3>
-<p>L’uso di TLS (amqps) non è richiesto, ma potrà essere implementato in
+<p>L'uso di TLS (amqps) non è richiesto, ma potrà essere implementato in
 future versioni di queste specifiche.</p>
 </div>
 <div class="section" id="formati-dei-messaggi">
@@ -1800,17 +1800,17 @@ json, jsonline o bufr sopra descritti.</p>
 <div class="section" id="bufr-messages-over-amqp">
 <h4>BUFR messages over AMQP<a class="headerlink" href="#bufr-messages-over-amqp" title="Link a questa intestazione">¶</a></h4>
 <p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
-autenticazione su exchange «rmap_bufr».</p>
+autenticazione su exchange &quot;rmap_bufr&quot;.</p>
 </div>
 <div class="section" id="json-line-messages-over-amqp">
 <h4>JSON Line messages over AMQP<a class="headerlink" href="#json-line-messages-over-amqp" title="Link a questa intestazione">¶</a></h4>
 <p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
-autenticazione su exchange «rmap_jsonline».</p>
+autenticazione su exchange &quot;rmap_jsonline&quot;.</p>
 </div>
 <div class="section" id="json-messages-over-amqp">
 <h4>JSON messages over AMQP<a class="headerlink" href="#json-messages-over-amqp" title="Link a questa intestazione">¶</a></h4>
 <p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
-autenticazione su exchange «rmap_dbajson».</p>
+autenticazione su exchange &quot;rmap_dbajson&quot;.</p>
 </div>
 </div>
 </div>
@@ -1842,7 +1842,7 @@ autenticazione su exchange «rmap_dbajson».</p>
 </div>
 <div class="section" id="metadati">
 <h3>metadati<a class="headerlink" href="#metadati" title="Link a questa intestazione">¶</a></h3>
-<p>La «base» della richiesta è quella descritta per il topic MQTT, i.e.:</p>
+<p>La &quot;base&quot; della richiesta è quella descritta per il topic MQTT, i.e.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span>
 </pre></div>
 </div>
@@ -1850,13 +1850,13 @@ autenticazione su exchange «rmap_dbajson».</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/</span><span class="mi">1207738</span><span class="p">,</span><span class="mi">4460016</span><span class="o">/</span><span class="n">locali</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span>
 </pre></div>
 </div>
-<p>E” l’URL che identifica la misurazione effettuata dalla stazione fissa
+<p>E' l'URL che identifica la misurazione effettuata dalla stazione fissa
 (<cite>-</cite>) con longitudine 12,07738 e latitudine 44.60016 (<cite>1207738,4460016</cite>)
 per la rete `locali`; la grandezza misurata è istantanea (<cite>254,0,0</cite>), è
 stata presa a 2 metri dal suolo (<cite>103,2000,-,-</cite>) ed è una temperatura
 (<cite>B12101</cite>).</p>
-<p>Ogni parametro incluso nelle «/» può essere sostituito con «*»
-equivalente a dire «tutti».</p>
+<p>Ogni parametro incluso nelle &quot;/&quot; può essere sostituito con &quot;*&quot;
+equivalente a dire &quot;tutti&quot;.</p>
 <div class="section" id="anagrafica">
 <h4>Anagrafica<a class="headerlink" href="#anagrafica" title="Link a questa intestazione">¶</a></h4>
 <p>Elenco stazioni indipendenti dal timerange e livello sono specificati così:</p>
@@ -1908,7 +1908,7 @@ minuti):</p>
 <span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">spatialseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span><span class="o">/</span><span class="n">day</span><span class="o">/</span><span class="n">hour</span>
 </pre></div>
 </div>
-<p>«ident» e «coords» possono assumere il valore «*»</p>
+<p>&quot;ident&quot; e &quot;coords&quot; possono assumere il valore &quot;*&quot;</p>
 <p>nel dettaglio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/&lt;</span><span class="n">ident</span><span class="o">&gt;/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/&lt;</span><span class="n">pind</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">p2</span><span class="o">&gt;/&lt;</span><span class="n">lt1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lt2</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">l2</span><span class="o">&gt;/&lt;</span><span class="n">bcode</span><span class="o">&gt;/</span><span class="n">spatialseries</span><span class="o">/&lt;</span><span class="n">year</span><span class="o">&gt;/&lt;</span><span class="n">month</span><span class="o">&gt;/&lt;</span><span class="n">day</span><span class="o">&gt;/&lt;</span><span class="n">hour</span>
 </pre></div>
@@ -1984,12 +1984,12 @@ dati.</p>
 </div>
 <div class="section" id="ritrasmissioni-e-correzioni">
 <h2>Ritrasmissioni e correzioni<a class="headerlink" href="#ritrasmissioni-e-correzioni" title="Link a questa intestazione">¶</a></h2>
-<p>I dati possono essere ritrasmessi e sarà l’ultimo dato ricevuto a
+<p>I dati possono essere ritrasmessi e sarà l'ultimo dato ricevuto a
 vincere sui vecchi.</p>
 <p>Attenzione va posta alla gestione degli attributi che possono contenere
 il risultato del controllo di qualità dei dati. AI dati che non superano
 il controllo di qualità viene aggiunta loro una flag corrispondente
-all’attributo B33007, che fornisce una % di confidenza del dato ( = 0
+all'attributo B33007, che fornisce una % di confidenza del dato ( = 0
 per valore invalidato). I dati con attributo B33007 dovranno quindi
 essere offuscati ( mancante, valore = null) alle applicazioni. In questo
 modo vengono gestite le correzioni, ossia è possibile che un dato sia

@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 2.9</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
@@ -222,7 +222,7 @@
 <h1>Manuale Utente<a class="headerlink" href="#manuale-utente" title="Link a questa intestazione">¶</a></h1>
 <div class="section" id="hardware">
 <h2>Hardware<a class="headerlink" href="#hardware" title="Link a questa intestazione">¶</a></h2>
-<p>Descrizione dell’hardware e delle sue principali funzioni.</p>
+<p>Descrizione dell'hardware e delle sue principali funzioni.</p>
 <p>Il datalogger è composto da moduli a loro volta composti board.
 Una descrizione con alcune foto si trova a <a class="reference external" href="https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html">https://doc.rmap.cc/stima_v3/howto_stima_v3/howto_stima_v3.html</a> e <a class="reference external" href="https://doc.rmap.cc/stima_v3/doxygen/index.html">https://doc.rmap.cc/stima_v3/doxygen/index.html</a>
 a cui fare riferimento per maggiori dettagli.
@@ -246,7 +246,7 @@ carica accumulata in un supercondensatore per non più di ~24h</p></li>
 </div>
 <div class="section" id="usb">
 <h4>USB<a class="headerlink" href="#usb" title="Link a questa intestazione">¶</a></h4>
-<p>E” una interfaccia USB con la porta seriale del microcontrollore.
+<p>E' una interfaccia USB con la porta seriale del microcontrollore.
 Permette di:
 * caricare firmware
 * effettuare debug</p>
@@ -266,9 +266,9 @@ Permette di:
 </div>
 <div class="section" id="gsm">
 <h4>GSM<a class="headerlink" href="#gsm" title="Link a questa intestazione">¶</a></h4>
-<p>E” in realtà composto da due board:
+<p>E' in realtà composto da due board:
 * SIM: in cui deve essere inserita la SIM card
-* vero e proprio modulo GSM: a cui deve essere connessa l’antenna</p>
+* vero e proprio modulo GSM: a cui deve essere connessa l'antenna</p>
 </div>
 <div class="section" id="hub">
 <h4>HUB<a class="headerlink" href="#hub" title="Link a questa intestazione">¶</a></h4>
@@ -367,13 +367,13 @@ tensione funziona il modulo.  Il modulo primario ed il display hanno
 una tensione di funzionamento di 5V.  I cavi interni di collegamento
 tra moduli ed HUB hanno come differenza solo da lunghezza.</p>
 <p>Quando si connette un cavo fare attenzione nel momento
-dell’inserimento a non piegare i pin sulla scheda HUB.</p>
+dell'inserimento a non piegare i pin sulla scheda HUB.</p>
 <div class="section" id="sostituzione-batteria">
 <h4>Sostituzione  batteria<a class="headerlink" href="#sostituzione-batteria" title="Link a questa intestazione">¶</a></h4>
 <p>Per misurare la tensione della batteria a vuoto è necessario staccare
 un polo per misurare la tensione reale senza il contributo del
 pannello solare.</p>
-<p>Se c’è da cambiare la batteria bisogna staccare il connettore in hub,
+<p>Se c'è da cambiare la batteria bisogna staccare il connettore in hub,
 in modo da non bloccare la stazione. Staccando il connettore non si
 incorre infatti nel problema di alimentare il datalogger con una
 tensione sotto i 6 V.</p>
@@ -396,7 +396,7 @@ regolatore di carica pannello-batteria nel modo seguente:</p>
 <div class="section" id="antenna">
 <h4>Antenna<a class="headerlink" href="#antenna" title="Link a questa intestazione">¶</a></h4>
 <p>Di solito l’antenna e’ posizionata internamento della scatola
-stazione, ma può essere posizionata all’esterno praticando un foro
+stazione, ma può essere posizionata all'esterno praticando un foro
 alla base della scatola e facendo uscire il cavo tramite un passacavo.
 Il connettore e’ standard quindi si può usare anche una antenna
 esterna di tipo direzionale.</p>
@@ -416,12 +416,12 @@ Sono accettati due tipi di formattazione:</p>
 <p>Per essere certi di formattare correttamentela card ci sono due possibilità:</p>
 <ul class="simple">
 <li><p>per windows e MAC <a class="reference external" href="https://www.sdcard.org/downloads/formatter/">https://www.sdcard.org/downloads/formatter/</a></p></li>
-<li><p>per tutti i sistemi l’apposito firmware SdFormatter messo a disposizione con Stima V3</p></li>
+<li><p>per tutti i sistemi l'apposito firmware SdFormatter messo a disposizione con Stima V3</p></li>
 </ul>
 <p>Il metodo consigliato è il secondo.</p>
 <div class="section" id="come-formattare-l-sdcard-con-il-firmware-sdformatter">
-<h5>Come formattare l’SDcard con il firmware SdFormatter.<a class="headerlink" href="#come-formattare-l-sdcard-con-il-firmware-sdformatter" title="Link a questa intestazione">¶</a></h5>
-<p>Inserire l’SDcard nel modulo master e collegare solo il modulo master tramite cavo USB.
+<h5>Come formattare l'SDcard con il firmware SdFormatter.<a class="headerlink" href="#come-formattare-l-sdcard-con-il-firmware-sdformatter" title="Link a questa intestazione">¶</a></h5>
+<p>Inserire l'SDcard nel modulo master e collegare solo il modulo master tramite cavo USB.
 eseguire:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pio</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="mi">1284</span><span class="n">p16m</span> <span class="o">-</span><span class="n">t</span> <span class="n">upload</span>
 <span class="n">pio</span> <span class="n">device</span> <span class="n">monitor</span>
@@ -453,10 +453,10 @@ eseguire:</p>
 <h4>Tramite interfaccia WEB<a class="headerlink" href="#tramite-interfaccia-web" title="Link a questa intestazione">¶</a></h4>
 <p>Per iscriversi alla piattarforma RMAP bisogna collegarsi al sito:
 <a class="reference external" href="http://rmap.cc/">http://rmap.cc/</a></p>
-<p>andare con il mouse sul menù «Il mio RMAP», sulla destra della barra
-nera, e clickare su «Entra».</p>
+<p>andare con il mouse sul menù &quot;Il mio RMAP&quot;, sulla destra della barra
+nera, e clickare su &quot;Entra&quot;.</p>
 <p>Apparirà una maschera che chiede utente e password.  Nella seconda
-riga sotto a questa maschera clickare sul bottone blu «Registrazione»
+riga sotto a questa maschera clickare sul bottone blu &quot;Registrazione&quot;
 e si verrà inoltrati automaticamente alla maschera di registrazione.</p>
 <p>Per registrarsi bisognerà scegliere ed inviare le seguenti informazioni:</p>
 <ul class="simple">
@@ -466,8 +466,8 @@ e si verrà inoltrati automaticamente alla maschera di registrazione.</p>
 </ul>
 <p>Quindi bisogna clickare sul quadratino per dichiarare di aver letto le
 Condizioni di Servizio (descritte nel quadrato sotto riportato).
-Completate queste operazioni si può procedere a clickare su «Invia».
-Fatto questo il server RMAP invierà una mail di conferma all’indirizzo
+Completate queste operazioni si può procedere a clickare su &quot;Invia&quot;.
+Fatto questo il server RMAP invierà una mail di conferma all'indirizzo
 indicato nella maschera di registrazione.  La registrazione verrà
 conclusa aprendo il mail e confermando la propria intenzione di
 iscriversi seguendo il link indicato.</p>
@@ -488,29 +488,29 @@ utente RMAP.</p>
 <a class="reference external" href="https://rmap.cc/insertdata/newstation">https://rmap.cc/insertdata/newstation</a></p>
 <p>Si può seguire alternativamente una delle due seguenti procedure:</p>
 <ul class="simple">
-<li><p>indicare l’indirizzo esatto della stazione (il sito utilizza il
+<li><p>indicare l'indirizzo esatto della stazione (il sito utilizza il
 DataBase geografico di OpenStreetMap che riconosce gli indirizzi
 solo se indicati con precisione, quindi è necessario inserire
-l’indirizzo con nome completo della via, es: «viale Antonio Silvani
-6, Bologna», oppure » via degli Albergati 32, Zola Predosa,
-Bologna»).</p></li>
+l'indirizzo con nome completo della via, es: &quot;viale Antonio Silvani
+6, Bologna&quot;, oppure &quot; via degli Albergati 32, Zola Predosa,
+Bologna&quot;).</p></li>
 <li><p>utilizzare la mappa sottostante, clickare sul segnaposto (quello a
 forma di goccia, ultimo in basso dei quattro centrali a sinistra
 della mappa) e posizionarlo sul punto preciso della mappa, con
 doppio click bottone sinistro del mouse. Se la posizione scelta non
-è corretta, si potrà cancellare la posizione (selezionare l’ultimo
+è corretta, si potrà cancellare la posizione (selezionare l'ultimo
 bottone a sinistra nella mappa a forma di bidone e poi clickare sul
 segnaposto) e riposizionare il marker, oppure spostare il segnaposto
 nella posizione corretta direttamente sulla mappa (selezionando
 prima il penultimo bottone a sinistra a forma di matita su foglio
-«edit layers», spostando il segnaposto e riclickando su «edit layer»
+&quot;edit layers&quot;, spostando il segnaposto e riclickando su &quot;edit layer&quot;
 per salvare la nuova posizione). Queste funzionalità potrebbero non
 essere disponibili su Android.</p></li>
 </ul>
 <p>Individuata la posizione bisognerà indicare il nome della nuova
 stazione ed infine il modello (tipo e template sensori).</p>
 <p>La procedura di inserimento della nuova stazione si concluderà quindi
-clickando su «invia».</p>
+clickando su &quot;invia&quot;.</p>
 <p>In questa modalità non è possibile inserire i dati relativi al nome
 stazione e altezza dal livello medio del mare, ma poi è possibile
 integrarli tramite il modulo qui di seguito descritto</p>
@@ -568,8 +568,8 @@ database sincronizzati:</p>
 <li><p>mystationname: nome stazione esteso</p></li>
 <li><p>myheight: altezza stazione in metri</p></li>
 <li><p>mqttsamplerate: ogni quanti secondi deve essere elaborato e inviato un report</p></li>
-<li><p>mytcpipntpserver: NTP server da utilizzare per sincronizzare l’ora</p></li>
-<li><p>myapn: apn del provider GSM corrispondente alla schda SIM inserita in stazione (default=»ibox.tim.it»)</p></li>
+<li><p>mytcpipntpserver: NTP server da utilizzare per sincronizzare l'ora</p></li>
+<li><p>myapn: apn del provider GSM corrispondente alla schda SIM inserita in stazione (default=&quot;ibox.tim.it&quot;)</p></li>
 </ul>
 <p>Comandi da impartire per configurare la stazione:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;myheight&quot;</span> <span class="o">--</span><span class="n">stationname</span><span class="o">=</span><span class="s2">&quot;mystationname&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myusername --password=&quot;</span><span class="n">mypassword</span><span class="s2">&quot; --lat=&quot;</span><span class="n">mylat</span><span class="s2">&quot; --lon=&quot;</span><span class="n">mylon</span><span class="s2">&quot;</span>
@@ -624,10 +624,10 @@ database sincronizzati:</p>
 <h2>Aggiornamento Firmware<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="tramite-sdcard">
 <h3>Tramite SDcard<a class="headerlink" href="#tramite-sdcard" title="Link a questa intestazione">¶</a></h3>
-<p>Per l’aggiornamento del firmware è necessario avere a disposizione due file:</p>
+<p>Per l'aggiornamento del firmware è necessario avere a disposizione due file:</p>
 <ul class="simple">
 <li><p>FIRMWARE.BIN</p></li>
-<li><p>«majorversion» . «minorversion»</p></li>
+<li><p>&quot;majorversion&quot; . &quot;minorversion&quot;</p></li>
 </ul>
 <p>majorversion e minorversion indicano la versione del firmware in oggetto ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FIRMWARE</span><span class="o">.</span><span class="n">BIN</span>
@@ -635,20 +635,20 @@ database sincronizzati:</p>
 </pre></div>
 </div>
 <p>I due file andranno posti nella cartella principale della SDcard.
-Inserire l’SDcard nel modulo che necessita aggiornamento a modulo non
+Inserire l'SDcard nel modulo che necessita aggiornamento a modulo non
 alimentato e alimentare il modulo e attendere almeno 30 secondi.</p>
-<p>E” possibile verificare se l’aggiornamento ha avuto buon fine con il
-modulo master tramite il display LCD che all’accensione deve
+<p>E' possibile verificare se l'aggiornamento ha avuto buon fine con il
+modulo master tramite il display LCD che all'accensione deve
 visualizzare la nuova versione del firmware.</p>
 </div>
 <div class="section" id="tramite-porta-usb">
 <h3>Tramite porta USB<a class="headerlink" href="#tramite-porta-usb" title="Link a questa intestazione">¶</a></h3>
-<p>Per l’aggiornamento del firmware è necessario avere a disposizione un file:</p>
+<p>Per l'aggiornamento del firmware è necessario avere a disposizione un file:</p>
 <ul class="simple">
 <li><p>FIRMWARE.BIN</p></li>
 </ul>
 <p>che dorà risiedere nella cartella corrente da dove si eseguiranno i comandi.</p>
-<p>Collegare il modulo tramite cavo USB e dovrà essere l’unico
+<p>Collegare il modulo tramite cavo USB e dovrà essere l'unico
 dispositivo USB collegato in modalità seriale.</p>
 <p>Per il modulo master e impartire il comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avrdude</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">p</span> <span class="n">atmega1284p</span> <span class="o">-</span><span class="n">c</span> <span class="n">arduino</span> <span class="o">-</span><span class="n">b</span> <span class="mi">115200</span> <span class="o">-</span><span class="n">D</span> <span class="o">-</span><span class="n">P</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span> <span class="o">-</span><span class="n">U</span> <span class="n">flash</span><span class="p">:</span><span class="n">w</span><span class="p">:</span><span class="n">FIRMWARE</span><span class="o">.</span><span class="n">BIN</span><span class="p">:</span><span class="n">i</span>
@@ -682,7 +682,7 @@ essere letti con apposito tool linea di comando.</p>
 <div class="section" id="remote-procedure-call">
 <h2>Remote Procedure Call<a class="headerlink" href="#remote-procedure-call" title="Link a questa intestazione">¶</a></h2>
 <p>I dati vengono salvati sul modulo master ed è quella SD card che deve
-essere asportata dopo aver scollegato l’alimentazione.</p>
+essere asportata dopo aver scollegato l'alimentazione.</p>
 <p>Le remote procedure call permettono di far eseguire delle operazioni
 dal datalogger da remoto.</p>
 <div class="section" id="configure">
@@ -780,7 +780,7 @@ specificando la data iniziale dei dati da recuperare (fino a data e ora corrente
 <div class="section" id="tramite-display">
 <h3>tramite DISPLAY<a class="headerlink" href="#tramite-display" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="messaggi-all-accensione">
-<h4>Messaggi all’accensione<a class="headerlink" href="#messaggi-all-accensione" title="Link a questa intestazione">¶</a></h4>
+<h4>Messaggi all'accensione<a class="headerlink" href="#messaggi-all-accensione" title="Link a questa intestazione">¶</a></h4>
 <p><strong>Prima schermata attesa configurazione:</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -797,7 +797,7 @@ specificando la data iniziale dei dati da recuperare (fino a data e ora corrente
 </tr>
 </tbody>
 </table>
-<p>E” stato inserito il ponticello per la configurazione e la stazione rimane in attesa;
+<p>E' stato inserito il ponticello per la configurazione e la stazione rimane in attesa;
 Per attivare la stazioen bisogna rimuovere il ponticello.</p>
 <p><strong>Prima schermata, tipo e versioni:</strong></p>
 <table class="docutils align-default">
@@ -805,7 +805,7 @@ Per attivare la stazioen bisogna rimuovere il ponticello.</p>
 <col style="width: 100%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>—- www.rmap.cc —-</p></td>
+<tr class="row-odd"><td><p>---- www.rmap.cc ----</p></td>
 </tr>
 <tr class="row-even"><td><p>Stima station</p></td>
 </tr>
@@ -902,8 +902,8 @@ Per attivare la stazioen bisogna rimuovere il ponticello.</p>
 </ul>
 <p><strong>Messaggi visualizzati nella quarta riga del display:</strong></p>
 <ul class="simple">
-<li><p><strong>SD Card: KO</strong>: c’è un problema nell’utilizzo dell’SDcard</p></li>
-<li><p><strong>NEW Firmware loaded</strong>: è stato appena affettuato un aggiornamento del firmware e il firmware è stato rinominato sull’SDcard</p></li>
+<li><p><strong>SD Card: KO</strong>: c'è un problema nell'utilizzo dell'SDcard</p></li>
+<li><p><strong>NEW Firmware loaded</strong>: è stato appena affettuato un aggiornamento del firmware e il firmware è stato rinominato sull'SDcard</p></li>
 </ul>
 </div>
 <div class="section" id="messaggi-durante-il-funzionamento">
@@ -942,7 +942,7 @@ Per attivare la stazioen bisogna rimuovere il ponticello.</p>
 <li><p><strong>s</strong>: secondi</p></li>
 <li><p><strong>rssi</strong>: qualità segnale radio; vedi tabella sotto (oppure KO in caso di errore)</p></li>
 <li><p><strong>ber</strong>:  qualità segnale radio; vedi tabella sotto (oppure KO in caso di errore)</p></li>
-<li><p><strong>LCD</strong>: KO: messaggio se l’LCD ha avuto errori ed è stato reinizializzato</p></li>
+<li><p><strong>LCD</strong>: KO: messaggio se l'LCD ha avuto errori ed è stato reinizializzato</p></li>
 </ul>
 <p>ultimi dati acquisiti:</p>
 <ul class="simple">
@@ -1158,7 +1158,7 @@ expressed as a percentage</p>
 <p>Questo monitoraggio permette di visualizzare tutti i messaggi che la
 stazione invia al server e che il server ha ricevuto correttamente:</p>
 <blockquote>
-<div><p>rmap-configure –mqtt_monitor –station_slug=»myslug» –user=»myuser»</p>
+<div><p>rmap-configure --mqtt_monitor --station_slug=&quot;myslug&quot; --user=&quot;myuser&quot;</p>
 </div></blockquote>
 <p>i dati vengo visualizzati così come pubblicati e anche decodificati e
 interpretati.</p>
@@ -1169,7 +1169,7 @@ interpretati.</p>
 logging che la stazione invia sulla porta seriale tramite il
 connettore USB:</p>
 <blockquote>
-<div><p>rmap-configure –serial_monitor –station_slug=»myslug» –user=»myuser»</p>
+<div><p>rmap-configure --serial_monitor --station_slug=&quot;myslug&quot; --user=&quot;myuser&quot;</p>
 </div></blockquote>
 <p>Ogni messaggio è composto da:</p>
 <table class="docutils align-default">
@@ -1221,7 +1221,7 @@ appositamente compilato con questa funzione inclusa; il firmware
 utilizzati normalmente in produzione non lo permettono.</p>
 <p>Avviata la stazione la stessa messaggistica ottenuta dal monitoraggio
 tramite porta seriale verrà scritta in un file sulla SDcard con
-postfisso «.log».  Il file sarà leggibile da PC una volta recuperata
+postfisso &quot;.log&quot;.  Il file sarà leggibile da PC una volta recuperata
 la SDcard.</p>
 </div>
 </div>
