@@ -137,6 +137,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
 </ul>
 
             
@@ -658,7 +659,7 @@ pluviometro.</p>
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
 <span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">stable</span>
 <span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">pat1</span><span class="o">/</span><span class="n">rmap</span>
-<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">PowerTool</span>
+<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">powertool</span>
 <span class="n">dnf</span> <span class="n">groupinstall</span> <span class="n">rmap</span>
 </pre></div>
 </div>
@@ -713,14 +714,6 @@ nella #define OBSERVATIONS_MINUTES (in genere 1)</p></li>
 <li><p>Impostare il numero di osservazioni necessarie a produrre un dato
 utile per il report nella #define STATISTICAL_DATA_COUNT (in
 genere 15)</p></li>
-</ul>
-</li>
-<li><p>Aprire il file gsm_config.h nella cartella
-platformio/stima_v3/stima/include:</p>
-<ul class="simple">
-<li><p>Settare la #define GSM_DEFAULT_APN con il valore dell’APN o con il
-valore di una delle #define predefinite ed incluse nel medesimo
-file</p></li>
 </ul>
 </li>
 <li><p>Impostare il microcontrollore su core+1284 a 5V</p></li>

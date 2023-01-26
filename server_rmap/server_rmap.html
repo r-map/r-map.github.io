@@ -38,6 +38,7 @@
     
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="next" title="Videotutorial" href="../videotutorial/videotutorial.html" />
     <link rel="prev" title="Stima-wifi" href="../stima_wifi/stima_wifi_howto.html" /> 
 </head>
 
@@ -122,18 +123,19 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Installazione sistema operativo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Mosquitto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Rabbitmq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Rabbitmq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Monit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-completo">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP completo</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id13">Server di origine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">Server di destinazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Server di origine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Server di destinazione</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
 </ul>
 
             
@@ -657,8 +659,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 <p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rmap/rmap-site.cfg">/etc/rmap/rmap-site.cfg</a></p>
 <p>cambiare la password dell'utente amministratore.</p>
 </div>
-<div class="section" id="id4">
-<h3>Mosquitto<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id2">
+<h3>Mosquitto<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
 <span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
@@ -675,8 +677,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>Rabbitmq<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id3">
+<h3>Rabbitmq<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span><span class="n">bash</span>
 <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">erlang</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">bash</span>
 
@@ -702,8 +704,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/rabbitmq/rabbit_server_data_ingestion.json">rabbit_server_data_ingestion.json</a></p>
 <p>dalla stessa interfaccia di management web impostare le password per tutti gli utenti, rimuovere l'utente &quot;guest&quot; e fare login con uno dei nuovi utenti definiti.</p>
 </div>
-<div class="section" id="id10">
-<h3>Monit<a class="headerlink" href="#id10" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id4">
+<h3>Monit<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
@@ -718,8 +720,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <div class="section" id="sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-completo">
 <h3>Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP completo<a class="headerlink" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-completo" title="Link a questa intestazione">¶</a></h3>
-<div class="section" id="id13">
-<h4>Server di origine<a class="headerlink" href="#id13" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id5">
+<h4>Server di origine<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportsha</span> <span class="o">&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttsha</span> <span class="o">&gt;&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttacl</span> <span class="o">&gt;</span> <span class="n">aclfile</span>
@@ -728,8 +730,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <p>eventualmente rimuovere le prime righe di messaggistica del logging</p>
 </div>
-<div class="section" id="id14">
-<h4>Server di destinazione<a class="headerlink" href="#id14" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id6">
+<h4>Server di destinazione<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h4>
 <p>Trasferire i file in /etc/mosquitto/ sul nostro server per la data ingestion.
 Imparire il comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">systemctl</span> <span class="n">reload</span> <span class="n">mosquitto</span><span class="o">.</span><span class="n">service</span>
@@ -746,6 +748,7 @@ Imparire il comando:</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../videotutorial/videotutorial.html" class="btn btn-neutral float-right" title="Videotutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../stima_wifi/stima_wifi_howto.html" class="btn btn-neutral float-left" title="Stima-wifi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
