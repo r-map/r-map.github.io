@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RFC rmap versione 2.9 &mdash; RMAP e Stima 3 documentazione</title>
+  <title>RFC rmap versione 3.1 &mdash; RMAP e Stima 3 documentazione</title>
   
 
   
@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 2.9</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 3.1</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
@@ -166,7 +166,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#anagrafica">Anagrafica</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#serie-dei-dati-o-sommario">Serie dei dati o sommario</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serie-dei-dati-o-riassuntivo">Serie dei dati o riassuntivo</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#serie-temporale">Serie temporale</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#serie-spaziale">Serie spaziale</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#riassuntivo">Riassuntivo</a></li>
@@ -235,7 +235,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>RFC rmap versione 2.9</li>
+      <li>RFC rmap versione 3.1</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -254,12 +254,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rfc-rmap-versione-2-9">
-<h1>RFC rmap versione 2.9<a class="headerlink" href="#rfc-rmap-versione-2-9" title="Link a questa intestazione">¶</a></h1>
+  <div class="section" id="rfc-rmap-versione-3-1">
+<h1>RFC rmap versione 3.1<a class="headerlink" href="#rfc-rmap-versione-3-1" title="Link a questa intestazione">¶</a></h1>
 <div class="section" id="storia-del-documento">
 <h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link a questa intestazione">¶</a></h2>
 <ul class="simple">
-<li><p>2022/06/10 v. 2.9 : Versione 1 (precedentemente 0) del protocollo RMAP over MQTT</p></li>
+<li><p>2023/02/21 v. 3.1 : Migliorata documentazione RMAP web services, riassuntivo</p></li>
+<li><p>2022/06/10 v. 3.0 : Versione 1 (precedentemente 0) del protocollo RMAP over MQTT</p></li>
 <li><p>2021/11/21 v. 2.8 : corretto topic MQTT per RPC</p></li>
 <li><p>2021/10/15 v. 2.7 : corretto topic MQTT per constant station data; corretto configure RPC e aggiunto parametro &quot;sd&quot;</p></li>
 <li><p>2021/03/10 v. 2.6 : aggiunte alcune jsonrpc: prepare, getjson, prepandget</p></li>
@@ -1880,8 +1881,8 @@ specificati così:</p>
 dati.</p>
 </div>
 </div>
-<div class="section" id="serie-dei-dati-o-sommario">
-<h3>Serie dei dati o sommario<a class="headerlink" href="#serie-dei-dati-o-sommario" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="serie-dei-dati-o-riassuntivo">
+<h3>Serie dei dati o riassuntivo<a class="headerlink" href="#serie-dei-dati-o-riassuntivo" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="serie-temporale">
 <h4>Serie temporale<a class="headerlink" href="#serie-temporale" title="Link a questa intestazione">¶</a></h4>
 <p>Serie temporale annuale,mensile, giornaliera e oraria:</p>
@@ -1939,7 +1940,9 @@ minuti):</p>
 </pre></div>
 </div>
 <p>I dati restituiti sono analoghi a quelli restituiti con una richiesta
-dati.</p>
+dati fatto salvo che:
+- i dati non sono presenti ( &quot;v&quot;: null )
+- il campo date è un array che riporta la data inizio presenza dati e la data fine presenza dati ( &quot;date&quot;: [&quot;2023-02-15T00:00:00&quot;,  &quot;2023-02-21T07:15:00&quot;])</p>
 </div>
 </div>
 </div>

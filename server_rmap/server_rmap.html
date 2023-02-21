@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 2.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server RMAP</a><ul>
@@ -108,6 +108,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#installazione-sistema-operativo">Installazione sistema operativo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">postgresql</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apache">apache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stunnel">Stunnel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#arkimet">Arkimet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mosquitto">Mosquitto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rabbitmq">Rabbitmq</a></li>
@@ -230,7 +231,7 @@ a server.</p></li>
 </ul>
 </li>
 </ul>
-<p><a class="reference internal" href="../_images/100000000000070A0000053E6107640098E107D3.png"><img alt="image0" src="../_images/100000000000070A0000053E6107640098E107D3.png" style="width: 16.51cm; height: 12.312cm;" /></a></p>
+<p><a class="reference internal" href="../_images/flussodati.png"><img alt="image0" src="../_images/flussodati.png" style="width: 16.51cm; height: 12.312cm;" /></a></p>
 </div>
 <div class="section" id="data-ingestion">
 <h3>Data ingestion<a class="headerlink" href="#data-ingestion" title="Link a questa intestazione">¶</a></h3>
@@ -257,7 +258,7 @@ delle reti <em>claster</em> e <em>rmap</em> e l’altra per la rete <em>profe</e
 </ul>
 <p>Ci sono inoltre alcuni moduli per l’accoglimento di dati da sorgenti che
 non usano AMQP o non usano il formato BUFR (e.g. Luftdaten).</p>
-<p><a class="reference internal" href="../_images/10000000000006F3000006BFD6FD52DC1D86FE41.png"><img alt="image1" src="../_images/10000000000006F3000006BFD6FD52DC1D86FE41.png" style="width: 16.51cm; height: 16.016cm;" /></a></p>
+<p><a class="reference internal" href="../_images/dataingestion.png"><img alt="image1" src="../_images/dataingestion.png" style="width: 16.51cm; height: 16.016cm;" /></a></p>
 </div>
 <div class="section" id="configurazione-delle-stazioni">
 <h3>Configurazione delle stazioni<a class="headerlink" href="#configurazione-delle-stazioni" title="Link a questa intestazione">¶</a></h3>
@@ -265,7 +266,7 @@ non usano AMQP o non usano il formato BUFR (e.g. Luftdaten).</p>
 firmware delle stazioni STIMA. L’aggiornamento può essere fatto via HTTP
 o AMQP, previa autenticazione presso il corrispondente servizio di
 autenticazione.
-<a class="reference internal" href="../_images/100002010000080000000507B85AB66754A5EF29.png"><img alt="image2" src="../_images/100002010000080000000507B85AB66754A5EF29.png" style="width: 16.51cm; height: 10.372cm;" /></a></p>
+<a class="reference internal" href="../_images/stationmanager.png"><img alt="image2" src="../_images/stationmanager.png" style="width: 16.51cm; height: 10.372cm;" /></a></p>
 </div>
 <div class="section" id="registrazione-utenti">
 <h3>Registrazione utenti<a class="headerlink" href="#registrazione-utenti" title="Link a questa intestazione">¶</a></h3>
@@ -273,7 +274,7 @@ autenticazione.
 classico processo di iscrizione: l’utente compila una form e riceve una
 email per la conferma dell’avvenuta registrazione. Ovviamente, c’è un
 dialogo con il servizio di autenticazione.
-<a class="reference internal" href="../_images/10000000000005B80000043555ABB73FC42635F9.png"><img alt="image3" src="../_images/10000000000005B80000043555ABB73FC42635F9.png" style="width: 16.51cm; height: 12.136cm;" /></a></p>
+<a class="reference internal" href="../_images/registrazione_utenti.png"><img alt="image3" src="../_images/registrazione_utenti.png" style="width: 16.51cm; height: 12.136cm;" /></a></p>
 </div>
 <div class="section" id="visualizzazione-dei-dati">
 <h3>Visualizzazione dei dati<a class="headerlink" href="#visualizzazione-dei-dati" title="Link a questa intestazione">¶</a></h3>
@@ -283,7 +284,7 @@ e autorizzazione perchè si presuppone che tutti i dati siano pubblici.
 Questo sistema è probabilmente necessario per i dati della rete
 amatoriale e quindi è necessario che il servizio corrispondente di data
 ingestion sia collegato all’importatore dei dati su DB-All.e e Arkimet.
-<a class="reference internal" href="../_images/1000020100000800000003D765E8704309FFEAAE.png"><img alt="image4" src="../_images/1000020100000800000003D765E8704309FFEAAE.png" style="width: 16.51cm; height: 7.938cm;" /></a></p>
+<a class="reference internal" href="../_images/borinud_showdata.png"><img alt="image4" src="../_images/borinud_showdata.png" style="width: 16.51cm; height: 7.938cm;" /></a></p>
 </div>
 <div class="section" id="cosudo">
 <h3>Cosudo<a class="headerlink" href="#cosudo" title="Link a questa intestazione">¶</a></h3>
@@ -297,7 +298,7 @@ avere a disposizione i dati dall’archivio del SIMC.</p>
 <p>Il sistema di autenticazione è necessario poiché, essendo ospitato sul
 server rmap.cc, deve essere reso privato.</p>
 <p>Non è ancora operativo e mancano i flussi di alimentazione dei dati.
-<a class="reference internal" href="../_images/1000020100000800000007ABE34B7E3A4D8E30E3.png"><img alt="image5" src="../_images/1000020100000800000007ABE34B7E3A4D8E30E3.png" style="width: 16.51cm; height: 15.84cm;" /></a></p>
+<a class="reference internal" href="../_images/cosudo.png"><img alt="image5" src="../_images/cosudo.png" style="width: 16.51cm; height: 15.84cm;" /></a></p>
 </div>
 <div class="section" id="inserimento-manuale-dei-dati">
 <h3>Inserimento manuale dei dati<a class="headerlink" href="#inserimento-manuale-dei-dati" title="Link a questa intestazione">¶</a></h3>
@@ -305,7 +306,7 @@ server rmap.cc, deve essere reso privato.</p>
 operatori, di dati e immagini via HTTP e AMQP. I dati attualmente sono
 le osservazioni della neve e del tempo (quest’ultimo all’interno del
 progetto RainBO). Si appoggia al sistema di autenticazione.
-<a class="reference internal" href="../_images/1000020100000800000004695F2A049FAE8C7BE3.png"><img alt="image6" src="../_images/1000020100000800000004695F2A049FAE8C7BE3.png" style="width: 16.51cm; height: 9.102cm;" /></a></p>
+<a class="reference internal" href="../_images/insertdata_geoimage.png"><img alt="image6" src="../_images/insertdata_geoimage.png" style="width: 16.51cm; height: 9.102cm;" /></a></p>
 </div>
 <div class="section" id="rainbo">
 <h3>RainBO<a class="headerlink" href="#rainbo" title="Link a questa intestazione">¶</a></h3>
@@ -352,6 +353,7 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">django</span><span class="o">-</span><span class="n">dynamic</span><span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">borinud</span>
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">mosquitto</span> <span class="n">mosquitto</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">plug</span>
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">arkimet</span>
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">stunnel</span>
 <span class="n">useradd</span> <span class="n">rmap</span>
 </pre></div>
 </div>
@@ -442,6 +444,19 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.d/rmap.inc">/etc/httpd/conf.d/rmap.inc</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chkconfig httpd on``
 service httpd start``
+</pre></div>
+</div>
+</div>
+<div class="section" id="stunnel">
+<h3>Stunnel<a class="headerlink" href="#stunnel" title="Link a questa intestazione">¶</a></h3>
+<p>Create file with psk keys:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttpsk</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">stunnel</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">psk</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/stunnel/stunnel.conf">/etc/stunnel/stunnel.conf</a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/stunnel_presharedkey">/etc/cron.d/stunnel_presharedkey</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chkconfig stunnel on``
+service stunnel start``
 </pre></div>
 </div>
 </div>
