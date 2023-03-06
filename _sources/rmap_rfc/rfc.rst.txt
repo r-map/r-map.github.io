@@ -4,6 +4,7 @@ RFC rmap versione 3.1
 Storia del documento
 --------------------
 
+- 2023/03/06 v. 3.2 : Revisionate le Remote Procedure Call
 - 2023/02/21 v. 3.1 : Migliorata documentazione RMAP web services, riassuntivo
 - 2022/06/10 v. 3.0 : Versione 1 (precedentemente 0) del protocollo RMAP over MQTT
 - 2021/11/21 v. 2.8 : corretto topic MQTT per RPC
