@@ -184,6 +184,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v4/stima_v4.html">Stima V4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server_rmap/server_rmap.html">Server RMAP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
@@ -1639,15 +1640,12 @@ RPC</p></li>
 <ul class="simple">
 <li><p>recovery</p></li>
 </ul>
-<p>Richiede il re-invio dei dati non trasmessi al server; senza parametri</p>
+<p>Senza parametri: richiede il re-invio dei dati non trasmessi al server;</p>
 <p>esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;recovery&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>resend</p></li>
-</ul>
-<p>Richiede il re-invio dei dati non trasmessi al server da una data
+<p>Con parametri: richiede il re-invio dei dati non trasmessi al server da una data
 iniziale a una data finale</p>
 <ul class="simple">
 <li><p>int[6] dts: start date and time; anno, mese, giorno, ora, minuti,
@@ -1656,17 +1654,27 @@ secondi [esempio: 2014,2,10,18,45,18]</p></li>
 secondi [esempio: 2015,3,25,12,0,0]</p></li>
 </ul>
 <p>esempio:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;resend&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dts&quot;</span><span class="p">:[</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">18</span><span class="p">],</span><span class="s2">&quot;dte&quot;</span><span class="p">:[</span><span class="mi">2015</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;recovery&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dts&quot;</span><span class="p">:[</span><span class="mi">2014</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">18</span><span class="p">],</span><span class="s2">&quot;dte&quot;</span><span class="p">:[</span><span class="mi">2015</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>admin</p>
+<p>Comandi di amministrazione</p>
+<p>parametri:</p>
+<ul class="simple">
+<li><p>bool fdownload: true= richiede il download del nuovo firmware disponibile sul server</p></li>
+</ul>
+<p>esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fupdate&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>reboot</p>
 <p>Richiede il riavvio della stazione</p>
 <p>parametri:</p>
 <ul class="simple">
-<li><p>bool update: true=update firmware available on SDcard</p></li>
+<li><p>bool fupdate: true=update firmware available on SDcard</p></li>
 </ul>
 <p>esempio:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;update&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fupdate&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>prepare</p>

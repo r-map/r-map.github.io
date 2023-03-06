@@ -1,5 +1,0 @@
-<map id="readable_data_t" name="readable_data_t">
-<area shape="rect" id="node1" title="Readable data through i2c bus." alt="" coords="53,124,179,151"/>
-<area shape="rect" id="node2" href="$structpm__value__t.html" title=" " alt="" coords="5,5,104,32"/>
-<area shape="rect" id="node3" href="$structbin__value__t.html" title=" " alt="" coords="129,5,226,32"/>
-</map>
