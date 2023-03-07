@@ -14,8 +14,8 @@ Aggiunta repository e installazione pacchetti da utente amministratore
   dnf install yum-plugin-copr
   dnf copr enable simc/stable
   dnf copr enable pat1/rmap
-  dnf config-manager --set-enabled powertool
-  dnf install python3-rmap
+  dnf config-manager --set-enabled powertools
+  dnf groupinstall rmap
 
 
 Uso dei tools a linea di comando
@@ -170,6 +170,7 @@ dove:
 
 * myuser: nome utente RMAP
 * mypassword: password utente RMAP
+  
 
 Remote Procedure Call over MQTT
 -------------------------------
@@ -182,12 +183,20 @@ Prima di eseguire qualsiasi RPC è necessario scaricare dal server la configuraz
   rmap-configure --download_from_server --station_slug="myslug" --user="myuser" --password="mypassword" --server=rmap.cc
 
 
+dove:
+
+* myuser: nome utente RMAP
+* mypassword: password utente RMAP
+* muslug: nome sintetico stazione
+* mybslug: nome sintetico board
+  
+
 configure
 .........
 
 La configurazione da remoto è possibile tramite tool a linea di comando::
 
-  rmap-configure --config_station --username="myuser" --station_slug="myslug" --transport=mqtt --stima_version 4
+  rmap-configure --config_station --username="myuser" --station_slug="myslug" --board_slug="mybslug" --transport=mqtt --stima_version 4
 
 
 admin
@@ -195,7 +204,7 @@ admin
   
 Per impartire alla stazione dil comando per scaricare un nuovo firmware dal server eseguire il comando::
   
-  rmap-configure --rpc_mqtt_admin --rpc_mqtt_admin_fdownload --username userv4 --station_slug stimacan --board_slug stimav4 --stima_version 4
+  rmap-configure --rpc_mqtt_admin --rpc_mqtt_admin_fdownload --username="myuser" --station_slug="myslug" --board_slug="mybslug" --stima_version 4
 
 			  
 reboot
@@ -203,11 +212,11 @@ reboot
 
 Il reboot del modulo master è possibile tramite tool a linea di comando::
 
-  rmap-configure --rpc_mqtt_reboot --username="myuser" --station_slug="myslug" --stima_version 4
+  rmap-configure --rpc_mqtt_reboot --username="myuser" --station_slug="myslug"  --board_slug="mybslug" --stima_version 4
 
 Se si vuole che al reboot venga installato un nuovo firmware se disponibile::
 
-  rmap-configure --rpc_mqtt_reboot -rpc_mqtt_reboot_fupdate --username="myuser" --station_slug="myslug" --stima_version 4
+  rmap-configure --rpc_mqtt_reboot -rpc_mqtt_reboot_fupdate --username="myuser" --station_slug="myslug"  --board_slug="mybslug" --stima_version 4
   
 
 recovery
@@ -216,11 +225,11 @@ recovery
 Il recupero dei dati salvati su SDcard è possibile tramite tool a linea di comando
 specificando la data iniziale dei dati da recuperare (fino a data e ora corrente)::
 
-  rmap-configure --rpc_mqtt_recovery --username="myuser" --station_slug="myslug" --datetimestart="2022-02-16T12:00" --stima_version 4
+  rmap-configure --rpc_mqtt_recovery --username="myuser" --station_slug="myslug"  --board_slug="mybslug" --datetimestart="2022-02-16T12:00" --stima_version 4
 
 
 oppure specificando la data iniziale e finale dei dati da recuperare::
 
-  rmap-configure --rpc_mqtt_recovery --datetimestart "2022-02-13T10:00" --datetimeend "2022-02-16T12:00" --username="myuser" --station_slug="myslug" --datetime="2022-02-16T12:00" --stima_version 4
+  rmap-configure --rpc_mqtt_recovery --datetimestart "2022-02-13T10:00" --datetimeend "2022-02-16T12:00" --username="myuser" --station_slug="myslug"  --board_slug="mybslug"  --stima_version 4
   
 

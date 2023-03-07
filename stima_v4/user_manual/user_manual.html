@@ -199,8 +199,8 @@
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
 <span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">stable</span>
 <span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">pat1</span><span class="o">/</span><span class="n">rmap</span>
-<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">powertool</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">rmap</span>
+<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">powertools</span>
+<span class="n">dnf</span> <span class="n">groupinstall</span> <span class="n">rmap</span>
 </pre></div>
 </div>
 </div>
@@ -354,28 +354,35 @@ dal datalogger da remoto.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">download_from_server</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span>
 </pre></div>
 </div>
+<p>dove:</p>
+<ul class="simple">
+<li><p>myuser: nome utente RMAP</p></li>
+<li><p>mypassword: password utente RMAP</p></li>
+<li><p>muslug: nome sintetico stazione</p></li>
+<li><p>mybslug: nome sintetico board</p></li>
+</ul>
 <div class="section" id="configure">
 <h3>configure<a class="headerlink" href="#configure" title="Link a questa intestazione">¶</a></h3>
 <p>La configurazione da remoto è possibile tramite tool a linea di comando:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">transport</span><span class="o">=</span><span class="n">mqtt</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="s2">&quot;mybslug&quot;</span> <span class="o">--</span><span class="n">transport</span><span class="o">=</span><span class="n">mqtt</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="admin">
 <h3>admin<a class="headerlink" href="#admin" title="Link a questa intestazione">¶</a></h3>
 <p>Per impartire alla stazione dil comando per scaricare un nuovo firmware dal server eseguire il comando:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_admin</span> <span class="o">--</span><span class="n">rpc_mqtt_admin_fdownload</span> <span class="o">--</span><span class="n">username</span> <span class="n">userv4</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">stimacan</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">stimav4</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_admin</span> <span class="o">--</span><span class="n">rpc_mqtt_admin_fdownload</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="s2">&quot;mybslug&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="reboot">
 <h3>reboot<a class="headerlink" href="#reboot" title="Link a questa intestazione">¶</a></h3>
 <p>Il reboot del modulo master è possibile tramite tool a linea di comando:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_reboot</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_reboot</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="s2">&quot;mybslug&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <p>Se si vuole che al reboot venga installato un nuovo firmware se disponibile:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_reboot</span> <span class="o">-</span><span class="n">rpc_mqtt_reboot_fupdate</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_reboot</span> <span class="o">-</span><span class="n">rpc_mqtt_reboot_fupdate</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="s2">&quot;mybslug&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
@@ -383,11 +390,11 @@ dal datalogger da remoto.</p>
 <h3>recovery<a class="headerlink" href="#recovery" title="Link a questa intestazione">¶</a></h3>
 <p>Il recupero dei dati salvati su SDcard è possibile tramite tool a linea di comando
 specificando la data iniziale dei dati da recuperare (fino a data e ora corrente):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_recovery</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">datetimestart</span><span class="o">=</span><span class="s2">&quot;2022-02-16T12:00&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_recovery</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="s2">&quot;mybslug&quot;</span> <span class="o">--</span><span class="n">datetimestart</span><span class="o">=</span><span class="s2">&quot;2022-02-16T12:00&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <p>oppure specificando la data iniziale e finale dei dati da recuperare:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_recovery</span> <span class="o">--</span><span class="n">datetimestart</span> <span class="s2">&quot;2022-02-13T10:00&quot;</span> <span class="o">--</span><span class="n">datetimeend</span> <span class="s2">&quot;2022-02-16T12:00&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2022-02-16T12:00&quot;</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">rpc_mqtt_recovery</span> <span class="o">--</span><span class="n">datetimestart</span> <span class="s2">&quot;2022-02-13T10:00&quot;</span> <span class="o">--</span><span class="n">datetimeend</span> <span class="s2">&quot;2022-02-16T12:00&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="s2">&quot;mybslug&quot;</span>  <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
