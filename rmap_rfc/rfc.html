@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RFC rmap versione 3.1 &mdash; RMAP e Stima 3 documentazione</title>
+  <title>RFC rmap versione 3.3 &mdash; RMAP e Stima 3 documentazione</title>
   
 
   
@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 3.1</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 3.3</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
@@ -236,7 +236,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>RFC rmap versione 3.1</li>
+      <li>RFC rmap versione 3.3</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -255,11 +255,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rfc-rmap-versione-3-1">
-<h1>RFC rmap versione 3.1<a class="headerlink" href="#rfc-rmap-versione-3-1" title="Link a questa intestazione">¶</a></h1>
+  <div class="section" id="rfc-rmap-versione-3-3">
+<h1>RFC rmap versione 3.3<a class="headerlink" href="#rfc-rmap-versione-3-3" title="Link a questa intestazione">¶</a></h1>
 <div class="section" id="storia-del-documento">
 <h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link a questa intestazione">¶</a></h2>
 <ul class="simple">
+<li><p>2023/05/26 v. 3.2 : aggiunta alla Remote Procedure Call admin parametro fupdate; corretto root topic per il messaggio testamento mqtt</p></li>
 <li><p>2023/03/06 v. 3.2 : Revisionate le Remote Procedure Call</p></li>
 <li><p>2023/02/21 v. 3.1 : Migliorata documentazione RMAP web services, riassuntivo</p></li>
 <li><p>2022/06/10 v. 3.0 : Versione 1 (precedentemente 0) del protocollo RMAP over MQTT</p></li>
@@ -1392,7 +1393,7 @@ starting with the username used in authentication.</p>
 <h3>Stato della connessione<a class="headerlink" href="#stato-della-connessione" title="Link a questa intestazione">¶</a></h3>
 <p>Alla connessione deve essere inviato dalla stazione una eventuale
 segnalazione di sconnessione gestita male con will (retained):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">mainttopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>payload : <strong>{&quot;v&quot;: &quot;error01&quot;}</strong></p>
@@ -1463,23 +1464,25 @@ l'invio dei dati. Possono essere utilizzate solo quando il loro utilizzo
 comporti un risparmio sul numero di byte necessari per la trasmissione.</p>
 <div class="section" id="prima-forma-contratta-tabella-d">
 <h4>Prima forma contratta tabella D<a class="headerlink" href="#prima-forma-contratta-tabella-d" title="Link a questa intestazione">¶</a></h4>
-<p>In questa forma contratta non è previsto l'invio di attributi del dato.
-In questa forma contratta non è necessario inviare messaggi relativi
+<p>In questa forma contratta non è necessario inviare messaggi relativi
 allo stato della connessione.</p>
 <p>Il topic e come quello della forma standard senza l'ultimo parametro
 &quot;VAR&quot;. Ad esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">myuser</span><span class="o">//</span><span class="mi">1131908</span><span class="p">,</span><span class="mi">4449301</span><span class="o">/</span><span class="n">fixed</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span>
 </pre></div>
 </div>
-<p>Il payload prevede due parametri:</p>
+<p>Il payload prevede due parametri più uno opzionale:</p>
 <ul class="simple">
 <li><p>&quot;d&quot; che descrive quale elemento della tabella D è preso in
 considerazione</p></li>
 <li><p>&quot;p&quot; con un array di valori corrispondenti ai &quot;VAR&quot; descritti
 nell'elemento in tabella D</p></li>
+<li><p>&quot;a&quot; attributi solitamente per controllo di qualità sono opzionali;
+la chiave fa riferimento alla tabella B e il contenuto è un array
+di valori che si riferiscono posizionalmente ai relativi dati</p></li>
 </ul>
 <p>Ad esempio:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="s2">&quot;p&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span><span class="s2">&quot;a&quot;</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]}</span>
 </pre></div>
 </div>
 <p>Tabella D</p>
@@ -1490,6 +1493,20 @@ nell'elemento in tabella D</p></li>
         <span class="s2">&quot;51&quot;</span><span class="p">:[</span><span class="s2">&quot;B11211&quot;</span><span class="p">,</span><span class="s2">&quot;B11212&quot;</span><span class="p">,</span><span class="s2">&quot;B11213&quot;</span><span class="p">,</span><span class="s2">&quot;B11214&quot;</span><span class="p">,</span><span class="s2">&quot;B11215&quot;</span><span class="p">,</span><span class="s2">&quot;B11216&quot;</span><span class="p">],</span>
         <span class="s2">&quot;52&quot;</span><span class="p">:[</span><span class="s2">&quot;B49198&quot;</span><span class="p">,</span><span class="s2">&quot;B49199&quot;</span><span class="p">,</span><span class="s2">&quot;B49200&quot;</span><span class="p">,</span><span class="s2">&quot;B49201&quot;</span><span class="p">,</span><span class="s2">&quot;B49202&quot;</span><span class="p">,</span><span class="s2">&quot;B49203&quot;</span><span class="p">,</span><span class="s2">&quot;B49204&quot;</span><span class="p">,</span>
               <span class="s2">&quot;B49205&quot;</span><span class="p">,</span><span class="s2">&quot;B49206&quot;</span><span class="p">,</span><span class="s2">&quot;B49207&quot;</span><span class="p">,</span><span class="s2">&quot;B49208&quot;</span><span class="p">,</span><span class="s2">&quot;B49209&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Ad esempio:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>{&quot;d&quot;:51,&quot;p&quot;:[10,20,30,40,50,100],&quot;t&quot;:&quot;2023-05-26T20:48:00&quot;,&quot;a&quot;:{&quot;B33199&quot;:[100,90,80,70,60,50]}}</p>
+</dd>
+</dl>
+<p>si sviluppa in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">userv4</span><span class="o">//</span><span class="mi">1212345</span><span class="p">,</span><span class="mi">4512345</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B11211</span> <span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-05-26T20:48:00&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B33199&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}}</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">userv4</span><span class="o">//</span><span class="mi">1212345</span><span class="p">,</span><span class="mi">4512345</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B11212</span> <span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-05-26T20:48:00&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B33199&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">}}</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">userv4</span><span class="o">//</span><span class="mi">1212345</span><span class="p">,</span><span class="mi">4512345</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B11213</span> <span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-05-26T20:48:00&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B33199&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">}}</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">userv4</span><span class="o">//</span><span class="mi">1212345</span><span class="p">,</span><span class="mi">4512345</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B11214</span> <span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-05-26T20:48:00&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B33199&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">}}</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">userv4</span><span class="o">//</span><span class="mi">1212345</span><span class="p">,</span><span class="mi">4512345</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B11215</span> <span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-05-26T20:48:00&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B33199&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}}</span>
+<span class="mi">1</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">userv4</span><span class="o">//</span><span class="mi">1212345</span><span class="p">,</span><span class="mi">4512345</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B11216</span> <span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-05-26T20:48:00&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B33199&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}}</span>
 </pre></div>
 </div>
 </div>
@@ -1663,6 +1680,7 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 <p>parametri:</p>
 <ul class="simple">
 <li><p>bool fdownload: true= richiede il download del nuovo firmware disponibile sul server</p></li>
+<li><p>bool cdownload: true= richiede il download della configurazione disponibile sul server</p></li>
 </ul>
 <p>esempio:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fupdate&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
