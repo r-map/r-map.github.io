@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
@@ -115,19 +115,28 @@
 <li class="toctree-l4"><a class="reference internal" href="#id1">SDcard</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#creare-un-nuovo-utente-rmap">Creare un nuovo utente RMAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-sensori">Configurazione sensori</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sensore-del-vento-windsonic">Sensore del vento Windsonic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-moduli">Configurazione moduli</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-modulo-sensor-config">Tramite modulo sensor_config.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tramite-modulo-master">Tramite modulo master.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-stazione">Configurazione stazione</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creare-un-nuovo-utente-rmap-tramite-interfaccia-web">Creare un nuovo utente RMAP tramite interfaccia WEB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#configurare-una-nuova-stazione">Configurare una nuova stazione</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modificare-la-configurazione-di-una-stazione-esistente">Modificare la configurazione di una stazione esistente</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#trasferire-la-configurazione-al-datalogger">Trasferire la configurazione al datalogger</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Aggiornamento Firmware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aggiornamento-firmware">Aggiornamento Firmware</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tramite-sdcard">Tramite SDcard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tramite-porta-usb">Tramite porta USB</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Recupero dati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recupero-dati">Recupero dati</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remote-procedure-call">Remote Procedure Call</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configure">configure</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reboot">reboot</a></li>
@@ -140,7 +149,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#tramite-display">tramite DISPLAY</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tramite-monitoraggio-mqtt">Tramite monitoraggio MQTT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tramite-porta-seriale">Tramite porta seriale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Tramite SDcard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Tramite SDcard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diagnostica-del-bus-i2c">Diagnostica del bus I2C</a></li>
 </ul>
 </li>
 </ul>
@@ -256,7 +266,7 @@ Permette di:
 <div class="section" id="sdcard">
 <h4>SDcard<a class="headerlink" href="#sdcard" title="Link a questa intestazione">¶</a></h4>
 <p>Permette di utilizzare una SDcard per effettuare:
-* aggiornamento firmware
+* <a class="reference internal" href="#aggiornamento-firmware">Aggiornamento firmware</a>
 * salvataggio dati
 * debug</p>
 </div>
@@ -283,7 +293,7 @@ Permette di:
 <div class="section" id="display">
 <h4>Display<a class="headerlink" href="#display" title="Link a questa intestazione">¶</a></h4>
 <ul class="simple">
-<li><p>Diagnostica</p></li>
+<li><p><a class="reference internal" href="#diagnostica">Diagnostica</a></p></li>
 </ul>
 </div>
 </div>
@@ -344,6 +354,48 @@ Permette di:
 tensione di funzionamento di ciascun modulo/dispositivo da connettere
 e verificare la predisposizione corretta del ponticello di
 configurazione hardware sulla board I2C-hub.</p>
+</div>
+<div class="section" id="utilizzo-del-tool-sensor-config-menu-sdcard">
+<h4>Utilizzo del tool sensor_config_menu_sdcard<a class="headerlink" href="#utilizzo-del-tool-sensor-config-menu-sdcard" title="Link a questa intestazione">¶</a></h4>
+<p>Il firmware tool sensor_config_menu_sdcard può essere utilizzato in differenti configurazioni hardware:</p>
+<ul>
+<li><p>sul modulo master:</p>
+<ul class="simple">
+<li><p>pro: non richiede ulteriore hardware, configura tutti i moduli</p></li>
+<li><p>contro: non permette la configurazione del sensore del vento windsonic</p></li>
+</ul>
+</li>
+<li><p>sul modulo i2c-wind:</p>
+<p>praticamente utile solo per configurare il sensore del vento windsonic</p>
+</li>
+<li><p>sul modulo dedicato sensor_config:</p>
+<ul class="simple">
+<li><p>pro: il modulo può essere utilizzato in modo indipendente per:
++ formattare SD card
++ <a class="reference internal" href="#diagnostica-del-bus-i2c">Diagnostica del bus I2C</a>
++ configurare i moduli
++ sensore del vento windsonic</p></li>
+<li><p>contro:
++ richiede ulteriore hardware
++ non permette la configurazione del sensore del vento windsonic</p></li>
+</ul>
+</li>
+</ul>
+<p>Su qualunque modulo sia utilizzato il firmware sensor_config_menu_sdcard
+esso utilizza come dispositivi di input (uno o più, in alternativa o in contemporanea)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>input:
++ tramite encoder con bottone
++ da porta seriale (USB)
++ tramite telecomando a infrarossi</p></li>
+<li><p>output:
++ su display LCD
++ su porta seriale (USB)</p></li>
+</ul>
+</div></blockquote>
+<p>Ovviamente tali dispositivi di input e output possono essere
+utilizzati solo se collegati hardware.</p>
 </div>
 </div>
 <div class="section" id="regolazione-display">
@@ -418,7 +470,8 @@ Sono accettati due tipi di formattazione:</p>
 <p>Per essere certi di formattare correttamentela card ci sono due possibilità:</p>
 <ul class="simple">
 <li><p>per windows e MAC <a class="reference external" href="https://www.sdcard.org/downloads/formatter/">https://www.sdcard.org/downloads/formatter/</a></p></li>
-<li><p>per tutti i sistemi l'apposito firmware SdFormatter messo a disposizione con Stima V3</p></li>
+<li><p>per tutti i sistemi l'apposito firmware SdFormatter
+o il tool sensor_config_menu_sdcard messi a disposizione con Stima V3</p></li>
 </ul>
 <p>Il metodo consigliato è il secondo.</p>
 <div class="section" id="come-formattare-l-sdcard-con-il-firmware-sdformatter">
@@ -431,31 +484,85 @@ eseguire:</p>
 </div>
 <p>e seguire le indicazioni del programma.</p>
 </div>
+<div class="section" id="come-formattare-l-sdcard-con-il-tool-sensor-config-menu-sdcard">
+<h5>Come formattare l'SDcard con il tool sensor_config_menu_sdcard<a class="headerlink" href="#come-formattare-l-sdcard-con-il-tool-sensor-config-menu-sdcard" title="Link a questa intestazione">¶</a></h5>
+<p>Il firmware sensor_config_menu_sdcard permette anche di formattare semplicemente l'SD card.
+Fare riferimento alla sezione <a class="reference internal" href="#utilizzo-del-tool-sensor-config-menu-sdcard">Utilizzo del tool sensor_config_menu_sdcard</a></p>
 </div>
-<div class="section" id="aggiornamento-firmware">
-<h4>Aggiornamento Firmware<a class="headerlink" href="#aggiornamento-firmware" title="Link a questa intestazione">¶</a></h4>
-<p>(Vedi sotto)</p>
+</div>
+<div class="section" id="aggiornamento-del-firmware">
+<h4>Aggiornamento del Firmware<a class="headerlink" href="#aggiornamento-del-firmware" title="Link a questa intestazione">¶</a></h4>
+<p>Vedi <a class="reference internal" href="#aggiornamento-firmware">Aggiornamento Firmware</a></p>
 </div>
 <div class="section" id="logging">
 <h4>Logging<a class="headerlink" href="#logging" title="Link a questa intestazione">¶</a></h4>
-<p>(vedi sotto in diagnostica)</p>
+<p>Vedi <a class="reference internal" href="#diagnostica">Diagnostica</a></p>
 </div>
-<div class="section" id="recupero-dati">
-<h4>Recupero dati<a class="headerlink" href="#recupero-dati" title="Link a questa intestazione">¶</a></h4>
-<p>(vedi sotto)</p>
+<div class="section" id="recupero-dei-dati">
+<h4>Recupero dei dati<a class="headerlink" href="#recupero-dei-dati" title="Link a questa intestazione">¶</a></h4>
+<p>Vedi <a class="reference internal" href="#recupero-dati">Recupero dati</a></p>
 </div>
 </div>
 </div>
-<div class="section" id="configurazione">
-<h2>Configurazione<a class="headerlink" href="#configurazione" title="Link a questa intestazione">¶</a></h2>
-<p>Qui vengono descritte le fasi per effettuare la configurazione della stazione necessaria al suo funzionamento.</p>
-<div class="section" id="creare-un-nuovo-utente-rmap">
-<h3>Creare un nuovo utente RMAP<a class="headerlink" href="#creare-un-nuovo-utente-rmap" title="Link a questa intestazione">¶</a></h3>
-<div class="section" id="tramite-interfaccia-web">
-<h4>Tramite interfaccia WEB<a class="headerlink" href="#tramite-interfaccia-web" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="configurazione-sensori">
+<h2>Configurazione sensori<a class="headerlink" href="#configurazione-sensori" title="Link a questa intestazione">¶</a></h2>
+<p>Qui vengono descritte le fasi per effettuare la configurazione dei
+sensori utilizzati dalla stazione.  La stazione dovrà essere
+completamente assemblata per poter seguire le istruzioni qui
+riportate.</p>
+<div class="section" id="sensore-del-vento-windsonic">
+<h3>Sensore del vento Windsonic<a class="headerlink" href="#sensore-del-vento-windsonic" title="Link a questa intestazione">¶</a></h3>
+<p>Prima di poter utilizzare il sensore del vento Windsonic esso dovrà
+essere opportunamente configurato.  Per farlo è necessario caricare il
+firmware sensor_config_menu_sdcard sul modulo i2c-wind.
+Connettere:</p>
+<ul class="simple">
+<li><p>(sconsigliato) utilizzare un monitor seriale sulla porta USB dello
+stesso modulo</p></li>
+<li><p>(consigliato) l'encoder insieme a un monitor seriale sulla porta USB
+dello stesso modulo</p></li>
+</ul>
+<p>Seguire i menu selezionando &quot;configurazione windsonic&quot; per eseguire l'operazione.</p>
+</div>
+</div>
+<div class="section" id="configurazione-moduli">
+<h2>Configurazione moduli<a class="headerlink" href="#configurazione-moduli" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="tramite-modulo-sensor-config">
+<h3>Tramite modulo sensor_config.<a class="headerlink" href="#tramite-modulo-sensor-config" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>inserire SD card</p></li>
+<li><p>collegare il modulo sensor_config al bus I2C tramite l'HUB</p></li>
+<li><p>seguire i menu per configurare il moduli secondo le proprie esigenze</p></li>
+<li><p>disconnettere il modulo sensor_config e riavviare la stazione</p></li>
+</ul>
+</div>
+<div class="section" id="tramite-modulo-master">
+<h3>Tramite modulo master.<a class="headerlink" href="#tramite-modulo-master" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>rimuovere le board GSM, SIM e RTC</p></li>
+<li><p>collegare l'encoder e/o il monitor della porta seriale (USB)</p></li>
+<li><p>senza SD card inserita caricare il firmware sensor_config_menu_sdcard</p></li>
+<li><p>inserire la SD card</p></li>
+<li><p>avviare la stazione</p></li>
+<li><p>seguire i menu per configurare il moduli secondo le proprie esigenze</p></li>
+<li><p>rimuovere l'SD card</p></li>
+<li><p>caricare il firmware di stazione stima</p></li>
+<li><p>inserire la SD card operativa</p></li>
+<li><p>riavviare la stazione</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="configurazione-stazione">
+<h2>Configurazione stazione<a class="headerlink" href="#configurazione-stazione" title="Link a questa intestazione">¶</a></h2>
+<p>Qui vengono descritte le fasi per effettuare la configurazione della
+stazione necessaria al suo funzionamento.</p>
+<p>Al termine delle operazioni la configurazione verrà salvata
+permanentemente sulla EEprom del modulo master.</p>
+<div class="section" id="creare-un-nuovo-utente-rmap-tramite-interfaccia-web">
+<h3>Creare un nuovo utente RMAP tramite interfaccia WEB<a class="headerlink" href="#creare-un-nuovo-utente-rmap-tramite-interfaccia-web" title="Link a questa intestazione">¶</a></h3>
 <p>Per iscriversi alla piattarforma RMAP bisogna collegarsi al sito:
 <a class="reference external" href="http://rmap.cc/">http://rmap.cc/</a></p>
-<p>andare con il mouse sul menù &quot;Il mio RMAP&quot;, sulla destra della barra
+<p>Andare con il mouse sul menù &quot;Il mio RMAP&quot;, sulla destra della barra
 nera, e clickare su &quot;Entra&quot;.</p>
 <p>Apparirà una maschera che chiede utente e password.  Nella seconda
 riga sotto a questa maschera clickare sul bottone blu &quot;Registrazione&quot;
@@ -471,61 +578,53 @@ Condizioni di Servizio (descritte nel quadrato sotto riportato).
 Completate queste operazioni si può procedere a clickare su &quot;Invia&quot;.
 Fatto questo il server RMAP invierà una mail di conferma all'indirizzo
 indicato nella maschera di registrazione.  La registrazione verrà
-conclusa aprendo il mail e confermando la propria intenzione di
+conclusa aprendo il messaggio mail e confermando la propria intenzione di
 iscriversi seguendo il link indicato.</p>
-</div>
 </div>
 <div class="section" id="configurare-una-nuova-stazione">
 <h3>Configurare una nuova stazione<a class="headerlink" href="#configurare-una-nuova-stazione" title="Link a questa intestazione">¶</a></h3>
-<div class="section" id="id2">
-<h4>Tramite interfaccia WEB<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="tramite-interfaccia-web">
+<h4>Tramite interfaccia WEB<a class="headerlink" href="#tramite-interfaccia-web" title="Link a questa intestazione">¶</a></h4>
 <p>Tramite interfaccia WEB è possibile definire solo stazioni di modello
 (tipo e sensori) predefinito. Per modelli di stazione non predefiniti
 utilizzare la modalità a linea di comando.</p>
-<div class="section" id="in-modalita-guidata">
-<h5>In modalità guidata<a class="headerlink" href="#in-modalita-guidata" title="Link a questa intestazione">¶</a></h5>
 <p>Per poter registrare una nuova stazione è utile aver configurato un
 utente RMAP.</p>
 <p>Seguire il link:
 <a class="reference external" href="https://rmap.cc/insertdata/newstation">https://rmap.cc/insertdata/newstation</a></p>
-<p>Si può seguire alternativamente una delle due seguenti procedure:</p>
+<p>Per definire la posizione della stazione si può seguire
+alternativamente una delle seguenti procedure:</p>
 <ul class="simple">
-<li><p>indicare l'indirizzo esatto della stazione (il sito utilizza il
-DataBase geografico di OpenStreetMap che riconosce gli indirizzi
-solo se indicati con precisione, quindi è necessario inserire
-l'indirizzo con nome completo della via, es: &quot;viale Antonio Silvani
-6, Bologna&quot;, oppure &quot; via degli Albergati 32, Zola Predosa,
-Bologna&quot;).</p></li>
-<li><p>utilizzare la mappa sottostante, clickare sul segnaposto (quello a
-forma di goccia, ultimo in basso dei quattro centrali a sinistra
-della mappa) e posizionarlo sul punto preciso della mappa, con
-doppio click bottone sinistro del mouse. Se la posizione scelta non
-è corretta, si potrà cancellare la posizione (selezionare l'ultimo
-bottone a sinistra nella mappa a forma di bidone e poi clickare sul
-segnaposto) e riposizionare il marker, oppure spostare il segnaposto
-nella posizione corretta direttamente sulla mappa (selezionando
-prima il penultimo bottone a sinistra a forma di matita su foglio
-&quot;edit layers&quot;, spostando il segnaposto e riclickando su &quot;edit layer&quot;
-per salvare la nuova posizione). Queste funzionalità potrebbero non
-essere disponibili su Android.</p></li>
+<li><p>indicare nel primo modulo l'indirizzo esatto della stazione (il sito
+utilizza il DataBase geografico di OpenStreetMap che riconosce gli
+indirizzi solo se indicati con precisione, quindi è necessario
+inserire l'indirizzo con nome completo della via, es: &quot;viale Antonio
+Silvani 6, Bologna&quot;, oppure &quot; via degli Albergati 32, Zola Predosa,
+Bologna&quot;). Selezionare invia.</p></li>
+<li><p>utilizzare la mappa sottostante, del secondo modulo, clickare sul
+segnaposto (quello a forma di goccia, ultimo in basso dei quattro
+centrali a sinistra della mappa) e posizionarlo sul punto preciso
+della mappa, con doppio click bottone sinistro del mouse. Se la
+posizione scelta non è corretta, si potrà cancellare la posizione
+(selezionare l'ultimo bottone a sinistra nella mappa a forma di
+bidone e poi clickare sul segnaposto) e riposizionare il marker,
+oppure spostare il segnaposto nella posizione corretta direttamente
+sulla mappa (selezionando prima il penultimo bottone a sinistra a
+forma di matita su foglio &quot;edit layers&quot;, spostando il segnaposto e
+riclickando su &quot;edit layer&quot; per salvare la nuova posizione). Queste
+funzionalità potrebbero non essere disponibili su
+Android. Selezionare invia.</p></li>
+<li><p>inserire nel terzo modulo le coordinate (latitudine e longitudine in
+formato sessagesimale</p></li>
 </ul>
-<p>Individuata la posizione bisognerà indicare il nome della nuova
-stazione ed infine il modello (tipo e template sensori).</p>
+<p>Individuata la posizione in tutti i casi bisognerà indicare:
+* il nome della nuova stazione
+* altezza della stazione in metri dal livello medio del mare
+* il modello (tipo e sensori collegati).</p>
 <p>La procedura di inserimento della nuova stazione si concluderà quindi
 clickando su &quot;invia&quot;.</p>
-<p>In questa modalità non è possibile inserire i dati relativi al nome
-stazione e altezza dal livello medio del mare, ma poi è possibile
-integrarli tramite il modulo qui di seguito descritto</p>
-</div>
-<div class="section" id="tramite-modulo">
-<h5>Tramite modulo<a class="headerlink" href="#tramite-modulo" title="Link a questa intestazione">¶</a></h5>
-<p>Per poter registrare una nuova stazione è utile aver configurato un
-utente RMAP.</p>
-<p>Seguire il link:
-<a class="reference external" href="https://rmap.cc/insertdata/newstationdetail">https://rmap.cc/insertdata/newstationdetail</a>
-e autenticarsi</p>
-<p>compilare con i dati e confermare.</p>
-</div>
+<p>Se i dati risulteranno corretti verranno presentati alcuni dati che
+dovranno essere utilizzati per trasferire i dati alla stazione.</p>
 </div>
 <div class="section" id="a-linea-di-comando">
 <h4>A linea di comando<a class="headerlink" href="#a-linea-di-comando" title="Link a questa intestazione">¶</a></h4>
@@ -613,17 +712,85 @@ database sincronizzati:</p>
 </div>
 <div class="section" id="modificare-la-configurazione-di-una-stazione-esistente">
 <h3>Modificare la configurazione di una stazione esistente<a class="headerlink" href="#modificare-la-configurazione-di-una-stazione-esistente" title="Link a questa intestazione">¶</a></h3>
+<p>E' possibile modificare la configurazione della stazione dopo aver
+fatto login con il proprio utente e accedendo alla propia pagina
+personale selezionando la stazione e seguendo i successivi menu.</p>
 </div>
 <div class="section" id="trasferire-la-configurazione-al-datalogger">
 <h3>Trasferire la configurazione al datalogger<a class="headerlink" href="#trasferire-la-configurazione-al-datalogger" title="Link a questa intestazione">¶</a></h3>
-<p>Ecco il comando da impartire per trasferire e salvare la configurazione nel datalogger:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span>  <span class="o">--</span><span class="n">board_slug</span><span class="o">=</span><span class="n">default</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span>  <span class="o">--</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span> <span class="o">--</span><span class="n">device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span>
+<div class="section" id="tramite-il-tool-a-linea-di-comando-tramite-porta-seriale-usb">
+<h4>Tramite il tool a linea di comando tramite porta seriale (USB)<a class="headerlink" href="#tramite-il-tool-a-linea-di-comando-tramite-porta-seriale-usb" title="Link a questa intestazione">¶</a></h4>
+<p>Dopo aver collegato il modulo master tramite il cavo USB ecco il
+comando da impartire per trasferire e salvare la configurazione nel
+datalogger:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span><span class="o">=</span><span class="s2">&quot;myslug&quot;</span> <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;myuser&quot;</span>  <span class="o">--</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span> <span class="o">--</span><span class="n">device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyUSB0</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="tramite-file-binario">
+<h4>Tramite file binario<a class="headerlink" href="#tramite-file-binario" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="salvare-il-file-binario-su-sd-card">
+<h5>Salvare il file binario su SD card<a class="headerlink" href="#salvare-il-file-binario-su-sd-card" title="Link a questa intestazione">¶</a></h5>
+<p>Per eseguire la configurazione bisogna disporre del file binario
+versione 32 ottenuto dopo la configurazione della stazione sul server
+dal server stesso:
+* autenticarsi al server con il proprio utente e password
+* accedere alla propria pagina personale
+* selezionare la stazione di interesse
+* scaricare il file dalla voce &quot;Scaricare la configurazione per Stima V3&quot;
+* salvare il file su SD card</p>
+</div>
+<div class="section" id="salvare-la-configurazione-sulla-memoria-permanente-della-stazione">
+<h5>Salvare la configurazione sulla memoria permanente della stazione<a class="headerlink" href="#salvare-la-configurazione-sulla-memoria-permanente-della-stazione" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="tramite-sd-card-sul-modulo-master">
+<h6>Tramite SD card sul modulo master<a class="headerlink" href="#tramite-sd-card-sul-modulo-master" title="Link a questa intestazione">¶</a></h6>
+<ul class="simple">
+<li><p>rinominare il file binario di configurazione col nome &quot;config.cfg&quot;</p></li>
+<li><p>inserire l'SD card con il file binario sul modulo master</p></li>
+<li><p>inserire il ponticello di configurazione sul modulo master, board I2C</p></li>
+<li><p>attendere 20 secondi</p></li>
+<li><p>rimuovere il ponticello di configurazione</p></li>
+<li><p>riavviare la stazione</p></li>
+</ul>
+</div>
+<div class="section" id="tramite-firmware-sensor-config-menu-sdcard">
+<h6>Tramite firmware sensor_config_menu_sdcard<a class="headerlink" href="#tramite-firmware-sensor-config-menu-sdcard" title="Link a questa intestazione">¶</a></h6>
+<div class="section" id="id2">
+<h7>Tramite modulo sensor_config.<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h7>
+<ul class="simple">
+<li><p>inserire SD card con i vari file binari di configurazione per le
+varie stazioni nel modulo sensor_config</p></li>
+<li><p>collegare il modulo sensor_config al bus I2C tramite l'HUB</p></li>
+<li><p>seguire i menu per configurare il modulo master</p></li>
+<li><p>selezionare il corretto file binario di configurazione stazione</p></li>
+<li><p>trasferire la configurazione al modulo master tramite I2C &quot;I2C save conf&quot;</p></li>
+<li><p>disconnettere il modulo sensor_config e riavviare la stazione</p></li>
+</ul>
 </div>
 <div class="section" id="id3">
-<h2>Aggiornamento Firmware<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h2>
+<h7>Tramite modulo master.<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h7>
+<ul class="simple">
+<li><p>rimuovere le board GSM, SIM e RTC</p></li>
+<li><p>collegare l'encoder e/o il monitor della porta seriale (USB)</p></li>
+<li><p>senza SD card inserita caricare il firmware sensor_config_menu_sdcard</p></li>
+<li><p>inserire la SD card con i vari file binari di configurazione per le
+varie stazioni nel modulo sensor_config</p></li>
+<li><p>avviare la stazione</p></li>
+<li><p>selezionare il corretto file binario di configurazione stazione</p></li>
+<li><p>seguire i menu per salvare la configurazione su eeprom &quot;EE save config&quot;</p></li>
+<li><p>rimuovere l'SD card</p></li>
+<li><p>caricare il firmware di stazione stima</p></li>
+<li><p>inserire la SD card operativa</p></li>
+<li><p>riavviare la stazione</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aggiornamento-firmware">
+<h2>Aggiornamento Firmware<a class="headerlink" href="#aggiornamento-firmware" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="tramite-sdcard">
 <h3>Tramite SDcard<a class="headerlink" href="#tramite-sdcard" title="Link a questa intestazione">¶</a></h3>
 <p>Per l'aggiornamento del firmware è necessario avere a disposizione due file:</p>
@@ -662,8 +829,8 @@ dispositivo USB collegato in modalità seriale.</p>
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Recupero dati<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="recupero-dati">
+<h2>Recupero dati<a class="headerlink" href="#recupero-dati" title="Link a questa intestazione">¶</a></h2>
 <p>Una volta recuperata la scheda Sdcard dal datalogger i dati possono
 essere letti con apposito tool linea di comando.</p>
 <p>Sono necessari almeno due file:</p>
@@ -1216,8 +1383,8 @@ connettore USB:</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id5">
-<h3>Tramite SDcard<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id4">
+<h3>Tramite SDcard<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
 <p>Per effettuare questo monitoraggio occorre utilizzare un firmware
 appositamente compilato con questa funzione inclusa; il firmware
 utilizzati normalmente in produzione non lo permettono.</p>
@@ -1225,6 +1392,11 @@ utilizzati normalmente in produzione non lo permettono.</p>
 tramite porta seriale verrà scritta in un file sulla SDcard con
 postfisso &quot;.log&quot;.  Il file sarà leggibile da PC una volta recuperata
 la SDcard.</p>
+</div>
+<div class="section" id="diagnostica-del-bus-i2c">
+<h3>Diagnostica del bus I2C<a class="headerlink" href="#diagnostica-del-bus-i2c" title="Link a questa intestazione">¶</a></h3>
+<p>Il il firmware sensor_config_menu_sdcard permette una disgnostica del bus I2C
+ma solo se connesso come dispositivo di output a un monito della porta seriale (USB).</p>
 </div>
 </div>
 </div>

@@ -39,7 +39,7 @@
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
     <link rel="next" title="Howto per Stima versione 3" href="howto_stima_v3/howto_stima_v3.html" />
-    <link rel="prev" title="RFC rmap versione 3.1" href="../rmap_rfc/rfc.html" /> 
+    <link rel="prev" title="RFC rmap versione 3.3" href="../rmap_rfc/rfc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Stima V3</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
@@ -172,7 +172,7 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#caratteristiche-hardware-dei-singoli-moduli">Caratteristiche hardware dei singoli moduli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#caratteristiche-hardware-delle-singole-board">Caratteristiche hardware delle singole board</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#stima-core-644-e-stima-core-1284">Stima core+644 e Stima core+1284</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#stima-i2c-base">Stima I2C-Base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#stima-i2c-digital">Stima I2C-Digital</a></li>
@@ -187,28 +187,35 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#configurazioni-hardware-dei-moduli-stima">Configurazioni hardware dei moduli Stima</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-ethernet">Modulo Stima Ethernet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-gsm-gprs">Modulo Stima GSM/GPRS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-passivo">Modulo Stima Passivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-ethernet-master">Modulo Stima Ethernet (master)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-gsm-gprs-master">Modulo Stima GSM/GPRS (master)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-passivo-master">Modulo Stima Passivo (master)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-i2c-th">Modulo Stima I2C-TH</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-i2c-rain">Modulo Stima I2C-Rain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-sensor-config">Modulo Stima sensor_config</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#configurazioni-software-dei-moduli-stima">Configurazioni software dei moduli Stima</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#installazione-del-software-per-la-configurazione">Installazione del software per la configurazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#installazione-del-software-per-la-compilazione-dei-firmware">Installazione del software per la compilazione dei firmware</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad">Installazione dei sorgenti dei firmware e dei progetti kicad</a></li>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#id1">Modulo Stima GSM/GPRS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#id2">Modulo Stima Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-gsm-gprs">Modulo Stima GSM/GPRS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-ethernet">Modulo Stima Ethernet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#modulo-stima-passive">Modulo Stima Passive</a></li>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#id4">Modulo Stima I2C-TH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#id5">Modulo Stima I2C-Rain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#id2">Modulo Stima I2C-TH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#id3">Modulo Stima I2C-Rain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#compilazione-e-caricamento-del-bootloader-digitecoboot">Compilazione e caricamento del bootloader Digitecoboot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#compilazione-del-firmware-in-formato-binario">Compilazione del firmware in formato binario</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware tramite micro SD-Card attraverso Digitecoboot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#configurazione-moduli-e-sensori">Configurazione moduli e sensori</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#assemblaggio-stazione-stima">Assemblaggio stazione Stima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#appendici">Appendici</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#elenco-pin-utilizzati">Elenco PIN utilizzati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto_stima_v3/howto_stima_v3.html#elenco-indirizzi-i2c">Elenco indirizzi I2C</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development_guide/development_guide.html">Guida per lo sviluppo software</a><ul>
@@ -247,6 +254,7 @@
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#connessione-e-disconnessione">Connessione e disconnessione</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#impilamento-board">Impilamento board</a></li>
 <li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#connessione-moduli">Connessione moduli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#utilizzo-del-tool-sensor-config-menu-sdcard">Utilizzo del tool sensor_config_menu_sdcard</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#regolazione-display">Regolazione Display</a></li>
@@ -258,26 +266,29 @@
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#id1">SDcard</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#formattazione">Formattazione</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#come-formattare-l-sdcard-con-il-firmware-sdformatter">Come formattare l'SDcard con il firmware SdFormatter.</a></li>
+<li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#come-formattare-l-sdcard-con-il-tool-sensor-config-menu-sdcard">Come formattare l'SDcard con il tool sensor_config_menu_sdcard</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#aggiornamento-firmware">Aggiornamento Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#aggiornamento-del-firmware">Aggiornamento del Firmware</a></li>
 <li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#logging">Logging</a></li>
-<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#recupero-dati">Recupero dati</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#recupero-dei-dati">Recupero dei dati</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#configurazione">Configurazione</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#creare-un-nuovo-utente-rmap">Creare un nuovo utente RMAP</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#tramite-interfaccia-web">Tramite interfaccia WEB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#configurazione-sensori">Configurazione sensori</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#sensore-del-vento-windsonic">Sensore del vento Windsonic</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#configurazione-moduli">Configurazione moduli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#tramite-modulo-sensor-config">Tramite modulo sensor_config.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#tramite-modulo-master">Tramite modulo master.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#configurazione-stazione">Configurazione stazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#creare-un-nuovo-utente-rmap-tramite-interfaccia-web">Creare un nuovo utente RMAP tramite interfaccia WEB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#configurare-una-nuova-stazione">Configurare una nuova stazione</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#id2">Tramite interfaccia WEB</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#in-modalita-guidata">In modalità guidata</a></li>
-<li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#tramite-modulo">Tramite modulo</a></li>
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#tramite-interfaccia-web">Tramite interfaccia WEB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#a-linea-di-comando">A linea di comando</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#con-modello-tipo-e-template-sensori-predefinito">Con modello (tipo e template sensori) predefinito</a></li>
 <li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#con-modello-tipo-e-template-sensori-non-predefinito">Con modello (tipo e template sensori) non predefinito</a></li>
@@ -286,15 +297,23 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#modificare-la-configurazione-di-una-stazione-esistente">Modificare la configurazione di una stazione esistente</a></li>
-<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#trasferire-la-configurazione-al-datalogger">Trasferire la configurazione al datalogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#trasferire-la-configurazione-al-datalogger">Trasferire la configurazione al datalogger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#tramite-il-tool-a-linea-di-comando-tramite-porta-seriale-usb">Tramite il tool a linea di comando tramite porta seriale (USB)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_manual/user_manual.html#tramite-file-binario">Tramite file binario</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#salvare-il-file-binario-su-sd-card">Salvare il file binario su SD card</a></li>
+<li class="toctree-l5"><a class="reference internal" href="user_manual/user_manual.html#salvare-la-configurazione-sulla-memoria-permanente-della-stazione">Salvare la configurazione sulla memoria permanente della stazione</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#id3">Aggiornamento Firmware</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#aggiornamento-firmware">Aggiornamento Firmware</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#tramite-sdcard">Tramite SDcard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#tramite-porta-usb">Tramite porta USB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#id4">Recupero dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#recupero-dati">Recupero dati</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_manual/user_manual.html#remote-procedure-call">Remote Procedure Call</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#configure">configure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#reboot">reboot</a></li>
@@ -311,7 +330,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#tramite-monitoraggio-mqtt">Tramite monitoraggio MQTT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#tramite-porta-seriale">Tramite porta seriale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#id5">Tramite SDcard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#id4">Tramite SDcard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_manual/user_manual.html#diagnostica-del-bus-i2c">Diagnostica del bus I2C</a></li>
 </ul>
 </li>
 </ul>
@@ -328,7 +348,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="howto_stima_v3/howto_stima_v3.html" class="btn btn-neutral float-right" title="Howto per Stima versione 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../rmap_rfc/rfc.html" class="btn btn-neutral float-left" title="RFC rmap versione 3.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../rmap_rfc/rfc.html" class="btn btn-neutral float-left" title="RFC rmap versione 3.3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

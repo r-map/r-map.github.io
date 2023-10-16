@@ -88,10 +88,10 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../stima_v3.html">Stima V3</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Howto per Stima versione 3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#caratteristiche-hardware-dei-singoli-moduli">Caratteristiche hardware dei singoli moduli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caratteristiche-hardware-delle-singole-board">Caratteristiche hardware delle singole board</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#stima-core-644-e-stima-core-1284">Stima core+644 e Stima core+1284</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#stima-i2c-base">Stima I2C-Base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#stima-i2c-digital">Stima I2C-Digital</a></li>
@@ -106,28 +106,35 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazioni-hardware-dei-moduli-stima">Configurazioni hardware dei moduli Stima</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-ethernet">Modulo Stima Ethernet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-gsm-gprs">Modulo Stima GSM/GPRS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passivo">Modulo Stima Passivo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-ethernet-master">Modulo Stima Ethernet (master)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-gsm-gprs-master">Modulo Stima GSM/GPRS (master)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passivo-master">Modulo Stima Passivo (master)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-th">Modulo Stima I2C-TH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-rain">Modulo Stima I2C-Rain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-sensor-config">Modulo Stima sensor_config</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazioni-software-dei-moduli-stima">Configurazioni software dei moduli Stima</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-configurazione">Installazione del software per la configurazione</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installazione-del-software-per-la-compilazione-dei-firmware">Installazione del software per la compilazione dei firmware</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installazione-dei-sorgenti-dei-firmware-e-dei-progetti-kicad">Installazione dei sorgenti dei firmware e dei progetti kicad</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Modulo Stima GSM/GPRS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-gsm-gprs">Modulo Stima GSM/GPRS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-ethernet">Modulo Stima Ethernet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modulo-stima-passive">Modulo Stima Passive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Modulo Stima I2C-TH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Modulo Stima I2C-Rain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Modulo Stima I2C-TH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Modulo Stima I2C-Rain</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#compilazione-e-caricamento-del-bootloader-digitecoboot">Compilazione e caricamento del bootloader Digitecoboot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compilazione-del-firmware-in-formato-binario">Compilazione del firmware in formato binario</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware tramite micro SD-Card attraverso Digitecoboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-moduli-e-sensori">Configurazione moduli e sensori</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assemblaggio-stazione-stima">Assemblaggio stazione Stima</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendici">Appendici</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#elenco-pin-utilizzati">Elenco PIN utilizzati</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elenco-indirizzi-i2c">Elenco indirizzi I2C</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
@@ -210,8 +217,8 @@
             
   <div class="section" id="howto-per-stima-versione-3">
 <h1>Howto per Stima versione 3<a class="headerlink" href="#howto-per-stima-versione-3" title="Link a questa intestazione">¶</a></h1>
-<div class="section" id="caratteristiche-hardware-dei-singoli-moduli">
-<h2>Caratteristiche hardware dei singoli moduli<a class="headerlink" href="#caratteristiche-hardware-dei-singoli-moduli" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="caratteristiche-hardware-delle-singole-board">
+<h2>Caratteristiche hardware delle singole board<a class="headerlink" href="#caratteristiche-hardware-delle-singole-board" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="stima-core-644-e-stima-core-1284">
 <h3>Stima core+644 e Stima core+1284<a class="headerlink" href="#stima-core-644-e-stima-core-1284" title="Link a questa intestazione">¶</a></h3>
 <p><a class="reference internal" href="../../_images/100000000000009E000000ACAE9B9D2F445B8061.jpg"><img alt="image0" src="../../_images/100000000000009E000000ACAE9B9D2F445B8061.jpg" style="width: 3.679cm; height: 3.999cm;" /></a><a class="reference internal" href="../../_images/100000000000009A000000AEEEAB07A37000F6DA.jpg"><img alt="image1" src="../../_images/100000000000009A000000AEEEAB07A37000F6DA.jpg" style="width: 3.526cm; height: 3.999cm;" /></a></p>
@@ -529,8 +536,8 @@ retroilluminazione, evitando inutilmente il consumo della batteria.</p>
 </div>
 <div class="section" id="configurazioni-hardware-dei-moduli-stima">
 <h2>Configurazioni hardware dei moduli Stima<a class="headerlink" href="#configurazioni-hardware-dei-moduli-stima" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="modulo-stima-ethernet">
-<h3>Modulo Stima Ethernet<a class="headerlink" href="#modulo-stima-ethernet" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-ethernet-master">
+<h3>Modulo Stima Ethernet (master)<a class="headerlink" href="#modulo-stima-ethernet-master" title="Link a questa intestazione">¶</a></h3>
 <p><a class="reference internal" href="../../_images/10000000000002080000039C7112DE85740F92D8.jpg"><img alt="image18" src="../../_images/10000000000002080000039C7112DE85740F92D8.jpg" style="width: 5.999cm; height: 10.666cm;" /></a></p>
 <p>Il modulo Stima Ethernet consente la connessione della stazione
 attraverso Ethernet con eventuale alimentazione PoE ed è realizzabile
@@ -553,8 +560,8 @@ alimentazione attraverso una delle seguenti modalità:</p>
 <li><p>Collegando il modulo a Stima I2C-HUB</p></li>
 </ul>
 </div>
-<div class="section" id="modulo-stima-gsm-gprs">
-<h3>Modulo Stima GSM/GPRS<a class="headerlink" href="#modulo-stima-gsm-gprs" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-gsm-gprs-master">
+<h3>Modulo Stima GSM/GPRS (master)<a class="headerlink" href="#modulo-stima-gsm-gprs-master" title="Link a questa intestazione">¶</a></h3>
 <p><a class="reference internal" href="../../_images/10000000000002080000039C60408299913E84DA.jpg"><img alt="image19" src="../../_images/10000000000002080000039C60408299913E84DA.jpg" style="width: 6.001cm; height: 10.666cm;" /></a></p>
 <p>Il modulo Stima GSM/GPRS consente la connessione della stazione
 attraverso GPRS ed è realizzabile assemblando i seguenti moduli (dal
@@ -577,8 +584,8 @@ fornire alimentazione attraverso una delle seguenti modalità:</p>
 <li><p>Collegando il modulo a Stima I2C-HUB</p></li>
 </ul>
 </div>
-<div class="section" id="modulo-stima-passivo">
-<h3>Modulo Stima Passivo<a class="headerlink" href="#modulo-stima-passivo" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-passivo-master">
+<h3>Modulo Stima Passivo (master)<a class="headerlink" href="#modulo-stima-passivo-master" title="Link a questa intestazione">¶</a></h3>
 <p>Tale modulo passivo permette di acquisire i sensori collegati su bus
 I<sup>2</sup>C e di esporre i dati ad un altro modulo “attivo”
 attraverso Remote Procedure Call (RPC) ed è realizzabile assemblando i
@@ -649,12 +656,38 @@ I2C-Rain è perennemente posto in risparmio energetico profondo e
 risvegliato all’occorrenza da un interrupt scaturito dalla basculata del
 pluviometro.</p>
 </div>
+<div class="section" id="modulo-stima-sensor-config">
+<h3>Modulo Stima sensor_config<a class="headerlink" href="#modulo-stima-sensor-config" title="Link a questa intestazione">¶</a></h3>
+<p>questo è un modulo opzionale utilizzato una tantum per:</p>
+<ul class="simple">
+<li><p>configurare sensori e moduli</p></li>
+<li><p>configurare la stazione</p></li>
+<li><p>formattare SD card</p></li>
+<li><p>fare semplici operazioni di diagnostica</p></li>
+</ul>
+<p>Nello specifico, assemblare il modulo con le seguenti board
+(dal basso verso l’alto):</p>
+<ol class="arabic simple">
+<li><p>Stima I2C-Base &#64; 5V</p></li>
+<li><p>Stima core+ 1284 &#64; 5V</p></li>
+<li><p>Stima FT232RL</p></li>
+<li><p>Stima SD-Card</p></li>
+</ol>
+<p>Collegare poi un encoder di tipo incrementale con pulsante (ad esempio Alps EC11B152442D)
+secondo questo schema:</p>
+<ul class="simple">
+<li><p>D2: encoder A</p></li>
+<li><p>D3: encoder B</p></li>
+<li><p>D9: button A</p></li>
+<li><p>GND: encoder common e button B</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="configurazioni-software-dei-moduli-stima">
 <h2>Configurazioni software dei moduli Stima<a class="headerlink" href="#configurazioni-software-dei-moduli-stima" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="installazione-del-software-per-la-configurazione">
 <h3>Installazione del software per la configurazione<a class="headerlink" href="#installazione-del-software-per-la-configurazione" title="Link a questa intestazione">¶</a></h3>
-<p>Installare Centos 8.</p>
+<p>Installare Rocky linux 8.</p>
 <p>Aggiunta repository e installazione pacchetti da utente amministratore</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
@@ -680,12 +713,12 @@ Quindi seguire le istruzioni a:
 ad esempio:
 <a class="reference external" href="https://github.com/r-map/rmap/archive/refs/tags/3.4.tar.gz">https://github.com/r-map/rmap/archive/refs/tags/3.4.tar.gz</a></p>
 </div>
-<div class="section" id="id1">
-<h3>Modulo Stima GSM/GPRS<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-gsm-gprs">
+<h3>Modulo Stima GSM/GPRS<a class="headerlink" href="#modulo-stima-gsm-gprs" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic">
 <li><p>Il progetto per platformio si trova in:
 platformio/stima_v3/stima</p></li>
-<li><p>Aprire il file stima-config.h in arduino/sketchbook/stima_v3/stima:</p>
+<li><p>Aprire il file stima-config.h in platformio/stima_v3/stima/src:</p>
 <ul class="simple">
 <li><p>Impostare la #define MODULE_TYPE con il valore
 STIMA_MODULE_TYPE_REPORT_GSM per definire una stazione di tipo
@@ -745,8 +778,8 @@ stazione e rimuovere il jumper a configurazione terminata</p></li>
 <li><p>Rimuovere il ponticello ai pin &quot;Set&quot;.</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>Modulo Stima Ethernet<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-ethernet">
+<h3>Modulo Stima Ethernet<a class="headerlink" href="#modulo-stima-ethernet" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic">
 <li><p>Il progetto per platformio si trova in:
 platformio/stima_v3/stima</p></li>
@@ -809,7 +842,7 @@ stazione e rimuovere il jumper a configurazione terminata.</p></li>
 <ol class="arabic">
 <li><p>Il progetto per platformio si trova in:
 platformio/stima_v3/stima</p></li>
-<li><p>Aprire il file stima-config.h arduino/sketchbook/stima_v3/stima/src:</p>
+<li><p>Aprire il file stima-config.h platformio/stima_v3/stima/src:</p>
 <ul class="simple">
 <li><p>Impostare la #define MODULE_TYPE con il valore
 STIMA_MODULE_TYPE_PASSIVE per definire una stazione di tipo
@@ -845,8 +878,8 @@ tramite il comando:</p>
 stazione e rimuovere il jumper a configurazione terminata</p></li>
 </ol>
 </div>
-<div class="section" id="id4">
-<h3>Modulo Stima I2C-TH<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id2">
+<h3>Modulo Stima I2C-TH<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic">
 <li><p>Aprire lo sketch i2c-th.ino nella cartella
 platformio/stima_v3/i2c-th</p></li>
@@ -875,12 +908,10 @@ tramite il comando:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Configurare il suddetto modulo attraverso lo sketch sensor_config
-presente nella cartella arduinosketchbookstima_v3</p></li>
 </ol>
 </div>
-<div class="section" id="id5">
-<h3>Modulo Stima I2C-Rain<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id3">
+<h3>Modulo Stima I2C-Rain<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
 <ol class="arabic">
 <li><p>Il progetto platformio si trova nella cartella:
 platformio/stima_v3/i2c-rain</p></li>
@@ -905,8 +936,6 @@ tramite il comando:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Configurare il suddetto modulo attraverso lo sketch sensor_config
-presente nella cartella arduinosketchbookstima_v3</p></li>
 </ol>
 </div>
 </div>
@@ -982,6 +1011,14 @@ del modulo (senza il file FIRMWARE.BIN)</p></li>
 <li><p>Alimentare il modulo</p></li>
 </ol>
 </div>
+<div class="section" id="configurazione-moduli-e-sensori">
+<h2>Configurazione moduli e sensori<a class="headerlink" href="#configurazione-moduli-e-sensori" title="Link a questa intestazione">¶</a></h2>
+<p>Per configurare moduli e sensori utilizzare lo sketch sensor_config_menu_sdcard
+presente nella cartella platformio/stima_v3</p>
+<p>E' sicuramente necessario se si voglio utilizzare più sensori o moduli
+dello stesso tipo.</p>
+<p>Fare riferimento al manuale utente per il suo utilizzo.</p>
+</div>
 <div class="section" id="assemblaggio-stazione-stima">
 <h2>Assemblaggio stazione Stima<a class="headerlink" href="#assemblaggio-stazione-stima" title="Link a questa intestazione">¶</a></h2>
 <p>Per assemblare una stazione Stima, è necessario disporre di:</p>
@@ -1048,6 +1085,206 @@ corrispondente tensione di alimentazione (5V o 3.3V) per i moduli Stima
 e per i sensori I2C.</p>
 <p><a class="reference internal" href="../../_images/1000000000000512000006C2853D8725B012F802.jpg"><img alt="image23" src="../../_images/1000000000000512000006C2853D8725B012F802.jpg" style="width: 14.998cm; height: 19.999cm;" /></a></p>
 <p><a class="reference internal" href="../../_images/1000000000000512000006C284D72348DD042022.jpg"><img alt="image24" src="../../_images/1000000000000512000006C284D72348DD042022.jpg" style="width: 15cm; height: 20.001cm;" /></a></p>
+</div>
+<div class="section" id="appendici">
+<h2>Appendici<a class="headerlink" href="#appendici" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="elenco-pin-utilizzati">
+<h3>Elenco PIN utilizzati<a class="headerlink" href="#elenco-pin-utilizzati" title="Link a questa intestazione">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 39%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File di definizione</p></th>
+<th class="head"><p>Macro</p></th>
+<th class="head"><p>valore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sensor_config_menu_sdcard/src/sensor_config.ino</p></td>
+<td><p>encA</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>sensor_config_menu_sdcard/src/sensor_config.ino</p></td>
+<td><p>encB</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>stima/include/gsm_config.h</p></td>
+<td><p>SIM800_ON_OFF_PIN</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>stima/src/stima-config.h</p></td>
+<td><p>RTC_INTERRUPT_PIN</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>stima/src/stima-config.h</p></td>
+<td><p>SDCARD_CHIP_SELECT_PIN</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>stima/src/stima-config.h</p></td>
+<td><p>CONFIGURATION_RESET_PIN</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>sensor_config_menu_sdcard/src/sensor_config.ino</p></td>
+<td><p>encBtn</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>stima/src/stima-config.h</p></td>
+<td><p>W5500_CHIP_SELECT_PIN</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>stima/src/stima-config.h</p></td>
+<td><p>GSM_ON_OFF_PIN</p></td>
+<td><p>SIM800_ON_OFF_PIN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="elenco-indirizzi-i2c">
+<h3>Elenco indirizzi I2C<a class="headerlink" href="#elenco-indirizzi-i2c" title="Link a questa intestazione">¶</a></h3>
+<p>moduli:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 40%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File di definizione</p></th>
+<th class="head"><p>Macro</p></th>
+<th class="head"><p>valore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rmap/registers-master.h</p></td>
+<td><p>I2C_MASTER_DEFAULT_ADDRESS</p></td>
+<td><p>(0x20)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rmap/registers-rain.h</p></td>
+<td><p>I2C_RAIN_DEFAULT_ADDRESS</p></td>
+<td><p>(0x21)</p></td>
+</tr>
+<tr class="row-even"><td><p>Rmap/registers-power.h</p></td>
+<td><p>I2C_POWER_DEFAULT_ADDRESS</p></td>
+<td><p>(0x4A)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rmap/registers-wind.h:</p></td>
+<td><p>I2C_WIND_DEFAULT_ADDRESS</p></td>
+<td><p>(0x45)</p></td>
+</tr>
+<tr class="row-even"><td><p>Rmap/registers-th.h</p></td>
+<td><p>I2C_TH_DEFAULT_ADDRESS</p></td>
+<td><p>(0x23)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rmap/registers-radiation.h</p></td>
+<td><p>I2C_SOLAR_RADIATION_DEFAULT_ADDRESS</p></td>
+<td><p>(0x47)</p></td>
+</tr>
+</tbody>
+</table>
+<p>opzionali:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 47%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File di definizione</p></th>
+<th class="head"><p>Macro</p></th>
+<th class="head"><p>valore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rmap/registers-leaf.h</p></td>
+<td><p>I2C_LEAF_DEFAULT_ADDRESS</p></td>
+<td><p>(0x65)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rmap/registers-opc.h</p></td>
+<td><p>I2C_OPC_DEFAULT_ADDRESS</p></td>
+<td><p>(0x55)</p></td>
+</tr>
+<tr class="row-even"><td><p>Rmap/registers-thr.h</p></td>
+<td><p>I2C_THR_DEFAULT_ADDRESS</p></td>
+<td><p>(0x23)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rmap/registers-thr.h</p></td>
+<td><p>I2C_THR_TEMPERATURE_DEFAULT_ADDRESS</p></td>
+<td><p>(0x49)</p></td>
+</tr>
+<tr class="row-even"><td><p>Rmap/registers-thr.h</p></td>
+<td><p>I2C_THR_HUMIDITY_DEFAULT_ADDRESS</p></td>
+<td><p>(0x27)</p></td>
+</tr>
+</tbody>
+</table>
+<p>sensori:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File di definizione</p></th>
+<th class="head"><p>valore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HYT</p></td>
+<td><p>(0x28)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SHT</p></td>
+<td><p>(0x44)</p></td>
+</tr>
+</tbody>
+</table>
+<p>ADC:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File di definizione</p></th>
+<th class="head"><p>valore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ADC  radiation</p></td>
+<td><p>(0x48)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADC  power</p></td>
+<td><p>(0x49)</p></td>
+</tr>
+</tbody>
+</table>
+<p>display LCD</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 52%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File di definizione</p></th>
+<th class="head"><p>Macro</p></th>
+<th class="head"><p>valore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>include/lcd_config.h</p></td>
+<td><p>LCD_I2C_ADDRESS</p></td>
+<td><p>(0x3F)</p></td>
+</tr>
+<tr class="row-odd"><td><p>include/lcd_config.h</p></td>
+<td><p>LCD_I2C_SECONDARY_ADDRESS</p></td>
+<td><p>(0x27)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
