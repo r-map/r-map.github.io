@@ -88,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v4/stima_v4.html">Stima V4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
@@ -103,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#inserimento-manuale-dei-dati">Inserimento manuale dei dati</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rainbo">RainBO</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#interfaccia-web">Interfaccia web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#porte-utilizzate">Porte utilizzate</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-completo-basato-su-rocky-linux-8">Installazione server completo basato su  Rocky Linux 8</a><ul>
@@ -128,13 +129,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">Mosquitto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Rabbitmq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">Monit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-completo">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP completo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id5">Server di origine</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id6">Server di destinazione</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina">Installazione server RMAP solo funzionalità BACKEND basato su Rocky Linux 8 (a seervizio per la data ingestion su un'altra macchina)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
@@ -336,6 +338,112 @@ dell’organizzazione dei vari pezzi di RMAP su diversi host.</p>
 varie interfacce insieme, allora è necessario fare un repository per la
 singola funzionalità che dipende dalle app Django richieste.</p>
 </div>
+<div class="section" id="porte-utilizzate">
+<h3>Porte utilizzate<a class="headerlink" href="#porte-utilizzate" title="Link a questa intestazione">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 8%" />
+<col style="width: 29%" />
+<col style="width: 9%" />
+<col style="width: 15%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>porta</p></th>
+<th class="head"><p>protocollo</p></th>
+<th class="head"><p>server</p></th>
+<th class="head"><p>servizio</p></th>
+<th class="head"><p>RMAP server</p></th>
+<th class="head"><p>RMAP data ingestion</p></th>
+<th class="head"><p>RMAP backend</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>80</p></td>
+<td><p>HTTP</p></td>
+<td><p>apache</p></td>
+<td><p>download conf e firmware (Stima V3)</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>442</p></td>
+<td><p>HTTPS TLS con pre shared Key</p></td>
+<td><p>stunnel</p></td>
+<td><p>download conf e firmware (Stima v4)</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>444</p></td>
+<td><p>HTTPS  (SSL/TLS)</p></td>
+<td><p>apache</p></td>
+<td><p>gestione backend e visualizzazione dati</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>5925</p></td>
+<td><p>HTTP</p></td>
+<td><p>monit</p></td>
+<td><p>monitoraggio daemoni RMAP</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>1883</p></td>
+<td><p>MQTT</p></td>
+<td><p>mosquitto</p></td>
+<td><p>pubblicazioni dati stazione (Stima V3)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5671</p></td>
+<td><p>AMQPS  (SSL/TLS)</p></td>
+<td><p>rabbit-mq</p></td>
+<td><p>pubblicazione e distribuzione dati</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5672</p></td>
+<td><p>AMQP</p></td>
+<td><p>rabbit-mq</p></td>
+<td><p>pubblicazione e distribuzione dati</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8883</p></td>
+<td><p>MQTTS TLS con pre shared Key</p></td>
+<td><p>mosquitto</p></td>
+<td><p>pubblicazione stazioni (Stima V4)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8884</p></td>
+<td><p>MQTTS (SSL/TLS) WEBSOCKET</p></td>
+<td><p>mosquitto</p></td>
+<td><p>monitoraggio MQTT da web</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>15672</p></td>
+<td><p>HTTP</p></td>
+<td><p>rabbit-mq</p></td>
+<td><p>Management Plugin</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="installazione-server-completo-basato-su-rocky-linux-8">
 <h2>Installazione server completo basato su  Rocky Linux 8<a class="headerlink" href="#installazione-server-completo-basato-su-rocky-linux-8" title="Link a questa intestazione">¶</a></h2>
@@ -431,7 +539,7 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <span class="n">rmdir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">global_static</span>
 
 <span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">mod_wsgi</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">mod_security</span>
+<span class="n">dnf</span> <span class="n">install</span> <span class="n">mod_security</span> <span class="n">mod_security_crs</span>
 
 <span class="n">useradd</span> <span class="o">-</span><span class="n">r</span> <span class="n">rmap</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rmap</span>
@@ -443,6 +551,7 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.modules.d/00-mpm.conf">/etc/httpd/conf.modules.d/00-mpm.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.d/rmap.conf">/etc/httpd/conf.d/rmap.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.d/rmap.inc">/etc/httpd/conf.d/rmap.inc</a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/modsecurity.d/crs-setup.conf">/etc/httpd/modsecurity.d/crs-setup.conf</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chkconfig httpd on``
 service httpd start``
 </pre></div>
@@ -705,10 +814,15 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 <p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/rabbitmq-env.conf">/etc/rabbitmq/rabbitmq-env.conf</a></p>
 <p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rabbitmq/rabbitmq.config">/etc/rabbitmq/rabbitmq.config</a></p>
 <p>Installare il certificato ssl/tls per il dominio del server in:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpaecert</span><span class="o">/</span><span class="n">arpae_it</span><span class="o">.</span><span class="n">pem</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpaecert</span><span class="o">/</span><span class="n">arpae_it</span><span class="o">-</span><span class="n">rabbitmq</span><span class="o">.</span><span class="n">pem</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpaecert</span><span class="o">/</span><span class="n">arpae_it</span><span class="o">-</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pem</span>
 </pre></div>
 </div>
 <p>e impostare gli opportuni privilegi di lettura/scrittura.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">rw</span><span class="o">-------</span> <span class="mi">1</span> <span class="n">mosquitto</span> <span class="n">mosquitto</span> <span class="mi">6849</span>  <span class="mi">1</span> <span class="n">dic</span> <span class="mf">14.23</span> <span class="n">arpae_it</span><span class="o">-</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pem</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-------</span> <span class="mi">1</span> <span class="n">rabbitmq</span>  <span class="n">rabbitmq</span>  <span class="mi">6849</span> <span class="mi">20</span> <span class="n">nov</span> <span class="mf">10.49</span> <span class="n">arpae_it</span><span class="o">-</span><span class="n">rabbitmq</span><span class="o">.</span><span class="n">pem</span>
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">mnesia</span><span class="o">/</span>
 <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rabbitmq</span><span class="p">:</span><span class="n">rabbitmq</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span>
 <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span>
@@ -734,8 +848,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </pre></div>
 </div>
 </div>
-<div class="section" id="sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-completo">
-<h3>Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP completo<a class="headerlink" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-completo" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">
+<h3>Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend<a class="headerlink" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="id5">
 <h4>Server di origine<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportsha</span> <span class="o">&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
@@ -755,6 +869,13 @@ Imparire il comando:</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina">
+<h2>Installazione server RMAP solo funzionalità BACKEND basato su Rocky Linux 8 (a seervizio per la data ingestion su un'altra macchina)<a class="headerlink" href="#installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina" title="Link a questa intestazione">¶</a></h2>
+<p>Questi file sono specializzati per un server di solo backend</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-backend/etc/httpd/conf.d/rmap.inc">/etc/httpd/conf.d/rmap.inc</a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-backend/etc/httpd/modsecurity.d/crs-setup.conf">/etc/httpd/modsecurity.d/crs-setup.conf</a></p>
+<p>In questi due file sostituire la stringa &lt;insert IP of data-ingestion machine&gt; con quanto indicato.</p>
 </div>
 </div>
 
