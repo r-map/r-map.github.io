@@ -38,7 +38,7 @@
     
     <link rel="index" title="Indice" href="../../genindex.html" />
     <link rel="search" title="Cerca" href="../../search.html" />
-    <link rel="next" title="Guida per lo sviluppo software" href="../development_guide/development_guide.html" />
+    <link rel="next" title="Howto per Stima versione 3.2" href="../howto_stima_v3.2/howto_stima_v3.2.html" />
     <link rel="prev" title="Stima V3" href="../stima_v3.html" /> 
 </head>
 
@@ -127,7 +127,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#compilazione-e-caricamento-del-bootloader-digitecoboot">Compilazione e caricamento del bootloader Digitecoboot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compilazione-del-firmware-in-formato-binario">Compilazione del firmware in formato binario</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware tramite micro SD-Card attraverso Digitecoboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-nel-modulo-master-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware nel modulo master tramite micro SD-Card attraverso Digitecoboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-nei-moduli-non-master-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware nei moduli non  master tramite micro SD-Card attraverso Digitecoboot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione-moduli-e-sensori">Configurazione moduli e sensori</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assemblaggio-stazione-stima">Assemblaggio stazione Stima</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendici">Appendici</a><ul>
@@ -137,6 +138,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../howto_stima_v3.2/howto_stima_v3.2.html">Howto per Stima versione 3.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stimacode.html">Documentazione del codice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user_manual/user_manual.html">Manuale Utente</a></li>
@@ -993,8 +995,8 @@ punti precedenti</p></li>
 -  ~/.platformio/packages/toolchain-atmelavr/bin//avr-objcopy -I ihex -O binary firmware.elf FIRMWARE.BIN</p></li>
 </ol>
 </div>
-<div class="section" id="upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot">
-<h2>Upload del firmware tramite micro SD-Card attraverso Digitecoboot<a class="headerlink" href="#upload-del-firmware-tramite-micro-sd-card-attraverso-digitecoboot" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="upload-del-firmware-nel-modulo-master-tramite-micro-sd-card-attraverso-digitecoboot">
+<h2>Upload del firmware nel modulo master tramite micro SD-Card attraverso Digitecoboot<a class="headerlink" href="#upload-del-firmware-nel-modulo-master-tramite-micro-sd-card-attraverso-digitecoboot" title="Link a questa intestazione">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Copiare il file FIRMWARE.BIN su una micro SD-Card formattata in FAT32</p></li>
 <li><p>Creare un file sulla scheda SD con il nome esattamente corrispondente alla
@@ -1009,6 +1011,24 @@ firmware</p></li>
 <li><p>Se necessario, inserire la micro SD-Card utile per il funzionamento
 del modulo (senza il file FIRMWARE.BIN)</p></li>
 <li><p>Alimentare il modulo</p></li>
+<li><p>Controllare sul dispay se la versione del firmware è corretta</p></li>
+<li><p>Non è necessario estrarre la SD card dal suo alloggiamento ed è
+possibile utilizzarla direttamente per il funzionamento della
+stazione</p></li>
+</ol>
+</div>
+<div class="section" id="upload-del-firmware-nei-moduli-non-master-tramite-micro-sd-card-attraverso-digitecoboot">
+<h2>Upload del firmware nei moduli non  master tramite micro SD-Card attraverso Digitecoboot<a class="headerlink" href="#upload-del-firmware-nei-moduli-non-master-tramite-micro-sd-card-attraverso-digitecoboot" title="Link a questa intestazione">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Copiare il file FIRMWARE.BIN su una micro SD-Card formattata in FAT32</p></li>
+<li><p>Inserire la micro SD-Card in uno dei moduli Stima Ethernet, Stima
+GSM/GPRS, Stima I2C-TH o Stima-Rain</p></li>
+<li><p>Alimentare il modulo e attendere 30 secondi per la fine del
+caricamento del firmware</p></li>
+<li><p>Spegnere il modulo e rimuovere la micro SD-Card contenente il
+firmware</p></li>
+<li><p>Alimentare il modulo</p></li>
+<li><p>Eventualmente controllare tramite USB che al boot venga comunicato la corretta versione del firmware.</p></li>
 </ol>
 </div>
 <div class="section" id="configurazione-moduli-e-sensori">
@@ -1294,7 +1314,7 @@ e per i sensori I2C.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../development_guide/development_guide.html" class="btn btn-neutral float-right" title="Guida per lo sviluppo software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../howto_stima_v3.2/howto_stima_v3.2.html" class="btn btn-neutral float-right" title="Howto per Stima versione 3.2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../stima_v3.html" class="btn btn-neutral float-left" title="Stima V3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
