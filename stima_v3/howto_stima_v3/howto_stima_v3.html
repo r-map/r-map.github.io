@@ -126,7 +126,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#compilazione-e-caricamento-del-bootloader-digitecoboot">Compilazione e caricamento del bootloader Digitecoboot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compilazione-del-firmware-in-formato-binario">Compilazione del firmware in formato binario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#firmware-in-formato-binario">Firmware in formato binario</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-nel-modulo-master-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware nel modulo master tramite micro SD-Card attraverso Digitecoboot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#upload-del-firmware-nei-moduli-non-master-tramite-micro-sd-card-attraverso-digitecoboot">Upload del firmware nei moduli non  master tramite micro SD-Card attraverso Digitecoboot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione-moduli-e-sensori">Configurazione moduli e sensori</a></li>
@@ -984,15 +984,14 @@ platformio/stima_v3/arduino_isp</p>
 <li><p>make atmega1284p_isp</p></li>
 </ul>
 </div>
-<div class="section" id="compilazione-del-firmware-in-formato-binario">
-<h2>Compilazione del firmware in formato binario<a class="headerlink" href="#compilazione-del-firmware-in-formato-binario" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="firmware-in-formato-binario">
+<h2>Firmware in formato binario<a class="headerlink" href="#firmware-in-formato-binario" title="Link a questa intestazione">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Compilare il firmware per i moduli Stima secondo quanto scritto ai
 punti precedenti</p></li>
-<li><p>Localizzare il file firmware.elf compilato, solitamente
--  rmap/platformio/stima_v3/stima/.pio/build/1284p16m</p></li>
-<li><p>Attraverso una consolle o il prompt dei comandi, eseguire
--  ~/.platformio/packages/toolchain-atmelavr/bin//avr-objcopy -I ihex -O binary firmware.elf FIRMWARE.BIN</p></li>
+<li><p>Localizzare il file FIRMWARE.BIN compilato, solitamente
+-  rmap/platformio/stima_v3/stima/bin/1284p16m/FIRMWARE:BIN</p></li>
+<li><p>Verificare che la data di creazione corrisponda e che quindi il firmware sia aggiornato.</p></li>
 </ol>
 </div>
 <div class="section" id="upload-del-firmware-nel-modulo-master-tramite-micro-sd-card-attraverso-digitecoboot">

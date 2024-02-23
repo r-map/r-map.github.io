@@ -817,15 +817,14 @@ oppure:
 
 - make atmega1284p_isp  
      
-Compilazione del firmware in formato binario
---------------------------------------------
+Firmware in formato binario
+---------------------------
 
 1. Compilare il firmware per i moduli Stima secondo quanto scritto ai
    punti precedenti
-2. Localizzare il file firmware.elf compilato, solitamente
-   -  rmap/platformio/stima_v3/stima/.pio/build/1284p16m
-3. Attraverso una consolle o il prompt dei comandi, eseguire
-   -  ~/.platformio/packages/toolchain-atmelavr/bin//avr-objcopy -I ihex -O binary firmware.elf FIRMWARE.BIN
+2. Localizzare il file FIRMWARE.BIN compilato, solitamente
+   -  rmap/platformio/stima_v3/stima/bin/1284p16m/FIRMWARE:BIN
+3. Verificare che la data di creazione corrisponda e che quindi il firmware sia aggiornato.
 
 Upload del firmware nel modulo master tramite micro SD-Card attraverso Digitecoboot
 -----------------------------------------------------------------------------------
