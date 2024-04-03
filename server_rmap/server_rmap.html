@@ -136,7 +136,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina">Installazione server RMAP solo funzionalità BACKEND basato su Rocky Linux 8 (a seervizio per la data ingestion su un'altra macchina)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina">Installazione server RMAP solo funzionalità BACKEND basato su Rocky Linux 8 (a seervizio per la data ingestion su un'altra macchina)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#servizi">Servizi</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
@@ -546,6 +549,8 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rmap</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">cache</span>
 <span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">cache</span>
+<span class="n">mkdir</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span>
+<span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.modules.d/00-mpm.conf">/etc/httpd/conf.modules.d/00-mpm.conf</a></p>
@@ -872,10 +877,15 @@ Imparire il comando:</p>
 </div>
 <div class="section" id="installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina">
 <h2>Installazione server RMAP solo funzionalità BACKEND basato su Rocky Linux 8 (a seervizio per la data ingestion su un'altra macchina)<a class="headerlink" href="#installazione-server-rmap-solo-funzionalita-backend-basato-su-rocky-linux-8-a-seervizio-per-la-data-ingestion-su-un-altra-macchina" title="Link a questa intestazione">¶</a></h2>
-<p>Questi file sono specializzati per un server di solo backend</p>
+<p>Questi file sono specializzati per un server di solo backend:</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-backend/etc/httpd/conf.d/rmap.inc">/etc/httpd/conf.d/rmap.inc</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-backend/etc/httpd/modsecurity.d/crs-setup.conf">/etc/httpd/modsecurity.d/crs-setup.conf</a></p>
 <p>In questi due file sostituire la stringa &lt;insert IP of data-ingestion machine&gt; con quanto indicato.</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-backend/etc/monit.d/rmap">/etc/monit.d/rmap</a></p>
+<div class="section" id="servizi">
+<h3>Servizi<a class="headerlink" href="#servizi" title="Link a questa intestazione">¶</a></h3>
+<p>Disabilitare mosquitto.</p>
+</div>
 </div>
 </div>
 
