@@ -1,0 +1,3262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Descrizione software &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Platformio unit tests" href="../pio_test/pio_test.html" />
+    <link rel="prev" title="Manuale Utente" href="../user_manual/user_manual.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stima_v4.html">Stima V4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/user_manual.html">Manuale Utente</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Descrizione software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stimav4-logica-di-funzionamento-software">StimaV4 logica di funzionamento software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduzione">Introduzione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drivers">Drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task">Task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-di-watchdog-master-e-slave">Task di WatchDog ( Master e Slave )</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comunicazione-tra-i-task">Comunicazione tra i task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configurazione-di-un-task">Configurazione di un task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classe-register">Classe register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classe-rpc">Classe RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-e-log">Debug e LOG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connessione-modem-ntp-http-mqtt">Connessione Modem, ntp, http, mqtt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-ntp-http-mqtt">Task NTP HTTP MQTT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classe-canard">Classe Canard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moduli-slave">Moduli SLAVE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-task">Sensor TASK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-elaborate">Task Elaborate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pio_test/pio_test.html">Platformio unit tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../stima_v4.html">Stima V4</a> &raquo;</li>
+        
+      <li>Descrizione software</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/stima_v4/software_manual/software_manual.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="descrizione-software">
+<h1>Descrizione software<a class="headerlink" href="#descrizione-software" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="stimav4-logica-di-funzionamento-software">
+<h2>StimaV4 logica di funzionamento software<a class="headerlink" href="#stimav4-logica-di-funzionamento-software" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="introduzione">
+<h3>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h3>
+<p>La realizzazione degli applicativi Master e Slave (open source) di stima
+V4, è stata effettuata utilizzato il framework ARDUINO sulla piattaforma
+HW STM32 (STM32Duino). Il sistema utilizzato si basa su sistema
+operativo in tempo reale FreeRTOS particolarmente diffuso sui
+microcontrollori e piccoli microprocessori, anch’esso distribuito sotto
+la licenza open source MIT. In generale tutte le librerie utilizzate nel
+progetto sono utilizzate e distribuite sotto questa tipologia di
+licenza.</p>
+<p>La struttura del progetto è organizzata in directory (driver) e (task),
+facilmente comprensibili per suddividere le funzionalità di base. Nella
+sottodirectory driver saranno presenti i moduli che consentono l’accesso
+ai dispositivi HW dell’architettura StimaV4, mentre in task sono
+contenuti i veri e propri task di funzionamento sviluppati in C++ usando
+il wrapper sviluppato da Michael Becker
+<a class="reference external" href="https://michaelbecker.github.io/freertos-addons/">https://michaelbecker.github.io/freertos-addons/</a> in grado di integrare
+in una classe C++ le funzionalità FreeRTOS nel singolo modulo e dare
+un’organizzazione chiara al software sviluppato.</p>
+<p>Per quanto riguarda lo sviluppo in generale anche dove non sono
+utilizzate le classi C++ del wrapper di Michael Becker tutte le
+funzionalità sono state comunque organizzate in classi. L’accesso alle
+librerie come ad. esempio la libreria Canard che consente l’utilizzo
+della comunicazione CANBus (metodo di collegamento utilizzato tra i
+moduli master e slave del progetto) disponibili nelle sole versioni C,
+sono state interfacciate come classi C++ mediante la realizzazione di
+una classe pilota appoggiata alle funzioni C della libreria.</p>
+<p>Particolare attenzione è stata fatta all’utilizzo delle variabili
+nell’applicativo. Per rendere il tutto più leggibile e avere quindi
+anche un sistema più semplice da manutenere nel tempo sono state
+eliminate tutte le variabili globali (ad eccezione di quelle utilizzate
+ad Arduino su HW ed istanze dei suoi moduli). Tutte le variabili di
+StimaV4 devono essere dichiarate nel main program e passate come
+argomenti ai vari task di utilizzo, con i metodi disponibili.</p>
+<p>Il presente documento ha lo scopo di descrivere il funzionamento logico
+e la struttura del software, all’interno dei moduli sono presenti
+abbondanti commenti per comprendere le metodologie di sviluppo e
+l’utilizzo delle singole funzioni e/o variabili di definizione. Non
+verranno documentate le librerie utilizzate, come ad.es. la libreria
+Canard sopracitata dove è presente in rete documentazione specifica,
+consultabile su <a class="reference external" href="https://opencyphal.org/">https://opencyphal.org/</a> che descrive ampiamente
+funzionalità e configurazione delle stesse. Lo stesso vale per le altre
+librerie presenti ArduinoJsonRPC, Cyclone ecc…</p>
+</div>
+<div class="section" id="drivers">
+<h3>Drivers<a class="headerlink" href="#drivers" title="Link a questa intestazione">¶</a></h3>
+<p>All’interno della cartella drivers sarà sempre presente un file
+module_master_hal.cpp o module_slave_hal.cpp (master/slave) che
+sostanzialmente è la configurazione dell’interfaccia HW verso le
+librerie arduino. In questo modulo sono inizializzate le periferiche HW,
+e/o l’assegnamento dei PIN/Funzionalità che ci permettono di utilizzare
+le funzioni arduino come ad. Es SPI, I2C, UART ecc… Nel modulo sono
+redirezionati i PIN come da esempio sottostante, concedendo alle
+periferiche di base (se abilitate) con la struttura ARDUINO la reale
+configurazione hardware.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifdef HAL_UART_MODULE_ENABLED</span>
+
+<span class="n">constPinMapPinMap_UART_TX</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="p">{</span><span class="n">PA_0</span><span class="p">,</span> <span class="n">UART4</span><span class="p">,</span> <span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_PP</span><span class="p">,</span> <span class="n">GPIO_PULLUP</span><span class="p">,</span> <span class="n">GPIO_AF8_UART4</span><span class="p">)},</span>
+
+    <span class="p">{</span><span class="n">PB_6</span><span class="p">,</span> <span class="n">USART1</span><span class="p">,</span> <span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_PP</span><span class="p">,</span> <span class="n">GPIO_PULLUP</span><span class="p">,</span> <span class="n">GPIO_AF7_USART1</span><span class="p">)},</span>
+
+    <span class="p">{</span><span class="n">PD_5</span><span class="p">,</span> <span class="n">USART2</span><span class="p">,</span> <span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_PP</span><span class="p">,</span> <span class="n">GPIO_PULLUP</span><span class="p">,</span> <span class="n">GPIO_AF7_USART2</span><span class="p">)},</span>
+
+    <span class="p">{</span><span class="n">NC</span><span class="p">,</span> <span class="n">NP</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Sono in oltre presenti chiamate di inizializzazione di basso livello per
+la configurazione dei clock di sistema e dei vari dispositivi utilizzati
+e relative configurazioni per i clock sorgenti. Ogni dispositivo ha un
+clock sorgente specifico opportunamente dimensionato. La modifica di
+questi parametri seppur possibile può rendere il sistema instabile o
+inibire l’utilizzo di qualche periferica. La riduzione del clock di
+sistema ad intervalli diversi da quelli impostati necessità il ricalcolo
+e la modifica delle selezioni dei corretti divisori/moltiplicatori per
+mantenere i clock dei dispositivi nei range di validità.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="n">void</span> <span class="n">SystemClock_Config</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+
+<span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">main</span> <span class="n">internal</span> <span class="n">regulator</span> <span class="n">output</span> <span class="n">voltage</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">HAL_PWREx_ControlVoltageScaling</span><span class="p">(</span><span class="n">PWR_REGULATOR_VOLTAGE_SCALE1</span><span class="p">)</span> <span class="o">!=</span> <span class="n">HAL_OK</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Error_Handler</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Configure</span> <span class="n">LSE</span> <span class="n">Drive</span> <span class="n">Capability</span>
+
+    <span class="n">HAL_PWR_EnableBkUpAccess</span><span class="p">();</span>
+    <span class="n">__HAL_RCC_LSEDRIVE_CONFIG</span><span class="p">(</span><span class="n">RCC_LSEDRIVE_LOW</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Initializes</span> <span class="n">the</span> <span class="n">RCC</span> <span class="n">Oscillators</span> <span class="n">according</span> <span class="n">to</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">parameters</span>
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">OscillatorType</span> <span class="o">=</span> <span class="n">RCC_OSCILLATORTYPE_HSI48</span><span class="o">|</span><span class="n">RCC_OSCILLATORTYPE_LSE</span>
+                              <span class="o">|</span><span class="n">RCC_OSCILLATORTYPE_MSI</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">LSEState</span> <span class="o">=</span> <span class="n">RCC_LSE_ON</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">HSI48State</span> <span class="o">=</span> <span class="n">RCC_HSI48_ON</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">MSIState</span> <span class="o">=</span> <span class="n">RCC_MSI_ON</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">MSICalibrationValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">MSIClockRange</span> <span class="o">=</span> <span class="n">RCC_MSIRANGE_6</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLState</span> <span class="o">=</span> <span class="n">RCC_PLL_ON</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLSource</span> <span class="o">=</span> <span class="n">RCC_PLLSOURCE_MSI</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLN</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLP</span> <span class="o">=</span> <span class="n">RCC_PLLP_DIV2</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLQ</span> <span class="o">=</span> <span class="n">RCC_PLLQ_DIV2</span><span class="p">;</span>
+
+    <span class="n">RCC_OscInitStruct</span><span class="o">.</span><span class="n">PLL</span><span class="o">.</span><span class="n">PLLR</span> <span class="o">=</span> <span class="n">RCC_PLLR_DIV2</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">HAL_RCC_OscConfig</span><span class="p">(</span><span class="o">&amp;</span><span class="n">RCC_OscInitStruct</span><span class="p">)</span> <span class="o">!=</span> <span class="n">HAL_OK</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Error_Handler</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="o">...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Queste invece le chiamate per la configurazione dei dispositivi HW di
+basso livello, inizializzazione pin e altre attività richiamate dal
+framework verso le librerie STM di basso livello per la configurazione
+HW.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">SetupSystemPeripheral</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>    <span class="o">//</span> <span class="n">INIT</span> <span class="n">delle</span> <span class="n">periferiche</span> <span class="n">basso</span> <span class="n">livello</span> <span class="n">ed</span> <span class="n">interrupt</span> <span class="n">Error_Handler</span>
+
+<span class="n">void</span> <span class="n">MX_GPIO_Init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>             <span class="o">//</span> <span class="n">INIT</span> <span class="n">dei</span> <span class="n">PIN</span> <span class="n">di</span> <span class="n">sistema</span>
+
+<span class="n">void</span> <span class="n">MX_CAN1_Init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>             <span class="o">//</span> <span class="n">INIT</span> <span class="n">CanBus</span> <span class="p">(</span><span class="n">richiamato</span> <span class="n">dalle</span> <span class="n">funzioni</span> <span class="n">HAL_CAN_Init</span> <span class="n">di</span> <span class="n">libreria</span><span class="p">)</span>
+
+<span class="n">void</span> <span class="n">MX_QUADSPI_Init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>          <span class="o">//</span> <span class="n">INIT</span> <span class="n">QSPI</span> <span class="p">(</span><span class="n">richiamato</span> <span class="n">dalle</span> <span class="n">funzioni</span> <span class="n">HAL_QSPI_Init</span> <span class="n">di</span> <span class="n">libreria</span><span class="p">)</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Questo modulo piuttosto specifico viene richiamato da STM32Duino quando
+viene inizializzata e/o utilizzata una periferica tra quelle disponibili
+HW. In linea generale e possibile modificare i clock di funzionamento
+per ottenere un risparmio energetico o per avere efficienza al massimo
+su un dispositivo e/o modificare la funzionalità di un PIN. La modifica
+di questo modulo può comunque portare ad un’instabilità del sistema in
+quanto il tutto è stato già progettato per ottenere una perfetta
+sinergia tra l’HW di StimaV4, STM32Duino e sistema operativo RTOS.
+Nell’eventualità di uno sviluppo di una nuova scheda HW, con la sola
+modifica di questo file adattato alla nuova interfaccia HW si dovrebbe
+ottenere un sistema ancora funzionante.</p>
+<p>Altri file sempre presenti come eeprom e flash, rendono disponibile allo
+sviluppatore le funzionalità base che permettono l’accesso in lettura e
+scrittura a tali dispositivi. Nel main program sono definite le
+variabili di classe che istanziano i suddetti dispositivo HW e li
+rendono disponibili a tutti i moduli che ne hanno necessita
+semplicemente con il passaggio dell’indirizzo della classe nel wrapper
+del task.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Init</span> <span class="n">access</span> <span class="n">Flash</span> <span class="n">istance</span> <span class="nb">object</span>
+
+<span class="n">staticFlashmemFlash</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hqspi</span><span class="p">);</span>
+
+<span class="o">...</span>
+
+<span class="c1">#if (ENABLE_CAN)</span>
+
+     <span class="o">//</span> <span class="n">TASK</span> <span class="n">CAN</span> <span class="n">PARAM</span> <span class="n">CONFIG</span>
+
+     <span class="n">static</span> <span class="n">CanParam_t</span> <span class="n">canParam</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+     <span class="n">canParam</span><span class="o">.</span><span class="n">configuration</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">configuration</span><span class="p">;</span>
+
+     <span class="o">...</span>
+
+     <span class="n">canParam</span><span class="o">.</span><span class="n">flash</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">memFlash</span><span class="p">;</span>
+
+<span class="c1">#endif</span>
+
+<span class="o">...</span>
+
+<span class="c1">#if (ENABLE_CAN)</span>
+
+     <span class="n">static</span> <span class="n">CanTask</span> <span class="n">can_task</span><span class="p">(</span><span class="s2">&quot;CanTask&quot;</span><span class="p">,</span> <span class="mi">7300</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">canParam</span><span class="p">);</span>
+
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>Nell’esempio sopra nel main program è definita la variabile memFlash
+come istanza della classe Flash (presente in drivers), viene inserita
+nella struttura canParam (parametri Can) e successivamente passata al
+Task can_task che si occuperà della gestione della comunicazione Can BUS
+nel sistema.</p>
+<p>La classe <strong>Flash</strong> , come la classe <strong>Eeprom</strong> sono a questo punto
+disponibili ai vari moduli, ma essendo in un contesto RTOS che può
+condividere i dispositivi tra i vari task, per ogni periferica non
+esclusiva è definito un semaforo di utilizzo per rendere le operazioni
+indivisibili (disponibilità, utilizzo e rilascio) tra loro e garantire
+il perfetto funzionamento dei dispositivi.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Hardware</span> <span class="n">Semaphore</span>
+
+<span class="c1">#if (ENABLE_I2C1)</span>
+
+     <span class="n">wireLock</span> <span class="o">=</span> <span class="n">newBinarySemaphore</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+
+<span class="c1">#endif</span>
+
+<span class="c1">#if (ENABLE_I2C2)</span>
+
+     <span class="n">wire2Lock</span> <span class="o">=</span> <span class="n">newBinarySemaphore</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+
+<span class="c1">#endif</span>
+
+<span class="o">......</span>
+
+<span class="c1">#if (ENABLE_QSPI)</span>
+
+     <span class="n">qspiLock</span> <span class="o">=</span> <span class="n">newBinarySemaphore</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+
+<span class="c1">#endif</span>
+
+     <span class="n">rtcLock</span> <span class="o">=</span> <span class="n">newBinarySemaphore</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Nei moduli slave sono presenti ulteriori classi relativamente al loro
+utilizzo relative all’accelerometro e al modulo MPPT (LTC4015). Come per
+i moduli Eeprom e Flash si tratta di classi C++ che danno l’accesso ai
+dispositivi HW nel main program e/o nel relativo task di utilizzo.</p>
+<p><strong>Freertos_CallBack.c</strong> è una raccolta di chiamate HW di call_back
+relativi ad eccezioni e/o chiamate RTOS HW di sistema. All’interno del
+modulo sono state posizionate le chiamate per lo sleep power_down di
+sistema e tutte le eccezioni quali bus_fault, error_handler,
+memManageecc… che vengono richiamate a basso livello nella gestione di
+un eccezione STM32. Inoltre sono presenti le funzionalità di call_back
+del FreeRTOS per permettere di gestire il comportamento del sistema ed
+eventuale ripristino da un errore.</p>
+<p>Ogni funzione base del freeRTOS è stata reedirezionata all’interno di
+questo modulo per semplificare la gestione dell’applicativo. Per quanto
+riguarda il LowPower è stata collegata nella funzione xTaskSleepPrivate,
+automaticamente richiamata dal FreeRTOS quando tutti i task sono in fase
+di sospensione per le modalità è il tempo minimo configurato in
+STM32Freertosconfig.h e STM32Freertosconfig_extra.h. Per uleriori
+approfondimenti sulla configurazione del sistema operativo riferirsi
+alle guide freertos disponibili su <a class="reference external" href="https://freertos.org">https://freertos.org</a>. Per quanto
+riguarda StimaV4 la configurazione impostata permette il powerDown sia
+in modalità normale che in modalità Tickless, definita nel prossimo
+paragrafo.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Prepara</span> <span class="n">il</span> <span class="n">sistema</span> <span class="n">allo</span> <span class="n">Sleep</span> <span class="p">(</span> <span class="n">OFF</span> <span class="n">Circuirterie</span> <span class="n">ed</span> <span class="n">entrata</span> <span class="ow">in</span> <span class="n">PowerDown</span><span class="p">,</span> <span class="n">utilizzando</span> <span class="n">libreria</span> <span class="n">LowPower</span> <span class="n">di</span> <span class="n">STM32Duino</span> <span class="p">)</span>
+
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="n">void</span> <span class="n">xTaskSleepPrivate</span><span class="p">(</span><span class="n">TickType_t</span> <span class="o">*</span><span class="n">xExpectedIdleTime</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">#if (LOWPOWER_MODE==SLEEP_IDLE)</span>
+
+    <span class="n">LowPower</span><span class="o">.</span><span class="n">idle</span><span class="p">(</span><span class="o">*</span><span class="n">xExpectedIdleTime</span><span class="p">);</span>
+
+  <span class="c1">#elif (LOWPOWER_MODE==SLEEP_LOWPOWER)</span>
+
+    <span class="n">LowPower</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">*</span><span class="n">xExpectedIdleTime</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
+
+  <span class="c1">#elif (LOWPOWER_MODE==SLEEP_STOP2)</span>
+
+    <span class="n">LowPower</span><span class="o">.</span><span class="n">deepSleep</span><span class="p">(</span><span class="o">*</span><span class="n">xExpectedIdleTime</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
+
+  <span class="c1">#else</span>
+
+  <span class="o">*</span><span class="n">xExpectedIdleTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">#endif</span>
+
+<span class="p">}</span>
+
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="n">void</span> <span class="n">xTaskWakeUpPrivate</span><span class="p">(</span><span class="n">TickType_t</span> <span class="o">*</span><span class="n">xExpectedIdleTime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">...</span> <span class="n">eventuale</span> <span class="n">codice</span> <span class="n">di</span> <span class="n">WakeUP</span> <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="o">...</span>
+
+<span class="o">//</span> <span class="n">Hard</span> <span class="n">fault</span> <span class="n">con</span> <span class="n">segnale</span> <span class="n">acustico</span>
+
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="n">void</span> <span class="n">hard_fault_isr</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="c1">#if(DEBUG_MODE)</span>
+
+  <span class="n">faultStimaV4</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>      <span class="o">//</span> <span class="n">Buzzer</span> <span class="n">di</span> <span class="n">StimaV4</span> <span class="n">se</span> <span class="n">abilitato</span> <span class="n">il</span> <span class="n">DEBUG_MODE</span>
+
+  <span class="c1">#else</span>
+
+  <span class="n">NVIC_SystemReset</span><span class="p">();</span>  <span class="o">//</span> <span class="n">Reboot</span> <span class="ow">in</span> <span class="n">condizioni</span> <span class="n">normali</span>
+
+  <span class="c1">#endif</span>
+<span class="p">}</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Freertos_LPTim.c</strong> invece permette l’utilizzo dei timer LowPower STM32
+(qua è necessaria una conoscenza approfondita del sistema STM32 e della
+gestione LowPower). In sostanza questo modulo si preoccupa di impostare
+come gestione del Tick di sistema (temporizzatore delle funzioni RTOS)
+al timer LowPower in modalità <strong>TickLess</strong>.</p>
+<p>I timer LowPower a differenza dei timer “normali” opportunamente
+programmati proseguono la loro operatività anche se la CPU è posta in
+stato di STOP (bassissimo consumo). Con questa metodologia è stato
+programmato il timer LowPower per gestire le attività di sistema ed
+aggiornare il “Tick” anche quando i task possono essere sospesi per
+permettere un risparmio energetico sostanziale. In questo modo tutte le
+sorgenti di clock vengono fermate (risparmio energetico) ma la
+temporizzazione RTOS rimane sempre sincronizzata anche dopo la
+sospensione del sistema.</p>
+<p>Il modulo lptim.c è stato opportunamente modificato ed adattato al
+sistema RTOS ed arduino in modo da permettere alle sue funzioni base
+come per esempio la classica chiamata millis() che restituisce i
+millisecondi trascorsi dall’avvio del programma fino al momento della
+sua chiamata e renderla perfettamente disponibile con valori reali anche
+dopo le chiamate Sleep che ne interromperebbero l’incremento. In
+sostanza si è agito sui contatori LPTim per controllare il tempo reale
+di standBy ed aggiornare in proporzione il timer di sistema reale.
+Questo ha permesso l’utilizzo trasparente al sistema RTOS e alle
+funzioni disponibili dalle librerie STM32Duino LowPower e RTC.</p>
+<p>Nel file di definizioni STM32FreertosCoinfig_Extra.h (che definisce le
+opzioni EXTRA se utilizzate nel FreeRTOS) è possibile utilizzare o meno
+questa funzionalità in maniera del tutto automatica
+configUSE_TICKLESS_IDLE.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define_USE_FREERTOS_LOW_POWER 1</span>
+
+<span class="o">//</span> <span class="n">FreertosTickless</span> <span class="n">Mode</span> <span class="p">(</span><span class="n">LOW_POWER_PRIVATE</span> <span class="n">EnableLptimTick</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+
+<span class="c1">#defineconfigUSE_TICKLESS_IDLE LOW_POWER_PRIVATE_LPTIMx_TICK</span>
+</pre></div>
+</div>
+<p>All’interno di Freertos_lptimTick.c in automatico il modulo ridefinisce
+le funzionalità vPortSuppressTicksAndSleep(TickType_t xExpectedIdleTime)
+che attivano la richiamata tramite macro valla funzione
+xTaskWakeUpPrivate che fisicamente fa entrare la CPU in modalità di
+basso consumo (quella selezionata in configurazione)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Inclusione</span> <span class="k">del</span> <span class="n">modulo</span> <span class="n">se</span> <span class="n">abilitata</span> <span class="n">la</span> <span class="n">modalità</span> <span class="n">TickLess</span> <span class="k">del</span> <span class="n">FreeRTOS</span>
+
+<span class="c1">#if ( !defined(configUSE_TICKLESS_IDLE) || configUSE_TICKLESS_IDLE != 2 )</span>
+
+<span class="c1">#warning Please edit FreeRTOSConfig.h to define configUSE_TICKLESS_IDLE as 2 *or* exclude this file.</span>
+
+<span class="c1">#else</span>
+
+<span class="c1">#ifdef xPortSysTickHandler</span>
+
+<span class="c1">#warning Please edit FreeRTOSConfig.h to eliminate the preprocessor definition for xPortSysTickHandler.</span>
+
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>Se il modulo è attivato sostanzialmente viene attivato l’interrupt
+relativo al timer LPTim utilizzato (uno tra i disponibili anch’esso
+selezionabile nel file di configurazione) programmandone l’intervallo
+sulla base dei tempi configurata e lo rende il tick di sistema primario,
+inibendo la richiamata ad <strong>osSystickHandler</strong> che nel FreeRTOS di
+STM32Duino incrementa il tick autonomamente. Inoltre la funzione è stata
+adattata per registrare nel momento dell’attivazione delle modalità
+powerDown e del successivo WakeUp il conteggio dei tick reali di
+powerDown, verificando il contenuto dei registri LPTim che come sappiamo
+continuano la loro attività anche se la CPU è in modalità STOP. Al
+momento del risveglio i tick di sistema vengono aggiornati in
+proporzione al tempo di powerDown consentendo a tutte le funzioni di
+come Arduino millis() micros() ecc… la piena funzionalità in tutte le
+modalità di powerdown.</p>
+</div>
+<div class="section" id="task">
+<h3>Task<a class="headerlink" href="#task" title="Link a questa intestazione">¶</a></h3>
+<p>Nella cartella TASK, sono inseriti i singoli task in conformità alle
+modalità descritte in premessa, usando il wrapper sviluppato da Michael
+Becker. Ogni Task si occupa nello specifico della gestione di
+un’apparato e/o di una funzionalità (come ad.es. la comunicazione
+remota). Oltre ai parametri passati alla funzione del task, di
+particolare importanza il dimensionamento dello stack che deve essere
+sufficiente al contenimento delle variabili dinamiche e alle chiamate
+locali di altre funzioni. Dal task WatchDog è possibile monitorare in
+maniera dinamica l’andamento di ogni singolo stack in modo da utilizzare
+il giusto dimensionamento in completa sicurezza.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SupervisorTask</span> <span class="n">supervisor_task</span><span class="p">(</span><span class="s2">&quot;SupervisorTask&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">supervisorParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">SdTask</span> <span class="n">sd_task</span><span class="p">(</span><span class="s2">&quot;SdTask&quot;</span><span class="p">,</span> <span class="mi">1750</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_01</span><span class="p">,</span> <span class="n">sdParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">UsbSerialTask</span> <span class="n">usbSerial_task</span><span class="p">(</span><span class="s2">&quot;UsbSerialTask&quot;</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_01</span><span class="p">,</span> <span class="n">usbSerialParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">LCDTask</span> <span class="n">lcd_task</span><span class="p">(</span><span class="s2">&quot;LcdTask&quot;</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_03</span><span class="p">,</span> <span class="n">lcdParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">CanTask</span> <span class="n">can_task</span><span class="p">(</span><span class="s2">&quot;CanTask&quot;</span><span class="p">,</span> <span class="mi">13000</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">canParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">ModemTask</span> <span class="n">modem_task</span><span class="p">(</span><span class="s2">&quot;ModemTask&quot;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">modemParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">NtpTask</span> <span class="n">ntp_task</span><span class="p">(</span><span class="s2">&quot;NtpTask&quot;</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">ntpParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">HttpTask</span> <span class="n">http_task</span><span class="p">(</span><span class="s2">&quot;HttpTask&quot;</span><span class="p">,</span> <span class="mi">1400</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">httpParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">MqttTask</span> <span class="n">mqtt_task</span><span class="p">(</span><span class="s2">&quot;MqttTask&quot;</span><span class="p">,</span> <span class="mi">1900</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">mqttParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">WdtTask</span> <span class="n">wdt_task</span><span class="p">(</span><span class="s2">&quot;WdtTask&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_04</span><span class="p">,</span> <span class="n">wdtParam</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Startup</span> <span class="n">Schedulher</span>
+
+<span class="n">Thread</span><span class="p">::</span><span class="n">StartScheduler</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Se abilitati, i task disponibili (nel Master) sono quelli sopra
+elencati. Di seguito le principali funzionalità degli stessi:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Supervisor</dt><dd><ul>
+<li><p>Supervisione del sistema</p></li>
+<li><p>Caricamento e gestione della configurazione di sistema</p></li>
+<li><p>Gestione degli stati della comunicazione remota</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>SdTask</dt><dd><ul>
+<li><p>Gestione della SD Card</p></li>
+<li><p>Code per lettura archiviazione dati</p></li>
+<li><p>Code per gestione log</p></li>
+<li><p>Code per caricamento lettura firmware</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>UsbSerial</dt><dd><ul>
+<li><p>Gestione porta USB</p></li>
+<li><p>Gestione RPC locali</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>LCD</dt><dd><ul>
+<li><p>Gestione display</p></li>
+<li><p>Gestione encoder</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Can</dt><dd><ul>
+<li><p>Gestione porta CAN</p></li>
+<li><p>Classe Canard interrogazione ai moduli Slave Remoti (Cypahl)</p></li>
+<li><p>Sincronizzazione data/ora con gli slave remoti</p></li>
+<li><p>Interfacciamento tra CAN (Moduli remoti) e altri dispositivi locali</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Modem</dt><dd><ul>
+<li><p>Gestione del modulo SIM7600E</p></li>
+<li><p>Avvio connessione PPP remota</p></li>
+<li><p>interfaccia NET CycloneTCP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>NTP</dt><dd><ul>
+<li><p>Gestione connessione NTP</p></li>
+<li><p>sincronizzazione data/ora con server remoto</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>HTTP</dt><dd><ul>
+<li><p>Gestione delle connessioni http(s)</p></li>
+<li><p>Gestione RPC Remote (tipicamente configurazione)</p></li>
+<li><p>Dowload firmware</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MQTT</dt><dd><ul>
+<li><p>Gestione della connessione mqtt(s)</p></li>
+<li><p>pubblicazione dati</p></li>
+<li><p>Gestione RPC Remote</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>WDT</dt><dd><ul>
+<li><p>Gestione WatchDog di Sistema</p></li>
+<li><p>Controllo operatività dei Task</p></li>
+<li><p>Controllo bootLoader</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Per quanto riguarda i moduli slave, i task utilizzati sono relativi alla
+gestione del modulo di acquisizione dei sensori (periferia) verso il
+modulo master. Alcuni task sono concettualmente simili al modulo Master.
+Identica rimane invece la logica di integrazione tra i vari task.</p>
+<p>L’esempio sottostante si riferisce al modulo TH, ma i vari moduli sono
+pressoché identici. Differiscono solamente nel task di interfaccia verso
+la sensoristica controllata (TemperatureHumidity_SensorTask) piuttosto
+che (Rain_SensorTask) nel caso del modulo di precipitazione.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SupervisorTask</span> <span class="n">supervisor_task</span><span class="p">(</span><span class="s2">&quot;SupervisorTask&quot;</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_04</span><span class="p">,</span> <span class="n">supervisorParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">TemperatureHumidtySensorTask</span> <span class="n">th_sensor_task</span><span class="p">(</span><span class="s2">&quot;THTask&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_03</span><span class="p">,</span> <span class="n">thSensorParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">ElaborateDataTask</span> <span class="n">elaborate_data_task</span><span class="p">(</span><span class="s2">&quot;ElaborateDataTask&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span><span class="n">elabParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">AccelerometerTask</span> <span class="n">accelerometer_task</span><span class="p">(</span><span class="s2">&quot;AccelerometerTask&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_01</span><span class="p">,</span> <span class="n">accelParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">CanTask</span> <span class="n">can_task</span><span class="p">(</span><span class="s2">&quot;CanTask&quot;</span><span class="p">,</span> <span class="mi">7300</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_02</span><span class="p">,</span> <span class="n">canParam</span><span class="p">);</span>
+
+<span class="n">static</span> <span class="n">WdtTask</span> <span class="n">wdt_task</span><span class="p">(</span><span class="s2">&quot;WdtTask&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_01</span><span class="p">,</span> <span class="n">wdtParam</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">RunSchedulher</span>
+
+<span class="n">Thread</span><span class="p">::</span><span class="n">StartScheduler</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>In StimaV4 ogni dispositivo slave è visto come un’unità indipendente che
+si occupa di interfacciarsi con la singola sensoristica in campo e
+trasformare il semplice modulo di lettura in un sistema intelligente in
+grado di gestirne direttamente le relative acquisizioni,
+temporizzazioni, eventuali accensioni e spegnimento (risparmio
+energetico) memorizzazioni ed elaborazioni, per fornire al master un
+risultato completo con un unico protocollo di comunicazione orientato ai
+dati (Cyphal) su CanBus particolarmente efficace in questo tipo di
+sistemi.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Supervisor</dt><dd><ul>
+<li><p>Supervisione del sistema</p></li>
+<li><p>Caricamento e gestione della configurazione di sistema</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Can</dt><dd><ul>
+<li><p>Gestione porta CAN</p></li>
+<li><p>Classe Canard comunicazione con modulo Master (Cypahl)</p></li>
+<li><p>Sincronizzazione data/ora con il master</p></li>
+<li><p>Avviamento delle funzioni LowPower dai flags remoti</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Accelerometer</dt><dd><ul>
+<li><p>Gestione dell’accelerometro (inclinometro solo per pluviometro)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Sensor</dt><dd><ul>
+<li><p>Acquisizione locale dei valori istantanei</p></li>
+<li><p>Gestione ON/OFF periferia dove previsto</p></li>
+<li><p>Inserimento dati nei buffer per elaborazioni</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Elaborate</dt><dd><ul>
+<li><p>Gestione delle elaborazioni dati</p></li>
+<li><p>Gestione code per attesa comandi</p></li>
+<li><p>Presentazione report dati</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>WDT</dt><dd><ul>
+<li><p>Gestione WatchDog di Sistema</p></li>
+<li><p>Controllo operatività dei Task</p></li>
+<li><p>Controllo bootLoader</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="task-di-watchdog-master-e-slave">
+<h3>Task di WatchDog ( Master e Slave )<a class="headerlink" href="#task-di-watchdog-master-e-slave" title="Link a questa intestazione">¶</a></h3>
+<p>Particolare attenzione è stata posta al TASK WDT watchDog. Il Task
+WatchDog si occupa della verifica del corretto funzionamento di tutti i
+task di sistema. Il WatchDog HW una volta programmato necessita di una
+chiamata di refresh che azzera il contatore WDT. Se il contatore WDT
+raggiunge un valore senza essere azzerato il sistema si riavvia.</p>
+<p>Per integrare il WatchDog in un sistema RTOS è necessario che tutti i
+Task siano in funzione e rispondano al sistema di controllo, per questo
+motivo in tutti i task sono state inserite queste 3 funzioni che
+agiscono a livello locale. Tramite queste 3 funzioni sono possibili il
+monitoraggio dello stack utilizzato, a prevenzione degli eventuali
+overflow, la vera e propria chiama di watchDog che comunica al Task WDT
+il corretto funzionamento del task e la funzione di TaskState che
+comunica al Task WDT lo stato del task (attivo, sospeso, in pausa per un
+determinato numero di millisecondi ecc…) Il Task WDT attenderà da tutti
+i task attivi e funzionanti il flag di conferma di funzionamento, prima
+di azzerare il contatore HW che fisicamente agisce sul reset. Nel task
+WDT è possibile verificare stack e stato dei task ed eventualmente
+visualizzare e/o registrare su log gli errori.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">TaskMonitorStack</span><span class="p">();</span>
+
+<span class="n">void</span> <span class="n">TaskWatchDog</span><span class="p">(</span><span class="n">uint32_tmillis_standby</span><span class="p">);</span>
+
+<span class="n">void</span> <span class="n">TaskState</span><span class="p">(</span><span class="n">uint8_tstate_position</span><span class="p">,</span> <span class="n">uint8_tstate_subposition</span><span class="p">,</span> <span class="n">task_flagstate_operation</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Nello sviluppo dei task, il programmatore deve tener conto delle
+operazioni di WatchDog e monitor stack, gestendo il posizionamento
+corretto delle chiamate a queste funzioni.</p>
+<p>Il task WDT si occupa inoltre del corretto controllo del WatchDog HW e
+dell’integrazione con il sistema di Boot. E’ stato inserito un sistema
+di controllo con flag su Eeprom che consentono al sistema di controllare
+e registrare se si sono verificati problemi di avvio. Nel caso
+particolare di aggiornamento remoto del firmware questo task prevede
+controllo e comunicazione del corretto avvio al bootloader, che in caso
+di non avvio del sistema dopo un aggiornamento firmware, ripristina la
+memoria flash all’ultimo stato funzionante (rollback).</p>
+<p>Questa la struttura bootLoader presente sia sul master che sugli slave
+ed interagisce con l’applicazione di avvio. Il sistema tramite la
+configurazione degli script LD presenti nel codice si avvia da una
+locazione di memoria prefissata, mentre il bootLoader parte
+dall’indirizzo di default. Il bootLoader, in condizioni normali, si
+preoccupa di avviare correttamente il programma spostando il
+programCounter e i registri dei vettori all’indirizzo di memorizzazione
+dell’applicativo sulla memoria Flash. Se richiesto un’aggiornamento
+firmware (segnalato con gli appositi flag) il sistema è in grado di
+riprogrammare la memoria Flash con la nuova versione di programma e
+avviare al termine il nuovo applicativo. L’operazione prevede il
+salvataggio sulla memoria flash esterna dell’attuale versione in modo
+che se una volta riprogrammato il dispositivo interviene il WatchDog
+prima dell’avvio del programma, il bootLoader provvederà in un
+operazione di rollBack al ripristino della versione precedente. I flag
+cosi come descritti sotto nella struttura segnalano tutte le possibili
+eventualità</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span>
+<span class="p">{</span>
+    <span class="nb">bool</span> <span class="n">request_upload</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Request</span> <span class="n">an</span> <span class="n">upload</span> <span class="n">of</span> <span class="n">firmware</span>
+
+    <span class="nb">bool</span> <span class="n">backup_executed</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Firmware</span> <span class="n">backup</span> <span class="ow">is</span> <span class="n">executed</span>
+
+    <span class="nb">bool</span> <span class="n">upload_executed</span><span class="p">;</span>   <span class="o">//</span> <span class="n">An</span> <span class="n">upload</span> <span class="n">of</span> <span class="n">firmware</span> <span class="n">was</span> <span class="n">executed</span>
+
+    <span class="nb">bool</span> <span class="n">rollback_executed</span><span class="p">;</span> <span class="o">//</span> <span class="n">An</span> <span class="n">rollback</span> <span class="n">of</span> <span class="n">firmware</span> <span class="n">was</span> <span class="n">executed</span>
+
+    <span class="nb">bool</span> <span class="n">app_executed_ok</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Flag</span> <span class="n">running</span> <span class="n">APP</span> <span class="p">(</span><span class="n">setted</span> <span class="n">after</span> <span class="n">new</span> <span class="n">firmware</span><span class="p">,</span> <span class="n">prevert</span> <span class="n">a</span> <span class="n">rollback</span> <span class="n">operation</span><span class="p">)</span>
+
+    <span class="nb">bool</span> <span class="n">app_forcing_start</span><span class="p">;</span> <span class="o">//</span> <span class="n">Force</span> <span class="n">starting</span> <span class="n">APP</span> <span class="kn">from</span> <span class="nn">Flash</span> <span class="n">RUN</span> <span class="n">APP</span> <span class="n">Memory</span> <span class="n">Position</span>
+
+    <span class="n">uint8_t</span> <span class="n">upload_error</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Error</span> <span class="ow">in</span> <span class="n">upload</span> <span class="n">firmware</span> <span class="p">(</span><span class="n">ID</span> <span class="n">of</span> <span class="n">Error</span><span class="p">)</span>
+
+    <span class="n">uint8_t</span> <span class="n">tot_reset</span><span class="p">;</span>      <span class="o">//</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">module</span> <span class="n">reset</span>
+
+    <span class="n">uint8_t</span> <span class="n">wdt_reset</span><span class="p">;</span>      <span class="o">//</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">WatchDog</span>
+
+<span class="p">}</span> <span class="n">bootloader_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comunicazione-tra-i-task">
+<h3>Comunicazione tra i task<a class="headerlink" href="#comunicazione-tra-i-task" title="Link a questa intestazione">¶</a></h3>
+<p>La comunicazione tra i task, comandi risposte e scambio dati, avviene
+tramite il meccanismo delle code RTOS. Il passaggio dei dati per esempio
+tra i dati acquisiti dal master CAN (come detto precedentemente il task
+CAN si occupa dell’interrogazione dei moduli slave per il recupero dei
+dati remoti) e SD Card (memorizzazione delle elaborazioni dati su SD
+Card) avviene con una coda specifica.</p>
+<p>Analogamente il Task MQTT tramite una specifica coda fa richiesta dei
+dati al task SD Card (precedentemente memorizzati) prima di pubblicarli
+al server remoto.</p>
+<p>Con questo sistema si è riusciti per esempio a separare i moduli
+concedendo al solo task SD Card, l’accesso al dispositivo HW e poter
+gestire in autonomia le proprie priorità e criticità.</p>
+<p>Alcune code (inerenti alla comunicazione) sono di gestione dei task.
+Queste code sono utilizzate per dare comandi di avvio e sospensione ai
+task e gestirne l’operatività e sincronizzazione. Nel modulo master il
+task di supervisione, si occupa della gestione della comunicazione.
+Quando richiesta una connessione remota il task di supervisione attiva
+in sequenza il task di gestione del GSM, che si occupa di stabilire una
+connessione PPP remota, per poi passare in sequenza l’avvio dei task
+NTP, http, MQTT a seconda delle esigenze. Il task di supervisione una
+volta attivato un comando/task attenderà la relativa risposta dalla coda
+di gestione e così potrà decidere la sequenza di operazioni da compiere.</p>
+<p>Una particolare coda systemMessage si occupa del passaggio di comandi
+con eventuali parametrizzazioni ai vari task. Questa coda viene
+utilizzata per il passaggio di un comando ad uno specifico TASK
+(inserendo l’ID del task) o a un particolare ID (ALL) che indica che il
+messaggio e valido per tutti i task (per esempio il comando di entrata
+in sleep del sistema). Lo sleep è comunicato a tutti i task, ma solo
+quando tutti i task hanno finito le relative operazioni (e confermato
+opportunamente) in totale sicurezza, può essere concesso il power down
+al sistema. Il systemMessage è utilizzato anche per l’invio di un
+comando tra un task e l’altro come ad esempio il comando tramite
+LCD-Encoder di calibrazione accelerometro, reset flag di sistema ecc… In
+questo caso deve essere selezionato il TASK di destinazione CAN (non
+importa il chiamante, può essere una RPC Remota SerialUSB o http o MQTT
+o per finire da comando LCD). Ogni task avrà al suo interno un sistema
+di gestione delle letture delle code in grado di determinare la presenza
+messaggio e se il messaggio è indirizzato al task locale. Nel caso il
+messaggio verrà prelevato dalla coda e processato. Se il messaggio è per
+tutti solo un task avrà la possibilità di eliminare il messaggio,
+tipicamente il Supervisor o il task CAN a seconda delle esigenze.</p>
+<dl class="simple">
+<dt>Esempio fasi di sleep per un Task:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>verifica messaggi in coda</dt><dd><ul>
+<li><dl class="simple">
+<dt>messaggio per tutti</dt><dd><ul>
+<li><p>messaggio di sleep</p></li>
+<li><p>messa in stato di sospensione del WatchDog per un tempo pari al tempo configurato di sleep del task (tempo massimo che non pregiudica il funzionamento del sistema senza quel task attivo)</p></li>
+<li><p>Entrata di task in sleep spegnimento periferiche locali</p></li>
+<li><p>Attivazione del Delay (lungo) che pone il task dormiente.</p></li>
+<li><p>Risveglio e riattivazione periferiche locali</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Il resto è gestito dall’RTOS (quando tutti i task sono in sleep per un
+tempo superiore al tempo configurato minimo di attivazione del basso
+consumo il sistema entra in Sleep, cioè chiama la funzione xTaskSleep
+che è definita nel modulo drivers frertosCallback)</p>
+<p>Al rientro dallo sleep il Task dovrà riaccendere le proprie perifieriche
+ed attendere gli eventuali timer di stabilizzazione degli stessi prima
+di rientrare in modalità operativa.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if(!param.systemMessageQueue-&gt;IsEmpty()) {
+
+    // Read queue in test mode
+
+    if (param.systemMessageQueue-&gt;Peek(&amp;system_message, 0))
+
+    {
+
+        // Its request addressed into ALL TASK... -&gt; no pull (only SUPERVISOR or exernal gestor)
+
+        if(system_message.task_dest == ALL_TASK_ID)
+
+        {
+
+            // Pull &amp;&amp; elaborate command,
+
+            if(system_message.command.do_sleep)
+
+            {
+
+                // Enter sleepmodule OK and update WDT
+
+                TaskWatchDog(SD_TASK_SLEEP_DELAY_MS);
+
+                TaskState(state, UNUSED_SUB_POSITION, task_flag::sleepy);
+
+                Delay(Ticks::MsToTicks(SD_TASK_SLEEP_DELAY_MS));
+
+                TaskState(state, UNUSED_SUB_POSITION, task_flag::normal);
+
+            }
+
+        }
+
+    }
+
+}
+</pre></div>
+</div>
+<p>Queste le code definite nel main del modulo Master che permettono la
+comunicazione tra i vari task e le classi previste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">staticQueue</span> <span class="n">systemMessageQueue</span><span class="p">;</span>         <span class="o">//</span> <span class="n">Gestione</span> <span class="n">invio</span> <span class="n">messaggi</span> <span class="n">e</span> <span class="n">coamdandi</span> <span class="n">tra</span> <span class="n">i</span> <span class="n">task</span>
+
+<span class="n">staticQueue</span> <span class="n">connectionRequestQueue</span><span class="p">;</span>     <span class="o">//</span> <span class="n">Invio</span> <span class="n">richieste</span> <span class="n">di</span> <span class="n">avvio</span> <span class="n">connessione</span> <span class="n">GSM</span> <span class="n">e</span> <span class="n">rete</span> <span class="p">(</span><span class="n">http</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">staticQueue</span> <span class="n">connectionResponseQueue</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Risposte</span> <span class="n">alle</span> <span class="n">richieste</span> <span class="n">di</span> <span class="n">connessione</span> <span class="p">(</span><span class="n">stato</span> <span class="n">ed</span> <span class="n">errori</span><span class="p">)</span>
+
+<span class="n">staticQueue</span> <span class="n">dataRmapPutQueue</span><span class="p">;</span>           <span class="o">//</span> <span class="n">Utilizzata</span> <span class="n">come</span> <span class="n">push</span> <span class="n">dei</span> <span class="n">dati</span> <span class="n">acquisiti</span> <span class="n">verso</span> <span class="n">SD</span> <span class="n">Card</span>
+
+<span class="n">staticQueue</span> <span class="n">dataRmapGetRequestQueue</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Richiesta</span> <span class="n">Lettura</span> <span class="n">dati</span> <span class="n">RMAP</span> <span class="p">(</span><span class="n">Cyphal</span><span class="p">)</span> <span class="n">da</span> <span class="n">SD</span> <span class="n">Card</span> <span class="n">per</span> <span class="n">MQTT</span>
+
+<span class="n">staticQueue</span> <span class="n">dataRmapGetResponseQueue</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Risposta</span> <span class="n">e</span> <span class="n">stato</span> <span class="n">dati</span> <span class="n">RMAP</span> <span class="p">(</span><span class="n">Chphal</span><span class="p">)</span> <span class="n">da</span> <span class="n">SD</span> <span class="n">per</span> <span class="n">invio</span> <span class="n">MQTT</span>
+
+<span class="n">staticQueue</span> <span class="n">dataRmapPutBackupQueue</span><span class="p">;</span>     <span class="o">//</span> <span class="n">Coda</span> <span class="n">per</span> <span class="n">push</span> <span class="n">dati</span> <span class="n">RMAP</span> <span class="n">di</span> <span class="n">backup</span> <span class="p">(</span><span class="n">formato</span> <span class="n">nativo</span><span class="p">)</span>
+
+<span class="n">staticQueue</span> <span class="n">dataFilePutRequestQueue</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Coda</span> <span class="n">per</span> <span class="n">trasmissione</span> <span class="n">file</span> <span class="n">verso</span> <span class="n">SD</span> <span class="p">(</span><span class="n">es</span><span class="o">.</span> <span class="n">push</span> <span class="n">firmware</span><span class="p">)</span>
+
+<span class="n">staticQueue</span> <span class="n">dataFilePutResponseQueue</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Coda</span> <span class="ow">in</span> <span class="n">risposta</span> <span class="n">alle</span> <span class="n">richieste</span> <span class="n">push</span> <span class="n">file</span> <span class="n">su</span> <span class="n">SD</span>
+
+<span class="n">staticQueue</span> <span class="n">dataFileGetRequestQueue</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Coda</span> <span class="n">per</span> <span class="n">lettura</span> <span class="n">file</span> <span class="n">da</span> <span class="n">SD</span> <span class="p">(</span><span class="n">es</span><span class="o">.</span> <span class="n">get</span> <span class="n">firmware</span><span class="p">)</span>
+
+<span class="n">staticQueue</span> <span class="n">dataFileGetResponseQueue</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Coda</span> <span class="ow">in</span> <span class="n">risposta</span> <span class="n">alle</span> <span class="n">richieste</span> <span class="n">get</span> <span class="n">file</span> <span class="n">da</span> <span class="n">SD</span>
+
+<span class="n">staticQueue</span> <span class="n">dataLogPutQueue</span><span class="p">;</span>            <span class="o">//</span> <span class="n">Coda</span> <span class="n">per</span> <span class="n">invio</span> <span class="n">stringe</span> <span class="n">LOG</span> <span class="n">da</span> <span class="n">salvare</span> <span class="n">su</span> <span class="n">SD</span> <span class="n">Card</span>
+
+<span class="n">staticQueue</span> <span class="n">displayEventWakeUp</span><span class="p">;</span>         <span class="o">//</span> <span class="n">Coda</span> <span class="n">per</span> <span class="n">gestione</span> <span class="n">comandi</span> <span class="n">e</span> <span class="n">sleep</span> <span class="n">per</span> <span class="n">task</span> <span class="n">LCD</span>
+</pre></div>
+</div>
+<p>Questi invece i semafori che vengono utilizzati per la condivisione di
+risorse hw e/o per l’accesso ai parametri di sistema</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">staticBinarySemaphore</span> <span class="n">wireLock</span><span class="p">;</span>             <span class="o">//</span> <span class="n">Access</span> <span class="n">I2C</span> <span class="n">external</span> <span class="n">interface</span> <span class="n">UPIN_27</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">wire2Lock</span><span class="p">;</span>            <span class="o">//</span> <span class="n">Access</span> <span class="n">I2C</span> <span class="n">internal</span> <span class="n">EEprom</span><span class="p">,</span> <span class="n">Display</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">canLock</span><span class="p">;</span>              <span class="o">//</span> <span class="n">Can</span> <span class="n">BUS</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">qspiLock</span><span class="p">;</span>             <span class="o">//</span> <span class="n">Qspi</span> <span class="p">(</span><span class="n">Flash</span> <span class="n">Memory</span><span class="p">)</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">rtcLock</span><span class="p">;</span>              <span class="o">//</span> <span class="n">RTC</span> <span class="p">(</span><span class="n">Access</span> <span class="n">lock</span><span class="p">)</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">rpcLock</span><span class="p">;</span>              <span class="o">//</span> <span class="n">RPC</span> <span class="p">(</span><span class="n">Access</span> <span class="n">lock</span><span class="p">)</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">configurationLock</span><span class="p">;</span>    <span class="o">//</span> <span class="n">Access</span> <span class="n">Configuration</span> <span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">systemStatusLock</span><span class="p">;</span>     <span class="o">//</span> <span class="n">Access</span> <span class="n">System</span> <span class="n">status</span> <span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+
+<span class="n">staticBinarySemaphore</span> <span class="n">registerAccessLock</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Access</span> <span class="n">Register</span> <span class="n">Cyphal</span> <span class="n">Specifications</span> <span class="p">(</span><span class="n">parameter</span> <span class="n">EEprom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configurazione-di-un-task">
+<h3>Configurazione di un task<a class="headerlink" href="#configurazione-di-un-task" title="Link a questa intestazione">¶</a></h3>
+<p>Ogni task lanciato dal main ha parametri di gestione che vengono passati
+al relativo task. Questi parametri sono definiti nel main e sono
+relativi ai dispositivi hw, semafori e/o code tra quelle viste in
+precedenza. Analizzando per esempio la configurazione del TASK CAN,
+vediamo i parametri che vengono passati. Analogamente tutti i task hanno
+una struttura similare a quella descritta sotto.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#if (ENABLE_CAN)</span>
+
+<span class="o">//</span> <span class="n">TASK</span> <span class="n">CAN</span> <span class="n">PARAM</span> <span class="n">CONFIG</span>
+
+<span class="n">static</span> <span class="n">CanParam_t</span> <span class="n">canParam</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>                   <span class="o">//</span> <span class="n">Parametri</span> <span class="k">del</span> <span class="n">CAN</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">configuration</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">configuration</span><span class="p">;</span>            <span class="o">//</span> <span class="n">puntatore</span> <span class="n">alla</span> <span class="n">configurazione</span> <span class="n">di</span> <span class="n">sistema</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">system_status</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">system_status</span><span class="p">;</span>            <span class="o">//</span> <span class="n">puntatore</span> <span class="n">allo</span> <span class="n">stato</span> <span class="n">di</span> <span class="n">sistema</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">boot_request</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">boot_check</span><span class="p">;</span>                <span class="o">//</span> <span class="n">puntatore</span> <span class="n">alla</span> <span class="n">struttura</span> <span class="n">dei</span> <span class="n">flag</span> <span class="n">di</span> <span class="n">bootLoader</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">configurationLock</span> <span class="o">=</span> <span class="n">configurationLock</span><span class="p">;</span>     <span class="o">//</span> <span class="n">semaforo</span> <span class="n">per</span> <span class="n">l</span><span class="s1">&#39;accesso alla configurazione</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">systemStatusLock</span> <span class="o">=</span> <span class="n">systemStatusLock</span><span class="p">;</span>       <span class="o">//</span> <span class="n">semaforo</span> <span class="n">per</span> <span class="n">l</span><span class="s1">&#39;accesso allo stato di sistema</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">registerAccessLock</span> <span class="o">=</span> <span class="n">registerAccessLock</span><span class="p">;</span>   <span class="o">//</span> <span class="n">semaforo</span> <span class="n">per</span> <span class="n">accesso</span> <span class="n">ai</span> <span class="n">registri</span> <span class="n">Cyphal</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">systemMessageQueue</span> <span class="o">=</span> <span class="n">systemMessageQueue</span><span class="p">;</span>   <span class="o">//</span> <span class="n">coda</span> <span class="n">dei</span> <span class="n">messaggi</span> <span class="n">di</span> <span class="n">sistema</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">requestDataQueue</span> <span class="o">=</span> <span class="n">requestDataQueue</span><span class="p">;</span>       <span class="o">//</span> <span class="n">coda</span> <span class="n">di</span> <span class="n">richiesta</span> <span class="n">dati</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">reportDataQueue</span> <span class="o">=</span> <span class="n">reportDataQueue</span><span class="p">;</span>         <span class="o">//</span> <span class="n">coda</span> <span class="n">per</span> <span class="n">le</span> <span class="n">risposte</span> <span class="n">report</span> <span class="n">dei</span> <span class="n">dati</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">eeprom</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">memEprom</span><span class="p">;</span>                        <span class="o">//</span> <span class="n">puntatore</span> <span class="n">alla</span> <span class="n">classe</span> <span class="n">EEprom</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">clRegister</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">clRegister</span><span class="p">;</span>                  <span class="o">//</span> <span class="n">puntatore</span> <span class="n">alla</span> <span class="n">classe</span> <span class="n">Registri</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">flash</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">memFlash</span><span class="p">;</span>                         <span class="o">//</span> <span class="n">puntatore</span> <span class="n">alla</span> <span class="n">classe</span> <span class="n">Flash</span> <span class="n">memory</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">canLock</span> <span class="o">=</span> <span class="n">canLock</span><span class="p">;</span>                         <span class="o">//</span> <span class="n">semaforo</span> <span class="n">di</span> <span class="n">accesso</span> <span class="n">HW</span> <span class="n">al</span> <span class="n">CAN</span> <span class="n">Bus</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">qspiLock</span> <span class="o">=</span> <span class="n">qspiLock</span><span class="p">;</span>                       <span class="o">//</span> <span class="n">semaforo</span> <span class="n">di</span> <span class="n">accesso</span> <span class="n">alla</span> <span class="n">porta</span> <span class="n">QSPI</span> <span class="n">per</span> <span class="n">Flash</span> <span class="n">memory</span>
+
+<span class="n">canParam</span><span class="o">.</span><span class="n">rtcLock</span> <span class="o">=</span> <span class="n">rtcLock</span><span class="p">;</span>                         <span class="o">//</span> <span class="n">semaforo</span> <span class="n">di</span> <span class="n">accsso</span> <span class="n">al</span> <span class="n">real</span> <span class="n">time</span> <span class="n">clock</span>
+
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>Il tipo CanParam_t (ogni task ne ha uno specifico) è definito
+all’interno del header del relativo task e appunto ne specifica i
+dispositivi utilizzati. Questi vengono passati per indirizzo alla classe
+che potrà quindi disporre delle risorse necessarie al suo funzionamento.
+Il task avrà all’interno della classe questa struttura generale per
+l’accesso alle risorse e ovviamente al suo interno altre variabili
+specifiche locali visibili solo all’interno della specifica classe.</p>
+<p>I task sono organizzati a stati state_t, normalmente una fase di
+inizializzazione, avvio, gestione e sleep, dipendente dall’HW e o dalle
+operazioni richieste. Con questa gestione è possibile identificare le
+varie sezioni e al proprio interno poter gestire le relative operazioni
+e lo switch tra i task definendo bene le tempistiche di accesso a
+dispositivi o parametri. All’interno dell’header sono presenti le
+definizioni delle tempistiche di gestione dei task:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Main</span> <span class="n">TASK</span> <span class="n">Switch</span> <span class="n">Delay</span>
+
+<span class="c1">#define CAN_TASK_WAIT_DELAY_MS          (20)</span>
+
+<span class="c1">#define CAN_TASK_WAIT_MAXSPEED_DELAY_MS (1)</span>
+
+<span class="c1">#define CAN_TASK_SLEEP_DELAY_MS         (850)</span>
+</pre></div>
+</div>
+<p>Sono i tempi di gestione del task in modalità normale ogni (20 mSec),
+modalità real_time (quando il task deve essere sempre eseguito per
+specifici controlli (1 mSec), e quando il task può andare in sleep (tempo
+massimo di attesa prima dello switch nel contesto 850 mS). Nel CAN
+essendo necessario un heartBeat definito dalle specifiche Cypal di 1
+secondo, si è scelto un tempo massimo all’interno del massimo rate dell
+heartBeat. Ogni task ha queste specifiche ma i tempi sono differenti a
+seconda delle esigenze di funzionamento.</p>
+<p>All’avvio del TASK è necessaria la configurazione dell’interfaccia HW/SW
+per il setup bxCAN e delle velocità di collegamento. Queste operazioni
+sono effettuate a partire dalla lettura dei registri Cyphal CAN, tramite
+la classe di accesso (descritta più avanti). In avvio vengono inoltre
+attivate le funzioni Interrupt di ricezione CAN per l’utilizzo di bxCAN
+con i flag di interrupt necessari ad un funzionamento corretto del
+driver.</p>
+<p>I dati di configurazione sono letti dai registri Cyphal. La loro
+modifica con qualsiasi programma come il tool Yakut in grado di
+modificare i parametri dei registri ne altera le funzionalità. E’
+possibile per esempio ridurre la velocità dei moduli CAN se si
+presentano errori di comunicazione o se le distanze di collegamento
+prevedono velocità ridotte.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// CANARD MTU CLASSIC (FOR UAVCAN REQUIRE)
+
+// Open Register in Write se non inizializzati correttamente...
+
+// Populate INIT Default Value
+
+static uavcan_register_Value_1_0 val = {0};
+
+uavcan_register_Value_1_0_select_natural16_(&amp;val);
+
+val.natural16.value.count = 1;
+
+val.natural16.value.elements[0] = CAN_MTU_BASE; // CAN_CLASSIC MTU 8
+
+localRegisterAccessLock-&gt;Take();
+
+localRegister-&gt;read(REGISTER_UAVCAN_MTU, &amp;val);
+
+localRegisterAccessLock-&gt;Give();
+
+LOCAL_ASSERT(uavcan_register_Value_1_0_is_natural16_(&amp;val) &amp;&amp; (val.natural16.value.count == 1));
+
+// CANARD SETUP TIMINGS AND SPEED
+
+// CAN BITRATE Dinamico su LoadRegister (CAN_FD 2xREG natural32 0=Speed, 1=0 (Not Used))
+
+uavcan_register_Value_1_0_select_natural32_(&amp;val);
+
+val.natural32.value.counT = 2;
+
+val.natural32.value.elements[0] = CAN_BIT_RATE;
+
+val.natural32.value.elements[1] = 0ul; // Ignored for CANARD_MTU_CAN_CLASSIC
+
+localRegisterAccessLock-&gt;Take();
+
+localRegister-&gt;read(REGISTER_UAVCAN_BITRATE, &amp;val);
+
+localRegisterAccessLock-&gt;Give();
+
+LOCAL_ASSERT(uavcan_register_Value_1_0_is_natural32_(&amp;val) &amp;&amp; (val.natural32.value.count == 2));
+
+// Dynamic BIT RATE Change CAN Speed to CAN_BIT_RATE (register default/defined)
+
+BxCANTimings timings;
+
+bool result = bxCANComputeTimings(HAL_RCC_GetPCLK1Freq(), val.natural32.value.elements[0], &amp;timings);
+
+if (!result) {
+    ...
+    return;
+}
+
+// Configurea bxCAN speed &amp;&amp; mode
+
+result = bxCANConfigure(0, timings, false);
+
+if (!result) {
+    ...
+    return;
+}
+
+// CANARD SETUP TIMINGS AND SPEED COMPLETE
+
+// Check error starting CAN
+
+if (HAL_CAN_Start(&amp;hcan1) != HAL_OK)
+{
+    ...
+    TRACE_ERROR_F(F(&quot;CAN startup ERROR!!!\r\n&quot;));
+}
+
+// Enable Interrupt RX Standard CallBack -&gt; CAN1_RX0_IRQHandler
+
+if (HAL_CAN_ActivateNotification(&amp;hcan1, CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK) {
+
+    TRACE_ERROR_F(F(&quot;Error initialization interrupt CAN base\r\n&quot;));
+
+    LOCAL_ASSERT(false);
+
+    return;
+
+}
+
+// Setup Priority e CB CAN_IRQ_RX Enable
+
+HAL_NVIC_SetPriority(CAN1_RX0_IRQn, CAN_NVIC_INT_PREMPT_PRIORITY, 0);
+
+HAL_NVIC_EnableIRQ(CAN1_RX0_IRQn);
+
+// Setup Complete
+
+TRACE_VERBOSE_F(F(&quot;CAN Configuration complete...\r\n&quot;));
+</pre></div>
+</div>
+<p>Nel CAN Task dopo l’inizializzazione nell’avvio RUN in specifico si
+hanno in sequenza le operazioni di configurazione dell’HW e della
+libreria Canard che agisce sul CAN Bus con il protocollo Cyphal, per poi
+passare all’avvio della configurazione delle sue funzionalità.</p>
+<p>Nella fase di INIT si hanno la lettura dei registri Cyphal e la
+registrazione delle sottoscrizione ai messaggi Cyphal, la procedura di
+callback dei messaggi in ingresso ricevuti e l’impostazione degli ID dei
+nodi di rete.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TRACE_INFO_F</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;Can task: STARTING Configuration</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">));</span>
+
+<span class="o">//</span> <span class="n">Avvio</span> <span class="n">inizializzazione</span> <span class="p">(</span><span class="n">Standard</span> <span class="n">UAVCAN</span> <span class="n">MSG</span><span class="p">)</span><span class="o">.</span> <span class="n">Reset</span> <span class="n">su</span> <span class="n">INIT</span> <span class="n">END</span> <span class="n">OK</span>
+
+<span class="o">//</span> <span class="n">Segnale</span> <span class="n">al</span> <span class="n">Master</span> <span class="n">necessità</span> <span class="n">di</span> <span class="n">impostazioni</span> <span class="n">ev</span><span class="o">.</span> <span class="n">parametri</span><span class="p">,</span> <span class="n">Data</span><span class="o">/</span><span class="n">Ora</span> <span class="n">ecc</span><span class="o">..</span>
+
+<span class="n">clCanard</span><span class="o">.</span><span class="n">flag</span><span class="o">.</span><span class="n">set_local_node_mode</span><span class="p">(</span><span class="n">uavcan_node_Mode_1_0_INITIALIZATION</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Attiva</span> <span class="n">il</span> <span class="n">callBack</span> <span class="n">su</span> <span class="n">RX</span> <span class="n">Messaggio</span> <span class="n">Canard</span> <span class="n">sulla</span> <span class="n">funzione</span> <span class="n">interna</span> <span class="n">processReceivedTransfer</span>
+
+<span class="n">clCanard</span><span class="o">.</span><span class="n">setReceiveMessage_CB</span><span class="p">(</span><span class="n">processReceivedTransfer</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Setup</span> <span class="n">INIT</span> <span class="n">Time</span> <span class="k">for</span> <span class="n">syncronized</span> <span class="n">TimeStamp</span> <span class="k">with</span> <span class="n">local</span> <span class="n">RTC</span>
+
+<span class="n">clCanard</span><span class="o">.</span><span class="n">setMicros</span><span class="p">(</span><span class="n">rtc</span><span class="o">.</span><span class="n">getEpoch</span><span class="p">(),</span> <span class="n">rtc</span><span class="o">.</span><span class="n">getSubSeconds</span><span class="p">());</span>
+
+<span class="o">//</span> <span class="n">INIT</span> <span class="n">VALUE</span><span class="p">,</span> <span class="n">Caricamento</span> <span class="n">default</span> <span class="n">e</span> <span class="n">registri</span> <span class="n">locali</span> <span class="n">MASTER</span> <span class="n">e</span> <span class="n">lettura</span> <span class="n">Registri</span> <span class="n">standard</span> <span class="n">UAVCAN</span>
+
+<span class="n">clCanard</span><span class="o">.</span><span class="n">set_canard_node_id</span><span class="p">((</span><span class="n">CanardNodeID</span><span class="p">)</span> <span class="n">NODE_MASTER_ID</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Questa invece una tipica chiamata per la sottoscrizione dei servizi. La
+sottoscrizione registra un modulo ad un particolare evento, in questo
+caso il messaggio esterno di richiesta Info GetInfo e Comandi.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TRACE_INFO_F(F(&quot;Can task: STARTING UAVCAV Subscrition and Service\r\n&quot;));
+
+// Service servers: -&gt; Risposta per GetNodeInfo richiesta esterna (Yakut, Altri)
+
+if (!clCanard.rxSubscribe(CanardTransferKindRequest,
+
+    uavcan_node_GetInfo_1_0_FIXED_PORT_ID_,
+
+    uavcan_node_GetInfo_Request_1_0_EXTENT_BYTES_,
+
+    CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC)) {
+
+    LOCAL_ASSERT(false);
+
+}
+
+// Service servers: -&gt; Chiamata per ExecuteCommand richiesta esterna (Yakut, Altri)
+
+if (!clCanard.rxSubscribe(CanardTransferKindRequest,
+
+    uavcan_node_ExecuteCommand_1_1_FIXED_PORT_ID_,
+
+    uavcan_node_ExecuteCommand_Request_1_1_EXTENT_BYTES_,
+
+    CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC)) {
+
+    LOCAL_ASSERT(false);
+
+}
+</pre></div>
+</div>
+<p>Se nella rete Cyphal un messaggio tra quelli registrati è indirizzato al
+nodo (me stesso) che ha effettuato la registrazione, al momento del
+trasferimento completo del messaggio verrà attivata la procedura di
+callback registrata in avvio e nella funzione chiamata sarà trasferito
+il messaggio in ingresso e la porta fissa o dinamica (che rappresenta il
+comando entrante).</p>
+<p>Successivamente si passa alla gestione temporizzata della rete con
+attesa e processo dei messaggi remoti e la pubblicazione dei propri e
+all’invio dei comandi ai nodi remoti.</p>
+<p>Passato il tempo di acquisizione dati impostato in configurazione una
+serie di comandi risvegliano i nodi remoti dallo stato di basso consumo
+ed inviano la richiesta dei dati. Una volta acquisiti i valori questi
+vengono passati alla coda di push dei dati su SD card per
+l’archiviazione e il successivo prelievo da parte del supervisor per la
+pubblicazione al server Remoto. Il CAN tak si occupa inoltre di
+attendere tramite code gli eventuali comandi remoti provenienti da RPC o
+comandi locali LCD per inviarli ai destinatari tramite il CAN Bus, quali
+ad esempio l’aggiornamento del firmware con file transfer Cyphal.</p>
+<p>Avvio della richiesta dati</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Get Istant Data or Archive Data Request (Need to Display, Saving Data or other Function)
+
+if ((bStartGetIstant)||(bStartGetData)) {
+
+    // P er tutti i nodi avvio la funzionalità di lettura dati RMAP
+
+    // bStartGetData prioritario rispetto bGetIstData
+
+    for(uint8_t queueId=0; queueId&lt;MAX_NODE_CONNECT; queueId++) {
+
+    // Solo per i nodi onLine
+
+    if(clCanard.slave[queueId].is_online()) {
+
+        // Se il servizio di getRMAPData non è impegnato
+
+        if(!clCanard.slave[queueId].rmap_service.is_pending()) {
+
+            // parametri.canale = rmap_service_setmode_1_0_CH01 (es-&gt; set CH Analogico...)
+
+            // parametri.run_for_second = 900; ( not used for get_istant )
+
+            rmap_service_setmode_1_0 paramRequest;
+
+            paramRequest.chanel = 0; // Imposto il canale fisico, se necessario
+
+      // Preparo la richiesta (dati archivio o istantanei?)
+
+            if(bStartGetData) {
+
+                paramRequest.command = rmap_service_setmode_1_0_get_last;
+
+                paramRequest.obs_sectime = param.configuration-&gt;observation_s;
+
+                paramRequest.run_sectime = param.configuration-&gt;report_s;
+
+            } else {
+
+                paramRequest.command = rmap_service_setmode_1_0_get_istant;
+
+                paramRequest.obs_sectime = 0;
+
+                paramRequest.run_sectime = 0;
+</pre></div>
+</div>
+<p>Attesa della risposta dati (se in attività, cioè dopo l’avvio di una
+richiesta)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if(param.system_status-&gt;flags.rmap_server_running) {
+
+    // Controllo il file server se non in running state
+
+    bool rmapServerEnd = true;
+
+    // Waiting WARM_UP (GetSyncroTime UP Procedure before end server)
+
+    if(bStartSetFullPower) rmapServerEnd = false;
+
+    for(uint8_t queueId=0; queueId&lt;MAX_NODE_CONNECT; queueId++) {
+
+    // Check if is request pending... (NONE... flag remaining true END Server)
+
+    if (clCanard.slave[queueId].rmap_service.is_pending()) {
+
+        rmapServerEnd = false;
+
+    }
+
+    if (clCanard.slave[queueId].rmap_service.event_timeout()) {
+
+        // Next retry if is possible Stop and estart pending
+
+        clCanard.slave[queueId].rmap_service.reset_pending();
+
+        if(!clCanard.send_rmap_data_pending_retry(queueId, NODE_GETDATA_TIMEOUT_US)) {
+
+            // TimeOUT di un comando in attesa... end Retry
+
+        } else {
+
+            rmapServerEnd = false;
+
+            // TimeOUT di un comando in attesa... gestione Retry
+
+            clCanard.slave[queueId].get_node_id(), clCanard.slave[queueId].rmap_service.retry + 1);
+
+        }
+
+    }
+
+}
+
+...
+
+// EVENTO DI GESTIONE RICEZIONE DATI
+
+switch (clCanard.slave[queueId].get_module_type()) {
+
+    case Module_Type::th:
+
+        // Cast to th module
+
+        retTHData = (rmap_service_module_TH_Response_1_0) clCanard.slave[queueId].rmap_service.get_response();
+
+        // data RMAP type is ready to send into queue Archive Data for Saving on SD Memory
+
+        // Get parameter data
+
+        #if TRACE_LEVEL &gt;= TRACE_INFO
+
+        getStimaNameByType(stimaName, clCanard.slave[queueId].get_module_type());
+
+        #endif
+</pre></div>
+</div>
+<p>Interprete del dato e del metodo di richiesta e trasmissione a coda SD
+Card per archiviazione dati</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Inserisce</span> <span class="n">i</span> <span class="n">dati</span> <span class="n">nel</span> <span class="n">system_status</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">==</span> <span class="n">rmap_service_setmode_1_0_get_istant</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Solo</span> <span class="n">istantanei</span> <span class="n">per</span> <span class="n">visualizzazione</span> <span class="n">LCD</span> <span class="n">o</span>  <span class="n">altre</span> <span class="n">attività</span> <span class="n">locali</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">systemStatusLock</span><span class="o">-&gt;</span><span class="n">Take</span><span class="p">();</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">data_value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">ITH</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">data_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">ITH</span><span class="o">.</span><span class="n">humidity</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">is_new_ist_data_ready</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">systemStatusLock</span><span class="o">-&gt;</span><span class="n">Give</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">==</span> <span class="n">rmap_service_setmode_1_0_get_last</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Dati</span> <span class="n">e</span> <span class="n">stati</span> <span class="n">elaborati</span> <span class="p">(</span><span class="n">da</span> <span class="n">inviare</span> <span class="n">al</span> <span class="n">sistema</span> <span class="n">di</span> <span class="n">archiviazione</span><span class="p">)</span>
+
+    <span class="n">bit8Flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">is_main_error</span><span class="p">)</span> <span class="n">bit8Flag</span><span class="o">|=</span><span class="mh">0x01</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">is_redundant_error</span><span class="p">)</span> <span class="n">bit8Flag</span><span class="o">|=</span><span class="mh">0x02</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">systemStatusLock</span><span class="o">-&gt;</span><span class="n">Take</span><span class="p">();</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">flags</span><span class="o">.</span><span class="n">new_data_to_send</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">bit8StateFlag</span> <span class="o">=</span> <span class="n">bit8Flag</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">byteStateFlag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">rbt_event</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">byteStateFlag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">wdt_event</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">data_slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">byteStateFlag</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">retTHData</span><span class="o">-&gt;</span><span class="n">perc_i2c_error</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">systemStatusLock</span><span class="o">-&gt;</span><span class="n">Give</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Copia</span> <span class="n">i</span> <span class="n">dati</span> <span class="n">dal</span> <span class="n">report</span> <span class="n">alla</span> <span class="n">coda</span> <span class="n">di</span> <span class="n">pubblicazione</span>
+
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rmap_archive_data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">rmap_archive_data_t</span><span class="p">));</span>
+
+    <span class="o">//</span> <span class="n">Set</span> <span class="n">Module</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Date</span> <span class="n">Time</span> <span class="k">as</span> <span class="n">Uint32</span> <span class="n">GetEpoch_Style</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Block</span> <span class="n">Data</span> <span class="n">Cast</span> <span class="n">to</span> <span class="n">RMAP</span> <span class="n">Type</span>
+
+    <span class="n">rmap_archive_data</span><span class="o">.</span><span class="n">module_type</span> <span class="o">=</span> <span class="n">clCanard</span><span class="o">.</span><span class="n">slave</span><span class="p">[</span><span class="n">queueId</span><span class="p">]</span><span class="o">.</span><span class="n">get_module_type</span><span class="p">();</span>
+
+    <span class="n">rmap_archive_data</span><span class="o">.</span><span class="n">date_time</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">epoch_sensors_get_value</span><span class="p">;</span>
+
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">rmap_archive_data</span><span class="o">.</span><span class="n">block</span><span class="p">,</span> <span class="n">retTHData</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">retTHData</span><span class="p">));</span>
+
+    <span class="o">//</span> <span class="n">Trasmestto</span> <span class="n">a</span> <span class="n">SD</span> <span class="n">Card</span> <span class="n">nella</span> <span class="n">relativa</span> <span class="n">coda</span> <span class="n">con</span> <span class="n">i</span> <span class="n">relativi</span> <span class="n">limiti</span> <span class="n">di</span> <span class="n">controllo</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">dataRmapPutQueue</span><span class="o">-&gt;</span><span class="n">IsFull</span><span class="p">())</span> <span class="n">param</span><span class="o">.</span><span class="n">dataLogPutQueue</span><span class="o">-&gt;</span><span class="n">Dequeue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rmap_archive_empty</span><span class="p">);</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">dataRmapPutQueue</span><span class="o">-&gt;</span><span class="n">Enqueue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rmap_archive_data</span><span class="p">,</span> <span class="n">Ticks</span><span class="p">::</span><span class="n">MsToTicks</span><span class="p">(</span><span class="n">CAN_PUT_QUEUE_RMAP_TIMEOUT_MS</span><span class="p">));</span>
+
+<span class="p">}</span>
+
+<span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Ogni funzionalità, comando, file transfer ecc. della rete Cyphal su CAN
+così come inserito nel progetto stimaV4 segue lo stesso iter, se il
+canale per quel nodo e per quel determinato comando è libero (non in
+pending) si può avviare e questo passa in uno stato di waiting con il
+timeout specifico. Successivamente l’ambiente conosce che è in corso un
+comando che potrà passare o allo stato di executed o di time_out
+librando il canale ad un altro eventuale comando o alla gestione delle
+retry. I flag VSC visti in precedenza indicano al master lo stato di un
+nodo remoto. Prima di inviare un comando al nodo remoto il flag di
+full_power viene abilitato in modo che solo quando il nodo remoto
+comunica di essere in full_power pronto quindi a ricevere messaggi senza
+rischio di perdite dati, il master invia la propria trasmissione e
+attende la risposta remota. Al termine quando tutti i relativi flags del
+modulo slave sono off come ad.es file_server, command_server,
+rmap_data_server il master potrà nuovamente indicare allo slave relativo
+di tornare in modalità normale.</p>
+</div>
+<div class="section" id="classe-register">
+<h3>Classe register<a class="headerlink" href="#classe-register" title="Link a questa intestazione">¶</a></h3>
+<p>La classe register è una particolare classe che è derivata da una
+modifica del file register.c dell’applicativo Cyphal. Questa classe si
+occupa di inizializzare, leggere e salvare particolari registri Cyphal
+ex “Uavcan”. La classe si integra con il protocollo descritto in
+precedenza e fornisce parametrizzazioni del protocollo e degli
+applicativi sviluppati, quindi con registri di scopo per il
+funzionamento del protocollo e delle sue sottoscrizioni e degli
+applicativi utente, come ad. esempio nei moduli TH l’intervallo di tempo
+di acquisizione dei sensori.</p>
+<p>Tutti gli applicativi Master e Slave hanno particolari registri il cui
+accesso e garantito con le funzioni di protocollo ReadRegister,
+WriteRegister, ListRegister di Cypal, in modo da rendere configurabile
+il modulo senza modificare il software e/o le sue definizioni.
+Semplicemente accedendo ai relativi registri (di modulo o generali)
+anche con applicativi esterni che integrano il protocollo, è possibile
+leggere e alterarne i valori, modificando di fatto il suo funzionamento.</p>
+<p>L’accesso ai registri è stato modificato per l’integrazioni con il
+modulo EEprom degli applicativi a partire dai sorgenti originali della
+libreria LibCanard che utilizzavano la SD Card (gestione a file) dei
+registri. Si è così proceduto ad interfacciare la memoria EEprom
+permanente dei moduli StimaV4.</p>
+<p>La classe è stata scritta in conformità agli altri moduli Task per
+rendere omogeneo l’ambiente di sviluppo. La sua parametrizzazione segue
+lo stesso concetto utilizzati per i TASK, con una struttura locale a cui
+sono passate le istanze degli oggetti utilizzate (eeprom, semafori ecc…)</p>
+<p>Questi i registri tipici del master con i relativi nomi accessibili
+sulla rete Cyphal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define REGISTER_UAVCAN_MTU             &quot;uavcan.can.mtu&quot;</span>
+
+<span class="c1">#define REGISTER_UAVCAN_BITRATE         &quot;uavcan.can.bitrate&quot;</span>
+
+<span class="c1">#define REGISTER_UAVCAN_NODE_ID         &quot;uavcan.node.id&quot;</span>
+
+<span class="c1">#define REGISTER_UAVCAN_UNIQUE_ID       &quot;uavcan.node.unique_id&quot;</span>
+
+<span class="c1">#define REGISTER_UAVCAN_NODE_DESCR      &quot;uavcan.node.description&quot;</span>
+
+<span class="c1">#define REGISTER_UAVCAN_DATA_PUBLISH    &quot;uavcan.pub.rmap.publish.id&quot;</span>
+
+<span class="c1">#define REGISTER_UAVCAN_DATA_SERVICE    &quot;uavcan.srv.rmap.service.id&quot;</span>
+
+<span class="c1">#define REGISTER_METADATA_LEVEL_L1      &quot;rmap.metadata.Level.L1&quot;</span>
+
+<span class="c1">#define REGISTER_METADATA_LEVEL_L2      &quot;rmap.metadata.Level.L2&quot;</span>
+
+<span class="c1">#define REGISTER_METADATA_LEVEL_TYPE1   &quot;rmap.metadata.Level.LevelType1&quot;</span>
+
+<span class="c1">#define REGISTER_METADATA_LEVEL_TYPE2   &quot;rmap.metadata.Level.LevelType2&quot;</span>
+
+<span class="c1">#define REGISTER_METADATA_TIME_P1       &quot;rmap.metadata.Timerange.P1&quot;</span>
+
+<span class="c1">#define REGISTER_METADATA_TIME_PIND     &quot;rmap.metadata.Timerange.Pindicator&quot;</span>
+
+<span class="c1">#define REGISTER_DATA_PUBLISH           &quot;rmap.publish&quot;</span>
+
+<span class="c1">#define REGISTER_DATA_SERVICE           &quot;rmap.service&quot;</span>
+
+<span class="c1">#define REGISTER_RMAP_MASTER_ID         &quot;rmap.master.id&quot;</span>
+</pre></div>
+</div>
+<p>Questi invece i semplici metodi della classe per accedere ai registri di
+sistema. Nel costruttore vengono passate le risorse necessarie alla
+classe per la gestione accesso alla memoria.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Costruttore</span>
+<span class="n">EERegister</span><span class="p">(</span><span class="n">TwoWire</span> <span class="o">*</span><span class="n">wire</span><span class="p">,</span> <span class="n">BinarySemaphore</span> <span class="o">*</span><span class="n">wireLock</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">i2c_address</span> <span class="o">=</span> <span class="n">EEPROM_AT24C64_DEFAULT_ADDRESS</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Inizializza</span> <span class="n">lo</span> <span class="n">spazio</span> <span class="n">RAM</span><span class="o">/</span><span class="n">ROM</span><span class="o">/</span><span class="n">FLASH</span><span class="o">/</span><span class="n">SD</span> <span class="n">dei</span> <span class="n">registri</span><span class="p">,</span> <span class="n">ai</span> <span class="n">valori</span> <span class="n">di</span> <span class="n">default</span>
+<span class="n">void</span> <span class="n">setup</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Legge</span> <span class="n">uno</span> <span class="n">specifico</span> <span class="n">registro</span>
+<span class="n">void</span> <span class="n">read</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">const</span> <span class="n">register_name</span><span class="p">,</span> <span class="n">uavcan_register_Value_1_0</span><span class="o">*</span> <span class="n">const</span> <span class="n">inout_value</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Scrive</span> <span class="n">uno</span> <span class="n">specifico</span> <span class="n">registro</span>
+<span class="n">void</span> <span class="n">write</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">const</span> <span class="n">register_name</span><span class="p">,</span> <span class="n">const</span> <span class="n">uavcan_register_Value_1_0</span><span class="o">*</span> <span class="n">const</span> <span class="n">value</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Recupera</span> <span class="n">il</span> <span class="n">nome</span> <span class="n">di</span> <span class="n">un</span> <span class="n">registro</span> <span class="n">dall</span><span class="s1">&#39; elenco dei disponibili</span>
+<span class="n">uavcan_register_Name_1_0</span> <span class="n">getNameByIndex</span><span class="p">(</span><span class="n">const</span> <span class="n">uint16_t</span> <span class="n">index</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Inizializza</span> <span class="n">i</span> <span class="n">registri</span> <span class="n">ai</span> <span class="n">valori</span> <span class="n">di</span> <span class="n">Reset</span>
+<span class="n">void</span> <span class="n">doFactoryReset</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="classe-rpc">
+<h3>Classe RPC<a class="headerlink" href="#classe-rpc" title="Link a questa intestazione">¶</a></h3>
+<p>Anche in questo caso ci troviamo di fronte ad una particolare classe
+scritta per mantenere omogeneità con l’ambiente di sviluppo.</p>
+<p>Questa classe è il tramite tra le RPC di sistema e la libreria Arduino
+JSON, per gestire le RPC remote che interagiscono con il sistema tramite
+comandi JSON.</p>
+<p>Ogni modulo che ne ha necessità avrà un’istanza della classe e al suo
+interno i vari metodi di gestione dei comandi JSON (in trasmissione e
+risposta) diventano operazioni trasparenti.</p>
+<p>La classe è utilizzata per esempio sui Task USB Serial (comandi locali
+da USB Seriale), CAN Bus (comandi locali su CAN BUS), http (comandi
+remoti da connessione http come il download della configurazione), MQTT
+(comandi remoti da connessione MQTT come ad esempio reboot, download
+firmware ecc..)</p>
+<p>Trovandoci all’interno di un sistema RTOS, la chiamata alla classe da
+parte di un TASK deve sapere come i vari comandi interagiscono tra loro.
+Se un particolare comando deve attendere risposta da un particolare task
+per avere la certezza dell’esecuzione dello stesso ma proviene da un
+diverso Task, il sistema deve poterlo gestire in sicurezza. Nel codice
+sotto è visibile l’attesa non bloccante del task che ripassa il
+controllo al sistema operativo ma attende comunque la conferma
+dell’esecuzione del comando dal task interessato.</p>
+<p>Prendiamo in esame ad. esempio un metodo JSON per l’inizializzazione
+remota della SD Card. Il task chiamante non è importante ma prima di
+dare risposta al task chiamante ci dobbiamo assicurare che il comando
+eseguito (in questo caso dal task SD Card) abbia terminato la sua
+esecuzione.</p>
+<p>Per effettuare il tutto in sicurezza, viene gestito lo switch dei
+contesti internamente e tramite le code di messaggi di sistema viste in
+precedenza si attiva la funzione e si attende la risposta. Al termine si
+può rientrare nel Task chiamante che può portare a termine le altre
+operazioni in corretta sequenza.</p>
+<p>Il programmatore deve essere a conoscenza del tempo necessario per la
+gestione di questa operazione e per non incorre all’intervento del
+WatchDog, dovrà mettere lo stato del task in sospensione e/o abilitarlo
+per un lasso di tempo minimo necessario all’esecuzione dell’operazione,
+come spiegato in precedenza.</p>
+<p>La classe, come quella register descritta in precedenza, è stata
+realizzata in conformità agli altri moduli Task per rendere omogeneo
+l’ambiente di sviluppo. La sua parametrizzazione segue lo stesso
+concetto utilizzato per i TASK, con una struttura locale a cui sono
+passate le istanze degli oggetti utilizzati (eeprom, semafori ecc…)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>else if (strcmp(it.key().c_str(), &quot;sdinit&quot;) == 0)
+
+{
+
+    error_command = false;
+
+    // RPC Command for reinit SD Card
+
+    if (it.value().as&lt;bool&gt;() == true)
+
+    {
+
+        // Starting queue request truncate structure data on SD Card (Remote request)
+
+        system_message_t system_message = {0};
+
+        system_message.task_dest = SD_TASK_ID;
+
+        system_message.command.do_trunc_sd = true;
+
+        system_message.param = CMD_PARAM_REQUIRE_RESPONSE;
+
+        param.systemMessageQueue-&gt;Enqueue(&amp;system_message);
+
+        // Waiting a response done before continue (reinit SD Data OK!!!)
+
+        while(true) {
+
+            // Continuos Switching context non blocking
+
+            // Need Waiting Task for start command on All used TASK
+
+            taskYIELD();
+
+            vTaskDelay(100);
+
+            // Check response done
+
+            if(!param.systemMessageQueue-&gt;IsEmpty()) {
+
+                param.systemMessageQueue-&gt;Peek(&amp;system_message);
+
+                if(system_message.command.done_trunc_sd) {
+
+                    // Remove message (Reinit Done is OK)
+
+                    param.systemMessageQueue-&gt;Dequeue(&amp;system_message);
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+        TRACE_INFO_F(F(&quot;RPC: DO INIT SD CARD DATA\r\n&quot;));
+
+    }
+
+}
+
+else if (strcmp(it.key().c_str(), &quot;reginit&quot;) == 0)
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="debug-e-log">
+<h3>Debug e LOG<a class="headerlink" href="#debug-e-log" title="Link a questa intestazione">¶</a></h3>
+<p>Per utilizzare le funzioni di Debug e LOG all’interno del file
+debug_config.h sono definiti i livelli di TRACE dei messaggi, cioè il
+livello per ogni TASK di LOG. Ogni livello attiva più o meno messaggi a
+seconda di come sono stati inseriti nell’applicativo. Di seguito un
+esempio di definzione.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define STIMA_TRACE_LEVEL               TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define ETHERNET_TASK_TRACE_LEVEL       TRACE_LEVEL_OFF</span>
+
+<span class="c1">#define MODEM_TASK_TRACE_LEVEL          TRACE_LEVEL_VERBOSE</span>
+
+<span class="c1">#define NTP_TASK_TRACE_LEVEL            TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define MQTT_TASK_TRACE_LEVEL           TRACE_LEVEL_VERBOSE</span>
+
+<span class="c1">#define HTTP_TASK_TRACE_LEVEL           TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define SUPERVISOR_TASK_TRACE_LEVEL     TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define CAN_TASK_TRACE_LEVEL            TRACE_LEVEL_VERBOSE</span>
+
+<span class="c1">#define SD_TASK_TRACE_LEVEL             TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define LCD_TASK_TRACE_LEVEL            TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define USBSERIAL_TASK_TRACE_LEVEL      TRACE_LEVEL_INFO</span>
+
+<span class="c1">#define WDT_TASK_TRACE_LEVEL            TRACE_LEVEL_OFF</span>
+
+<span class="c1">#define SIM7600_TRACE_LEVEL             TRACE_LEVEL_VERBOSE</span>
+</pre></div>
+</div>
+<p>I livelli possibili da debug.h</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Trace</span> <span class="n">level</span> <span class="n">definitions</span>
+
+<span class="c1">#define TRACE_LEVEL_OFF       0</span>
+
+<span class="c1">#define TRACE_LEVEL_FATAL     1</span>
+
+<span class="c1">#define TRACE_LEVEL_ERROR     2</span>
+
+<span class="c1">#define TRACE_LEVEL_WARNING   3</span>
+
+<span class="c1">#define TRACE_LEVEL_INFO      4</span>
+
+<span class="c1">#define TRACE_LEVEL_DEBUG     5</span>
+
+<span class="c1">#define TRACE_LEVEL_VERBOSE   6</span>
+</pre></div>
+</div>
+<p>NTP_TASK, come configurato sopra avrà per esempio solo i level INFO,
+quindi solo le stampe INFO o con indice minore potranno essere
+visualizzate.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TRACE_INFO_F</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;RPC: DO DOWNLOAD FIRMWARE</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Analogamente TRACE_LOG avrà la stessa funzionalità ma il messaggio non è
+inviato ad un TRACE Seriale per il monitor di sistema ma da una
+particolare coda (LOG) per il push dei messaggi su SD Card. Il livello
+trace e la modalità di utilizzo è identica tra i due metodi.</p>
+</div>
+<div class="section" id="connessione-modem-ntp-http-mqtt">
+<h3>Connessione Modem, ntp, http, mqtt<a class="headerlink" href="#connessione-modem-ntp-http-mqtt" title="Link a questa intestazione">¶</a></h3>
+<p>I task di gestione della connessione come specificato in precedenza sono
+gestiti dalle code di connessione. In particolare quando necessario
+l’avvio della comunicazione, sia esso per la temporizzazione di
+configurazione sia per una richiesta estemporanea per esempio da comando
+apposito tramite LCD, viene attivato il meccanismo di start dei task di
+comunicazione dal task supervisor.</p>
+<p>Il Task di supervisione parte leggendo la configurazione di sistema per
+poi inizializzare le variabili locali di interesse. A questo punto il
+task si mette in attesa delle operazioni sopradescritte in attesa
+dell’avvio della comunicazione.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Start</span> <span class="n">only</span> <span class="n">modulePower</span> <span class="n">Full</span> <span class="n">OK</span> <span class="p">(</span><span class="n">no</span> <span class="n">energy</span> <span class="n">rest</span><span class="p">)</span> <span class="n">Exit</span> <span class="n">on</span> <span class="n">Deep</span> <span class="n">Power</span> <span class="n">Save</span> <span class="ow">or</span> <span class="n">Critical</span> <span class="n">mode</span><span class="o">...</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">flags</span><span class="o">.</span><span class="n">power_state</span> <span class="o">&gt;=</span> <span class="n">Power_Mode</span><span class="p">::</span><span class="n">pwr_deep_save</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Sleep</span> <span class="n">continuos</span> <span class="n">TASK</span> <span class="k">if</span> <span class="n">notingh</span> <span class="n">to</span> <span class="n">do</span>
+
+    <span class="n">TaskWatchDog</span><span class="p">(</span><span class="n">SUPERVISOR_TASK_SLEEP_DELAY_MS</span><span class="p">);</span>
+
+    <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">sleepy</span><span class="p">);</span>
+
+    <span class="n">Delay</span><span class="p">(</span><span class="n">Ticks</span><span class="p">::</span><span class="n">MsToTicks</span><span class="p">(</span><span class="n">SUPERVISOR_TASK_DEEP_POWER_DELAY_MS</span><span class="p">));</span>
+
+    <span class="k">break</span><span class="p">;</span>
+
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+    <span class="o">//</span> <span class="n">Standard</span> <span class="n">Waiting</span> <span class="n">Sleeping</span> <span class="n">mode</span>
+
+    <span class="n">TaskWatchDog</span><span class="p">(</span><span class="n">SUPERVISOR_TASK_SLEEP_DELAY_MS</span><span class="p">);</span>
+
+    <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">sleepy</span><span class="p">);</span>
+
+    <span class="n">Delay</span><span class="p">(</span><span class="n">Ticks</span><span class="p">::</span><span class="n">MsToTicks</span><span class="p">(</span><span class="n">SUPERVISOR_TASK_SLEEP_DELAY_MS</span><span class="p">));</span>
+
+    <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">normal</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In una prima fase, cosi come generalmente prevista nei vari task a
+seconda dell’operatività del TASK si provvede a determinare il tempo di
+funzionamento nel contesto. Questo rende possibile al modulo l’entrata
+in basso consumo se e quando tutti i task non hanno attività da
+effettuare.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// START REQUEST function LIST...
+
+param.systemStatusLock-&gt;Take();
+
+param.system_status-&gt;connection.is_ntp_synchronized = !param.system_status-&gt;command.do_ntp_synchronization;
+
+param.system_status-&gt;connection.is_http_configuration_updated = !param.system_status-&gt;command.do_http_configuration_update;
+
+param.system_status-&gt;connection.is_http_firmware_upgraded = !param.system_status-&gt;command.do_http_firmware_download;
+</pre></div>
+</div>
+<p>Per avviare una comunicazione, vengono specificati le operazioni da
+effettuare (automatiche e/o manuali) tramite le parametrizzazioni dei
+flag do_mqtt, do_ntp, do_http_configuration ecc..</p>
+<p>Questi flag se abilitati informano il task della necessità di avviare
+quel tipo di connessione (e quindi di quello specifico TASK). Si passa
+adesso alla gestione dello stato di connessione.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// SUB Case of sequence of check (connection / operation) state
+
+switch(state_check_connection) {
+
+    case CONNECTION_INIT: // STARTING CONNECTION
+
+        TRACE_VERBOSE_F(F(&quot;SUPERVISOR_STATE_CONNECTION_OPERATION -&gt; SUPERVISOR_STATE_REQUEST_CONNECTION\r\n&quot;));
+
+        state = SUPERVISOR_STATE_REQUEST_CONNECTION;
+
+        state_check_connection = CONNECTION_CHECK;
+
+        break;
+
+    case CONNECTION_CHECK: // CONNECTION VERIFY
+
+        if (!param.system_status-&gt;connection.is_connected) // Ready Connected ?
+
+        {
+
+            TRACE_VERBOSE_F(F(&quot;SUPERVISOR: Connection not ready\r\n&quot;));
+
+            TRACE_VERBOSE_F(F(&quot;SUPERVISOR_STATE_CONNECTION_OPERATION -&gt; SUPERVISOR_STATE_END\r\n&quot;));
+
+            // Exit from the switch (no more action)
+
+            state = SUPERVISOR_STATE_END;
+
+            break;
+
+        }
+
+        // Prepare next state controller
+
+        state_check_connection = CONNECTION_CHECK_NTP;
+
+        break;
+</pre></div>
+</div>
+<p>A seconda dello stato di connessione si effettuano le operazioni
+programmate. Si avvia inizialmente la connessione CONNECTION_INIT e
+successivamente a connessione correttamente stabilita si procede con
+l’operazione ad esempio di sincronizzazione NTP. In sequenza vengono
+effettuate NTP, http e MQTT. NTP è automatico alla prima connessione e
+successivamente viene richiamata 1 volta al giorno. http è su richiesta,
+normalmente e bypassata ma su richiesta di una RPC locale o remota viene
+inserita la richiesta per il controllo/download firmware e/o
+configurazione. MQTT è praticamente sempre presente perché almeno lo
+stato delle stazioni, anche in assenza di dati, viene trasmesso al
+server remoto.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>case SUPERVISOR_STATE_CHECK_CONNECTION:
+
+    // wait connection
+
+    // Suspend TASK Controller for queue waiting portMAX_DELAY
+
+    TaskState(state, UNUSED_SUB_POSITION, task_flag::suspended);
+
+    if (param.connectionResponseQueue-&gt;Peek(&amp;connection_response, portMAX_DELAY))
+
+    {
+
+        TaskState(state, UNUSED_SUB_POSITION, task_flag::normal);
+
+        // ok connected
+
+        if (connection_response.done_connected)
+
+        {
+
+            param.connectionResponseQueue-&gt;Dequeue(&amp;connection_response);
+
+            param.systemStatusLock-&gt;Take();
+
+            param.system_status-&gt;connection.is_connected = true;
+
+            param.system_status-&gt;connection.is_connecting = false;
+
+            param.system_status-&gt;connection.is_disconnecting = false;
+
+            param.system_status-&gt;connection.is_disconnected = false;
+
+            param.systemStatusLock-&gt;Give();
+
+            TRACE_INFO_F(F(&quot;%s Connection [ %s ]\r\n&quot;), Thread::GetName().c_str(), OK_STRING);
+
+            TRACE_VERBOSE_F(F(&quot;SUPERVISOR_STATE_CHECK_CONNECTION -&gt; STATE_CONNECTION_OPERATION\r\n&quot;));
+
+            state = SUPERVISOR_STATE_CONNECTION_OPERATION;
+
+        }
+
+        // Error connection?
+
+        else if (connection_response.error_connected) {
+
+            retry++; // Add error retry
+
+            param.connectionResponseQueue-&gt;Dequeue(&amp;connection_response);
+
+            param.systemStatusLock-&gt;Take();
+</pre></div>
+</div>
+<p>Questa la fase di avvio connessione tramite coda e attesa risposta sul
+supervisor in sospensione del task. Una volta che il task avviato (modem
+in questo caso) avrà effettuato o meno la connessione, risponderà al
+supervisore informandolo della riuscita o meno dell’operazione. Se la
+connessione è andata a buon fine con lo stesso meccanismo verranno
+innescati in sequenza e con le stesse identiche modalità i vari task di
+rete necessari, ntp, http, mqtt. Al termine verrà inviato analogo
+comando per il processo di disconnessione (questo solo per il task
+modem) in modo da riposizionarci ad inizio in attesa di nuovo avvio
+comunicazione.</p>
+<p>Per la gestione della comunicazione fisica, ci si appoggia alla classe
+sim7600 che gestisce ad alto livello le funzionalità del modulo SIM7600E
+utilizzato nel progetto. La classe comprende tutti i metodi per la
+gestione completa del modulo, a partire dall’alimentazione del
+dispositivo passando dalla gestione dei dispositivi HW per la
+comunicazione, tutti i comandi AT fino alla creazione di una connessione
+PPP che viene passata al contesto CycloneTCP per i successivi task di
+comunicazione. Nell’istanza della classe vengono passati i pin
+utilizzati per l’accesso HW al modulo e le velocita di Baud RATE (di
+avvio e di operatività). Il modulo infatti si avvia ad una velocità
+della porta RS232 per poi passare ad un rate superiore che consente
+l’utilizzo a pieno delle velocità offerte dai nuovi standard 4G. Il
+tutto, gestione della porta RS232 e dei temporizzatori e clock sorgenti
+necessari è come sempre del tutto trasparente al programma principale.</p>
+</div>
+<div class="section" id="task-ntp-http-mqtt">
+<h3>Task NTP HTTP MQTT<a class="headerlink" href="#task-ntp-http-mqtt" title="Link a questa intestazione">¶</a></h3>
+<p>Prendiamo in esmpio un task tra quelli di comunicazione (NTP),
+ricordando che tutti i task di questo ambito agiscono nello stesso modo,
+ovviamente differenziandosi nei relativi metodi per la tipologia di
+connessione da effettuare. Per quanto riguarda metodi e relative
+configurazioni fare riferimento a <a class="reference external" href="https://www.oryx-embedded.com/doc/">https://www.oryx-embedded.com/doc/</a>
+dove l’ampia documentazione e guida permetterà di approfondire le
+istruzioni e metodologie utilizzabili.</p>
+<p>Come descritto precedentemente, nel progetto StimaV4, viene stabilita
+una connessione PPP trasparente, tramite libreria Cyclone parzialmente
+adattata al funzionamento sull’architettura STM32 con modem e relativi
+comandi per SIM7600E SimCom. Una volta stabilità la connessione il tutto
+diventa trasparente, la variabile yarrowContext del main contiene una
+struttura dati accessibile ai moduli Cyclone e rendono disponibili tutte
+le funzionalità della libreria, come ad. Es. http, Udp, Smpt ecc…</p>
+<p>All’interno della directory delle librerie sono inserite le varie
+funzionalità di CycloneTCP utilizzabili.</p>
+<p>Tornando alla gestione dei comandi sul Task di StimaV4 (NTP), la
+struttura che andiamo ad analizzare</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span> <span class="n">NTP_STATE_INIT</span><span class="p">:</span>
+
+    <span class="n">TRACE_VERBOSE_F</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;NTP_STATE_INIT -&gt; NTP_STATE_WAIT_NET_EVENT</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">));</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="n">NTP_STATE_WAIT_NET_EVENT</span><span class="p">;</span>
+
+    <span class="k">break</span><span class="p">;</span>
+
+<span class="n">case</span> <span class="n">NTP_STATE_WAIT_NET_EVENT</span><span class="p">:</span>
+
+    <span class="n">is_error</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+
+    <span class="n">retry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">wait</span> <span class="n">connection</span> <span class="n">request</span>
+
+    <span class="o">//</span> <span class="n">Suspend</span> <span class="n">TASK</span> <span class="n">Controller</span> <span class="k">for</span> <span class="n">queue</span> <span class="n">waiting</span> <span class="n">portMAX_DELAY</span>
+
+    <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">suspended</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">connectionRequestQueue</span><span class="o">-&gt;</span><span class="n">Peek</span><span class="p">(</span><span class="o">&amp;</span><span class="n">connection_request</span><span class="p">,</span> <span class="n">portMAX_DELAY</span><span class="p">))</span>
+
+    <span class="p">{</span>
+
+        <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">normal</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="n">do</span> <span class="n">ntp</span> <span class="n">sync</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">connection_request</span><span class="o">.</span><span class="n">do_ntp_sync</span><span class="p">)</span>
+
+        <span class="p">{</span>
+
+            <span class="n">param</span><span class="o">.</span><span class="n">connectionRequestQueue</span><span class="o">-&gt;</span><span class="n">Dequeue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">connection_request</span><span class="p">);</span>
+
+            <span class="n">TRACE_VERBOSE_F</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;NTP_STATE_WAIT_NET_EVENT -&gt; NTP_STATE_DO_NTP_SYNC</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">));</span>
+
+            <span class="n">state</span> <span class="o">=</span> <span class="n">NTP_STATE_DO_NTP_SYNC</span><span class="p">;</span>
+
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="k">break</span><span class="p">;</span>
+
+<span class="n">case</span> <span class="n">NTP_STATE_DO_NTP_SYNC</span><span class="p">:</span>
+
+    <span class="n">sntpClientInit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sntpClientContext</span><span class="p">);</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">systemStatusLock</span><span class="o">-&gt;</span><span class="n">Take</span><span class="p">();</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">system_status</span><span class="o">-&gt;</span><span class="n">connection</span><span class="o">.</span><span class="n">is_ntp_synchronizing</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+    <span class="n">param</span><span class="o">.</span><span class="n">systemStatusLock</span><span class="o">-&gt;</span><span class="n">Give</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Successivamente alla fase di init, si entra in uno stato dormiente del
+Task, in attesa del risveglio (comando del supervisor). Se richiesta una
+sincronizzazione, viene avviato il relativo processo (is_syncronizing)
+che terminerà dopo la corretta esecuzione di tutte le istruzioni
+necessarie</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    // Retrieve current time from NTP server
+
+    TaskWatchDog(SNTP_CLIENT_TIMEOUT_MS);
+
+    error = sntpClientGetTimestamp(&amp;sntpClientContext, &amp;timestamp);
+
+    // Check status code
+
+    if (!error)
+
+    {
+
+        // Unix time starts on January 1st, 1970
+
+        unixTime = timestamp.seconds - NTP_UNIX_EPOCH;
+
+        // Convert Unix timestamp to date
+
+        convertUnixTimeToDate(unixTime, &amp;date);
+
+
+        // Set DateTime RTC With Semaphore Locked access
+
+        if(param.rtcLock-&gt;Take()) {
+
+            rtc.setEpoch((uint32_t) unixTime);
+
+            param.rtcLock-&gt;Give();
+
+        }
+
+        state = NTP_STATE_END;
+
+        TRACE_VERBOSE_F(F(&quot;NTP_STATE_DO_NTP_SYNC -&gt; NTP_STATE_END\r\n&quot;));
+
+    }
+
+    else if (error == ERROR_REQUEST_REJECTED)
+
+    {
+
+        // Retrieve kiss code
+
+      ...
+
+case NTP_STATE_END:
+
+    // ok
+
+    if (!is_error)
+
+    {
+
+        param.systemStatusLock-&gt;Take();
+
+        param.system_status-&gt;connection.is_ntp_synchronizing = false;
+
+        param.system_status-&gt;connection.is_ntp_synchronized = true;
+
+        param.system_status-&gt;flags.ntp_error = false;
+
+        param.systemStatusLock-&gt;Give();
+
+        sntpClientDeinit(&amp;sntpClientContext);
+
+        memset(&amp;connection_response, 0, sizeof(connection_response_t));
+
+        connection_response.done_ntp_synchronized = true;
+
+        param.connectionResponseQueue-&gt;Enqueue(&amp;connection_response);
+
+        state = NTP_STATE_INIT;
+
+        TRACE_VERBOSE_F(F(&quot;NTP_STATE_END -&gt; NTP_STATE_INIT\r\n&quot;));
+
+    }
+</pre></div>
+</div>
+<p>Il codice sopra è il termine corretto della sequenza comandi (con
+impostazione data e ora e gestione del relativo semaforo di accesso),
+infine viene inviata la risposta al task di supervisione dello stato
+effettuato o meno del comando per le successive elaborazioni. Al termine
+dell’invio della risposta il task ritorna dormiente in attesa di nuovo
+avvio.</p>
+<p>La stessa struttura di avvio, comando e sospensione è applicata agli
+altri task http e mqtt.</p>
+<p>I task MQTT e http, più complessi rispetto al task NTP, hanno al loro
+interno le funzionalità di lettura e scrittura dati sulle code previste
+verso il task SD (lettura dati e pubblicazione per MQTT), (scrittura
+dati firmware http) e condividono l’accesso alle RPC, con la specifica
+classe vista in precedenza per configurazione e comandi tramite comandi
+JSON.</p>
+<p>Analizzando per esempio http ci troviamo di fronte alla solita attesa
+dell’avvio del task tramite coda, successivamente a seconda della
+tipologia di comando richiesta (se soddisfatte le varie condizioni), si
+passa allo stato di invio richiesta remota per le connessioni da
+effettuare (firmware, configurazione) possibili. Altre eventuali
+richieste potrebbero essere facilmente inserite in questo contesto.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>case HTTP_STATE_WAIT_NET_EVENT:
+
+    is_get_configuration = false;
+
+    is_get_firmware = false;
+
+    is_error = false;
+
+    retry = 0;
+
+    // wait connection request
+
+    // Suspend TASK Controller for queue waiting portMAX_DELAY
+
+    TaskState(state, UNUSED_SUB_POSITION, task_flag::suspended);
+
+    if (param.connectionRequestQueue-&gt;Peek(&amp;connection_request, portMAX_DELAY))
+
+    {
+
+        TaskState(state, UNUSED_SUB_POSITION, task_flag::normal);
+
+        HttpServer = param.configuration-&gt;mqtt_server;
+
+        // do http get configuration (prioritary)
+
+        if (connection_request.do_http_get_configuration)
+
+        {
+
+            is_get_configuration = true;
+
+            param.connectionRequestQueue-&gt;Dequeue(&amp;connection_request);
+
+            state = HTTP_STATE_SEND_REQUEST;
+
+            TRACE_VERBOSE_F(F(&quot;HTTP_STATE_WAIT_NET_EVENT -&gt; HTTP_STATE_SEND_REQUEST (get configuration)\r\n&quot;));
+
+        }
+
+        // do http get firmware
+
+        else if (connection_request.do_http_get_firmware)
+
+        {
+
+            // SD have to GET Ready before Push DATA (Firmware download?! Exit immediatly)
+
+            // EXIT from function if not SD Ready or present into system_status
+
+            if(!param.system_status-&gt;flags.sd_card_ready) {
+
+                TRACE_VERBOSE_F(F(&quot;HTTP: Reject request upload file (Firmware) SD was not ready [ %s ]\r\n&quot;), ERROR_STRING);
+
+                state = HTTP_STATE_END;
+
+            } else {
+
+                is_get_firmware = true;
+
+                module_download = 0xFF; // Starting from Master
+
+                param.connectionRequestQueue-&gt;Dequeue(&amp;connection_request);
+
+                state = HTTP_STATE_SEND_REQUEST;
+
+                TRACE_VERBOSE_F(F(&quot;HTTP_STATE_WAIT_NET_EVENT -&gt; HTTP_STATE_SEND_REQUEST (get firmware)\r\n&quot;));
+
+            }
+
+        }
+
+    }
+
+    break;
+</pre></div>
+</div>
+<p>L’organizzazione a stati, così come proposta, contribuisce alla
+manutenibilità del software, differenziando in modo semplice le varie
+fasi di attività/connessione e le tempistiche di delay dei vari
+contesti, tra operazioni semplici e quelle più complesse, che richiedono
+al task maggiori tempi di funzionamento.</p>
+<p>Dopo la fase di composizione della richiesta (http_state_send_request)
+con tutte le gestioni interne ed eventuali anomalie, si entra
+nell’interprete (http_state_get_response) dove le risposte ottenute dal
+server vengono analizzate e processate</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (is_get_configuration)
+
+{
+
+    is_event_rpc = true;
+
+    param.streamRpc-&gt;init();
+
+    error = httpClientReadBody(&amp;httpClientContext, http_buffer, sizeof(http_buffer) - 1, &amp;http_buffer_length, SOCKET_FLAG_BREAK_CRLF);
+
+    #if (ENABLE_STACK_USAGE)
+
+    TaskMonitorStack();
+
+    #endif
+
+    if (!error)
+
+    {
+
+        // Security Remove flag config wait... Start success download
+
+        if(param.system_status-&gt;flags.http_wait_cfg) {
+
+            param.systemStatusLock-&gt;Take();
+
+            param.system_status-&gt;flags.http_wait_cfg = false;
+
+            param.systemStatusLock-&gt;Give();
+
+        }
+
+        http_buffer[http_buffer_length] = &#39;\0&#39;;
+
+        TRACE_INFO_F(F(&quot;%s&quot;), http_buffer);
+
+    }
+
+    // Put RPC for configuration mode
+
+    if (param.rpcLock-&gt;Take(Ticks::MsToTicks(RPC_WAIT_DELAY_MS)))
+
+    {
+
+        while (is_event_rpc)
+
+        {
+
+            #if (ENABLE_STACK_USAGE)
+
+            TaskMonitorStack();
+
+            #endif
+
+            // Security lock task_flag for External Local TASK RPC (Need for risk of WDT Reset)
+
+            param.system_status-&gt;tasks[LOCAL_TASK_ID].state = task_flag::suspended;
+
+            param.streamRpc-&gt;parseCharpointer(&amp;is_event_rpc, (char )http_buffer, http_buffer_length, NULL, 0, RPC_TYPE_HTTPS);
+
+            param.system_status-&gt;tasks[LOCAL_TASK_ID].state = task_flag::normal;
+
+            param.system_status-&gt;tasks[LOCAL_TASK_ID].watch_dog = wdt_flag::set;
+
+        }
+
+        param.rpcLock-&gt;Give();
+
+    }
+
+    // Delay for command accept...
+
+    TaskWatchDog(HTTP_TASK_RPC_WAIT_DELAY_MS);
+
+    Delay(Ticks::MsToTicks(HTTP_TASK_RPC_WAIT_DELAY_MS));
+
+}
+</pre></div>
+</div>
+<p>Per esempio, durante la fase di ricezione della configurazione (più
+genericamente definibile in ricezione RPC tramite http) si hanno la
+lettura del corpo messaggio http letto (le linee di comando RPC), il
+passaggio tramite accesso semaforico alla classe di gestione delle RPC,
+e la loro esecuzione con sospensione momentanea del controllo sul task
+locale per operazioni che potrebbero essere di lunga durata.</p>
+<p>Nel caso dell’aggiornamento firmware il blocco dati letto, viene inviato
+ad una funzione specifica do_firmware_add_block invece che alla gestione
+RPC, che si occupa del passaggio dei dati verso la memoria SD con il
+sistema prescelto (Code). Si noti che la coda di attesa risposta blocca
+il processo per un lasso di tempo FILE_IO_DATA_QUEUE_TIMEOUT, che
+impedisce al sistema il blocco del programma sulla risposta per evitare
+WatchDog o altre situazioni anomale, ma consente la verifica del
+corretto scambio di dati. Questa modalità utilizzata in tutto il
+progetto deve essere opportunamente programmata per essere compatibile
+con i tempi generali di WatchDog ed eventuali tempi di sospensione.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bool HttpTask::do_firmware_add_block(uint8_t block_addr, uint16_t block_len) {
+
+    bool file_upload_error = false;
+
+    // SD have to GET Ready before Push DATA
+
+    // EXIT from function if not SD Ready or present into system_status
+
+    if(!param.system_status-&gt;flags.sd_card_ready) {
+
+        TRACE_VERBOSE_F(F(&quot;HTTP: Reject request upload file (Firmware) SD was not ready [ %s ]\r\n&quot;), ERROR_STRING);
+
+        return true;
+
+    }
+
+    // Add Data Chunck...
+
+    // Next block is data_chunk + Lenght to SET (in this all 512 bytes)
+
+    firmwareDownloadChunck.block_type = file_block_type::data_chunck;
+
+    memcpy((char)firmwareDownloadChunck.block, (char)block_addr, block_len);
+
+    firmwareDownloadChunck.block_lenght = block_len;
+
+    // Push data request to queue SD
+
+    param.dataFilePutRequestQueue-&gt;Enqueue(&amp;firmwareDownloadChunck);
+
+    // Waiting response from SD with TimeOUT
+
+    memset(&amp;sdcard_task_response, 0, sizeof(file_put_response_t));
+
+    TaskWatchDog(FILE_IO_DATA_QUEUE_TIMEOUT);
+
+    file_upload_error = !param.dataFilePutResponseQueue-&gt;Dequeue(&amp;sdcard_task_response, FILE_IO_DATA_QUEUE_TIMEOUT);
+
+    file_upload_error |= !sdcard_task_response.done_operation;
+
+    return(file_upload_error);
+
+}
+</pre></div>
+</div>
+<p>Per quanto riguarda Mqtt, analogamente agli altri task di connessione si
+hanno in sequenza gli stati di inizializzazione mqtt, connessione al
+server, pubblicazione degli stati dei flag, pubblicazione dei dati
+disconnessione.</p>
+<p>Per quanto riguarda la pubblicazione dei dati, questi vengono letti dai
+moduli remoti nel formato nativo del messaggio Cyphal trasmesso e
+salvati direttamente su SD dal task CanBus tramite l’apposita coda.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">RMAP</span> <span class="n">Casting</span> <span class="n">value</span> <span class="n">to</span> <span class="n">Uavcan</span> <span class="n">Structure</span>
+
+<span class="n">rmap_service_module_TH_Response_1_0</span> <span class="n">rmapDataTH</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>L’apposito casting in lettura della coda permette di avere la struttura
+completa, come definita nei file header RMAP dsdl di Cyphal, completo di
+dati e metadati sensore nel task mqtt, per le elaborazioni locali. Sotto
+la gestione di un tipo dati radiation in esempio per la radiazione
+solare. Tutti i moduli hanno una propria struttura con flags e misure
+differenti ma il concetto di funzionamento è univoco in tutti i moduli.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>case Module_Type::radiation:
+
+    rmapDataRadiation = (rmap_service_module_Radiation_Response_1_0 ) rmap_get_response.rmap_data.block;
+
+    #if (ENABLE_STACK_USAGE)
+
+    TaskMonitorStack();
+
+    #endif
+
+    // check if the sensor was configured or not
+
+    for (uint8_t slaveId = 0; slaveId &lt; BOARDS_COUNT_MAX; slaveId++)
+
+    {
+
+        if (param.configuration-&gt;board_slave[slaveId].module_type == Module_Type::radiation)
+
+        {
+
+            if (!error &amp;&amp; param.configuration-&gt;board_slave[slaveId].is_configured[SENSOR_METADATA_DSA])
+
+            {
+
+                error = publishSensorRadiation(&amp;mqttClientContext, qos, rmapDataRadiation-&gt;DSA......
+
+            }
+
+            if (error) { ... }
+</pre></div>
+</div>
+<p>La funzione publishSensor_(name_sensor) si occupa fisicamente di
+preparare il messaggio nel formato RMAP e di postare il valore al server
+remoto, verificandone corretta esecuzione o eventuali errori di
+pubblicazione che sono gestiti nello stato principale della
+pubblicazione dei record Mqtt.</p>
+</div>
+<div class="section" id="classe-canard">
+<h3>Classe Canard<a class="headerlink" href="#classe-canard" title="Link a questa intestazione">¶</a></h3>
+<p>La classe canard, presente in ogni modulo (master e slave), contiene al
+suo interno le funzionalità di gestione della libreria Canard, da quelle
+più a “basso livello” (gestione memoria e frame di comunicazione) nei
+metodi privati, a quella dei singoli comandi di “alto livello” nei
+metodi pubblici.</p>
+<p>Lo scopo della classe è di rendere più semplice l’accesso alle
+funzionalità della comunicazione Cyphal su CanBus senza doversi occupare
+delle inizializzazioni software dei moduli specifici bxCan, interrupt di
+sistema, O1Heap per la gestione della memoria della libreria. Nel task
+Can si accede a questa specifica classe e con qualche semplice chiamata
+si hanno a disposizione tutti i comandi di gestione della connessione
+Cyphal.</p>
+<p>Internamente alla classe sono stati inseriti ulteriori metodi tramite
+flag di verifica per l’invio di specifici messaggi e il monitoraggio
+delle tempistiche di risposta (OK, in corso, timeOut) gestibili dal
+programma principale (in questo caso dal Task CAN). Ogni comando di ogni
+funzionalità prevista (trasmissione file, sincronizzazione data ora,
+acesso ai registri ecc…) oltre agli specifici parametri della
+particolare richiesta hanno i relativi metodi pending e timeout per
+determinare lo stato e la disponibilità di una funzionalità.</p>
+<p>A differenza della classe master che contiene tutti i name space delle
+tipologie di sensori/dsdl definite per RMAP, le singole classi slave
+avranno solamente le relative classi per il singolo modulo.</p>
+<p>La classe ha inoltre al suo interno alcuni tipi definiti per la gestione
+degli stati dei moduli. Di particolare interesse il VSC, Vendor Status
+Code, definito da Cyphal come utilizzo privato nella comunicazione del
+metodo Heartbeat. Questo codice di stato, è utilizzato in StimaV4 anche
+per la comunicazione tra i moduli dell’attivazione o meno dello sleep
+per il basso consumo. Quando il master richiede il full power ai moduli
+remoti attiva il relativo flag che comunica agli slave l’impossibilità
+di entrare in power down (es. quando viene aggiornato il firmware),
+viceversa il flag remoto conferma che un modulo è in basso consumo e non
+potrà interagire in comunicazione con comandi diretti. Se necessario
+trasmettere un comando diretto, lo slave dovrà prima essere risvegliato
+e alla conferma del flag rimosso potrà essere inviato il comando.</p>
+<p>Al termine di tutto, se non necessaria una comunicazione particolare o
+privilegiata, il master comunicherà agli slave di rientrare in power
+down.</p>
+<p>Questi messaggi di stato, tramite il flag VSC, vengono inviati nel
+messaggio heartbeat di Cyphal, che come specificato dal protocollo dovrà
+essere inviato entro due secondi prima di considerare un modulo OffLine.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Namespace</span> <span class="n">RMAP</span>
+
+<span class="c1">#include &lt;rmap/_module/TH_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/service/_module/TH_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/_module/Rain_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/service/_module/Rain_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/_module/Power_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/service/_module/Power_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/_module/Radiation_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/service/_module/Radiation_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/_module/VWC_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/service/_module/VWC_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/_module/Wind_1_0.h&gt;</span>
+
+<span class="c1">#include &lt;rmap/service/_module/Wind_1_0.h&gt;</span>
+</pre></div>
+</div>
+<p>Le definizioni dei tipi se di carattere globale sono sempre posti
+all’interno di local_typedef.h, altrimenti sono presenti nella
+definizione dell’ header del task o dellla relativa classe o modulo.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Power</span> <span class="n">mode</span> <span class="p">(</span><span class="n">Canard</span> <span class="ow">and</span> <span class="n">general</span> <span class="n">Node</span><span class="p">)</span>
+
+<span class="n">enum</span> <span class="n">Power_Mode</span> <span class="p">:</span> <span class="n">uint8_t</span> <span class="p">{</span>
+
+    <span class="n">pwr_on</span><span class="p">,</span>        <span class="o">//</span> <span class="n">Never</span> <span class="p">(</span><span class="n">All</span> <span class="n">ON</span><span class="p">,</span> <span class="n">test</span> <span class="n">o</span> <span class="n">gestione</span> <span class="n">locale</span><span class="p">)</span>
+
+    <span class="n">pwr_nominal</span><span class="p">,</span>   <span class="o">//</span> <span class="n">Every</span> <span class="n">Second</span> <span class="p">(</span><span class="n">Nominale</span> <span class="n">base</span><span class="p">)</span>
+
+    <span class="n">pwr_deep_save</span><span class="p">,</span> <span class="o">//</span> <span class="n">Deep</span> <span class="n">mode</span> <span class="p">(</span><span class="n">Very</span> <span class="n">Low</span> <span class="n">Power</span><span class="p">)</span>
+
+    <span class="n">pwr_critical</span>   <span class="o">//</span> <span class="n">Deep</span> <span class="n">mode</span> <span class="p">(</span><span class="n">Power</span> <span class="n">Critical</span><span class="p">,</span> <span class="n">Save</span> <span class="n">data</span><span class="p">,</span> <span class="n">Power</span><span class="o">-&gt;</span><span class="n">Off</span><span class="p">)</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="moduli-slave">
+<h3>Moduli SLAVE<a class="headerlink" href="#moduli-slave" title="Link a questa intestazione">¶</a></h3>
+<p>Come già detto in precedenza, i moduli slave si differenziano dal master
+perché sono l’interfaccia verso il sensore e verso il master. I concetti
+espressi in precedenza riguardanti l’architettura software utilizzata
+rimangono gli stessi del Master, vedi FreeRTOS, LPTim, sleep,
+comunicazioni Task, code, semafori, ecc…</p>
+<p>La parte di interfacciamento verso il sensore ha ovviamente un task
+specifico differente tra i vari moduli (rain, th, mppt, wind ecc.) che
+fisicamente si occupa di acquisire i valori real time dal sensore in
+campo e rendere questo dato disponibile al task che effettua le
+elaborazioni.</p>
+<p>I dati acquisiti sono poi inseriti in un buffer circolare che è letto
+dal task delle elaborazioni per calcolare le elaborazioni specifiche del
+sensore. Anche il task elaborazione è in parte differente tra i moduli
+per consentire il calcolo di elaborazioni specifiche come ad.es quelle
+relative al vento velocità e direzione, ma il concetto di buffer valori,
+code di richiesta valore istantaneo, di inserimento è richiesta dati è
+identico tra tutti gli slave. Identico rimane inolte il task CAN che
+pubblica le sue info e attende dal master i vari comandi per interagire
+con le elaborazioni su comandi del master.</p>
+<p>Anche in questo caso abbiamo il concetto di configurazione locale del
+modulo (tramite i registri Cyphal e le classi già approfondite) che
+contiene le informazioni rispetto al modulo utilizzato e ai parametri di
+gestione che viene caricato e reso disponibile all’intero modulo tramite
+configuration. SystemStatus si occupa sempre dello stato del sistema
+“modulo”.</p>
+<p>Per aggiungere un modulo slave al sistema, bisognerà partendo da un
+modulo esistente, preoccuparsi di sviluppare la parte di acquisizione
+del sensore</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#if ((MODULE_TYPE == STIMA_MODULE_TYPE_THR) || (MODULE_TYPE == STIMA_MODULE_TYPE_TH))</span>
+
+     <span class="n">static</span> <span class="n">TemperatureHumidtySensorTask</span> <span class="n">th_sensor_task</span><span class="p">(</span><span class="s2">&quot;THTask&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">OS_TASK_PRIORITY_03</span><span class="p">,</span> <span class="n">thSensorParam</span><span class="p">);</span>
+
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>Creando ed aggiungendo nel file di configurazione config.h il nuovo
+modulo e tutte le sue definizioni poi abilitandolo al posto di quello di
+Temperatura in questo caso.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#if (MODULE_TYPE == STIMA_MODULE_NUOVO)</span>
+
+     <span class="n">static</span> <span class="n">ModuloNuovoSensorTask</span> <span class="n">th_sensor_task</span><span class="p">(</span><span class="s2">&quot;ModuloNuovoTask&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">SIZE_TASK</span><span class="p">),</span> <span class="n">OS_TASK_PRIORITY_03</span><span class="p">,</span> <span class="n">NewParam</span><span class="p">);</span>
+
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>“Modulo nuovo” dovrà preoccuparsi di adattare le funzionalità gestionale
+come ad esempio le funzioni PowerOn e PowerOff per spegnere il sensore
+ed entrare in basso consumo se possibile per quella tipologia di
+sensore, passare i parametri corretti al task di gestione agendo sulla
+struttura locale moduloConfigParam adattata alle esigenze (vedi sotto),
+passare i semafori e i dispositivi hw necessari. Nel caso del sensore TH
+oltre a confiurazione e stato di sistema, TwoWire chè è l’accesso a I2C
+e i relativi semafori di utilizzo della risorsa.</p>
+<p>Successivamente è necessario aggiornare gli stati possibili di
+funzionamento per creare le varie fasi di attività del task (nel caso in
+esame il sensore TH con interfacciamento SensorDriver prevede la fase di
+CreazioneTask, attesa della configurazione disponibile, inizializzazione
+dispositivi, setup sensori, prepare e read specifici di SensorDriver,
+End ed eventuali stati di errore e loro risoluzione) con quelli
+necessari.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">namespace</span> <span class="n">cpp_freertos</span><span class="p">;</span>
+
+
+<span class="o">//</span> <span class="n">Parametri</span> <span class="k">del</span> <span class="n">task</span>
+
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+
+     <span class="n">configuration_t</span> <span class="n">configuration</span><span class="p">;</span>
+
+     <span class="n">system_status_t</span> <span class="n">system_status</span><span class="p">;</span>
+
+     <span class="n">TwoWire</span> <span class="n">wire</span><span class="p">;</span>
+
+     <span class="n">cpp_freertos</span><span class="p">::</span><span class="n">BinarySemaphore</span> <span class="n">wireLock</span><span class="p">;</span>
+
+     <span class="n">cpp_freertos</span><span class="p">::</span><span class="n">BinarySemaphore</span> <span class="n">configurationLock</span><span class="p">;</span>
+
+     <span class="n">cpp_freertos</span><span class="p">::</span><span class="n">BinarySemaphore</span> <span class="n">systemStatusLock</span><span class="p">;</span>
+
+     <span class="n">cpp_freertos</span><span class="p">::</span><span class="n">Queue</span> <span class="n">systemMessageQueue</span><span class="p">;</span>
+
+     <span class="n">cpp_freertos</span><span class="p">::</span><span class="n">Queue</span> <span class="n">elaborateDataQueue</span><span class="p">;</span>
+
+<span class="p">}</span> <span class="n">TemperatureHumidtySensorParam_t</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TemperatureHumidtySensorTask</span> <span class="p">:</span> <span class="n">public</span> <span class="n">cpp_freertos</span><span class="p">::</span><span class="n">Thread</span> <span class="p">{</span>
+
+
+<span class="o">//</span> <span class="n">Stati</span> <span class="n">associati</span> <span class="n">allo</span> <span class="n">switch</span> <span class="n">generale</span> <span class="k">del</span> <span class="n">TASK</span> <span class="p">(</span><span class="n">fase</span> <span class="n">software</span><span class="p">)</span>
+
+<span class="n">typedef</span> <span class="n">enum</span>
+
+<span class="p">{</span>
+
+     <span class="n">SENSOR_STATE_CREATE</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_WAIT_CFG</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_INIT</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_SETUP</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_PREPARE</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_READ</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_END</span><span class="p">,</span>
+
+     <span class="n">SENSOR_STATE_CHECK_ERROR</span>
+
+<span class="p">}</span> <span class="n">State_t</span><span class="p">;</span>
+
+<span class="n">public</span><span class="p">:</span>
+
+     <span class="n">TemperatureHumidtySensorTask</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="n">taskName</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">stackSize</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">priority</span><span class="p">,</span> <span class="n">TemperatureHumidtySensorParam_t</span> <span class="n">temperatureHumidtySensorParam</span><span class="p">);</span>
+
+<span class="n">protected</span><span class="p">:</span>
+
+     <span class="n">virtual</span> <span class="n">void</span> <span class="n">Run</span><span class="p">();</span>
+
+<span class="n">private</span><span class="p">:</span>
+
+<span class="c1">#if (ENABLE_STACK_USAGE)</span>
+
+     <span class="n">void</span> <span class="n">TaskMonitorStack</span><span class="p">();</span>
+
+<span class="c1">#endif</span>
+
+     <span class="n">void</span> <span class="n">TaskWatchDog</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">millis_standby</span><span class="p">);</span>
+
+     <span class="n">void</span> <span class="n">TaskState</span><span class="p">(</span><span class="n">uint8_t</span> <span class="n">state_position</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">state_subposition</span><span class="p">,</span> <span class="n">task_flag</span> <span class="n">state_operation</span><span class="p">);</span>
+
+     <span class="n">void</span> <span class="n">powerOn</span><span class="p">();</span>
+
+     <span class="n">void</span> <span class="n">powerOff</span><span class="p">();</span>
+
+     <span class="nb">bool</span> <span class="n">is_power_on</span><span class="p">;</span>
+
+     <span class="n">State_t</span> <span class="n">state</span><span class="p">;</span>
+
+     <span class="n">TemperatureHumidtySensorParam_t</span> <span class="n">param</span><span class="p">;</span>
+
+     <span class="n">SensorDriver</span> <span class="n">sensors</span><span class="p">[</span><span class="n">SENSORS_COUNT_MAX</span><span class="p">];</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Infine dopo aver creato la sequenza di lettura e acquisizione,
+interagire con la coda buffer dati per le successive elaborazioni
+(prendendo in esame sempre il modulo TH la parte che si occupa di
+inserire il dato nel buffer a scorrimento)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>edata.value = values_readed_from_sensor[1];
+
+edata.index = param.configuration-&gt;sensors[i].is_redundant ? TEMPERATURE_REDUNDANT_INDEX : TEMPERATURE_MAIN_INDEX;
+
+param.elaborateDataQueue-&gt;Enqueue(&amp;edata, Ticks::MsToTicks(WAIT_QUEUE_REQUEST_PUSHDATA_MS));
+
+is_temperature_redundant = param.configuration-&gt;sensors[i].is_redundant;
+</pre></div>
+</div>
+<p>L’altro passaggio da effettuare è quello di creare il tipo di dato
+Cyphal relativo (come detto in precedenza questo protocollo è
+particolarmente orientato ad un’oggetto quindi ad un sensore con tutt i
+i suoi stati). Per questo bisogna creare e compilare una DSDL che
+contiene dati, metadati flag e metodi richiesti da quel sensore. Come
+creare ed utilizzare una DSDL è spiegato sempre su openCyphal.org, ma a
+titolo illustrativo inseriamo la DSDL che dà origine alla struttura
+temperatura RMAP Cyphal. Una volta compilata la DSDL ed importato nel
+programma il relativo file .h vengono messe a disposizione del programma
+le funzioni di interpretazione compressione e decompressione dei dati
+per il trasporto su CAN (o altri metodi).</p>
+<p>DSDL Modulo di TH (Temperatura + umidità + metadati)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="o">.</span><span class="mf">1.0</span> <span class="n">metadata</span>
+
+<span class="n">rmap</span><span class="o">.</span><span class="n">measures</span><span class="o">.</span><span class="n">Temperature</span><span class="o">.</span><span class="mf">1.0</span> <span class="n">temperature</span>
+
+<span class="n">rmap</span><span class="o">.</span><span class="n">measures</span><span class="o">.</span><span class="n">Humidity</span><span class="o">.</span><span class="mf">1.0</span> <span class="n">humidity</span>
+
+<span class="nd">@sealed</span>
+</pre></div>
+</div>
+<p>DSDL Misura di Temperatura (Tabella Temperatura + tabella confidence per
+attendibilità della misura)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">.</span><span class="n">tableb</span><span class="o">.</span><span class="n">B12101</span><span class="o">.</span><span class="mf">1.0</span> <span class="n">val</span>
+
+<span class="n">rmap</span><span class="o">.</span><span class="n">tableb</span><span class="o">.</span><span class="n">B33199</span><span class="o">.</span><span class="mf">1.0</span> <span class="n">confidence</span>
+
+<span class="nd">@sealed</span>
+</pre></div>
+</div>
+<p>DSDL Tabella B12101 da RMAP (definizione di temperatura bit utilizzati
+ed eventuali limiti)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Temperatura aria (°K)</span>
+
+<span class="c1"># fattore scala x100 + 27315</span>
+
+<span class="c1"># MAX 250.0 °C</span>
+
+<span class="n">uint16</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">52315</span>
+
+<span class="n">uint16</span> <span class="n">value</span>
+
+<span class="nd">@sealed</span>
+</pre></div>
+</div>
+<p>Al termine della stesura e compilazione della DSDL segue l’importazione
+degli header per il nuovo modulo, tabella RMAP e misura e si rende
+necessario l’adattamento della classe_canard_nuovo_modulo. In sostanza
+lasciando inalterati tutti i metodi classici di Cyphal già inseriti
+(partendo dall’esempio di canard_class_th ci si deve solamente
+preoccupare di sostituire il modulo_th con il nuovo creato, per la
+memorizzazione dati e l’inserimento dei metodi/misure per l’avvio delle
+regolari sottoscrizioni Cyphal.</p>
+<p>A questo punto tutti gli strumenti sono pronti e disponibili per creare
+un nuovo modulo su StimaV4 ed abilitarlo nel master.</p>
+</div>
+<div class="section" id="sensor-task">
+<h3>Sensor TASK<a class="headerlink" href="#sensor-task" title="Link a questa intestazione">¶</a></h3>
+<p>Analizzando più nel dettaglio un singolo modulo (prendiamo in esame
+quello della temperatura) possiamo vedere dal file config.h la
+configurazione del modulo dove vengono definiti i dispositivi HW da
+abilitare, gli indirizzi EEprom per la registrazione/lettura della
+configurazione, i dimensionamenti dei buffer e le temporizzazioni per i
+task di elaborazione, le temporizzazioni per i metodi di basso consumo e
+i limiti fisici del sensore collegato. Tutte le variabili sono
+ampiamente commentate e laddove il commento non è presente è perché il
+nome della variabile indica già in modo esaustivo la sua funzionalità.</p>
+<p>Sensor_config.h invece entra nel dettaglio della tipologia di sensore e
+si occupa di definire la tipologia del sensore utilizzato e l’eventuale
+modalità ridondante. Stima V4 ha questa definizione REDUNDANT per
+aggiungere un sensore ridondante al principale dove previsto. Dalla
+configurazione è necessario abilitare il modulo utilizzato per
+l’integrazione con SensorDriver di StimaV4.</p>
+<p>La configurazione di default inizializza i metodi per la libreria che
+vengono salvati sui registri Cyphal “SHT” per esempio per quanto
+riguarda il tipo di sensore, “I2C” per il tipo di driver. Questi vengono
+letti all’avvio del modulo e la loro modifica prevede l’abilitazione
+mediante la libreria per il tipo di sensore, modificando per esempio
+nell’ apposito registro della tipologia del sensore in “HYT” si
+modificherà il protocollo e la classe di riferimento per abilitare lo
+specifico sensore.</p>
+<p>Per quanto riguarda il sensore SHT utilizzato nel progetto, è stata
+redatta una nuova classe che supporta tutti i metodi di utilizzati da
+SensorDriver (prepare, get ecc..) per renderli disponibili alla classe
+SensorDriver nei metodi privati. Il tipo di trasporto differente
+rispetto alla gestione di StimaV3, le modalità di configurazione e di
+collegamento tra i moduli ha fatto perdere in parte di significato
+all’indirizzo I2C dei moduli (che erano il bus di comunicazione e quindi
+il motore del sistema) e anche dei metodi utilizzati, relegando
+l’indirizzo I2C a semplice accesso al sensore e non al modulo in sè.</p>
+<p>All’interno della libreria SHT, come in quella HYT, nelle relative
+definizioni sht.h hyt.h è possibile modificare gli indirizzi I2C fisici
+di accoppiamento per i sensori base ed eventuale ridondante per il loro
+accesso. L’utilizzo di altri sensori tipo ad.es. come SENSOR_STH,
+SENSOR_ITH, SENSOR_MTH, SENSOR_NTH, SENSOR_XTH utilizzati nei moduli di
+test sviluppati ad hoc per la verifica delle elaborazioni sono stati
+importati nella classe adattandone la chiamata dei metodi. Nella
+libreria RMAP sono disponibili nei file registers, registers-th,
+registers-th_v2 indirizzi comandi e metodi per la configurazione dei
+metodi/sensori sopradescritti.</p>
+<p>Analizziamo le varie fasi in sequenza per SensorDriver nel task del
+sensore th_sensor_task</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fase</span> <span class="n">di</span> <span class="n">inizializzazione</span> <span class="k">del</span> <span class="n">driver</span> <span class="n">I2C</span> <span class="n">e</span> <span class="n">passaggio</span> <span class="n">a</span> <span class="n">SETUP</span>
+
+<span class="n">case</span> <span class="n">SENSOR_STATE_INIT</span><span class="p">:</span>
+
+<span class="n">TRACE_INFO_F</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;Initializing sensors...</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">));</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">uint8_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">param</span><span class="o">.</span><span class="n">configuration</span><span class="o">-&gt;</span><span class="n">sensors_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+
+<span class="p">{</span>
+
+     <span class="k">if</span> <span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">configuration</span><span class="o">-&gt;</span><span class="n">sensors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+
+     <span class="p">{</span>
+
+          <span class="n">SensorDriver</span><span class="p">::</span><span class="n">createSensor</span><span class="p">(</span><span class="n">SENSOR_DRIVER_I2C</span><span class="p">,</span> <span class="n">param</span><span class="o">.</span><span class="n">configuration</span><span class="o">-&gt;</span><span class="n">sensors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">param</span><span class="o">.</span><span class="n">configuration</span><span class="o">-&gt;</span><span class="n">sensors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">i2c_address</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sensors</span><span class="p">,</span> <span class="n">param</span><span class="o">.</span><span class="n">wire</span><span class="p">);</span>
+
+     <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="n">SENSOR_STATE_SETUP</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Fase di Setup (con eventuale powerON se utilizzabile), reset stati I2C e
+passaggio a PREPARE</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>case SENSOR_STATE_SETUP:
+
+     // Turn ON ( On Power ON/OFF if Start or Reset after Error Or Always if not use LOW_POWER Method )
+
+     if(!is_power_on) powerOn();
+
+     param.wireLock-&gt;Take();
+
+     param.wire-&gt;end();
+
+     param.wire-&gt;begin();
+
+     param.wireLock-&gt;Give();
+
+     is_test = false;
+
+     memset((void )values_readed_from_sensor, RMAPDATA_MAX, (size_t)(VALUES_TO_READ_FROM_SENSOR_COUNT  sizeof(rmapdata_t)));
+
+     for (uint8_t i = 0; i &lt; SensorDriver::getSensorsCount(); i++)
+
+     {
+
+          if (!sensors[i]-&gt;isSetted())
+
+          {
+
+               param.wireLock-&gt;Take();
+
+               sensors[i]-&gt;setup();
+
+               param.wireLock-&gt;Give();
+
+          }
+
+     }
+
+     state = SENSOR_STATE_PREPARE;
+
+     break;
+</pre></div>
+</div>
+<p>Fase di Prepare (con gestione errori), attesa prevista dal Driver e
+passagio a lettura</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>case SENSOR_STATE_PREPARE:
+
+     delay_ms = 0;
+
+     for (uint8_t i = 0; i &lt; SensorDriver::getSensorsCount(); i++)
+
+     {
+
+          sensors[i]-&gt;resetPrepared();
+
+          param.wireLock-&gt;Take();
+
+          sensors[i]-&gt;prepare(is_test);
+
+          param.wireLock-&gt;Give();
+
+          // wait the most slowest
+
+          if (sensors[i]-&gt;getDelay() &gt; delay_ms) { delay_ms = sensors[i]-&gt;getDelay(); }
+
+          // end with error prepare
+
+          param.systemStatusLock-&gt;Take();
+
+          param.system_status-&gt;events.measure_count++;
+
+          if (!sensors[i]-&gt;isSuccess())
+
+          {
+
+              error_count++;
+
+               param.system_status-&gt;events.perc_i2c_error = (uint8_t)...
+
+          }
+
+          // Local WatchDog update;
+
+          TaskWatchDog(delay_ms);
+
+          Delay(Ticks::MsToTicks(delay_ms));
+
+          state = SENSOR_STATE_READ;
+
+     break;
+</pre></div>
+</div>
+<p>Fase di Lettura (con gestione errori), inserimento dati in buffer,
+attesa prevista dalla configurazione e riavvio</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>case SENSOR_STATE_READ:
+
+     is_temperature_redundant = false;
+
+     is_humidity_redundant = false;
+
+     for (uint8_t i=0; i&lt;SensorDriver::getSensorsCount(); i++) {
+
+         do {
+
+               param.wireLock-&gt;Take();
+
+               sensors[i]-&gt;get(&amp;values_readed_from_sensor[0], VALUES_TO_READ_FROM_SENSOR_COUNT, is_test);
+
+               param.wireLock-&gt;Give();
+
+               // Secure WDT
+
+               TaskWatchDog(sensors[i]-&gt;getDelay());
+
+               Delay(Ticks::MsToTicks(sensors[i]-&gt;getDelay()));
+
+          } while (!sensors[i]-&gt;isEnd() &amp;&amp; !sensors[i]-&gt;isReaded());
+
+          // end with error measure
+
+          param.systemStatusLock-&gt;Take();
+
+          param.system_status-&gt;events.measure_count++;
+
+          if (!sensors[i]-&gt;isSuccess())
+
+          {
+
+               error_count++;
+
+               ...
+         }
+
+          param.system_status-&gt;events.perc_i2c_error = (uint8_t)
+
+          if (false) {...}
+
+          #if (USE_SENSOR_ITH)||(USE_SENSOR_ITH_V2)
+
+          #if (USE_SENSOR_ADT)
+
+          ...
+
+          #if (USE_SENSOR_SHT)
+
+          else if (strcmp(sensors[i]-&gt;getType(), SENSOR_TYPE_SHT) == 0) {
+
+               edata.value = values_readed_from_sensor[1];
+
+               edata.index = param.configuration-&gt;sensors[i].is_redundant ? TEMPERATURE_REDUNDANT_INDEX : TEMPERATURE_MAIN_INDEX;
+
+               param.elaborateDataQueue-&gt;Enqueue(&amp;edata, Ticks::MsToTicks(WAIT_QUEUE_REQUEST_PUSHDATA_MS));
+
+               is_temperature_redundant = param.configuration-&gt;sensors[i].is_redundant;
+
+               ...
+
+          #endif
+</pre></div>
+</div>
+<p>Inserimento in coda buffer dati e passaggio a END (fine acquisizione)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     // If module fail fill void error data
+
+     if (!is_temperature_redundant) {
+
+          edata.value = RMAPDATA_MAX;
+
+          edata.index = TEMPERATURE_REDUNDANT_INDEX;
+
+          param.elaborateDataQueue-&gt;Enqueue(&amp;edata, Ticks::MsToTicks(WAIT_QUEUE_REQUEST_PUSHDATA_MS));
+
+     }
+
+     // If module fail fill void error data
+
+     if (!is_humidity_redundant) {
+
+          edata.value = RMAPDATA_MAX;
+
+          edata.index = HUMIDITY_REDUNDANT_INDEX;
+
+          param.elaborateDataQueue-&gt;Enqueue(&amp;edata, Ticks::MsToTicks(WAIT_QUEUE_REQUEST_PUSHDATA_MS));
+
+     }
+
+     state = SENSOR_STATE_END;
+
+break;
+</pre></div>
+</div>
+<p>END e riavvio procedura (gestione OFF sensore se prevista), messa in
+standBy per il tempo previsto dal driver e reinit procedura (nel caso di
+nuovo PowerON, si rieffettua anche tutta la fase di Setup sensore)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span> <span class="n">SENSOR_STATE_END</span><span class="p">:</span>
+
+     <span class="c1">#if (TH_TASK_LOW_POWER_ENABLED) &amp;&amp; (!USE_SENSOR_ITH_V2)</span>
+
+     <span class="n">powerOff</span><span class="p">();</span>
+
+     <span class="c1">#endif</span>
+
+     <span class="c1">#if (ENABLE_STACK_USAGE)</span>
+
+     <span class="n">TaskMonitorStack</span><span class="p">();</span>
+
+     <span class="c1">#endif</span>
+
+     <span class="o">//</span> <span class="n">Local</span> <span class="n">TaskWatchDog</span> <span class="n">update</span> <span class="ow">and</span> <span class="n">Sleep</span> <span class="n">Activate</span> <span class="n">before</span> <span class="n">Next</span> <span class="n">Read</span>
+
+     <span class="n">TaskWatchDog</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">configuration</span><span class="o">-&gt;</span><span class="n">sensor_acquisition_delay_ms</span><span class="p">);</span>
+
+     <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">sleepy</span><span class="p">);</span>
+
+     <span class="n">DelayUntil</span><span class="p">(</span><span class="n">Ticks</span><span class="p">::</span><span class="n">MsToTicks</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">configuration</span><span class="o">-&gt;</span><span class="n">sensor_acquisition_delay_ms</span><span class="p">));</span>
+
+     <span class="n">TaskState</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">UNUSED_SUB_POSITION</span><span class="p">,</span> <span class="n">task_flag</span><span class="p">::</span><span class="n">normal</span><span class="p">);</span>
+
+     <span class="o">//</span> <span class="n">Check</span> <span class="nb">next</span> <span class="n">state</span> <span class="k">if</span> <span class="n">need</span> <span class="n">to</span> <span class="n">Restart</span> <span class="n">Power</span> <span class="ow">and</span> <span class="n">new</span> <span class="n">call</span> <span class="n">setup</span> <span class="n">method</span>
+
+     <span class="k">if</span><span class="p">(</span><span class="n">is_power_on</span><span class="p">)</span> <span class="p">{</span>
+
+          <span class="n">state</span> <span class="o">=</span> <span class="n">SENSOR_STATE_PREPARE</span><span class="p">;</span>
+
+     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+          <span class="n">state</span> <span class="o">=</span> <span class="n">SENSOR_STATE_SETUP</span><span class="p">;</span>
+
+     <span class="p">}</span>
+
+<span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-elaborate">
+<h3>Task Elaborate<a class="headerlink" href="#task-elaborate" title="Link a questa intestazione">¶</a></h3>
+<p>Per ultimo andiamo ad approfondire il task di elaborazione. Come già
+descritto questo task effettua elaborazioni su richiesta esterna tramite
+coda comandi e si occupa dell’archiviazione dei dati sulle strutture di
+buffer. Nel main del task si attendono appunto queste due code che ne
+gestiscono il funzionamento.</p>
+<p>Coda di attesa per riempimento buffer a scorrimento dei dati</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// enqueud from th sensors task (populate data)
+
+if (!param.elaborateDataQueue-&gt;IsEmpty()) {
+
+     if (param.elaborateDataQueue-&gt;Peek(&amp;edata, 0))
+
+     {
+
+          param.elaborateDataQueue-&gt;Dequeue(&amp;edata);
+
+          switch (edata.index)
+
+          {
+
+               case TEMPERATURE_MAIN_INDEX:
+
+                    TRACE_VERBOSE_F(F(&quot;Temperature [ %s ]: %d\r\n&quot;), MAIN_STRING, edata.value);
+
+                    addValue&lt;maintenance_t, uint16_t, bool&gt;(&amp;maintenance_samples, SAMPLES_COUNT_MAX, param.system_status-&gt;flags.is_maintenance);
+
+                    addValue&lt;sample_t, uint16_t, rmapdata_t&gt;(&amp;temperature_main_samples, SAMPLES_COUNT_MAX, edata.value);
+
+                    break;
+
+               case TEMPERATURE_REDUNDANT_INDEX:
+
+                    TRACE_VERBOSE_F(F(&quot;Temperature [ %s ]: %d\r\n&quot;), REDUNDANT_STRING, edata.value);
+
+                    addValue&lt;sample_t, uint16_t, rmapdata_t&gt;(&amp;temperature_redundant_samples, SAMPLES_COUNT_MAX, edata.value);
+
+                    break;
+
+               case HUMIDITY_MAIN_INDEX:
+
+                    TRACE_VERBOSE_F(F(&quot;Humidity [ %s ]: %d\r\n&quot;), MAIN_STRING, edata.value);
+
+                    addValue&lt;sample_t, uint16_t, rmapdata_t&gt;(&amp;humidity_main_samples, SAMPLES_COUNT_MAX, edata.value);
+
+                    ...
+
+          }
+
+     }
+
+}
+</pre></div>
+</div>
+<p>Nel primo indice si può vedere un buffer particolare maintenance_sampe
+chè è un buffer circolare di dati bool per segnalare se il dato indice
+del buffer dei sensori (Temperatura e Umidità primari e ridondanti) sono
+validi oppure in fase di manutenzione. Se correlati ad un’attività di
+manutenzione temporale, attivabile dall’operatore locale tramite
+apposito comando su display, questi dati non saranno ritenuti idonei nel
+calcolo delle elaborazioni (vale ovviamente per tutti i moduli RAIN,
+WIND ecc…).</p>
+<p>Attivazione eleaborazione tramite coda.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// enqueued from can task (get data, start command...)
+
+if (!param.requestDataQueue-&gt;IsEmpty()) {
+
+     if (param.requestDataQueue-&gt;Peek(&amp;request_data))
+
+     {
+
+          // send request to elaborate task (all data is present verified on elaborate_task)
+
+          param.requestDataQueue-&gt;Dequeue(&amp;request_data);
+
+          make_report(request_data.is_init, request_data.report_time_s, request_data.observation_time_s);
+
+          param.reportDataQueue-&gt;Enqueue(&amp;report);
+
+     }
+
+}
+</pre></div>
+</div>
+<p>Qualsiasi task può avviare una richiesta di elaborazione sulla coda
+request_data ed attendere sulla relativa coda la risposta dati nella
+struttura report. La definizione delle report sono ovviamente dipendenti
+dalla tipologia di modulo e racchiudono tutte le elaborazioni del
+relativo sensore. La struttura di request è invece identica tra i moduli
+e tramite i parametri dei tempi di acquisizione e osservazione è in
+grado in qualsiasi momento di dare una risposta dinamica al chiamante in
+merito alle elaborazioni anche sulla base di tempi diversi (la
+sincronizzazione del tempo è garantita dal metodo timeSyncronization di
+Cyphal). In questo modo è possibile oltre al calcolo su tempi fissi di
+acquisizione dati della configurazione es. 900 secondi, una estemporanea
+richiesta remota proveniente da altra funzione per il calcolo su 1 ora
+completa di dati con osservazioni al minuto o altro intervallo a scelta,
+senza compromettere nulla sui dati in memoria.</p>
+<p>All’inizio vengono prelevati i dati dalla coda a ritroso partendo
+dall’ultimo ed effettuare una corretta sequenza di accesso ai dati per
+il calcolo delle elaborazioni sulla base dei tempi richiesta, procedendo
+da un sample all’altro fino alla generazione di un’osservazione con una
+media progressiva. Il prelievo è effettuato con verifica dato e
+manutenzione, conteggio sample, recupero dato “mediato” in caso di
+ridondanza sensori</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// GET SAMPLE VALUE DATA FROM AND CREATE OBSERVATION VALUES FOR TYPE SENSOR
+
+main_temperature_s = bufferReadBack&lt;sample_t, uint16_t, rmapdata_t&gt;(&amp;temperature_main_samples, SAMPLES_COUNT_MAX);
+
+#if (USE_REDUNDANT_SENSOR)
+
+redundant_temperature_s = bufferReadBack&lt;sample_t, uint16_t, rmapdata_t&gt;(&amp;temperature_redundant_samples, SAMPLES_COUNT_MAX);
+
+#endif
+
+total_count_main_temperature_s++;
+
+avg_main_temperature_quality_s += (float)(((float)checkTemperature(main_temperature_s, redundant_temperature_s) - avg_main_temperature_quality_s) / total_count_main_temperature_s);
+
+#if (USE_REDUNDANT_SENSOR)
+
+// Only after calculate quality... Reget data for better choiche from main and redundant value (avg if is ok...)
+
+main_temperature_s = getBetterTemperature(main_temperature_s, redundant_temperature_s);
+
+#endif
+
+if ((ISVALID_RMAPDATA(main_temperature_s)) &amp;&amp; !measures_maintenance)
+
+{
+
+     valid_count_main_temperature_s++;
+
+     valid_count_main_temperature_t++;
+
+     ist_main_temperature_setted = true;
+
+     avg_main_temperature_s += (float)(((float)main_temperature_s - avg_main_temperature_s) / valid_count_main_temperature_s);
+</pre></div>
+</div>
+<p>Quando generata una osservazione viene aggiunta e registrata per
+arrivare al calcolo del report complessivo. Le variabili vengono
+reinizializzate per determinare il valore della successiva osservazioone
+fino al raggiungimento del totale delle osservazioni previste per il
+calcolo del report</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// ELABORATE OBSERVATION VALUES FOR TYPE SENSOR FOR PREPARE REPORT RESPONSE
+
+if(is_observation) {
+
+     n_observation++;
+
+     // Elaboration IST for observation (first observation in bufferBack)
+
+     if (n_observation == 1) report.temperature.ist = avg_main_temperature_s; // Elaboration sample -&gt; Last data
+
+     // main_temperature, sufficient number of valid samples?
+
+     valid_data_calc_perc = (float)(valid_count_main_temperature_s) / (float)(total_count_main_temperature_s)  100.0;
+
+     if (valid_data_calc_perc &gt;= SAMPLE_ERROR_PERCENTAGE_MIN)
+
+     {
+
+          valid_count_main_temperature_o++;
+
+          avg_main_temperature_o += (avg_main_temperature_s - avg_main_temperature_o) / valid_count_main_temperature_o;
+
+          avg_main_temperature_quality_o += (avg_main_temperature_quality_s - avg_main_temperature_quality_o) / valid_count_main_temperature_o;
+
+          // Elaboration MIN and MAX for observation
+
+          if(avg_main_temperature_s &lt; min_main_temperature_o) min_main_temperature_o = avg_main_temperature_s;
+
+          if(avg_main_temperature_s &gt; max_main_temperature_o) max_main_temperature_o = avg_main_temperature_s;
+
+     }
+
+     // Reset Buffer sample for calculate next observation
+
+     avg_main_temperature_quality_s = 0;
+
+     avg_main_temperature_s = 0;
+
+     valid_count_main_temperature_s = 0;
+
+     total_count_main_temperature_s = 0;
+
+...
+</pre></div>
+</div>
+<p>Al termine se le percentuali di dati che compongo l’osservazione e la
+relativa percentuale che compongono il report soddisfano i parametri
+minimi configurati in config.h del sensore, il report è valido e viene
+passato in risposta</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define SAMPLE_ERROR_PERCENTAGE_MIN      (90.0)</span>
+
+<span class="c1">#define OBSERVATION_ERROR_PERCENTAGE_MIN (90.0)</span>
+</pre></div>
+</div>
+<p>Altrimenti il report sarà composto da una struttura di valori nulli per
+indicare l’assenza di elaborazione.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../pio_test/pio_test.html" class="btn btn-neutral float-right" title="Platformio unit tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../user_manual/user_manual.html" class="btn btn-neutral float-left" title="Manuale Utente" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
