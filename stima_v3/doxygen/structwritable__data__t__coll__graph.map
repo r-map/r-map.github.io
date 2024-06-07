@@ -1,0 +1,4 @@
+<map id="writable_data_t" name="writable_data_t">
+<area shape="rect" id="node1" title="Writable data through i2c bus." alt="" coords="5,95,116,121"/>
+<area shape="rect" id="node2" href="$structsensor__conf__t.html" title=" " alt="" coords="9,5,113,32"/>
+</map>

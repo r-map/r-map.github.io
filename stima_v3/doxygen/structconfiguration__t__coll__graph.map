@@ -1,0 +1,6 @@
+<map id="configuration_t" name="configuration_t">
+<area shape="rect" id="node1" title="EEPROM saved configuration." alt="" coords="100,95,207,121"/>
+<area shape="rect" id="node2" href="$structsensor__t.html" title="sensors configuration." alt="" coords="5,5,77,32"/>
+<area shape="rect" id="node3" href="$structsensor__conf__t.html" title=" " alt="" coords="101,5,205,32"/>
+<area shape="rect" id="node4" href="$structconstantdata__t.html" title=" " alt="" coords="230,5,338,32"/>
+</map>
