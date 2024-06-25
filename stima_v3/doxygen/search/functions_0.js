@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['addmemory_1229',['AddMemory',['../classcpp__freertos_1_1MemoryPool.html#a3a45774c8c0f761ea8b75e3e4d3a1591',1,'cpp_freertos::MemoryPool::AddMemory(int itemCount)'],['../classcpp__freertos_1_1MemoryPool.html#abc987382be536cc5111a38202301a042',1,'cpp_freertos::MemoryPool::AddMemory(void *preallocatedMemory, int preallocatedMemorySize)']]],
-  ['allocate_1230',['Allocate',['../classcpp__freertos_1_1MemoryPool.html#a109b992270d9845d80b4cdb404dbd10f',1,'cpp_freertos::MemoryPool']]]
+  ['command_5ftask_666',['command_task',['../i2c-leaf_8h.html#a9f32a4169471a435e9364460d7b1761d',1,'command_task(void):&#160;i2c-leaf.ino'],['../i2c-leaf_8ino.html#a42389aceb96a84573eb67e6d141cb594',1,'command_task():&#160;i2c-leaf.ino'],['../i2c-opc_8h.html#a9f32a4169471a435e9364460d7b1761d',1,'command_task(void):&#160;i2c-leaf.ino'],['../i2c-opc_8ino.html#a42389aceb96a84573eb67e6d141cb594',1,'command_task():&#160;i2c-opc.ino'],['../i2c-rain_8h.html#a9f32a4169471a435e9364460d7b1761d',1,'command_task(void):&#160;i2c-leaf.ino'],['../i2c-thr_8h.html#a9f32a4169471a435e9364460d7b1761d',1,'command_task(void):&#160;i2c-leaf.ino']]],
+  ['commands_667',['commands',['../i2c-leaf_8h.html#aaad2f6556489c51f2c24302e2cb4188a',1,'commands(void):&#160;i2c-leaf.ino'],['../i2c-leaf_8ino.html#a4981066e183f1432ffd6eddf55826585',1,'commands():&#160;i2c-leaf.ino'],['../i2c-opc_8h.html#aaad2f6556489c51f2c24302e2cb4188a',1,'commands(void):&#160;i2c-leaf.ino'],['../i2c-opc_8ino.html#a4981066e183f1432ffd6eddf55826585',1,'commands():&#160;i2c-opc.ino'],['../i2c-rain_8h.html#aaad2f6556489c51f2c24302e2cb4188a',1,'commands(void):&#160;i2c-leaf.ino'],['../i2c-thr_8h.html#aaad2f6556489c51f2c24302e2cb4188a',1,'commands(void):&#160;i2c-leaf.ino']]],
+  ['configure_668',['configure',['../stima_8h.html#a9fb2065f7e6ad6d83a345ec3ad9fc53e',1,'stima.h']]],
+  ['copy_5fbuffers_669',['copy_buffers',['../i2c-leaf_8ino.html#a275d2e5e73d96ce1c29caa615262ef27',1,'i2c-leaf.ino']]]
 ];

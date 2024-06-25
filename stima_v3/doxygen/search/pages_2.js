@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kk_5fihex_1839',['kk_ihex',['../md__home_pat1_git_rmap_platformio_stima_v3_digitecoboot_ihex_ihex_README.html',1,'']]]
+  ['stima_20readme_1161',['STIMA Readme',['../index.html',1,'']]]
 ];

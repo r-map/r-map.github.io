@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['lastvaluectx_1018',['LastValueCtx',['../structLastValueCtx.html',1,'']]],
-  ['leaf_5fwetness_5ft_1019',['leaf_wetness_t',['../structleaf__wetness__t.html',1,'']]],
-  ['lnk_5flst_1020',['lnk_lst',['../structlnk__lst.html',1,'']]],
-  ['lockguard_1021',['LockGuard',['../classcpp__freertos_1_1LockGuard.html',1,'cpp_freertos']]],
-  ['lookaside_1022',['Lookaside',['../structLookaside.html',1,'']]],
-  ['lookasideslot_1023',['LookasideSlot',['../structLookasideSlot.html',1,'']]]
+  ['sample_5ft_627',['sample_t',['../structsample__t.html',1,'']]],
+  ['sensor_5fconf_5ft_628',['sensor_conf_t',['../structsensor__conf__t.html',1,'']]],
+  ['sensor_5ft_629',['sensor_t',['../structsensor__t.html',1,'']]],
+  ['sensordata_5ft_630',['sensordata_t',['../structsensordata__t.html',1,'']]],
+  ['spisettings_631',['SPISettings',['../classSPISettings.html',1,'']]],
+  ['station_5ft_632',['station_t',['../structstation__t.html',1,'']]],
+  ['stimawifistatus_5ft_633',['stimawifiStatus_t',['../structstimawifiStatus__t.html',1,'']]],
+  ['summarydata_5ft_634',['summarydata_t',['../structsummarydata__t.html',1,'']]]
 ];

@@ -37,7 +37,9 @@
 
     
     <link rel="index" title="Indice" href="../../genindex.html" />
-    <link rel="search" title="Cerca" href="../../search.html" /> 
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Stima-wifi" href="../../stima_wifi/stima_wifi_howto.html" />
+    <link rel="prev" title="Manuale software" href="../software_manual/software_manual.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,10 +87,111 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../stima_v4.html">Stima V4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/user_manual.html">Manuale Utente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_manual/software_manual.html">Manuale software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_manual/software_manual.html#documentazione-del-codice">Documentazione del codice</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Platformio unit tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisiti-per-l-esecuzione-dei-test">Prerequisiti per l'esecuzione dei test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheda-master">Scheda Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheda-slave">Scheda Slave</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-hardware-setup">Can hardware setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#display-lcd">Display LCD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-1">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-1">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-1">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#http">HTTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-2">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-2">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-2">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#master-queue-data">Master queue data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-3">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-3">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-3">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#master-o-slave-memory">Master o Slave memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-4">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-4">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-4">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modem-gsm-hardware-setup">Modem GSM hardware setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-5">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-5">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-5">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt">MQTT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-6">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-6">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-6">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ntp">NTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-7">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-7">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-7">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-test-and-reboot">RPC Test and Reboot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-8">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-8">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-8">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#slave-low-power">Slave low power</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-9">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-9">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-9">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#slave-register">Slave register</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-10">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-10">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-10">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stack-fault-exception">Stack Fault Exception</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-11">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-11">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-11">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#queue-log-with-sd-card">Queue log with SD Card</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-12">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-12">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-12">Descrizione software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uavcan">Uavcan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-13">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collegamenti-necessari">Collegamenti necessari</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-13">Procedimento</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#watchdog">Watchdog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procedimento-14">Procedimento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requisiti-hardware-14">Requisiti hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#descrizione-software-13">Descrizione software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
@@ -139,6 +242,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../stima_v4.html">Stima V4</a> &raquo;</li>
         
       <li>Platformio unit tests</li>
     
@@ -776,6 +881,10 @@ il WatchDog interviene segnalando il task non rispondente.</p>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../stima_wifi/stima_wifi_howto.html" class="btn btn-neutral float-right" title="Stima-wifi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../software_manual/software_manual.html" class="btn btn-neutral float-left" title="Manuale software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
