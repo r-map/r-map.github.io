@@ -1,0 +1,5 @@
+var group__LTC4015__EQUALIZE__TIMER =
+[
+    [ "LTC4015_EQUALIZE_TIMER", "group__LTC4015__EQUALIZE__TIMER.html#ga157bf584cec1dc269f07dcd6ec54a7b8", null ],
+    [ "LTC4015_EQUALIZE_TIMER_SUBADDR", "group__LTC4015__EQUALIZE__TIMER.html#gaaf02f6191f3f87ab15cce0ea93e0ce51", null ]
+];

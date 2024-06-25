@@ -1,0 +1,5 @@
+var group__LTC4015__ICHARGE__JEITA__4__3__2 =
+[
+    [ "LTC4015_ICHARGE_JEITA_4_3_2", "group__LTC4015__ICHARGE__JEITA__4__3__2.html#ga7d84efe215e90a27e7517f47175860fd", null ],
+    [ "LTC4015_ICHARGE_JEITA_4_3_2_SUBADDR", "group__LTC4015__ICHARGE__JEITA__4__3__2.html#ga698cb1ab0238b6a27ec17caa155397b6", null ]
+];

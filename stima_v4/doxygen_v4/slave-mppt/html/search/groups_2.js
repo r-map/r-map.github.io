@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['c_5fover_5fx_5fterm_5falert_5fbf_3349',['C_OVER_X_TERM_ALERT_BF',['../group__LTC4015__C__OVER__X__TERM__ALERT__BF.html',1,'']]],
+  ['c_5fover_5fx_5fterm_5fbf_3350',['C_OVER_X_TERM_BF',['../group__LTC4015__C__OVER__X__TERM__BF.html',1,'']]],
+  ['c_5fover_5fx_5fthreshold_3351',['C_OVER_X_THRESHOLD',['../group__LTC4015__C__OVER__X__THRESHOLD.html',1,'']]],
+  ['c_5fover_5fx_5fthreshold_5fbf_3352',['C_OVER_X_THRESHOLD_BF',['../group__LTC4015__C__OVER__X__THRESHOLD__BF.html',1,'']]],
+  ['cc_5fcv_5fcharge_5falert_5fbf_3353',['CC_CV_CHARGE_ALERT_BF',['../group__LTC4015__CC__CV__CHARGE__ALERT__BF.html',1,'']]],
+  ['cc_5fcv_5fcharge_5fbf_3354',['CC_CV_CHARGE_BF',['../group__LTC4015__CC__CV__CHARGE__BF.html',1,'']]],
+  ['cell_5fcount_5ferror_5fbf_3355',['CELL_COUNT_ERROR_BF',['../group__LTC4015__CELL__COUNT__ERROR__BF.html',1,'']]],
+  ['cell_5fcount_5fpins_5fbf_3356',['CELL_COUNT_PINS_BF',['../group__LTC4015__CELL__COUNT__PINS__BF.html',1,'']]],
+  ['charge_5fstatus_3357',['CHARGE_STATUS',['../group__LTC4015__CHARGE__STATUS.html',1,'']]],
+  ['charge_5fstatus_5falerts_3358',['CHARGE_STATUS_ALERTS',['../group__LTC4015__CHARGE__STATUS__ALERTS.html',1,'']]],
+  ['charger_5fconfig_5fbits_3359',['CHARGER_CONFIG_BITS',['../group__LTC4015__CHARGER__CONFIG__BITS.html',1,'']]],
+  ['charger_5fenabled_5fbf_3360',['CHARGER_ENABLED_BF',['../group__LTC4015__CHARGER__ENABLED__BF.html',1,'']]],
+  ['charger_5fstate_3361',['CHARGER_STATE',['../group__LTC4015__CHARGER__STATE.html',1,'']]],
+  ['charger_5fstate_5falerts_3362',['CHARGER_STATE_ALERTS',['../group__LTC4015__CHARGER__STATE__ALERTS.html',1,'']]],
+  ['charger_5fsuspended_5falert_5fbf_3363',['CHARGER_SUSPENDED_ALERT_BF',['../group__LTC4015__CHARGER__SUSPENDED__ALERT__BF.html',1,'']]],
+  ['charger_5fsuspended_5fbf_3364',['CHARGER_SUSPENDED_BF',['../group__LTC4015__CHARGER__SUSPENDED__BF.html',1,'']]],
+  ['chem_5fbf_3365',['CHEM_BF',['../group__LTC4015__CHEM__BF.html',1,'']]],
+  ['chem_5fcells_3366',['CHEM_CELLS',['../group__LTC4015__CHEM__CELLS.html',1,'']]],
+  ['config_5fbits_3367',['CONFIG_BITS',['../group__LTC4015__CONFIG__BITS.html',1,'']]],
+  ['constant_5fcurrent_5falert_5fbf_3368',['CONSTANT_CURRENT_ALERT_BF',['../group__LTC4015__CONSTANT__CURRENT__ALERT__BF.html',1,'']]],
+  ['constant_5fcurrent_5fbf_3369',['CONSTANT_CURRENT_BF',['../group__LTC4015__CONSTANT__CURRENT__BF.html',1,'']]],
+  ['constant_5fvoltage_5falert_5fbf_3370',['CONSTANT_VOLTAGE_ALERT_BF',['../group__LTC4015__CONSTANT__VOLTAGE__ALERT__BF.html',1,'']]],
+  ['constant_5fvoltage_5fbf_3371',['CONSTANT_VOLTAGE_BF',['../group__LTC4015__CONSTANT__VOLTAGE__BF.html',1,'']]],
+  ['cv_5ftimer_3372',['CV_TIMER',['../group__LTC4015__CV__TIMER.html',1,'']]],
+  ['cv_5ftimer_5fbf_3373',['CV_TIMER_BF',['../group__LTC4015__CV__TIMER__BF.html',1,'']]]
+];

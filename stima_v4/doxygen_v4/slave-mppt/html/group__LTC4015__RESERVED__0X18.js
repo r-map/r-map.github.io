@@ -1,0 +1,5 @@
+var group__LTC4015__RESERVED__0X18 =
+[
+    [ "LTC4015_RESERVED_0X18", "group__LTC4015__RESERVED__0X18.html#ga6b455f3978e4ca50a04c23d72e4eb7ec", null ],
+    [ "LTC4015_RESERVED_0X18_SUBADDR", "group__LTC4015__RESERVED__0X18.html#ga892cf94c55c241d24bb8cff93dc25692", null ]
+];

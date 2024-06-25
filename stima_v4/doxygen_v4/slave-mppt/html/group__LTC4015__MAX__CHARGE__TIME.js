@@ -1,0 +1,5 @@
+var group__LTC4015__MAX__CHARGE__TIME =
+[
+    [ "LTC4015_MAX_CHARGE_TIME", "group__LTC4015__MAX__CHARGE__TIME.html#ga84bac10c1b8a71eb9733bd0b1432013e", null ],
+    [ "LTC4015_MAX_CHARGE_TIME_SUBADDR", "group__LTC4015__MAX__CHARGE__TIME.html#gabbe4a9bc9e041809d84a8768b8f329b3", null ]
+];

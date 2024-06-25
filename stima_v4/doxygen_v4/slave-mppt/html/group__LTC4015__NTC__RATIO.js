@@ -1,0 +1,5 @@
+var group__LTC4015__NTC__RATIO =
+[
+    [ "LTC4015_NTC_RATIO", "group__LTC4015__NTC__RATIO.html#ga57086cb41e4403979a3612aeb28e2319", null ],
+    [ "LTC4015_NTC_RATIO_SUBADDR", "group__LTC4015__NTC__RATIO.html#gac4bb534a39f396766076293ca9a5db98", null ]
+];

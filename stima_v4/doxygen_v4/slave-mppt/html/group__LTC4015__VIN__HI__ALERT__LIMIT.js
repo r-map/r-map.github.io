@@ -1,0 +1,5 @@
+var group__LTC4015__VIN__HI__ALERT__LIMIT =
+[
+    [ "LTC4015_VIN_HI_ALERT_LIMIT", "group__LTC4015__VIN__HI__ALERT__LIMIT.html#gacb45f9984bb5c5f67710c714e58102e8", null ],
+    [ "LTC4015_VIN_HI_ALERT_LIMIT_SUBADDR", "group__LTC4015__VIN__HI__ALERT__LIMIT.html#ga3b5d5fb8885f40ef41749d8b902e6bed", null ]
+];

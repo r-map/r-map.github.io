@@ -1,0 +1,5 @@
+var group__LTC4015__BSR__HI__ALERT__LIMIT =
+[
+    [ "LTC4015_BSR_HI_ALERT_LIMIT", "group__LTC4015__BSR__HI__ALERT__LIMIT.html#ga1eb53355efb4f52d480e72ffc64ed297", null ],
+    [ "LTC4015_BSR_HI_ALERT_LIMIT_SUBADDR", "group__LTC4015__BSR__HI__ALERT__LIMIT.html#ga6b32adbfd6a811440545b322ac506d50", null ]
+];

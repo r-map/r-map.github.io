@@ -1,0 +1,5 @@
+var group__LTC4015__VCHARGE__DAC =
+[
+    [ "LTC4015_VCHARGE_DAC", "group__LTC4015__VCHARGE__DAC.html#ga90b9b229a7044397a7804f3fcc270378", null ],
+    [ "LTC4015_VCHARGE_DAC_SUBADDR", "group__LTC4015__VCHARGE__DAC.html#ga1357332b06ebb8734f5f50bec4079ee8", null ]
+];

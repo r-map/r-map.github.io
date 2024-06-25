@@ -1,0 +1,5 @@
+var group__LTC4015__IIN__LIMIT__DAC =
+[
+    [ "LTC4015_IIN_LIMIT_DAC", "group__LTC4015__IIN__LIMIT__DAC.html#ga48f303f5a12a14f76b009fd26794def5", null ],
+    [ "LTC4015_IIN_LIMIT_DAC_SUBADDR", "group__LTC4015__IIN__LIMIT__DAC.html#ga77a6371a7dc71156c01a8a9d6e69b759", null ]
+];

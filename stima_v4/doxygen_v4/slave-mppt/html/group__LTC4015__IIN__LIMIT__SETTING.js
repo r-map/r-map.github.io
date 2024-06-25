@@ -1,0 +1,5 @@
+var group__LTC4015__IIN__LIMIT__SETTING =
+[
+    [ "LTC4015_IIN_LIMIT_SETTING", "group__LTC4015__IIN__LIMIT__SETTING.html#gaa30a4d17aabf968b3cfdf83a7218afbc", null ],
+    [ "LTC4015_IIN_LIMIT_SETTING_SUBADDR", "group__LTC4015__IIN__LIMIT__SETTING.html#gaff5f2a28c10f48dfaae94e43f39c55c7", null ]
+];

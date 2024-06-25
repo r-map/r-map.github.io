@@ -1,0 +1,5 @@
+var group__LTC4015__EQUALIZE__TIME =
+[
+    [ "LTC4015_EQUALIZE_TIME", "group__LTC4015__EQUALIZE__TIME.html#gad7a544d138e97d9a724418c2ac65fc40", null ],
+    [ "LTC4015_EQUALIZE_TIME_SUBADDR", "group__LTC4015__EQUALIZE__TIME.html#gabdbbbaea2f912d12921d660732b744c9", null ]
+];

@@ -1,0 +1,5 @@
+var group__LTC4015__MAX__ABSORB__TIME =
+[
+    [ "LTC4015_MAX_ABSORB_TIME", "group__LTC4015__MAX__ABSORB__TIME.html#ga77a14ec1a9f9904a52985fdb7e7f4447", null ],
+    [ "LTC4015_MAX_ABSORB_TIME_SUBADDR", "group__LTC4015__MAX__ABSORB__TIME.html#ga5eb93b2ecd2ae96efe1f171f643d08a8", null ]
+];

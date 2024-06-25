@@ -1,0 +1,5 @@
+var group__LTC4015__EN__LIMIT__ALERTS =
+[
+    [ "LTC4015_EN_LIMIT_ALERTS", "group__LTC4015__EN__LIMIT__ALERTS.html#gab875897a3ec6cfa1a669175f9ca348c8", null ],
+    [ "LTC4015_EN_LIMIT_ALERTS_SUBADDR", "group__LTC4015__EN__LIMIT__ALERTS.html#gad03e4a996eebc24a0051349692f861a7", null ]
+];

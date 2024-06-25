@@ -1,0 +1,5 @@
+var group__LTC4015__DIE__TEMP =
+[
+    [ "LTC4015_DIE_TEMP", "group__LTC4015__DIE__TEMP.html#ga2936a89f65a34f834ad9987c4f3081ef", null ],
+    [ "LTC4015_DIE_TEMP_SUBADDR", "group__LTC4015__DIE__TEMP.html#ga786313b7921c2e134840e12948349ab4", null ]
+];

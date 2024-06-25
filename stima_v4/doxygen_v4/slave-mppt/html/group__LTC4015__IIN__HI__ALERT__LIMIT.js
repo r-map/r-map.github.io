@@ -1,0 +1,5 @@
+var group__LTC4015__IIN__HI__ALERT__LIMIT =
+[
+    [ "LTC4015_IIN_HI_ALERT_LIMIT", "group__LTC4015__IIN__HI__ALERT__LIMIT.html#ga7c6cfb161e93fd89d3252154ca4e8df2", null ],
+    [ "LTC4015_IIN_HI_ALERT_LIMIT_SUBADDR", "group__LTC4015__IIN__HI__ALERT__LIMIT.html#ga0768205bdd075963762bfabfc5ac5873", null ]
+];

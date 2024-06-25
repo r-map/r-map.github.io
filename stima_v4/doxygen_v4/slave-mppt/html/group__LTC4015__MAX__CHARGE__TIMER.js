@@ -1,0 +1,5 @@
+var group__LTC4015__MAX__CHARGE__TIMER =
+[
+    [ "LTC4015_MAX_CHARGE_TIMER", "group__LTC4015__MAX__CHARGE__TIMER.html#ga6b19d04d94301bfc8718648e43c46c44", null ],
+    [ "LTC4015_MAX_CHARGE_TIMER_SUBADDR", "group__LTC4015__MAX__CHARGE__TIMER.html#gad9b994b7ddeae37c7fc97ec871b2a380", null ]
+];

@@ -1,0 +1,5 @@
+var group__LTC4015__ICHARGE__TARGET =
+[
+    [ "LTC4015_ICHARGE_TARGET", "group__LTC4015__ICHARGE__TARGET.html#ga92e1c7ac95b1da790f410ef14cf053c8", null ],
+    [ "LTC4015_ICHARGE_TARGET_SUBADDR", "group__LTC4015__ICHARGE__TARGET.html#ga95ca86233131aaff0d268e96edc8848b", null ]
+];

@@ -1,0 +1,8 @@
+var group__LTC4015__QCOUNT__HI__ALERT__BF =
+[
+    [ "LTC4015_QCOUNT_HI_ALERT_BF", "group__LTC4015__QCOUNT__HI__ALERT__BF.html#ga9a995348e07dfb53ee10aea15f8df9fd", null ],
+    [ "LTC4015_QCOUNT_HI_ALERT_BF_MASK", "group__LTC4015__QCOUNT__HI__ALERT__BF.html#ga5976d51dcd415dffa53edf7e9cac0b1c", null ],
+    [ "LTC4015_QCOUNT_HI_ALERT_BF_OFFSET", "group__LTC4015__QCOUNT__HI__ALERT__BF.html#gab9cb4f81b45aaf2fd5ebf972c058e3ff", null ],
+    [ "LTC4015_QCOUNT_HI_ALERT_BF_SIZE", "group__LTC4015__QCOUNT__HI__ALERT__BF.html#gac2a309a6891348e8ed8b649209e4b0ab", null ],
+    [ "LTC4015_QCOUNT_HI_ALERT_BF_SUBADDR", "group__LTC4015__QCOUNT__HI__ALERT__BF.html#gab50e639ee050fb60ab16c3b53a2be18d", null ]
+];

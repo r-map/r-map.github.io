@@ -1,0 +1,8 @@
+var group__LTC4015__ICHARGE__BSR__BF =
+[
+    [ "LTC4015_ICHARGE_BSR_BF", "group__LTC4015__ICHARGE__BSR__BF.html#ga062470aa3bc489dd6b19fd8b8b3379b5", null ],
+    [ "LTC4015_ICHARGE_BSR_BF_MASK", "group__LTC4015__ICHARGE__BSR__BF.html#ga219ec342c0d2d314db3190a20676f80e", null ],
+    [ "LTC4015_ICHARGE_BSR_BF_OFFSET", "group__LTC4015__ICHARGE__BSR__BF.html#gacec66123a7d0ecb31d4c193923274072", null ],
+    [ "LTC4015_ICHARGE_BSR_BF_SIZE", "group__LTC4015__ICHARGE__BSR__BF.html#ga338baa9c4c353cf7da5f75ef9de0ff99", null ],
+    [ "LTC4015_ICHARGE_BSR_BF_SUBADDR", "group__LTC4015__ICHARGE__BSR__BF.html#ga0a8a96a4c1f3d13d6d100ea7fb3f72d6", null ]
+];

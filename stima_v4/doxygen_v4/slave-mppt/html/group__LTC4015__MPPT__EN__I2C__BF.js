@@ -1,0 +1,8 @@
+var group__LTC4015__MPPT__EN__I2C__BF =
+[
+    [ "LTC4015_MPPT_EN_I2C_BF", "group__LTC4015__MPPT__EN__I2C__BF.html#gaf15a490897760e055316c9fd2eb64a6c", null ],
+    [ "LTC4015_MPPT_EN_I2C_BF_MASK", "group__LTC4015__MPPT__EN__I2C__BF.html#ga9c9caafe6a9e86c66ab3080b419751ab", null ],
+    [ "LTC4015_MPPT_EN_I2C_BF_OFFSET", "group__LTC4015__MPPT__EN__I2C__BF.html#gaa73b8223f1515b2b52ff0cd948210918", null ],
+    [ "LTC4015_MPPT_EN_I2C_BF_SIZE", "group__LTC4015__MPPT__EN__I2C__BF.html#ga606470455cab62736b6f47b4564efc1a", null ],
+    [ "LTC4015_MPPT_EN_I2C_BF_SUBADDR", "group__LTC4015__MPPT__EN__I2C__BF.html#ga599f991e046ffc2c807227776b198fa1", null ]
+];

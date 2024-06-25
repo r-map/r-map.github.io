@@ -1,0 +1,5 @@
+var group__LTC4015__VABSORB__DELTA =
+[
+    [ "LTC4015_VABSORB_DELTA", "group__LTC4015__VABSORB__DELTA.html#gac11be38491353dd02aeac78beacdd628", null ],
+    [ "LTC4015_VABSORB_DELTA_SUBADDR", "group__LTC4015__VABSORB__DELTA.html#gac959084d12094093136ac9ee5f98038a", null ]
+];

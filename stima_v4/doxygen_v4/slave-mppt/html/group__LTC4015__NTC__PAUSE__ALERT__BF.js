@@ -1,0 +1,8 @@
+var group__LTC4015__NTC__PAUSE__ALERT__BF =
+[
+    [ "LTC4015_NTC_PAUSE_ALERT_BF", "group__LTC4015__NTC__PAUSE__ALERT__BF.html#ga48f2577787166d4d6d23101e6e14e9d0", null ],
+    [ "LTC4015_NTC_PAUSE_ALERT_BF_MASK", "group__LTC4015__NTC__PAUSE__ALERT__BF.html#ga9e1a58a115a9acae8c02a08ac10c0e0a", null ],
+    [ "LTC4015_NTC_PAUSE_ALERT_BF_OFFSET", "group__LTC4015__NTC__PAUSE__ALERT__BF.html#ga4a041edf3803b2cc17a43ef07bf64a6e", null ],
+    [ "LTC4015_NTC_PAUSE_ALERT_BF_SIZE", "group__LTC4015__NTC__PAUSE__ALERT__BF.html#ga3b8704dcc6cfecb01fd7fe1fa3cb05a4", null ],
+    [ "LTC4015_NTC_PAUSE_ALERT_BF_SUBADDR", "group__LTC4015__NTC__PAUSE__ALERT__BF.html#ga77983d7dcb8e8b53d38ee930f0b5805e", null ]
+];

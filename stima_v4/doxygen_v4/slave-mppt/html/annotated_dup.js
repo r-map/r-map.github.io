@@ -1,0 +1,26 @@
+var annotated_dup =
+[
+    [ "bootloader_t", "structbootloader__t.html", "structbootloader__t" ],
+    [ "canardClass", "classcanardClass.html", "classcanardClass" ],
+    [ "CanParam_t", "structCanParam__t.html", "structCanParam__t" ],
+    [ "CanTask", "classCanTask.html", "classCanTask" ],
+    [ "configuration_t", "structconfiguration__t.html", "structconfiguration__t" ],
+    [ "EEprom", "classEEprom.html", "classEEprom" ],
+    [ "EERegister", "classEERegister.html", "classEERegister" ],
+    [ "ElaborateDataParam_t", "structElaborateDataParam__t.html", "structElaborateDataParam__t" ],
+    [ "ElaborateDataTask", "classElaborateDataTask.html", "classElaborateDataTask" ],
+    [ "Flash", "classFlash.html", "classFlash" ],
+    [ "maintenance_t", "structmaintenance__t.html", "structmaintenance__t" ],
+    [ "Mppt", "classMppt.html", "classMppt" ],
+    [ "MpptSensorParam_t", "structMpptSensorParam__t.html", "structMpptSensorParam__t" ],
+    [ "MpptSensorTask", "classMpptSensorTask.html", "classMpptSensorTask" ],
+    [ "report_t", "structreport__t.html", "structreport__t" ],
+    [ "sample_t", "structsample__t.html", "structsample__t" ],
+    [ "SupervisorParam_t", "structSupervisorParam__t.html", "structSupervisorParam__t" ],
+    [ "SupervisorTask", "classSupervisorTask.html", "classSupervisorTask" ],
+    [ "system_message_t", "structsystem__message__t.html", "structsystem__message__t" ],
+    [ "system_status_t", "structsystem__status__t.html", "structsystem__status__t" ],
+    [ "task_t", "structtask__t.html", "structtask__t" ],
+    [ "WdtParam_t", "structWdtParam__t.html", "structWdtParam__t" ],
+    [ "WdtTask", "classWdtTask.html", "classWdtTask" ]
+];
