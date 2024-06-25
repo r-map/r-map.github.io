@@ -73,13 +73,10 @@ $(function() {
 <p>report data.  
  <a href="structreport__t.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="i2c-radiation_8h_source.html">i2c-radiation.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="i2c-power_8h_source.html">i2c-power.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a48d3d0dd3c293282a186c8d3d9c5c24d"><td class="memItemLeft" align="right" valign="top"><a id="a48d3d0dd3c293282a186c8d3d9c5c24d"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>avg</b></td></tr>
-<tr class="separator:a48d3d0dd3c293282a186c8d3d9c5c24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a085dcd54994cf01f7392dd42f821935e"><td class="memItemLeft" align="right" valign="top"><a id="a085dcd54994cf01f7392dd42f821935e"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>rain_tips</b></td></tr>
 <tr class="separator:a085dcd54994cf01f7392dd42f821935e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,56 +119,61 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>sigma_temperature</b
 <tr class="memitem:a822879c992d72593aad9748efae57b01"><td class="memItemLeft" align="right" valign="top"><a id="a822879c992d72593aad9748efae57b01"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>sigma_humidity</b></td></tr>
 <tr class="separator:a822879c992d72593aad9748efae57b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05b3d78831f6633084ade0df66f355d3"><td class="memItemLeft" align="right" valign="top"><a id="a05b3d78831f6633084ade0df66f355d3"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>vavg10_speed</b></td></tr>
-<tr class="separator:a05b3d78831f6633084ade0df66f355d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbc21ff454775d525777d4168f6cd645"><td class="memItemLeft" align="right" valign="top"><a id="acbc21ff454775d525777d4168f6cd645"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>vavg10_direction</b></td></tr>
-<tr class="separator:acbc21ff454775d525777d4168f6cd645"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a131614b096e773217bd4ac367720374f"><td class="memItemLeft" align="right" valign="top"><a id="a131614b096e773217bd4ac367720374f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>vavg_speed</b></td></tr>
-<tr class="separator:a131614b096e773217bd4ac367720374f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7349f015929d3f943357c4f37b0e3eca"><td class="memItemLeft" align="right" valign="top"><a id="a7349f015929d3f943357c4f37b0e3eca"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>vavg_direction</b></td></tr>
-<tr class="separator:a7349f015929d3f943357c4f37b0e3eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03595d9dc3c0c65f458d2b325ed2d664"><td class="memItemLeft" align="right" valign="top"><a id="a03595d9dc3c0c65f458d2b325ed2d664"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>peak_gust_speed</b></td></tr>
-<tr class="separator:a03595d9dc3c0c65f458d2b325ed2d664"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8c53b8be0de04e1781c97721300af4"><td class="memItemLeft" align="right" valign="top"><a id="a2b8c53b8be0de04e1781c97721300af4"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>long_gust_speed</b></td></tr>
-<tr class="separator:a2b8c53b8be0de04e1781c97721300af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a000c42887106ab4ff708995dc7ded9e1"><td class="memItemLeft" align="right" valign="top"><a id="a000c42887106ab4ff708995dc7ded9e1"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>avg_speed</b></td></tr>
-<tr class="separator:a000c42887106ab4ff708995dc7ded9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae398c1a2a299313a8b9b477c23ee3df"><td class="memItemLeft" align="right" valign="top"><a id="aae398c1a2a299313a8b9b477c23ee3df"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>class_1</b></td></tr>
-<tr class="separator:aae398c1a2a299313a8b9b477c23ee3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54db51dab5c8a219d7a75bc1add3981d"><td class="memItemLeft" align="right" valign="top"><a id="a54db51dab5c8a219d7a75bc1add3981d"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>class_2</b></td></tr>
-<tr class="separator:a54db51dab5c8a219d7a75bc1add3981d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50dc7d8ce3ddc579dadf947fa31df651"><td class="memItemLeft" align="right" valign="top"><a id="a50dc7d8ce3ddc579dadf947fa31df651"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>class_3</b></td></tr>
-<tr class="separator:a50dc7d8ce3ddc579dadf947fa31df651"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae26c028a54d72a506248693f4cfde2e"><td class="memItemLeft" align="right" valign="top"><a id="aae26c028a54d72a506248693f4cfde2e"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>class_4</b></td></tr>
-<tr class="separator:aae26c028a54d72a506248693f4cfde2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09bb67e6c86895eafa0671314547ae2d"><td class="memItemLeft" align="right" valign="top"><a id="a09bb67e6c86895eafa0671314547ae2d"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>class_5</b></td></tr>
-<tr class="separator:a09bb67e6c86895eafa0671314547ae2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee27d1953e7cb20a336e759ebbe24e6"><td class="memItemLeft" align="right" valign="top"><a id="a7ee27d1953e7cb20a336e759ebbe24e6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>class_6</b></td></tr>
-<tr class="separator:a7ee27d1953e7cb20a336e759ebbe24e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe85c49a2c4f881699c30a13d38629c2"><td class="memItemLeft" align="right" valign="top"><a id="afe85c49a2c4f881699c30a13d38629c2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>peak_gust_direction</b></td></tr>
-<tr class="separator:afe85c49a2c4f881699c30a13d38629c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439e40d27b28d94139b68586c62d55ac"><td class="memItemLeft" align="right" valign="top"><a id="a439e40d27b28d94139b68586c62d55ac"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>long_gust_direction</b></td></tr>
-<tr class="separator:a439e40d27b28d94139b68586c62d55ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce337b3e631afe39afa14230825299d"><td class="memItemLeft" align="right" valign="top"><a id="a1ce337b3e631afe39afa14230825299d"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>sample_speed</b></td></tr>
+<tr class="separator:a1ce337b3e631afe39afa14230825299d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a722a62086b469788f8e6a271b948d1c5"><td class="memItemLeft" align="right" valign="top"><a id="a722a62086b469788f8e6a271b948d1c5"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>sample_direction</b></td></tr>
+<tr class="separator:a722a62086b469788f8e6a271b948d1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5dd615c41710d59cb1738cdf7f214c2"><td class="memItemLeft" align="right" valign="top"><a id="aa5dd615c41710d59cb1738cdf7f214c2"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>vavg10_speed</b></td></tr>
+<tr class="separator:aa5dd615c41710d59cb1738cdf7f214c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d514066c4d03617055eb31662b2687"><td class="memItemLeft" align="right" valign="top"><a id="a16d514066c4d03617055eb31662b2687"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>vavg10_direction</b></td></tr>
+<tr class="separator:a16d514066c4d03617055eb31662b2687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a122b2981d45c23ba1f9e299ab5cbf476"><td class="memItemLeft" align="right" valign="top"><a id="a122b2981d45c23ba1f9e299ab5cbf476"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>vavg_speed</b></td></tr>
+<tr class="separator:a122b2981d45c23ba1f9e299ab5cbf476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e28114769f7c57631f7b22a4cb655b7"><td class="memItemLeft" align="right" valign="top"><a id="a5e28114769f7c57631f7b22a4cb655b7"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>vavg_direction</b></td></tr>
+<tr class="separator:a5e28114769f7c57631f7b22a4cb655b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2989dff24f55769e655dacf5f08f0eec"><td class="memItemLeft" align="right" valign="top"><a id="a2989dff24f55769e655dacf5f08f0eec"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>peak_gust_speed</b></td></tr>
+<tr class="separator:a2989dff24f55769e655dacf5f08f0eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04edf5e0591c009209b4c1329d50bb0"><td class="memItemLeft" align="right" valign="top"><a id="ae04edf5e0591c009209b4c1329d50bb0"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>long_gust_speed</b></td></tr>
+<tr class="separator:ae04edf5e0591c009209b4c1329d50bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b52984ea389471349c058643b01226f"><td class="memItemLeft" align="right" valign="top"><a id="a1b52984ea389471349c058643b01226f"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>avg_speed</b></td></tr>
+<tr class="separator:a1b52984ea389471349c058643b01226f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d382ff748f9901e2e55bf8e366297f"><td class="memItemLeft" align="right" valign="top"><a id="a96d382ff748f9901e2e55bf8e366297f"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>class_1</b></td></tr>
+<tr class="separator:a96d382ff748f9901e2e55bf8e366297f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec43b1c4ae8e13a8fe8afd8dd5b3541"><td class="memItemLeft" align="right" valign="top"><a id="a8ec43b1c4ae8e13a8fe8afd8dd5b3541"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>class_2</b></td></tr>
+<tr class="separator:a8ec43b1c4ae8e13a8fe8afd8dd5b3541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ddc5aaa27b588c15922cb73b69933dd"><td class="memItemLeft" align="right" valign="top"><a id="a8ddc5aaa27b588c15922cb73b69933dd"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>class_3</b></td></tr>
+<tr class="separator:a8ddc5aaa27b588c15922cb73b69933dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4966745506e5b1d861bcb98b636a2642"><td class="memItemLeft" align="right" valign="top"><a id="a4966745506e5b1d861bcb98b636a2642"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>class_4</b></td></tr>
+<tr class="separator:a4966745506e5b1d861bcb98b636a2642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da87dc2e48581299104cfd3b5a15877"><td class="memItemLeft" align="right" valign="top"><a id="a4da87dc2e48581299104cfd3b5a15877"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>class_5</b></td></tr>
+<tr class="separator:a4da87dc2e48581299104cfd3b5a15877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d0160f47bee130a789dff443ed350ad"><td class="memItemLeft" align="right" valign="top"><a id="a7d0160f47bee130a789dff443ed350ad"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>class_6</b></td></tr>
+<tr class="separator:a7d0160f47bee130a789dff443ed350ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf469980d1ed0c0ef80ddc25d698ee5"><td class="memItemLeft" align="right" valign="top"><a id="aedf469980d1ed0c0ef80ddc25d698ee5"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>peak_gust_direction</b></td></tr>
+<tr class="separator:aedf469980d1ed0c0ef80ddc25d698ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f9a9a821565f5f4c800f29d103ea44"><td class="memItemLeft" align="right" valign="top"><a id="a79f9a9a821565f5f4c800f29d103ea44"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>long_gust_direction</b></td></tr>
+<tr class="separator:a79f9a9a821565f5f4c800f29d103ea44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>report data. </p>
 </div><hr/>The documentation for this struct was generated from the following files:<ul>
-<li>/home/pat1/git/rmap/platformio/stima_v3/i2c-radiation/src/<a class="el" href="i2c-radiation_8h_source.html">i2c-radiation.h</a></li>
 <li>/home/pat1/git/rmap/platformio/stima_v3/i2c-thr/src/<a class="el" href="i2c-thr_8h_source.html">i2c-thr.h</a></li>
 <li>/home/pat1/git/rmap/platformio/stima_v3/i2c-wind/src/<a class="el" href="i2c-wind_8h_source.html">i2c-wind.h</a></li>
 </ul>

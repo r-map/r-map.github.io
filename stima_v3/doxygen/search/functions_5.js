@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['make_5fobservation_5ffrom_5fsamples_650',['make_observation_from_samples',['../i2c-opc_8h.html#ae249b1f6610f7d838014cb03e1d140e4',1,'make_observation_from_samples(bool is_force_processing, sample_g *sample, observation_g *observation):&#160;i2c-opc.ino'],['../i2c-opc_8ino.html#ae249b1f6610f7d838014cb03e1d140e4',1,'make_observation_from_samples(bool is_force_processing, sample_g *sample, observation_g *observation):&#160;i2c-opc.ino']]],
-  ['make_5fvalue_5ffrom_5fsamples_5fand_5fobservations_651',['make_value_from_samples_and_observations',['../i2c-opc_8h.html#a3b334573aae208e16c9d05134c03bc8d',1,'make_value_from_samples_and_observations(sample_g *sample, observation_g *observation, value_v *value):&#160;i2c-opc.ino'],['../i2c-opc_8ino.html#a3b334573aae208e16c9d05134c03bc8d',1,'make_value_from_samples_and_observations(sample_g *sample, observation_g *observation, value_v *value):&#160;i2c-opc.ino']]]
+  ['flush_1263',['Flush',['../classcpp__freertos_1_1Queue.html#a28f2419d245690501b0f94984e3e2a17',1,'cpp_freertos::Queue']]],
+  ['free_1264',['Free',['../classcpp__freertos_1_1MemoryPool.html#a9756d53a0991b842c7d6b5b3393765f8',1,'cpp_freertos::MemoryPool']]],
+  ['freeafterrun_1265',['FreeAfterRun',['../classcpp__freertos_1_1WorkItem.html#ab38768c98eba55fb35fab948a0856103',1,'cpp_freertos::WorkItem']]]
 ];

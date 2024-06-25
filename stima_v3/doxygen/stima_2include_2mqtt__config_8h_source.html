@@ -104,7 +104,7 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a16c3df993e6090c9e607113aaf5421f6">   54</a></span>&#160;<span class="preprocessor">#define MQTT_CLIENT_ID_LENGTH          (MQTT_ROOT_TOPIC_LENGTH)</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a0fff77926fd907aeb2c03f60600d136c">   60</a></span>&#160;<span class="preprocessor">#define MQTT_MESSAGE_LENGTH            (44)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a0fff77926fd907aeb2c03f60600d136c">   60</a></span>&#160;<span class="preprocessor">#define MQTT_MESSAGE_LENGTH            (100)</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#af7e17655a5cc9c2433543fb8da19fa10">   66</a></span>&#160;<span class="preprocessor">#define MQTT_RPC_COMMAND_LENGTH            (200)</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
@@ -144,7 +144,7 @@ $(function() {
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
 <div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a56a2aaf2bf5e6cab81fc94e1d34612fa">  174</a></span>&#160;<span class="preprocessor">#define MQTT_STATUS_TOPIC              (&quot;254,0,0/265,0,-,-/B01213&quot;</span>)</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a7e6eea562b741149863000b5cff942c8">  180</a></span>&#160;<span class="preprocessor">#define MQTT_ON_CONNECT_MESSAGE        (&quot;{\&quot;v\&quot;:\&quot;conn\&quot;}&quot;</span>)</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a7e6eea562b741149863000b5cff942c8">  180</a></span>&#160;<span class="preprocessor">#define MQTT_ON_CONNECT_MESSAGE        (&quot;{\&quot;v\&quot;:\&quot;conn\&quot;,\&quot;s\&quot;:%d,\&quot;m\&quot;:%d}&quot;</span>)</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
 <div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="stima_2include_2mqtt__config_8h.html#a11770741d8609eea434a9a7c10c533f0">  186</a></span>&#160;<span class="preprocessor">#define MQTT_ON_DISCONNECT_MESSAGE     (&quot;{\&quot;v\&quot;:\&quot;disconn\&quot;}&quot;</span>)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>

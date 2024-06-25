@@ -77,22 +77,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stima_module.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="stima-config_8h_source.html">stima-config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stima_2src_2stima-config_8h_source.html">stima-config.h</a>&quot;</code><br />
 <code>#include &lt;typedef.h&gt;</code><br />
 <code>#include &lt;registers.h&gt;</code><br />
+<code>#include &lt;registers-master.h&gt;</code><br />
 <code>#include &lt;debug.h&gt;</code><br />
 <code>#include &lt;ArduinoLog.h&gt;</code><br />
 <code>#include &lt;StreamUtils.h&gt;</code><br />
 <code>#include &lt;i2c_config.h&gt;</code><br />
 <code>#include &lt;json_config.h&gt;</code><br />
 <code>#include &lt;ntp_config.h&gt;</code><br />
+<code>#include &lt;constantdata_config.h&gt;</code><br />
+<code>#include &lt;gsm_config.h&gt;</code><br />
 <code>#include &lt;SPI.h&gt;</code><br />
 <code>#include &lt;Wire.h&gt;</code><br />
 <code>#include &lt;pcf8563.h&gt;</code><br />
 <code>#include &lt;rmap_utility.h&gt;</code><br />
 <code>#include &lt;TimeLib.h&gt;</code><br />
 <code>#include &lt;SensorDriver.h&gt;</code><br />
-<code>#include &lt;eeprom_utility.h&gt;</code><br />
 <code>#include &lt;i2c_utility.h&gt;</code><br />
 <code>#include &lt;arduinoJsonRPC.h&gt;</code><br />
 <code>#include &lt;ethernet_config.h&gt;</code><br />
@@ -106,34 +108,44 @@ Include dependency graph for stima.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="stima_8h__incl.png" border="0" usemap="#a_2home_2pat1_2git_2rmap_2platformio_2stima__v3_2stima_2src_2stima_8h" alt=""/></div>
 <map name="a_2home_2pat1_2git_2rmap_2platformio_2stima__v3_2stima_2src_2stima_8h" id="a_2home_2pat1_2git_2rmap_2platformio_2stima__v3_2stima_2src_2stima_8h">
-<area shape="rect" title=" " alt="" coords="1311,5,1451,61"/>
-<area shape="rect" title=" " alt="" coords="5,109,120,136"/>
-<area shape="rect" href="stima-config_8h.html" title=" " alt="" coords="144,109,248,136"/>
-<area shape="rect" title=" " alt="" coords="272,109,347,136"/>
-<area shape="rect" title=" " alt="" coords="371,109,455,136"/>
-<area shape="rect" title=" " alt="" coords="479,109,547,136"/>
-<area shape="rect" title=" " alt="" coords="572,109,671,136"/>
-<area shape="rect" title=" " alt="" coords="695,109,798,136"/>
-<area shape="rect" title=" " alt="" coords="822,109,914,136"/>
-<area shape="rect" title=" " alt="" coords="939,109,1037,136"/>
-<area shape="rect" title=" " alt="" coords="1061,109,1155,136"/>
-<area shape="rect" title=" " alt="" coords="1179,109,1234,136"/>
-<area shape="rect" title=" " alt="" coords="1258,109,1318,136"/>
-<area shape="rect" title=" " alt="" coords="1342,109,1421,136"/>
-<area shape="rect" title=" " alt="" coords="1445,109,1544,136"/>
-<area shape="rect" title=" " alt="" coords="1569,109,1647,136"/>
-<area shape="rect" title=" " alt="" coords="1671,109,1779,136"/>
-<area shape="rect" title=" " alt="" coords="1803,109,1917,136"/>
-<area shape="rect" title=" " alt="" coords="1941,109,2027,136"/>
-<area shape="rect" title=" " alt="" coords="2052,109,2183,136"/>
-<area shape="rect" title=" " alt="" coords="2207,109,2329,136"/>
-<area shape="rect" title=" " alt="" coords="2353,109,2441,136"/>
-<area shape="rect" title=" " alt="" coords="2466,109,2561,136"/>
-<area shape="rect" title=" " alt="" coords="2585,109,2719,136"/>
-<area shape="rect" title=" " alt="" coords="2744,109,2845,136"/>
-<area shape="rect" title=" " alt="" coords="2870,109,2919,136"/>
-<area shape="rect" title=" " alt="" coords="53,184,176,211"/>
-<area shape="rect" href="constantdata__config_8h.html" title=" " alt="" coords="201,184,351,211"/>
+<area shape="rect" title=" " alt="" coords="1483,5,1623,61"/>
+<area shape="rect" title=" " alt="" coords="24,109,139,136"/>
+<area shape="rect" href="stima_2src_2stima-config_8h.html" title=" " alt="" coords="163,109,267,136"/>
+<area shape="rect" title=" " alt="" coords="153,184,303,211"/>
+<area shape="rect" href="typedef_8h_source.html" title=" " alt="" coords="341,109,416,136"/>
+<area shape="rect" title=" " alt="" coords="441,109,525,136"/>
+<area shape="rect" title=" " alt="" coords="549,109,677,136"/>
+<area shape="rect" title=" " alt="" coords="702,109,770,136"/>
+<area shape="rect" title=" " alt="" coords="795,109,893,136"/>
+<area shape="rect" title=" " alt="" coords="918,109,1021,136"/>
+<area shape="rect" title=" " alt="" coords="1045,109,1137,136"/>
+<area shape="rect" title=" " alt="" coords="1161,109,1260,136"/>
+<area shape="rect" title=" " alt="" coords="1284,109,1377,136"/>
+<area shape="rect" title=" " alt="" coords="1402,109,1502,136"/>
+<area shape="rect" title=" " alt="" coords="1526,109,1581,136"/>
+<area shape="rect" title=" " alt="" coords="1605,109,1665,136"/>
+<area shape="rect" title=" " alt="" coords="1689,109,1767,136"/>
+<area shape="rect" title=" " alt="" coords="1792,109,1891,136"/>
+<area shape="rect" title=" " alt="" coords="1915,109,1994,136"/>
+<area shape="rect" title=" " alt="" coords="2018,109,2126,136"/>
+<area shape="rect" title=" " alt="" coords="2150,109,2237,136"/>
+<area shape="rect" title=" " alt="" coords="2261,109,2392,136"/>
+<area shape="rect" title=" " alt="" coords="2416,109,2539,136"/>
+<area shape="rect" title=" " alt="" coords="2563,109,2651,136"/>
+<area shape="rect" title=" " alt="" coords="2675,109,2770,136"/>
+<area shape="rect" title=" " alt="" coords="2794,109,2929,136"/>
+<area shape="rect" title=" " alt="" coords="2953,109,3055,136"/>
+<area shape="rect" title=" " alt="" coords="3079,109,3129,136"/>
+<area shape="rect" title=" " alt="" coords="5,184,128,211"/>
+<area shape="rect" title=" " alt="" coords="328,184,429,211"/>
+<area shape="rect" href="mutex_8hpp_source.html" title=" " alt="" coords="453,184,536,211"/>
+<area shape="rect" title=" " alt="" coords="285,259,363,285"/>
+<area shape="rect" title=" " alt="" coords="387,259,442,285"/>
+<area shape="rect" title=" " alt="" coords="466,259,523,285"/>
+<area shape="rect" href="FreeRTOS_8h_source.html" title=" " alt="" coords="547,259,642,285"/>
+<area shape="rect" href="semphr_8h_source.html" title=" " alt="" coords="690,259,766,285"/>
+<area shape="rect" title=" " alt="" coords="509,333,653,360"/>
+<area shape="rect" title=" " alt="" coords="677,333,803,360"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -175,31 +187,35 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="i2c-opc_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <a class="el" href="i2c-opc_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="i2c-radiation_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
-, <a class="el" href="i2c-radiation_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
+, <b>INIT</b>
+, <b>TASKS_EXECUTION</b>
 , <br />
-&#160;&#160;<a class="el" href="i2c-radiation_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+&#160;&#160;<b>END</b>
+, <b>INIT</b>
+, <b>TASKS_EXECUTION</b>
+, <b>END</b>
+, <br />
+&#160;&#160;<a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
 , <a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+, <b>INIT</b>
 , <br />
-&#160;&#160;<a class="el" href="i2c-th_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
-, <a class="el" href="i2c-th_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
-, <a class="el" href="i2c-th_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+&#160;&#160;<b>TASKS_EXECUTION</b>
+, <b>END</b>
 , <a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+, <a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <br />
-&#160;&#160;<a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
-, <a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="i2c-wind_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
-, <a class="el" href="i2c-wind_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
+&#160;&#160;<a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+, <b>INIT</b>
+, <b>TASKS_EXECUTION</b>
+, <b>END</b>
 , <br />
-&#160;&#160;<a class="el" href="i2c-wind_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+&#160;&#160;<a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
 , <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+, <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a054795c72261d4d92e885ac46296a18e">REBOOT</a>
 , <br />
-&#160;&#160;<a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a054795c72261d4d92e885ac46296a18e">REBOOT</a>
-, <b>INIT</b>
+&#160;&#160;<b>INIT</b>
 , <b>TASKS_EXECUTION</b>
 , <b>END</b>
 <br />
@@ -232,32 +248,12 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:a41694caa7c2afa9fa0f9b3eae96246e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ethernet task finite state machine.  <a href="stima_8h.html#a41694caa7c2afa9fa0f9b3eae96246e5">More...</a><br /></td></tr>
 <tr class="separator:a41694caa7c2afa9fa0f9b3eae96246e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48bef3d022ff6f88967496ad53a6b953"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953">sensors_reading_state_t</a> { <br />
-&#160;&#160;<a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953a2cb28b4d2ce509fc382d6bd1b2d5d16f">SENSORS_READING_INIT</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953ae252a3502657691e53a0550f0fa75433">SENSORS_READING_SETUP_CHECK</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953a7cf0f5ecc300e86aacc2deb266d14724">SENSORS_READING_PREPARE</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953a96e335eefffa76f53459df4a3cf71ac1">SENSORS_READING_IS_PREPARED</a>
-, <br />
-&#160;&#160;<a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953a8e031386ec7bcc225e75a4a0b408d731">SENSORS_READING_GET</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953a3dae8abf31ae3db2ab2d679c224fd8be">SENSORS_READING_IS_GETTED</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953ac2ebb8ebf9d29905d0a30f804376b9fa">SENSORS_READING_READ</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953a739c69b8d018187b0956660ed209e303">SENSORS_READING_NEXT</a>
-, <br />
-&#160;&#160;<a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953ab602220e588f3c2ac15b450239d9577a">SENSORS_READING_END</a>
-, <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953acfc850b971651f7c8c90cddf593fa399">SENSORS_READING_WAIT_STATE</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a2cb28b4d2ce509fc382d6bd1b2d5d16f">SENSORS_READING_INIT</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a3ac6f6de127e0185a44dae3f4045d63c">SENSORS_SETUP_CHECK</a>
-, <br />
-&#160;&#160;<a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a7cf0f5ecc300e86aacc2deb266d14724">SENSORS_READING_PREPARE</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a96e335eefffa76f53459df4a3cf71ac1">SENSORS_READING_IS_PREPARED</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a8e031386ec7bcc225e75a4a0b408d731">SENSORS_READING_GET</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a3dae8abf31ae3db2ab2d679c224fd8be">SENSORS_READING_IS_GETTED</a>
-, <br />
-&#160;&#160;<a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953ac2ebb8ebf9d29905d0a30f804376b9fa">SENSORS_READING_READ</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a739c69b8d018187b0956660ed209e303">SENSORS_READING_NEXT</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953ab602220e588f3c2ac15b450239d9577a">SENSORS_READING_END</a>
-, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953acfc850b971651f7c8c90cddf593fa399">SENSORS_READING_WAIT_STATE</a>
-, <br />
 &#160;&#160;<b>SENSORS_READING_INIT</b>
+, <b>SENSORS_READING_SETUP_CHECK</b>
+, <b>SENSORS_READING_POWER_OFF</b>
+, <b>SENSORS_READING_POWER_ON</b>
+, <br />
+&#160;&#160;<b>SENSORS_READING_SETUP</b>
 , <b>SENSORS_READING_PREPARE</b>
 , <b>SENSORS_READING_IS_PREPARED</b>
 , <b>SENSORS_READING_GET</b>
@@ -268,6 +264,29 @@ Enumerations</h2></td></tr>
 , <b>SENSORS_READING_END</b>
 , <br />
 &#160;&#160;<b>SENSORS_READING_WAIT_STATE</b>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a2cb28b4d2ce509fc382d6bd1b2d5d16f">SENSORS_READING_INIT</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a3ac6f6de127e0185a44dae3f4045d63c">SENSORS_SETUP_CHECK</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a7cf0f5ecc300e86aacc2deb266d14724">SENSORS_READING_PREPARE</a>
+, <br />
+&#160;&#160;<a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a96e335eefffa76f53459df4a3cf71ac1">SENSORS_READING_IS_PREPARED</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a8e031386ec7bcc225e75a4a0b408d731">SENSORS_READING_GET</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a3dae8abf31ae3db2ab2d679c224fd8be">SENSORS_READING_IS_GETTED</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953ac2ebb8ebf9d29905d0a30f804376b9fa">SENSORS_READING_READ</a>
+, <br />
+&#160;&#160;<a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953a739c69b8d018187b0956660ed209e303">SENSORS_READING_NEXT</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953ab602220e588f3c2ac15b450239d9577a">SENSORS_READING_END</a>
+, <a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953acfc850b971651f7c8c90cddf593fa399">SENSORS_READING_WAIT_STATE</a>
+, <b>SENSORS_READING_INIT</b>
+, <br />
+&#160;&#160;<b>SENSORS_READING_PREPARE</b>
+, <b>SENSORS_READING_IS_PREPARED</b>
+, <b>SENSORS_READING_GET</b>
+, <b>SENSORS_READING_IS_GETTED</b>
+, <br />
+&#160;&#160;<b>SENSORS_READING_READ</b>
+, <b>SENSORS_READING_NEXT</b>
+, <b>SENSORS_READING_END</b>
+, <b>SENSORS_READING_WAIT_STATE</b>
 <br />
  }</td></tr>
 <tr class="memdesc:a48bef3d022ff6f88967496ad53a6b953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensors reading task finite state machine.  <a href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953">More...</a><br /></td></tr>
@@ -598,7 +617,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>i2c_error</b></td>
 <tr class="memdesc:a3b0670bbe3f8dd3e1e55ef9f601d31b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time task state. <br /></td></tr>
 <tr class="separator:a3b0670bbe3f8dd3e1e55ef9f601d31b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fa8748c910383c5584502d00e3b36c2"><td class="memItemLeft" align="right" valign="top"><a id="a9fa8748c910383c5584502d00e3b36c2"></a>
-<a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953">sensors_reading_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sensors_reading_state</b></td></tr>
+<a class="el" href="stima_8h.html#a48bef3d022ff6f88967496ad53a6b953">sensors_reading_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sensors_reading_state</b></td></tr>
 <tr class="separator:a9fa8748c910383c5584502d00e3b36c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2779f8ef6da1a157663551dbf7540c6"><td class="memItemLeft" align="right" valign="top"><a id="aa2779f8ef6da1a157663551dbf7540c6"></a>
 <a class="el" href="stima_8h.html#a65962b43a96f28b0441699f3317f5b99">rpc_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stima_8h.html#aa2779f8ef6da1a157663551dbf7540c6">rpc_state</a></td></tr>
@@ -695,7 +714,7 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="i2c-th_8h.html#a48bef3d022ff6f88967496ad53a6b953">sensors_reading_state_t</a></td>
+          <td class="memname">enum sensors_reading_state_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -703,26 +722,6 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <p>Sensors reading task finite state machine. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a2cb28b4d2ce509fc382d6bd1b2d5d16f"></a>SENSORS_READING_INIT&#160;</td><td class="fielddoc"><p>init task variables </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953ae252a3502657691e53a0550f0fa75433"></a>SENSORS_READING_SETUP_CHECK&#160;</td><td class="fielddoc"><p>check errors and if required try a sensor setup </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a7cf0f5ecc300e86aacc2deb266d14724"></a>SENSORS_READING_PREPARE&#160;</td><td class="fielddoc"><p>prepare sensor </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a96e335eefffa76f53459df4a3cf71ac1"></a>SENSORS_READING_IS_PREPARED&#160;</td><td class="fielddoc"><p>check if the sensor has been prepared </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a8e031386ec7bcc225e75a4a0b408d731"></a>SENSORS_READING_GET&#160;</td><td class="fielddoc"><p>read and get values from sensor </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a3dae8abf31ae3db2ab2d679c224fd8be"></a>SENSORS_READING_IS_GETTED&#160;</td><td class="fielddoc"><p>check if the sensor has been readed </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953ac2ebb8ebf9d29905d0a30f804376b9fa"></a>SENSORS_READING_READ&#160;</td><td class="fielddoc"><p>intermediate state (future implementation...) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a739c69b8d018187b0956660ed209e303"></a>SENSORS_READING_NEXT&#160;</td><td class="fielddoc"><p>go to next sensor </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953ab602220e588f3c2ac15b450239d9577a"></a>SENSORS_READING_END&#160;</td><td class="fielddoc"><p>performs end operations and deactivate task </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953acfc850b971651f7c8c90cddf593fa399"></a>SENSORS_READING_WAIT_STATE&#160;</td><td class="fielddoc"><p>non-blocking waiting time </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a2cb28b4d2ce509fc382d6bd1b2d5d16f"></a>SENSORS_READING_INIT&#160;</td><td class="fielddoc"><p>init task variables </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a48bef3d022ff6f88967496ad53a6b953a3ac6f6de127e0185a44dae3f4045d63c"></a>SENSORS_SETUP_CHECK&#160;</td><td class="fielddoc"><p>check errors and if required try a sensor setup </p>
 </td></tr>
@@ -761,24 +760,6 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <p>Main loop finite state machine. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
 </td></tr>
@@ -1054,19 +1035,22 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 <p>copy readable_data_2 in readable_data_1</p>
 <p>copy readable_data_2 in readable_data_1</p>
+<p>copy readable_data_write in readable_data_read</p>
+<p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_2 in readable_data_1</p>
 <p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
+<p>copy readable_data_write in readable_data_read</p>
+<p>copy readable_data_write in readable_data_read</p>
+<p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_2 in readable_data_1</p>
 <p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_2 in readable_data_1</p>
 <p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
+<p>copy readable_data_write in readable_data_read</p>
+<p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
+<p>copy readable_data_write in readable_data_read</p>
 
 </div>
 </div>
@@ -1145,22 +1129,6 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
 
 </div>
 </div>
@@ -1278,6 +1246,7 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <p>main loop state</p>
 <p>main loop state</p>
 <p>main loop state</p>
+<p>main loop state</p>
 
 </div>
 </div>
@@ -1299,13 +1268,16 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <p>Init tasks variable and state. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 <p>no tasks ready</p>
-<p>reset samples_count value</p>
 <p>no tasks ready</p>
 <p>reset samples_count value</p>
 <p>no tasks ready</p>
 <p>no tasks ready</p>
 <p>reset samples_count value</p>
 <p>no tasks ready</p>
+<p>no tasks ready</p>
+<p>reset samples_count value</p>
+<p>no tasks ready</p>
+<p>no tasks ready</p>
 <p>reset samples_count value</p>
 <p>no tasks ready</p>
 <p>no tasks ready</p>
@@ -1313,9 +1285,6 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 <p>no tasks ready</p>
 <p>no tasks ready</p>
 <p>reset samples_count value</p>
-<p>no tasks ready</p>
-<p>reset samples_count value</p>
-<p>no tasks ready</p>
 <p>no tasks ready</p>
 <p>no tasks ready</p>
 <p>no tasks ready</p>
@@ -1431,6 +1400,7 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
 
 <p>Load configuration from EEPROM. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+<p>read configuration from eeprom</p>
 <p>read configuration from eeprom</p>
 <p>read configuration from eeprom</p>
 <p>read configuration from eeprom</p>
@@ -1649,6 +1619,7 @@ STM32RTC &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rtc</b> = S
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+<p>write configuration to eeprom</p>
 <p>write configuration to eeprom</p>
 <p>write configuration to eeprom</p>
 <p>write configuration to eeprom</p>

@@ -1,7 +1,8 @@
 <map id="readable_data_t" name="readable_data_t">
-<area shape="rect" id="node1" title="Readable data through i2c bus." alt="" coords="175,124,289,151"/>
+<area shape="rect" id="node1" title="Readable data through i2c bus." alt="" coords="216,124,331,151"/>
 <area shape="rect" id="node2" href="$structleaf__wetness__t.html" title="Leaf wetness data." alt="" coords="5,5,115,32"/>
 <area shape="rect" id="node3" href="$structreport__t.html" title="report data." alt="" coords="139,5,205,32"/>
-<area shape="rect" id="node4" href="$structpm__value__t.html" title=" " alt="" coords="248,5,336,32"/>
-<area shape="rect" id="node5" href="$structbin__value__t.html" title=" " alt="" coords="361,5,447,32"/>
+<area shape="rect" id="node4" href="$structpm__value__t.html" title=" " alt="" coords="229,5,317,32"/>
+<area shape="rect" id="node5" href="$structbin__value__t.html" title=" " alt="" coords="342,5,429,32"/>
+<area shape="rect" id="node6" href="$structdata__t.html" title=" " alt="" coords="453,5,512,32"/>
 </map>

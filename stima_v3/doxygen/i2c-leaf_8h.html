@@ -68,7 +68,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -110,13 +109,22 @@ Include dependency graph for i2c-leaf.h:</div>
 <area shape="rect" title=" " alt="" coords="915,109,1029,136"/>
 <area shape="rect" title=" " alt="" coords="1053,109,1113,136"/>
 <area shape="rect" title=" " alt="" coords="1137,109,1215,136"/>
-<area shape="rect" title=" " alt="" coords="1240,109,1315,136"/>
+<area shape="rect" href="typedef_8h_source.html" title=" " alt="" coords="1240,109,1315,136"/>
 <area shape="rect" title=" " alt="" coords="1339,109,1447,136"/>
 <area shape="rect" title=" " alt="" coords="1471,109,1582,136"/>
 <area shape="rect" title=" " alt="" coords="1607,109,1673,136"/>
 <area shape="rect" title=" " alt="" coords="1698,109,1801,136"/>
 <area shape="rect" title=" " alt="" coords="1825,109,1924,136"/>
 <area shape="rect" title=" " alt="" coords="5,184,128,211"/>
+<area shape="rect" title=" " alt="" coords="1168,184,1269,211"/>
+<area shape="rect" href="mutex_8hpp_source.html" title=" " alt="" coords="1293,184,1376,211"/>
+<area shape="rect" title=" " alt="" coords="1125,259,1203,285"/>
+<area shape="rect" title=" " alt="" coords="1227,259,1282,285"/>
+<area shape="rect" title=" " alt="" coords="1306,259,1363,285"/>
+<area shape="rect" href="FreeRTOS_8h_source.html" title=" " alt="" coords="1387,259,1482,285"/>
+<area shape="rect" href="semphr_8h_source.html" title=" " alt="" coords="1530,259,1606,285"/>
+<area shape="rect" title=" " alt="" coords="1349,333,1493,360"/>
+<area shape="rect" title=" " alt="" coords="1517,333,1643,360"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -146,12 +154,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writable data through i2c bus.  <a href="structwritable__data__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aa5d31998e95dc4be03bcc6ae3ff37d70"><td class="memItemLeft" align="right" valign="top"><a id="aa5d31998e95dc4be03bcc6ae3ff37d70"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>leafRead</b>()&#160;&#160;&#160;(analogRead(<a class="el" href="i2c-leaf-config_8h.html#acda8a68e9c89980a4e075f9fd5eb9594">LEAF_ANALOG_PIN</a>))</td></tr>
-<tr class="separator:aa5d31998e95dc4be03bcc6ae3ff37d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:aa0aafed44fec19806d8f9ad834be1248"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#aa0aafed44fec19806d8f9ad834be1248">state_t</a> { <br />
@@ -162,31 +164,35 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="i2c-opc_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <a class="el" href="i2c-opc_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="i2c-radiation_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
-, <a class="el" href="i2c-radiation_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
+, <b>INIT</b>
+, <b>TASKS_EXECUTION</b>
 , <br />
-&#160;&#160;<a class="el" href="i2c-radiation_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+&#160;&#160;<b>END</b>
+, <b>INIT</b>
+, <b>TASKS_EXECUTION</b>
+, <b>END</b>
+, <br />
+&#160;&#160;<a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
 , <a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <a class="el" href="i2c-rain_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+, <b>INIT</b>
 , <br />
-&#160;&#160;<a class="el" href="i2c-th_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
-, <a class="el" href="i2c-th_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
-, <a class="el" href="i2c-th_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+&#160;&#160;<b>TASKS_EXECUTION</b>
+, <b>END</b>
 , <a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+, <a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <br />
-&#160;&#160;<a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
-, <a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="i2c-wind_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
-, <a class="el" href="i2c-wind_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
+&#160;&#160;<a class="el" href="i2c-thr_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+, <b>INIT</b>
+, <b>TASKS_EXECUTION</b>
+, <b>END</b>
 , <br />
-&#160;&#160;<a class="el" href="i2c-wind_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
-, <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+&#160;&#160;<a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
 , <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91">TASKS_EXECUTION</a>
 , <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924">END</a>
+, <a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a054795c72261d4d92e885ac46296a18e">REBOOT</a>
 , <br />
-&#160;&#160;<a class="el" href="stima_8h.html#aa0aafed44fec19806d8f9ad834be1248a054795c72261d4d92e885ac46296a18e">REBOOT</a>
-, <b>INIT</b>
+&#160;&#160;<b>INIT</b>
 , <b>TASKS_EXECUTION</b>
 , <b>END</b>
 <br />
@@ -253,8 +259,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a4ecfdb115bb60bf58558e96931885b8c"><td class="memItemLeft" align="right" valign="top"><a id="a4ecfdb115bb60bf58558e96931885b8c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_report_buffer</b> (void)</td></tr>
 <tr class="separator:a4ecfdb115bb60bf58558e96931885b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3ae067d06a9dbe11d072611e842f4e8"><td class="memItemLeft" align="right" valign="top"><a id="af3ae067d06a9dbe11d072611e842f4e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_buffer</b> (void)</td></tr>
+<tr class="memitem:af3ae067d06a9dbe11d072611e842f4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#af3ae067d06a9dbe11d072611e842f4e8">reset_buffer</a> (void)</td></tr>
+<tr class="memdesc:af3ae067d06a9dbe11d072611e842f4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset sample and observations buffers to default value.  <a href="i2c-leaf_8h.html#af3ae067d06a9dbe11d072611e842f4e8">More...</a><br /></td></tr>
 <tr class="separator:af3ae067d06a9dbe11d072611e842f4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafa3d59a1bde3085849eee08f110612f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#aafa3d59a1bde3085849eee08f110612f">exchange_buffers</a> (void)</td></tr>
 <tr class="memdesc:aafa3d59a1bde3085849eee08f110612f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchange reader and writer pointer to buffer.  <a href="i2c-leaf_8h.html#aafa3d59a1bde3085849eee08f110612f">More...</a><br /></td></tr>
@@ -309,10 +315,10 @@ template&lt;typename observation_g , typename length_v , typename value_v &gt; <
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a32c97d3f8cd6089ccf54e7c423020b7a"><td class="memItemLeft" align="right" valign="top"><a id="a32c97d3f8cd6089ccf54e7c423020b7a"></a>
-<a class="el" href="structconfiguration__t.html">configuration_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a32c97d3f8cd6089ccf54e7c423020b7a">configuration</a></td></tr>
-<tr class="memdesc:a32c97d3f8cd6089ccf54e7c423020b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration data. <br /></td></tr>
-<tr class="separator:a32c97d3f8cd6089ccf54e7c423020b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de2634e2a016686a774342d2a88c337"><td class="memItemLeft" align="right" valign="top"><a id="a2de2634e2a016686a774342d2a88c337"></a>
+<a class="el" href="structconfiguration__t.html">configuration_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a2de2634e2a016686a774342d2a88c337">configuration</a></td></tr>
+<tr class="memdesc:a2de2634e2a016686a774342d2a88c337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration data. <br /></td></tr>
+<tr class="separator:a2de2634e2a016686a774342d2a88c337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7c4666cc43ac73859ace91030494dba"><td class="memItemLeft" align="right" valign="top"><a id="ab7c4666cc43ac73859ace91030494dba"></a>
 volatile <a class="el" href="structreadable__data__t.html">readable_data_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#ab7c4666cc43ac73859ace91030494dba">readable_data_1</a></td></tr>
 <tr class="memdesc:ab7c4666cc43ac73859ace91030494dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">First readable i2c register. <br /></td></tr>
@@ -353,10 +359,17 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#ae22f16db01d254c3709565e8347c05af">i2c_rx_data</a> [<a class="el" href="test__sim800_2include_2i2c__config_8h.html#aa552d72ce15dd8ca167c4b9323f1f25d">I2C_MAX_DATA_LENGTH</a>]</td></tr>
 <tr class="memdesc:ae22f16db01d254c3709565e8347c05af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer for i2c received data. <br /></td></tr>
 <tr class="separator:ae22f16db01d254c3709565e8347c05af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272f4edae2fd72894a6ba06e0f5cdd08"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a272f4edae2fd72894a6ba06e0f5cdd08">lastcommand</a></td></tr>
+<tr class="memdesc:a272f4edae2fd72894a6ba06e0f5cdd08"><td class="mdescLeft">&#160;</td><td class="mdescRight">last command received.  <a href="i2c-leaf_8h.html#a272f4edae2fd72894a6ba06e0f5cdd08">More...</a><br /></td></tr>
+<tr class="separator:a272f4edae2fd72894a6ba06e0f5cdd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43bfb1c29f658acf7febb40c4c0eb661"><td class="memItemLeft" align="right" valign="top"><a id="a43bfb1c29f658acf7febb40c4c0eb661"></a>
 volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a43bfb1c29f658acf7febb40c4c0eb661">i2c_error</a></td></tr>
 <tr class="memdesc:a43bfb1c29f658acf7febb40c4c0eb661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of i2c error. <br /></td></tr>
 <tr class="separator:a43bfb1c29f658acf7febb40c4c0eb661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56abe674802a8347e6aacae8b08e19e8"><td class="memItemLeft" align="right" valign="top"><a id="a56abe674802a8347e6aacae8b08e19e8"></a>
+volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a56abe674802a8347e6aacae8b08e19e8">i2c_time</a></td></tr>
+<tr class="memdesc:a56abe674802a8347e6aacae8b08e19e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time in seconds from last I2C reset. <br /></td></tr>
+<tr class="separator:a56abe674802a8347e6aacae8b08e19e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad51737114d6776c16525958973815d50"><td class="memItemLeft" align="right" valign="top"><a id="ad51737114d6776c16525958973815d50"></a>
 volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#ad51737114d6776c16525958973815d50">ready_tasks_count</a></td></tr>
 <tr class="memdesc:ad51737114d6776c16525958973815d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of tasks ready to execute. <br /></td></tr>
@@ -373,18 +386,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#ad2dc9b34342f31d98c692c9b5ff3c5a9">is_stop</a></td></tr>
 <tr class="memdesc:ad2dc9b34342f31d98c692c9b5ff3c5a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute stop command. <br /></td></tr>
 <tr class="separator:ad2dc9b34342f31d98c692c9b5ff3c5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6090a983e62d9556906716dd85f78d9d"><td class="memItemLeft" align="right" valign="top"><a id="a6090a983e62d9556906716dd85f78d9d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a6090a983e62d9556906716dd85f78d9d">is_oneshot</a></td></tr>
-<tr class="memdesc:a6090a983e62d9556906716dd85f78d9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received command is in oneshot mode. <br /></td></tr>
-<tr class="separator:a6090a983e62d9556906716dd85f78d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75ef189b6b17aa09010c574ed6b01fc3"><td class="memItemLeft" align="right" valign="top"><a id="a75ef189b6b17aa09010c574ed6b01fc3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a75ef189b6b17aa09010c574ed6b01fc3">is_continuous</a></td></tr>
-<tr class="memdesc:a75ef189b6b17aa09010c574ed6b01fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received command is in continuous mode. <br /></td></tr>
-<tr class="separator:a75ef189b6b17aa09010c574ed6b01fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c4cd9e7fa19cd4b8a75044109d71106"><td class="memItemLeft" align="right" valign="top"><a id="a0c4cd9e7fa19cd4b8a75044109d71106"></a>
-<a class="el" href="structleaf__wetness__t.html">leaf_wetness_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a0c4cd9e7fa19cd4b8a75044109d71106">leaf_wetness</a></td></tr>
-<tr class="memdesc:a0c4cd9e7fa19cd4b8a75044109d71106"><td class="mdescLeft">&#160;</td><td class="mdescRight">leaf_wetness data. <br /></td></tr>
-<tr class="separator:a0c4cd9e7fa19cd4b8a75044109d71106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af96fa9e0905747ff322790e8af1f8ccc"><td class="memItemLeft" align="right" valign="top"><a id="af96fa9e0905747ff322790e8af1f8ccc"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#af96fa9e0905747ff322790e8af1f8ccc">is_test_read</a></td></tr>
+<tr class="memdesc:af96fa9e0905747ff322790e8af1f8ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received command is in continuous mode. <br /></td></tr>
+<tr class="separator:af96fa9e0905747ff322790e8af1f8ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47fbe47ef257fb209080f43b1f7f90cd"><td class="memItemLeft" align="right" valign="top"><a id="a47fbe47ef257fb209080f43b1f7f90cd"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_leaf_init</b></td></tr>
 <tr class="separator:a47fbe47ef257fb209080f43b1f7f90cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -403,9 +408,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-
 volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#abeaee55c34de3f89469f33323ad14aa0">timer_counter_ms</a></td></tr>
 <tr class="memdesc:abeaee55c34de3f89469f33323ad14aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer counter variable for execute timed task with time multiple of base Timer1 time. <br /></td></tr>
 <tr class="separator:abeaee55c34de3f89469f33323ad14aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b3ca2623b610bedc9d2b8aa28ea03a"><td class="memItemLeft" align="right" valign="top"><a id="ac2b3ca2623b610bedc9d2b8aa28ea03a"></a>
-volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer_counter_s</b></td></tr>
-<tr class="separator:ac2b3ca2623b610bedc9d2b8aa28ea03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc6e5733fc3c22f0a7b2914188c49c90"><td class="memItemLeft" align="right" valign="top"><a id="adc6e5733fc3c22f0a7b2914188c49c90"></a>
 <a class="el" href="i2c-leaf_8h.html#aa0aafed44fec19806d8f9ad834be1248">state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></td></tr>
 <tr class="memdesc:adc6e5733fc3c22f0a7b2914188c49c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current main loop state. <br /></td></tr>
@@ -413,6 +415,14 @@ volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer_co
 <tr class="memitem:aa7e01d7b41413c03dcd09850788e5363"><td class="memItemLeft" align="right" valign="top"><a id="aa7e01d7b41413c03dcd09850788e5363"></a>
 <a class="el" href="i2c-leaf_8h.html#a999c553e7ef1dd3fcdd006e3f817d4ea">leaf_reading_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leaf_reading_state</b></td></tr>
 <tr class="separator:aa7e01d7b41413c03dcd09850788e5363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b746ced6428d8b524dde9a3cdaf9c07"><td class="memItemLeft" align="right" valign="top"><a id="a1b746ced6428d8b524dde9a3cdaf9c07"></a>
+volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a1b746ced6428d8b524dde9a3cdaf9c07">inside_transaction</a></td></tr>
+<tr class="memdesc:a1b746ced6428d8b524dde9a3cdaf9c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of command transaction. <br /></td></tr>
+<tr class="separator:a1b746ced6428d8b524dde9a3cdaf9c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd2a42b21f42e71a4fa29fccc066e0f"><td class="memItemLeft" align="right" valign="top"><a id="a8fd2a42b21f42e71a4fa29fccc066e0f"></a>
+volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a8fd2a42b21f42e71a4fa29fccc066e0f">transaction_time</a></td></tr>
+<tr class="memdesc:a8fd2a42b21f42e71a4fa29fccc066e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer counter variable for compute command transaction timeout. <br /></td></tr>
+<tr class="separator:a8fd2a42b21f42e71a4fa29fccc066e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a08b42748b6b80db3318f3a3584701"><td class="memItemLeft" align="right" valign="top"><a id="a93a08b42748b6b80db3318f3a3584701"></a>
 volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c-leaf_8h.html#a93a08b42748b6b80db3318f3a3584701">is_event_leaf_reading</a></td></tr>
 <tr class="memdesc:a93a08b42748b6b80db3318f3a3584701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the Sensors reading task. <br /></td></tr>
@@ -489,24 +499,6 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </td></tr>
 <tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>init tasks and sensors </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a34f1df650a5075369a6827770c433a91"></a>TASKS_EXECUTION&#160;</td><td class="fielddoc"><p>execute active tasks </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248adc6f24fd6915a3f2786a1b7045406924"></a>END&#160;</td><td class="fielddoc"><p>go to ENTER_POWER_DOWN or TASKS_EXECUTION </p>
-</td></tr>
 <tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a054795c72261d4d92e885ac46296a18e"></a>REBOOT&#160;</td><td class="fielddoc"><p>reboot the machine </p>
 </td></tr>
 </table>
@@ -554,12 +546,7 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 
 <p>Performs specific operations based on the received command. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
-<p>CONTINUOUS START</p>
-<p>CONTINUOUS STOP</p>
-<p>CONTINUOUS START-STOP</p>
-<p>ONESHOT START</p>
-<p>ONESHOT STOP</p>
-<p>ONESHOT START-STOP</p>
+<p>CONTINUOUS TEST</p>
 <p>CONTINUOUS START</p>
 <p>CONTINUOUS STOP</p>
 <p>CONTINUOUS START-STOP</p>
@@ -579,6 +566,14 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>ONESHOT START</p>
 <p>ONESHOT STOP</p>
 <p>ONESHOT START-STOP</p>
+<p>CONTINUOUS TEST</p>
+<p>CONTINUOUS START</p>
+<p>CONTINUOUS STOP</p>
+<p>CONTINUOUS START-STOP</p>
+<p>ONESHOT START</p>
+<p>ONESHOT STOP</p>
+<p>ONESHOT START-STOP</p>
+<p>CONTINUOUS TEST</p>
 <p>CONTINUOUS START</p>
 <p>CONTINUOUS STOP</p>
 <p>CONTINUOUS START-STOP</p>
@@ -659,8 +654,6 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>write readable_data_length bytes of data stored in readable_data_read_ptr (base) + readable_data_address (offset) on i2c bus</p>
 <p>write crc8</p>
 <p>write readable_data_length bytes of data stored in readable_data_read_ptr (base) + readable_data_address (offset) on i2c bus</p>
-<p>write crc8</p>
-<p>write readable_data_length bytes of data stored in readable_data_read_ptr (base) + readable_data_address (offset) on i2c bus</p>
 <p>write readable_data_length bytes of data stored in readable_data_read_ptr (base) + readable_data_address (offset) on i2c bus</p>
 <p>write crc8</p>
 <p>write readable_data_length bytes of data stored in readable_data_read_ptr (base) + readable_data_address (offset) on i2c bus</p>
@@ -689,10 +682,11 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 <p>copy readable_data_2 in readable_data_1</p>
 <p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
+<p>copy readable_data_write in readable_data_read</p>
+<p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_write in readable_data_read</p>
 <p>copy readable_data_2 in readable_data_1</p>
-<p>copy readable_data_2 in readable_data_1</p>
+<p>copy readable_data_write in readable_data_read</p>
 
 </div>
 </div>
@@ -773,9 +767,6 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
-<p>turn off brown-out</p>
 
 </div>
 </div>
@@ -866,7 +857,6 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>main loop state</p>
 <p>main loop state</p>
 <p>main loop state</p>
-<p>main loop state</p>
 
 </div>
 </div>
@@ -889,10 +879,8 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Init tasks variable and state. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 <p>no tasks ready</p>
-<p>reset samples_count value</p>
 <p>no tasks ready</p>
 <p>reset samples_count value</p>
-<p>no tasks ready</p>
 <p>no tasks ready</p>
 <p>no tasks ready</p>
 <p>no tasks ready</p>
@@ -993,7 +981,6 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>read configuration from eeprom</p>
 <p>read configuration from eeprom</p>
 <p>read configuration from eeprom</p>
-<p>read configuration from eeprom</p>
 
 </div>
 </div>
@@ -1014,6 +1001,27 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </div><div class="memdoc">
 
 <p>Print current configuration. </p>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
+<a id="af3ae067d06a9dbe11d072611e842f4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ae067d06a9dbe11d072611e842f4e8">&#9670;&nbsp;</a></span>reset_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reset_buffer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset sample and observations buffers to default value. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 
 </div>
@@ -1098,7 +1106,24 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>write configuration to eeprom</p>
 <p>write configuration to eeprom</p>
 <p>write configuration to eeprom</p>
-<p>write configuration to eeprom</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a272f4edae2fd72894a6ba06e0f5cdd08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272f4edae2fd72894a6ba06e0f5cdd08">&#9670;&nbsp;</a></span>lastcommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lastcommand</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>last command received. </p>
+<p>command to be executed. </p>
 
 </div>
 </div>
