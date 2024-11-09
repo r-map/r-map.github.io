@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Testa di prelievo per sensori Air Quality &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Server RMAP" href="../../server_rmap/server_rmap.html" />
+    <link rel="prev" title="Stima WiFi V3" href="../stimawifi_v3/stima_wifi_howto.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Stima WiFi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../stimawifi_v2/stima_wifi_howto.html">Stima WiFi V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stimawifi_v3/stima_wifi_howto.html">Stima WiFi V3</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testa di prelievo per sensori Air Quality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-cosa-serve">A cosa serve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#principio-di-funzionamento">Principio di funzionamento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funzionalita">Funzionalità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementazione-hardware">Implementazione hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#materiale">Materiale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementazione-software">Implementazione software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#firmware">Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#test-di-funzionamento">Test di funzionamento</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dispense/index.html">Dispense</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Stima WiFi</a> &raquo;</li>
+        
+      <li>Testa di prelievo per sensori Air Quality</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/stima_wifi/testa_prelievo/testa_prelievo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testa-di-prelievo-per-sensori-air-quality">
+<span id="id1"></span><h1>Testa di prelievo per sensori Air Quality<a class="headerlink" href="#testa-di-prelievo-per-sensori-air-quality" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="a-cosa-serve">
+<span id="id2"></span><h2>A cosa serve<a class="headerlink" href="#a-cosa-serve" title="Link a questa intestazione">¶</a></h2>
+<p>Da bibliografia I sensori per il particolato di tipo OPC evidenziano
+come principale fonte di errore l'elevata umidità relativa (&gt; 85%).
+Nelle condizioni di elevata umidità relativa infatti il computo della
+dimensione della particella viene alterato essendo questa generalmente
+igroscopica. Bisogna anche ridurre gli effetti dinamici del vento che
+alterano il flusso di aria nello strumento regolato solo da una apposita
+ventola.</p>
+</div>
+<div class="section" id="principio-di-funzionamento">
+<span id="id3"></span><h2>Principio di funzionamento<a class="headerlink" href="#principio-di-funzionamento" title="Link a questa intestazione">¶</a></h2>
+<p>L'umidità relativa è definita come il rapporto della densità del vapore
+contenuto nella miscela e la densità del vapore saturo alla temperatura
+della miscela. L'obiettivo è quello di ridurre l'umidità relativa. Il
+numeratore non è semplice da modificare mentre risulta facile modificare
+il denominatore elevando la temperatura e quindi aumentando la densità
+di vapore saturo. Quindi una riduzione di umidità relativa si realizza
+quando necessario riscaldando opportunamente l'aria. E' stata creata
+quindi una stanza all'interno della quale l'aria è convogliata da una
+ventola con numero di giri regolabile per garantire il ricambio
+permanente dei campioni d'aria. La stanza è termoregolata tramite un
+elemento riscaldante da 36w termicamente connesso a un dissipatore e una
+ventola per aumentare l'efficienza dello scambio di calore e
+l'omogenizzazione dell'aria nella stanza. L'uscita del flusso d'aria
+deve essere dimensionato in modo da no avere nessun effetto di
+pressurizzazione nella stanza, ma al tempo stesso permettere
+principalmente solo l'uscita dell'aria esterna prelevata. Viene
+impostata l'umidità massima richiesta. all'interno della stanza è posto
+un sensore di temperatura e di umidità. Dall'umidità misurata tramite la
+formula di Tetens diretta e inversa vine calcolata la temperatura
+necessaria per ottenere l'umidità richiesta. Nel caso in cui la
+temperatura calcolata sia superiore a quella misurata viene attivato il
+riscaldatore comandato tramite un PID.</p>
+<p>Alla camera è possibile collegare tutti i sensori con la presa d'aria
+predisposta.</p>
+</div>
+<div class="section" id="funzionalita">
+<h2>Funzionalità<a class="headerlink" href="#funzionalita" title="Link a questa intestazione">¶</a></h2>
+<p>Tramite l'encoder e il display è possibile impostare:</p>
+<ul class="simple">
+<li><p>umidità massima richiesta</p></li>
+<li><p>temperatura massima possibile (per protezione)</p></li>
+<li><p>velocità della ventola di prelievo</p></li>
+<li><p>ventola di prelievo on/off</p></li>
+<li><p>3 parametri del PID</p></li>
+<li><p>salvataggio di tutti i parametri in modo permanente</p></li>
+</ul>
+<p>La funzione di salvataggio permette di conservare i parametri impostati
+a un riavvio. Con una pressione lunga del bottone dell'encoder si esce
+dalla modalità impostazione (altrimenti raggiunta anche dopo un timeout)
+ed è possibile visualizzare sul display tutti i parametri di
+funzionamento.</p>
+</div>
+<div class="section" id="implementazione-hardware">
+<span id="id4"></span><h2>Implementazione hardware<a class="headerlink" href="#implementazione-hardware" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="materiale">
+<h3>Materiale<a class="headerlink" href="#materiale" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>alimentatore 12V 50w</p></li>
+<li><p>ponte H ibt_2</p></li>
+<li><p>sensore I2C temperatura e umidità HIH della Honeywell</p></li>
+<li><p>microcontrollore esp8266 Wemos D1 mini</p></li>
+<li><p>display oled Wemos</p></li>
+<li><p>modulo alimentazione Wemos</p></li>
+<li><p>millefori Wemos</p></li>
+<li><p>encoder</p></li>
+<li><p>ventola 4cm. 12V</p></li>
+<li><p>ventola 12cm. 12V</p></li>
+<li><p>dissipatore</p></li>
+<li><p>resistenza 4 ohm 50w</p></li>
+</ul>
+<img alt="../../_images/IMG_20190204_191526.jpg.small.jpg" src="../../_images/IMG_20190204_191526.jpg.small.jpg" />
+<img alt="../../_images/IMG_20190204_191433.jpg.small.jpg" src="../../_images/IMG_20190204_191433.jpg.small.jpg" />
+<img alt="../../_images/IMG_20190209_122451.jpg.small.jpg" src="../../_images/IMG_20190209_122451.jpg.small.jpg" />
+<img alt="../../_images/IMG_20190209_122505.jpg.small.jpg" src="../../_images/IMG_20190209_122505.jpg.small.jpg" />
+</div>
+</div>
+<div class="section" id="implementazione-software">
+<span id="id5"></span><h2>Implementazione software<a class="headerlink" href="#implementazione-software" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="firmware">
+<h3>Firmware<a class="headerlink" href="#firmware" title="Link a questa intestazione">¶</a></h3>
+<p><a class="reference external" href="https://github.com/r-map/rmap/blob/master/platformio/domotica/sample_head/src/sample_head.ino">https://github.com/r-map/rmap/blob/master/platformio/domotica/sample_head/src/sample_head.ino</a></p>
+</div>
+</div>
+<div class="section" id="test-di-funzionamento">
+<span id="id6"></span><h2>Test di funzionamento<a class="headerlink" href="#test-di-funzionamento" title="Link a questa intestazione">¶</a></h2>
+<img alt="../../_images/temperatura_e_umidita.png" src="../../_images/temperatura_e_umidita.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../server_rmap/server_rmap.html" class="btn btn-neutral float-right" title="Server RMAP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../stimawifi_v3/stima_wifi_howto.html" class="btn btn-neutral float-left" title="Stima WiFi V3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

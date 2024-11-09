@@ -1,0 +1,1605 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Stima V2 &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Stima base" href="../stima_base/stima_base.html" />
+    <link rel="prev" title="Stima V1" href="../stima_v1/stima_v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Stima obsolete</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../stima_v0/stima_v0.html">Stima V0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v1/stima_v1.html">Stima V1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Stima V2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#articoli-sulla-rivista-elettronica-in">Articoli sulla rivista Elettronica In</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-stima-versione-2">How To Stima Versione 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stima-pcb">STIMA PCB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installazione-ambiente-di-sviluppo">Installazione ambiente di sviluppo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-th">Modulo Stima-th</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-th">Modulo Stima-I2C-th</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modulo-stima-i2c-rain">Modulo Stima-I2C-rain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scheda-stima-i2c-hub">Scheda STIMA-I2C-Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stazione-stima-gsm-thp">stazione STIMA GSM THP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stazione-stima-master-thp">stazione STIMA MASTER THP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-6">Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firmware-stima-bluetooth">Firmware STIMA-BlueTooth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#applicazione-rmap">Applicazione Rmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configurazione-moduli">Configurazione moduli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operazioni-finali-2">Operazioni finali</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#messa-in-opera">Messa in opera</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#box">Box</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stima-v2-overview">Stima V2 Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#premesse">Premesse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#funzionalita">Funzionalità</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#concetti-base">Concetti base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elementi-hardware">Elementi hardware</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_base/stima_base.html">Stima base</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dispense/index.html">Dispense</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Stima obsolete</a> &raquo;</li>
+        
+      <li>Stima V2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/obsolete/stima_v2/stima_v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stima-v2">
+<h1>Stima V2<a class="headerlink" href="#stima-v2" title="Link a questa intestazione">¶</a></h1>
+<p>Questa versione della stazione Stima si basa su moduli Microduino.</p>
+<p>Si consiglia fortemente la realizzazione di Stima V3 o successive
+versioni.</p>
+<div class="section" id="articoli-sulla-rivista-elettronica-in">
+<h2>Articoli sulla rivista Elettronica In<a class="headerlink" href="#articoli-sulla-rivista-elettronica-in" title="Link a questa intestazione">¶</a></h2>
+<p>Parte 1 <a class="reference download internal" download="" href="../../_downloads/b3329dcab54fa79d1cb435dd2b20d706/prima_puntata.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p>
+<p>Parte 2 <a class="reference download internal" download="" href="../../_downloads/8854784d3e5d757b6ea62adb25aac4b7/seconda_puntata.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p>
+<p>Parte 3 <a class="reference download internal" download="" href="../../_downloads/aed31d383558bb846cb946db74ff5618/terza_puntata.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p>
+</div>
+<div class="section" id="how-to-stima-versione-2">
+<span id="id1"></span><h2>How To Stima Versione 2<a class="headerlink" href="#how-to-stima-versione-2" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="stima-pcb">
+<h3>STIMA PCB<a class="headerlink" href="#stima-pcb" title="Link a questa intestazione">¶</a></h3>
+<p>Per il momento è possibile ottenere i circuiti stampati da OSH Park:</p>
+<ul class="simple">
+<li><p>STIMA bluetooth <a class="reference external" href="https://oshpark.com/shared_projects/cKkpi2IN">https://oshpark.com/shared_projects/cKkpi2IN</a></p></li>
+<li><p>STIMA I2C <a class="reference external" href="https://oshpark.com/shared_projects/DMztH0Vu">https://oshpark.com/shared_projects/DMztH0Vu</a></p></li>
+<li><dl class="simple">
+<dt>STIMA breakout sensor board:</dt><dd><p><a class="reference external" href="https://oshpark.com/shared_projects/6XorC9H2">https://oshpark.com/shared_projects/6XorC9H2</a></p>
+</dd>
+</dl>
+</li>
+<li><p>STIMA I2C HUB <a class="reference external" href="https://oshpark.com/shared_projects/e5HS7gP1">https://oshpark.com/shared_projects/e5HS7gP1</a></p></li>
+<li><dl class="simple">
+<dt>Stima AirQuality Connector board</dt><dd><p><a class="reference external" href="https://oshpark.com/shared_projects/owmle8Pe">https://oshpark.com/shared_projects/owmle8Pe</a> (Ancora da testare)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MICS-4514 Breakout board</dt><dd><p><a class="reference external" href="https://oshpark.com/shared_projects/ei8rMhO6">https://oshpark.com/shared_projects/ei8rMhO6</a> (Ancora da testare)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="installazione-ambiente-di-sviluppo">
+<span id="id2"></span><h3>Installazione ambiente di sviluppo<a class="headerlink" href="#installazione-ambiente-di-sviluppo" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="sdk-arduino">
+<span id="id3"></span><h4>SDK Arduino<a class="headerlink" href="#sdk-arduino" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Installare arduino 1.8.1 da <a class="reference external" href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a></p></li>
+<li><p>scaricare l'ultima versione del software stima (file
+stimasketchbookbluetooth) da <a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a></p></li>
+<li><p>scompattare il file zip</p></li>
+<li><p>aprire l'ide arduino e in file -&gt; impostazioni -&gt; percorso della
+cartella degli sketch selezionare la cartella sketchbook appena
+scompattata dal file scaricato</p></li>
+<li><p>chiudere e riaprire l'ide</p></li>
+<li><p>sezionare in -&gt; strumenti</p></li>
+</ul>
+<div class="line-block">
+<div class="line">``       Scheda: Microduino Core+ (644pa)``</div>
+<div class="line">``       Processore: ATmega644pa&#64;16M5V``</div>
+<div class="line">``       Porta: (quella disponibile) ``</div>
+</div>
+<ul class="simple">
+<li><p>selezionare in -&gt; Sketch -&gt; Verifica e compila</p></li>
+</ul>
+<p>Ora per uplodare il firmware sul microprocessore dovrete collegare tra
+loro SOLO</p>
+<ul class="simple">
+<li><p>MICRODUINO Core+ ATMEGA644PA</p></li>
+<li><p>MICRODUINO Shield USB/TTL</p></li>
+</ul>
+<p>poi selezionate nella IDE di arduino:</p>
+<ul class="simple">
+<li><p>selezionare in -&gt; Sketch -&gt; Carica</p></li>
+</ul>
+<p>Utilizzando MICRODUINO Core+ con ATMEGA 1284 sostituire 1284 a 644 nei
+passi precedenti.</p>
+</div>
+<div class="section" id="pacchetto-python-rmap">
+<span id="id4"></span><h4>Pacchetto python RMAP<a class="headerlink" href="#pacchetto-python-rmap" title="Link a questa intestazione">¶</a></h4>
+<p>Queste istruzioni permettono di installare il pacchetto RMAP scritto in
+python utile alla configurazione delle stazioni:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mkdir rmap</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cd rmap</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">virtualenv myrmap</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source myrmap/bin/activate</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install rmap</span></code></div>
+</div>
+<p>successivamente ogni volta che si vuole eseguire un comando rmap
+eseguire preventivamente:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cd rmap</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source myrmap/bin/activate</span></code></div>
+</div>
+</div>
+</div>
+<div class="section" id="modulo-stima-th">
+<span id="id5"></span><h3>Modulo Stima-th<a class="headerlink" href="#modulo-stima-th" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="hardware">
+<h4>Hardware<a class="headerlink" href="#hardware" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>ponticellare con un resistore A1-centrale con A1-</p></li>
+<li><p>ponticellare con un resistore A0-centrale con A0+</p></li>
+</ul>
+<p>Una volta saldati i terminali dei cavi e protetti con nastro
+autoagglomerante è importante preservare le connessioni dalla corrosione
+degli agenti atmosferici e consigliamo uno strato di silicone protettivo
+spray del tipo Electrolube DCR200H; solo una volta asciugato lo strato
+di vernice protettiva rimuovere la protezione adesiva del sensore HIH</p>
+</div>
+<div class="section" id="configurazione">
+<h4>Configurazione<a class="headerlink" href="#configurazione" title="Link a questa intestazione">¶</a></h4>
+<p>Bisogna modificare l'indirizzo i2c del sensore hih.</p>
+<ul class="simple">
+<li><p>Assemblare microduino core+ con microduino FT232RL con Stima-i2c</p></li>
+<li><p>Caricare il firmware sensor_config</p></li>
+<li><p>connettere:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th VCC  -&gt;  Stima-i2c rl2</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th GND  -&gt;  Stima-i2c GND</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th SDA  -&gt;  Stima-i2c SDA</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th SCL  -&gt;  Stima-i2c SCL</span></code></div>
+</div>
+<p>alla porta seriale inviare i comandi:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Sensor to config:</span></code></div>
+<div class="line">`` w = i2c-wind``</div>
+<div class="line">`` s = i2c-windsonic``</div>
+<div class="line">`` t = i2c-th``</div>
+<div class="line">`` r = i2c-rain``</div>
+<div class="line">`` h = hih humidity sensor``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">? = help - this page</span></code></div>
+</div>
+<p>h</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">If you want to use Command Mode to setup HIH61xx sensor you MUST use one pin to power the HIH!</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">If not this will not work!</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">digit old i2c address for HIH sensor (1-127)</span></code></div>
+</div>
+<p>39</p>
+<p><code class="docutils literal notranslate"><span class="pre">digit the pin number for power HIH sensor (1-127)</span></code></p>
+<p>4</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">started HIH fo command mode</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">digit new i2c address for HIH sensor (1-127)</span></code></div>
+</div>
+<p>38</p>
+<p><code class="docutils literal notranslate"><span class="pre">Done; switch off</span></code></p>
+</div>
+<div class="section" id="assemblaggio">
+<h4>Assemblaggio<a class="headerlink" href="#assemblaggio" title="Link a questa intestazione">¶</a></h4>
+<p>Utilizzare un cavo quadripolare a bassa capacità se possibile schermato
+da esterno con da un lato connettore rj45 e dall'altro la connssione a
+Stima-th.</p>
+<p>Per questi sensori installati all'esterno è importante preservare le
+connessioni dalla corrosione degli agenti atmosferici e consigliamo uno
+strato di silicone protettivo spray del tipo Electrolube DCR200H.</p>
+<p>Inserire Stima-th nell'apposito schermo per le radiazioni.</p>
+</div>
+</div>
+<div class="section" id="modulo-stima-i2c-th">
+<span id="id6"></span><h3>Modulo Stima-I2C-th<a class="headerlink" href="#modulo-stima-i2c-th" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="hardware-1">
+<span id="id7"></span><h4>Hardware<a class="headerlink" href="#hardware-1" title="Link a questa intestazione">¶</a></h4>
+<p>Assemblare le schede impilabili:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 644</p></li>
+<li><p>Board microduino SD</p></li>
+<li><p>Board STIMA-I2C</p></li>
+<li><p>Microduino FT232RL</p></li>
+</ul>
+</div>
+<div class="section" id="software">
+<h4>Software<a class="headerlink" href="#software" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Caricare il firmware i2c-th tramite microduino FT232RL</p></li>
+</ul>
+</div>
+<div class="section" id="configurazione-1">
+<span id="id8"></span><h4>Configurazione<a class="headerlink" href="#configurazione-1" title="Link a questa intestazione">¶</a></h4>
+<p>Bisogna configurare l'indirizzo i2c del sensore hih.</p>
+<ul class="simple">
+<li><p>Assemblare microduino core+ con microduino FT232RL con Stima-i2c</p></li>
+<li><p>Caricare il firmware sensor_config</p></li>
+<li><p>connettere:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-i2c modulo configurazione +5  -&gt;  Stima-i2c modulo stima +5</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th modulo configurazione GND  -&gt;  Stima-i2c modulo stima GND</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th modulo configurazione SDA  -&gt;  Stima-i2c modulo stima SDA</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th modulo configurazione SCL  -&gt;  Stima-i2c modulo stima SCL</span></code></div>
+</div>
+<p>alla porta seriale inviare i comandi:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Terminal ready</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Start sensor config</span></code></div>
+<div class="line">``       Sensor configuration - 1.0``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">scan I2C bus:</span></code></div>
+<div class="line">``  i = scan one time``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Sensor to config:</span></code></div>
+<div class="line">``  w = i2c-wind``</div>
+<div class="line">``  s = i2c-windsonic``</div>
+<div class="line">``  t = i2c-th``</div>
+<div class="line">``  r = i2c-rain``</div>
+<div class="line">``  h = hih humidity sensor``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">? = help - this page</span></code></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">digit new i2c address for i2c-th (1-127)</span></code></p>
+<p>35</p>
+<p><code class="docutils literal notranslate"><span class="pre">digit new i2c_temperature address for i2c-th (1-127)</span></code></p>
+<p>73</p>
+<p><code class="docutils literal notranslate"><span class="pre">digit new i2c_humidity address for i2c-th (1-127)</span></code></p>
+<p>38</p>
+<p><code class="docutils literal notranslate"><span class="pre">digit 1 for oneshotmode; 0 for continous mode for i2c-th (0/1)</span></code></p>
+<p>0</p>
+<p><code class="docutils literal notranslate"><span class="pre">Done; switch off</span></code></p>
+<div class="section" id="assemblaggio-1">
+<span id="id9"></span><h5>Assemblaggio<a class="headerlink" href="#assemblaggio-1" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>connettere:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-i2c modulo configurazione +5  -&gt;  Stima-i2c modulo stima +5</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th modulo configurazione GND  -&gt;  Stima-i2c modulo stima GND</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th modulo configurazione SDA  -&gt;  Stima-i2c modulo stima SDA</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">* Stima-th modulo configurazione SCL  -&gt;  Stima-i2c modulo stima SCL</span></code></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modulo-stima-i2c-rain">
+<span id="id10"></span><h3>Modulo Stima-I2C-rain<a class="headerlink" href="#modulo-stima-i2c-rain" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="hardware-2">
+<span id="id11"></span><h4>Hardware<a class="headerlink" href="#hardware-2" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Assemblare le schede impilabili:</p></li>
+<li><p>Board microduino core+ 644</p></li>
+<li><p>Board microduino SD</p></li>
+<li><p>Board STIMA-I2C</p></li>
+<li><p>Microduino FT232RL</p></li>
+</ul>
+</div>
+<div class="section" id="software-1">
+<span id="id12"></span><h4>Software<a class="headerlink" href="#software-1" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Caricare il firmware i2c-rain tramite microduino FT232RL</p></li>
+</ul>
+</div>
+<div class="section" id="configurazione-2">
+<span id="id13"></span><h4>Configurazione<a class="headerlink" href="#configurazione-2" title="Link a questa intestazione">¶</a></h4>
+<p>Nessuna necessaria.</p>
+</div>
+<div class="section" id="assemblaggio-2">
+<span id="id14"></span><h4>Assemblaggio<a class="headerlink" href="#assemblaggio-2" title="Link a questa intestazione">¶</a></h4>
+<p>Il due poli del contatto della bascula vanno collegati l'uno a massa e
+l'altro al pin D2 del microcontrollore. Aggiungere una resistenza di
+pullup di qualche migliaio di ohm tra il pin D2 e +5V.</p>
+</div>
+</div>
+<div class="section" id="scheda-stima-i2c-hub">
+<span id="id15"></span><h3>Scheda STIMA-I2C-Hub<a class="headerlink" href="#scheda-stima-i2c-hub" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="hardware-3">
+<span id="id16"></span><h4>Hardware<a class="headerlink" href="#hardware-3" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Segare il circuito stampato seguendo i fori guida dopo il secondo
+connettore RJ45.</p></li>
+<li><p>Ponticellare con saldature per ottenere 4 file di dupoint a 5V e uno
+a 3.3V</p></li>
+<li><p>Ponticellare con saldature per ottenere un rj45 a 5V e un rg45 a
+3.3v.</p></li>
+</ul>
+</div>
+<div class="section" id="assemblaggio-3">
+<span id="id17"></span><h4>Assemblaggio<a class="headerlink" href="#assemblaggio-3" title="Link a questa intestazione">¶</a></h4>
+<p>Collegare i moduli Stima-th Stima-rain Stima-GSM e il display LCDtramite
+cavo quadripolare alle file di dupoint su Stima-i2c-hub impostati a 5V.</p>
+<p>Collegare i sensori Stima-th al connettore RJ45 alimentato a 3.3V.</p>
+</div>
+</div>
+<div class="section" id="stazione-stima-gsm-thp">
+<span id="id18"></span><h3>stazione STIMA GSM THP<a class="headerlink" href="#stazione-stima-gsm-thp" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-gsm">
+<span id="id19"></span><h4>Modulo Stima-GSM<a class="headerlink" href="#modulo-stima-gsm" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="hardware-4">
+<span id="id20"></span><h5>Hardware<a class="headerlink" href="#hardware-4" title="Link a questa intestazione">¶</a></h5>
+<p>Apportare queste due modifiche al modulo microduino GPRS/GSM:</p>
+<ul class="simple">
+<li><p>cortocircuitare con una saldatura i due terminali del pulsante di
+accensione &quot;POWR KEY&quot;</p></li>
+<li><p>connettere il punto &quot;RST&quot; al pin D6</p></li>
+<li><p>saldare i ponticelli per portarli a TX1,RX1 (jumper for tx, jumper
+for rx)</p></li>
+</ul>
+<p>Assemblare le schede impilabili:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 1284</p></li>
+<li><p>Board microduino GPRS/GSM</p></li>
+<li><p>Board microduino SD</p></li>
+<li><p>Board STIMA-I2C</p></li>
+<li><p>Microduino FT232RL</p></li>
+</ul>
+</div>
+<div class="section" id="software-2">
+<span id="id21"></span><h5>Software<a class="headerlink" href="#software-2" title="Link a questa intestazione">¶</a></h5>
+<p>In arduino/sketchbook/rmap/rmap copiare il file stima_gsm_report.h in
+rmap_config.h</p>
+<p>In sketchbook/libraries/PubSubClient/PubSubClient.h modificare come
+segue:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use sim800 client</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;sim800Client.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#define TCPCLIENT sim800Client</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use arduino_uip or etherclient</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Client.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Stream.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#define TCPCLIENT Client</span></code></div>
+</div>
+<p>Caricare il firmware rmap tramite microduino FT232RL.</p>
+</div>
+</div>
+<div class="section" id="assemblaggio-4">
+<span id="id22"></span><h4>Assemblaggio<a class="headerlink" href="#assemblaggio-4" title="Link a questa intestazione">¶</a></h4>
+<p>Collegare tutti i moduli tramite l'hub i2c rispettando le corrette
+tensioni di alimentazione (STIMA-TH a 3.3V). Collegare all'HUB i2c anche
+il Display LCD 20x4 con interfaccia I²C alimentandolo a 5V.</p>
+<p>Inserire la SIM della TIM senza richiesta di PIN e la scheda SD nel
+modulo Stima-GSM.</p>
+<p>Alimentare il modulo Stima-GSM tramite il connettore micro USB della
+scheda Stima-i2c con un alimentatore a 5V 2A o in alternativa tramite i
+pin GND e +5 della scheda Stima-i2c. Collegare i pin denominati &quot;LED&quot;
+della scheda del display LCD a un pulsante per l'attivazione della
+retroilluminazione.</p>
+<p>E' possibile utilizzare il connettore micro USB della scheda Microduino
+FT232RL dei vari moduli per ottenere su porta seriale messaggi di debug.</p>
+<div class="section" id="configurazione-3">
+<span id="id23"></span><h5>Configurazione<a class="headerlink" href="#configurazione-3" title="Link a questa intestazione">¶</a></h5>
+<p>Per ottenere una username e una password iscriversi al sito
+<a class="reference external" href="http://rmap.cc/registrazione/register/">http://rmap.cc/registrazione/register/</a></p>
+<p>Eventualmente (dopo la prima configurazione) ponticellare sulla scheda
+Stima-i2c i pin &quot;Set&quot;.</p>
+<p>eseguire i comandi:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmapctrl --syncdb</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --wizard --station_slug=</span></code>`` --height=```` --stationname=```` --username=```` --password=```` --server=rmap.cc --lat=&lt;xx.xxxxx&gt; --lon=&lt;xx.xxxxx&gt; --mqttrootpath=report --mqttmaintpath=report``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --addboard --station_slug=</span></code>`` --board_slug=```` --user=```` --serialactivate --mqttactivate --mqttuser=```` --mqttpassword=```` --mqttsamplerate=900``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --addsensors_by_template=stima_report_thp --station_slug=</span></code>`` --board_slug=```` --user=```` --password=```` --upload_to_server``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --config_station --station_slug=</span></code>`` --board_slug=```` --username=```` --baudrate 115200``</div>
+</div>
+<p>sostituendo i valori &lt;&gt; con opportuni valori.</p>
+<p>Rimuovere il ponticello ai pin &quot;Set&quot;.</p>
+</div>
+</div>
+<div class="section" id="operazioni-finali">
+<span id="id24"></span><h4>Operazioni finali<a class="headerlink" href="#operazioni-finali" title="Link a questa intestazione">¶</a></h4>
+<p>Una volta verificato il corretto funzionamento della stazione è
+possibile ricaricare i firmware con l'opzione di debug disabilitata
+commentando l'apposita variabile del preprocessore C nei file config.h
+presenti nelle cartelle dei firmware; in questo caso sarà anche
+possibile rimuovere le schede Microduino FT232RL dai moduli.</p>
+</div>
+</div>
+<div class="section" id="stazione-stima-master-thp">
+<span id="id25"></span><h3>stazione STIMA MASTER THP<a class="headerlink" href="#stazione-stima-master-thp" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-master">
+<span id="id26"></span><h4>Modulo Stima-master<a class="headerlink" href="#modulo-stima-master" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="hardware-5">
+<span id="id27"></span><h5>Hardware<a class="headerlink" href="#hardware-5" title="Link a questa intestazione">¶</a></h5>
+<p>Assemblare le schede impilabili:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 1284</p></li>
+<li><p>Board microduino wiz W5500 oppure microduino ENC28j60</p></li>
+<li><p>Board microduino SD</p></li>
+<li><p>Board microduino RJ45-POE</p></li>
+<li><p>Board STIMA-I2C</p></li>
+<li><p>Microduino FT232RL</p></li>
+</ul>
+</div>
+<div class="section" id="software-3">
+<span id="id28"></span><h5>Software<a class="headerlink" href="#software-3" title="Link a questa intestazione">¶</a></h5>
+<p>In arduino/sketchbook/rmap/rmap copiare il file stima_master_report.h in
+rmap_config.h</p>
+<p>In sketchbook/libraries/PubSubClient/PubSubClient.h modificare come
+segue:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use sim800 client</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;sim800Client.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#define TCPCLIENT sim800Client</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use arduino_uip or etherclient</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;Client.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;Stream.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#define TCPCLIENT Client</span></code></div>
+</div>
+<p>Caricare il firmware rmap tramite microduino FT232RL.</p>
+</div>
+</div>
+<div class="section" id="assemblaggio-5">
+<span id="id29"></span><h4>Assemblaggio<a class="headerlink" href="#assemblaggio-5" title="Link a questa intestazione">¶</a></h4>
+<p>Collegare tutti i moduli tramite l'hub i2c rispettando le corrette
+tensioni di alimentazione (STIMA-TH a 3.3V). Collegare all'HUB i2c anche
+il Display LCD 20x4 con interfaccia I²C e Modulo Tiny RTC I²C Real Time
+Clock con DS1307 alimentandoli a 5V</p>
+<p>Alimentare il modulo Stima-master tramite il cavo ethernet con power
+over ethernet con opportuno injector e alimentazione. Ponticellare i pin
+denominati &quot;LED&quot; della scheda del display LCD.</p>
+<p>E' possibile utilizzare il connettore micro USB della scheda Microduino
+FT232RL dei vari moduli per ottenere su porta seriale messaggi di debug.</p>
+<div class="section" id="configurazione-4">
+<span id="id30"></span><h5>Configurazione<a class="headerlink" href="#configurazione-4" title="Link a questa intestazione">¶</a></h5>
+<p>Per ottenere una username e una password iscriversi al sito
+<a class="reference external" href="http://rmap.cc/registrazione/register/">http://rmap.cc/registrazione/register/</a></p>
+<p>Eventualmente (dopo la prima configurazione) ponticellare sulla scheda
+Stima-i2c i pin &quot;Set&quot;.</p>
+<p>Eseguire i comandi:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmapctrl --syncdb</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --wizard --station_slug=</span></code>`` --height=```` --stationname=```` --username=```` --password=```` --server=rmap.cc --lat=&lt;xx.xxxxx&gt; --lon=&lt;xx.xxxxx&gt;  --mqttrootpath=report --mqttmaintpath=report``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --addboard --station_slug=</span></code>`` --board_slug=```` --user=```` --serialactivate --mqttactivate --mqttuser=```` --mqttpassword=```` --mqttsamplerate=900 --tcpipactivate --tcpipntpserver=&quot;it.pool.ntp.org&quot; --tcpipname=stima``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --addsensors_by_template=stima_report_thp --station_slug=</span></code>`` --board_slug=```` --user=```` --password=```` --upload_to_server``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --config_station --station_slug=</span></code>``  --board_slug=```` --username=```` --baudrate 115200``</div>
+</div>
+<p>sostituendo i valori tra &lt;&gt; con opportuni valori.</p>
+<p>Rimuovere il ponticello ai pin &quot;Set&quot;.</p>
+</div>
+</div>
+<div class="section" id="operazioni-finali-1">
+<span id="id31"></span><h4>Operazioni finali<a class="headerlink" href="#operazioni-finali-1" title="Link a questa intestazione">¶</a></h4>
+<p>Una volta verificato il corretto funzionamento della stazione è
+possibile ricaricare i firmware con l'opzione di debug disabilitata
+commentando l'apposita variabile del preprocessore C nei file config.h
+presenti nelle cartelle dei firmware; in questo caso sarà anche
+possibile rimuovere le schede Microduino FT232RL dai moduli.</p>
+</div>
+<div class="section" id="howto-in-sintesi-sempre-aggiornato-per-gli-altri-moduli">
+<span id="id32"></span><h4>HowTo in sintesi sempre aggiornato per gli altri moduli<a class="headerlink" href="#howto-in-sintesi-sempre-aggiornato-per-gli-altri-moduli" title="Link a questa intestazione">¶</a></h4>
+</div>
+</div>
+<div class="section" id="hardware-6">
+<span id="id33"></span><h3>Hardware<a class="headerlink" href="#hardware-6" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="modulo-stima-bluetooth">
+<span id="id34"></span><h4>Modulo Stima-bluetooth<a class="headerlink" href="#modulo-stima-bluetooth" title="Link a questa intestazione">¶</a></h4>
+<p>E' composto dalle seguenti schede:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 644</p></li>
+<li><p>Board stima-bluetooth</p></li>
+<li><p>Board STIMA-I2C</p></li>
+<li><p>Board microduino nRF24 (opzionale)</p></li>
+</ul>
+</div>
+<div class="section" id="modulo-stima-master-1">
+<span id="id35"></span><h4>Modulo Stima-Master<a class="headerlink" href="#modulo-stima-master-1" title="Link a questa intestazione">¶</a></h4>
+<p>E' composto dalle seguenti schede:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 1284</p></li>
+<li><p>Board microduino ENC</p></li>
+<li><p>Board STIMA-I2C</p></li>
+<li><p>Board microduino nRF24 (opzionale)</p></li>
+</ul>
+</div>
+<div class="section" id="modulo-stima-satellite">
+<span id="id36"></span><h4>Modulo Stima-Satellite<a class="headerlink" href="#modulo-stima-satellite" title="Link a questa intestazione">¶</a></h4>
+<p>E' composto dalle seguenti schede:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 644</p></li>
+<li><p>Board microduino nRF24</p></li>
+<li><p>Board STIMA-I2C</p></li>
+</ul>
+</div>
+<div class="section" id="modulo-stima-gsm-gprs">
+<span id="modulo-stima-gsmgprs"></span><h4>Modulo Stima-GSM/GPRS<a class="headerlink" href="#modulo-stima-gsm-gprs" title="Link a questa intestazione">¶</a></h4>
+<p>E' composto dalle seguenti schede:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 1284</p></li>
+<li><p>Board microduino nRF24</p></li>
+<li><p>Board microduino sim800</p></li>
+<li><p>Board microduino SD</p></li>
+<li><p>Board STIMA-I2C</p></li>
+</ul>
+</div>
+<div class="section" id="modulo-stima-i2c-sdsmics">
+<span id="id37"></span><h4>Modulo Stima-i2c-sdsmics<a class="headerlink" href="#modulo-stima-i2c-sdsmics" title="Link a questa intestazione">¶</a></h4>
+<p>E' composto dalle seguenti schede:</p>
+<ul class="simple">
+<li><p>Board microduino core+ 644 5V</p></li>
+<li><p>Board STIMA-AirQuality_Connector</p></li>
+<li><p>Board STIMA-NO2-CO</p></li>
+</ul>
+<p>questa la disposizione dei pin dell'hardware versione 2 osservata dal
+lato dei connettori:</p>
+<p>Board STIMA-NO2-CO</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>PWM</p></td>
+</tr>
+<tr class="row-even"><td><p>GNDD</p></td>
+<td><p>SCALE1</p></td>
+</tr>
+<tr class="row-odd"><td><p>VREF</p></td>
+<td><p>SCALE2</p></td>
+</tr>
+<tr class="row-even"><td><p>VDD</p></td>
+<td><p>NO2</p></td>
+</tr>
+<tr class="row-odd"><td><p>+5</p></td>
+<td><p>CO</p></td>
+</tr>
+</tbody>
+</table>
+<p>Board STIMA-AirQuality_Connector</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>VREF</p></td>
+<td><p>NONE</p></td>
+<td><p>+5V</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 21%" />
+<col style="width: 43%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>+3.3V</p></td>
+<td><p>+5V</p></td>
+<td><p>PWM</p></td>
+</tr>
+<tr class="row-even"><td><p>GND</p></td>
+<td><p>GND</p></td>
+<td><p>SCALE1</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDA</p></td>
+<td><p>TX</p></td>
+<td><p>SCALE2</p></td>
+</tr>
+<tr class="row-even"><td><p>SCL</p></td>
+<td><p>RX</p></td>
+<td><p>CO</p></td>
+</tr>
+<tr class="row-odd"><td><p>+5V</p></td>
+<td></td>
+<td><p>NO2</p></td>
+</tr>
+</tbody>
+</table>
+<p>Connettere:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 7%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>STIMA-NO2-CO</p></th>
+<th class="head"></th>
+<th class="head"><p>STIMA-AirQuality_Connector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GNDD</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>VREF</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>VREF</p></td>
+</tr>
+<tr class="row-even"><td><p>VDD</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWM</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>PWM</p></td>
+</tr>
+<tr class="row-even"><td><p>SCALE1</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>SCALE1</p></td>
+</tr>
+<tr class="row-odd"><td><p>SCALE2</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>SCALE2</p></td>
+</tr>
+<tr class="row-even"><td><p>NO2</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>NO2</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO</p></td>
+<td><p>&lt;-&gt;</p></td>
+<td><p>CO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="firmware-stima-bluetooth">
+<span id="id38"></span><h3>Firmware STIMA-BlueTooth<a class="headerlink" href="#firmware-stima-bluetooth" title="Link a questa intestazione">¶</a></h3>
+<p>``   installare arduino 1.6.5 da <code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">```https://www.arduino.cc/en/Main/Software</span></code> &lt;<a class="reference external" href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a>&gt;`__`` o tramite la propria distribuzione``</p>
+<div class="line-block">
+<div class="line">``   scaricare l'ultima versione del software stima (file stimasketchbook) da <code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">```https://github.com/r-map/rmap/releases</span></code> &lt;<a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a>&gt;`__</div>
+<div class="line">``   scompattare il file zip``</div>
+</div>
+<div class="line-block">
+<div class="line">``   aprire l'ide arduino e in file -&gt; impostazioni -&gt; percorso della cartella degli sketch selezionare la cartella sketchbook appena scompattata dal file scaricato``</div>
+<div class="line">``   chiudere e riaprire l'ide``</div>
+</div>
+<div class="section" id="modulo-stima-bluetooth-1">
+<span id="id39"></span><h4>modulo Stima-bluetooth<a class="headerlink" href="#modulo-stima-bluetooth-1" title="Link a questa intestazione">¶</a></h4>
+<p>Se in questo modulo avete montato anche la board microduino nRF24 e
+quindi volete utilizzare anche il modulo Stima-Satellite con un editor
+modificate il file
+sketchbook/libraries/SensorDriver/SensorDriver_config.h scommentando
+l'opzione</p>
+<p><code class="docutils literal notranslate"><span class="pre">#define RADIORF24</span></code></p>
+<p>scommentando anche l'opzione</p>
+<p><code class="docutils literal notranslate"><span class="pre">#define AES</span></code></p>
+<p>abiliterete anche la crittografia AES ma consigliamo questa ultima
+opzione solo ai più esperti.</p>
+<p>In sketchbook/rmap/rmap copiare il file stima_bluetooth.h in
+rmap_config.h</p>
+<div class="line-block">
+<div class="line">``   sezionare in -&gt; strumenti``</div>
+<div class="line">``       Scheda: Microduino Core+ (644pa)``</div>
+<div class="line">``       Processore: ATmega644pa&#64;16M5V``</div>
+<div class="line">``       Porta: (quella disponibile) ``</div>
+</div>
+<p>``   selezionare in -&gt; Sketch -&gt; Verifica e compila ``</p>
+<p>Ora per uplodare il firmware sul microprocessore dovrete collegare tra
+loro SOLO</p>
+<div class="line-block">
+<div class="line">``   MICRODUINO Core+ ATMEGA644PA``</div>
+<div class="line">``   MICRODUINO Shield USB/TTL ``</div>
+</div>
+<p>poi selezionate nella IDE di arduino:</p>
+<p>``   selezionare in -&gt; Sketch -&gt; Carica``</p>
+</div>
+<div class="section" id="modulo-stima-master-2">
+<span id="id40"></span><h4>modulo Stima-master<a class="headerlink" href="#modulo-stima-master-2" title="Link a questa intestazione">¶</a></h4>
+<p>Se in questo modulo avete montato anche la board microduino nRF24 e
+quindi volete utilizzare anche il modulo Stima-Satellite con un editor
+modificate il file
+sketchbook/libraries/SensorDriver/SensorDriver_config.h scommentando
+l'opzione &quot;#define RADIORF24&quot; ; scommentando anche l'opzione #define AES
+abiliterete anche la crittografia AES ma consigliamo questa ultima
+opzione solo ai più esperti.</p>
+<p>In sketchbook/rmap/rmap copiare il file stima_master.h in rmap_config.h</p>
+<p>sezionare in -&gt; strumenti</p>
+<div class="line-block">
+<div class="line">``   Scheda: Microduino Core+ (1284pa)``</div>
+<div class="line">``   Processore: ATmega1284pa&#64;16M5V``</div>
+<div class="line">``   Porta: (quella disponibile) ``</div>
+</div>
+<p>sezionare in -&gt; strumenti -&gt; cartella degli sketch -&gt; rmap -&gt; rmap</p>
+<p>selezionare in -&gt; Sketch -&gt; Carica</p>
+</div>
+<div class="section" id="modulo-stima-satellite-1">
+<span id="id41"></span><h4>modulo Stima-satellite<a class="headerlink" href="#modulo-stima-satellite-1" title="Link a questa intestazione">¶</a></h4>
+<p>In sketchbook/rmap/rmap copiare il file stima_satellite.h in
+rmap_config.h</p>
+<p>sezionare in -&gt; strumenti</p>
+<div class="line-block">
+<div class="line">``   Scheda: Microduino Core+ (644pa)``</div>
+<div class="line">``   Processore: ATmega644pa&#64;16M5V``</div>
+<div class="line">``   Porta: (quella disponibile) ``</div>
+</div>
+<p>sezionare in -&gt; strumenti -&gt; cartella degli sketch -&gt; rmap -&gt; rmap</p>
+<p>selezionare in -&gt; Sketch -&gt; Carica</p>
+</div>
+<div class="section" id="modulo-stima-gsm-1">
+<span id="id42"></span><h4>modulo Stima-gsm<a class="headerlink" href="#modulo-stima-gsm-1" title="Link a questa intestazione">¶</a></h4>
+<p>In sketchbook/rmap/rmap copiare il file stima_gsm.h in rmap_config.h Se
+non utilizzerete una SIM card della TIM inserite in fondo al file
+rmap_config.h:</p>
+<ol class="arabic simple">
+<li><p>define GSMAPN &quot;&quot;</p></li>
+<li><p>define GSMUSER &quot;&quot;</p></li>
+<li><p>define GSMPASSWORD &quot;&quot;</p></li>
+</ol>
+<p>con gli opportuni valori.</p>
+<p>In sketchbook/libraries/PubSubClient/PubSubClient.h modificare come
+segue:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use sim800 client</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;sim800Client.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#define TCPCLIENT sim800Client</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use arduino_uip or etherclient</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Client.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Stream.h&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">//#define TCPCLIENT Client</span></code></div>
+</div>
+<p>sezionare in -&gt; strumenti</p>
+<div class="line-block">
+<div class="line">``   Scheda: Microduino Core+ (1284pa)``</div>
+<div class="line">``   Processore: ATmega1284pa&#64;16M5V``</div>
+<div class="line">``   Porta: (quella disponibile) ``</div>
+</div>
+<p>sezionare in -&gt; strumenti -&gt; cartella degli sketch -&gt; rmap -&gt; rmap</p>
+<p>selezionare in -&gt; Sketch -&gt; Carica</p>
+</div>
+</div>
+<div class="section" id="applicazione-rmap">
+<span id="id43"></span><h3>Applicazione Rmap<a class="headerlink" href="#applicazione-rmap" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="android">
+<h4>Android<a class="headerlink" href="#android" title="Link a questa intestazione">¶</a></h4>
+<p>L'installazione su android è semplicissima; è sufficiente ricercare tra
+le app su google play &quot;rmap&quot; e procedere all'installazione:
+<a class="reference external" href="https://play.google.com/store/apps/details?id=org.test.rmap">https://play.google.com/store/apps/details?id=org.test.rmap</a>.</p>
+</div>
+<div class="section" id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Link a questa intestazione">¶</a></h4>
+<p>L'installazione in ambiente Linux richiede la disponibilità di alcuni
+pacchetti e del comando pip. Prima di tutto bisogna installare Kivy
+seguendo le istruzioni sul sito di Kivy
+<a class="reference external" href="http://kivy.org/docs/installation/installation-linux.html">http://kivy.org/docs/installation/installation-linux.html</a>. Per il
+comando pip nelle distribuzioni Linux più diffure lo si ottiene
+installando il pacchetto python-pip. Per installare da utente non
+privilegiato l'ambiente rmap si può usare virtualenv e pip; da terminale
+eseguire:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">virtualenv --system-site-packages rmap</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source rmap/bin/activate</span></code></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></p>
+<p>Poi attivare l'interfaccia utente grafica:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source rmap/bin/activate</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmapgui</span></code></div>
+</div>
+<p>In alternativa si può provare a installare Kivy tramite pip:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install cython</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install kivy</span></code></div>
+</div>
+<p>Per aggiornare l'App una volta chiusa la finestra grafica nella finestra
+dei comandi al prompt digitare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></p>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link a questa intestazione">¶</a></h4>
+<p>Seguire le istruzioni a
+<a class="reference external" href="https://kivy.org/docs/installation/installation-windows.html">https://kivy.org/docs/installation/installation-windows.html</a></p>
+<p>poi:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python -m pip install rmap</span></code></p>
+<p>Le istruzioni che seguono sono per una vecchia modalità per un vecchio
+pacchetto:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">L'installazione in windows è molto semplice in quanto il file d scaricare è autoscompattante e comprende tutto l'ambiente necessario a</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Rmap. Sacricare quindi il file rmapwindows da: ``\</span> <span class="pre">```https://github.com/r-map/rmap/releases/</span></code> &lt;<a class="reference external" href="https://github.com/r-map/rmap/releases/">https://github.com/r-map/rmap/releases/</a>&gt;`__`` ed eseguirlo per scompattarlo.``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Per far partire l'applicazione a questo punto basterà eseguire il file rmapgui contenuto nella cartella rmap</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Per aggiornare l'App una volta chiusa la finestra grafica nella finestra dei comandi al prompt digitare:</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></div>
+</div>
+</div>
+<div class="section" id="mac-osx">
+<span id="id44"></span><h4>Mac OSX<a class="headerlink" href="#mac-osx" title="Link a questa intestazione">¶</a></h4>
+<p>Prima di tutto bisogna installare Kivy su Macosx seguendo le istruzioni
+<a class="reference external" href="https://kivy.org/docs/installation/installation-osx.html">https://kivy.org/docs/installation/installation-osx.html</a> e installere
+gettext da <a class="reference external" href="http://www.ellert.se/twain-sane/">http://www.ellert.se/twain-sane/</a></p>
+<p>poi:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kivi -m pip install --upgrade rmap</span></code></p>
+<p>si può attivare il programma:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/Applications/Kivy.app/Contents/Resources/venv/bin/rmapgui</span></code></p>
+<p>Per aggiornare l'App una volta chiusa la finestra grafica nella finestra
+dei comandi al prompt digitare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></p>
+</div>
+</div>
+<div class="section" id="configurazione-moduli">
+<span id="id45"></span><h3>Configurazione moduli<a class="headerlink" href="#configurazione-moduli" title="Link a questa intestazione">¶</a></h3>
+<p>Per pubblicare i dati sul server RMAP.cc bisogna registrarsi al sito; il
+bottone &quot;Registrazione&quot; dell'app dovrebbe aprire un browser alla url
+della registrazione che comunque è
+<a class="reference external" href="http://rmap.cc/registrazione/register/">http://rmap.cc/registrazione/register/</a> Una volta fatta la registrazione
+sarete in possesso di uno user e di una password.</p>
+<p>A questo punto dovrete trasferire la vostra configurazione sulla eeprom
+del microcontrollore; per farlo:</p>
+<div class="line-block">
+<div class="line">``   ponticellate sulla board Stima-I2C i pin contrassegnati con &quot;SET&quot; con un jumper.``</div>
+<div class="line">``   collegate il modulo con la board Microduino FT232RL alla USB del vostro PC. ``</div>
+</div>
+<div class="section" id="configurazione-tramite-l-applicazione-grafica">
+<span id="configurazione-tramite-lapplicazione-grafica"></span><h4>Configurazione tramite l'applicazione grafica<a class="headerlink" href="#configurazione-tramite-l-applicazione-grafica" title="Link a questa intestazione">¶</a></h4>
+<p>Dovrete accedere al menu &quot;Impostazioni&quot; che si aprirà automaticamente al
+primo avvio e accedere alle sottosezioni:</p>
+<p>``   Nella sezione &quot;Rmap&quot; dovrete inserire &quot;RMAP user&quot; e &quot;RMAP password&quot; ottenuti durante la registrazione a rmap.cc ``</p>
+<p>Dopo aver accoppiato il dispositivo bluetooth (dispositivo HC-05
+inserendo come pin &quot;1234&quot;) si può attivare il programma. In windows
+tramite le apposite interfacce di windows procedere all'accoppiamento
+del dispositivo blue-tooth (dispositivo HC-05 inserendo come pin &quot;1234&quot;)
+e richiedere la creazione della relativa porta seriale COM13; in Linux
+per accoppiare il dispositivo stima-bluetooth cosigliamo di utilizzare
+blueman-manager contenuto nel pacchetto blueman; seguendo pochi passi
+con l'interfaccia grafica risulta molto facile accoppiare il dispositivo
+HC-05 inserendo come pin &quot;1234&quot;; il device RFCOM0 viene utilizzato per
+la comunicazione seriale.</p>
+<p>Ora dal menu Impostazioni selezionate la sezione &quot;Sensors&quot; e impostate:</p>
+<div class="line-block">
+<div class="line">``   per il modulo Stima-Bluetooth``</div>
+<div class="line">``       Name: HC-05``</div>
+<div class="line">``       Station: BT_fixed``</div>
+<div class="line">``       Board:``</div>
+<div class="line">``           su android: BT_fixed``</div>
+<div class="line">``           su linux: BT_fixed_LINUX``</div>
+<div class="line">``           su windows: BT_fixed_WINDOWS``</div>
+<div class="line">``           su OSX: BT_fixed_OSX ``</div>
+<div class="line">``       Template: test_indirect``</div>
+<div class="line">``       Remote Board: stima_bt``</div>
+<div class="line">``       Remote Template: test ``</div>
+<div class="line">``   per il modulo Stima-Master o Stima-gsm``</div>
+<div class="line">``       Station: ETH_fixed``</div>
+<div class="line">``       Board:``</div>
+<div class="line">``           su linux: rmapgui_LINUX``</div>
+<div class="line">``           su windows: rmapgui_WINDOWS``</div>
+<div class="line">``           su OSX: rmapgui_OSX ``</div>
+<div class="line">``       Template: test_indirect``</div>
+<div class="line">``       Remote Board: master_eth_fixed``</div>
+<div class="line">``       Remote Template: test (test_master se avete la board nRF24) ``</div>
+<div class="line">``   per il modulo Stima-Satellite``</div>
+<div class="line">``       come per il modulo Stima-Master ma come Remote Board: satellite_eth_fixed ``</div>
+</div>
+<p>Nella sezione &quot;Location&quot; potete inserire manualmente le vostre
+coordinate e selezionare &quot;Close&quot; attivando la stazione. Se non conoscete
+le vostre coordinate dalla pagina &quot;Posizione&quot; selezionate accuratamente
+la vostra posizione e salvatela con il tasto &quot;Salva posizione&quot;. La prima
+pagina dell'App &quot;Avvia&quot; presenta un manuale che potrà aiutarvi.</p>
+<p>Dalla pagina &quot;Dati automatici&quot; premere il bottone &quot;configura&quot; e
+verificate che tutto vada a buon fine.</p>
+</div>
+<div class="section" id="configurazione-a-linea-di-comando">
+<span id="id46"></span><h4>Configurazione a linea di comando<a class="headerlink" href="#configurazione-a-linea-di-comando" title="Link a questa intestazione">¶</a></h4>
+<p>E' possibile fare tutte le funzioni di configurazioni con due comandi da
+terminale: nel caso di windows utilizzate la finestra che rimane aperta
+dopo aver eseguito rmap-configure.bat; su Linux o OSX attivate il
+virtualenv di python come per eseguire l'App grafica. Il primo comando
+inizializza il DB. Il secondo con l'opzione --wizard inserisce tutti i
+metadati nel DB, --config_station trasferisce la configurazione sulla
+eeprom del microcontrollore e --upload_to_server comunica i metadati al
+server:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmapctrl --syncdb</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rmap-configure --station_slug=ETH_fixed --board_slug=master_eth_fixed --height=</span></code>`` --stationname=&quot;<code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">\</span> <span class="pre">``&quot; --username=</span></code>`` --password=```` --server=rmap.cc --samplerate=5 --lat=```` --lon=```` --addsensors_by_template=```` --wizard --config_station --upload_to_server``</div>
+</div>
+<p>Ovviamente sostituite il contenuto tra &lt;&gt; con i vostri dati; cercate di
+avere latitudine e longitudine definita fino alla quinta cifra decimale;
+dovrà essere &quot;test_master&quot; se il vostro modulo Stima-master o Stima-gsm
+comprende una board microduino nRF24, &quot;test&quot; in tutti gli altri casi.</p>
+</div>
+</div>
+<div class="section" id="operazioni-finali-2">
+<span id="id47"></span><h3>Operazioni finali<a class="headerlink" href="#operazioni-finali-2" title="Link a questa intestazione">¶</a></h3>
+<p>Scollegare il modulo dalla USB, rimuovete la board Microduino FT232RL e
+attivate l'alimentazione saldando insieme il ponticello della board
+Stima-I2C come da figura. attachment:microduino_r_freccia.png
+Ricordatevi di rimuovere il jumper dai pin contrassegnati con &quot;SET&quot;
+sulla board Stima-I2C. Messa in opera</p>
+<p>Ai moduli potete collegare il display LCD e/o i relays. Sul modulo
+Stima-gsm inserite una micro SD formattata FAT; dovete inserire anche
+una SIM card; tutto è preconfigurato per una sim della TIM. Alimentate i
+moduli tramite il connettore micro-USB sulla board Stima-I2C; il modulo
+Stima-master potete alimentarlo con l'apposito Injector e un
+alimentatore da 12 a 24V (connettore con positivo al centro). Sul modulo
+Stima-gsm il sim800 va acceso manualmente tenendo premuto l'apposito
+switch. Se tutto funziona regolarmente ogni 5 secondi i dati della
+temperatura del modulo verranno inviati a rmap.cc. Se sul server rmap.cc
+a questo punto fate login con il vostro utente accederete alla vostra
+pagina personale con l'elenco delle vostre stazioni di misura e la
+possibilità di visualizzare i grafici dei vostri dati. Ma per ora potete
+inviare solo i dati di test (temperatura del modulo); nella prossima
+puntata impareremo ad aggiungere sensori e navigare il server per la
+visualizzazione dei dati.</p>
+</div>
+<div class="section" id="messa-in-opera">
+<span id="id48"></span><h3>Messa in opera<a class="headerlink" href="#messa-in-opera" title="Link a questa intestazione">¶</a></h3>
+<p>Ai moduli potete collegare il display LCD e/o i relays. Sul modulo
+Stima-GSM/GPRS inserite una micro SD formattata FAT; dovete inserire
+anche una SIM card; tutto è preconfigurato per una sim della TIM.
+Alimentate i moduli tramite il connettore micro-USB sulla board
+Stima-I2C; il modulo Stima-master potete alimentarlo con l'apposito
+Injector e un alimentatore da 12 a 24V (connettore con positivo al
+centro). Sul modulo Stima-GSM/GPRS il sim800 va acceso manualmente
+tenendo premuto l'apposito switch. Sulla rete ethernet dovrte avere un
+server DHCP in quanto STIMA-Master lo richiede. Se tutto funziona
+regolarmente ogni 5 secondi i dati della temperatura di test del modulo
+verranno inviati a rmap.cc. Se sul server rmap.cc a questo punto fate
+login con il vostro utente accederete alla vostra pagina personale con
+l'elenco delle vostre stazioni di misura e la possibilità di
+visualizzare i grafici dei vostri dati. Ma per ora potete inviare solo i
+dati di test (temperatura del modulo); nella prossima puntata impareremo
+ad aggiungere sensori e navigare il server per la visualizzazione dei
+dati.</p>
+</div>
+<div class="section" id="box">
+<h3>Box<a class="headerlink" href="#box" title="Link a questa intestazione">¶</a></h3>
+<p>Abbiamo progettato un interessante box per il modulo Stima-bluetooth e i
+sensori di temperatura e umidità (presentati nella prossima puntata); é
+composto da alcuni elementi impilabili a seconda delle esigenze. Ora lo
+presentiamo nella versione con un comodo attacco a elastico da usare ad
+esempio sul manubrio della bici per monitorare il percorso delle nostre
+escursioni. Sono disponibili i file stl per stamparlo con una stampante
+3D. I file per il box progettato da Mirco Bergamini si scaricano da
+<a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a> ; è consigliato stamparlo in PLA
+bianco per ridurre gli effetti della radiazione solare.
+attachment:box.jpg Il box è composto da tre pezzi: un attacco &quot;a
+elastico&quot;, un contenitore per il modulo stima, uno schermo per le
+radiazioni per l'alloggiamento dei sensori. Gli ultimi due pezzi posso
+essere montati a due a due permettendo di aumentare lo spazio contenuto
+dal box; Sarà poi necessario praticare un foro tra il contenitore del
+modulo stima e lo schermo pr i sensori per il passaggio dei 4 fili del
+bus I2C; barre filettate e dadi completano l'assemblaggio.</p>
+</div>
+</div>
+<div class="section" id="stima-v2-overview">
+<span id="stima-overview"></span><h2>Stima V2 Overview<a class="headerlink" href="#stima-v2-overview" title="Link a questa intestazione">¶</a></h2>
+<p>Stazione modulare per la misura di parametri ambientali.</p>
+<div class="section" id="premesse">
+<h3>Premesse<a class="headerlink" href="#premesse" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Aderisce alla Rete di Monitoraggio Ambientale Partecipativo (R-MAP)</p></li>
+<li><p>Open hardware e open software</p></li>
+<li><p>al momento vengono gestiti parametri meteorologici</p></li>
+</ul>
+</div>
+<div class="section" id="funzionalita">
+<h3>Funzionalità<a class="headerlink" href="#funzionalita" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="sensori">
+<h4>Sensori<a class="headerlink" href="#sensori" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="collegamento-su-bus-i2c">
+<span id="id49"></span><h5>Collegamento su bus I2C<a class="headerlink" href="#collegamento-su-bus-i2c" title="Link a questa intestazione">¶</a></h5>
+<p>I sersori devono essere compatibili con il bus I2C. Quando sensori I2C
+non siano disponibili il problema viene risolto con un microcontrollore
+che adatta le letture (analogiche o digitali) e le elaborazioni
+(contatori, medie etc.) rendendole disponibili su registri interrogabili
+tramite I2C.</p>
+<p>Il protocollo I2C prevede l’utilizzo di un bus formato da due linee
+bidirezionali. Le due linee, chiamate “scl” e “sda” rispettivamente,
+trasportano la tempistica di sincronizzazione (chiamata anche “clock”) e
+i dati. Abbiamo scelto il bus I2C in quanto:</p>
+<ul class="simple">
+<li><p>È diventato lo standard di fatto per una serie di integrati tra cui i
+sensori</p></li>
+<li><p>Si possono collegare fino a 127 dispositivi</p></li>
+<li><p>La comunicazione è bidirezionale (read e write) con velocità
+assolutamente sufficienti per i nostri scopi</p></li>
+<li><p>la lunghezza operativa dei cavi è adeguata al nostro utilizzo (anche
+alcune decine di metri)</p></li>
+</ul>
+</div>
+<div class="section" id="interrogazione-dei-sensori">
+<span id="id50"></span><h5>Interrogazione dei sensori<a class="headerlink" href="#interrogazione-dei-sensori" title="Link a questa intestazione">¶</a></h5>
+<p>I sensori possono venire interrogati a richiesta tramite remote call
+procedure oppure ad intervalli regolari. Quando interrogati a intervalli
+regolari tutti i sensori vengono interrogati &quot;in parallelo&quot; ossia tutti
+i sensori vengono impostati e configurati all'accensione poi
+periodicamente vengono attivati e impartita la richiesta di lettura; il
+driver del sensore torna il tempo di attesa necessario per avere la
+misura disponibile; si attente il tempo necessario per il sensore più
+lento; si effettuano tutte le letture. In questo modo si riescono a
+campionare tutti i sensori solitamente entro i 3 secondi e considerando
+i tempi per la loro pubblicazione sul server generalmente viene
+utilizzata una frequenza di campionamneto pari a una ogni 5 secondi.
+Tenendo i sensori normalmente in sleep si riducono anche i consumi.</p>
+<p>Ogni sensore può restituire volori multipli (ad esempio temperatura e
+umidità).</p>
+</div>
+<div class="section" id="operazioni-di-mantenimento">
+<span id="id51"></span><h5>Operazioni di mantenimento<a class="headerlink" href="#operazioni-di-mantenimento" title="Link a questa intestazione">¶</a></h5>
+<p>Il software effettua periodicamente tutte le funzioni di mantenimento
+necessarie a un corretto funzionamento quali quelle relative al DHCP o
+alla sincronizzazione dell'orologio interno con una sorgente esterna.
+Tutti i firmware hanno attivo un watchdog hardware che evita blocchi
+permanenti dovuti a malfunzionamenti su eventi improbabili.</p>
+</div>
+<div class="section" id="orologio-di-riferimento">
+<span id="id52"></span><h5>Orologio di riferimento<a class="headerlink" href="#orologio-di-riferimento" title="Link a questa intestazione">¶</a></h5>
+<p>Una base dei tempi precisa è richiesta nel caso in cui sia necessario
+salvare i dati localmente (su SD) nel caso la connessione utilizzata per
+pubblicare i dati sul server (broker) non sia considerata stabile. Se
+invece la connessione (trasporto) viene considerata stabile (o non sia
+necessario recuperare i dati in caso di fault) un preciso orologio di
+riferimento non è necessario e il tempo di riferimento verrà aggiunto
+automaticamente dal server alla pubblicazione in tempo reale del dato.
+Ci sono diversi sistemi per avere un orologio di riferimento preciso sui
+moduli Stima.</p>
+</div>
+<div class="section" id="stazioni-fisse-o-mobili">
+<span id="id53"></span><h5>Stazioni fisse o mobili<a class="headerlink" href="#stazioni-fisse-o-mobili" title="Link a questa intestazione">¶</a></h5>
+<p>È possibile installare sia stazioni fisse, la cui posizione non cambia
+nel tempo, sia stazioni mobili, sia terrestri che marine. Per aggiornare
+la posizioni delle stazioni mobili viene utilizzato un GPS che può
+essere o a bordo del modulo Stima o a bordo di un dispositivo android.</p>
+</div>
+<div class="section" id="attenzione-ai-consumi-energetici">
+<span id="id54"></span><h5>Attenzione ai consumi energetici<a class="headerlink" href="#attenzione-ai-consumi-energetici" title="Link a questa intestazione">¶</a></h5>
+<p>Attenzione è stata posta alla limitazione dei consumi. Quando possibile
+i microcontrollori e i sensori vengono messi in sleep e sono alcuni
+interrupt a risvegliare il sistema. Questo agevola l'utilizzo con
+batterie dei sistemi a basso consumo quali il modulo satellite che
+funziona con un modulo radio.</p>
+</div>
+<div class="section" id="differenti-tipologie-di-rete">
+<span id="id55"></span><h5>Differenti tipologie di rete<a class="headerlink" href="#differenti-tipologie-di-rete" title="Link a questa intestazione">¶</a></h5>
+<p>La configurazione della rete può essee differente a seconda delle
+esigenze; oltre alla classica configurazione a stella (moduli master e
+base) con un broker al centro è disponibile la configurazione ad albero
+sia via cavo (modulo master + base) che via radio: con la possibilità di
+utilizzare moduli radio di maggiore potenza (~1Km in aria libera) è
+possibile prevedere coperture di un terriotorio con ampia superficie.</p>
+</div>
+<div class="section" id="software-utente-multipiattaforma">
+<span id="id56"></span><h5>Software utente multipiattaforma<a class="headerlink" href="#software-utente-multipiattaforma" title="Link a questa intestazione">¶</a></h5>
+<p>Il software che l'utente può utlizzare per la pubblicazione e
+visualizzazione dei dati è multipiattaforma. Fatti salvi i moduli basati
+su microcontrollore e vincolati all'ambiente Atmel e alcune funzioni sul
+server di raccolta dei dati sviluppati in ambiente Linux (distribuzioni
+CentOS e Fedora) la visulizzazione e il monitoraggio sono
+multipiattaforma. Anche l'interfaccia utente grafica che permette la
+geolocalizzazione, autenticazione e pubblicazione dei dati sia
+automatica che manuale anche di dati rilevati manualmente e a vista è
+multipiattaforma (attualmente testata su Linux, Android, ma portabile su
+Windows, OS X, iOS</p>
+</div>
+<div class="section" id="salvataggio-locale-dei-dati">
+<span id="id57"></span><h5>Salvataggio locale dei dati<a class="headerlink" href="#salvataggio-locale-dei-dati" title="Link a questa intestazione">¶</a></h5>
+<p>I dati possono essere pubblicati in real time e/o salvati localmente. È
+previsto un meccanismo di salvataggio dei dati su SD formattata FAT; i
+file vengono frammentati a una dimensione prefissata per farne circa uno
+al giorno e numerati da 000 a 999; i dati salvati hanno un flag che
+indica se i dati sono stati già pubblicati correttamente su MQTT; i file
+che devono essere controllati per possibili reinvii hanno postfisso .que
+e quelli che hanno tutti i dati già inviati hanno postfisso .don</p>
+<p>In questo modo si ottengono queste funzionalità:</p>
+<ul class="simple">
+<li><p>salvataggio dati su SD almeno per due anni con campionamenti ogni 5s</p></li>
+<li><p>reinvio automatico al server dei dati salvati ma non pubblicati
+correttamente sul server</p></li>
+<li><p>ottimizzazione dei tempi in quanto solo i file che contengono dati da
+inviare vengono letti per selezionare i dati da reinviare</p></li>
+<li><p>i dati possono essere riletti su un normale PC estraendo la SD</p></li>
+</ul>
+</div>
+<div class="section" id="messagistica-di-diagnostica">
+<span id="id58"></span><h5>Messagistica di diagnostica<a class="headerlink" href="#messagistica-di-diagnostica" title="Link a questa intestazione">¶</a></h5>
+<p>C'è la possibilità di ottenere una ampia messaggistica di diagnostica
+per la soluzione dei problemi</p>
+</div>
+<div class="section" id="id59">
+<h5>Configurazione<a class="headerlink" href="#id59" title="Link a questa intestazione">¶</a></h5>
+<p>Le versioni delle configurazioni vengono verificate e quando il firmware
+non è retrocompatibile il modulo resta in attesa di una nuova
+configurazione. Le configurazioni vengono subito verificate: non è
+possibile configurare un modulo con dei sensori non corretti o non
+funzionanti.</p>
+</div>
+<div class="section" id="modularita-hardware-e-software">
+<span id="id60"></span><h5>Modularità hardware e software<a class="headerlink" href="#modularita-hardware-e-software" title="Link a questa intestazione">¶</a></h5>
+<p>Le configurazioni hardware sono molteplici e possono essere utilizzate
+differenti board; sono compatibili i moduli hardware maggiormente
+diffusi e conosciuti dai makers oltre ad essere generalmente a basso
+costo.</p>
+</div>
+<div class="section" id="crittografia">
+<h5>Crittografia<a class="headerlink" href="#crittografia" title="Link a questa intestazione">¶</a></h5>
+<p>Qualora il trasporto non sia considerato sicuro (via radio) viene
+utilizzata la crittografia per garantire riservatezza e autenticità.</p>
+</div>
+<div class="section" id="integrazione-con-la-domotica">
+<span id="id61"></span><h5>Integrazione con la domotica<a class="headerlink" href="#integrazione-con-la-domotica" title="Link a questa intestazione">¶</a></h5>
+<p>Per quello che è stato possibile si è cercato di integrarsi con gli
+standard della domotica (MQTT). Tutti i moduli possono essere utilizzati
+anche da attuatori on/off (fino a 4 relay) ma è molto semplice
+aggiungere altre funzionalità tramite remote procedure in formato json
+su tutti i trasporti o tramite MQTT.</p>
+</div>
+</div>
+</div>
+<div class="section" id="concetti-base">
+<span id="id62"></span><h3>Concetti base<a class="headerlink" href="#concetti-base" title="Link a questa intestazione">¶</a></h3>
+<p>La modularità della stazione è stata ottenuta astraendo alcuni concetti
+e funzioni e implementandoli nei differenti moduli hardware e software.</p>
+<div class="section" id="trasporti">
+<h4>Trasporti<a class="headerlink" href="#trasporti" title="Link a questa intestazione">¶</a></h4>
+<p>Il concetto di trasporto in Stima è simile ma non rigidamente aderente
+ai concetti del modello ISO-OSI. Nel caso dei trasporti passivi il suo
+compito è fornire un canale logico-affidabile di comunicazione
+end-to-end per fornire servizi al soprastante livello che in Stima è
+JsonRPC. Nel caso dei trasporti attivi corrisponde al protocollo
+(Session Layer) per la pubblicazione dei dati su un server (broker).</p>
+<div class="section" id="passivi-o-attivi">
+<span id="id63"></span><h5>Passivi o attivi<a class="headerlink" href="#passivi-o-attivi" title="Link a questa intestazione">¶</a></h5>
+<p>In pratica i trasporti &quot;passivi&quot; permettono di eseguire procedure remote
+codificate in formato json specifiche dell'implementazione Stima; quelli
+attivi permettono la pubblicazione su server (broker) dei messaggi
+aderenti allo standard R-MAP.</p>
+<div class="section" id="passivi">
+<h6>Passivi<a class="headerlink" href="#passivi" title="Link a questa intestazione">¶</a></h6>
+<div class="section" id="seriale">
+<h7>Seriale<a class="headerlink" href="#seriale" title="Link a questa intestazione">¶</a></h7>
+<p>Collegamento punto a punto tramite porta seriale.</p>
+<ul class="simple">
+<li><p>Principalmente per configurazione e debug</p></li>
+<li><p>Piccole distanze via cavo</p></li>
+</ul>
+<p>caratterizzato da:</p>
+<ul class="simple">
+<li><p>Baud rate</p></li>
+<li><p>Device</p></li>
+</ul>
+</div>
+<div class="section" id="tcp-ip">
+<h7>TCP/IP<a class="headerlink" href="#tcp-ip" title="Link a questa intestazione">¶</a></h7>
+<p>Trasporto che utilizza il TCP/IP; i supporti fisici supportati sono:</p>
+<ul class="simple">
+<li><p>ethernet: collegamenti tramite cavo ethernet a breve e media distanza</p></li>
+<li><p>GSM/GPRS: installazioni con problemi per le cablature di
+alimentazione e collegamento di rete</p></li>
+</ul>
+<p>caratterizzato da:</p>
+<ul class="simple">
+<li><p>Name (Nome risolto dal DNS)</p></li>
+<li><p>NTPserver</p></li>
+</ul>
+</div>
+<div class="section" id="bluetooth">
+<h7>Bluetooth<a class="headerlink" href="#bluetooth" title="Link a questa intestazione">¶</a></h7>
+<p>caratterizzato da:</p>
+<ul class="simple">
+<li><p>Bluetooth Name</p></li>
+</ul>
+</div>
+<div class="section" id="nrf24">
+<h7>NRF24<a class="headerlink" href="#nrf24" title="Link a questa intestazione">¶</a></h7>
+<ul class="simple">
+<li><p>OSI Network Layer using nRF24L01(+) radios 2.4GHz ISM 50/150m in aria
+libera</p></li>
+<li><p>Host Addressing. Each node has a logical address on the local
+network.</p></li>
+<li><p>Message Forwarding. Messages can be sent from one node to any other,
+and this layer will get them there no matter how many hops it takes.</p></li>
+<li><p>Ad-hoc Joining. A node can join a network without any changes to any
+existing nodes.</p></li>
+</ul>
+<p>RF24Network Addressing and Topology</p>
+<p>Each node must be assigned an 15-bit address by the administrator. This
+address exactly describes the position of the node within the tree. The
+address is an octal number. Each digit in the address represents a
+position in the tree further from the base.</p>
+<ul class="simple">
+<li><p>Node 00 is the base node.</p></li>
+<li><p>Nodes 01-05 are nodes whose parent is the base.</p></li>
+<li><p>Node 021 is the second child of node 01.</p></li>
+<li><p>Node 0321 is the third child of node 021, an so on.</p></li>
+<li><p>The largest node address is 05555, so 3,125 nodes are allowed on a
+single channel.</p></li>
+</ul>
+<p>Alla libreria distributia è stata aggiunta la crittografia e
+frammentazione e ricomposizione del payload</p>
+<p>caratterizzato da:</p>
+<ul class="simple">
+<li><p>Node (Node ID for RF24 Network)</p></li>
+<li><p>Channel (Numero canale per RF24)</p></li>
+<li><p>Key (AES key)</p></li>
+<li><p>Iv</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="attivi">
+<h6>Attivi<a class="headerlink" href="#attivi" title="Link a questa intestazione">¶</a></h6>
+<div class="section" id="mqtt">
+<h7>MQTT<a class="headerlink" href="#mqtt" title="Link a questa intestazione">¶</a></h7>
+<p>MQTT (Message Queue Telemetry Transport) è un protocollo
+publish/subscribe particolarmente leggero, adatto per la comunicazione
+M2M tra dispositivi con poca memoria o potenza di calcolo e server o
+message broker.</p>
+<p>caratterizzato da:</p>
+<ul class="simple">
+<li><p>Mqttsampletime (intervallo in secondi per la pubblicazione)</p></li>
+<li><p>Mqttserver (MQTT server)</p></li>
+<li><p>Mqttuser (MQTT user)</p></li>
+<li><p>Mqttpassword (MQTT password)</p></li>
+</ul>
+</div>
+<div class="section" id="amqp">
+<h7>AMQP<a class="headerlink" href="#amqp" title="Link a questa intestazione">¶</a></h7>
+<p>AMQP (Advanced Message Queuing Protocol) è protocollo per comunicazioni
+attraverso code di messaggi. Sono garantite l'interoperabilità, la
+sicurezza, l'affidabilità, la persistenza.</p>
+<p>caratterizzato da:</p>
+<ul class="simple">
+<li><p>Amqpserver (Server AMQP)</p></li>
+<li><p>Exchange (Nome dell'exchange remoto AMQP)</p></li>
+<li><p>Queue (Nome della coda locale AMQP )</p></li>
+<li><p>Amqpuser (User AMQP)</p></li>
+<li><p>Amqppassword</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="jsonrpc">
+<h5>JsonRPC<a class="headerlink" href="#jsonrpc" title="Link a questa intestazione">¶</a></h5>
+<p>La chiamata di procedure remote in formato json è l'unico metodo per
+poter eseguire funzioni su un modulo dalla configurazione al
+campionamento dei sensori.</p>
+<p>La documentazione delle procedure remote è disponibile qui
+<a class="reference external" href="Gruppo_Meteo/RemoteProcedure">Gruppo_Meteo/RemoteProcedure</a></p>
+<div class="section" id="jsonrpc-over-different-transports">
+<span id="id64"></span><h6>JsonRPC over different transports<a class="headerlink" href="#jsonrpc-over-different-transports" title="Link a questa intestazione">¶</a></h6>
+<p>È possibile fare richiesta di una procedura remota che a sua volta
+richiede una procedura remota; in questo modo è possibile utilizzare due
+trasporti differenti e usare un modulo come gateway. Ad esempio il
+modulo base non dispone al momento del trasporto radio RF24 ma puo'
+richiedere a un modulo master tramite trasporto seriale o TCP/IP di
+eseguire una procedura remota su un modulo satellite raggiungibile
+tramite trasporto RF24. Queste funzionalità sono ampiamente da testare.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="elementi-hardware">
+<span id="id65"></span><h3>Elementi hardware<a class="headerlink" href="#elementi-hardware" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="board-microcontroller">
+<span id="id66"></span><h4>board microcontroller<a class="headerlink" href="#board-microcontroller" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="atmel-328p">
+<span id="id67"></span><h5>atmel 328p<a class="headerlink" href="#atmel-328p" title="Link a questa intestazione">¶</a></h5>
+<p>Il più piccolo della serie può essere utilizzato per:</p>
+<ul class="simple">
+<li><p>modulo i2c-gps</p></li>
+<li><p>modulo i2c-wind</p></li>
+<li><p>modulo i2c-rain</p></li>
+</ul>
+<p>implementazioni on board:</p>
+<ul class="simple">
+<li><p>arduino uno</p></li>
+<li><p>arduino nano</p></li>
+<li><p>microduino core</p></li>
+</ul>
+</div>
+<div class="section" id="atmel-644p">
+<span id="id68"></span><h5>atmel 644p<a class="headerlink" href="#atmel-644p" title="Link a questa intestazione">¶</a></h5>
+<p>Il medio della serie può essere utilizzato per:</p>
+<ul class="simple">
+<li><p>modulo satellite</p></li>
+<li><p>modulo bluetooth</p></li>
+<li><p>tutti i moduli relativi al 328p</p></li>
+</ul>
+<p>implementazioni on board:</p>
+<ul class="simple">
+<li><p>microduino core+ 644p</p></li>
+</ul>
+</div>
+<div class="section" id="altmel-mega-2560-1284p">
+<span id="altmel-mega-25601284p"></span><h5>altmel mega 2560/1284p<a class="headerlink" href="#altmel-mega-2560-1284p" title="Link a questa intestazione">¶</a></h5>
+<p>Il grande della serie può essere utilizzato per:</p>
+<ul class="simple">
+<li><p>modulo master</p></li>
+<li><p>modulo GPS/GPRS</p></li>
+<li><p>tutti i moduli relativi al 644p</p></li>
+</ul>
+<p>implementazioni on board:</p>
+<ul class="simple">
+<li><p>arduino mega2560</p></li>
+<li><p>microduino core+ 1284p</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="board-rtc">
+<span id="id69"></span><h4>board RTC<a class="headerlink" href="#board-rtc" title="Link a questa intestazione">¶</a></h4>
+<p>Il real time clock deve utilizzato quando non è possibile avere un'altra
+sorgente affidabile per il tempo di riferimento e al tempo stesso la
+pubblicazione dei dati può avvenire con tempo differito ad esempio
+tramite la memorizzazione su scheda SD.</p>
+</div>
+<div class="section" id="board-radio-rf24">
+<span id="id70"></span><h4>board radio RF24<a class="headerlink" href="#board-radio-rf24" title="Link a questa intestazione">¶</a></h4>
+<p>È necessaria per supportare il trasporto NRF24</p>
+</div>
+<div class="section" id="board-ft232">
+<span id="id71"></span><h4>board ft232<a class="headerlink" href="#board-ft232" title="Link a questa intestazione">¶</a></h4>
+<p>È necessaria per programmare, debuggare, a volte configurare il modulo e
+per supportare il trasporto seriale.</p>
+</div>
+<div class="section" id="board-enc28j60">
+<span id="id72"></span><h4>board ENC28J60<a class="headerlink" href="#board-enc28j60" title="Link a questa intestazione">¶</a></h4>
+<p>Ethernet module a basso costo; è necessario lo stack tcp/ip software su
+microcontrollore. Serve per supportare il trasporto TCP/IP. Alternativa
+alla board wiznet</p>
+</div>
+<div class="section" id="board-wiznet-w5500">
+<span id="id73"></span><h4>board wiznet W5500<a class="headerlink" href="#board-wiznet-w5500" title="Link a questa intestazione">¶</a></h4>
+<p>Ethernet module completa dello stack tcp/ip. Serve per supportare il
+trasporto TCP/IP. Alternativa alla board ENC28j60</p>
+</div>
+<div class="section" id="board-display-i2c-lcd-4-linee-20-caratteri">
+<span id="id74"></span><h4>board display I2C LCD 4 linee 20 caratteri<a class="headerlink" href="#board-display-i2c-lcd-4-linee-20-caratteri" title="Link a questa intestazione">¶</a></h4>
+<p>Utilizzabile per visualizzare messaggistica di diagnostica e alcune
+misure quando non è disponibile un PC per debug e altre visualizzazioni.</p>
+<p>implementazioni on board:</p>
+<ul class="simple">
+<li><p>YwRobot Arduino LCM1602 IIC V1</p></li>
+</ul>
+</div>
+<div class="section" id="board-5v-relay">
+<span id="id75"></span><h4>board 5V relay<a class="headerlink" href="#board-5v-relay" title="Link a questa intestazione">¶</a></h4>
+<p>5V 4/2-Channel Relay interface board; Equipped with high-current relay,
+AC 250V 10A / DC 30V 10A Opticalcoupler Protection Utilizzabile per
+aggiungere a un modulo la funzionalità di attuatore. Ogni relay può
+essere attivato singolarmente.</p>
+</div>
+<div class="section" id="board-sd">
+<span id="id76"></span><h4>board SD<a class="headerlink" href="#board-sd" title="Link a questa intestazione">¶</a></h4>
+<p>Microduino-SD aims to read and write data of a memory card. Utilizzata
+per memorizzare i dati in loco; necessaria quando non ci siano trasporti
+utili o la stabilità dei trasporti utilizzati è messa in dubbio e i dati
+hanno valore anche in tempo differito.</p>
+</div>
+<div class="section" id="board-gsm-gprs-sim800-sim900">
+<span id="board-gsmgprs-sim800sim900"></span><h4>board GSM/GPRS sim800/sim900<a class="headerlink" href="#board-gsm-gprs-sim800-sim900" title="Link a questa intestazione">¶</a></h4>
+<p>Adopt SIM800L module to support four-band GSM/GPRS, whose working band
+is：GSM850, EGSM900, DCS1800 and PCS1900MHz. Utilizzabile per avere il
+trasporto TCP/IP quando non è disponibile una connessione ethernet.
+Questo modulo può funzionare sul trasporto TCP/IP in due modalità: una
+con delle get http tramutate dal server in publish MQTT e l'altra in una
+vera connessione MQTT. E' possibile utilizzare questo modulo anche cone
+Real Time Clock per ottenere una tempo di riferimento stabile. Si può
+quindi ottenere dal server rmap il tempo di riferimento e impostarlo
+nell'RTC di questo modulo per poi rileggerlo al bisogno in caso di non
+disponibilità del trasporto TCP/IP; tutto questo a scapito di stabilità
+e continuità di servizio. Nel caso sia importante avere un RTC
+affidabile si consiglia l'aggiunta di un modulo RTC o ancora meglio del
+modulo GPS.</p>
+</div>
+<div class="section" id="board-gps-neo-6m">
+<span id="id77"></span><h4>board GPS Neo 6M<a class="headerlink" href="#board-gps-neo-6m" title="Link a questa intestazione">¶</a></h4>
+<p>Questa board insieme a una board microcontrollore possono creare un
+modulo i2c-gps. Il modulo i2c-gps fornisce a richiesta la posizione
+(lat, lon, altezza) e il tempo di riferimento. Serve per istallazioni
+mobili o che necessitano di un tempo di riferimento particolarmente
+stabile.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../stima_base/stima_base.html" class="btn btn-neutral float-right" title="Stima base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../stima_v1/stima_v1.html" class="btn btn-neutral float-left" title="Stima V1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

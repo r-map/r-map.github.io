@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Stima WiFi &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../genindex.html" />
+    <link rel="search" title="Cerca" href="../search.html" />
+    <link rel="next" title="Stima WiFi V2" href="stimawifi_v2/stima_wifi_howto.html" />
+    <link rel="prev" title="Platformio unit tests" href="../stima_v4/pio_test/pio_test.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Stima WiFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html">Stima WiFi V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html">Stima WiFi V3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html">Testa di prelievo per sensori Air Quality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispense/index.html">Dispense</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Stima WiFi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/stima_wifi/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stima-wifi">
+<h1>Stima WiFi<a class="headerlink" href="#stima-wifi" title="Link a questa intestazione">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html">Stima WiFi V2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#elenco-materiali">Elenco materiali</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#sensore-polveri-sensirion-sps30">Sensore polveri Sensirion SPS30</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#in-alternativa">in alternativa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#in-alternativa-1">in alternativa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#in-alternativa-2">in alternativa</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#sensore-temperatura-e-umidita">Sensore temperatura e umidità</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#in-alternativa-3">in alternativa</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#temperatura-0-2c-accuratezza">temperatura 0.2C accuratezza</a></li>
+<li class="toctree-l5"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#temperatura-0-5c-accuratezza-e-umidita">temperatura 0.5C accuratezza e umidità</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#sensore-di-co2">Sensore di CO2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#configurazioni-sul-server">Configurazioni sul server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#registrazione">Registrazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#configurazione-stazione">Configurazione stazione</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#attivazione-stazione">Attivazione stazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#se-si-ha-il-display">Se si ha il display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#se-non-si-ha-il-display">Se non si ha il display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#legenda-segnalazioni-tramite-led-blu-onboard">Legenda segnalazioni tramite LED blu onboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#visualizzazione-dei-dati-in-tempo-reale">Visualizzazione dei dati in tempo reale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#cancellazione-delle-configurazioni-e-reset-alle-condizioni-di-fabbrica">Cancellazione delle configurazioni e reset alle condizioni di &quot;fabbrica&quot;</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#se-si-ha-il-display-1">Se si ha il display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#se-non-si-ha-il-display-1">Se non si ha il display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#assemblaggio">Assemblaggio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-display-oled">opzione display oled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#sensore-sensirion-sps30-per-le-polveri">Sensore Sensirion SPS30 per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#sensore-sensirion-scd30-per-la-co2">Sensore Sensirion SCD30 per la CO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-sensore-plantower-pms5003-per-le-polveri">opzione sensore Plantower PMS5003 per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-sensore-sds011-per-le-polveri">opzione sensore SDS011 per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-sensore-honeywell-hpm-per-le-polveri">opzione sensore Honeywell HPM per le polveri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#sensore-sht85-per-temperatura-e-umidita">sensore SHT85 per temperatura e umidità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-modulo-stima-th-con-hih6121-e-adt7420-per-temperatura-e-umidita">Opzione modulo Stima-th con HIH6121 e ADT7420 per temperatura e umidità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-modulo-stima-i2c-sdsmics">Opzione modulo Stima-i2c-sdsmics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#opzione-per-alimentazione-con-cavo-di-lunghezza-superiore-a-2m">Opzione per alimentazione con cavo di lunghezza superiore a 2m.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#per-caricare-il-firmware">Per caricare il firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#installare-il-driver-usb2serial">Installare il driver USB2Serial</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#windows">Windows</a></li>
+<li class="toctree-l5"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#linux">Linux</a></li>
+<li class="toctree-l5"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="stimawifi_v2/stima_wifi_howto.html#upload-del-firmware">Upload del firmware</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html">Stima WiFi V3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#introduzione">Introduzione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#messa-in-opera-della-stazione">Messa in opera della stazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#assemblaggio-scheda-elettronica">Assemblaggio scheda elettronica</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#strumentazione-necessaria">Strumentazione necessaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#dotazione-software">Dotazione Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#caricamento-firmware">Caricamento firmware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id1">Strumentazione necessaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id2">Dotazione Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#collegamento-dei-sensori">Collegamento dei sensori</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id3">Strumentazione necessaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id4">Dotazione Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#censimento-stazione">Censimento stazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id5">Strumentazione necessaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id6">Dotazione Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#collaudo-stazione">Collaudo Stazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id7">Strumentazione necessaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id8">Dotazione Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#preparazione-del-guscio">Preparazione del guscio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id9">Strumentazione necessaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#id10">Dotazione Software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#installazione-in-loco">Installazione in loco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#installazione-schermo-solare-e-sensore-temperatura">Installazione schermo solare e sensore temperatura</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#ancora-da-scrivere">Ancora da scrivere</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#appendice-a">Appendice A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stimawifi_v3/stima_wifi_howto.html#accesso-wifi">Accesso WiFi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testa_prelievo/testa_prelievo.html">Testa di prelievo per sensori Air Quality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#a-cosa-serve">A cosa serve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#principio-di-funzionamento">Principio di funzionamento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#funzionalita">Funzionalità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#implementazione-hardware">Implementazione hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#materiale">Materiale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#implementazione-software">Implementazione software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#firmware">Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testa_prelievo/testa_prelievo.html#test-di-funzionamento">Test di funzionamento</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Indice</span></a></p></li>
+<li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Cerca</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="stimawifi_v2/stima_wifi_howto.html" class="btn btn-neutral float-right" title="Stima WiFi V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../stima_v4/pio_test/pio_test.html" class="btn btn-neutral float-left" title="Platformio unit tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

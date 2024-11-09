@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Protocollo misurazioni &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Istruzioni per partecipare a RMAP" href="../partecipa/partecipa.html" />
+    <link rel="prev" title="Dispense" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Protocollo misurazioni</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#campionamenti-e-osservazioni">Campionamenti e osservazioni</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-level">Data Level</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#taratura-e-calibrazione">Taratura e calibrazione</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#la-taratura">La taratura</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#la-calibrazione">La calibrazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metodologia">Metodologia</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#criteri-generali-per-la-scelta-del-sito">Criteri generali per la scelta del sito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temperatura-e-umidita">Temperatura e umidità</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shields">SHIELDS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temperatura-dell-aria">Temperatura dell'aria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#umidita-dell-aria">Umidità dell'aria</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#osservazioni-manuali">Osservazioni manuali</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#altezza-del-manto-nevoso-total-snow-depth">Altezza del manto nevoso (total snow depth)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visibilita">Visibilità</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tempo-presente">Tempo presente</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_di_tutti/la_scienza_di_tutti.html">Citizen Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualit%C3%A0_aria/qualit%C3%A0_aria.html">Qualità dell'aria</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Protocollo misurazioni</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/misure/protocollo_misurazioni.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="protocollo-misurazioni">
+<h1>Protocollo misurazioni<a class="headerlink" href="#protocollo-misurazioni" title="Link a questa intestazione">¶</a></h1>
+<p>Protocollo per effettuare corrette misurazioni di parametri ambientali.</p>
+<div class="section" id="definizioni">
+<h2>Definizioni<a class="headerlink" href="#definizioni" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="campionamenti-e-osservazioni">
+<h3>Campionamenti e osservazioni<a class="headerlink" href="#campionamenti-e-osservazioni" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Campionamento è il processo per ottenere una discretizzata sequenza
+di misure di una quantità.</p></li>
+<li><p>Campione è una singola misura, tipicamente una di una serie di
+letture di un sistema di sensoristica.</p></li>
+<li><p>Una osservazione (misurazione) è il risultato del processo di
+campionamento. Nel contesto di analisi di serie, un'osservazione è
+derivato da un numero di campioni.</p></li>
+</ul>
+</div>
+<div class="section" id="data-level">
+<h3>Data Level<a class="headerlink" href="#data-level" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Dati Level I , sono le letture dirette degli strumenti espresse in
+appropriate unità fisiche e georeferenziate</p></li>
+<li><p>Dati Level II, dati riconosciuti come variabili meteorologiche;
+possono essere ottenuti direttamente da strumenti o derivati dai
+dati Level I</p></li>
+<li><p>Dati Level III sono quelli contenuti in dataset internamente
+consistenti, generalmente su grigliato.</p></li>
+</ul>
+<p>I dati scambiati a livello internazionale sono livello II o livello III</p>
+</div>
+</div>
+<div class="section" id="taratura-e-calibrazione">
+<h2>Taratura e calibrazione<a class="headerlink" href="#taratura-e-calibrazione" title="Link a questa intestazione">¶</a></h2>
+<p>la taratura è un'operazione che permette di definire le
+caratteristiche metrologiche di uno strumento, allo scopo di definirne
+la precisione; la calibrazione ha come obiettivo quello di rendere lo
+strumento più accurato e spesso, conseguentemente, migliorarne la
+precisione</p>
+<div class="section" id="la-taratura">
+<h3>La taratura<a class="headerlink" href="#la-taratura" title="Link a questa intestazione">¶</a></h3>
+<p>La taratura può essere usata per la determinazione delle caratteristiche metrologiche dello strumento (es. accuratezza, ripetibilità, riproducibilità, linearità, ecc.) necessari per definirne la funzionalità, o per verificarne la rispondenza a dei requisiti. Inoltre permette di sapere qual è la variazione del valore della grandezza.</p>
+</div>
+<div class="section" id="la-calibrazione">
+<h3>La calibrazione<a class="headerlink" href="#la-calibrazione" title="Link a questa intestazione">¶</a></h3>
+<p>l'insieme di operazioni svolte su un sistema di misura, affinché esso
+fornisca indicazioni prescritte in corrispondenza di determinati
+valori di una grandezza da sottoporre a misurazione</p>
+</div>
+<div class="section" id="metodologia">
+<h3>Metodologia<a class="headerlink" href="#metodologia" title="Link a questa intestazione">¶</a></h3>
+<p>a confronto, dove una medesima grandezza viene contemporaneamente
+letta dallo strumento in calibrazione e da quello campione; a
+sostituzione, dove il campione genera direttamente la grandezza di
+riferimento che viene fatta misurare allo strumento in calibrazione;</p>
+</div>
+</div>
+<div class="section" id="criteri-generali-per-la-scelta-del-sito">
+<h2>Criteri generali per la scelta del sito<a class="headerlink" href="#criteri-generali-per-la-scelta-del-sito" title="Link a questa intestazione">¶</a></h2>
+<p>La stazione meteorologica deve sorgere in un luogo piano e libero,
+possibilmente il suolo deve essere coperto da un tappeto erboso da cui
+vanno eliminate erbacce e cespugli. Il taglio della copertura erbosa
+deve essere frequente in modo da tenere l'erba uniformemente bassa;
+l'erba tagliata deve essere asportata per evitare l'effetto pacciamante
+della stessa e le conseguenti modificazioni del regime di temperatura ed
+umidità del terreno. E' sempre sconsigliabile lastricare di cemento o
+asfaltare o coprire con pietre o ghiaia il terreno del sito; in tale
+condizione infatti il calore riverberato altera di diversi gradi la
+temperatura dell'aria falsando le misure. Se non vi fossero altre
+possibilità , in caso di montaggio su terrazzo si consiglia di
+predisporre sotto la capannina un ampio riquadro di terreno inerbito
+contenuto in apposito recipiente . Il parco strumenti dovrebbe situarsi
+ad una distanza minima pari 4 – 8 volte l'altezza degli ostacoli
+esistenti (alberi, siepi, edifici, muri etc.). Non devono esistere
+ostacoli che creino ombra ; brevi periodo di ombreggiamento al sorgere
+ed al tramontare del sole. La stazione ideale deve essere posta in un
+luogo realmente rappresentativo delle condizioni naturali della regione
+agricola o urbana considerata, ma non sempre nella ricerca dei siti per
+stazioni meteo ambientali è possibile raggiungere il completo rispetto
+di queste condizioni. In queste condizioni è consigliabile ricercare le
+migliori condizioni possibili avendo l'accortezza di documentare
+dettagliatamente le particolarità della collocazione della
+strumentazione</p>
+</div>
+<div class="section" id="temperatura-e-umidita">
+<h2>Temperatura e umidità<a class="headerlink" href="#temperatura-e-umidita" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="shields">
+<h3>SHIELDS<a class="headerlink" href="#shields" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="la-capannina-meteorologica">
+<h4>La capannina meteorologica<a class="headerlink" href="#la-capannina-meteorologica" title="Link a questa intestazione">¶</a></h4>
+<p>La capannina solitamente di legno (scarsa conducibilità termica) e
+colorata con vernice bianca riflettente (minima assorbimento di
+radiazione); inoltre è realizzata in modo da garantire la circolazione
+dell'aria all'interno. Per evitare l'effetto della radiazione infrarossa
+emessa dal terreno, la capannina deve avere sulla base inferiore una
+doppia schermatura. La disposizione della capannina, con la porta
+disposta verso nord, evita che l'insolazione diretta penetri fino ai
+sensori di temperatura durante l'osservazione / manutenzione.</p>
+</div>
+<div class="section" id="instructions-for-building-an-instrument-shelter">
+<h4>Instructions for Building an Instrument Shelter<a class="headerlink" href="#instructions-for-building-an-instrument-shelter" title="Link a questa intestazione">¶</a></h4>
+<p>The instrument shelter should be constructed of approximately 2 cm thick
+White Pine or similar wood and painted white, inside and out. A lock
+should be installed to prevent tampering with the instruments. Mounting
+blocks should be installed on the interior to insure that the max/min
+thermometer does not touch the back wall. The parts should be screwed
+together or glued and nailed. The plans are specified in metric units.
+Therefore, you may need to make minor adjustments to dimensions
+depending on the local standard dimensions of wood in your region. It is
+easier to purchase prefabricated louvered panels, and they are usually
+available for purchase. The primary criteria for constructing louvres is
+that they provide for ventilation of the instrument shelter while
+preventing sunlight and rain from entering directly. To prevent sunlight
+from entering the shelter we suggest that each louvre slat overlap
+slightly with adjacent slats. See Figure AT-IC-1.</p>
+<img alt="../../_images/misure-000.png" src="../../_images/misure-000.png" />
+<p>There should also be a
+gap between slats of approximately 1 cm, and the slat angle should be
+roughly 50-60 degrees from horizontal. For shelter mounting
+instructions, see image:</p>
+<img alt="../../_images/misure-001.png" src="../../_images/misure-001.png" />
+</div>
+<div class="section" id="radiation-shield">
+<h4>Radiation Shield<a class="headerlink" href="#radiation-shield" title="Link a questa intestazione">¶</a></h4>
+<p>A radiation shield or screen should be designed to provide an enclosure
+with an internal temperature that is both uniform and the same as that
+of the outside air. It should completely surround the thermometers and
+exclude radiant heat, precipitation and other phenomena that might
+influence the measurement. Screens with forced ventilation, in which air
+is drawn over the thermometer element by a fan, may help to avoid biases
+when the microclimate inside the screen deviates from the surrounding
+air mass. Such a deviation only occurs when the natural wind speed is
+very low (&lt; 1 m s–1). When such artificial ventilation is used, care
+should be taken to prevent the deposition of aerosols and rain droplets
+on the sensor which decrease its temperature towards the wet-bulb
+temperature. As a shield material, highly polished, non-oxidized metal
+is favourable because of its high reflectivity and low heat absorption.
+Nevertheless, thermally insulating plastic-based material is preferable
+because of its simple maintenance requirements. Thermally insulating
+material must be used if the system relies on natural ventilation.</p>
+</div>
+<div class="section" id="louvred-screens">
+<h4>Louvred screens<a class="headerlink" href="#louvred-screens" title="Link a questa intestazione">¶</a></h4>
+<p>Most of the numerous varieties of louvred screen rely on natural
+ventilation. The walls of such a screen should preferably be
+double-louvred and the floor should be made of staggered boards, but
+other types of construction may be found to meet the above requirements.
+The roof should be doublelayered, with provisions for ventilation of the
+space between the two layers. In cold climates, owing to the high
+reflectivity of snow (up to 88 per cent), the screen should also have a
+double floor. At the same time, however, the floor should easily drop or
+tilt so that any snow entering the screen during a storm can be removed.
+The size and construction of the screen should be such that it keeps the
+heat capacity as low as practicable and allows ample space between the
+instruments and the walls. The latter feature excludes all possibility
+of direct contact between the thermometer sensing elements and the
+walls, and is particularly important in the tropics where insolation may
+heat the sides to the extent that an appreciable temperature gradient is
+caused in the screen. Direct contact between the sensing elements and
+the thermometer mounting should also be avoided. The screen should be
+painted both inside and outside with white, non-hygroscopic paint. When
+double walls are provided, the layer of air between them serves to
+reduce the amount of heat that would otherwise be conducted from the
+outer wall to the inner enclosure, especially in strong sunshine. When
+the wind is appreciable, the air between the walls is changed
+continually so that the conduction of heat inwards from the outer walls
+is further decreased. The free circulation of air throughout the screen
+helps the temperature of the inner wall adapt to ambient air changes. In
+this way, the influence of the inner wall upon the temperature of the
+thermometer is reduced. Also, the free circulation of air within the
+screen enables the thermometer to follow the ambient air changes more
+quickly than if radiative exchanges alone were operative. However, the
+air circulating through the screen spends a finite time in contact with
+the outer walls and may have its temperature altered thereby. This
+effect becomes appreciable when the wind is light and the temperature of
+the outer wall is markedly different from the air temperature. Thus, the
+temperature of the air in a screen can be expected to be higher than the
+true air temperature on a day</p>
+</div>
+</div>
+<div class="section" id="temperatura-dell-aria">
+<h3>Temperatura dell'aria<a class="headerlink" href="#temperatura-dell-aria" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="definition">
+<h4>Definition<a class="headerlink" href="#definition" title="Link a questa intestazione">¶</a></h4>
+<p>WMO (1992) defines temperature as a physical quantity characterizing the
+mean random motion of molecules in a physical body. Temperature is
+characterized by the behaviour whereby two bodies in thermal contact
+tend to an equal temperature. Thus, temperature represents the
+thermodynamic state of a body, and its value is determined by the
+direction of the net flow of heat between two bodies. WMO defines air
+temperature as “the temperature indicated by a thermometer exposed to
+the air in a place sheltered from direct solar radiation”.</p>
+<ul class="simple">
+<li><p>Measurement Units and scales: Kelvin</p></li>
+<li><p>Range: 233.15 K / 323.15 K</p></li>
+<li><p>Resolution: 0.1 K</p></li>
+<li><p>Uncertainty: 0.5 K</p></li>
+<li><p>time constant: 20s</p></li>
+<li><p>Sampling: 1Hz</p></li>
+<li><p>Output observation Averaging time: 60s</p></li>
+</ul>
+</div>
+<div class="section" id="collocazione-degli-strumenti">
+<h4>Collocazione degli strumenti<a class="headerlink" href="#collocazione-degli-strumenti" title="Link a questa intestazione">¶</a></h4>
+<p>I sensori di temperatura vengono racchiusi entro involucri che
+proteggono dalla radiazione diretta, generalmente ventilati anche in
+modo artificiale dalle cui prestazione dipende in gran parte il
+rendimento dei sensori stessi. L'altezza del sensore dal terreno deve
+essere compresa tra 180 cm e 200 cm.</p>
+</div>
+</div>
+<div class="section" id="umidita-dell-aria">
+<h3>Umidità dell'aria<a class="headerlink" href="#umidita-dell-aria" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="definition-1">
+<span id="id1"></span><h4>Definition<a class="headerlink" href="#definition-1" title="Link a questa intestazione">¶</a></h4>
+<p>The simple definitions of the most frequently used quantities in
+humidity measurements are as follows:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Dewpoint temperature Td: The temperature at which moist air saturated</dt><dd><p>with respect to water at a given pressure has a saturation mixing
+ratio equal</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>to the given mixing ratio;</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Relative humidity U: The ratio in per cent of the observed vapour</dt><dd><p>pressure to the saturation vapour pressure with respect to water
+at the same temperature and pressure;</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="measurement-units-and-scales">
+<span id="measurement-units-and-scales-1"></span><h4>Measurement Units and scales<a class="headerlink" href="#measurement-units-and-scales" title="Link a questa intestazione">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dew Point Temperature</p></td>
+<td><p>Kelvin</p></td>
+</tr>
+<tr class="row-even"><td><p>Relative Humidity</p></td>
+<td><p>percent %</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="range">
+<span id="range-1"></span><h4>Range<a class="headerlink" href="#range" title="Link a questa intestazione">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 46%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dew Point Temperature</p></td>
+<td><p>233.15 K / 303.15 K</p></td>
+</tr>
+<tr class="row-even"><td><p>Relative Humidity</p></td>
+<td><p>0 - 100</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="resolution">
+<span id="resolution-1"></span><h4>Resolution<a class="headerlink" href="#resolution" title="Link a questa intestazione">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 78%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dew Point Temperature</p></td>
+<td><p>0.1 K</p></td>
+</tr>
+<tr class="row-even"><td><p>Relative Humidity</p></td>
+<td><p>2%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="uncertainty">
+<span id="uncertainty-1"></span><h4>Uncertainty<a class="headerlink" href="#uncertainty" title="Link a questa intestazione">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 78%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dew Point Temperature</p></td>
+<td><p>0.5 K</p></td>
+</tr>
+<tr class="row-even"><td><p>Relative Humidity</p></td>
+<td><p>5%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="time-constant">
+<span id="time-constant-1"></span><h4>time constant<a class="headerlink" href="#time-constant" title="Link a questa intestazione">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 81%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Dew Point Temperature</p></td>
+<td><p>20 s</p></td>
+</tr>
+<tr class="row-even"><td><p>Relative Humidity</p></td>
+<td><p>40 s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sampling">
+<span id="sampling-1"></span><h4>Sampling<a class="headerlink" href="#sampling" title="Link a questa intestazione">¶</a></h4>
+<p>10 Hz</p>
+</div>
+<div class="section" id="output-observation-averaging-time">
+<span id="output-observation-averaging-time-1"></span><h4>Output observation Averaging time<a class="headerlink" href="#output-observation-averaging-time" title="Link a questa intestazione">¶</a></h4>
+<p>60 s</p>
+</div>
+<div class="section" id="collocazione-degli-strumenti-1">
+<span id="id2"></span><h4>Collocazione degli strumenti<a class="headerlink" href="#collocazione-degli-strumenti-1" title="Link a questa intestazione">¶</a></h4>
+<p>I sensori di umidità vengono racchiusi entro involucri che proteggono
+dalla radiazione diretta, generalmente ventilati anche in modo
+artificiale dalle cui prestazione dipende in gran parte il rendimento
+dei sensori stessi. L'altezza del sensore dal terreno deve essere
+compresa tra 180 cm e 200 cm.</p>
+</div>
+</div>
+</div>
+<div class="section" id="osservazioni-manuali">
+<h2>Osservazioni manuali<a class="headerlink" href="#osservazioni-manuali" title="Link a questa intestazione">¶</a></h2>
+<p>All'interno del progetto RMAP vengono archiviate misure manuali delle
+seguenti grandezze:</p>
+<ul class="simple">
+<li><p>altezza del manto nevoso (total snow depth)</p></li>
+<li><p>visibilità (visibility)</p></li>
+<li><p>tempo presente (current weather)</p></li>
+</ul>
+<p>nel seguito viene data una descrizione della metodologia da seguire
+per produrre misure corrette di tali grandezze.</p>
+<div class="section" id="altezza-del-manto-nevoso-total-snow-depth">
+<h3>Altezza del manto nevoso (total snow depth)<a class="headerlink" href="#altezza-del-manto-nevoso-total-snow-depth" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="quando-fare-la-misura">
+<h4>Quando fare la misura<a class="headerlink" href="#quando-fare-la-misura" title="Link a questa intestazione">¶</a></h4>
+<p>L'altezza totale del manto nevoso va fatta in due casi:</p>
+<ul class="simple">
+<li><p>In presenza di manto nevoso (che verrà misurato in cm)</p></li>
+<li><p>Quando è stata prevista una nevicata in un intorno del punto di
+osservazione, ma nel punto di osservazione non è presente manto
+nevoso (misura pari a 0 cm)</p></li>
+</ul>
+<p>La misurazione di altezza nulla del manto è stata introdotta
+recentemente nei disciplinari WMO per distinguere il dato mancante
+dall'assenza di manto nevoso. In precedenza infatti il dato mancante
+veniva considerato automaticamente come indicativo di assenza del
+manto, introducendo un elemento di ambiguità che in alcuni casi ha
+portato ad errori di valutazione dell'estensione del manto
+nevoso. Questo errore in alcuni casi si è propagato su tutti i
+prodotti osservativi a valle fino ad alterare le analisi globali di
+ECMWF.</p>
+</div>
+<div class="section" id="collocazione-del-sito-di-misura">
+<h4>Collocazione del sito di misura<a class="headerlink" href="#collocazione-del-sito-di-misura" title="Link a questa intestazione">¶</a></h4>
+<p>Il sito di misura deve consistere di una superficie piana regolare non
+soggetta ad accumuli anomali rispetto all'area circostante. Il sito
+quindi deve essere sufficientemente lontano da alberi, edifici, zone
+di passaggio. In particolare la distanza da ostacoli rilevanti, come
+edifici o alberi, dovrebbe essere pari al doppio dell'altezza degli
+ostacoli stessi.</p>
+<p>In genere viene consigliata la collocazione sul sito di misura di una
+tavoletta di legno o compensato levigata e di colore bianco, di circa
+mezzo metro di lato, simile a quella nella seguente figura e detta
+Tavoletta Nivometrica. La tavoletta deve essere posta al livello del
+terreno.</p>
+<img alt="../../_images/Tavoletta.png" src="../../_images/Tavoletta.png" />
+<p>In assenza di tale strumento, la misura si può fare su una qualsiasi
+superficie piana, possibilmente non metallica e non di colore
+scuro. Si sconsiglia la misura su un prato, dal momento che la
+presenza di erba sotto la neve può alterare la misura della altezza
+totale del manto nevoso.</p>
+<p>In generale nel caso non si usi la tavoletta, si consiglia di fare più
+misure del manto nevoso in più punti nel raggio di qualche metro e di
+ottenere così il valore della misura finale come media dei
+campionamenti.</p>
+</div>
+<div class="section" id="strumenti-di-misura">
+<h4>Strumenti di misura<a class="headerlink" href="#strumenti-di-misura" title="Link a questa intestazione">¶</a></h4>
+<p>La misura del manto nevoso va fatta utilizzando un righello rigido di
+lunghezza sufficiente o, meglio ancora, un metro ripiegabile di legno
+o di plastica, tipicamente utilizzato nei cantieri o dai falegnami,
+simile a quello in figura.</p>
+<img alt="../../_images/Metro_ripiegabile.jpg" src="../../_images/Metro_ripiegabile.jpg" />
+</div>
+<div class="section" id="come-fare-la-misura">
+<h4>Come fare la misura<a class="headerlink" href="#come-fare-la-misura" title="Link a questa intestazione">¶</a></h4>
+<p>Quando si fa la misura bisogna seguire le seguenti procedure:</p>
+<ul class="simple">
+<li><p>fare attenzione che il righello sia sempre in posizione
+perpendicolare al piano di misura</p></li>
+<li><p>rilevare la misura ponendo sempre gli occhi più vicini possibili al
+punto di misura, così da evitare errori di parallasse (vedi figura
+nel seguito).</p></li>
+</ul>
+<img alt="../../_images/Errore_parallasse_si.png" src="../../_images/Errore_parallasse_si.png" />
+<img alt="../../_images/Errore_parallasse_no.png" src="../../_images/Errore_parallasse_no.png" />
+</div>
+</div>
+<div class="section" id="visibilita">
+<h3>Visibilità<a class="headerlink" href="#visibilita" title="Link a questa intestazione">¶</a></h3>
+<p>La misura di visibilità va fatta possibilmente individuando una serie
+di oggetti o ostacoli (case gruppi di alberi, cartelli stradali,
+ecc...) a distanza nota dall'osservatore. L'osservazione va semper
+fatta all'aperto, mai attraverso i vetri di una finestra o di una
+vetrina e senza usare di strumenti ottici (binocoli, telescopi, o
+simili). L'osservatore dovrebbe essere posto ad una altezza normale
+dal suolo (1.5 m circa) e non in cima a torri o balconi. La visibilità
+dovrebbe essere rilevata in diverse direzioni. Il valore più basso tra
+queli rilevati rappresenta la misura finale di visibilità.</p>
+</div>
+<div class="section" id="tempo-presente">
+<h3>Tempo presente<a class="headerlink" href="#tempo-presente" title="Link a questa intestazione">¶</a></h3>
+<p>Quando si seleziona il tipo di &quot;Tempo presente&quot; bisogna procedere alla
+selezione di una voce tra quelle riportate nell'elenco. L'elenco è
+ordinato in base all'intensità e quindi alla rilevanza del fenomeno
+osservato: fenomeni più intensi o più rilevanti sono più in basso
+nell'elenco. Man mano ci si sposta in alto nell'elenco, si trovano
+eventi meno rilevanti. L'osservatore dovrà selezionare l'evento
+osservato partendo dal basso e potrà inserirne uno solo. Utilizzando
+questa procedura, inserirà automaticamente l'evento più significativo.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../partecipa/partecipa.html" class="btn btn-neutral float-right" title="Istruzioni per partecipare a RMAP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Dispense" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

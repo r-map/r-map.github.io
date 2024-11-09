@@ -1,0 +1,620 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Qualità dell&#39;aria &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="prev" title="Citizen Science" href="../la_scienza_di_tutti/la_scienza_di_tutti.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../misure/protocollo_misurazioni.html">Protocollo misurazioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_di_tutti/la_scienza_di_tutti.html">Citizen Science</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Qualità dell'aria</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sai-cose-lindice-di-qualita-dellaria">Sai cos’è l’indice di qualità dell’aria?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-european-air-quality-index">The European Air Quality Index</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#averaging-time-for-pollutants">Averaging time for pollutants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#missing-data-and-gap-filling">Missing data and gap filling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#co-creare-un-futuro-piu-salutare">Co-creare un futuro più salutare</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inquinamento-e-riscaldamento-domestico">Inquinamento e Riscaldamento domestico</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#che-fare">Che fare?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classificazione-delle-stazioni-di-monitoraggio">Classificazione delle stazioni di monitoraggio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#criteri-per-la-selezione-del-sito-di-installazione">Criteri per la selezione del sito di installazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bibliografia">Bibliografia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Qualità dell'aria</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/qualità_aria/qualità_aria.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qualita-dell-aria">
+<h1>Qualità dell'aria<a class="headerlink" href="#qualita-dell-aria" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="sai-cose-lindice-di-qualita-dellaria">
+<h2>Sai cos’è l’indice di qualità dell’aria?<a class="headerlink" href="#sai-cose-lindice-di-qualita-dellaria" title="Link a questa intestazione">¶</a></h2>
+<p>L’indice di qualità dell’aria (IQA) è un indicatore che permette di
+fornire una stima immediata e sintetica sullo stato dell’aria. Non
+esiste un modo univoco di definire un tale indice ed attualmente sono
+adoperate in Italia ed in Europa diverse formulazioni che tengono
+conto delle concentrazioni misurate, stimate o previste di un numero
+variabile di inquinanti che hanno effetti sulla salute, specialmente
+di tipo respiratorio, cardiaco e cardiovascolare.</p>
+</div>
+<div class="section" id="the-european-air-quality-index">
+<h2>The European Air Quality Index<a class="headerlink" href="#the-european-air-quality-index" title="Link a questa intestazione">¶</a></h2>
+<p>The European Air Quality Index allows users to understand more about
+air quality where they live, work or travel. Displaying up-to-date
+information for Europe, users can gain insights into the air quality
+in individual countries, regions and cities.</p>
+<p>The Index is based on concentration values for up to five key pollutants, including:</p>
+<ul class="simple">
+<li><p>particulate matter (PM10);</p></li>
+<li><p>fine particulate matter (PM2.5);</p></li>
+<li><p>ozone (O3);</p></li>
+<li><p>nitrogen dioxide (NO2);</p></li>
+<li><p>sulphur dioxide (SO2).</p></li>
+</ul>
+<p>It reflects the potential impact of air quality on health, driven by
+the pollutant for which concentrations are poorest due to associated
+health impacts.</p>
+<p>The index is calculated hourly for more than 3.500 air quality
+monitoring stations across Europe, using a combination of up-to-date
+data reported by EEA member countries (not formally verified by
+countries) and forecast of the air quality level as provided by
+Copernicus Atmospheric Monitoring Service (CAMS).</p>
+<p>By default, the air quality index depicts the situation 3 hours
+ago. Users can then select any hour in the preceding 48 hours and view
+forecast values for the following 24 hours.</p>
+<img alt="../../_images/map_air_quality_index.png" src="../../_images/map_air_quality_index.png" />
+<p>The user can filter the selection by country and by station
+type. Stations are classified in relation to the predominant emission
+sources: traffic, industry and background (where the pollution level
+is dominated neither by traffic nor by industry). The user can view
+all stations, traffic stations only or non-traffic stations only
+(i.e. industrial and background stations).</p>
+<p>European Union legislation sets air quality standards for both
+short-term (hourly or daily) and long-term (annual) air quality
+levels. Standards for long-term levels are stricter than for
+short-term levels, since serious health effects may occur from
+long-term exposure to pollutants.</p>
+<p>The Index indicates the short-term air quality situation. It does not
+reflect the long-term (annual) air quality situation, which may differ
+significantly.</p>
+<p>The air quality index is not a tool for checking compliance with air
+quality standards and cannot be used for this purpose.  Methodology</p>
+<p>The Index uses ‘up-to-date’ air quality data officially reported every
+hour by EEA member countries, complemented where necessary by modelled
+air quality data from the European Union’s Copernicus Atmosphere
+Monitoring Service (CAMS).</p>
+<p>Concentrations values for up to five key pollutants determine the
+index level that reflects air quality at each monitoring station. The
+index corresponds to the poorest level for any of five pollutants,
+according to the table shown below.</p>
+<p>Circles and dots on the map represent the locations of air quality
+monitoring stations. The colours reflect air quality at the given hour
+at that station.  Calculating the index for traffic stations</p>
+<p>When calculating the index for traffic stations we only use data for
+NO2 and PM (either PM2.5, PM10 or both). This is because SO2
+concentrations can be high in localized areas and distort the picture
+of local air quality, while ozone levels are normally very low at
+traffic stations.  Calculating the index for industrial and background
+stations</p>
+<p>At industrial and background stations, the index is calculated for
+those stations with data (either measured or modelled) for at least
+the three pollutants NO2, O3 and PM (either PM2.5, PM10 or both).
+Stations missing data for certain pollutants</p>
+<p>To avoid leaving out stations that do not report data for all
+pollutants or for which missing data cannot be gap-filled, the index
+is calculated for all monitoring stations with data for at least one
+pollutant. Those stations that do not report data or for which data
+cannot be gap-filled for the minimum pollutants for that station type
+are depicted as semi-transparent circles , indicating that the index
+is not calculated with the minimum range of pollutants. The station is
+coloured as grey unless the index is poor or worse, when the current
+index colour is used.</p>
+<p>Grey dots indicate stations for which no data have been reported to
+allow the index to be calculated.</p>
+<div class="section" id="averaging-time-for-pollutants">
+<h3>Averaging time for pollutants<a class="headerlink" href="#averaging-time-for-pollutants" title="Link a questa intestazione">¶</a></h3>
+<p>For NO2, O3 and SO2, hourly concentrations are fed into the
+calculation of the index.</p>
+<p>For PM10 and PM2.5, the 24-hour running means for the past 24 hours
+are fed into the calculation of the index. A 24-hour running mean will
+be calculated if there are values for at least 18 out of the 24 hours.</p>
+</div>
+<div class="section" id="missing-data-and-gap-filling">
+<h3>Missing data and gap filling<a class="headerlink" href="#missing-data-and-gap-filling" title="Link a questa intestazione">¶</a></h3>
+<p>When data is not reported for a given hour, values are approximated,
+or 'gap-filled' using CAMS modelled air quality data. In such cases,
+it is marked with an asterisk.</p>
+<p>The method used for gap-filling depends on the pollutant.</p>
+<blockquote>
+<div><p>For NO2, PM2.5 and PM10 we use the difference method.
+For O3 we use the multiplicative method.
+No gap filling is performed for SO2</p>
+</div></blockquote>
+<p>Difference method: The value is approximated by taking the CAMS
+modelled value and adding or subtracting a correction difference. This
+correction is the average difference between previously measured
+values and the CAMS modelled value for the same hour for at least
+three of the four previous days.</p>
+<p>Multiplicative method: The value is approximated by taking the CAMS
+modelled value, and applying a correction factor. This correction is
+the average ratio between the previously measured values and the CAMS
+modelled values for the same hour for at least three of the four
+previous days.</p>
+<p>In cases where there are no measured values for the same hour over
+three of the four previous days, the value for the given pollutant is
+not calculated.  Forecast index</p>
+<p>Forecast values are shown as transparent circles. Circles are coloured
+as grey if the minimum number of required pollutants, depending on the
+type of station, could not be forecast and the forecast index is good,
+fair or moderate.</p>
+<p>To calculate the forecast values for the following 24 hours, CAMS
+modelled air quality data are used and corrected using the gap-filling
+methods described above. No forecast values are provided for SO2.</p>
+<p>Bands of concentrations and index levels</p>
+<p>The bands are based on the relative risks associated to short-term
+exposure to PM2.5, O3 and NO2, as defined by the World Health
+Organization in its report on the Health Risks of Air Pollution in
+Europe project (HRAPIE project report).</p>
+<p>The relative risk of exposure to PM2.5 is taken as basis for driving
+the index, specifically the increase in the risk of mortality per 10
+µg/m3 increase in the daily mean concentration of PM2.5.</p>
+<p>Assuming linearity across the relative risks functions for O3 and NO2,
+we calculate the concentrations of these pollutants that pose an
+equivalent relative risk to a 10 µg/m3 increase in the daily mean of
+PM2.5.</p>
+<p>For PM10 concentrations, a constant ratio between PM10 and PM2.5 of
+1:2 is assumed, in line with the World Health Organization´s air
+quality guidelines for Europe.</p>
+<p>For SO2, the bands reflect the limit values set under the EU Air Quality Directive.</p>
+<p>Pollutant       Index level
+(based on pollutant concentrations in µg/m3)
+Good    Fair    Moderate        Poor    Very poor       Extremely poor
+Particles less than 2.5 µm (PM2.5)      0-10    10-20   20-25   25-50   50-75   75-800
+Particles less than 10 µm (PM10)        0-20    20-40   40-50   50-100  100-150         150-1200
+Nitrogen dioxide (NO2)  0-40    40-90   90-120  120-230         230-340         340-1000
+Ozone (O3)      0-50    50-100  100-130         130-240         240-380         380-800
+Sulphur dioxide (SO2)   0-100   100-200         200-350         350-500         500-750         750-1250</p>
+<p>Air quality measurements that exceed the maximum values in the
+‘extremely poor’ category are not taken into account for the index
+calculation, since these values are typically found to be erroneous.</p>
+<p>Health messages</p>
+<p>The index bands are complemented by health related messages that
+provide recommendations for both the general population and sensitive
+populations. The latter includes both adults and children with
+respiratory problems and adults with heart conditions.</p>
+<p>AQ index        General population      Sensitive populations
+Good    The air quality is good. Enjoy your usual outdoor activities.   The air quality is good. Enjoy your usual outdoor activities.
+Fair    Enjoy your usual outdoor activities     Enjoy your usual outdoor activities
+Moderate        Enjoy your usual outdoor activities     Consider reducing intense outdoor activities, if you experience symptoms.
+Poor    Consider reducing intense activities outdoors, if you experience symptoms such as sore eyes, a cough or sore throat     Consider reducing physical activities, particularly outdoors, especially if you experience symptoms.
+Very poor       Consider reducing intense activities outdoors, if you experience symptoms such as sore eyes, a cough or sore throat     Reduce physical activities, particularly outdoors, especially if you experience symptoms.
+Extremely poor  Reduce physical activities outdoors.    Avoid physical activities outdoors.
+Additional information</p>
+<p>When clicking on a station on the map, a pop-up window appears with
+the following additional information:</p>
+<ol class="arabic simple">
+<li><p>The name of the station and the air quality index at that station and hour.</p></li>
+<li><p>A “View station” option, that provides the location of the station using © Google Maps.</p></li>
+<li><p>A “Show details” option, with a summary of the station information;
+the air quality index and the associated health advice for the
+general population and sensitive populations; links to information
+on air pollution for the country where the station is located and
+to the webpage of the administration in charge of reporting the
+concentrations for that station and two graphs.</p></li>
+</ol>
+<p>The values indicated when hovering over the horizontal pizza-diagrams
+show the hourly AQ Index, the hourly concentrations for NO2, O3 and
+SO2, and the 24-hour running means for PM measured at the station or
+gap-filled over the last 7 days. An asterisk next to a value indicates
+that the value has been gap-filled</p>
+<p>The pie chart indicates the number of days that feel under each Index
+band over the past 365 days. The highest hourly Index level in a day
+determines the daily Index level taken into account.  Further
+information</p>
+<p>The European Environment Agency publishes a range of information on
+air quality:</p>
+<ul class="simple">
+<li><p>Air pollution web page</p></li>
+<li><p>Air quality live: Up-to-date air quality measurement</p></li>
+<li><p>Key air quality statistics for the main air pollutants: map viewer</p></li>
+<li><p>‘Air Quality in Europe’ – latest report</p></li>
+<li><p>Air pollution country profiles</p></li>
+</ul>
+<p>The European Air Quality Index was developed jointly by the European
+Commission’s Directorate General for Environment and the European
+Environment Agency to inform citizens and public authorities about the
+recent air quality status across Europe.</p>
+</div>
+</div>
+<div class="section" id="co-creare-un-futuro-piu-salutare">
+<h2>Co-creare un futuro più salutare<a class="headerlink" href="#co-creare-un-futuro-piu-salutare" title="Link a questa intestazione">¶</a></h2>
+<img alt="../../_images/Pannelli_FerrAria_Air-Break_AirQualityPanels-jan-2022-def_Page_1-3.jpg" src="../../_images/Pannelli_FerrAria_Air-Break_AirQualityPanels-jan-2022-def_Page_1-3.jpg" />
+<img alt="../../_images/Pannelli_FerrAria_Air-Break_AirQualityPanels-jan-2022-def_Page_2-3.jpg" src="../../_images/Pannelli_FerrAria_Air-Break_AirQualityPanels-jan-2022-def_Page_2-3.jpg" />
+<img alt="../../_images/Pannelli_FerrAria_Air-Break_AirQualityPanels-jan-2022-def_Page_3-1.jpg" src="../../_images/Pannelli_FerrAria_Air-Break_AirQualityPanels-jan-2022-def_Page_3-1.jpg" />
+<img alt="../../_images/FerrAria-Aria-e-Salute-1.jpg" src="../../_images/FerrAria-Aria-e-Salute-1.jpg" />
+<img alt="../../_images/infografica_impianti_emissioni.jpg" src="../../_images/infografica_impianti_emissioni.jpg" />
+<img alt="../../_images/002.png" src="../../_images/002.png" />
+<p>L’aria che respiriamo contiene sostanze che possono impattare o meno
+la nostra salute a seconda della loro concentrazione. Spesso, si pensa
+che la colpa sia di un attore solo, oppure si pensa che la sfida sia
+troppo complessa per essere risolta, sopratutto da un singolo
+cittadino. Invece, qualcosa possiamo fare. Vi offriamo qui l’accesso a
+diverse carte interattive per acquisire importanti informazioni sul
+comportamento della città di Ferrara, in modo da diventare più
+consapevoli dei dati disponibili, e usarli al meglio per co-creare un
+futuro più salutare.</p>
+<p>La Mobilità ad Alta Emissione Il settore dei trasporti è attualmente
+responsabile del 30% del totale nazionale delle emissioni di gas serra
+(circa 104 Mton CO2 eq nel 2018). Considerando la distribuzione delle
+emissioni per modalità di trasporto, quasi il 95% è dovuto al
+trasporto su strada, con un peso delle automobili pari a circa il 70%,
+seguito da camion e veicoli commerciali leggeri (insieme circa il
+25%).</p>
+<p>Fonte: MiTe: “Strategia Italiana di lungo termine sulla riduzione
+delle emissioni dei gas a effetto serra”, Gennaio 2021</p>
+<p>L’agenzia europea dell’ambiente conferma: i trasporti continuano a
+costituire una fonte significativa di inquinamento atmosferico,
+soprattutto nelle città. Gli inquinanti atmosferici, come il
+particolato (PM2,5 e PM10) e il biossido di azoto (NO2), hanno un
+impatto significativo sulla salute umana e l’ambiente. Nonostante
+l’inquinamento atmosferico dovuto ai trasporti sia diminuito grazie
+all’introduzione di norme di qualità per i carburanti, alle norme EURO
+sulle emissioni dei veicoli e all’uso di tecnologie più pulite, le
+concentrazioni d’inquinanti atmosferici sono ancora troppo elevate. Le
+città italiane, inclusa Ferrara, stanno testando nuove alternative di
+mobilità per ridurre le emissioni. Avrete di certo incontrato le
+soluzioni della mobilità elettrica, dai veicoli ai monopattini e le
+bici. Diversi studi e ricerche stanno contribuendo all’elaborazione di
+un quadro conoscitivo sull’impatto di queste alternative che sembrano
+ancora lontane dall’obiettivo di azzerare le emissioni. Per
+approfondimenti, consultare “Micromobilità con monopattini elettrici”</p>
+<p>Infine, oltre all’inquinamento, occorre considerare che automobili e
+altri veicoli a motore sono responsabili della quasi totalità degli
+incidenti stradali: dal 2004, ogni anno si sono registrati in media
+oltre 700 incidenti, con 900 feriti e 14 vittime (Fonte: Comune di
+Ferrara, Sistema Informativo Territoriale e Contatore degli incidenti
+stradali).</p>
+<div class="section" id="inquinamento-e-riscaldamento-domestico">
+<h3>Inquinamento e Riscaldamento domestico<a class="headerlink" href="#inquinamento-e-riscaldamento-domestico" title="Link a questa intestazione">¶</a></h3>
+<p>Più del 40% del PM10 primario è emesso dagli impianti domestici a
+biomassa in Emilia Romagna. Le regole sulle biomasse sono solo una
+delle 94 azioni del Piano Aria Integrato Regionale, che agisce sulle
+altre fonti di inquinamento atmosferico.  Fonte: l’inventario
+regionale delle emissioni in atmosfera, realizzato mediante il
+software INEMAR (INventario EMissioni ARia) (2017), fonte: ARPAE</p>
+</div>
+<div class="section" id="che-fare">
+<h3>Che fare?<a class="headerlink" href="#che-fare" title="Link a questa intestazione">¶</a></h3>
+<p>Ci serve ridurre i consumi energetici legati al riscaldamente e al
+raffrescamento ottimizando l’efficienza energetica delle nostre
+abitazioni e abandonare gli impianti termici a biomasssa. Diverse
+misure strutturali come il “Bonus 110%” sono oggi disponibili e
+favoriscono la transizione progressiva verso un parco residenziale a
+basse emissioni e l’adozione di sistemi più efficienti alimentati da
+fonti rinnovabili (es. pompe di calore elettriche). La Regione
+Emilia-Romagna si propone di contribuire al miglioramento della
+qualità dell’aria e all’incremento dell’efficienza energetica
+attraverso la sostituzione dei generatori di calore alimentati a
+biomassa legnosa. Consulta il sito di ARPAE per più informazioni
+.https://www.arpae.it/it/temi-ambientali/aria/liberiamo-laria/impianti-a-biomassa</p>
+<p>Vuoi capire come i dati ti possono servire per migliorare la
+situazione? Abbiamo sviluppato diverse attività per : capire cosa
+raccontano i dati a scala locale, distinguere le relazioni
+causa-effetto, e identificare le opportunità di azione. In questa
+missione riconosciamo una ampia geografia della responsabilità.</p>
+</div>
+<div class="section" id="classificazione-delle-stazioni-di-monitoraggio">
+<h3>Classificazione delle stazioni di monitoraggio<a class="headerlink" href="#classificazione-delle-stazioni-di-monitoraggio" title="Link a questa intestazione">¶</a></h3>
+<p>Non tutte le stazioni di monitoraggio della qualità dell’aria sono
+uguali. Possono differenziarsi per il tipo di sensori installati, per
+la loro posizione, e per il tipo di misurazione a cui sono preposte.</p>
+<p>L’Agenzia Europea per l’Ambiente (<a class="reference external" href="https://www.eea.europa.eu/it">https://www.eea.europa.eu/it</a>) ha
+stilato dei criteri per la classificazione di questo tipo di
+centraline a seconda della loro tipologia e delle caratteristiche
+dell’ambiente in cui sono installate. Senza voler scendere troppo nei
+dettagli, possiamo dividere le stazioni in tre grandi categorie:</p>
+<p>misurazione dell’inquinamento da TRAFFICO (T): stazioni che misurano
+il livello di inquinamento generato prevalentemente da emissioni da
+traffico, provenienti da strade limitrofe con intensità di traffico
+medio alta;</p>
+<p>misurazione dell’inquinamento di FONDO (B): stazioni posizione lontano
+da specifiche fonti di inquinamento (industrie, traffico,
+riscaldamento residenziale, etc.) che non sono influenzate, cioè, da
+una fonte prevalente di inquinamento.</p>
+<p>monitoraggio di fonti di inquinamento INDUSTRIALI (I): stazioni
+ubicate in una zona in cui l’inquinamento sia generato in prevalenza
+da singole industrie o da vicine zone industriali</p>
+<p>Anche l’ambiente che accoglie la stazione viene categorizzato dalla
+stessa direttiva e suddiviso in aree di tipo Urbano (U), Suburbano (S)
+e Rurale (R).</p>
+<p>Le aree urbane sono quelle densamente popolate, quelle suburbane, o
+periferiche, sono caratterizzate da un'alternanza di aree edificate ed
+aree libere da edifici, quelle rurali possono essere caratterizzate
+per esclusione.</p>
+<p>Questa classificazione di massima viene affinata in base all’attività
+umana prevalente in aree Residenziali (R), Commerciali (C),
+Industriali (I), Agricole (A) e Naturali (N).</p>
+<p>Le stazioni vengono indicate con una sigla che ne rappresenta il tipo,
+ad esempio, ad una stazione di misurazione del traffico situata in
+un’area urbana a vocazione commerciale sarà attribuito il codice TU-C,
+ad una che misura l’inquinamento di fondo in periferia, quello BS-R
+(in caso la prevalenza di strutture antropiche sia di tipo
+residenziale).</p>
+<p>Non tutte le combinazioni di questi fattori possono essere utilizzate,
+ad esempio non sarà mai possibile classificare una stazione come TU-N
+perché per definizione un’area urbana, registra una forte presenza
+umana.  A seconda dell’ambiente che le ospita, si considera che le
+stazioni coprano un’area che va da circa 200m² di una stazione
+installata in ambito urbano a diverse decine di chilometri per le
+stazioni situate in un ambiente rurale, o a centinaia di chilometri
+quadrati nel caso di aree rurali remote (distanti più di 50 km da
+centri abitati e zone industriali).</p>
+<p>Le misurazioni attese dalle stazioni, quindi, dipenderanno dalla loro
+tipologia. La valutazione delle letture effettuate dovrà tenere conto
+delle stazioni circostanti e di altri fattori che sarebbe fuori luogo
+elencare in questo documento ma che possono essere un valido spunto di
+discussione da approfondire in classe.</p>
+<p>Nelle linee guida per la predisposizione delle reti di monitoraggio
+della qualità dell’aria, l’Istituto Superiore per la Protezione e la
+Ricerca Ambientale individua le scuole come luoghi adatti
+all’installazione di stazioni di background urbano e suburbano.</p>
+</div>
+<div class="section" id="criteri-per-la-selezione-del-sito-di-installazione">
+<h3>Criteri per la selezione del sito di installazione<a class="headerlink" href="#criteri-per-la-selezione-del-sito-di-installazione" title="Link a questa intestazione">¶</a></h3>
+<p>Per far sì che i dati raccolti dalle stazioni possano essere
+paragonabili, è importante che il posizionamento di queste ultime sia
+il più possibile omogeneo. Due sensori che misurano la concentrazione
+di particolato, posizionati su un palazzo, e posti uno a piano strada,
+e l’altro sul lastrico solare, ad esempio, daranno, nello stesso
+istante, valori che possono essere molto diversi tra di loro.</p>
+<p>Le linee guida sono particolarmente dettagliate sul tipo di
+posizionamento dei punti di misura di una stazione in base ai
+parametri monitorati ed al tipo di stazione.</p>
+<p>Allo stato attuale, le stazioni Stima misurano, oltre a temperatura ed
+umidità, PM2.5, PM10, CO2. Idealmente una stazione che registra questo
+tipo di parametri, dovrebbe essere posizionata ad altezza uomo intorno
+ai 2m dal livello del suolo, ma, per proteggere l’apparato da
+manomissioni e furti, si può prendere in considerazione la possibilità
+di posizionarle ad un’altezza che varia tra i 2 e 4 metri.</p>
+<p>Visto che le concentrazioni di particolato diminuiscono con l’altezza,
+sarebbe opportuno che tutte le stazioni fossero installate ad
+un'altezza simile.</p>
+<p>Anche la distanza dall’edificio che dovesse dare loro supporto
+influenza le misurazioni. Se possibile, bisognerebbe usare una staffa
+che distanzi la stazione di almeno 20 centimetri dal muro che la
+sostiene.</p>
+<p>È importante assicurarsi che ci sia un buon circolo d'aria attorno
+alla stazione. In caso contrario i valori registrati potrebbero essere
+sottostimati. Anche una posizione troppo esposta potrebbe portare a
+valutazioni inesatte. Ad esempio, la turbolenza prodotta dai veicoli
+in transito potrebbe portare a misurazioni più alte dei valori
+realmente.</p>
+<p>La stazione Stima ha bisogno di essere alimentata continuamente e di
+trasmettere periodicamente i campioni perché possano essere
+trasformati in osservazioni utilizzabili.  Per fare ciò è necessario
+assicurarsi che il punto prescelto permetta alla stazione di
+collegarsi tramite rete Wi-Fi ad internet. Potrete trovare alcuni
+criteri per permettere un utilizzo sicuro e protetto della connessione
+più avanti in questa guida.</p>
+</div>
+<div class="section" id="bibliografia">
+<h3>Bibliografia<a class="headerlink" href="#bibliografia" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eur-lex.europa.eu/legal-content/IT/TXT/PDF/?uri=CELEX:32008L0050&amp;from=IT">https://eur-lex.europa.eu/legal-content/IT/TXT/PDF/?uri=CELEX:32008L0050&amp;from=IT</a></p></li>
+<li><p><a class="reference external" href="https://www.isprambiente.gov.it/files/aria/lineeguidaretimonitoraggio.pdf">https://www.isprambiente.gov.it/files/aria/lineeguidaretimonitoraggio.pdf</a></p></li>
+<li><p><a class="reference external" href="https://www.london.gov.uk/sites/default/files/air_quality_monitoring_guidance_january_2018.pdf">https://www.london.gov.uk/sites/default/files/air_quality_monitoring_guidance_january_2018.pdf</a></p></li>
+<li><p><a class="reference external" href="https://library.wmo.int/?lvl=notice_display&amp;id=12407">https://library.wmo.int/?lvl=notice_display&amp;id=12407</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../la_scienza_di_tutti/la_scienza_di_tutti.html" class="btn btn-neutral float-left" title="Citizen Science" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
