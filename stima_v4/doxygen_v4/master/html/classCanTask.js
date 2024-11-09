@@ -3,6 +3,7 @@ var classCanTask =
     [ "State_t", "classCanTask.html#a7e27597bd46670b21e21bc041a200b05", [
       [ "CAN_STATE_CREATE", "classCanTask.html#a7e27597bd46670b21e21bc041a200b05ab82560f90908ca4b7443936540cb3b28", null ],
       [ "CAN_STATE_INIT", "classCanTask.html#a7e27597bd46670b21e21bc041a200b05a380865a1e842b56897f9e696e38198dd", null ],
+      [ "CAN_STATE_LOAD_CONFIG", "classCanTask.html#a7e27597bd46670b21e21bc041a200b05a60fefa82d38adc4bfcbbc3d53b2db94f", null ],
       [ "CAN_STATE_SETUP", "classCanTask.html#a7e27597bd46670b21e21bc041a200b05a69aa03daf46955c0b8a7b5d2eb9e3736", null ],
       [ "CAN_STATE_CHECK", "classCanTask.html#a7e27597bd46670b21e21bc041a200b05a132d0ec7b989049a3e09176b7be6cda7", null ]
     ] ],

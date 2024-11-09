@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structsystem__message__t.html#ac5766246731b88e1677b400527d2538c":[1,0,22,2],
 "structsystem__message__t.html#af077f912ca3476a051b31f03a6a3e9d3":[1,0,22,6],
 "structsystem__status__t.html":[1,0,23],
 "structsystem__status__t.html#a0d6befbdc64e0d7352128068020fa6f2":[1,0,23,8],

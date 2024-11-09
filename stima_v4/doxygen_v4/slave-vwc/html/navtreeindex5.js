@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"local__typedef__config_8h_source.html":[2,0,0,0,0,0,9],
 "main_8cpp.html":[2,0,0,0,0,1,4],
 "main_8cpp.html#a2441543100bf8421f56edd622a2c1d9a":[2,0,0,0,0,1,4,3],
 "main_8cpp.html#a3816f7544654e80d7e06ca1110d53853":[2,0,0,0,0,1,4,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "soil__vwc__sensor__task_8cpp.html#afcdf5e66fd927a7f4cc64295acd20407":[2,0,0,0,0,1,1,3,1],
 "soil__vwc__sensor__task_8cpp_source.html":[2,0,0,0,0,1,1,3],
 "soil__vwc__sensor__task_8h.html":[2,0,0,0,0,0,1,3],
-"soil__vwc__sensor__task_8h.html#a1791fb774db3380a542847eda050987e":[2,0,0,0,0,0,1,3,6],
-"soil__vwc__sensor__task_8h.html#a320a39ac0d2818c36484975d78f2c333":[2,0,0,0,0,0,1,3,12]
+"soil__vwc__sensor__task_8h.html#a1791fb774db3380a542847eda050987e":[2,0,0,0,0,0,1,3,6]
 };

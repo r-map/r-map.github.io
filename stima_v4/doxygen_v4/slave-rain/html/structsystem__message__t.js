@@ -1,6 +1,6 @@
 var structsystem__message__t =
 [
-    [ "command", "structsystem__message__t.html#a87b03c17f2ab836623ad8aff0ad8116e", null ],
+    [ "command", "structsystem__message__t.html#adda2feb5edb350e89ccfae8cc163afd9", null ],
     [ "do_calib", "structsystem__message__t.html#a8c5344990464937b14a488841e4b1b70", null ],
     [ "do_cmd", "structsystem__message__t.html#ac5766246731b88e1677b400527d2538c", null ],
     [ "do_inibith", "structsystem__message__t.html#aa3a817f5a06d995dc7dc5093416a763c", null ],

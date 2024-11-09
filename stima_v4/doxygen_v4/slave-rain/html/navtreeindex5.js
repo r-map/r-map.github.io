@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"main_8h.html#aa9c113540346b54d49b2a596e6ba8480":[2,0,0,0,0,0,10,1],
+"main_8h.html#aeb7e7a856ab7a794b05b6b63ef36ea3e":[2,0,0,0,0,0,10,0],
+"main_8h_source.html":[2,0,0,0,0,0,10],
+"module__slave__hal_8cpp.html":[2,0,0,0,0,1,0,5],
 "module__slave__hal_8cpp.html#a030a62a0956ab83394eb8354a0e97902":[2,0,0,0,0,1,0,5,3],
 "module__slave__hal_8cpp.html#a0a0c08bb41ad5c004267dd268576581e":[2,0,0,0,0,1,0,5,5],
 "module__slave__hal_8cpp.html#a1618d731d18d69e906e8a357b7cd3c8d":[2,0,0,0,0,1,0,5,9],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "structAccelerometer_1_1bitwise__t.html#a34b63ada9d83c6080469b6498f916a76":[1,0,0,0,1],
 "structAccelerometer_1_1bitwise__t.html#a62a09dbaf7cd3f6db370a085cccd432a":[1,0,0,0,3],
 "structAccelerometer_1_1bitwise__t.html#a8f63fd57f84b658ba6f506bb6dac4313":[1,0,0,0,6],
-"structAccelerometer_1_1bitwise__t.html#a916ae5f75c01ebc4c3fc0e662c489a52":[1,0,0,0,5],
-"structAccelerometer_1_1bitwise__t.html#ab64dfdcf806a4b9555d0fbc6dcfec8f0":[1,0,0,0,2],
-"structAccelerometer_1_1bitwise__t.html#ab947283b761f0bdf8d1def04b74c29d1":[1,0,0,0,7],
-"structAccelerometer_1_1bitwise__t.html#ae2323e7033f5831c292f7700d5b4dd34":[1,0,0,0,0],
-"structAccelerometer_1_1iis328dq__ctrl__reg1__t.html":[1,0,0,1]
+"structAccelerometer_1_1bitwise__t.html#a916ae5f75c01ebc4c3fc0e662c489a52":[1,0,0,0,5]
 };

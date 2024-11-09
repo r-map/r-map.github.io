@@ -9,5 +9,5 @@ var searchData=
   ['tipping_5fbucket_5fstate_851',['tipping_bucket_state',['../i2c-rain_8h.html#ad17df11ab3931697018251d1e0e49d4a',1,'i2c-rain.h']]],
   ['tipping_5fbucket_5ftime_5fms_852',['tipping_bucket_time_ms',['../structconfiguration__t.html#a9b18183df09067f1efa66cf2f1441146',1,'configuration_t::tipping_bucket_time_ms()'],['../structwritable__data__t.html#ac5e6079896f6555a032e2ea6d9af62e2',1,'writable_data_t::tipping_bucket_time_ms()']]],
   ['transaction_5ftime_853',['transaction_time',['../i2c-leaf_8h.html#a8fd2a42b21f42e71a4fa29fccc066e0f',1,'i2c-leaf.h']]],
-  ['type_854',['type',['../structsensor__conf__t.html#a09c709b24ea29934f9a364d825d25070',1,'sensor_conf_t']]]
+  ['type_854',['type',['../structsensor__conf__t.html#aa84df775ae0381112135594039a0fd51',1,'sensor_conf_t']]]
 ];

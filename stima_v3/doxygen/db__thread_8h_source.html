@@ -82,47 +82,49 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  BinarySemaphore* recoverysemaphore;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  BinaryQueue* recoveryqueue;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <a class="code" href="structdbStatus__t.html">dbStatus_t</a>* status;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="structstation__t.html">station_t</a>* station;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>cpp_freertos;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classdbThread.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdbThread.html">dbThread</a> : <span class="keyword">public</span> Thread {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="classdbThread.html">dbThread</a>(<a class="code" href="structdb__data__t.html">db_data_t</a>* db_data);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  ~<a class="code" href="classdbThread.html">dbThread</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Cleanup();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Run();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">bool</span> doDb(<span class="keyword">const</span> <a class="code" href="structmqttMessage__t.html">mqttMessage_t</a>&amp; );</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">int</span> db_exec( <span class="keyword">const</span> <span class="keywordtype">char</span>*);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">bool</span> db_obsolete();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">bool</span> db_remove();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">void</span> db_setup();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">bool</span> data_purge(<span class="keywordtype">int</span> messages);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">bool</span> data_recovery();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">bool</span> data_set_recovery();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">bool</span> db_restart();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="structdb__data__t.html">db_data_t</a>* data;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  sqlite3 *db;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">//SdFat SD;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  uint8_t sqlite_memory[SQLITE_MEMORY];   <span class="comment">// allocated memory used by sqlite</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">bool</span> sqlite_status;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="structrpcRecovery__t.html">rpcRecovery_t</a> rpcrecovery;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  File archiveFile;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassdbThread_html"><div class="ttname"><a href="classdbThread.html">dbThread</a></div><div class="ttdef"><b>Definition:</b> db_thread.h:18</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>cpp_freertos;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classdbThread.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdbThread.html">dbThread</a> : <span class="keyword">public</span> Thread {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classdbThread.html">dbThread</a>(<a class="code" href="structdb__data__t.html">db_data_t</a>* db_data);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  ~<a class="code" href="classdbThread.html">dbThread</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Cleanup();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Run();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">bool</span> doDb(<span class="keyword">const</span> <a class="code" href="structmqttMessage__t.html">mqttMessage_t</a>&amp; );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">int</span> db_exec( <span class="keyword">const</span> <span class="keywordtype">char</span>*);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">bool</span> db_obsolete(<span class="keywordtype">bool</span>&amp; obsolete);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">bool</span> db_remove();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">void</span> db_setup();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">bool</span> data_purge(<span class="keyword">const</span> <span class="keywordtype">bool</span> flush, <span class="keywordtype">int</span> messages);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">bool</span> data_recovery();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">bool</span> data_set_recovery();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">bool</span> db_restart();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="structdb__data__t.html">db_data_t</a>* data;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  sqlite3 *db;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">//SdFat SD;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  uint8_t sqlite_memory[SQLITE_MEMORY];   <span class="comment">// allocated memory used by sqlite</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">bool</span> sqlite_status;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="structrpcRecovery__t.html">rpcRecovery_t</a> rpcrecovery;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  File archiveFile;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassdbThread_html"><div class="ttname"><a href="classdbThread.html">dbThread</a></div><div class="ttdef"><b>Definition:</b> db_thread.h:19</div></div>
 <div class="ttc" id="astructdbStatus__t_html"><div class="ttname"><a href="structdbStatus__t.html">dbStatus_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:191</div></div>
 <div class="ttc" id="astructdb__data__t_html"><div class="ttname"><a href="structdb__data__t.html">db_data_t</a></div><div class="ttdef"><b>Definition:</b> db_thread.h:5</div></div>
 <div class="ttc" id="astructmqttMessage__t_html"><div class="ttname"><a href="structmqttMessage__t.html">mqttMessage_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:134</div></div>
 <div class="ttc" id="astructrpcRecovery__t_html"><div class="ttname"><a href="structrpcRecovery__t.html">rpcRecovery_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:214</div></div>
+<div class="ttc" id="astructstation__t_html"><div class="ttname"><a href="structstation__t.html">station_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:70</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

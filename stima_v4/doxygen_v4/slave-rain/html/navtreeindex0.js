@@ -113,6 +113,7 @@ var NAVTREEINDEX0 =
 "accelerometer__task_8cpp.html#afcdf5e66fd927a7f4cc64295acd20407":[2,0,0,0,0,1,1,0,1],
 "accelerometer__task_8cpp_source.html":[2,0,0,0,0,1,1,0],
 "accelerometer__task_8h.html":[2,0,0,0,0,0,1,0],
+"accelerometer__task_8h.html#a0df4e07e9fe7745c430271783305ff27":[2,0,0,0,0,0,1,0,6],
 "accelerometer__task_8h.html#a45d62f45e0f0fcd5a41ac194225b28ad":[2,0,0,0,0,0,1,0,3],
 "accelerometer__task_8h.html#a6269daa2395f59e1fcd318a6187e90ee":[2,0,0,0,0,0,1,0,5],
 "accelerometer__task_8h.html#a780f7bb134f849b358b0af07da903737":[2,0,0,0,0,0,1,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classAccelerometer.html#a725eb6dacf23b374e4b829ed21909a03a58321a14d15e5b1afd0be386d377c466":[1,0,0,19,0],
 "classAccelerometer.html#a725eb6dacf23b374e4b829ed21909a03aa0a27aacc09fedac6b168f89e2ac252f":[1,0,0,19,1],
 "classAccelerometer.html#a86784d9fa6a86c6e4b4e49760cac3733":[1,0,0,129],
-"classAccelerometer.html#a8a153c2677907e22c9da984bdcdb1c99":[1,0,0,29],
-"classAccelerometer.html#a8a153c2677907e22c9da984bdcdb1c99a285704248c12e0942b409b0ced9ed0aa":[1,0,0,29,1]
+"classAccelerometer.html#a8a153c2677907e22c9da984bdcdb1c99":[1,0,0,29]
 };

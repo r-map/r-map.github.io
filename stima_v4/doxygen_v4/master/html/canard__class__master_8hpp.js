@@ -20,5 +20,5 @@ var canard__class__master_8hpp =
     [ "_CANARD_CLASS_H", "canard__class__master_8hpp.html#a5f661a5526df64f5b9de0688f9b903e9", null ],
     [ "REGISTER_ACESS_AUTO_RETRY", "canard__class__master_8hpp.html#a6c20cc6d5b1bd431ff581267bc827903", null ],
     [ "RMAPDATA_ACESS_AUTO_RETRY", "canard__class__master_8hpp.html#a10648cb9d45e217a914af56bf97072aa", null ],
-    [ "SENSOR_METADATA_VWC_COUNT", "canard__class__master_8hpp.html#a30ac1efad108642cd19356b3ee10c8f6", null ]
+    [ "SENSOR_METADATA_LEVEL_COUNT", "canard__class__master_8hpp.html#a75763bd6c06988d750968e873c4482c3", null ]
 ];

@@ -39,7 +39,7 @@
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
     <link rel="next" title="Videotutorial" href="../videotutorial/videotutorial.html" />
-    <link rel="prev" title="Stima-wifi" href="../stima_wifi/stima_wifi_howto.html" /> 
+    <link rel="prev" title="Testa di prelievo per sensori Air Quality" href="../stima_wifi/testa_prelievo/testa_prelievo.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,9 +89,10 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obsolete/index.html">Stima obsolete</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stima_v4/stima_v4.html">Stima V4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stima_wifi/stima_wifi_howto.html">Stima-wifi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_wifi/index.html">Stima WiFi</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server RMAP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#analisi-funzionalita-rmap">Analisi funzionalità RMAP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduzione">Introduzione</a></li>
@@ -108,6 +109,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-completo-basato-su-rocky-linux-8">Installazione server completo basato su  Rocky Linux 8</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installazione-sistema-operativo">Installazione sistema operativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#firewall">Firewall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">postgresql</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apache">apache</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#stunnel">Stunnel</a></li>
@@ -143,6 +145,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispense/index.html">Dispense</a></li>
 </ul>
 
             
@@ -455,17 +458,16 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <p>Installare Rocky Linux 8.</p>
 <p>Aggiunta repository e installazione pacchetti</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
-<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">stable</span>
-<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">pat1</span><span class="o">/</span><span class="n">rmap</span>
-<span class="n">dnf</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">powertools</span>
-<span class="n">dnf</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">cosudo</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">rmap</span>
-<span class="n">python3</span><span class="o">-</span><span class="n">django</span><span class="o">-</span><span class="n">cors</span><span class="o">-</span><span class="n">headers</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">django</span><span class="o">-</span><span class="n">dynamic</span><span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">borinud</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">mosquitto</span> <span class="n">mosquitto</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">plug</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">arkimet</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">stunnel</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">yum</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="n">copr</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">stable</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">pat1</span><span class="o">/</span><span class="n">rmap</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">config</span><span class="o">-</span><span class="n">manager</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">enabled</span> <span class="n">powertools</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">copr</span> <span class="n">enable</span> <span class="n">simc</span><span class="o">/</span><span class="n">cosudo</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">rmap</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">django</span><span class="o">-</span><span class="n">dynamic</span><span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">borinud</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">mosquitto</span> <span class="n">mosquitto</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">plug</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">arkimet</span> <span class="n">dballe</span>
+<span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">stunnel</span>
 <span class="n">useradd</span> <span class="n">rmap</span>
 </pre></div>
 </div>
@@ -481,6 +483,63 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/sysconfig/crond">/etc/sysconfig/crond</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rmap</span>
 <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rmap</span>
+</pre></div>
+</div>
+<p>Generate ssl auto signed certificate</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir certs
+cd certs
+
+1 – Since we don’t have a certificate authority, we’ll create a local CA using SSL:
+openssl genrsa -des3 -out ca.key 2048
+enter a pass phrase with at least 4 characters. Remember it as it will be used several times.
+
+2 – Then we’ll create a signing request for our local CA
+openssl req -new -key ca.key -out ca.csr -sha256
+Enter the same passphrase chosen in the previous step. It’s safe to leave all other fields empty, for the sake of our setup’s simplicity.
+
+3 – Then we can create our CA root certificate, valid for 180 days:
+openssl x509 -req -in ca.csr -signkey ca.key -out ca-root.crt -days 180 -sha256
+Again, enter the preciously chosen passphrase when requested to do so
+
+4 – We’ll then create our certificate key
+openssl genrsa -out localhost.key 2048
+
+5 – And using the key, we’ll create a certificate request:
+openssl req -new -key localhost.key -out localhost.csr -sha256
+Note: when being prompted for the “Common Name”, use “localhost”, as this will be the way we’ll reference the MQTT broker locally.
+If you have a DNS entry pointing to the host server, you can use that too. All remaining fields can be left empty.
+
+6 – Lastly, we’ll create the certificate, using the certificate request created in step 5 and the CA root certificate created in step 5, also valid for 180 days
+openssl x509 -req -in mosquitto.csr -CA ca-root.crt -CAkey ca.key -CAcreateserial -out localhost.crt -days 180
+
+When you’re done you should have the following files in the directory:
+
+ ca-root.crt – Certificate authority root certificate
+ ca.csr – Certificate authority certificate signing request
+ ca.key – Certificate Authority certificate Key
+ localhost.crt – Mosquitto certificate
+ localhost.csr – Mosquitto certificate signing request
+ localhost.key – Mosquitto certificate key
+</pre></div>
+</div>
+</div>
+<div class="section" id="firewall">
+<h3>Firewall<a class="headerlink" href="#firewall" title="Link a questa intestazione">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">firwalld</span>
+<span class="n">systemctrl</span> <span class="n">enable</span> <span class="n">firewalld</span>
+<span class="n">systemctrl</span> <span class="n">start</span> <span class="n">firewalld</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">442</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">5925</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">1883</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">5671</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">5672</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">8883</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">8884</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="n">public</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">15672</span><span class="o">/</span><span class="n">tcp</span>
+
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">reload</span>
 </pre></div>
 </div>
 </div>
@@ -507,6 +566,7 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 
 <span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
 <span class="n">createuser</span> <span class="o">-</span><span class="n">P</span> <span class="o">-</span><span class="n">e</span> <span class="n">rmapadmin</span>
+<span class="o">&lt;</span> <span class="n">insert</span> <span class="n">rmapadmin</span> <span class="k">as</span> <span class="n">password</span> <span class="o">&gt;</span>
 <span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmapadmin</span> <span class="n">rmapadmin</span>
 <span class="n">exit</span>
 </pre></div>
@@ -519,6 +579,8 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
 <span class="n">createuser</span> <span class="o">-</span><span class="n">P</span> <span class="o">-</span><span class="n">e</span> <span class="n">rmap</span>
+<span class="o">&lt;</span> <span class="n">insert</span> <span class="n">rmap</span> <span class="k">as</span> <span class="n">password</span> <span class="o">&gt;</span>
+
 <span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">report_fixed</span>
 <span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">report_mobile</span>
 <span class="n">createdb</span> <span class="o">--</span><span class="n">owner</span><span class="o">=</span><span class="n">rmap</span> <span class="n">sample_fixed</span>
@@ -540,25 +602,34 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">global_static</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">collectstatic</span>
 <span class="n">rmdir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">global_static</span>
-
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">mod_wsgi</span>
-<span class="n">dnf</span> <span class="n">install</span> <span class="n">mod_security</span> <span class="n">mod_security_crs</span>
-
-<span class="n">useradd</span> <span class="o">-</span><span class="n">r</span> <span class="n">rmap</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rmap</span>
-<span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">rmap</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">cache</span>
-<span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">cache</span>
-<span class="n">mkdir</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span>
-<span class="n">chown</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">media</span>
 </pre></div>
 </div>
+<dl class="simple">
+<dt>::</dt><dd><p>dnf install python3-mod_wsgi
+dnf install mod_security mod_security_crs
+dnf install mod_ssl</p>
+</dd>
+</dl>
+<dl>
+<dt>::</dt><dd><p>useradd -r rmap
+mkdir /home/rmap
+chown rmap:rmap /home/rmap
+mkdir /rmap/cache
+chown rmap:rmap /rmap/cache
+mkdir  /usr/share/rmap/media
+chown rmap:rmap  /usr/share/rmap/media</p>
+<p>cp -r ~/certs /etc/httpd
+chown -R apache /etc/httpd/certs</p>
+</dd>
+</dl>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.modules.d/00-mpm.conf">/etc/httpd/conf.modules.d/00-mpm.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.d/rmap.conf">/etc/httpd/conf.d/rmap.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.d/rmap.inc">/etc/httpd/conf.d/rmap.inc</a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/conf.d/ssl.conf">/etc/httpd/conf.d/ssl.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/modsecurity.d/crs-setup.conf">/etc/httpd/modsecurity.d/crs-setup.conf</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chkconfig httpd on``
-service httpd start``
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/httpd/modsecurity.d/local_rules/modsecurity_localrules.conf">/etc/httpd/modsecurity.d/local_rules/modsecurity_localrules.conf</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">httpd</span> <span class="n">on</span>
+<span class="n">service</span> <span class="n">httpd</span> <span class="n">start</span>
 </pre></div>
 </div>
 </div>
@@ -570,8 +641,8 @@ service httpd start``
 </div>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/stunnel/stunnel.conf">/etc/stunnel/stunnel.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/stunnel_presharedkey">/etc/cron.d/stunnel_presharedkey</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chkconfig stunnel on``
-service stunnel start``
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">stunnel</span> <span class="n">on</span>
+<span class="n">service</span> <span class="n">stunnel</span> <span class="n">start</span>
 </pre></div>
 </div>
 </div>
@@ -582,12 +653,23 @@ service stunnel start``
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">arkimet</span>
 <span class="n">chown</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">arkimet</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">arkimet</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
-<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
-<span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">g</span><span class="o">+</span><span class="n">w</span>  <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
-<span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">arkimet</span>
-<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">arkimet</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">arkimet</span>
 </pre></div>
 </div>
+<dl class="simple">
+<dt>::</dt><dd><p>chown -R arkimet:rmap /rmap/arkimet/
+chmod -R g+w  /rmap/arkimet/</p>
+</dd>
+</dl>
+<p>oppure:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>chown -R rmap:rmap /rmap/arkimet/</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>::</dt><dd><p>mkdir /var/log/arkimet
+chown -R arkimet:arkimet /var/log/arkimet</p>
+</dd>
+</dl>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/sysconfig/arkimet">/etc/sysconfig/arkimet</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/arkimet/scan/bufr_generic_mobile_rmap.py">/etc/arkimet/scan/bufr_generic_mobile_rmap.py</a></p>
 <p>Replicate structure in:</p>
@@ -612,13 +694,14 @@ service stunnel start``
 <span class="n">pid_file</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">.</span><span class="n">pid</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">pwfile</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">~/</span><span class="n">certs</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span>
+<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">mosquitto</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">certs</span>
+
+<span class="n">touch</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">pwfile</span>
 <span class="n">chkconfig</span> <span class="n">mosquitto</span> <span class="n">on</span>
 <span class="n">service</span> <span class="n">mosquitto</span> <span class="n">start</span>
 </pre></div>
 </div>
-<p>if the package use systemV create:</p>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/monit.d/mosquitto">/etc/monit.d/mosquitto</a></p>
 </div>
 <div class="section" id="rabbitmq">
 <h3>Rabbitmq<a class="headerlink" href="#rabbitmq" title="Link a questa intestazione">¶</a></h3>
@@ -631,7 +714,10 @@ service stunnel start``
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/rabbitmq/enabled_plugins">/etc/rabbitmq/enabled_plugins</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/rabbitmq/rabbitmq-env.conf">/etc/rabbitmq/rabbitmq-env.conf</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/rabbitmq/rabbitmq.config">/etc/rabbitmq/rabbitmq.config</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">mnesia</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">~/</span><span class="n">certs</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span>
+<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rabbitmq</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">certs</span>
+
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">mnesia</span><span class="o">/</span>
 <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rabbitmq</span><span class="p">:</span><span class="n">rabbitmq</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">rabbitmq</span>
 <span class="n">chkconfig</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">on</span>
 <span class="n">service</span> <span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span> <span class="n">start</span>
@@ -651,11 +737,12 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </div>
 <div class="section" id="monit">
 <h3>Monit<a class="headerlink" href="#monit" title="Link a questa intestazione">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/monitrc">/etc/monitrc</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/monit.d/rmap">/etc/monit.d/rmap</a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/usr/local/bin/check_mosquitto">/usr/local/bin/check_mosquitto</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">monit</span> <span class="n">on</span>
 <span class="n">service</span> <span class="n">monit</span> <span class="n">start</span>
 </pre></div>
@@ -667,9 +754,10 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">dballe</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/arpae_aq_ckan">/etc/cron.d/arpae_aq_ckan</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/dballe2arkimet">/etc/cron.d/dballe2arkimet</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/luftdaten">/etc/cron.d/luftdaten</a></p>
+<p>Opzionali per provider esterni con appositi convertitori:</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/arpae_aq_ckan">/etc/cron.d/arpae_aq_ckan</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/cron.d/makeexplorer">/etc/cron.d/makeexplorer</a></p>
 </div>
 <div class="section" id="sincronizzazione-db-da-un-server">
@@ -896,7 +984,7 @@ Imparire il comando:</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../videotutorial/videotutorial.html" class="btn btn-neutral float-right" title="Videotutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../stima_wifi/stima_wifi_howto.html" class="btn btn-neutral float-left" title="Stima-wifi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../stima_wifi/testa_prelievo/testa_prelievo.html" class="btn btn-neutral float-left" title="Testa di prelievo per sensori Air Quality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

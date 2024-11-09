@@ -4,6 +4,7 @@ var elaborate__data__task_8h =
     [ "maintenance_t", "structmaintenance__t.html", "structmaintenance__t" ],
     [ "ElaborateDataParam_t", "structElaborateDataParam__t.html", "structElaborateDataParam__t" ],
     [ "ElaborateDataTask", "classElaborateDataTask.html", "classElaborateDataTask" ],
+    [ "CLOGGED_TIMINGS_VERIFY", "elaborate__data__task_8h.html#a891308d145f6cc2c0d6b3e3bdc2bf403", null ],
     [ "ELABORATE_TASK_SLEEP_DELAY_MS", "elaborate__data__task_8h.html#acef6623472d6e4d9ec3762f2322aeae8", null ],
     [ "ELABORATE_TASK_WAIT_DELAY_MS", "elaborate__data__task_8h.html#ad0cccbc59761627557e3928376db88ff", null ],
     [ "addValue", "elaborate__data__task_8h.html#a9457a3c40a3527a1fd0783de72748367", null ],

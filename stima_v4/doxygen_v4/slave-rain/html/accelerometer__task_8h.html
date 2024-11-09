@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('accelerometer__task_8h.html',''); init
 <code>#include &quot;queue.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="module__slave__hal_8hpp_source.html">drivers/module_slave_hal.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="accelerometer_8h_source.html">drivers/accelerometer.h</a>&quot;</code><br />
+<code>#include &lt;STM32RTC.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="register__class_8hpp_source.html">register_class.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="debug__F_8h_source.html">debug_F.h</a>&quot;</code><br />
 </div>
@@ -123,10 +124,12 @@ Macros</h2></td></tr>
 <tr class="separator:a45d62f45e0f0fcd5a41ac194225b28ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac439d01f9c27c574ef2b2b7efaed6672"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="accelerometer__task_8h.html#ac439d01f9c27c574ef2b2b7efaed6672">ACCELEROMETER_TASK_SLEEP_DELAY_MS</a>&#160;&#160;&#160;(850)</td></tr>
 <tr class="separator:ac439d01f9c27c574ef2b2b7efaed6672"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780f7bb134f849b358b0af07da903737"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="accelerometer__task_8h.html#a780f7bb134f849b358b0af07da903737">BUBBLE_ANGLE_ERROR</a>&#160;&#160;&#160;(0.03)</td></tr>
+<tr class="memitem:a780f7bb134f849b358b0af07da903737"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="accelerometer__task_8h.html#a780f7bb134f849b358b0af07da903737">BUBBLE_ANGLE_ERROR</a>&#160;&#160;&#160;(0.04)</td></tr>
 <tr class="separator:a780f7bb134f849b358b0af07da903737"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6269daa2395f59e1fcd318a6187e90ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="accelerometer__task_8h.html#a6269daa2395f59e1fcd318a6187e90ee">BUBBLE_ANGLE_MIRROR</a>&#160;&#160;&#160;(0.80)</td></tr>
+<tr class="memitem:a6269daa2395f59e1fcd318a6187e90ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="accelerometer__task_8h.html#a6269daa2395f59e1fcd318a6187e90ee">BUBBLE_ANGLE_MIRROR</a>&#160;&#160;&#160;(0.75)</td></tr>
 <tr class="separator:a6269daa2395f59e1fcd318a6187e90ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0df4e07e9fe7745c430271783305ff27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="accelerometer__task_8h.html#a0df4e07e9fe7745c430271783305ff27">BUBBLE_TIMINGS_VERIFY</a>&#160;&#160;&#160;(14400)</td></tr>
+<tr class="separator:a0df4e07e9fe7745c430271783305ff27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>accelerometer cpp_Freertos header file </p>
@@ -152,7 +155,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00057">57</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00059">59</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +171,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00056">56</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00058">58</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
 
 </div>
 </div>
@@ -179,12 +182,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BUBBLE_ANGLE_ERROR&#160;&#160;&#160;(0.03)</td>
+          <td class="memname">#define BUBBLE_ANGLE_ERROR&#160;&#160;&#160;(0.04)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00059">59</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00061">61</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
 
 </div>
 </div>
@@ -195,12 +198,28 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BUBBLE_ANGLE_MIRROR&#160;&#160;&#160;(0.80)</td>
+          <td class="memname">#define BUBBLE_ANGLE_MIRROR&#160;&#160;&#160;(0.75)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00060">60</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00062">62</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
+
+</div>
+</div>
+<a id="a0df4e07e9fe7745c430271783305ff27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0df4e07e9fe7745c430271783305ff27">&#9670;&nbsp;</a></span>BUBBLE_TIMINGS_VERIFY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUBBLE_TIMINGS_VERIFY&#160;&#160;&#160;(14400)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="accelerometer__task_8h_source.html#l00064">64</a> of file <a class="el" href="accelerometer__task_8h_source.html">accelerometer_task.h</a>.</p>
 
 </div>
 </div>

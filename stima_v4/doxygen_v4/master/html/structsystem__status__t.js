@@ -29,6 +29,7 @@ var structsystem__status__t =
     [ "do_http_firmware_download", "structsystem__status__t.html#a4e9fb36036696e50f2b7124a346cb7b3", null ],
     [ "do_mqtt_connect", "structsystem__status__t.html#af03402751741f7200552cd3345925b6c", null ],
     [ "do_ntp_synchronization", "structsystem__status__t.html#a160f4b17a973a3a4fb2b5982809d4a15", null ],
+    [ "do_remote_cfg_exec", "structsystem__status__t.html#aef53da7dfcefb74cec0e3dc4b975e91f", null ],
     [ "epoch_connect_run", "structsystem__status__t.html#acf60292b4562c5c28f66a18c20dc091d", null ],
     [ "epoch_mqtt_last_connection", "structsystem__status__t.html#ac4296b138b65bedb8d5c28f9c292d804", null ],
     [ "epoch_sensors_get_istant", "structsystem__status__t.html#ac0065e21b90b4e1f0918646cdb545735", null ],

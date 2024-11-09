@@ -404,77 +404,79 @@ $(document).ready(function(){initNavTree('solar__radiation__sensor__task_8cpp_so
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    value = adc_value;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    value += offset;</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    value *= gain;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  }</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;}</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="classSolarRadiationSensorTask.html#a017c6bf3e56627133a46b0bf03b35f03">  388</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="classSolarRadiationSensorTask.html#a017c6bf3e56627133a46b0bf03b35f03">SolarRadiationSensorTask::getAdcAnalogValue</a>(<span class="keywordtype">float</span> adc_value, <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89">Adc_Mode</a> adc_type)</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;{</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  <span class="keywordtype">float</span> min, max;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  <span class="keywordtype">float</span> value = (float)UINT16_MAX;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  <span class="keywordflow">switch</span> (adc_type)</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  {</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89ac91d42ec3a9ee94a8360a86cf9f84abd">Adc_Mode::mVolt</a>:</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    min = (float)(<a class="code" href="config_8h.html#a19556b9d5fcdc10a543a6b303491cc28">ADC_VOLTAGE_MIN_MV</a>);</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    max = (float)(<a class="code" href="config_8h.html#a3c2875c58451f6940c5eb34fec196a9b">ADC_VOLTAGE_MAX_MV</a>);</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="comment">/* code */</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89ab8b981382e1eecc8a38f9d1033baa3f4">Adc_Mode::Volt</a>:</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    min = (float)(<a class="code" href="config_8h.html#a1ef8ac099e66152840d7f31782feaf9e">ADC_VOLTAGE_MIN_V</a>);</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    max = (float)(<a class="code" href="config_8h.html#ac3fbb0dc2b7c9d2edd368ee8a54c751e">ADC_VOLTAGE_MAX_V</a>);</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">/* code */</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89a7d2fa0fadf5493776b7b58e8a567c31c">Adc_Mode::mA</a>:</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    min = (float)(<a class="code" href="config_8h.html#af4c6d94218b9130b5509660995d3bd30">ADC_CURRENT_MIN_MA</a>);</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    max = (float)(<a class="code" href="config_8h.html#ac60aa94027cce087d4e87db93fdf1847">ADC_CURRENT_MAX_MA</a>);</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="comment">/* code */</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;  }</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;  <span class="keywordflow">if</span> (!isnan(adc_value))</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  {</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    value = adc_value;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    value *= (((max - min) / (<span class="keywordtype">float</span>)(<a class="code" href="config_8h.html#a555a695bf58df062dc03f0e892d95cd7">ADC_MAX</a>)));</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    value += min;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  }</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;}</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="classSolarRadiationSensorTask.html#a8af335b572279a693161e99b2c0588c8">  433</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="classSolarRadiationSensorTask.html#a8af335b572279a693161e99b2c0588c8">SolarRadiationSensorTask::getSolarRadiation</a>(<span class="keywordtype">float</span> adc_value, <span class="keywordtype">float</span> adc_voltage_min, <span class="keywordtype">float</span> adc_voltage_max, <span class="keywordtype">bool</span> *adc_overflow)</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;{</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  <span class="keywordtype">float</span> value = adc_value;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  *adc_overflow = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <span class="keywordflow">if</span> ((value &lt; (adc_voltage_min + <a class="code" href="config_8h.html#a9c3499708b9003f8c7162d48e2b7b9dd">SOLAR_RADIATION_ERROR_VOLTAGE_MIN</a>)) || (value &gt; (adc_voltage_max + <a class="code" href="config_8h.html#ac0a46ccc54aff9c1ab3f248fe7d1b523">SOLAR_RADIATION_ERROR_VOLTAGE_MAX</a>)))</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  {</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    *adc_overflow = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    value = UINT16_MAX;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  }</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  {</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    value = ((value - adc_voltage_min) / (adc_voltage_max - adc_voltage_min) * <a class="code" href="config_8h.html#a2bf1e6ecc31786bf366b1339469836e3">SOLAR_RADIATION_MAX</a>);</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordflow">if</span> (value &lt;= <a class="code" href="config_8h.html#a747a6ceab6aae2cdaa53016c8bce4a78">SOLAR_RADIATION_ERROR_MIN</a>) value = <a class="code" href="config_8h.html#a854c0d7b6bf5ddec44571dbbf35f16f8">SOLAR_RADIATION_MIN</a>;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordflow">if</span> (value &gt;= <a class="code" href="config_8h.html#a6b3cd797ce7c7c22c4fdcc8a15281c1d">SOLAR_RADIATION_ERROR_MAX</a>) value = <a class="code" href="config_8h.html#a2bf1e6ecc31786bf366b1339469836e3">SOLAR_RADIATION_MAX</a>;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;  }</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  <span class="keywordflow">if</span>((value &gt;= <a class="code" href="config_8h.html#a854c0d7b6bf5ddec44571dbbf35f16f8">SOLAR_RADIATION_MIN</a>)&amp;&amp;(value &lt;= <a class="code" href="config_8h.html#a161b8c8b560f0c605196a8c7c4e39c86">SOLAR_RADIATION_SENSIBILITY</a>)) {</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    value = <a class="code" href="config_8h.html#a854c0d7b6bf5ddec44571dbbf35f16f8">SOLAR_RADIATION_MIN</a>;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  }</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  <span class="keywordflow">return</span> round(value);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;}</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassSolarRadiationSensorTask_html_a017c6bf3e56627133a46b0bf03b35f03"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a017c6bf3e56627133a46b0bf03b35f03">SolarRadiationSensorTask::getAdcAnalogValue</a></div><div class="ttdeci">float getAdcAnalogValue(float adc_value, Adc_Mode adc_type)</div><div class="ttdoc">Get analog value converted from ADC with type input selected.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00388">solar_radiation_sensor_task.cpp:388</a></div></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">if</span>(value &lt;= <a class="code" href="config_8h.html#af0098a1eafb8a60a1c65773e1064d595">ADC_MIN</a>) value = <a class="code" href="config_8h.html#af0098a1eafb8a60a1c65773e1064d595">ADC_MIN</a>;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">if</span>(value &gt;= <a class="code" href="config_8h.html#a555a695bf58df062dc03f0e892d95cd7">ADC_MAX</a>) value = <a class="code" href="config_8h.html#a555a695bf58df062dc03f0e892d95cd7">ADC_MAX</a>;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;}</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="classSolarRadiationSensorTask.html#a017c6bf3e56627133a46b0bf03b35f03">  390</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="classSolarRadiationSensorTask.html#a017c6bf3e56627133a46b0bf03b35f03">SolarRadiationSensorTask::getAdcAnalogValue</a>(<span class="keywordtype">float</span> adc_value, <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89">Adc_Mode</a> adc_type)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;{</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  <span class="keywordtype">float</span> min, max;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  <span class="keywordtype">float</span> value = (float)UINT16_MAX;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  <span class="keywordflow">switch</span> (adc_type)</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  {</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89ac91d42ec3a9ee94a8360a86cf9f84abd">Adc_Mode::mVolt</a>:</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    min = (float)(<a class="code" href="config_8h.html#a19556b9d5fcdc10a543a6b303491cc28">ADC_VOLTAGE_MIN_MV</a>);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    max = (float)(<a class="code" href="config_8h.html#a3c2875c58451f6940c5eb34fec196a9b">ADC_VOLTAGE_MAX_MV</a>);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="comment">/* code */</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89ab8b981382e1eecc8a38f9d1033baa3f4">Adc_Mode::Volt</a>:</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    min = (float)(<a class="code" href="config_8h.html#a1ef8ac099e66152840d7f31782feaf9e">ADC_VOLTAGE_MIN_V</a>);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    max = (float)(<a class="code" href="config_8h.html#ac3fbb0dc2b7c9d2edd368ee8a54c751e">ADC_VOLTAGE_MAX_V</a>);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="comment">/* code */</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a1b3cf7f7c56593ade987e973b014cc89a7d2fa0fadf5493776b7b58e8a567c31c">Adc_Mode::mA</a>:</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    min = (float)(<a class="code" href="config_8h.html#af4c6d94218b9130b5509660995d3bd30">ADC_CURRENT_MIN_MA</a>);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    max = (float)(<a class="code" href="config_8h.html#ac60aa94027cce087d4e87db93fdf1847">ADC_CURRENT_MAX_MA</a>);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="comment">/* code */</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;  <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;  }</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;  <span class="keywordflow">if</span> (!isnan(adc_value))</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    value = adc_value;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    value *= (((max - min) / (<span class="keywordtype">float</span>)(<a class="code" href="config_8h.html#a555a695bf58df062dc03f0e892d95cd7">ADC_MAX</a>)));</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    value += min;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  }</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;  <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;}</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="line" href="classSolarRadiationSensorTask.html#a8af335b572279a693161e99b2c0588c8">  435</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="classSolarRadiationSensorTask.html#a8af335b572279a693161e99b2c0588c8">SolarRadiationSensorTask::getSolarRadiation</a>(<span class="keywordtype">float</span> adc_value, <span class="keywordtype">float</span> adc_voltage_min, <span class="keywordtype">float</span> adc_voltage_max, <span class="keywordtype">bool</span> *adc_overflow)</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;{</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  <span class="keywordtype">float</span> value = adc_value;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  *adc_overflow = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <span class="keywordflow">if</span> ((value &lt; (adc_voltage_min + <a class="code" href="config_8h.html#a9c3499708b9003f8c7162d48e2b7b9dd">SOLAR_RADIATION_ERROR_VOLTAGE_MIN</a>)) || (value &gt; (adc_voltage_max + <a class="code" href="config_8h.html#ac0a46ccc54aff9c1ab3f248fe7d1b523">SOLAR_RADIATION_ERROR_VOLTAGE_MAX</a>)))</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  {</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    *adc_overflow = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    value = UINT16_MAX;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;  {</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    value = ((value - adc_voltage_min) / (adc_voltage_max - adc_voltage_min) * <a class="code" href="config_8h.html#a2bf1e6ecc31786bf366b1339469836e3">SOLAR_RADIATION_MAX</a>);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keywordflow">if</span> (value &lt;= <a class="code" href="config_8h.html#a747a6ceab6aae2cdaa53016c8bce4a78">SOLAR_RADIATION_ERROR_MIN</a>) value = <a class="code" href="config_8h.html#a854c0d7b6bf5ddec44571dbbf35f16f8">SOLAR_RADIATION_MIN</a>;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordflow">if</span> (value &gt;= <a class="code" href="config_8h.html#a6b3cd797ce7c7c22c4fdcc8a15281c1d">SOLAR_RADIATION_ERROR_MAX</a>) value = <a class="code" href="config_8h.html#a2bf1e6ecc31786bf366b1339469836e3">SOLAR_RADIATION_MAX</a>;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  }</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  <span class="keywordflow">if</span>((value &gt;= <a class="code" href="config_8h.html#a854c0d7b6bf5ddec44571dbbf35f16f8">SOLAR_RADIATION_MIN</a>)&amp;&amp;(value &lt;= <a class="code" href="config_8h.html#a161b8c8b560f0c605196a8c7c4e39c86">SOLAR_RADIATION_SENSIBILITY</a>)) {</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    value = <a class="code" href="config_8h.html#a854c0d7b6bf5ddec44571dbbf35f16f8">SOLAR_RADIATION_MIN</a>;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  }</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  <span class="keywordflow">return</span> round(value);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;}</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassSolarRadiationSensorTask_html_a017c6bf3e56627133a46b0bf03b35f03"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a017c6bf3e56627133a46b0bf03b35f03">SolarRadiationSensorTask::getAdcAnalogValue</a></div><div class="ttdeci">float getAdcAnalogValue(float adc_value, Adc_Mode adc_type)</div><div class="ttdoc">Get analog value converted from ADC with type input selected.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00390">solar_radiation_sensor_task.cpp:390</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_a16adfd971fcafadbe5a9022fc29248c0"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a16adfd971fcafadbe5a9022fc29248c0">SolarRadiationSensorTask::addADCData</a></div><div class="ttdeci">uint8_t addADCData(uint8_t chanel_out)</div><div class="ttdoc">Add Data ADC to counter.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00302">solar_radiation_sensor_task.cpp:302</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_a1ad88d19b41b8017a5b8427b3e8757c4"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a1ad88d19b41b8017a5b8427b3e8757c4">SolarRadiationSensorTask::Run</a></div><div class="ttdeci">virtual void Run()</div><div class="ttdoc">RUN Task.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00113">solar_radiation_sensor_task.cpp:113</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_a2bfa90e9403dc67748237f9d4bd75934"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a2bfa90e9403dc67748237f9d4bd75934">SolarRadiationSensorTask::adc_err_count</a></div><div class="ttdeci">uint8_t adc_err_count[MAX_ADC_CHANELS]</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8h_source.html#l00139">solar_radiation_sensor_task.h:139</a></div></div>
@@ -493,7 +495,7 @@ $(document).ready(function(){initNavTree('solar__radiation__sensor__task_8cpp_so
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_a75595d9e4f707ce84dacb7962f138eab"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a75595d9e4f707ce84dacb7962f138eab">SolarRadiationSensorTask::resetADCData</a></div><div class="ttdeci">void resetADCData(uint8_t chanel_out)</div><div class="ttdoc">Reset ADC Counter.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00331">solar_radiation_sensor_task.cpp:331</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_a7c2cffcbb40f930e93070c23e8eb02eb"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a7c2cffcbb40f930e93070c23e8eb02eb">SolarRadiationSensorTask::SolarRadiationSensorTask</a></div><div class="ttdeci">SolarRadiationSensorTask(const char *taskName, uint16_t stackSize, uint8_t priority, SolarRadiationSensorParam_t solarRadiationSensorParam)</div><div class="ttdoc">Constructor for the sensor Task.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00045">solar_radiation_sensor_task.cpp:45</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_a89f7c08e3783dbdc220534a67961b10d"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a89f7c08e3783dbdc220534a67961b10d">SolarRadiationSensorTask::adc_in</a></div><div class="ttdeci">uint64_t adc_in[MAX_ADC_CHANELS]</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8h_source.html#l00140">solar_radiation_sensor_task.h:140</a></div></div>
-<div class="ttc" id="aclassSolarRadiationSensorTask_html_a8af335b572279a693161e99b2c0588c8"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a8af335b572279a693161e99b2c0588c8">SolarRadiationSensorTask::getSolarRadiation</a></div><div class="ttdeci">float getSolarRadiation(float adc_value, float adc_voltage_min, float adc_voltage_max, bool *adc_overflow)</div><div class="ttdoc">Get real data Solar Radiation.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00433">solar_radiation_sensor_task.cpp:433</a></div></div>
+<div class="ttc" id="aclassSolarRadiationSensorTask_html_a8af335b572279a693161e99b2c0588c8"><div class="ttname"><a href="classSolarRadiationSensorTask.html#a8af335b572279a693161e99b2c0588c8">SolarRadiationSensorTask::getSolarRadiation</a></div><div class="ttdeci">float getSolarRadiation(float adc_value, float adc_voltage_min, float adc_voltage_max, bool *adc_overflow)</div><div class="ttdoc">Get real data Solar Radiation.</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00435">solar_radiation_sensor_task.cpp:435</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_aa5060d597c473801d9b0f3a5dd6cfcea"><div class="ttname"><a href="classSolarRadiationSensorTask.html#aa5060d597c473801d9b0f3a5dd6cfcea">SolarRadiationSensorTask::state</a></div><div class="ttdeci">State_t state</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8h_source.html#l00142">solar_radiation_sensor_task.h:142</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_ac8f3e76666749144ff35e590fdbad185"><div class="ttname"><a href="classSolarRadiationSensorTask.html#ac8f3e76666749144ff35e590fdbad185">SolarRadiationSensorTask::powerOn</a></div><div class="ttdeci">void powerOn(uint8_t chanel_out)</div><div class="ttdoc">Power ON Method (rest power mode)</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00269">solar_radiation_sensor_task.cpp:269</a></div></div>
 <div class="ttc" id="aclassSolarRadiationSensorTask_html_ad355381c2929b0f73be79ff68ac3853a"><div class="ttname"><a href="classSolarRadiationSensorTask.html#ad355381c2929b0f73be79ff68ac3853a">SolarRadiationSensorTask::powerOff</a></div><div class="ttdeci">void powerOff()</div><div class="ttdoc">Power OFF Method (rest power mode)</div><div class="ttdef"><b>Definition:</b> <a href="solar__radiation__sensor__task_8cpp_source.html#l00288">solar_radiation_sensor_task.cpp:288</a></div></div>

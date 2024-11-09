@@ -119,87 +119,92 @@ $(document).ready(function(){initNavTree('canard__config_8hpp_source.html',''); 
 <div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a6edf66f0a5db73c87ef6510b311fa81e">   76</a></span>&#160;<span class="preprocessor">#define PORT_RMAP_RADIATION  53</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a71e1b82e227c656a5e50ecf8287353ec">   77</a></span>&#160;<span class="preprocessor">#define PORT_RMAP_MPPT       54</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#abce16b2df60a0a916b0d7f8824eba83c">   78</a></span>&#160;<span class="preprocessor">#define PORT_RMAP_VWC        55</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a52e8951d44308e6b91fc337e8c484137">   79</a></span>&#160;<span class="preprocessor">#define PORT_RMAP_MASTER     100</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5491c1caedfe9839ddc8e6c1f6f46ac9">   82</a></span>&#160;<span class="preprocessor">#define NODE_VALUE_UNSET  255</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#af4c3aa403cc1a291bdaf7db78a114b3b">   83</a></span>&#160;<span class="preprocessor">#define PORT_SERVICE_RMAP (PORT_RMAP_MASTER)</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a549da75e69adb247688566bfde8e6bad">   84</a></span>&#160;<span class="preprocessor">#define SUBJECTID_PUBLISH_RMAP (PORT_RMAP_MASTER)</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a3e25aa89513271831f9e19b0aa1c5853">   79</a></span>&#160;<span class="preprocessor">#define PORT_RMAP_LEVEL      56</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a52e8951d44308e6b91fc337e8c484137">   80</a></span>&#160;<span class="preprocessor">#define PORT_RMAP_MASTER     100</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5491c1caedfe9839ddc8e6c1f6f46ac9">   83</a></span>&#160;<span class="preprocessor">#define NODE_VALUE_UNSET  255</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#af4c3aa403cc1a291bdaf7db78a114b3b">   84</a></span>&#160;<span class="preprocessor">#define PORT_SERVICE_RMAP (PORT_RMAP_MASTER)</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a549da75e69adb247688566bfde8e6bad">   85</a></span>&#160;<span class="preprocessor">#define SUBJECTID_PUBLISH_RMAP (PORT_RMAP_MASTER)</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#aa7ab0b8b123d365d89fc7bd0e63107ec">   88</a></span>&#160;<span class="preprocessor">#define HASH_SERNUMB_MASK   0x0000FFFFFFFFFF00u</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#adc5fe329212431eed03ce605002382a2">   89</a></span>&#160;<span class="preprocessor">#define HASH_EXCLUDING_BIT  16u</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a91a32f5d660fbc580d724c4ee9116951">   92</a></span>&#160;<span class="preprocessor">#define USE_NODE_MASTER_ID_FIXED</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#if (FIXED_CONFIGURATION)</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_TH</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_RAIN</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_WIND</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_RADIATION</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_VWC</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_POWER</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">// #define FORCE_FULL_POWER</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ad4e1e7fbaf8850ebea12beecaceb4ea7">  110</a></span>&#160;<span class="preprocessor">#define USE_SUB_PUBLISH_SLAVE_DATA</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">// #define SUBSCRIBE_PUBLISH_SLAVE_DATA</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#adc40f7a65c95dacb8983e836ef864a36">  114</a></span>&#160;<span class="preprocessor">#define MAX_NODE_CONNECT        BOARDS_COUNT_MAX</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a438d609cedab911c1fe80b07f7881ae0">  117</a></span>&#160;<span class="preprocessor">#define GENERIC_STATE_UNDEFINED 0x0Fu</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a360442a9a8405d1c0c5a04d5d02d1de7">  118</a></span>&#160;<span class="preprocessor">#define GENERIC_BVAL_UNDEFINED  0xFFu</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a37e34dc9507b8ce7857cf13d24235b91">  119</a></span>&#160;<span class="preprocessor">#define GENERIC_BVAL_UNCOERENT  0xFEu</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7e1a70a77b3bc40c61ec6a087a220e1b">  122</a></span>&#160;<span class="preprocessor">#define DEFAULT_PUBLISH_PORT_LIST true</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5102b845a38106ed57f2c6ed9d2b04db">  125</a></span>&#160;<span class="preprocessor">#define TIME_PUBLISH_HEARTBEAT      1</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#adc90331a1a1515d1434fdd9e7c5e8e7b">  126</a></span>&#160;<span class="preprocessor">#define TIME_PUBLISH_PORT_LIST      20</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#af9e3f1a050880613fc3443f68d1c04dd">  131</a></span>&#160;<span class="preprocessor">#define NODE_OFFLINE_TIMEOUT_US  6000000</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a11c8e5c3f0e784c941aa3f217ed165ec">  132</a></span>&#160;<span class="preprocessor">#define NODE_COMMAND_TIMEOUT_US  1250000</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7c8aed4fa86d736f91a037e7b54b2d7e">  133</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_TIMEOUT_US 1500000</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5575f18889f6809a60737ad71bf713b5">  134</a></span>&#160;<span class="preprocessor">#define NODE_GETDATA_TIMEOUT_US  2500000</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a6560ec38cce9644d10bc53f97417645a">  135</a></span>&#160;<span class="preprocessor">#define NODE_GETFILE_TIMEOUT_US  1750000</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ae6a01a00817cdefceffc948269bd4de7">  136</a></span>&#160;<span class="preprocessor">#define NODE_REQFILE_TIMEOUT_US  4000000</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#aed05452522e327bb88a13f089a1c95e9">  137</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_MAX_RETRY  5</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a1510d74f948f5a46a28371329670006d">  138</a></span>&#160;<span class="preprocessor">#define NODE_GETDATA_MAX_RETRY   5</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a31ecba430e17549ab08b60f49e3a0ee1">  139</a></span>&#160;<span class="preprocessor">#define NODE_GETFILE_MAX_RETRY   3</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a8d00defb577ee03384e57f0e0082052b">  142</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_WRITING    (true)</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#af3208dd0dbc080e80450a992719210bc">  143</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_READING    (false)</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a4c5a9901fec98d28fb7804c4ef999291">  146</a></span>&#160;<span class="preprocessor">#define CAN_FILE_NAME_SIZE_MAX          50</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">// Rain</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a9c2f06b23f9a78297114e61db3235eab">  150</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_TBR             0</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a40d54b5631d34953b1757a88feee559c">  151</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_TPR             1</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ab3543db3613f2540d14c5ec9b9c2eaca">  152</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_RAIN_COUNT      2</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">// Th</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a0074164e90d153c4281f39fe47415962">  154</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_ITH             0</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a0878e281bd909e4877c82eca0a9b43ae">  155</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_MTH             1</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a62c3c1ba79b75faeb9ad7b83cda3eb5c">  156</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_NTH             2</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5186984974519b0e55eeebffcc21a689">  157</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_XTH             3</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ac083037a783b9781cd8a37b3d25c47a1">  158</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_TH_COUNT        4</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">// Wind</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#acd16c456346542c2fee13e079e7a6277">  160</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWA             0</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a77e01fd3909f2e7da637add19084b651">  161</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWB             1</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a99a19b0f8a0e711bb42d06a42f44155d">  162</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWC             2</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7565b6832fc0e518d689a425eca9d3e3">  163</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWD             3</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a386f2db035e66fbc2560aef0fe949790">  164</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWE             4</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5dca5e3a34e50fdfafbb84374f15db04">  165</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWF             5</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a89dee6f2e2c55920294179dc39575fb9">  166</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_WIND_COUNT      6</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">// Power</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a1e368d833152e06ee4f4f3cca1b544f9">  168</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_MPP             0</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a238c78327d176b4319c56efd38d51867">  169</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_POWER_COUNT     1</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">// Radiation</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a33346627b25766a3383a54b41f73f375">  171</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DSA             0</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7d2b0987e1cced42df9e235035997f5b">  172</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_RADIATION_COUNT 1</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">// VWC</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a9cc804571f48d9faaadb651085d15c1d">  174</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC1            0</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ac1e994029447654b448fba6b13c8f80e">  175</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC2            1</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a6993ab83b2795f8bb6d72a367592c60c">  176</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC3            2</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="canard__class__master_8hpp.html#a30ac1efad108642cd19356b3ee10c8f6">  177</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC_COUNT       3</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#aa7ab0b8b123d365d89fc7bd0e63107ec">   89</a></span>&#160;<span class="preprocessor">#define HASH_SERNUMB_MASK   0x0000FFFFFFFFFF00u</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#adc5fe329212431eed03ce605002382a2">   90</a></span>&#160;<span class="preprocessor">#define HASH_EXCLUDING_BIT  16u</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a91a32f5d660fbc580d724c4ee9116951">   93</a></span>&#160;<span class="preprocessor">#define USE_NODE_MASTER_ID_FIXED</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#if (FIXED_CONFIGURATION)</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_TH</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_RAIN</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_WIND</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_RADIATION</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_VWC</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_LEVEL</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#define USE_MODULE_FIXED_POWER</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">// #define FORCE_FULL_POWER</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ad4e1e7fbaf8850ebea12beecaceb4ea7">  112</a></span>&#160;<span class="preprocessor">#define USE_SUB_PUBLISH_SLAVE_DATA</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">// #define SUBSCRIBE_PUBLISH_SLAVE_DATA</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#adc40f7a65c95dacb8983e836ef864a36">  116</a></span>&#160;<span class="preprocessor">#define MAX_NODE_CONNECT        BOARDS_COUNT_MAX</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a438d609cedab911c1fe80b07f7881ae0">  119</a></span>&#160;<span class="preprocessor">#define GENERIC_STATE_UNDEFINED 0x0Fu</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a360442a9a8405d1c0c5a04d5d02d1de7">  120</a></span>&#160;<span class="preprocessor">#define GENERIC_BVAL_UNDEFINED  0xFFu</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a37e34dc9507b8ce7857cf13d24235b91">  121</a></span>&#160;<span class="preprocessor">#define GENERIC_BVAL_UNCOERENT  0xFEu</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7e1a70a77b3bc40c61ec6a087a220e1b">  124</a></span>&#160;<span class="preprocessor">#define DEFAULT_PUBLISH_PORT_LIST true</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5102b845a38106ed57f2c6ed9d2b04db">  127</a></span>&#160;<span class="preprocessor">#define TIME_PUBLISH_HEARTBEAT      1</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#adc90331a1a1515d1434fdd9e7c5e8e7b">  128</a></span>&#160;<span class="preprocessor">#define TIME_PUBLISH_PORT_LIST      20</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#af9e3f1a050880613fc3443f68d1c04dd">  133</a></span>&#160;<span class="preprocessor">#define NODE_OFFLINE_TIMEOUT_US  6000000</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a11c8e5c3f0e784c941aa3f217ed165ec">  134</a></span>&#160;<span class="preprocessor">#define NODE_COMMAND_TIMEOUT_US  1250000</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7c8aed4fa86d736f91a037e7b54b2d7e">  135</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_TIMEOUT_US 1500000</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5575f18889f6809a60737ad71bf713b5">  136</a></span>&#160;<span class="preprocessor">#define NODE_GETDATA_TIMEOUT_US  2500000</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a6560ec38cce9644d10bc53f97417645a">  137</a></span>&#160;<span class="preprocessor">#define NODE_GETFILE_TIMEOUT_US  1750000</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ae6a01a00817cdefceffc948269bd4de7">  138</a></span>&#160;<span class="preprocessor">#define NODE_REQFILE_TIMEOUT_US  4000000</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#aed05452522e327bb88a13f089a1c95e9">  139</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_MAX_RETRY  5</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a1510d74f948f5a46a28371329670006d">  140</a></span>&#160;<span class="preprocessor">#define NODE_GETDATA_MAX_RETRY   5</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a31ecba430e17549ab08b60f49e3a0ee1">  141</a></span>&#160;<span class="preprocessor">#define NODE_GETFILE_MAX_RETRY   3</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a8d00defb577ee03384e57f0e0082052b">  144</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_WRITING    (true)</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#af3208dd0dbc080e80450a992719210bc">  145</a></span>&#160;<span class="preprocessor">#define NODE_REGISTER_READING    (false)</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a4c5a9901fec98d28fb7804c4ef999291">  148</a></span>&#160;<span class="preprocessor">#define CAN_FILE_NAME_SIZE_MAX          50</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">// Rain</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a9c2f06b23f9a78297114e61db3235eab">  152</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_TBR             0</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a40d54b5631d34953b1757a88feee559c">  153</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_TPR             1</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ab3543db3613f2540d14c5ec9b9c2eaca">  154</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_RAIN_COUNT      2</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">// Th</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a0074164e90d153c4281f39fe47415962">  156</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_ITH             0</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a0878e281bd909e4877c82eca0a9b43ae">  157</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_MTH             1</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a62c3c1ba79b75faeb9ad7b83cda3eb5c">  158</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_NTH             2</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5186984974519b0e55eeebffcc21a689">  159</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_XTH             3</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ac083037a783b9781cd8a37b3d25c47a1">  160</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_TH_COUNT        4</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">// Wind</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#acd16c456346542c2fee13e079e7a6277">  162</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWA             0</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a77e01fd3909f2e7da637add19084b651">  163</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWB             1</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a99a19b0f8a0e711bb42d06a42f44155d">  164</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWC             2</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7565b6832fc0e518d689a425eca9d3e3">  165</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWD             3</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a386f2db035e66fbc2560aef0fe949790">  166</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWE             4</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a5dca5e3a34e50fdfafbb84374f15db04">  167</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DWF             5</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a89dee6f2e2c55920294179dc39575fb9">  168</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_WIND_COUNT      6</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">// Power</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a1e368d833152e06ee4f4f3cca1b544f9">  170</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_MPP             0</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a238c78327d176b4319c56efd38d51867">  171</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_POWER_COUNT     1</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">// Radiation</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a33346627b25766a3383a54b41f73f375">  173</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_DSA             0</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a7d2b0987e1cced42df9e235035997f5b">  174</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_RADIATION_COUNT 1</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">// VWC</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a9cc804571f48d9faaadb651085d15c1d">  176</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC1            0</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#ac1e994029447654b448fba6b13c8f80e">  177</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC2            1</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a6993ab83b2795f8bb6d72a367592c60c">  178</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC3            2</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#a30ac1efad108642cd19356b3ee10c8f6">  179</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_VWC_COUNT       3</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">// LEVEL</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="canard__config_8hpp.html#aec0d1688a14340be93db809d8de6e8cc">  181</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_LVM             0</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="canard__class__master_8hpp.html#a75763bd6c06988d750968e873c4482c3">  182</a></span>&#160;<span class="preprocessor">#define SENSOR_METADATA_LEVEL_COUNT     1</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -113,6 +113,8 @@ $(document).ready(function(){initNavTree('mqtt__task_8h.html',''); initResizable
 <code>#include &lt;rmap/service/_module/Power_1_0.h&gt;</code><br />
 <code>#include &lt;rmap/_module/Radiation_1_0.h&gt;</code><br />
 <code>#include &lt;rmap/service/_module/Radiation_1_0.h&gt;</code><br />
+<code>#include &lt;rmap/_module/RiverLevel_1_0.h&gt;</code><br />
+<code>#include &lt;rmap/service/_module/RiverLevel_1_0.h&gt;</code><br />
 <code>#include &lt;rmap/_module/VWC_1_0.h&gt;</code><br />
 <code>#include &lt;rmap/service/_module/VWC_1_0.h&gt;</code><br />
 <code>#include &lt;rmap/_module/Wind_1_0.h&gt;</code><br />
@@ -147,6 +149,8 @@ Macros</h2></td></tr>
 <tr class="separator:aaf490346511e6196092abfe83123709c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3713d7fee33814580682687da7a7ac27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#a3713d7fee33814580682687da7a7ac27">MQTT_TASK_PUBLISH_RETRY</a>&#160;&#160;&#160;(5)</td></tr>
 <tr class="separator:a3713d7fee33814580682687da7a7ac27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b317ee5a6e6c0d75871273fcff935c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#ae0b317ee5a6e6c0d75871273fcff935c">MIN_ERR_CAN_CHECK_FLAG_PERC</a>&#160;&#160;&#160;(10)</td></tr>
+<tr class="separator:ae0b317ee5a6e6c0d75871273fcff935c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed350dc6847ed7616b8b9082dd384f93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#aed350dc6847ed7616b8b9082dd384f93">USE_MINIMAL_WAIT_SECOND_CONNECT</a>&#160;&#160;&#160;(true)</td></tr>
 <tr class="memdesc:aed350dc6847ed7616b8b9082dd384f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable using function delay minimal second waiting maintenance MQTT connection active.  <a href="mqtt__task_8h.html#aed350dc6847ed7616b8b9082dd384f93">More...</a><br /></td></tr>
 <tr class="separator:aed350dc6847ed7616b8b9082dd384f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,7 +162,7 @@ Macros</h2></td></tr>
 <tr class="separator:a232708eb2e52a4813d30d6533f931aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16a05f74d7844af22bea004722710ad0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#a16a05f74d7844af22bea004722710ad0">MQTT_NET_WAIT_TIMEOUT_PUBLISH</a>&#160;&#160;&#160;(<a class="el" href="mqtt__config_8h.html#abfcc7e625e42a553de9c3132faef282b">MQTT_TIMEOUT_MS</a> + 2500)</td></tr>
 <tr class="separator:a16a05f74d7844af22bea004722710ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a825b2c66087538bd3c372a73b76fac14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#a825b2c66087538bd3c372a73b76fac14">MIN_ERR_REPORT_CONNECTION_VALID</a>&#160;&#160;&#160;(90.0)</td></tr>
+<tr class="memitem:a825b2c66087538bd3c372a73b76fac14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#a825b2c66087538bd3c372a73b76fac14">MIN_ERR_REPORT_CONNECTION_VALID</a>&#160;&#160;&#160;(80)</td></tr>
 <tr class="separator:a825b2c66087538bd3c372a73b76fac14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3918c5c5f337fcad41193f3392dec87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqtt__task_8h.html#aa3918c5c5f337fcad41193f3392dec87">MQTT_PUB_CMD_DEBUG_PREFIX</a>&#160;&#160;&#160;(&quot;&gt;&quot;)</td></tr>
 <tr class="separator:aa3918c5c5f337fcad41193f3392dec87"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,6 +183,22 @@ Variables</h2></td></tr>
 <tr class="separator:ace32a6c69e0188c4b20d42418c335e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae0b317ee5a6e6c0d75871273fcff935c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b317ee5a6e6c0d75871273fcff935c">&#9670;&nbsp;</a></span>MIN_ERR_CAN_CHECK_FLAG_PERC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_ERR_CAN_CHECK_FLAG_PERC&#160;&#160;&#160;(10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00046">46</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+
+</div>
+</div>
 <a id="a825b2c66087538bd3c372a73b76fac14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a825b2c66087538bd3c372a73b76fac14">&#9670;&nbsp;</a></span>MIN_ERR_REPORT_CONNECTION_VALID</h2>
 
@@ -186,12 +206,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MIN_ERR_REPORT_CONNECTION_VALID&#160;&#160;&#160;(90.0)</td>
+          <td class="memname">#define MIN_ERR_REPORT_CONNECTION_VALID&#160;&#160;&#160;(80)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00059">59</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00061">61</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +227,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00052">52</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00054">54</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -223,7 +243,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00057">57</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00059">59</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -239,7 +259,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00056">56</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00058">58</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -255,7 +275,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00061">61</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00063">63</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -271,7 +291,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00064">64</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00066">66</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -287,7 +307,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00065">65</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00067">67</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -303,7 +323,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00054">54</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00056">56</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -319,7 +339,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00062">62</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00064">64</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -399,7 +419,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00069">69</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00071">71</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -415,7 +435,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00068">68</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00070">70</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -449,7 +469,7 @@ Variables</h2></td></tr>
 
 <p>Enable using function delay minimal second waiting maintenance MQTT connection active. </p>
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00050">50</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00052">52</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>
@@ -466,7 +486,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00114">114</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mqtt__task_8h_source.html#l00118">118</a> of file <a class="el" href="mqtt__task_8h_source.html">mqtt_task.h</a>.</p>
 
 </div>
 </div>

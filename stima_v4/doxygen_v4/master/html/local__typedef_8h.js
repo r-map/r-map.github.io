@@ -62,7 +62,8 @@ var local__typedef_8h =
       [ "radiation", "local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eac78c95b8b50a471af6bbd52a229aa573", null ],
       [ "gas", "local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea2f8c1811788bfc5b79d3a73f641abba5", null ],
       [ "power", "local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eaf8c33b3fcc6333e88c55e603007e9fe4", null ],
-      [ "vwc", "local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a", null ]
+      [ "vwc", "local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a", null ],
+      [ "level", "local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea831fc3a2f78e54e3c4ce5251aa1fc268", null ]
     ] ],
     [ "Power_Mode", "local__typedef_8h.html#a648f2471a1239545cb49b7aef64b68b1", [
       [ "pwr_on", "local__typedef_8h.html#a648f2471a1239545cb49b7aef64b68b1acd7ee10a22a09455ffccc871296ff38d", null ],

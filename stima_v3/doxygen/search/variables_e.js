@@ -2,7 +2,7 @@ var searchData=
 [
   ['rain_815',['rain',['../structreadable__data__t.html#a183ab6eb973fe8deb1c6d0583a991e92',1,'readable_data_t::rain()'],['../i2c-rain_8h.html#a5688d7d07e5d53ec6ccd7acce49a728c',1,'rain():&#160;i2c-rain.h']]],
   ['rain_5ffor_5ftip_816',['rain_for_tip',['../structconfiguration__t.html#a110a33a270ad665add680703368ccdc5',1,'configuration_t::rain_for_tip()'],['../structwritable__data__t.html#a1ee02d9996ad607ac6b9b813fde70e71',1,'writable_data_t::rain_for_tip()']]],
-  ['read_5fptr_817',['read_ptr',['../structuint16__observation__t.html#a5ab65ed8b6a7bf2c4c985dd1f00d5a70',1,'uint16_observation_t::read_ptr()'],['../structsample__t.html#a60e46a9f28065f1774361ac02ea4ced4',1,'sample_t::read_ptr()'],['../structsample__t.html#a1febd69d1f0ad5d75086e1aab110cb05',1,'sample_t::read_ptr()'],['../structfloat__observation__t.html#a2d80f7de4400c35950c0c8117e79cd02',1,'float_observation_t::read_ptr()']]],
+  ['read_5fptr_817',['read_ptr',['../structuint16__observation__t.html#a5ab65ed8b6a7bf2c4c985dd1f00d5a70',1,'uint16_observation_t::read_ptr()'],['../structsample__t.html#a33af29df2afcd9265140d5a5884f5c1d',1,'sample_t::read_ptr()'],['../structsample__t.html#a1febd69d1f0ad5d75086e1aab110cb05',1,'sample_t::read_ptr()'],['../structfloat__observation__t.html#a2d80f7de4400c35950c0c8117e79cd02',1,'float_observation_t::read_ptr()']]],
   ['readable_5fconfiguration_818',['readable_configuration',['../stima_8h.html#af0d633ce166aa2f6289c2170c5f8879a',1,'stima.h']]],
   ['readable_5fdata_5f1_819',['readable_data_1',['../i2c-leaf_8h.html#ab7c4666cc43ac73859ace91030494dba',1,'i2c-leaf.h']]],
   ['readable_5fdata_5f2_820',['readable_data_2',['../i2c-leaf_8h.html#af1fd929e13557159958a5328deefd8a3',1,'i2c-leaf.h']]],

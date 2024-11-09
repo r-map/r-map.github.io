@@ -75,7 +75,7 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef MEASURE_THREAD_H_</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define MEASURE_THREAD_H_</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="structmeasure__data__t.html">    6</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structmeasure__data__t.html">measure_data_t</a> {</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="structmeasure__data__t.html">    6</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structmeasure__data__t.html">measure_data_t</a> {    <span class="comment">// thread communication data</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">int</span> id;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  frtosLogging* logger;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  Queue* mqttqueue;</div>
@@ -107,17 +107,19 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Run();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">void</span> reset_summary_data();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">void</span> doMeasure();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">void</span> enqueueMqttMessage(uint8_t i );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">void</span> get_summary_data(uint8_t i);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="structmeasure__data__t.html">measure_data_t</a>* data;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  SensorDriver* sd[SENSORS_MAX];</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  sensorManage sensorm[SENSORS_MAX];</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  uint8_t sensors_count;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">void</span> reset_summary_data_in_progress();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">void</span> update_summary_data();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">void</span> doMeasure();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">void</span> enqueueMqttMessage(uint8_t i );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> get_summary_data_in_progress(uint8_t i);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="structmeasure__data__t.html">measure_data_t</a>* data;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="structsummarydata__t.html">summarydata_t</a> summarydata_in_progress;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  SensorDriver* sd[SENSORS_MAX];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  sensorManage sensorm[SENSORS_MAX];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  uint8_t sensors_count;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassmeasureThread_html"><div class="ttname"><a href="classmeasureThread.html">measureThread</a></div><div class="ttdef"><b>Definition:</b> measure_thread.h:26</div></div>
 <div class="ttc" id="astructgeoref__t_html"><div class="ttname"><a href="structgeoref__t.html">georef_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:58</div></div>
 <div class="ttc" id="astructmeasureStatus__t_html"><div class="ttname"><a href="structmeasureStatus__t.html">measureStatus_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:152</div></div>

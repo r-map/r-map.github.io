@@ -17,5 +17,6 @@ var classElaborateDataTask =
     [ "rain_samples", "classElaborateDataTask.html#a7bfe516f2845efc8fef456ba5b143c17", null ],
     [ "report", "classElaborateDataTask.html#a3889d35d79a23fabd137a0d1c7c9406f", null ],
     [ "report_last", "classElaborateDataTask.html#a928da9ebc97e9940a4450e27650ee98c", null ],
+    [ "rtc", "classElaborateDataTask.html#a7101e1e6a46765ba6e1f90ffc5ee687b", null ],
     [ "state", "classElaborateDataTask.html#a3a7ca8b036c73a84af5f2f1b4cbcd8c6", null ]
 ];

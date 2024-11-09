@@ -58,6 +58,7 @@ var config_8h =
     [ "SOIL_VWC_MAX", "config_8h.html#ae643e3ada17a061264f54049c41c0fb2", null ],
     [ "SOIL_VWC_MIN", "config_8h.html#a1cdb1ab6449736348aa45db4bd09fb90", null ],
     [ "SOIL_VWC_SCALE_MULTIPLY", "config_8h.html#afac5cb5ae612b98439c6186b8360a6cb", null ],
+    [ "SOIL_VWC_VOLTAGE_ABSENT", "config_8h.html#a3e0b7e7ed0f6406c4cde98ab45945c5a", null ],
     [ "SOIL_VWC_VOLTAGE_MAX", "config_8h.html#acb5f7856117dbf280a21ebe179eb0262", null ],
     [ "SOIL_VWC_VOLTAGE_MIN", "config_8h.html#aafe24563282fb175afe761651daee52e", null ],
     [ "START_EEPROM_ADDRESS", "config_8h.html#a3e547dfa1d245eba063fa481085153da", null ],

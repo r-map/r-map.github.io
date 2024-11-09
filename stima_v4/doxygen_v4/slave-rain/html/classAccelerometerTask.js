@@ -25,6 +25,7 @@ var classAccelerometerTask =
     [ "accelerometer", "classAccelerometerTask.html#aab929d3d6c9a1b8514ae853c3c20a9c0", null ],
     [ "accelerometer_configuration", "classAccelerometerTask.html#a00e78524bc283c07547483ff8d5a2599", null ],
     [ "param", "classAccelerometerTask.html#a837077a9783a0dcb22c23c591c45157c", null ],
+    [ "rtc", "classAccelerometerTask.html#a36ca9db655eda55d75684e7943f05d66", null ],
     [ "state", "classAccelerometerTask.html#a31b4cf9ecf20ec7b3e731c12ce9ed991", null ],
     [ "value_x", "classAccelerometerTask.html#ad6b3bc3577d54ca6dfa7d423ad92b403", null ],
     [ "value_y", "classAccelerometerTask.html#a19abb236fb65909f3d5351289b8a2863", null ],

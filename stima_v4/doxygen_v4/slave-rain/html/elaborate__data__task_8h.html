@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('elaborate__data__task_8h.html',''); in
 <code>#include &quot;queue.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="module__slave__hal_8hpp_source.html">drivers/module_slave_hal.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="debug__F_8h_source.html">debug_F.h</a>&quot;</code><br />
+<code>#include &lt;STM32RTC.h&gt;</code><br />
 </div>
 <p><a href="elaborate__data__task_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -128,6 +129,8 @@ Macros</h2></td></tr>
 <tr class="separator:ad0cccbc59761627557e3928376db88ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acef6623472d6e4d9ec3762f2322aeae8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elaborate__data__task_8h.html#acef6623472d6e4d9ec3762f2322aeae8">ELABORATE_TASK_SLEEP_DELAY_MS</a>&#160;&#160;&#160;(850)</td></tr>
 <tr class="separator:acef6623472d6e4d9ec3762f2322aeae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891308d145f6cc2c0d6b3e3bdc2bf403"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elaborate__data__task_8h.html#a891308d145f6cc2c0d6b3e3bdc2bf403">CLOGGED_TIMINGS_VERIFY</a>&#160;&#160;&#160;(28800)</td></tr>
+<tr class="separator:a891308d145f6cc2c0d6b3e3bdc2bf403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -170,6 +173,22 @@ Moreno Gasperini <a href="#" onclick="location.href='mai'+'lto:'+'m.g'+'as'+'per
 
 <p class="definition">Definition in file <a class="el" href="elaborate__data__task_8h_source.html">elaborate_data_task.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a891308d145f6cc2c0d6b3e3bdc2bf403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891308d145f6cc2c0d6b3e3bdc2bf403">&#9670;&nbsp;</a></span>CLOGGED_TIMINGS_VERIFY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLOGGED_TIMINGS_VERIFY&#160;&#160;&#160;(28800)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8h_source.html#l00056">56</a> of file <a class="el" href="elaborate__data__task_8h_source.html">elaborate_data_task.h</a>.</p>
+
+</div>
+</div>
 <a id="acef6623472d6e4d9ec3762f2322aeae8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acef6623472d6e4d9ec3762f2322aeae8">&#9670;&nbsp;</a></span>ELABORATE_TASK_SLEEP_DELAY_MS</h2>
 
@@ -182,7 +201,7 @@ Moreno Gasperini <a href="#" onclick="location.href='mai'+'lto:'+'m.g'+'as'+'per
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8h_source.html#l00052">52</a> of file <a class="el" href="elaborate__data__task_8h_source.html">elaborate_data_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8h_source.html#l00054">54</a> of file <a class="el" href="elaborate__data__task_8h_source.html">elaborate_data_task.h</a>.</p>
 
 </div>
 </div>
@@ -198,7 +217,7 @@ Moreno Gasperini <a href="#" onclick="location.href='mai'+'lto:'+'m.g'+'as'+'per
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8h_source.html#l00051">51</a> of file <a class="el" href="elaborate__data__task_8h_source.html">elaborate_data_task.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8h_source.html#l00053">53</a> of file <a class="el" href="elaborate__data__task_8h_source.html">elaborate_data_task.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +256,7 @@ template&lt;typename buffer_g , typename length_v , typename value_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00496">496</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00513">513</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +278,7 @@ template&lt;typename buffer_g &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00458">458</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00475">475</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,7 +310,7 @@ template&lt;typename buffer_g , typename length_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00464">464</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00481">481</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -323,7 +342,7 @@ template&lt;typename buffer_g , typename length_v , typename value_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00426">426</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00443">443</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +374,7 @@ template&lt;typename buffer_g , typename length_v , typename value_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00439">439</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00456">456</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -387,7 +406,7 @@ template&lt;typename buffer_g , typename length_v , typename value_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00487">487</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00504">504</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -419,7 +438,7 @@ template&lt;typename buffer_g , typename value_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00452">452</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00469">469</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>
@@ -451,7 +470,7 @@ template&lt;typename buffer_g , typename length_v &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00474">474</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elaborate__data__task_8cpp_source.html#l00491">491</a> of file <a class="el" href="elaborate__data__task_8cpp_source.html">elaborate_data_task.cpp</a>.</p>
 
 </div>
 </div>

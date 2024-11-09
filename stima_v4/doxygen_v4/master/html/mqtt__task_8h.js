@@ -2,6 +2,7 @@ var mqtt__task_8h =
 [
     [ "MqttParam_t", "structMqttParam__t.html", "structMqttParam__t" ],
     [ "MqttTask", "classMqttTask.html", "classMqttTask" ],
+    [ "MIN_ERR_CAN_CHECK_FLAG_PERC", "mqtt__task_8h.html#ae0b317ee5a6e6c0d75871273fcff935c", null ],
     [ "MIN_ERR_REPORT_CONNECTION_VALID", "mqtt__task_8h.html#a825b2c66087538bd3c372a73b76fac14", null ],
     [ "MQTT_MINIMAL_SECOND_CONNECTION", "mqtt__task_8h.html#a01d9d6bf132516d231924a6212cef547", null ],
     [ "MQTT_NET_WAIT_TIMEOUT_PUBLISH", "mqtt__task_8h.html#a16a05f74d7844af22bea004722710ad0", null ],

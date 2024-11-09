@@ -78,7 +78,7 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef PUBLISH_THREAD_H_</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define PUBLISH_THREAD_H_</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// thread exchange data struct</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structpublish__data__t.html">   10</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structpublish__data__t.html">publish_data_t</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">int</span> id;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  frtosLogging* logger;</div>
@@ -118,9 +118,10 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="structpublish__data__t.html">publish_data_t</a>* data;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  IPStack ipstack;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  MQTT::Client&lt;IPStack, Countdown, MQTT_PACKET_SIZE, 1 &gt; mqttclient;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  uint8_t errorcount;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasspublishThread_html"><div class="ttname"><a href="classpublishThread.html">publishThread</a></div><div class="ttdef"><b>Definition:</b> publish_thread.h:26</div></div>
 <div class="ttc" id="astructmqttMessage__t_html"><div class="ttname"><a href="structmqttMessage__t.html">mqttMessage_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:134</div></div>
 <div class="ttc" id="astructpublishStatus__t_html"><div class="ttname"><a href="structpublishStatus__t.html">publishStatus_t</a></div><div class="ttdef"><b>Definition:</b> typedef.h:163</div></div>

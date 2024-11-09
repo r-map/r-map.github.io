@@ -36,5 +36,5 @@ var searchData=
   ['todo_20list_507',['Todo List',['../todo.html',1,'']]],
   ['transaction_5ftime_508',['transaction_time',['../i2c-leaf_8h.html#a8fd2a42b21f42e71a4fa29fccc066e0f',1,'i2c-leaf.h']]],
   ['transaction_5ftimeout_5fms_509',['TRANSACTION_TIMEOUT_MS',['../i2c-leaf-config_8h.html#a0cf94c6e0f37ce006fce4553d32db224',1,'TRANSACTION_TIMEOUT_MS():&#160;i2c-leaf-config.h'],['../i2c-rain-config_8h.html#a0cf94c6e0f37ce006fce4553d32db224',1,'TRANSACTION_TIMEOUT_MS():&#160;i2c-rain-config.h']]],
-  ['type_510',['type',['../structsensor__conf__t.html#a09c709b24ea29934f9a364d825d25070',1,'sensor_conf_t']]]
+  ['type_510',['type',['../structsensor__conf__t.html#aa84df775ae0381112135594039a0fd51',1,'sensor_conf_t']]]
 ];

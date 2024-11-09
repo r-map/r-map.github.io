@@ -155,7 +155,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stati e variabili per metodi privati Rmap su comunicazione Cypal. </p>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00423">423</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00425">425</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af170cb2b6e2b5cff9ab5f54500c0d5b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af170cb2b6e2b5cff9ab5f54500c0d5b2">&#9670;&nbsp;</a></span>event_timeout()</h2>
@@ -176,14 +176,14 @@ Private Attributes</h2></td></tr>
 <p>Gestione timeout pending file. Controlla il raggiungimento del timeout. </p>
 <dl class="section return"><dt>Returns</dt><dd>true se entrata in timeout del comano </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01524">1524</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;                                                     {</div>
-<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a>) <span class="keywordflow">return</span> <a class="code" href="classcanardClass.html#a53f0101816b67bdee9f601fbd07d237a">_syncMicros</a> &gt; <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a11b4c17cd1af87815395268b67d69ce6">_timeout_us</a>;</div>
-<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;}</div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a11b4c17cd1af87815395268b67d69ce6"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a11b4c17cd1af87815395268b67d69ce6">canardClass::slave::rmap_service::_timeout_us</a></div><div class="ttdeci">uint64_t _timeout_us</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00451">canard_class_master.hpp:451</a></div></div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_aa53ed6b9a5a2b1d2758a36a85b5de794"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">canardClass::slave::rmap_service::_is_pending</a></div><div class="ttdeci">bool _is_pending</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00452">canard_class_master.hpp:452</a></div></div>
-<div class="ttc" id="aclasscanardClass_html_a53f0101816b67bdee9f601fbd07d237a"><div class="ttname"><a href="classcanardClass.html#a53f0101816b67bdee9f601fbd07d237a">canardClass::_syncMicros</a></div><div class="ttdeci">static uint64_t _syncMicros</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00599">canard_class_master.hpp:599</a></div></div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01527">1527</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;                                                     {</div>
+<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a>) <span class="keywordflow">return</span> <a class="code" href="classcanardClass.html#a53f0101816b67bdee9f601fbd07d237a">_syncMicros</a> &gt; <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a11b4c17cd1af87815395268b67d69ce6">_timeout_us</a>;</div>
+<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;}</div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a11b4c17cd1af87815395268b67d69ce6"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a11b4c17cd1af87815395268b67d69ce6">canardClass::slave::rmap_service::_timeout_us</a></div><div class="ttdeci">uint64_t _timeout_us</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00453">canard_class_master.hpp:453</a></div></div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_aa53ed6b9a5a2b1d2758a36a85b5de794"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">canardClass::slave::rmap_service::_is_pending</a></div><div class="ttdeci">bool _is_pending</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00454">canard_class_master.hpp:454</a></div></div>
+<div class="ttc" id="aclasscanardClass_html_a53f0101816b67bdee9f601fbd07d237a"><div class="ttname"><a href="classcanardClass.html#a53f0101816b67bdee9f601fbd07d237a">canardClass::_syncMicros</a></div><div class="ttdeci">static uint64_t _syncMicros</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00601">canard_class_master.hpp:601</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -206,11 +206,11 @@ Private Attributes</h2></td></tr>
 <p>Legge il tipo di modulo dello slave. </p>
 <dl class="section return"><dt>Returns</dt><dd>Module_Type della classe Canard </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01487">1487</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;                                                              {</div>
-<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8c621098e74165b846dcb7c27f7d5d38">_module_type</a>;</div>
-<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;}</div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a8c621098e74165b846dcb7c27f7d5d38"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a8c621098e74165b846dcb7c27f7d5d38">canardClass::slave::rmap_service::_module_type</a></div><div class="ttdeci">Module_Type _module_type</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00450">canard_class_master.hpp:450</a></div></div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01490">1490</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;                                                              {</div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8c621098e74165b846dcb7c27f7d5d38">_module_type</a>;</div>
+<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;}</div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a8c621098e74165b846dcb7c27f7d5d38"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a8c621098e74165b846dcb7c27f7d5d38">canardClass::slave::rmap_service::_module_type</a></div><div class="ttdeci">Module_Type _module_type</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00452">canard_class_master.hpp:452</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -237,7 +237,7 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;                                                           {</div>
 <div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#abc6fadf638785c51ddbf1923eb93accd">_port_id</a>;</div>
 <div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;}</div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_abc6fadf638785c51ddbf1923eb93accd"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#abc6fadf638785c51ddbf1923eb93accd">canardClass::slave::rmap_service::_port_id</a></div><div class="ttdeci">CanardPortID _port_id</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00449">canard_class_master.hpp:449</a></div></div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_abc6fadf638785c51ddbf1923eb93accd"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#abc6fadf638785c51ddbf1923eb93accd">canardClass::slave::rmap_service::_port_id</a></div><div class="ttdeci">CanardPortID _port_id</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00451">canard_class_master.hpp:451</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -260,11 +260,11 @@ Private Attributes</h2></td></tr>
 <p>Lettura risposta dal metodo remoto. </p>
 <dl class="section return"><dt>Returns</dt><dd>Stato del comando UAVCAN remoto eseguito </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01493">1493</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;                                                     {</div>
-<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a>;</div>
-<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;}</div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a20d774719694e9b6b320f6c4b3d324d2"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">canardClass::slave::rmap_service::_response</a></div><div class="ttdeci">void * _response</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00448">canard_class_master.hpp:448</a></div></div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01496">1496</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;                                                     {</div>
+<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a>;</div>
+<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;}</div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a20d774719694e9b6b320f6c4b3d324d2"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">canardClass::slave::rmap_service::_response</a></div><div class="ttdeci">void * _response</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00450">canard_class_master.hpp:450</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -287,11 +287,11 @@ Private Attributes</h2></td></tr>
 <p>Verifica se un comando per il relativo modulo è terminato ed eseguito correttamente. </p>
 <dl class="section return"><dt>Returns</dt><dd>true se un comando è in attesa </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01537">1537</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;                                                   {</div>
-<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a>;</div>
-<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;}</div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a8d28f5a4accd1701341c0ee9779963b6"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">canardClass::slave::rmap_service::_is_executed</a></div><div class="ttdeci">bool _is_executed</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00453">canard_class_master.hpp:453</a></div></div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01540">1540</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;                                                   {</div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a>;</div>
+<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;}</div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a8d28f5a4accd1701341c0ee9779963b6"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">canardClass::slave::rmap_service::_is_executed</a></div><div class="ttdeci">bool _is_executed</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00455">canard_class_master.hpp:455</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -314,10 +314,10 @@ Private Attributes</h2></td></tr>
 <p>Verifica se un comando per il relativo modulo è in attesa. Diventerà false o verrà attivato il timeout. </p>
 <dl class="section return"><dt>Returns</dt><dd>true se un comando è in attesa </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01531">1531</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;                                                  {</div>
-<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a>;</div>
-<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01534">1534</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;                                                  {</div>
+<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a>;</div>
+<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -340,11 +340,11 @@ Private Attributes</h2></td></tr>
 <p>Gestione transfer ID UAVCAN per la classe relativa. </p>
 <dl class="section return"><dt>Returns</dt><dd>Prossimo transfer_id valido in standard UAVCAN </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01544">1544</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;                                                           {</div>
-<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a1f050d913b6db6038b6d9857f71d467f">_next_transfer_id</a>++;    </div>
-<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;}</div>
-<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a1f050d913b6db6038b6d9857f71d467f"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a1f050d913b6db6038b6d9857f71d467f">canardClass::slave::rmap_service::_next_transfer_id</a></div><div class="ttdeci">uint8_t _next_transfer_id</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00454">canard_class_master.hpp:454</a></div></div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01547">1547</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;                                                           {</div>
+<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a1f050d913b6db6038b6d9857f71d467f">_next_transfer_id</a>++;    </div>
+<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;}</div>
+<div class="ttc" id="aclasscanardClass_1_1slave_1_1rmap__service_html_a1f050d913b6db6038b6d9857f71d467f"><div class="ttname"><a href="classcanardClass_1_1slave_1_1rmap__service.html#a1f050d913b6db6038b6d9857f71d467f">canardClass::slave::rmap_service::_next_transfer_id</a></div><div class="ttdeci">uint8_t _next_transfer_id</div><div class="ttdef"><b>Definition:</b> <a href="canard__class__master_8hpp_source.html#l00456">canard_class_master.hpp:456</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -383,13 +383,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01515">1515</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;                                                                                    {</div>
-<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;    <span class="comment">// Setta il comando corretto in risposta con una copia del blocco dati</span></div>
-<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;    memcpy(<a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a>, response, len_response);</div>
-<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01518">1518</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;                                                                                    {</div>
+<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;    <span class="comment">// Setta il comando corretto in risposta con una copia del blocco dati</span></div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;    memcpy(<a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a>, response, len_response);</div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -411,11 +411,11 @@ Private Attributes</h2></td></tr>
 
 <p>Resetta lo stato dei flag pending per il metodo corrente, inizializza o annulla il comando. </p>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01507">1507</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;                                                     {</div>
-<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01510">1510</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;                                                     {</div>
+<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -457,24 +457,28 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eac78c95b8b50a471af6bbd52a229aa573">Module_Type::radiation</a>:</div>
 <div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_Radiation_Response_1_0));</div>
 <div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eaf8c33b3fcc6333e88c55e603007e9fe4">Module_Type::power</a>:</div>
-<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_Power_Response_1_0));</div>
+<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea831fc3a2f78e54e3c4ce5251aa1fc268">Module_Type::level</a>:</div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_RiverLevel_Response_1_0));</div>
 <div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a">Module_Type::vwc</a>:</div>
-<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_VWC_Response_1_0));</div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eaf8c33b3fcc6333e88c55e603007e9fe4">Module_Type::power</a>:</div>
+<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_Power_Response_1_0));</div>
 <div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea5d8fb01f99058adc89b01acf9f6a84bf">Module_Type::wind</a>:</div>
-<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_Wind_Response_1_0));</div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a">Module_Type::vwc</a>:</div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_VWC_Response_1_0));</div>
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = NULL;</div>
-<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;    }</div>
-<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;    <span class="comment">// Save Module Type to Local</span></div>
-<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8c621098e74165b846dcb7c27f7d5d38">_module_type</a> = module_type;</div>
-<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;}</div>
-<div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a">vwc</a></div><div class="ttdeci">@ vwc</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00054">local_typedef.h:53</a></div></div>
+<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea5d8fb01f99058adc89b01acf9f6a84bf">Module_Type::wind</a>:</div>
+<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = malloc(<span class="keyword">sizeof</span>(rmap_service_module_Wind_Response_1_0));</div>
+<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;            <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a20d774719694e9b6b320f6c4b3d324d2">_response</a> = NULL;</div>
+<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;    }</div>
+<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;    <span class="comment">// Save Module Type to Local</span></div>
+<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8c621098e74165b846dcb7c27f7d5d38">_module_type</a> = module_type;</div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;}</div>
+<div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea0ca6cbf691501f28ceaa5907b42de34a">vwc</a></div><div class="ttdeci">@ vwc</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00053">local_typedef.h:53</a></div></div>
 <div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7ea39654824b8e43edc3c26fb76048165a9"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea39654824b8e43edc3c26fb76048165a9">rain</a></div><div class="ttdeci">@ rain</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00044">local_typedef.h:44</a></div></div>
 <div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7ea5d8fb01f99058adc89b01acf9f6a84bf"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea5d8fb01f99058adc89b01acf9f6a84bf">wind</a></div><div class="ttdeci">@ wind</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00049">local_typedef.h:49</a></div></div>
+<div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7ea831fc3a2f78e54e3c4ce5251aa1fc268"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7ea831fc3a2f78e54e3c4ce5251aa1fc268">level</a></div><div class="ttdeci">@ level</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00055">local_typedef.h:54</a></div></div>
 <div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7eac78c95b8b50a471af6bbd52a229aa573"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eac78c95b8b50a471af6bbd52a229aa573">radiation</a></div><div class="ttdeci">@ radiation</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00050">local_typedef.h:50</a></div></div>
 <div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7eadfce604c3cafd0d9acf3702e57fc9cce"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eadfce604c3cafd0d9acf3702e57fc9cce">th</a></div><div class="ttdeci">@ th</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00045">local_typedef.h:45</a></div></div>
 <div class="ttc" id="alocal__typedef_8h_html_a7aba55553099c5e9c6c18e6d4e556e7eaf8c33b3fcc6333e88c55e603007e9fe4"><div class="ttname"><a href="local__typedef_8h.html#a7aba55553099c5e9c6c18e6d4e556e7eaf8c33b3fcc6333e88c55e603007e9fe4">power</a></div><div class="ttdeci">@ power</div><div class="ttdef"><b>Definition:</b> <a href="local__typedef_8h_source.html#l00052">local_typedef.h:52</a></div></div>
@@ -536,13 +540,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01499">1499</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;                                                                    {</div>
-<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;    <span class="comment">// Riferimento locale</span></div>
-<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a11b4c17cd1af87815395268b67d69ce6">_timeout_us</a> = <a class="code" href="classcanardClass.html#a53f0101816b67bdee9f601fbd07d237a">_syncMicros</a> + timeout_us;</div>
-<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8cpp_source.html#l01502">1502</a> of file <a class="el" href="canard__class__master_8cpp_source.html">canard_class_master.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;                                                                    {</div>
+<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;    <span class="comment">// Riferimento locale</span></div>
+<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#aa53ed6b9a5a2b1d2758a36a85b5de794">_is_pending</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a8d28f5a4accd1701341c0ee9779963b6">_is_executed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;    <a class="code" href="classcanardClass_1_1slave_1_1rmap__service.html#a11b4c17cd1af87815395268b67d69ce6">_timeout_us</a> = <a class="code" href="classcanardClass.html#a53f0101816b67bdee9f601fbd07d237a">_syncMicros</a> + timeout_us;</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -567,7 +571,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00453">453</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00455">455</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
@@ -591,7 +595,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00452">452</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00454">454</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
@@ -615,7 +619,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00450">450</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00452">452</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
@@ -639,7 +643,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00454">454</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00456">456</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
@@ -663,7 +667,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00449">449</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00451">451</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
@@ -687,7 +691,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00448">448</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00450">450</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
@@ -711,7 +715,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00451">451</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canard__class__master_8hpp_source.html#l00453">453</a> of file <a class="el" href="canard__class__master_8hpp_source.html">canard_class_master.hpp</a>.</p>
 
 </div>
 </div>
