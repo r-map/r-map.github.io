@@ -1,66 +1,71 @@
-Versione originale:
+Il metodo scientifico
+=====================
 
-https://www.recensito.net/archivio/41-scienza-co/7371-cos-e-e-come-funziona-la-comunita-scientifica.html
+Introduzione
+------------
 
 Cos’è e come funziona la comunità scientifica
 
-Multiforme e variegata, la comunità scientifica è una comunità ben
-particolare. Composta da centinaia di migliaia di persone è
-organizzata in gruppi relativamente piccoli, ma capaci di collaborare
-(e competere) attraverso distanze intercontinentali. La rete della
-ricerca infatti è estesissima, dall’India agli Stati Uniti, ed i campi
-di indagine sono altrettanto vasti: dalla terapia dei tumori allo
-studio del clima, alle ricerche sui parassiti delle piante. E’ facile
-capire come quindi la scienza si esprima come un coro più che come una
-voce unitaria, ed anzi possano insorgere discussioni interne e
-diatribe scientifiche. Dunque cosa fa di queste migliaia di persone
-una comunità, nonostante vivano spesso in Paesi diversi, con lingue,
-religioni e culture profondamente differenti? La comunità si regge
-sull’adesione a un metodo di lavoro, che è la sperimentazione, e sul
-valore universale della conoscenza. I ricercatori infatti comunicano
-moltissimo fra loro, entro i limiti della concorrenza. Il più
-importante mezzo di comunicazione sono le riviste scientifiche, in cui
-accanto ad articoli più giornalistici (editoriali, novità, commenti)
-sono pubblicate le nuove scoperte. Lungi dal limitarsi a sommarie
-conclusioni, questi lavori presentano nel dettaglio metodi utilizzati,
-esperimenti condotti, risultati ottenuti sotto forma di grafici o
-immagini. In questo modo l’intera comunità può giudicare
-l’attendibilità e il valore della scoperta e ripetere gli stessi
-esperimenti, per approfondire ulteriormente la ricerca o eventualmente
-smentirla. La pubblicazione riporta i nomi degli autori, e suggella la
-paternità delle scoperte: in Paesi come gli USA molti finanziamenti
-dipendono dal numero e dalla qualità delle pubblicazioni. Queste
-infatti non sono tutte uguali, ma si differenziano per la portata ed
-il rigore metodologico, deducibili in genere dalla rivista su cui sono
-pubblicate. Infatti i lavori da pubblicare sono scelti da una
-commissione composta da diversi ricercatori indipendenti, autorevoli
-nel loro campo, che leggono il lavoro candidato e ne danno un giudizio
-critico. Più la rivista è di alto livello più sarà accurata la
-selezione (e viceversa). Difficilmente sarà smentita una scoperta
-pubblicata da riviste internazionali e multidisciplinari come Nature e
-Science. Mentre invece annunci sensazionalistici non supportati da
-alcuna prova non sono notizie scientifiche e non saranno mai
-pubblicati. L’aspetto più bello è che queste riviste sono oggi
-disponibili in Internet, e quindi è possibile per qualunque
-ricercatore informarsi ogni giorno sui progressi compiuti magari
-dall’altra parte del mondo! (per i curiosi che leggono l’inglese
-un’ottima banca dati di interesse biomedico è PubMed, su
-www.ncbi.nlm.nih.gov, che rende pubblici i sommari degli articoli,
-mentre la versione integrale è accessibile a pagamento o con gli
-accessi universitari) Naturalmente vi sono poi raduni e convegni, che
-possono avere portata locale o internazionale, e in genere sono di
-settore. Anche se solitamente i singoli laboratori e le istituzioni di
-ricerca sono strutture gerarchiche, il confronto tra diversi gruppi
-avviene alla pari, con i dati sperimentali come uniche “armi”o
-obiettivo comune. E praticamente in tutti i centri di ricerca sono
-frequenti i seminari, con ospiti esterni chiamati a raccontare le loro
-scoperte, e discuterne. Naturalmente gli scienziati sono persone
-normali, capaci come chiunque altro di meschinità ed errori. Ma non
-sarebbe bello imitarne più spesso la capacità di discutere all’interno
-di un territorio comune?
+https://www.recensito.net/archivio/41-scienza-co/7371-cos-e-e-come-funziona-la-comunita-scientifica.html
 
-(Dott.ssa Marta Annunziata - Biotecnologa)
+.. Multiforme e variegata, la comunità scientifica è una comunità ben
+   particolare. Composta da centinaia di migliaia di persone è
+   organizzata in gruppi relativamente piccoli, ma capaci di
+   collaborare (e competere) attraverso distanze intercontinentali. La
+   rete della ricerca infatti è estesissima, dall’India agli Stati
+   Uniti, ed i campi di indagine sono altrettanto vasti: dalla terapia
+   dei tumori allo studio del clima, alle ricerche sui parassiti delle
+   piante. E’ facile capire come quindi la scienza si esprima come un
+   coro più che come una voce unitaria, ed anzi possano insorgere
+   discussioni interne e diatribe scientifiche. Dunque cosa fa di
+   queste migliaia di persone una comunità, nonostante vivano spesso
+   in Paesi diversi, con lingue, religioni e culture profondamente
+   differenti? La comunità si regge sull’adesione a un metodo di
+   lavoro, che è la sperimentazione, e sul valore universale della
+   conoscenza. I ricercatori infatti comunicano moltissimo fra loro,
+   entro i limiti della concorrenza. Il più importante mezzo di
+   comunicazione sono le riviste scientifiche, in cui accanto ad
+   articoli più giornalistici (editoriali, novità, commenti) sono
+   pubblicate le nuove scoperte. Lungi dal limitarsi a sommarie
+   conclusioni, questi lavori presentano nel dettaglio metodi
+   utilizzati, esperimenti condotti, risultati ottenuti sotto forma di
+   grafici o immagini. In questo modo l’intera comunità può giudicare
+   l’attendibilità e il valore della scoperta e ripetere gli stessi
+   esperimenti, per approfondire ulteriormente la ricerca o
+   eventualmente smentirla. La pubblicazione riporta i nomi degli
+   autori, e suggella la paternità delle scoperte: in Paesi come gli
+   USA molti finanziamenti dipendono dal numero e dalla qualità delle
+   pubblicazioni. Queste infatti non sono tutte uguali, ma si
+   differenziano per la portata ed il rigore metodologico, deducibili
+   in genere dalla rivista su cui sono pubblicate. Infatti i lavori da
+   pubblicare sono scelti da una commissione composta da diversi
+   ricercatori indipendenti, autorevoli nel loro campo, che leggono il
+   lavoro candidato e ne danno un giudizio critico. Più la rivista è
+   di alto livello più sarà accurata la selezione (e
+   viceversa). Difficilmente sarà smentita una scoperta pubblicata da
+   riviste internazionali e multidisciplinari come Nature e
+   Science. Mentre invece annunci sensazionalistici non supportati da
+   alcuna prova non sono notizie scientifiche e non saranno mai
+   pubblicati. L’aspetto più bello è che queste riviste sono oggi
+   disponibili in Internet, e quindi è possibile per qualunque
+   ricercatore informarsi ogni giorno sui progressi compiuti magari
+   dall’altra parte del mondo! (per i curiosi che leggono l’inglese
+   un’ottima banca dati di interesse biomedico è PubMed, su
+   www.ncbi.nlm.nih.gov, che rende pubblici i sommari degli articoli,
+   mentre la versione integrale è accessibile a pagamento o con gli
+   accessi universitari) Naturalmente vi sono poi raduni e convegni,
+   che possono avere portata locale o internazionale, e in genere sono
+   di settore. Anche se solitamente i singoli laboratori e le
+   istituzioni di ricerca sono strutture gerarchiche, il confronto tra
+   diversi gruppi avviene alla pari, con i dati sperimentali come
+   uniche “armi”o obiettivo comune. E praticamente in tutti i centri
+   di ricerca sono frequenti i seminari, con ospiti esterni chiamati a
+   raccontare le loro scoperte, e discuterne. Naturalmente gli
+   scienziati sono persone normali, capaci come chiunque altro di
+   meschinità ed errori. Ma non sarebbe bello imitarne più spesso la
+   capacità di discutere all’interno di un territorio comune?
 
+.. (Dott.ssa Marta Annunziata - Biotecnologa)
 
 
 

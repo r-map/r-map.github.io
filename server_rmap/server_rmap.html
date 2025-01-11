@@ -107,6 +107,44 @@
 <li class="toctree-l3"><a class="reference internal" href="#porte-utilizzate">Porte utilizzate</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#documentazione-implementazione">Documentazione implementazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-stazioni">Configurazione stazioni</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifiche-per-immagini-georeferenziate">Specifiche per immagini georeferenziate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifiche-per-file-di-configurazione-stazione">Specifiche per file di configurazione stazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#esempio-di-notification-json-rpc">Esempio di notification JSON-RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#broker-mqtt">Broker MQTT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generazione-dei-file-di-autenticazione-autorizzazione">Generazione dei file di autenticazione/autorizzazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#url">URL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#broker-amqp">Broker AMQP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definizione-nuovo-fornitore-o-consumatore-di-dati">Definizione nuovo fornitore o consumatore di dati</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nomenclatura-convenzionale">Nomenclatura convenzionale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sistema-di-autenticazione-e-autorizzazione-di-rmap">Sistema di autenticazione e autorizzazione di RMAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amqp-url-reference">URL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#log">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#descrizione-applicazioni-django">Descrizione applicazioni Django</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stations-app">stations app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-app">network app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http2mqtt-app">http2mqtt app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firmware-updater-e-firmware-updater-stima-app">firmware_updater e firmware_updater_stima app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geoimage-app">geoimage app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rpc-app">rpc app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ticket-app">ticket app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borinud-app">borinud app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graphite-dballe-app">graphite-dballe  app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insertdata-app">insertdata app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showdata-app">showdata app</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#daemon">Daemon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#struttura-cartelle">Struttura cartelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Data ingestion</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-completo-basato-su-rocky-linux-8">Installazione server completo basato su  Rocky Linux 8</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installazione-sistema-operativo">Installazione sistema operativo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#firewall">Firewall</a></li>
@@ -127,13 +165,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Installazione sistema operativo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Mosquitto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Rabbitmq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Installazione sistema operativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Rabbitmq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Monit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Server di origine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">Server di destinazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">Server di origine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34">Server di destinazione</a></li>
 </ul>
 </li>
 </ul>
@@ -243,7 +281,7 @@ a server.</p></li>
 <p><a class="reference internal" href="../_images/flussodati.png"><img alt="image0" src="../_images/flussodati.png" style="width: 16.51cm; height: 12.312cm;" /></a></p>
 </div>
 <div class="section" id="data-ingestion">
-<h3>Data ingestion<a class="headerlink" href="#data-ingestion" title="Link a questa intestazione">¶</a></h3>
+<span id="dataingestion-reference"></span><h3>Data ingestion<a class="headerlink" href="#data-ingestion" title="Link a questa intestazione">¶</a></h3>
 <p>Il data ingestion riguarda principalmente l’accoglimento di dati da
 stazioni via MQTT e AMQP. I dati che arrivano via MQTT sono poi
 inoltrati al broker AMQP, che è il nucleo della movimentazione dei dati
@@ -270,7 +308,7 @@ non usano AMQP o non usano il formato BUFR (e.g. Luftdaten).</p>
 <p><a class="reference internal" href="../_images/dataingestion.png"><img alt="image1" src="../_images/dataingestion.png" style="width: 16.51cm; height: 16.016cm;" /></a></p>
 </div>
 <div class="section" id="configurazione-delle-stazioni">
-<h3>Configurazione delle stazioni<a class="headerlink" href="#configurazione-delle-stazioni" title="Link a questa intestazione">¶</a></h3>
+<span id="configurazionestazioni-reference"></span><h3>Configurazione delle stazioni<a class="headerlink" href="#configurazione-delle-stazioni" title="Link a questa intestazione">¶</a></h3>
 <p>Questa funzionalità permette l’aggiornamento della configurazione e del
 firmware delle stazioni STIMA. L’aggiornamento può essere fatto via HTTP
 o AMQP, previa autenticazione presso il corrispondente servizio di
@@ -278,7 +316,7 @@ autenticazione.
 <a class="reference internal" href="../_images/stationmanager.png"><img alt="image2" src="../_images/stationmanager.png" style="width: 16.51cm; height: 10.372cm;" /></a></p>
 </div>
 <div class="section" id="registrazione-utenti">
-<h3>Registrazione utenti<a class="headerlink" href="#registrazione-utenti" title="Link a questa intestazione">¶</a></h3>
+<span id="registrazioneutenti-reference"></span><h3>Registrazione utenti<a class="headerlink" href="#registrazione-utenti" title="Link a questa intestazione">¶</a></h3>
 <p>Questa funzionalità permette di registrare gli utenti attraverso un
 classico processo di iscrizione: l’utente compila una form e riceve una
 email per la conferma dell’avvenuta registrazione. Ovviamente, c’è un
@@ -286,7 +324,7 @@ dialogo con il servizio di autenticazione.
 <a class="reference internal" href="../_images/registrazione_utenti.png"><img alt="image3" src="../_images/registrazione_utenti.png" style="width: 16.51cm; height: 12.136cm;" /></a></p>
 </div>
 <div class="section" id="visualizzazione-dei-dati">
-<h3>Visualizzazione dei dati<a class="headerlink" href="#visualizzazione-dei-dati" title="Link a questa intestazione">¶</a></h3>
+<span id="visualizzazionedati-reference"></span><h3>Visualizzazione dei dati<a class="headerlink" href="#visualizzazione-dei-dati" title="Link a questa intestazione">¶</a></h3>
 <p>Questo servizio permette di visualizzare i dati archiviati (DB-All.e e
 Arkimet) sia su mappa che su grafico. Non c’è servizio di autenticazione
 e autorizzazione perchè si presuppone che tutti i dati siano pubblici.
@@ -296,7 +334,7 @@ ingestion sia collegato all’importatore dei dati su DB-All.e e Arkimet.
 <a class="reference internal" href="../_images/borinud_showdata.png"><img alt="image4" src="../_images/borinud_showdata.png" style="width: 16.51cm; height: 7.938cm;" /></a></p>
 </div>
 <div class="section" id="cosudo">
-<h3>Cosudo<a class="headerlink" href="#cosudo" title="Link a questa intestazione">¶</a></h3>
+<span id="cosudo-reference"></span><h3>Cosudo<a class="headerlink" href="#cosudo" title="Link a questa intestazione">¶</a></h3>
 <p>Cosudo permette di analizzare i dati osservati per identificare
 anomalie, confrontando i dati da stazione con dati radar, satellite e
 previsti. Inoltre, permette all’operatore di invalidare dei dati: tali
@@ -310,7 +348,7 @@ server rmap.cc, deve essere reso privato.</p>
 <a class="reference internal" href="../_images/cosudo.png"><img alt="image5" src="../_images/cosudo.png" style="width: 16.51cm; height: 15.84cm;" /></a></p>
 </div>
 <div class="section" id="inserimento-manuale-dei-dati">
-<h3>Inserimento manuale dei dati<a class="headerlink" href="#inserimento-manuale-dei-dati" title="Link a questa intestazione">¶</a></h3>
+<span id="inserimentomanuale-reference"></span><h3>Inserimento manuale dei dati<a class="headerlink" href="#inserimento-manuale-dei-dati" title="Link a questa intestazione">¶</a></h3>
 <p>Questa funzionalità permette l’inserimento manuale, da parte di
 operatori, di dati e immagini via HTTP e AMQP. I dati attualmente sono
 le osservazioni della neve e del tempo (quest’ultimo all’interno del
@@ -318,7 +356,7 @@ progetto RainBO). Si appoggia al sistema di autenticazione.
 <a class="reference internal" href="../_images/insertdata_geoimage.png"><img alt="image6" src="../_images/insertdata_geoimage.png" style="width: 16.51cm; height: 9.102cm;" /></a></p>
 </div>
 <div class="section" id="rainbo">
-<h3>RainBO<a class="headerlink" href="#rainbo" title="Link a questa intestazione">¶</a></h3>
+<span id="raindo-reference"></span><h3>RainBO<a class="headerlink" href="#rainbo" title="Link a questa intestazione">¶</a></h3>
 <p>È l’interfaccia per un progetto, che permette la visualizzazione con
 delle viste personalizzate per i seguenti servizi:</p>
 <ul class="simple">
@@ -328,7 +366,7 @@ delle viste personalizzate per i seguenti servizi:</p>
 </ul>
 </div>
 <div class="section" id="interfaccia-web">
-<h3>Interfaccia web<a class="headerlink" href="#interfaccia-web" title="Link a questa intestazione">¶</a></h3>
+<span id="interfacciaweb-reference"></span><h3>Interfaccia web<a class="headerlink" href="#interfaccia-web" title="Link a questa intestazione">¶</a></h3>
 <p>L’accesso da browser al sistema per alcune funzionalità, quali</p>
 <ul class="simple">
 <li><p>Registrazione utente</p></li>
@@ -449,6 +487,1008 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="documentazione-implementazione">
+<h2>Documentazione implementazione<a class="headerlink" href="#documentazione-implementazione" title="Link a questa intestazione">¶</a></h2>
+<p>Il funzionamento del back-end e del front-end è basato su due broker,
+una suite di applicazioni Django, alcuni tools e da una suite di daemon.</p>
+<div class="section" id="configurazione-stazioni">
+<h3>Configurazione stazioni<a class="headerlink" href="#configurazione-stazioni" title="Link a questa intestazione">¶</a></h3>
+<p>Le configurazioni risiedono sul server. Possono essere scaricate e uplodate sul server.
+Le configurazioni devono essere trasferite alle stazioni e devono sempre essere allineate.
+Le stazioni Stima si possono configurare con i seguenti formati e trasporti:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 17%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>trasporto
+Seriale</p></td>
+<td><p>trasporto
+HTTP</p></td>
+<td><p>tasporto
+http PSK</p></td>
+<td><p>SD
+card</p></td>
+<td><p>download/upload
+server</p></td>
+</tr>
+<tr class="row-even"><td><p>JSON-RPC</p></td>
+<td><p>#</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>notification JSON-RPC</p></td>
+<td></td>
+<td><p>#</p></td>
+<td><p>#</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dump DB in json</p></td>
+<td></td>
+<td><p>#</p></td>
+<td></td>
+<td></td>
+<td><p>#</p></td>
+</tr>
+<tr class="row-odd"><td><p>file binario</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>#</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>queste configurazioni sono utilizzate differentemente a seconda del
+modello di stazione:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 31%" />
+<col style="width: 23%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>JSON-RPC</p></td>
+<td><p>notification JSON-RPC</p></td>
+<td><p>dump DB in json</p></td>
+<td><p>file binario</p></td>
+</tr>
+<tr class="row-even"><td><p>StimaWifi</p></td>
+<td></td>
+<td></td>
+<td><p>#</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Stima V3</p></td>
+<td><p>#</p></td>
+<td></td>
+<td></td>
+<td><p>#</p></td>
+</tr>
+<tr class="row-even"><td><p>Stima V4</p></td>
+<td><p>#</p></td>
+<td><p>#</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="specifiche-per-immagini-georeferenziate">
+<h3>Specifiche per immagini georeferenziate<a class="headerlink" href="#specifiche-per-immagini-georeferenziate" title="Link a questa intestazione">¶</a></h3>
+<p>Le immagini devono essere in formato jpeg e usare exif per i metadati.</p>
+<p>Vengono utilizzati i seguenti metadati:</p>
+<ul class="simple">
+<li><p>Latitude/Longitude (GPSIFD.GPSLatitude/GPSIFD.GPSLongitude)</p></li>
+<li><p>reftime            (ImageIFD.DateTime)</p></li>
+<li><p>imagedescription   (ImageIFD.ImageDescription)</p></li>
+<li><p>usercomment        (ExifIFD.UserComment)</p></li>
+</ul>
+</div>
+<div class="section" id="specifiche-per-file-di-configurazione-stazione">
+<h3>Specifiche per file di configurazione stazione<a class="headerlink" href="#specifiche-per-file-di-configurazione-stazione" title="Link a questa intestazione">¶</a></h3>
+<p>Il file è un dump in json del DB usato da Django relativo solo alle
+tabelle di interesse per la configurazione. Questo un esempio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.stationmetadata&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;paperino&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ident&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">44.48858</span><span class="p">,</span>
+    <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">11.37099</span><span class="p">,</span>
+    <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mqttrootpath&quot;</span><span class="p">:</span> <span class="s2">&quot;sample&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mqttmaintpath&quot;</span><span class="p">:</span> <span class="s2">&quot;maint&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;stimav2&quot;</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.board&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;template&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;sn&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;stationmetadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;paperino&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.sensor&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dust&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;SPS&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;i2cbus&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span>
+    <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;timerange&quot;</span><span class="p">:</span> <span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;board&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;paperino&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.sensor&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Temperature_Humidity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;SHT&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;i2cbus&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="mi">68</span><span class="p">,</span>
+    <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;timerange&quot;</span><span class="p">:</span> <span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;board&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;paperino&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.sensor&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CO2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;SCD&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;i2cbus&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span>
+    <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;timerange&quot;</span><span class="p">:</span> <span class="s2">&quot;254,0,0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;103,2000,-,-&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;board&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;paperino&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.transportmqtt&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;mqttsampletime&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;mqttserver&quot;</span><span class="p">:</span> <span class="s2">&quot;test.rmap.it&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mqttuser&quot;</span><span class="p">:</span> <span class="s2">&quot;paperino&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mqttpassword&quot;</span><span class="p">:</span> <span class="s2">&quot;wFCeWf4ZqY&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mqttpskkey&quot;</span><span class="p">:</span> <span class="s2">&quot;648A67186FBF033E8A508282EEA74767&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;board&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;paperino&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.transporttcpip&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stima&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ntpserver&quot;</span><span class="p">:</span> <span class="s2">&quot;it.pool.ntp.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gsmapn&quot;</span><span class="p">:</span> <span class="s2">&quot;ibox.tim.it&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pppnumber&quot;</span><span class="p">:</span> <span class="s2">&quot;*99#&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;board&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;paperino&quot;</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.stationconstantdata&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;btable&quot;</span><span class="p">:</span> <span class="s2">&quot;B01019&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stationmetadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;paperino&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;stations.stationconstantdata&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;btable&quot;</span><span class="p">:</span> <span class="s2">&quot;B07030&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;400&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stationmetadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;paperino&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="esempio-di-notification-json-rpc">
+<h3>Esempio di notification JSON-RPC<a class="headerlink" href="#esempio-di-notification-json-rpc" title="Link a questa intestazione">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;reset&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sd&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B01019&quot;</span><span class="p">:</span> <span class="s2">&quot;stimawifi&quot;</span><span class="p">}}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sd&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B07030&quot;</span><span class="p">:</span> <span class="s2">&quot;400&quot;</span><span class="p">}}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttrootpath&quot;</span><span class="p">:</span> <span class="s2">&quot;1/sample/paperino//1137099,4448858/fixed/&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttmaintpath&quot;</span><span class="p">:</span> <span class="s2">&quot;1/maint/paperino//1137099,4448858/fixed/&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttrpcpath&quot;</span><span class="p">:</span> <span class="s2">&quot;1/rpc/paperino//1137099,4448858/fixed/&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttsampletime&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;mqttserver&quot;</span><span class="p">:</span> <span class="s2">&quot;test.rmap.it&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttuser&quot;</span><span class="p">:</span> <span class="s2">&quot;paperino&quot;</span><span class="p">,</span> <span class="s2">&quot;mqttpassword&quot;</span><span class="p">:</span> <span class="s2">&quot;77CeWf4ZqY&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mqttpskkey&quot;</span><span class="p">:</span> <span class="s2">&quot;0x328467156FBF033E8A508282EEA74767&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;stationslug&quot;</span><span class="p">:</span> <span class="s2">&quot;stimawifi&quot;</span><span class="p">,</span> <span class="s2">&quot;boardslug&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ntpserver&quot;</span><span class="p">:</span> <span class="s2">&quot;it.pool.ntp.org&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;gsmapn&quot;</span><span class="p">:</span> <span class="s2">&quot;ibox.tim.it&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SPS&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s2">&quot;mqttpath&quot;</span><span class="p">:</span> <span class="s2">&quot;254,0,0/103,2000,-,-/&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SHT&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="mi">68</span><span class="p">,</span> <span class="s2">&quot;mqttpath&quot;</span><span class="p">:</span> <span class="s2">&quot;254,0,0/103,2000,-,-/&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;SCD&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span> <span class="s2">&quot;mqttpath&quot;</span><span class="p">:</span> <span class="s2">&quot;254,0,0/103,2000,-,-/&quot;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;save&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">}}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;reboot&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="broker-mqtt">
+<h3>Broker MQTT<a class="headerlink" href="#broker-mqtt" title="Link a questa intestazione">¶</a></h3>
+<p>Le stazioni Stima comunicano i dati al broker differentemente a
+seconda della versione:</p>
+<ul class="simple">
+<li><p><strong>stazioni StimaWiFi</strong>: comunicano in WiFi in chiaro, tramite
+protocollo MQTT</p></li>
+<li><p><strong>stazioni Stima V3</strong>: comunicano in GSM in chiaro, tramite
+protocollo MQTT</p></li>
+<li><p><strong>stazioni Stima V4</strong>: comunicano in TLS con PSK (Pre-Shared Key),
+tramite protocollo MQTTS (PSK)</p></li>
+</ul>
+<p>Il broker MQTT (mosquitto) authentica e autorizza tramite un apposito
+plugin.  Utilizza l'hash delle password utente, le chiavi PSK, le ACL;
+queste vengono ottenute da file o da un server di autenticazione
+tramite API http.  La generazione del file se necessario piò essere
+fatta con il tool rmapctrl.</p>
+<p>Mosquitto comunica tramite un terzo protocollo, MQTT con SSL/TLS su
+Websocket utilizzato per funzionalità di monitoraggio delle stazioni
+meteo; tramite javascript nel web browser.  Gli operatori che
+gestiscono le varie stazioni meteo possono attivare il monitoraggio su
+websocket per verificare i messaggi pubblicati dalla stazione sul
+broker evitando la necessità di avere un apposito client MQTT.</p>
+<p>E’ presente anche un altro demone (<strong>report2observationd</strong>) che
+effettua una trasformazione dei messaggi che arrivano inizialmente
+compressi (vedi forme compresse protocollo RMAP over MQTT), li
+decomprime e li pubblica nuovamente, per cui arrivano sul broker MQTT
+in forma decompressa.</p>
+<p>Ogni stazione può pubblicare solamente sul topic mqtt per cui è stata
+configurata e quindi autorizzata, in base a utente, rete, latitudine e
+longitudine. Ogni autenticazione e autorizzazione corrisponde a una
+richiesta http, ma con apposita cache del plugin di mosquitto.</p>
+<p>Il plugin di mosquitto è una versione appositamente modificata:
+<a class="reference external" href="https://github.com/r-map/mosquitto-auth-plug">https://github.com/r-map/mosquitto-auth-plug</a></p>
+<p>Se configurato a tale scopo il broker alle richieste di
+autenticazione/autorizzazione, nel caso in cui non sia disponibile il
+servizio http ricade su un file statico. Quando la configurazione
+hardware lo indichi come opportuno (separazione fisica della data
+ingestion) il file statico, utilizzato come sistema di autenticazione
+di backup, deve essere sincronizzato tramite procedura schedulata dal
+server di backend verso il server di data ingestion in modo da
+consentire comunque l’autenticazione delle stazioni anche in caso di
+failure del backend (il sistema non consentirà per esempio l’aggiunta
+o lo spostamento di stazioni ma non si bloccherà la pubblicazione dei
+dati).</p>
+<p>I dati, una volta autenticate le stazioni sul backend e pubblicati
+tramite il broker MQTT sono disponibili ai subscriber, principalmente
+ai daemoni per la conversione di formato e l'invio come messaggi AMQP.</p>
+<div class="section" id="generazione-dei-file-di-autenticazione-autorizzazione">
+<h4>Generazione dei file di autenticazione/autorizzazione<a class="headerlink" href="#generazione-dei-file-di-autenticazione-autorizzazione" title="Link a questa intestazione">¶</a></h4>
+<p>Per mantenere allineato il processo di autenticazione sul broker MQTT
+e consentire l’autenticazione delle stazioni, anche in caso di failure
+del server di backend, è utilizzabile il tool <strong>rmapctrl</strong> che deve
+generere i seguenti file:</p>
+<ul class="simple">
+<li><p>file.pwd</p></li>
+<li><p>aclfile</p></li>
+<li><p>file.psk</p></li>
+</ul>
+<p>Una volta copiati i file in <strong>/etc/mosquitto/</strong> sul server di data
+ingestion, è necessario effettuare un reload del servizio
+<strong>mosquitto.service</strong> in modo che i file aggiornati vengano recepiti
+correttamente; questo normalmente viene fatto solo in caso di modifica
+degli stessi file.</p>
+</div>
+<div class="section" id="url">
+<span id="mqtt-url-reference"></span><h4>URL<a class="headerlink" href="#url" title="Link a questa intestazione">¶</a></h4>
+<p>Se le URLs configurate tornano HTTP status code == 2xx, allora la
+authentication / authorization ha successo. Se lo status code == 4xx,
+authentication / authorization fallisce. Per uno status code == 5xx o
+server Unreachable, la richiesta HTTP sarà ritentata fino al raggiungimento di
+http_retry_count. Se tutti i tentativi falliscono e nessun altro backend ha successo,
+allora torna un errore e il client è disconnesso.</p>
+<p>Configurazioni Mosquitto per il back-end http:</p>
+<p>differenti modi di autenticare l'utente:</p>
+<ul class="simple">
+<li><p>auth_opt_http_getuser_uri /auth/auth</p></li>
+<li><p>auth_opt_http_getuser_uri /auth/auth_sha</p></li>
+<li><p>auth_opt_http_getuser_uri /auth/sha</p></li>
+<li><p>auth_opt_http_getuser_uri /auth/pskkey</p></li>
+</ul>
+<p>verifica autorizzazioni:</p>
+<ul class="simple">
+<li><p>auth_opt_http_superuser_uri /auth/superuser</p></li>
+<li><p>auth_opt_http_aclcheck_uri /auth/acl</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="broker-amqp">
+<h3>Broker AMQP<a class="headerlink" href="#broker-amqp" title="Link a questa intestazione">¶</a></h3>
+<p>Il brocker AMQP (rabbitmq) svolge queste funzioni principali:</p>
+<ul class="simple">
+<li><p>fornisce AMQP come protocollo per lo scambio dati</p></li>
+<li><p>gestisce lo scambio interno dei messaggi sostanzialmente come
+sistema di buffering persistente</p></li>
+<li><p>gestisce accoglienza e autorizzazione relativamente a:
+- dati in formato json (secondo specifiche RMAP)
+- immagini georeferenziate
+- configurazioni stazioni
+mettendo poi a disposizione questi dati ad appositi archiviatori</p></li>
+<li><p>mette a disposizione un sistema per lo scambio dati tra fornitori e
+consumatori di dati (grosse moli di dati)</p></li>
+</ul>
+<p>Viene utilizzato un solo tipo di exchange: fanout</p>
+<p><a class="reference internal" href="../_images/10000000000002BA000001CF10D58739AA10CEF3.png"><img alt="fanoutexchange" src="../_images/10000000000002BA000001CF10D58739AA10CEF3.png" style="width: 11.18cm; height: 7.334cm;" /></a></p>
+<p>I producer inviano dati agli <strong>Exchange</strong> e i consumer li prelevano
+dalle <strong>Queue</strong>.
+La gestione e il monitoraggio del broker avviene tramite l’accesso
+all’interfaccia web di RabbitMQ.
+All’accesso viene visualizzata la dashboard con statistiche varie,
+messaggi accodati, accodati, connessioni, ecc…</p>
+<p><a class="reference internal" href="../_images/10000001000007600000037539E6A3FD1D30171B.png"><img alt="overview" src="../_images/10000001000007600000037539E6A3FD1D30171B.png" style="width: 14.986cm; height: 7.022cm;" /></a></p>
+<p>Il numero di messaggi in stato <em>Ready</em> può essere un buon indicatore
+in caso di problemi, se il numero cresce in maniera importante e i
+messaggi non vengono scodati.</p>
+<p>Nella sezione <strong>Exchanges</strong> è possibile
+gestire quelli esistenti oppure configurarne di nuovi.</p>
+<p><a class="reference internal" href="../_images/10000001000002F6000001694EE7486645E83327.png"><img alt="exchanges" src="../_images/10000001000002F6000001694EE7486645E83327.png" style="width: 10.589cm; height: 5.313cm;" /></a></p>
+<p>Cliccando sul nome del Exchange si viene rimandati al dettaglio della
+sua configurazione e alla definizione dei <strong>Bindings</strong>, ovvero dove
+vengono indirizzati i messaggi pubblicati: la <strong>Queue</strong> di
+destinazione</p>
+<p>Exchanges → Queue</p>
+<p>ad esempio:
+rmap.mqtt.bufr.report_fixed → arpaer.out.bufr.report_fixed&amp;validated</p>
+<p><a class="reference internal" href="../_images/100000010000034B00000253E938A43FC98A0D1A.png"><img alt="exchange" src="../_images/100000010000034B00000253E938A43FC98A0D1A.png" style="width: 10.292cm; height: 7.417cm;" /></a></p>
+<p>Nella sezione <strong>Queues &amp; Streams</strong> vengono gestite e definite le code
+di destinazione dei messaggi collezionati dal <strong>Exchange</strong>.</p>
+<p>Qui posso controllare il numero di messaggi disponibili nella coda,
+non ancora confermati, ecc…  Solitamente se tutto funziona
+correttamente la coda dovrebbe risultare sempre vuota, in quanto il
+<strong>consumer</strong> ha recuperato correttamente tutti i messaggi pubblicati.</p>
+<p><a class="reference internal" href="../_images/10000001000006600000033B3F9646A30A7792D1.png"><img alt="queue" src="../_images/10000001000006600000033B3F9646A30A7792D1.png" style="width: 11.566cm; height: 6.343cm;" /></a></p>
+<p>In questa sezione è possibile spostare i messaggi da una coda ad
+un’altra (<strong>Move messages</strong>), cancellare definitivamente la coda e
+tutti i suoi messaggi (<strong>Delete Queue</strong>) oppure cancellare tutti i
+messaggi all'interno della coda (<strong>Purge Messages</strong>).</p>
+<p>Nella sezione <strong>Admins</strong> vengono definiti gli utenti necessari solo al
+broker AMQP e non utilizzati dal resto del sistema di
+authenticazione. Questi saranno quindi solo fornitori e consumatori di
+dati esterni.  Qui vengono definite le autorizzazioni dell'utente
+secondo una precisa definizione di regexp. A esempio per l’utente
+<strong>paperino</strong> sono le seguenti:</p>
+<ul class="simple">
+<li><p>virtual host utilizzato è il default, ovvero “ / ”</p></li>
+<li><p>non ha permessi di configurazione (campo vuoto in fase di
+definizione)</p></li>
+<li><p>ha permessi di lettura e scrittura in tutto ciò (exchange e queue)
+che inizia con il suo nome utente (<strong>^paperino..*</strong>), in cui potrà
+leggere e pubblicare dati</p></li>
+</ul>
+<div class="section" id="definizione-nuovo-fornitore-o-consumatore-di-dati">
+<h4>Definizione nuovo fornitore o consumatore di dati<a class="headerlink" href="#definizione-nuovo-fornitore-o-consumatore-di-dati" title="Link a questa intestazione">¶</a></h4>
+<p>La definizione di un nuovo fornitore di dati o consumatore di dati è
+ottenuta da:</p>
+<ul class="simple">
+<li><p>creazione utente con privilegi write e read con regular expression
+<strong>^utente..*</strong></p></li>
+<li><p>creazione queue con eventuale <em>Message TTL</em> (se vuoto è indefinito,
+altrimenti imposta il valore massimo in millisecondi di permanenza dei
+messaggi nella queue, una volta superato quel valore i messaggi
+vengono rimossi)</p></li>
+<li><p>creazione exchange con binding alla queue creata al punto precedente</p></li>
+</ul>
+</div>
+<div class="section" id="nomenclatura-convenzionale">
+<h4>Nomenclatura convenzionale<a class="headerlink" href="#nomenclatura-convenzionale" title="Link a questa intestazione">¶</a></h4>
+<p>La sintassi utilizzata nella definizione di exchange e code è
+autoesplicativa e basata sul punto come separatore tra campi</p>
+<p>Fornitore:
+-  <strong>exchange</strong> → <em>utente.in.formato.descrizione</em></p>
+<p>Consumatore:
+-  <strong>queue</strong> → <em>utente.out.formato.descrizione</em></p>
+<p><em>utente</em> = nome utente definito in fase di creazione
+<em>in/out</em> = direzione operazione (<em>in</em> per fornitore, <em>out</em> per consumatore)
+<em>formato</em> = tipologia di output (es. json, xml, bufr)
+<em>descrizione</em> = label descrittiva dei dati in transito</p>
+<p>Ogni utente ha accesso in lettura e scrittura a exchange e code che
+iniziano con il <strong>Name</strong> del proprio utente.</p>
+<p>Nelle coda è definito il parametro <strong>Message TTL</strong> con un valore ad
+esempio di 604800000 (millisecondi) pari a 7 giorni, per cui tutti i
+messaggi pubblicati al suo interno rimarranno disponibili nella coda
+per 7 giorni, i messaggi più vecchi rimossi automaticamente.</p>
+</div>
+<div class="section" id="sistema-di-autenticazione-e-autorizzazione-di-rmap">
+<h4>Sistema di autenticazione e autorizzazione di RMAP<a class="headerlink" href="#sistema-di-autenticazione-e-autorizzazione-di-rmap" title="Link a questa intestazione">¶</a></h4>
+<p>Il broker utilizza inoltre il sistema di autenticazione e
+autorizzazione di RMAP per autenticare la ricezione di messaggi:</p>
+<ul class="simple">
+<li><p>fotografie: formato jpeg</p></li>
+<li><p>configurazione stazioni: formato json</p></li>
+</ul>
+</div>
+<div class="section" id="amqp-url-reference">
+<span id="id1"></span><h4>URL<a class="headerlink" href="#amqp-url-reference" title="Link a questa intestazione">¶</a></h4>
+<p>Autentica utente o amministratore:</p>
+<ul class="simple">
+<li><p>user_path     &quot;<a class="reference external" href="http://localhost/auth/user">http://localhost/auth/user</a>&quot;</p></li>
+</ul>
+<p>Sempre autorizzato tutti vhost:</p>
+<ul class="simple">
+<li><p>vhost_path    &quot;<a class="reference external" href="http://localhost/auth/vhost">http://localhost/auth/vhost</a>&quot;</p></li>
+</ul>
+<p>Autorizzate risorse che iniziano con un punto &quot;.&quot; e &quot;configuration&quot; o &quot;photo&quot;:</p>
+<ul class="simple">
+<li><p>resource_path &quot;<a class="reference external" href="http://localhost/auth/resource">http://localhost/auth/resource</a>&quot;</p></li>
+</ul>
+<p>Le successive verifiche di autenticazione vengono fatte dai daemon di
+importazione dati che verificano che l'utente utilizzato per
+l'autenticazione AMQP siano corrispondenti ai metadati dei dati
+inviati.</p>
+<p>Per fotografie e configurazioni questa attualmente è una metodologia
+disattivata a vantaggio della metodologia HTTP.</p>
+</div>
+</div>
+<div class="section" id="log">
+<h3>Log<a class="headerlink" href="#log" title="Link a questa intestazione">¶</a></h3>
+<p>Tutti i log relativi ai daemon coinvolti in RMAP si trovano nella directory <strong>/var/log/rmap/</strong>.</p>
+</div>
+<div class="section" id="descrizione-applicazioni-django">
+<h3>Descrizione applicazioni Django<a class="headerlink" href="#descrizione-applicazioni-django" title="Link a questa intestazione">¶</a></h3>
+<p>Il funzionamento del back-end e del front-end è garantito da una suite
+di applicazioni Django</p>
+<div class="section" id="stations-app">
+<h4>stations app<a class="headerlink" href="#stations-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="descrizione">
+<h5>Descrizione<a class="headerlink" href="#descrizione" title="Link a questa intestazione">¶</a></h5>
+<p>Questa applicazione sovranintende alla gestione delle stazioni
+gestendone la crezione, configurazione e aggiornamento dei metadati,
+mantenedo aggiornati lo stato di funzionamento e autodiagnostica, le
+versioni del firmware utilizzate, e le informazioni di autenticazione
+e autorizzazione.</p>
+</div>
+<div class="section" id="database">
+<h5>DataBase<a class="headerlink" href="#database" title="Link a questa intestazione">¶</a></h5>
+<a class="reference internal image-reference" href="../_images/model_stations.png"><img alt="../_images/model_stations.png" src="../_images/model_stations.png" style="width: 100%;" /></a>
+<div class="section" id="table-userprofile">
+<h6>table UserProfile<a class="headerlink" href="#table-userprofile" title="Link a questa intestazione">¶</a></h6>
+<p>relazione one to one con l'oggetto User del Django authentication system
+utilizzato per estendere i metadati di un utente.</p>
+</div>
+<div class="section" id="table-stationmetadata">
+<h6>table StationMetadata<a class="headerlink" href="#table-stationmetadata" title="Link a questa intestazione">¶</a></h6>
+<p>Metadati principali di una stazione.
+Identificativi che compongono la chieve univoca per il DataBase dati:</p>
+<ul class="simple">
+<li><p>ident: identificativo per stazioni mobili</p></li>
+<li><p>lat/lon: coordinate</p></li>
+<li><p>network: rete di stazioni omogenee a cui appartiene</p></li>
+</ul>
+<p>Identificativi univoci per il DataBase dati:</p>
+<ul class="simple">
+<li><p>user: utente</p></li>
+<li><p>slug: identificativo sintetico della stazione</p></li>
+</ul>
+</div>
+<div class="section" id="table-stationconstantdata">
+<h6>table StationConstantdata<a class="headerlink" href="#table-stationconstantdata" title="Link a questa intestazione">¶</a></h6>
+<p>Coppia btable,value che compongono i dati costanti di stazione.</p>
+</div>
+<div class="section" id="table-board">
+<h6>table Board<a class="headerlink" href="#table-board" title="Link a questa intestazione">¶</a></h6>
+<p>Board (moduli) che fanno parte di una stazione. Una Board prevede uno o più transporti di comunicazione,
+uno o più sensori, uno stato di funzionamento e uno stato del firmware.</p>
+</div>
+<div class="section" id="table-transport">
+<h6>table Transport*<a class="headerlink" href="#table-transport" title="Link a questa intestazione">¶</a></h6>
+<p>Definiscono i paramtri di comunicazione per ogni trasporto.</p>
+</div>
+<div class="section" id="table-sensor">
+<h6>table Sensor<a class="headerlink" href="#table-sensor" title="Link a questa intestazione">¶</a></h6>
+<p>Sensori connessi a una board.
+Identificativi che compongono la chiave univoca per il DataBase dati:</p>
+<ul class="simple">
+<li><p>level: livello rappresentativo delle misure</p></li>
+<li><p>timernage: elaborazione statistica</p></li>
+</ul>
+<p>Definisce il driver utilizzato per il bus che bisogna utilizzare per
+comunicare con il sensore insieme ad alcuni parametri per
+identificarlo e per comunicare con lui.</p>
+</div>
+<div class="section" id="table-sensortype">
+<h6>table SensorType<a class="headerlink" href="#table-sensortype" title="Link a questa intestazione">¶</a></h6>
+<p>Definisce un tipo di sensore: il livello dei dati (sample o report) e
+il tipo che determina il driver da utilizzare per comunicare con il
+sensore. Ogni sensore può riportare più misure definite dalla tabelle btable.</p>
+</div>
+<div class="section" id="table-btable">
+<h6>table Btable<a class="headerlink" href="#table-btable" title="Link a questa intestazione">¶</a></h6>
+<p>Elenco dei Bcode della tabella B definita in modo univoco dalle
+specifiche RMAP (tabella B WMO). Sono abbinati descrizione e unità di misura
+prima e dopo un eventuale applicazione dei fattori di scala.</p>
+</div>
+<div class="section" id="table-boardmaintstatus">
+<h6>table BoardMaintStatus<a class="headerlink" href="#table-boardmaintstatus" title="Link a questa intestazione">¶</a></h6>
+<p>Definisce lo stato di una Board così come comunicati dalla stazione (Stima V4).
+Prevede valori booleani e numerici.</p>
+</div>
+<div class="section" id="table-boardfirmwaremetadata">
+<h6>table BoardFirmwareMetadata<a class="headerlink" href="#table-boardfirmwaremetadata" title="Link a questa intestazione">¶</a></h6>
+<p>Mantiene uno stato aggiornato dei firmware delle board presenti in stazione.
+Il campo mac viene utilizzato:</p>
+<ul class="simple">
+<li><p>valorizzato al primo tentativo di aggiornamento</p></li>
+<li><p>verificato i successivi aggiornamenti</p></li>
+<li><p>i restanti campi sono aggiornati solo se la verifica ha successo</p></li>
+</ul>
+<p>questo serve come semplice metodo di autenticazione della richiesta
+http di aggiornamento del firmware delle board. Se l'hardware viene
+cambiato a una stazione preesistente il mac deve essere resettato.</p>
+</div>
+<div class="section" id="table-stationmaintstatus">
+<h6>table StationMaintStatus<a class="headerlink" href="#table-stationmaintstatus" title="Link a questa intestazione">¶</a></h6>
+<p>Questa tabella viene aggiornata tramite la messaggistica a standard
+RMAP nel root topic &quot;maint&quot; dei dati pubblicati MQTT. Mantiene la
+versione del firmware di stazione (versione globale, solitamente della
+board master), l'utimo aggiornamento della connessione e lo stato
+della connessione.</p>
+</div>
+<div class="section" id="table-stationimage">
+<h6>table StationImage<a class="headerlink" href="#table-stationimage" title="Link a questa intestazione">¶</a></h6>
+<p>Associa ad ogni stazione delle fotografie con commenti e metadati
+utili per dettagliare la sua collocazione e caratteristiche.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h5>URL<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h5>
+<p>Sono riportate solo le versioni delle URL con tutti i parametri, anche omittibili</p>
+<ul class="simple">
+<li><p><strong>'^$'</strong> home page</p></li>
+<li><p><strong>'^wizard/$'</strong>       wizard inizio configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^wizard2/$'</strong>      wizard seconda pagina configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^wizard_done/$'</strong>  wizard fine configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^wizard_error/$'</strong> wizard errore configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^admin/doc/'</strong>    documentatione admin di Django</p></li>
+<li><p><strong>^admin/'</strong>         admin di Django</p></li>
+<li><p><strong>'^registrazione/register/$'</strong>   pagina di registrazione utenti</p></li>
+<li><p><strong>'^registrazione/'</strong>  radice di tutti i path necessari per la registrazione utenti</p></li>
+<li><p><strong>'^auth/user'</strong>        autenticazione/autorizzazione rabbit-mq; guarda <a class="reference internal" href="#amqp-url-reference"><span class="std std-ref">amqp</span></a></p></li>
+<li><p><strong>'^auth/vhost'</strong>       autenticazione/autorizzazione rabbit-mq; guarda <a class="reference internal" href="#amqp-url-reference"><span class="std std-ref">amqp</span></a></p></li>
+<li><p><strong>'^auth/resource'</strong>    autenticazione/autorizzazione rabbit-mq; guarda <a class="reference internal" href="#amqp-url-reference"><span class="std std-ref">amqp</span></a></p></li>
+<li><p><strong>'^auth/auth$'</strong>       autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/auth_sha$'</strong>   autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/sha$'</strong>        autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/pskkey$'</strong>     autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/superuser$'</strong>  autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/acl$'</strong>        autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^accounts/profile/(?P&lt;mystation_slug&gt;[-w]+)/(?P&lt;stationimage_id&gt;[-w]+)/$'</strong>
+pagina di amministrazione dell'utente/della stazione utente</p></li>
+<li><p><strong>'^robots.txt$'</strong>   robots.txt per i motori di ricerca</p></li>
+<li><p><strong>'^stations/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> elenco
+stazioni con metadati riassuntivi</p></li>
+<li><p><strong>'^stationstatus/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> elenco
+stazioni con stato e autodiagnostica</p></li>
+<li><p><strong>'^stationmqttmonitor/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong>
+monitoraggio web della comunicazione MQTT</p></li>
+<li><p><strong>'^stationsupload/json/$'</strong> upload della configurazione stazione se
+l'utente è autenticato e se la stazione uplodata corrisponde
+all'utente stesso (è il metodo attualmente utilizzato in sostituzione di AMQP)</p></li>
+<li><p><strong>'^stationconfig/(?P&lt;user&gt;[-_w]+)/(?P&lt;station_slug&gt;[-_w]+)$'</strong> serie
+di RPC per configurare una stazione in modalità &quot;notification&quot;</p></li>
+<li><p><strong>'^stations/(?P&lt;user&gt;[-_w]+)/(?P&lt;station_slug&gt;[-_w]+)/json/$'</strong>
+configurazione stazione in formato json; se l'utente è autenticato
+il json è completo di password, nel caso contrario sono assenti; il
+timerange viene completato con P2=mqttsampletime; da utilizzare per
+la configurazione stazione</p></li>
+<li><p><strong>'^stations/(?P&lt;user&gt;[-_w]+)/(?P&lt;station_slug&gt;[-_w]+)/json_dump/$'</strong>
+dump della configurazione stazione in formato json; se l'utente è autenticato
+il json è completo di password, nel caso contrario sono assenti; il
+timerange non viene completato lasciando P2 per essere completato successivamente.</p></li>
+<li><p><strong>'^stations/(?P&lt;user&gt;[-_w]+)/(?P&lt;station_slug&gt;[-_w]+)/configv3/$'</strong>
+restituisce un file binario da utilizzare su SD card per la
+configurazione stazioni Stima V3</p></li>
+<li><p><strong>'^stations/(?P&lt;user&gt;[-_w]+)/(?P&lt;station_slug&gt;[-_w]+)/(?P&lt;board_slug&gt;[-_w]*)/json/$'</strong>
+configurazione di una board di una stazione in formato json; se
+l'utente è autenticato il json è completo di password, nel caso
+contrario sono assenti; il timerange viene completato con
+P2=mqttsampletime; da utilizzare per la configurazione stazione</p></li>
+<li><p><strong>'^delstation/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> cancellazione di una stazione</p></li>
+<li><p><strong>'^stationlocaldata/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> visualizza
+i dati misurati dalla stazione StimaWiFi se risulta collegata nella
+stessa rete locale con avahi/bonjour</p></li>
+<li><p><strong>'^stationsonmap/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> visualizza le
+stazioni su mappa</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="network-app">
+<h4>network app<a class="headerlink" href="#network-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id3">
+<h5>Descrizione<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h5>
+<p>Ogni stazione è associata a un network. In questa app viene
+visualizzata la lista dei network e i metadati di ogni network.  Non
+esiste un link automatico tra i network pubblicati dalle stazioni e i
+network presenti in questa app.  Se lo stesso network è presente sia
+nei dati che in questa app, i metadati presenti in questa app vengono
+visualizzati quando richiesto.</p>
+</div>
+<div class="section" id="id4">
+<h5>DataBase<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_network.png" src="../_images/model_network.png" />
+</div>
+<div class="section" id="id5">
+<h5>URL<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p><strong>'^network/(?P&lt;name&gt;[-w]+)/$'</strong>    navigazione e visualizzazione network</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="http2mqtt-app">
+<h4>http2mqtt app<a class="headerlink" href="#http2mqtt-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id6">
+<h5>Descrizione<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h5>
+<p>Questa app permette di pubblicare i dati tramite http.  Le specifiche
+seguono le RMAP RFC per http con le specifiche a questo link
+<a class="reference internal" href="../rmap_rfc/rfc.html#rmaprfc-http-reference"><span class="std std-ref">http2mqtt</span></a></p>
+</div>
+<div class="section" id="id7">
+<h5>URL<a class="headerlink" href="#id7" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p><strong>'^http2mqtt/$'</strong></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="firmware-updater-e-firmware-updater-stima-app">
+<h4>firmware_updater e firmware_updater_stima app<a class="headerlink" href="#firmware-updater-e-firmware-updater-stima-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id8">
+<h5>Descrizione<a class="headerlink" href="#id8" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id9">
+<h5>DataBase<a class="headerlink" href="#id9" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_firmware.png" src="../_images/model_firmware.png" />
+<p>Le due tabelle differiscono per la versionatura del firmware in un
+caso utilizzando un campo date e nell'altro revisione e versione.</p>
+</div>
+<div class="section" id="id10">
+<h5>URL<a class="headerlink" href="#id10" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>'^firmware/$', views.index, name='firmware_index'),</p></li>
+<li><p>'^firmware/update/(?P&lt;name&gt;[-_w]+)/$', views.update, name='firmware_update'),</p></li>
+<li><p>'^firmware/stima/v4/$'</p></li>
+<li><p>'^firmware/stima/v4/update/(?P&lt;name&gt;[-_w]+)/$'</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="geoimage-app">
+<h4>geoimage app<a class="headerlink" href="#geoimage-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id11">
+<h5>Descrizione<a class="headerlink" href="#id11" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id12">
+<h5>DataBase<a class="headerlink" href="#id12" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_geoimage.png" src="../_images/model_geoimage.png" />
+</div>
+<div class="section" id="id13">
+<h5>URL<a class="headerlink" href="#id13" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>'^geoimage/geoimagesonmap/(?P&lt;ident&gt;[-_w]+)/$'</p></li>
+<li><p>'^geoimage/geoimagebyid/(?P&lt;id&gt;[-_w]+)/$'</p></li>
+<li><p>'^geoimage/geoimagedelete/(?P&lt;id&gt;[-_w]+)/$'</p></li>
+<li><p>'^geoimage/geoimagesbycoordinate/(?P&lt;lon&gt;[-_w.]+)/(?P&lt;lat&gt;[-_w.]+)/$'</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rpc-app">
+<h4>rpc app<a class="headerlink" href="#rpc-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id14">
+<h5>Descrizione<a class="headerlink" href="#id14" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id15">
+<h5>DataBase<a class="headerlink" href="#id15" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_rpc.png" src="../_images/model_rpc.png" />
+</div>
+<div class="section" id="id16">
+<h5>URL<a class="headerlink" href="#id16" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>'^rpcs/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
+<li><p>'^rpc/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/(?P&lt;id&gt;[-_w]+)/$'</p></li>
+<li><p>'^rpc-submit-free/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
+<li><p>'^rpc-submit/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="ticket-app">
+<h4>ticket app<a class="headerlink" href="#ticket-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id17">
+<h5>Descrizione<a class="headerlink" href="#id17" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id18">
+<h5>DataBase<a class="headerlink" href="#id18" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_ticket.png" src="../_images/model_ticket.png" />
+</div>
+<div class="section" id="id19">
+<h5>URL<a class="headerlink" href="#id19" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>'^tickets/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
+<li><p>'^ticket/(?P&lt;ticket&gt;[-_w]+)/$'</p></li>
+<li><p>'^ticket_image/(?P&lt;image_id&gt;[-_w]+)/$'</p></li>
+<li><p>'^ticket_attachment/(?P&lt;attachment_id&gt;[-_w]+)/$'</p></li>
+<li><p>'^tickets_assigned/(?P&lt;user_ass&gt;[-_w]+)/$'</p></li>
+<li><p>'^tickets_subscribed/(?P&lt;user_sub&gt;[-_w]+)/$'</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="borinud-app">
+<h4>borinud app<a class="headerlink" href="#borinud-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id20">
+<h5>Descrizione<a class="headerlink" href="#id20" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id21">
+<h5>URL<a class="headerlink" href="#id21" title="Link a questa intestazione">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basepattern</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;^borinud/api/v1/(?P&lt;format&gt;\w+)&#39;</span>
+<span class="s1">&#39;/(?P&lt;ident&gt;\w+|\*|-)&#39;</span>
+<span class="s1">&#39;/(?P&lt;coords&gt;(?P&lt;lon&gt;\-?\+?\d+|-),(?P&lt;lat&gt;\-?\+?\d+|-)|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;network&gt;[-\w]+|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;trange&gt;(?P&lt;tr&gt;\d+|-|\*),(?P&lt;p1&gt;\d+|-|\*),(?P&lt;p2&gt;\d+|-|\*)|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;level&gt;(?P&lt;lt1&gt;\d+|-|\*),(?P&lt;lv1&gt;\d+|-|\*),(?P&lt;lt2&gt;\d+|-|\*),(?P&lt;lv2&gt;\d+|-|\*)|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;var&gt;B\d</span><span class="si">{5}</span><span class="s1">|\*)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>'^borinud/$'</p></li>
+<li><p>basepattern + '/summaries/(?P&lt;year&gt;d{4})/(?P&lt;month&gt;d{2})/(?P&lt;day&gt;d{2})$'</p></li>
+<li><p>basepattern + '/timeseries/(?P&lt;year&gt;d{4})/(?P&lt;month&gt;d{2})/(?P&lt;day&gt;d{2})/(?P&lt;hour&gt;d{2})$'</p></li>
+<li><p>basepattern + '/spatialseries/(?P&lt;year&gt;d{4})/(?P&lt;month&gt;d{2})/(?P&lt;day&gt;d{2})/(?P&lt;hour&gt;d{2})$'</p></li>
+<li><p>basepattern + '/stationdata$'</p></li>
+<li><p>basepattern + '/stations$'</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="graphite-dballe-app">
+<h4>graphite-dballe  app<a class="headerlink" href="#graphite-dballe-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id22">
+<h5>Descrizione<a class="headerlink" href="#id22" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id23">
+<h5>URL<a class="headerlink" href="#id23" title="Link a questa intestazione">¶</a></h5>
+</div>
+</div>
+<div class="section" id="insertdata-app">
+<h4>insertdata app<a class="headerlink" href="#insertdata-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id24">
+<h5>Descrizione<a class="headerlink" href="#id24" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id25">
+<h5>URL<a class="headerlink" href="#id25" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>'^insertdata/image$'</p></li>
+<li><p>'^insertdata/manualdata$'</p></li>
+<li><p>'^insertdata/newstation$'</p></li>
+<li><p>'^insertdata/stationmodify/(?P&lt;slug&gt;[-_w]+)/(?P&lt;bslug&gt;[-_w]+)/$'</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="showdata-app">
+<h4>showdata app<a class="headerlink" href="#showdata-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id26">
+<h5>Descrizione<a class="headerlink" href="#id26" title="Link a questa intestazione">¶</a></h5>
+</div>
+<div class="section" id="id27">
+<h5>URL<a class="headerlink" href="#id27" title="Link a questa intestazione">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basepattern</span> <span class="o">=</span> <span class="p">(</span>
+<span class="s1">&#39;^showdata/(?P&lt;ident&gt;\w+|\*|-)&#39;</span>
+<span class="s1">&#39;/(?P&lt;coords&gt;(?P&lt;lon&gt;\-?\+?\d+|-),(?P&lt;lat&gt;\-?\+?\d+|-)|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;network&gt;[-\w]+|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;trange&gt;(?P&lt;tr&gt;\d+|-|\*),(?P&lt;p1&gt;\d+|-|\*),(?P&lt;p2&gt;\d+|-|\*)|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;level&gt;(?P&lt;lt1&gt;\d+|-|\*),(?P&lt;lv1&gt;\d+|-|\*),(?P&lt;lt2&gt;\d+|-|\*),(?P&lt;lv2&gt;\d+|-|\*)|\*)&#39;</span>
+<span class="s1">&#39;/(?P&lt;var&gt;B\d</span><span class="si">{5}</span><span class="s1">|\*)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>'^showdata/$'</p></li>
+<li><p>basepattern + '/timeseries/(?P&lt;year&gt;d{4})/(?P&lt;month&gt;d{2})/(?P&lt;day&gt;d{2})/(?P&lt;hour&gt;d{2})$'</p></li>
+<li><p>basepattern + '/spatialseries/(?P&lt;year&gt;d{4})/(?P&lt;month&gt;d{2})/(?P&lt;day&gt;d{2})$'</p></li>
+<li><p>basepattern + '/stationdata$'</p></li>
+<li><p>basepattern + '/stations$'</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="daemon">
+<h3>Daemon<a class="headerlink" href="#daemon" title="Link a questa intestazione">¶</a></h3>
+<p>Il daemon sono hanno i seguento comandi:
+* run
+* start
+* stop</p>
+<p>le altre opzioni sono documentate con l'opzione --help</p>
+<ul class="simple">
+<li><p>amqp2amqp_identvalidationd</p></li>
+<li><p>amqp2amqp_jsonline2bufrd</p></li>
+<li><p>amqp2arkimetd</p></li>
+<li><p>amqp2dballed</p></li>
+<li><p>amqp2djangod</p></li>
+<li><p>amqp2geoimaged</p></li>
+<li><p>amqp2mqttd</p></li>
+<li><p>composereportd</p></li>
+<li><p>dballe2arkimet</p></li>
+<li><p>mqtt2amqpd</p></li>
+<li><p>mqtt2dballed</p></li>
+<li><p>mqtt2graphited</p></li>
+<li><p>mqtt2stationmaintd</p></li>
+<li><p>report2observationd</p></li>
+<li><p>rpcd</p></li>
+<li><p>stationd</p></li>
+<li><p>ttn2dballed</p></li>
+</ul>
+</div>
+<div class="section" id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Link a questa intestazione">¶</a></h3>
+<p>Il tools disponibili sono:</p>
+<ul class="simple">
+<li><p>rmapgui</p></li>
+<li><p>rmapweb</p></li>
+<li><p>rmapctrl</p></li>
+<li><p>rmap-explorer</p></li>
+<li><p>rmap-configure</p></li>
+</ul>
+</div>
+<div class="section" id="struttura-cartelle">
+<h3>Struttura cartelle<a class="headerlink" href="#struttura-cartelle" title="Link a questa intestazione">¶</a></h3>
+<dl class="simple">
+<dt>arduino</dt><dd><p>obsolete library and formware for arduino SDK</p>
+</dd>
+<dt>arpae_aq_ckan_to_bufr</dt><dd><p>getter and importer from ARPAE ckan db for air quality data</p>
+</dd>
+<dt>doc</dt><dd><p>documentation source</p>
+</dd>
+<dt>fritzing</dt><dd><p>simple schematic and PCB for fritzing EDA</p>
+</dd>
+<dt>kicad</dt><dd><p>all Stima schematic and PCB for Kicad</p>
+</dd>
+<dt>luftdaten_to_bufr</dt><dd><p>getter and importer from luftdaten DB</p>
+</dd>
+<dt>mqtt2bufr</dt><dd><p>mqtt to bufr and vice versa following RMAP specification</p>
+</dd>
+<dt>pic</dt><dd><p>obsolete firmware for i2c-power pic version</p>
+</dd>
+<dt>pipe2dba</dt><dd><p>osolete importer from pipe</p>
+</dd>
+<dt>platformio</dt><dd><p>all Stima firmware project for platformio</p>
+</dd>
+<dt>python</dt><dd><p>python source code for RMAP server and tools</p>
+</dd>
+<dt>rabbitmq</dt><dd><p>saved configuration for rabbitmq broker</p>
+</dd>
+<dt>raspberry</dt><dd><p>obsolete software for Stima base raspberry version</p>
+</dd>
+<dt>rpm</dt><dd><p>rpm spec files to be updated</p>
+</dd>
+<dt>server</dt><dd><p>configuration files for RMAP server full version
+(changed from default installation)</p>
+</dd>
+<dt>server-backend</dt><dd><p>configuration files for RMAP server backend only  version
+(changed from default installation)</p>
+</dd>
+<dt>server-data-ingestion</dt><dd><p>configuration files for RMAP server data-ingestion only  version
+(changed from default installation)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id28">
+<h3>Data ingestion<a class="headerlink" href="#id28" title="Link a questa intestazione">¶</a></h3>
+<p>Da rimuove solo di riferimento per sphinx</p>
+<p>Si possono consultare le <a class="reference internal" href="#dataingestion-reference"><span class="std std-ref">funzionalità</span></a></p>
 </div>
 </div>
 <div class="section" id="installazione-server-completo-basato-su-rocky-linux-8">
@@ -655,21 +1695,18 @@ chown -R apache /etc/httpd/certs</p>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>::</dt><dd><p>chown -R arkimet:rmap /rmap/arkimet/
-chmod -R g+w  /rmap/arkimet/</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
+<span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">g</span><span class="o">+</span><span class="n">w</span>  <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
+</pre></div>
+</div>
 <p>oppure:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>chown -R rmap:rmap /rmap/arkimet/</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>::</dt><dd><p>mkdir /var/log/arkimet
-chown -R arkimet:arkimet /var/log/arkimet</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">rmap</span><span class="p">:</span><span class="n">rmap</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">arkimet</span><span class="o">/</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">arkimet</span>
+<span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">arkimet</span><span class="p">:</span><span class="n">arkimet</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">arkimet</span>
+</pre></div>
+</div>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/sysconfig/arkimet">/etc/sysconfig/arkimet</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server/etc/arkimet/scan/bufr_generic_mobile_rmap.py">/etc/arkimet/scan/bufr_generic_mobile_rmap.py</a></p>
 <p>Replicate structure in:</p>
@@ -847,8 +1884,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </div>
 <div class="section" id="installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">
 <h2>Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8<a class="headerlink" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id1">
-<h3>Installazione sistema operativo<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id29">
+<h3>Installazione sistema operativo<a class="headerlink" href="#id29" title="Link a questa intestazione">¶</a></h3>
 <p>Installare Rocky Linux 8.</p>
 <p>Aggiunta repository e installazione pacchetti</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
@@ -877,8 +1914,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 <p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rmap/rmap-site.cfg">/etc/rmap/rmap-site.cfg</a></p>
 <p>cambiare la password dell'utente amministratore.</p>
 </div>
-<div class="section" id="id2">
-<h3>Mosquitto<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id30">
+<h3>Mosquitto<a class="headerlink" href="#id30" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
 <span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
@@ -895,8 +1932,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>Rabbitmq<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id31">
+<h3>Rabbitmq<a class="headerlink" href="#id31" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span><span class="n">bash</span>
 <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">erlang</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">bash</span>
 
@@ -927,8 +1964,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/rabbitmq/rabbit_server_data_ingestion.json">rabbit_server_data_ingestion.json</a></p>
 <p>dalla stessa interfaccia di management web impostare le password per tutti gli utenti, rimuovere l'utente &quot;guest&quot; e fare login con uno dei nuovi utenti definiti.</p>
 </div>
-<div class="section" id="id4">
-<h3>Monit<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id32">
+<h3>Monit<a class="headerlink" href="#id32" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
@@ -943,8 +1980,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <div class="section" id="sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">
 <h3>Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend<a class="headerlink" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend" title="Link a questa intestazione">¶</a></h3>
-<div class="section" id="id5">
-<h4>Server di origine<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id33">
+<h4>Server di origine<a class="headerlink" href="#id33" title="Link a questa intestazione">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportsha</span> <span class="o">&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttsha</span> <span class="o">&gt;&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttacl</span> <span class="o">&gt;</span> <span class="n">aclfile</span>
@@ -953,8 +1990,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <p>eventualmente rimuovere le prime righe di messaggistica del logging</p>
 </div>
-<div class="section" id="id6">
-<h4>Server di destinazione<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id34">
+<h4>Server di destinazione<a class="headerlink" href="#id34" title="Link a questa intestazione">¶</a></h4>
 <p>Trasferire i file in /etc/mosquitto/ sul nostro server per la data ingestion.
 Imparire il comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">systemctl</span> <span class="n">reload</span> <span class="n">mosquitto</span><span class="o">.</span><span class="n">service</span>

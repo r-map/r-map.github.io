@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Probabilità &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Cambiamento climatico" href="../cambiamento_climatico/cambiamento_climatico.html" />
+    <link rel="prev" title="Qualità dell&#39;aria" href="../qualit%C3%A0_aria/qualit%C3%A0_aria.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../misure/protocollo_misurazioni.html">Protocollo misurazioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_di_tutti/la_scienza_di_tutti.html">Citizen Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualit%C3%A0_aria/qualit%C3%A0_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Probabilità</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#previsioni-meteorologiche-e-probabilita">Previsioni meteorologiche e probabilità</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#previsioni-probabilistiche">Previsioni probabilistiche</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#protezione-civile-e-probabilita">Protezione civile e probabilità</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sistema-di-allertamento">Sistema di allertamento</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cambiamento_climatico/cambiamento_climatico.html">Cambiamento climatico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Probabilità</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/probabilità/probabilità.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="probabilita">
+<h1>Probabilità<a class="headerlink" href="#probabilita" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="previsioni-meteorologiche-e-probabilita">
+<h2>Previsioni meteorologiche e probabilità<a class="headerlink" href="#previsioni-meteorologiche-e-probabilita" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="previsioni-probabilistiche">
+<h3>Previsioni probabilistiche<a class="headerlink" href="#previsioni-probabilistiche" title="Link a questa intestazione">¶</a></h3>
+</div>
+</div>
+<div class="section" id="protezione-civile-e-probabilita">
+<h2>Protezione civile e probabilità<a class="headerlink" href="#protezione-civile-e-probabilita" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="sistema-di-allertamento">
+<h3>Sistema di allertamento<a class="headerlink" href="#sistema-di-allertamento" title="Link a questa intestazione">¶</a></h3>
+<p>Un sistema di allertamento, ci ha ricordato più volte l'Organizzazione
+Meteorologica Mondiale, è fondato su un binomio indissolubile: early
+warning &amp; early action. Se al preannuncio previsionale fornito dallo
+&quot;warning&quot; non corrisponde un'altrettanto tempestiva messa in opera
+della &quot;action&quot;, cioè di provvedimenti atti a minimizzare l'esposizione
+al pericolo in termini di vite umane, lo warning resta un mero
+esercizio tecnico-scientifico.</p>
+<p>Il nodo cruciale, con l'allertamento meteo-idrologico, è che stiamo
+parlando non solo di prevedere la dinamica di un sistema fisico
+caotico (l'atmosfera), ma anche di valutarne gli impatti su un sistema
+altrettanto complesso (il territorio, a maggior ragione se
+intensamente antropizzato): incertezza per incertezza, fa incertezza
+al quadrato. Quindi lo warning, che piaccia o meno (le leggi della
+Fisica restano tali anche quando non riscontrano il nostro gradimento)
+è un oggetto probabilistico, con questo sarebbe anche ora di fare
+pace. Invece la action è un oggetto deterministico, anzi a volte è
+addirittura binario, tertium non datur: o prendo un provvedimento o
+non lo prendo. O mando i lavoratori a casa prima di fine turno e fermo
+per quel giorno le attività dell'azienda, o tengo aperto, o sospendo
+le lezioni scolastiche e universitarie o le confermo, o chiudo un
+ponte o non lo chiudo, o metto le strutture di prevenzione e i corpi
+di soccorso in configurazione rinforzata (cioè affronto dei costi, per
+esempio pago degli straordinari ai reperibili) o le lascio il
+configurazione base. E allora ci vuole la cultura di base per capire
+che attuare azioni deterministiche sulla base di una previsione
+probabilistica è un investimento statistico: a parità di warning, su
+dieci volte che prendo una certa action, capita l'occasione (o le
+occasioni) in cui aver preso quei provvedimento preventivi mi ha
+permesso di salvare frotte di vite umane.</p>
+<p>La cosa che più muove allo sconforto e alla rabbia, di fronte
+all'evento valenciano, non è neanche il fatto che il warning era stato
+emanato tempestivamente e con il livello adeguato di allerta, ma sia
+mancata l'action, cioè che la stragrande maggioranza delle vittime (il
+cui bilancio, visto il numero dei dispersi, rischia seriamente di
+quintuplicare o decuplicare rispetto alle già spaventose cifre
+attuali) poteva essere salvata, se si fossero presi seriamente in
+considerazione gli avvisi diramati dall'agenzia meteorologica statale
+spagnola e fermate per tempo tutte le attività, evitando che migliaia
+di persone fossero colte dall'evento sul posto di lavoro, o al centro
+commerciale, o per strada mentre rientravano a casa dall'uno o
+dall'altro luogo.</p>
+<p>La cosa che muove allo sconforto e alla rabbia, è la consapevolezza
+che se per quel giorno si fossero fermate la società e l'economia
+(apriti cielo) e poi, al massimo grado di allerta, non fosse
+corrisposta una catastrofe di pari livello (ovvero fosse piovuto meno
+del preventivato, o avesse piovuto quanto previsto in alcune zone
+allertate ma non in tutte, o avesse anche piovuto tantissimo ovunque
+ma non fossero esondati i fiumi e non si fossero allagate le città),
+avremmo assistito (sarebbe capitato in Spagna come avviene
+regolarmente in Italia) alle feroci polemiche verso il sistema di
+allertamento, che avrebbe dovuto rispondere dei danni del &quot;falso
+allarme&quot;. Salvo, poi, accusare lo stesso sistema di &quot;mancato allarme&quot;
+in tutti i casi in cui gli eventi sono andati al di là di quanto
+preventivabile in anticipo.</p>
+<p>E in Spagna, aspetto non banale, sono anche facilitati dalla
+possibilità di aggiornare i codici colore delle allerte in corso
+d'evento, ovvero di ora in ora o addirittura ogni 10 minuti quando la
+situazione lo richieda, alzando quindi il livello anche da verde a
+rosso (o viceversa declassandolo) a cadenza ravvicinata, inevitabile
+prezzo da pagare se si vuole alzare l'attendibilità del sistema, con
+eventi così estremi e deflagranti... in Italia provate a proporre di
+introdurre un sistema del genere, e poi mi raccontate come la prende
+il tessuto socio-economico, sia nel pubblico che nel privato, dalla
+classe imprenditoriale agli amministratori pubblici fino ai singoli
+cittadini, ma che scherzate, me lo dovete dire il giorno prima (i più
+ragionevoli, altri non si accontentano neanche di quello) il colore
+dell'allerta, e se mi dite rossa e poi non viene giù il mondo (o mi
+dite gialla e poi viene giù il mondo), sarete messi alla gogna, sia
+mediatica che legale.</p>
+<p>Perché non c'è la disponibilità a capire che il rischio è, sempre, una
+probabilità, più o meno alta, ma una probabilità, mai una certezza. Se
+i meteorologi e gli idrologi avessero la palla di vetro, si
+chiamerebbero veggenti, non meteorologi o idrologi. Allerta rossa non
+vuol dire che necessariamente arriverà l'apocalisse, ma che la
+possibilità di quest'ultima, quel giorno in quella zona, c'è, e
+siccome la posta in gioco è molto alta, trattandosi di decine,
+centinaia o migliaia di vite umane, questa eventualità va presa molto
+seriamente in considerazione, anche quando la probabilità magari non è
+alta, figurarsi quand'è elevata. Analogamente, allerta gialla - specie
+se, come in Italia, il codice colore va emesso il giorno prima, e non
+è modificabile di ora in ora in corso d'evento - non vuol dire che gli
+eventi non potranno essere gravi; peraltro il codice giallo per
+temporali, come dovrebbe essere noto a tutti, non vuol dire che i
+fenomeni non saranno intensi, ma che lo saranno a livello localizzato
+e non diffuso, e più i temporali sono localizzati, più la stima dei mm
+di pioggia che potranno cadere in un certo numero di ore è aleatoria,
+questo ormai dovrebbero averlo imparato anche i sassi (ma alcune
+persone, a quanto pare, sono assai meno recettive di questi ultimi, a
+volte anche fra gli addetti ai lavori, figuriamoci nel resto della
+cittadinanza).</p>
+<p>Finché non si impara che “complessità significa dover passare da un
+mondo di previsioni certe a uno di previsioni basate sulla
+probabilità” (cit. Giorgio Parisi), con tutto quel che ne consegue in
+termini di gestione dei provvedimenti preventivi e di criteri di
+valutazione della loro efficacia, non ne usciremo mai. E di questa
+ottusa ritrosia a ragionare in termini probabilistici, in era di crisi
+climatica galoppante, ne faremo le spese sempre più spesso, altro
+concetto che fa fatica a entraci in testa, a quanto pare.  &quot;Vas a la
+moda&quot;, recita maledettamente beffardo quel cartellone pubblicitario
+sullo fondo, dietro quell'altrettanto tragicomico &quot;benvenidos&quot; al
+centro commerciale che è diventato il sepolcro di un numero ancora
+imprecisato di persone. E' tardivamente ora che la cultura del
+rischio, a partire dalla cultura della probabilità, diventino di
+tendenza, facendo invece passare di moda il sempre più insostenibile e
+demenziale modello di sviluppo in cui non si può rallentare la corsa
+alla produzione e ai consumi, neanche per qualche ora, se c'è un
+pericolo in vista per la vita delle persone.</p>
+<p>2/11/2024</p>
+<p>Filippo Thiery</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../cambiamento_climatico/cambiamento_climatico.html" class="btn btn-neutral float-right" title="Cambiamento climatico" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../qualit%C3%A0_aria/qualit%C3%A0_aria.html" class="btn btn-neutral float-left" title="Qualità dell&#39;aria" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
