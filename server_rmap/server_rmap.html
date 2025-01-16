@@ -113,7 +113,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#specifiche-per-file-di-configurazione-stazione">Specifiche per file di configurazione stazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#esempio-di-notification-json-rpc">Esempio di notification JSON-RPC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#broker-mqtt">Broker MQTT</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#generazione-dei-file-di-autenticazione-autorizzazione">Generazione dei file di autenticazione/autorizzazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#daemon">Daemon</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#url">URL</a></li>
 </ul>
 </li>
@@ -122,11 +123,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#nomenclatura-convenzionale">Nomenclatura convenzionale</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sistema-di-autenticazione-e-autorizzazione-di-rmap">Sistema di autenticazione e autorizzazione di RMAP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#amqp-url-reference">URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Daemon</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#log">Log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#descrizione-applicazioni-django">Descrizione applicazioni Django</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#stations-app">stations app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#registration-app">registration app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#network-app">network app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#http2mqtt-app">http2mqtt app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#firmware-updater-e-firmware-updater-stima-app">firmware_updater e firmware_updater_stima app</a></li>
@@ -139,10 +142,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#showdata-app">showdata app</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#daemon">Daemon</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Daemon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operazioni-per-l-aggiornamento">Operazioni per l'aggiornamento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operazioni-periodiche-di-manutenzione">Operazioni periodiche di manutenzione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#struttura-cartelle">Struttura cartelle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id28">Data ingestion</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-completo-basato-su-rocky-linux-8">Installazione server completo basato su  Rocky Linux 8</a><ul>
@@ -165,13 +170,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id29">Installazione sistema operativo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id30">Mosquitto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id31">Rabbitmq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id32">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Installazione sistema operativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Rabbitmq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Monit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id33">Server di origine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id34">Server di destinazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Server di origine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">Server di destinazione</a></li>
 </ul>
 </li>
 </ul>
@@ -493,6 +498,76 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 <h2>Documentazione implementazione<a class="headerlink" href="#documentazione-implementazione" title="Link a questa intestazione">¶</a></h2>
 <p>Il funzionamento del back-end e del front-end è basato su due broker,
 una suite di applicazioni Django, alcuni tools e da una suite di daemon.</p>
+<p>I dati seguono flussi e archivi differenti secondo questa classificazione:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 27%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>stazione fissa</p></td>
+<td><p>Stazione mobile</p></td>
+</tr>
+<tr class="row-even"><td><p>livello dati sample</p></td>
+<td><p>sample_fixed</p></td>
+<td><p>sample_mobile</p></td>
+</tr>
+<tr class="row-odd"><td><p>livello dei dati report</p></td>
+<td><p>report_fixed</p></td>
+<td><p>report_mobile</p></td>
+</tr>
+</tbody>
+</table>
+<p>Le quattro categorie corrispondono quindi a differenti root path MQTT,
+differenti exchange e queue AMQP, differenti daemon.
+Corrispondono anche a quattro differenti DataBase di DB.all.e per i dati recenti e a quattro
+macro dataset Arkimet poi eventualmente sottosezionati.
+Ecco un esempio di struttura dataset di Arkimet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── report_fixed
+│   ├── agrmet
+│   ├── boa
+│   ├── claster
+│   ├── dpcn-basilicata
+│   ├── dpcn-bolzanoboze
+│   ├── dpcn-calabria
+│   ├── dpcn-campania
+│   ├── dpcn-lazio
+│   ├── dpcn-liguria
+│   ├── dpcn-lombardia
+│   ├── dpcn-marche
+│   ├── dpcn-molise
+│   ├── dpcn-piemonte
+│   ├── dpcn-puglia
+│   ├── dpcn-sardegna
+│   ├── dpcn-sicilia
+│   ├── dpcn-umbria
+│   ├── dpcn-veneto
+│   ├── fixed
+│   ├── locali
+│   ├── mnw
+│   ├── report_fixed_duplicates
+│   ├── report_fixed_error
+│   ├── simnbo
+│   ├── simnpr
+│   ├── spdsra
+│   └── urbane
+├── report_mobile
+│   ├── report_mobile
+│   ├── report_mobile_duplicates
+│   └── report_mobile_error
+├── sample_fixed
+│   ├── sample_fixed
+│   │   └── sample_fixed
+│   ├── sample_fixed_duplicates
+│   └── sample_fixed_error
+└── sample_mobile
+    ├── sample_mobile
+    ├── sample_mobile_duplicates
+    └── sample_mobile_error
+</pre></div>
+</div>
 <div class="section" id="configurazione-stazioni">
 <h3>Configurazione stazioni<a class="headerlink" href="#configurazione-stazioni" title="Link a questa intestazione">¶</a></h3>
 <p>Le configurazioni risiedono sul server. Possono essere scaricate e uplodate sul server.
@@ -848,11 +923,6 @@ meteo; tramite javascript nel web browser.  Gli operatori che
 gestiscono le varie stazioni meteo possono attivare il monitoraggio su
 websocket per verificare i messaggi pubblicati dalla stazione sul
 broker evitando la necessità di avere un apposito client MQTT.</p>
-<p>E’ presente anche un altro demone (<strong>report2observationd</strong>) che
-effettua una trasformazione dei messaggi che arrivano inizialmente
-compressi (vedi forme compresse protocollo RMAP over MQTT), li
-decomprime e li pubblica nuovamente, per cui arrivano sul broker MQTT
-in forma decompressa.</p>
 <p>Ogni stazione può pubblicare solamente sul topic mqtt per cui è stata
 configurata e quindi autorizzata, in base a utente, rete, latitudine e
 longitudine. Ogni autenticazione e autorizzazione corrisponde a una
@@ -873,8 +943,9 @@ dati).</p>
 <p>I dati, una volta autenticate le stazioni sul backend e pubblicati
 tramite il broker MQTT sono disponibili ai subscriber, principalmente
 ai daemoni per la conversione di formato e l'invio come messaggi AMQP.</p>
-<div class="section" id="generazione-dei-file-di-autenticazione-autorizzazione">
-<h4>Generazione dei file di autenticazione/autorizzazione<a class="headerlink" href="#generazione-dei-file-di-autenticazione-autorizzazione" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="tools">
+<h4>Tools<a class="headerlink" href="#tools" title="Link a questa intestazione">¶</a></h4>
+<p>Generazione dei file di autenticazione/autorizzazione</p>
 <p>Per mantenere allineato il processo di autenticazione sul broker MQTT
 e consentire l’autenticazione delle stazioni, anche in caso di failure
 del server di backend, è utilizzabile il tool <strong>rmapctrl</strong> che deve
@@ -890,8 +961,16 @@ ingestion, è necessario effettuare un reload del servizio
 correttamente; questo normalmente viene fatto solo in caso di modifica
 degli stessi file.</p>
 </div>
+<div class="section" id="daemon">
+<span id="mqtt-url-reference"></span><h4>Daemon<a class="headerlink" href="#daemon" title="Link a questa intestazione">¶</a></h4>
+<p>report2observationd</p>
+<p>Il demone (<strong>report2observationd</strong>) effettua una trasformazione dei
+messaggi che arrivano inizialmente compressi (vedi <a class="reference internal" href="../rmap_rfc/rfc.html#rmaprfc-estensioni-reference"><span class="std std-ref">estensioni</span></a> protocollo RMAP over MQTT), li
+decomprime e li pubblica nuovamente, per cui arrivano sul broker MQTT
+in forma decompressa.</p>
+</div>
 <div class="section" id="url">
-<span id="mqtt-url-reference"></span><h4>URL<a class="headerlink" href="#url" title="Link a questa intestazione">¶</a></h4>
+<h4>URL<a class="headerlink" href="#url" title="Link a questa intestazione">¶</a></h4>
 <p>Se le URLs configurate tornano HTTP status code == 2xx, allora la
 authentication / authorization ha successo. Se lo status code == 4xx,
 authentication / authorization fallisce. Per uno status code == 5xx o
@@ -1017,6 +1096,8 @@ autorizzazione di RMAP per autenticare la ricezione di messaggi:</p>
 <li><p>fotografie: formato jpeg</p></li>
 <li><p>configurazione stazioni: formato json</p></li>
 </ul>
+<p>Questo metodo di uplodare foto e configurazioni eè per il momento da
+considerarsi obsoleto.</p>
 </div>
 <div class="section" id="amqp-url-reference">
 <span id="id1"></span><h4>URL<a class="headerlink" href="#amqp-url-reference" title="Link a questa intestazione">¶</a></h4>
@@ -1039,6 +1120,24 @@ inviati.</p>
 <p>Per fotografie e configurazioni questa attualmente è una metodologia
 disattivata a vantaggio della metodologia HTTP.</p>
 </div>
+<div class="section" id="id2">
+<h4>Daemon<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>amqp2amqp_identvalidationd : valida gli ident per la pubblicazione dati da coda AMQP a coda AMQP</p></li>
+<li><p>amqp2amqp_jsonline2bufrd : conversione da formato jsonline a bufr da coda AMQP a coda AMQP</p></li>
+<li><p>amqp2arkimetd : archiviazione diretta da coda AMQP a arkimet (obsoleto)</p></li>
+<li><p>amqp2dballed : archiviazione dati da coda AMQP a DBall.e; utilizza
+il lock per l'accesso in scrittura a DBall.e e le opzioni
+- -d DATALEVEL, --datalevel=DATALEVEL
+sample or report
+- -s STATIONTYPE, --stationtype=STATIONTYPE
+fixed or mobile
+quali delle 4 istanze eseguire</p></li>
+<li><p>amqp2djangod : importazioni delle configurazioni stazione da coda AMQP a framework Django</p></li>
+<li><p>amqp2geoimaged : importazione delle immagini georeferenziate da coda AMQP</p></li>
+<li><p>amqp2mqttd : pubblica i dati da una coda AMQP al broker MQTT</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="log">
 <h3>Log<a class="headerlink" href="#log" title="Link a questa intestazione">¶</a></h3>
@@ -1057,6 +1156,29 @@ gestendone la crezione, configurazione e aggiornamento dei metadati,
 mantenedo aggiornati lo stato di funzionamento e autodiagnostica, le
 versioni del firmware utilizzate, e le informazioni di autenticazione
 e autorizzazione.</p>
+<p>Espone l'interfaccia di amministrazione di Django tramite la quale è
+possibile fare operazioni particolari di amministrazione non ancora
+gestite da apposite funzioni da web.</p>
+<p>Le stazioni si possono creare e modificare in vari modi:</p>
+<ul class="simple">
+<li><p>tramite interfaccia web e template: ci sono un certo numero di
+configurazioni predefinite per stazioni standard che possono essere
+utilizzate modificando solo alcuni parametri specifici quali le
+coordinate, nme etc.</p></li>
+<li><p>tramite linea di comando, tramite il tool rmap-config con una serie
+di passaggi è possibile creare da un template o definendo tutti i
+dettagli</p></li>
+<li><p>tramite l'interfaccia admin di Django con una sequenza di operazioni
+è possibile creare e modificare una stazione; consigliato solo per
+modifiche</p></li>
+</ul>
+<p>I template non sono altro che stazioni definite come tutte le altre
+con l'unica caratteristica nella Category:template (&quot;used to generate
+new station&quot;) oltre a essere disattivate per non entrare negli elenchi
+delle stazioni &quot;reali&quot;.</p>
+<p>All'installazione vengono precaricate alcuni template tramite le fixture di Django; ad esempio: <a class="reference external" href="https://github.com/r-map/rmap/blob/master/python/rmap/stations/fixtures/template_stations_02.json">https://github.com/r-map/rmap/blob/master/python/rmap/stations/fixtures/template_stations_02.json</a></p>
+<p>Le definizioni stazioni possono essere trasferite tra differenti
+istanze del server (server remoto e DB Django locale).</p>
 </div>
 <div class="section" id="database">
 <h5>DataBase<a class="headerlink" href="#database" title="Link a questa intestazione">¶</a></h5>
@@ -1115,8 +1237,9 @@ sensore. Ogni sensore può riportare più misure definite dalla tabelle btable.<
 <div class="section" id="table-btable">
 <h6>table Btable<a class="headerlink" href="#table-btable" title="Link a questa intestazione">¶</a></h6>
 <p>Elenco dei Bcode della tabella B definita in modo univoco dalle
-specifiche RMAP (tabella B WMO). Sono abbinati descrizione e unità di misura
-prima e dopo un eventuale applicazione dei fattori di scala.</p>
+specifiche RMAP (tabella B WMO).  Fa parte delle chiavi univoche del
+DB dati.  Sono abbinati descrizione e unità di misura prima e dopo un
+eventuale applicazione dei fattori di scala.</p>
 </div>
 <div class="section" id="table-boardmaintstatus">
 <h6>table BoardMaintStatus<a class="headerlink" href="#table-boardmaintstatus" title="Link a questa intestazione">¶</a></h6>
@@ -1150,31 +1273,29 @@ della connessione.</p>
 utili per dettagliare la sua collocazione e caratteristiche.</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h5>URL<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id3">
+<h5>URL<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h5>
 <p>Sono riportate solo le versioni delle URL con tutti i parametri, anche omittibili</p>
 <ul class="simple">
 <li><p><strong>'^$'</strong> home page</p></li>
-<li><p><strong>'^wizard/$'</strong>       wizard inizio configurazione stazione BASE (solo su stazione BASE)</p></li>
-<li><p><strong>'^wizard2/$'</strong>      wizard seconda pagina configurazione stazione BASE (solo su stazione BASE)</p></li>
-<li><p><strong>'^wizard_done/$'</strong>  wizard fine configurazione stazione BASE (solo su stazione BASE)</p></li>
-<li><p><strong>'^wizard_error/$'</strong> wizard errore configurazione stazione BASE (solo su stazione BASE)</p></li>
-<li><p><strong>'^admin/doc/'</strong>    documentatione admin di Django</p></li>
-<li><p><strong>^admin/'</strong>         admin di Django</p></li>
-<li><p><strong>'^registrazione/register/$'</strong>   pagina di registrazione utenti</p></li>
-<li><p><strong>'^registrazione/'</strong>  radice di tutti i path necessari per la registrazione utenti</p></li>
+<li><p><strong>'^wizard/$'</strong>         wizard inizio configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^wizard2/$'</strong>        wizard seconda pagina configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^wizard_done/$'</strong>    wizard fine configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^wizard_error/$'</strong>   wizard errore configurazione stazione BASE (solo su stazione BASE)</p></li>
+<li><p><strong>'^admin/doc/'</strong>       documentatione admin di Django</p></li>
+<li><p><strong>^admin/'</strong>            admin di Django</p></li>
 <li><p><strong>'^auth/user'</strong>        autenticazione/autorizzazione rabbit-mq; guarda <a class="reference internal" href="#amqp-url-reference"><span class="std std-ref">amqp</span></a></p></li>
 <li><p><strong>'^auth/vhost'</strong>       autenticazione/autorizzazione rabbit-mq; guarda <a class="reference internal" href="#amqp-url-reference"><span class="std std-ref">amqp</span></a></p></li>
 <li><p><strong>'^auth/resource'</strong>    autenticazione/autorizzazione rabbit-mq; guarda <a class="reference internal" href="#amqp-url-reference"><span class="std std-ref">amqp</span></a></p></li>
-<li><p><strong>'^auth/auth$'</strong>       autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
-<li><p><strong>'^auth/auth_sha$'</strong>   autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
-<li><p><strong>'^auth/sha$'</strong>        autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
-<li><p><strong>'^auth/pskkey$'</strong>     autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
-<li><p><strong>'^auth/superuser$'</strong>  autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
-<li><p><strong>'^auth/acl$'</strong>        autenticazione/autorizzazione mosuiqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/auth$'</strong>       autenticazione/autorizzazione mosqtto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/auth_sha$'</strong>   autenticazione/autorizzazione mosquitto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/sha$'</strong>        autenticazione/autorizzazione mosquitto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/pskkey$'</strong>     autenticazione/autorizzazione mosquitto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/superuser$'</strong>  autenticazione/autorizzazione mosquitto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
+<li><p><strong>'^auth/acl$'</strong>        autenticazione/autorizzazione mosquitto; guarda <a class="reference internal" href="#mqtt-url-reference"><span class="std std-ref">mqtt</span></a></p></li>
 <li><p><strong>'^accounts/profile/(?P&lt;mystation_slug&gt;[-w]+)/(?P&lt;stationimage_id&gt;[-w]+)/$'</strong>
 pagina di amministrazione dell'utente/della stazione utente</p></li>
-<li><p><strong>'^robots.txt$'</strong>   robots.txt per i motori di ricerca</p></li>
+<li><p><strong>'^robots.txt$'</strong>      robots.txt per i motori di ricerca</p></li>
 <li><p><strong>'^stations/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> elenco
 stazioni con metadati riassuntivi</p></li>
 <li><p><strong>'^stationstatus/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</strong> elenco
@@ -1211,11 +1332,76 @@ stessa rete locale con avahi/bonjour</p></li>
 stazioni su mappa</p></li>
 </ul>
 </div>
+<div class="section" id="id4">
+<h5>Tools<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h5>
+<p><strong>rmap-configure</strong></p>
+<p>Esempio di configurazione di una stazione Stima V4</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">wizard</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">stationname</span> <span class="n">Stima</span> <span class="n">V4</span> <span class="n">test</span> <span class="n">station</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">password</span> <span class="n">password</span> <span class="o">--</span><span class="n">server</span> <span class="n">test</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">cc</span> <span class="o">--</span><span class="n">lat</span> <span class="mf">45.54321</span> <span class="o">--</span><span class="n">lon</span> <span class="mf">12.54321</span> <span class="o">--</span><span class="n">height</span> <span class="mi">234</span> <span class="o">--</span><span class="n">mqttrootpath</span> <span class="n">report</span> <span class="o">--</span><span class="n">mqttmaintpath</span> <span class="n">maint</span> <span class="o">--</span><span class="n">network</span> <span class="n">test</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">11</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">mqttactivate</span> <span class="o">--</span><span class="n">tcpipactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">tcpipntpserver</span> <span class="n">it</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">ntp</span><span class="o">.</span><span class="n">org</span> <span class="o">--</span><span class="n">tcpipname</span> <span class="n">stima</span> <span class="o">--</span><span class="n">tcpipgsmapn</span> <span class="n">internet</span><span class="o">.</span><span class="n">wind</span> <span class="o">--</span><span class="n">tcpippppnumber</span> <span class="o">*</span><span class="mi">99</span><span class="o">***</span><span class="mi">1</span><span class="c1"># --station_slug teststation --board_slug masterv4 --username myuser --server test.rmap.cc --mqttuser myuser --mqttpassword h23jhjhjh --mqttpskkey 1BF19DC005FFCE9277B4CFC696410426 --mqttsamplerate 900 --cannodeid 100 --cansubject node.master --cansubjectid 100 --cansamplerate 60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">none</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">masterv4</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">21</span> <span class="o">--</span><span class="n">serialnumber</span> <span class="mh">0xABCDEF1</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_th</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">cannodeid</span> <span class="mi">60</span> <span class="o">--</span><span class="n">cansubject</span> <span class="n">node</span><span class="o">.</span><span class="n">th</span> <span class="o">--</span><span class="n">cansubjectid</span> <span class="mi">60</span> <span class="o">--</span><span class="n">cansamplerate</span> <span class="mi">60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">stima4_report_th</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_th</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">20</span> <span class="o">--</span><span class="n">serialnumber</span> <span class="mh">0xABCDEF2</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_rain</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">cannodeid</span> <span class="mi">61</span> <span class="o">--</span><span class="n">cansubject</span> <span class="n">node</span><span class="o">.</span><span class="n">p</span> <span class="o">--</span><span class="n">cansubjectid</span> <span class="mi">61</span> <span class="o">--</span><span class="n">cansamplerate</span> <span class="mi">60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">stima4_report_p</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_rain</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">25</span> <span class="o">--</span><span class="n">serialnumber</span> <span class="mh">0xABCDEF3</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_wind</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">cannodeid</span> <span class="mi">62</span> <span class="o">--</span><span class="n">cansubject</span> <span class="n">node</span><span class="o">.</span><span class="n">wind</span> <span class="o">--</span><span class="n">cansubjectid</span> <span class="mi">62</span> <span class="o">--</span><span class="n">cansamplerate</span> <span class="mi">60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">stima4_report_w</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_wind</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">26</span> <span class="o">--</span><span class="n">serialnumber</span> <span class="mh">0xABCDEF4</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_radiation</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">cannodeid</span> <span class="mi">63</span> <span class="o">--</span><span class="n">cansubject</span> <span class="n">node</span><span class="o">.</span><span class="n">rad</span> <span class="o">--</span><span class="n">cansubjectid</span> <span class="mi">63</span> <span class="o">--</span><span class="n">cansamplerate</span> <span class="mi">60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">stima4_report_r</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_radiation</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">28</span> <span class="o">--</span><span class="n">serialnumber</span> <span class="mh">0xABCDEF5</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_mppt</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">cannodeid</span> <span class="mi">64</span> <span class="o">--</span><span class="n">cansubject</span> <span class="n">node</span><span class="o">.</span><span class="n">mppt</span> <span class="o">--</span><span class="n">cansubjectid</span> <span class="mi">64</span> <span class="o">--</span><span class="n">cansamplerate</span> <span class="mi">60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">stima4_report_m</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_mppt</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addboard</span> <span class="o">--</span><span class="n">boardtype</span> <span class="mi">29</span> <span class="o">--</span><span class="n">serialnumber</span> <span class="mh">0xABCDEF6</span> <span class="o">--</span><span class="n">serialactivate</span> <span class="o">--</span><span class="n">canactivate</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_svwc</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">cannodeid</span> <span class="mi">65</span> <span class="o">--</span><span class="n">cansubject</span> <span class="n">node</span><span class="o">.</span><span class="n">svwc</span> <span class="o">--</span><span class="n">cansubjectid</span> <span class="mi">65</span> <span class="o">--</span><span class="n">cansamplerate</span> <span class="mi">60</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">addsensors_by_template</span> <span class="n">stima4_report_s</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">board_slug</span> <span class="n">module_svwc</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span>
+
+<span class="c1"># configurazione tramite porta seriale</span>
+<span class="n">rmap</span><span class="o">-</span><span class="n">configure</span> <span class="o">--</span><span class="n">config_station</span> <span class="o">--</span><span class="n">station_slug</span> <span class="n">teststation</span> <span class="o">--</span><span class="n">username</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">transport</span> <span class="n">serial</span> <span class="o">--</span><span class="n">device</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyACM0</span> <span class="o">--</span><span class="n">stima_version</span> <span class="mi">4</span>
+
+<span class="c1"># upload configurazione al server</span>
+<span class="c1">#rmap-configure --upload_to_server --station_slug teststation --username myuser --password password --server test.rmap.cc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="registration-app">
+<h4>registration app<a class="headerlink" href="#registration-app" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id5">
+<h5>Descrizione<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h5>
+<p>Se la funzione è abilitata da configurazione questa app gestisce la
+possibilità che gli utenti si registrino in modo sutonomo dovendo
+fornire come minimi una email.</p>
+</div>
+<div class="section" id="id6">
+<h5>DataBase<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_registration.png" src="../_images/model_registration.png" />
+</div>
+<div class="section" id="id7">
+<h5>URL<a class="headerlink" href="#id7" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p><strong>'^registrazione/register/$'</strong>   pagina di registrazione utenti</p></li>
+<li><p><strong>'^registrazione/'</strong>  radice di tutti i path necessari per la registrazione utenti</p>
+<ul>
+<li><p><strong>'^registrazione/activate/complete/$'</strong></p></li>
+<li><p><strong>'^registrazione/activate/resend/$'</strong></p></li>
+<li><p><strong>'^registrazione/activate/(?P&lt;activation_key&gt;w+)/$'</strong></p></li>
+<li><p><strong>'^registrazione/register/complete/$'</strong></p></li>
+<li><p><strong>'^registrazione/register/closed/$'</strong></p></li>
+<li><p><strong>'^registrazione/register/$'</strong></p></li>
+<li><p><strong>'^registrazione/login/$'</strong></p></li>
+<li><p><strong>'^registrazione/logout/$'</strong></p></li>
+<li><p><strong>'^registrazione/password/change/$'</strong></p></li>
+<li><p><strong>'^registrazione/password/change/done/$'</strong></p></li>
+<li><p><strong>'^registrazione/password/reset/$'</strong></p></li>
+<li><p><strong>'^registrazione/password/reset/complete/$'</strong></p></li>
+<li><p><strong>'^registrazione/password/reset/done/$'</strong></p></li>
+<li><p><strong>'^registrazione/password/reset/confirm/(?P&lt;uidb64&gt;[0-9A-Za-z_-]+)/(?P&lt;token&gt;.+)/$'</strong></p></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="network-app">
 <h4>network app<a class="headerlink" href="#network-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id3">
-<h5>Descrizione<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id8">
+<h5>Descrizione<a class="headerlink" href="#id8" title="Link a questa intestazione">¶</a></h5>
 <p>Ogni stazione è associata a un network. In questa app viene
 visualizzata la lista dei network e i metadati di ogni network.  Non
 esiste un link automatico tra i network pubblicati dalle stazioni e i
@@ -1223,12 +1409,12 @@ network presenti in questa app.  Se lo stesso network è presente sia
 nei dati che in questa app, i metadati presenti in questa app vengono
 visualizzati quando richiesto.</p>
 </div>
-<div class="section" id="id4">
-<h5>DataBase<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id9">
+<h5>DataBase<a class="headerlink" href="#id9" title="Link a questa intestazione">¶</a></h5>
 <img alt="../_images/model_network.png" src="../_images/model_network.png" />
 </div>
-<div class="section" id="id5">
-<h5>URL<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id10">
+<h5>URL<a class="headerlink" href="#id10" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p><strong>'^network/(?P&lt;name&gt;[-w]+)/$'</strong>    navigazione e visualizzazione network</p></li>
 </ul>
@@ -1236,14 +1422,14 @@ visualizzati quando richiesto.</p>
 </div>
 <div class="section" id="http2mqtt-app">
 <h4>http2mqtt app<a class="headerlink" href="#http2mqtt-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id6">
-<h5>Descrizione<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id11">
+<h5>Descrizione<a class="headerlink" href="#id11" title="Link a questa intestazione">¶</a></h5>
 <p>Questa app permette di pubblicare i dati tramite http.  Le specifiche
 seguono le RMAP RFC per http con le specifiche a questo link
 <a class="reference internal" href="../rmap_rfc/rfc.html#rmaprfc-http-reference"><span class="std std-ref">http2mqtt</span></a></p>
 </div>
-<div class="section" id="id7">
-<h5>URL<a class="headerlink" href="#id7" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id12">
+<h5>URL<a class="headerlink" href="#id12" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p><strong>'^http2mqtt/$'</strong></p></li>
 </ul>
@@ -1251,36 +1437,129 @@ seguono le RMAP RFC per http con le specifiche a questo link
 </div>
 <div class="section" id="firmware-updater-e-firmware-updater-stima-app">
 <h4>firmware_updater e firmware_updater_stima app<a class="headerlink" href="#firmware-updater-e-firmware-updater-stima-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id8">
-<h5>Descrizione<a class="headerlink" href="#id8" title="Link a questa intestazione">¶</a></h5>
-</div>
-<div class="section" id="id9">
-<h5>DataBase<a class="headerlink" href="#id9" title="Link a questa intestazione">¶</a></h5>
-<img alt="../_images/model_firmware.png" src="../_images/model_firmware.png" />
-<p>Le due tabelle differiscono per la versionatura del firmware in un
-caso utilizzando un campo date e nell'altro revisione e versione.</p>
-</div>
-<div class="section" id="id10">
-<h5>URL<a class="headerlink" href="#id10" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id13">
+<h5>Descrizione<a class="headerlink" href="#id13" title="Link a questa intestazione">¶</a></h5>
+<p><strong>firmware_updater: Versione per StimaWifi</strong></p>
+<p>Ogni firmware è caratterizzato da un nome e da una versione
+il nome è a piacere, la versione è una data parsabile da questo modulo python:
+<a class="reference external" href="https://dateutil.readthedocs.io/en/stable/parser.html">https://dateutil.readthedocs.io/en/stable/parser.html</a></p>
+<p>la richiesta può essere http o https, ma normalmente http.</p>
+<p>Viene verificata la presenza di alcuni header nella richiesta http specifici per ESP8266/ESP32:</p>
+<ul>
+<li><p>HTTP_USER_AGENT deve essere uguale a ESP8266-http-Update/ESP32-http-Update
+Se user-agent divers torna 403</p></li>
+<li><p>HTTP_X_ESP8266_SKETCH_SIZE/HTTP_X_ESP32_SKETCH_SIZE deve essere
+impostato (ma non è utilizzato) altrimenti torna 403</p></li>
+<li><p>X_ESP8266_AP_MAC/HTTP_X_ESP32_AP_MAC deve essere
+impostato (ma non è utilizzato) altrimenti torna 403</p></li>
+<li><p>HTTP_X_ESP8266_FREE_SPACE/HTTP_X_ESP32_FREE_SPACE deve essere
+impostato (ma non è utilizzato) altrimenti torna 403</p></li>
+<li><p>HTTP_X_ESP8266_SKETCH_MD5/HTTP_X_ESP32_SKETCH_MD5deve essere
+impostato (ma non è utilizzato) altrimenti torna 403</p></li>
+<li><p>HTTP_X_ESP8266_CHIP_SIZE/HTTP_X_ESP32_CHIP_SIZEdeve essere
+impostato (ma non è utilizzato) altrimenti torna 403</p></li>
+<li><p>HTTP_X_ESP8266_SDK_VERSION/HTTP_X_ESP32_SDK_VERSIONdeve essere
+impostato (ma non è utilizzato) altrimenti torna 403</p></li>
+<li><p>X_ESP8266_STA_MAC/HTTP_X_ESP32_STA_MAC Essendo la richiesta
+d'aggiornamento del firmware non autenticata, la board dispone di un
+MAC che viene inviato nell'header X_ESP8266_STA_MAC il cui hash
+viene salvato la prima volta sul server e tutte le volte successive
+deve fare match per poter aggiornare le info sul server.</p></li>
+<li><p>X-ESP8266-VERSION: l'header VERSION è codificata in json ad esempio:
+X-ESP8266-VERSION: {&quot;ver&quot;:&quot;2022-11-01T12:00:00&quot;}
+- ver : versione attuale del firmware nel formato datetime ISO
+Nello stesso json possono essere inviati anche:
+- user   (utente)
+- slug   (station slug)
+- bslug  (board slug)</p>
+<p>nel qual caso sul server vengono aggiornate le informazioni relative
+alla board con versione inviata alla board per l'aggiornamento e la
+data e ora dell'invio (eventualmente utile per effettuare un commit
+dell'aggiornamento).</p>
+</li>
+</ul>
+<p>risposta:</p>
 <ul class="simple">
-<li><p>'^firmware/$', views.index, name='firmware_index'),</p></li>
-<li><p>'^firmware/update/(?P&lt;name&gt;[-_w]+)/$', views.update, name='firmware_update'),</p></li>
+<li><p>Se il firmware non esiste torna 500</p></li>
+<li><p>Se la versione non è corretta torna 300</p></li>
+<li><p>Se non c'è un nuovo firmware torna 304</p></li>
+<li><p>Se l'md5 del firmware attualmente running è uguale a quello dell'ultimo firmware disponibile torna 304</p></li>
+</ul>
+<p>altrimenti risponde con il firmware con header 'x-MD5' pari all'md5 del firmware che segue</p>
+<p>Il tutto si riassume con questa richiesta tramite curl:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">agent</span> <span class="s2">&quot;ESP8266-http-Update&quot;</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;X-ESP8266-STA-MAC:</span>
+<span class="mi">1234</span><span class="s2">&quot; -H &quot;</span><span class="n">X</span><span class="o">-</span><span class="n">ESP8266</span><span class="o">-</span><span class="n">AP</span><span class="o">-</span><span class="n">MAC</span><span class="p">:</span> <span class="mi">1234</span><span class="s2">&quot; -H &quot;</span><span class="n">X</span><span class="o">-</span><span class="n">ESP8266</span><span class="o">-</span><span class="n">FREE</span><span class="o">-</span><span class="n">SPACE</span><span class="p">:</span> <span class="mi">1234</span><span class="s2">&quot; -H</span>
+<span class="s2">&quot;X-ESP8266-SKETCH-SIZE: 1234&quot;</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;X-ESP8266-CHIP-SIZE: 1234&quot;</span> <span class="o">-</span><span class="n">H</span>
+<span class="s2">&quot;X-ESP8266-SDK-VERSION: 1234&quot;</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;X-ESP8266-SKETCH-MD5: 1234&quot;</span> <span class="o">-</span><span class="n">H</span>
+<span class="s1">&#39;X-ESP8266-VERSION: {&quot;ver&quot;:&quot;2022-11-01T12:00:00&quot;}&#39;</span>
+<span class="s2">&quot;http://test.rmap.cc/firmware/update/stima4/&quot;</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h5>URL<a class="headerlink" href="#id14" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>'^firmware/$'</p></li>
+<li><p>'^firmware/update/(?P&lt;name&gt;[-_w]+)/$'</p></li>
+</ul>
+<p><strong>firmware_updater_stima: versione per Stima V4</strong></p>
+<ul>
+<li><p>HTTP_USER_AGENT deve essere uguale a STIMA4-http-Update
+Se user-agent divers torna 403</p></li>
+<li><p>HTTP_X_STIMA4_BOARD_MAC Essendo la richiesta d'aggiornamento del
+firmware non autenticata, la board dispone di un MAC che viene
+inviato nell'header HTTP_X_STIMA4_BOARD_MAC il cui hash viene salvato la
+prima volta sul server e tutte le volte successive deve fare match
+per poter aggiornare le info sul server.</p></li>
+<li><p>HTTP_X_STIMA4_VERSION l'header VERSION è codificata in json ad esempio:
+X_STIMA4_VERSION: {&quot;version&quot;:4,&quot;revision&quot;:5,&quot;user&quot;:&quot;userv4&quot;,&quot;slug&quot;:&quot;stimav4&quot;,&quot;bslug&quot;:&quot;stimacan1&quot;}
+- version: versione attuale del firmware
+- revision: revisione attuale del firmware
+Nello stesso json possono essere inviati anche:
+- user:    utente
+- slug:    station slug
+- bslug:   board slug</p>
+<p>nel qual caso sul server vengono aggiornate le informazioni relative
+alla board con versione inviata alla board per l'aggiornamento e la
+data e ora dell'invio (eventualmente utile per effettuare un commit
+dell'aggiornamento).</p>
+</li>
+</ul>
+<p>risposta:</p>
+<ul class="simple">
+<li><p>Se il firmware non esiste torna 500</p></li>
+<li><p>Se la versione non è corretta torna 300</p></li>
+<li><p>Se non c'è un nuovo firmware torna 304</p></li>
+</ul>
+<p>altrimenti risponde con il firmware con header 'x-MD5' pari all'md5 del firmware che segue</p>
+</div>
+<div class="section" id="id15">
+<h5>URL<a class="headerlink" href="#id15" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
 <li><p>'^firmware/stima/v4/$'</p></li>
 <li><p>'^firmware/stima/v4/update/(?P&lt;name&gt;[-_w]+)/$'</p></li>
 </ul>
 </div>
+<div class="section" id="id16">
+<h5>DataBase<a class="headerlink" href="#id16" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_firmware.png" src="../_images/model_firmware.png" />
+<p>Le due tabelle differiscono per la versionatura del firmware in un
+caso utilizzando un campo date e nell'altro revisione e versione.</p>
+</div>
 </div>
 <div class="section" id="geoimage-app">
 <h4>geoimage app<a class="headerlink" href="#geoimage-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id11">
-<h5>Descrizione<a class="headerlink" href="#id11" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id17">
+<h5>Descrizione<a class="headerlink" href="#id17" title="Link a questa intestazione">¶</a></h5>
+<p>Tramite interfaccia web è possibile inserire immagini georeferenziate, visualizzare
+anteprime sulla mappa, navigare le immagini su un sito nel tempo e cancellarle.</p>
 </div>
-<div class="section" id="id12">
-<h5>DataBase<a class="headerlink" href="#id12" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id18">
+<h5>DataBase<a class="headerlink" href="#id18" title="Link a questa intestazione">¶</a></h5>
 <img alt="../_images/model_geoimage.png" src="../_images/model_geoimage.png" />
 </div>
-<div class="section" id="id13">
-<h5>URL<a class="headerlink" href="#id13" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id19">
+<h5>URL<a class="headerlink" href="#id19" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>'^geoimage/geoimagesonmap/(?P&lt;ident&gt;[-_w]+)/$'</p></li>
 <li><p>'^geoimage/geoimagebyid/(?P&lt;id&gt;[-_w]+)/$'</p></li>
@@ -1291,15 +1570,65 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 </div>
 <div class="section" id="rpc-app">
 <h4>rpc app<a class="headerlink" href="#rpc-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id14">
-<h5>Descrizione<a class="headerlink" href="#id14" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id20">
+<h5>Descrizione<a class="headerlink" href="#id20" title="Link a questa intestazione">¶</a></h5>
+<p>Le stazioni possono eseguire Remote Procedure Call secondo le spscifiche;
+<a class="reference external" href="https://www.jsonrpc.org/specification">https://www.jsonrpc.org/specification</a>
+e l'implementazione su MQTT in <a class="reference internal" href="../rmap_rfc/rfc.html#rmaprfc-rpc-reference"><span class="std std-ref">rmap rfc</span></a>.</p>
+<p>Ogni RPC è caratterizzata da un id incrementato in seuqenza per ogni
+stazione.  Una RPC è attiva quando è solo stata richiesta, ma non
+ancora inviata tramite MQTT.</p>
+<ul class="simple">
+<li><p>date corrisponde  a quando è stata richiesta una RPC (stato sumbitted)</p></li>
+<li><p>datecmd corrisponde a quando l'RPC è stata inviata tramite MQTT (stato running)</p></li>
+<li><p>dateres corrisponde a quando è stata ricevuta una risposta (stato completed)</p></li>
+<li><p>method : metodo della RPC</p></li>
+<li><p>params : parametri della RPC</p></li>
+<li><p>result : risultato della RPC</p></li>
+<li><p>error : messaggio di errore</p></li>
+</ul>
+<p>Una RPC assume quindi differenti stati:
+* submitted : è stata richiesta una RPC
+* running : l'RPC è stata inviata tramite MQTT
+* completed : è stata ricevuta una risposta</p>
+<p>Lo stato submitted può essere attivato tramite interfaccia web o tool
+a linea di comando.</p>
+<p>Da questo momento la gestione della RPC passa al daemon rpcd che
+periodicamente richiede al DB le RPC da gestire (stato submitted) e le
+invia alle stazioni tramite MQTT. Rimane poi sottoscritto al topic
+MQTT per la risposta che una volta ricevuta viene inserita in DB.</p>
+<p>I tempi di esecuzione delle RPC possono essere molto lunghi vista
+caratteristica della connessione delle stazioni che non è permanente.</p>
+<p>Se le stazioni non ricevono la richiesta di RPC o non inviano la
+riposta lo stato dell'RPC rimane &quot;running&quot;.</p>
+<p>L'interfaccia WEB che permette l'attivazione di una RPC ha due modalità:
+* modalità semplice che utilizza RPC predefinite:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>reboot  : riavvio stazione</p></li>
+<li><p>reboot e firmware update : riavvio con eventuale firmware update
+del firmware precedentemente scaricato  (solo Stima V4)</p></li>
+<li><p>recovery last day of data : richiede reinvio dei dati delle ultime 24 ore</p></li>
+<li><p>admin firmware download : richiede il download di un eventuale firmware più recente  (solo Stima V4)</p></li>
+<li><p>admin configuration download : richiede il download della
+configurazione stazione eventualmente aggiornata  (solo Stima V4)</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>modalità a formato libero dove vengono richiesti:</p>
+<ul>
+<li><p>metodo</p></li>
+<li><p>parametri</p></li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="section" id="id15">
-<h5>DataBase<a class="headerlink" href="#id15" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id21">
+<h5>DataBase<a class="headerlink" href="#id21" title="Link a questa intestazione">¶</a></h5>
 <img alt="../_images/model_rpc.png" src="../_images/model_rpc.png" />
 </div>
-<div class="section" id="id16">
-<h5>URL<a class="headerlink" href="#id16" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id22">
+<h5>URL<a class="headerlink" href="#id22" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>'^rpcs/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
 <li><p>'^rpc/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/(?P&lt;id&gt;[-_w]+)/$'</p></li>
@@ -1307,18 +1636,52 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 <li><p>'^rpc-submit/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
 </ul>
 </div>
+<div class="section" id="id23">
+<h5>Daemon<a class="headerlink" href="#id23" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>rpcd : legge dal DB Django le eventuali RPC da eseguire inviandole
+tramite MQTT alle stazioni; Riceve le risposte e le inserisce nel DB
+Django</p></li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h5>Tools<a class="headerlink" href="#id24" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>rmapctrl</p>
+<ul>
+<li><p>--rpc_mqtt_admin_fdownload_v4 : invia richiesta RPC per un firmware download
+over MQTT per stazioni Stima V4
+- --username=USERNAME : work on station managed by this username
+- --station_slug=STATION_SLUG : work on station defined by this slug</p></li>
+<li><p>--purge_rpc : remove all non active RPC (submitted, running and
+completed)</p></li>
+<li><p>--purge_rpc_completed : remove non active RPC and completed</p></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="ticket-app">
 <h4>ticket app<a class="headerlink" href="#ticket-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id17">
-<h5>Descrizione<a class="headerlink" href="#id17" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id25">
+<h5>Descrizione<a class="headerlink" href="#id25" title="Link a questa intestazione">¶</a></h5>
+<p>L'app gestisce i ticket relativi alle stazioni:
+* è relativo a una stazione
+* può essere attivo o no
+* può essere assegnato a più utenti (chi deve risolvere il problema)
+* più utenti possono essere abbonati (notifica delle modifiche)
+* possono essere associate immagini
+* possono essere associati allegati
+* a ogni ticket si susseguono azioni per risolverlo e poi disattivarlo</p>
+<p>L'app non è completa e i ticket si possono inserire e gestire solo dall'interfaccia admin di Django.
+E' necessario aggiungere anche le notifiche tramite email</p>
 </div>
-<div class="section" id="id18">
-<h5>DataBase<a class="headerlink" href="#id18" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id26">
+<h5>DataBase<a class="headerlink" href="#id26" title="Link a questa intestazione">¶</a></h5>
 <img alt="../_images/model_ticket.png" src="../_images/model_ticket.png" />
 </div>
-<div class="section" id="id19">
-<h5>URL<a class="headerlink" href="#id19" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id27">
+<h5>URL<a class="headerlink" href="#id27" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>'^tickets/(?P&lt;user&gt;[-_w]+)/(?P&lt;slug&gt;[-_w]+)/$'</p></li>
 <li><p>'^ticket/(?P&lt;ticket&gt;[-_w]+)/$'</p></li>
@@ -1331,11 +1694,15 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 </div>
 <div class="section" id="borinud-app">
 <h4>borinud app<a class="headerlink" href="#borinud-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id20">
-<h5>Descrizione<a class="headerlink" href="#id20" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id28">
+<h5>Descrizione<a class="headerlink" href="#id28" title="Link a questa intestazione">¶</a></h5>
+<p>Borinud mette a disposizioni delle API WEB per il download dei dati.
+Le fonti dei dati possono essere differenti e multiple: DBall.e e
+Arkimet.  Oltre ai database utilizza gli explorer per mantenere
+aggiornati e veloci i cataloghi dei dati presenti.</p>
 </div>
-<div class="section" id="id21">
-<h5>URL<a class="headerlink" href="#id21" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id29">
+<h5>URL<a class="headerlink" href="#id29" title="Link a questa intestazione">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basepattern</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;^borinud/api/v1/(?P&lt;format&gt;\w+)&#39;</span>
 <span class="s1">&#39;/(?P&lt;ident&gt;\w+|\*|-)&#39;</span>
 <span class="s1">&#39;/(?P&lt;coords&gt;(?P&lt;lon&gt;\-?\+?\d+|-),(?P&lt;lat&gt;\-?\+?\d+|-)|\*)&#39;</span>
@@ -1354,23 +1721,68 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 <li><p>basepattern + '/stations$'</p></li>
 </ul>
 </div>
+<div class="section" id="id30">
+<h5>Tools<a class="headerlink" href="#id30" title="Link a questa intestazione">¶</a></h5>
+<p><strong>rmap-explorer</strong>: viene eseguito in crontab per aggiornare gli
+explorer di DBall.e in <strong>/rmap/dballe</strong></p>
+<p><strong>dballe2arkimet</strong> : oltre a trasferire i dati da DBall.e a arkimet
+aggiorna gli explorer di arkimet in <strong>/rmap/arkimet</strong>.  L'aggiornamento
+degli explorer di arkimet avviene in modo incrementale ogni volta che
+si aggiunge un blocco dati a Arkimet.  Se dovesse avvenire un
+disallineamento o un intervento manuale sul DB è possibile ricreare
+gli explorer di Arkimet tramite questo script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
+<span class="kn">import</span> <span class="nn">dballe</span>
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">dstypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;report_fixed&quot;</span><span class="p">,</span><span class="s2">&quot;report_mobile&quot;</span><span class="p">,</span><span class="s2">&quot;sample_fixed&quot;</span><span class="p">,</span><span class="s2">&quot;sample_mobile&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">dstype</span> <span class="ow">in</span> <span class="n">dstypes</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">dstype</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s1">&#39;*.bufr&#39;</span><span class="p">):</span>
+        <span class="n">file</span><span class="o">=</span><span class="n">path</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="c1"># update from file</span>
+        <span class="k">with</span> <span class="n">dballe</span><span class="o">.</span><span class="n">Explorer</span><span class="p">(</span><span class="n">dstype</span><span class="o">+</span><span class="s2">&quot;.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">explorer</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">explorer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> <span class="k">as</span> <span class="n">updater</span><span class="p">:</span>
+                <span class="n">importer</span> <span class="o">=</span> <span class="n">dballe</span><span class="o">.</span><span class="n">Importer</span><span class="p">(</span><span class="s2">&quot;BUFR&quot;</span><span class="p">)</span>
+                <span class="k">with</span> <span class="n">importer</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">message</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">updater</span><span class="o">.</span><span class="n">add_messages</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;updated from file&quot;</span><span class="p">)</span>
+            <span class="c1">#print (explorer.all_reports)</span>
+            <span class="c1">#print (explorer.all_levels)</span>
+            <span class="c1">#print (explorer.all_tranges)</span>
+            <span class="c1">#print (explorer.all_varcodes)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">explorer</span><span class="o">.</span><span class="n">stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="graphite-dballe-app">
 <h4>graphite-dballe  app<a class="headerlink" href="#graphite-dballe-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id22">
-<h5>Descrizione<a class="headerlink" href="#id22" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id31">
+<h5>Descrizione<a class="headerlink" href="#id31" title="Link a questa intestazione">¶</a></h5>
+<p>Questa app è una versione embedded di <a class="reference external" href="https://graphite.readthedocs.io/en/stable/index.html">graphite</a>
+che utilizza borinud come <a class="reference external" href="https://graphite.readthedocs.io/en/stable/storage-backends.html">storage-backends</a></p>
 </div>
-<div class="section" id="id23">
-<h5>URL<a class="headerlink" href="#id23" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id32">
+<h5>URL<a class="headerlink" href="#id32" title="Link a questa intestazione">¶</a></h5>
+<p>Consultare la <a class="reference external" href="https://graphite.readthedocs.io/en/stable/render_api.html">documentazione</a>.</p>
 </div>
 </div>
 <div class="section" id="insertdata-app">
 <h4>insertdata app<a class="headerlink" href="#insertdata-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id24">
-<h5>Descrizione<a class="headerlink" href="#id24" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id33">
+<h5>Descrizione<a class="headerlink" href="#id33" title="Link a questa intestazione">¶</a></h5>
+<p>TODO</p>
 </div>
-<div class="section" id="id25">
-<h5>URL<a class="headerlink" href="#id25" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id34">
+<h5>URL<a class="headerlink" href="#id34" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>'^insertdata/image$'</p></li>
 <li><p>'^insertdata/manualdata$'</p></li>
@@ -1381,11 +1793,12 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 </div>
 <div class="section" id="showdata-app">
 <h4>showdata app<a class="headerlink" href="#showdata-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id26">
-<h5>Descrizione<a class="headerlink" href="#id26" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id35">
+<h5>Descrizione<a class="headerlink" href="#id35" title="Link a questa intestazione">¶</a></h5>
+<p>TODO</p>
 </div>
-<div class="section" id="id27">
-<h5>URL<a class="headerlink" href="#id27" title="Link a questa intestazione">¶</a></h5>
+<div class="section" id="id36">
+<h5>URL<a class="headerlink" href="#id36" title="Link a questa intestazione">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basepattern</span> <span class="o">=</span> <span class="p">(</span>
 <span class="s1">&#39;^showdata/(?P&lt;ident&gt;\w+|\*|-)&#39;</span>
 <span class="s1">&#39;/(?P&lt;coords&gt;(?P&lt;lon&gt;\-?\+?\d+|-),(?P&lt;lat&gt;\-?\+?\d+|-)|\*)&#39;</span>
@@ -1405,43 +1818,84 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 </div>
 </div>
 </div>
-<div class="section" id="daemon">
-<h3>Daemon<a class="headerlink" href="#daemon" title="Link a questa intestazione">¶</a></h3>
-<p>Il daemon sono hanno i seguento comandi:
-* run
-* start
-* stop</p>
-<p>le altre opzioni sono documentate con l'opzione --help</p>
+<div class="section" id="id37">
+<h3>Daemon<a class="headerlink" href="#id37" title="Link a questa intestazione">¶</a></h3>
+<p>Il daemon hanno i seguento comandi:
+* run : esegue nel terminale
+* start : esegue come daemon
+* stop : termina l'esecuzione del daemon</p>
+<p>le altre opzioni sono documentate con l'opzione --help.
+Qui una sintesi di funzionalità e opzioni:</p>
+<p>I daemon specifici per una app sono stati descritti precedentemente
+nella apposizta sezione della app.</p>
+<ul>
+<li><p>mqtt2amqpd :</p>
 <ul class="simple">
-<li><p>amqp2amqp_identvalidationd</p></li>
-<li><p>amqp2amqp_jsonline2bufrd</p></li>
-<li><p>amqp2arkimetd</p></li>
-<li><p>amqp2dballed</p></li>
-<li><p>amqp2djangod</p></li>
-<li><p>amqp2geoimaged</p></li>
-<li><p>amqp2mqttd</p></li>
-<li><p>composereportd</p></li>
-<li><p>dballe2arkimet</p></li>
-<li><p>mqtt2amqpd</p></li>
-<li><p>mqtt2dballed</p></li>
-<li><p>mqtt2graphited</p></li>
-<li><p>mqtt2stationmaintd</p></li>
-<li><p>report2observationd</p></li>
-<li><p>rpcd</p></li>
-<li><p>stationd</p></li>
-<li><p>ttn2dballed</p></li>
+<li><p>-d DATALEVEL, --datalevel=DATALEVEL :  sample or report</p></li>
+<li><p>-s STATIONTYPE, --stationtype=STATIONTYPE :  fixed or mobile</p></li>
+<li><p>-u --nouserasident  : do not use user as ident for fixed station too
+(default use ident)</p></li>
+</ul>
+<p>conversione dei dati da RMAP over MQTT a formato bufr e messaggio
+AMQP; sono necessarie 4 istanze per differenti datalevel e
+stationtype. ; l'opzione --nouserasident decide il tipo di
+conversione da effettuare: se lo user è utilizzato come ident i dati
+prodotti saranno utili per la visualizzazione dentro il server RMAP,
+ma formalmente scorretti; se l'opzione è attivata i dati prodotti
+saranno formalmente corretti e scambiali internazionalmente.  E'
+possibile attivare 8 istanze: 4 per l'archiviazione locale e 4 per
+la distribuzione oppure le prima 4 nella data ingestion e le altre 4
+nel backend.</p>
+</li>
+<li><p>mqtt2stationmaintd : preleva i messaggi diagnostici pubblicati dalle
+stazioni in MQTT e li inserisce in archivio Django</p></li>
+<li><p>composereportd : effettua le elaborazioni necessarie per calcolare i
+report a partire dai sample; ad esempio esegue le medie ogni 15',
+calcola valori minimi e massimi, dopo aver calcolato le osservazioni
+da campionamenti. Legge e scrive da DBall.e sample_fixed a DBall.e
+report_fixed</p></li>
+<li><p>mqtt2dballed : conversione diretta da RMAP over MQTT a DBall.e (obsoleta)</p></li>
+<li><p>mqtt2graphited : conversione da RMAP over MQTT agli archivi specifici di graphite (obsoleta)</p></li>
+<li><p>stationd: daemon che effettua le misure e le elabora, le invia da una stazione di misura basata su Linux/Python (obsoleta)</p></li>
+<li><p>ttn2dballed : daemon che effettua la traslazione da dati pubblicati tramite LoraWan TTN a MQTT RMAP (obsoleta)</p></li>
 </ul>
 </div>
-<div class="section" id="tools">
-<h3>Tools<a class="headerlink" href="#tools" title="Link a questa intestazione">¶</a></h3>
-<p>Il tools disponibili sono:</p>
+<div class="section" id="id38">
+<h3>Tools<a class="headerlink" href="#id38" title="Link a questa intestazione">¶</a></h3>
+<p>I tools specifici per una app sono stati descritti precedentemente
+nella apposizta sezione della app.</p>
+<p>Altri tools disponibili sono:</p>
 <ul class="simple">
-<li><p>rmapgui</p></li>
-<li><p>rmapweb</p></li>
-<li><p>rmapctrl</p></li>
-<li><p>rmap-explorer</p></li>
-<li><p>rmap-configure</p></li>
+<li><p>rmapgui : esegue la app interattiva tramite libreria Kivy per dispositivi touch</p></li>
+<li><p>rmapweb  : esegue un server http senza necessità di apache</p></li>
+<li><p>rmapctrl : esegue comandi inizializzazione e mantenimento del sistema RMAP
+- --syncdb : initialize rmap DB (default False)
+- --collectstatic :  Collect static files from multiple apps into a single
+path (default False)
+- --dumpdata          :  dump Data Base (default False)
+- --loaddata=LOADDATA :  restore Data Base (default none)</p></li>
+<li><p>rmap-explorer per generare gli explorer dei DB DBall.e e accelerare i summary
+- rmap-explorer --write --type report_fixed
+- rmap-explorer --write --type report_mobile
+- rmap-explorer --write --type sample_fixed
+- rmap-explorer --write --type sample_mobile</p></li>
+<li><p>dballe2arkimet : permette la migrazione dei dati ormai
+&quot;stabilizzati&quot; da DBall.e a Arkimet: utilizza il lock per l'accesso
+in scrittura a DBall.e</p></li>
+<li><p>rmap-manage : comandi per il sistema Django</p></li>
 </ul>
+</div>
+<div class="section" id="configurazione">
+<h3>Configurazione<a class="headerlink" href="#configurazione" title="Link a questa intestazione">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="operazioni-per-l-aggiornamento">
+<h3>Operazioni per l'aggiornamento<a class="headerlink" href="#operazioni-per-l-aggiornamento" title="Link a questa intestazione">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="operazioni-periodiche-di-manutenzione">
+<h3>Operazioni periodiche di manutenzione<a class="headerlink" href="#operazioni-periodiche-di-manutenzione" title="Link a questa intestazione">¶</a></h3>
+<p>TODO</p>
 </div>
 <div class="section" id="struttura-cartelle">
 <h3>Struttura cartelle<a class="headerlink" href="#struttura-cartelle" title="Link a questa intestazione">¶</a></h3>
@@ -1484,11 +1938,6 @@ caso utilizzando un campo date e nell'altro revisione e versione.</p>
 (changed from default installation)</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="id28">
-<h3>Data ingestion<a class="headerlink" href="#id28" title="Link a questa intestazione">¶</a></h3>
-<p>Da rimuove solo di riferimento per sphinx</p>
-<p>Si possono consultare le <a class="reference internal" href="#dataingestion-reference"><span class="std std-ref">funzionalità</span></a></p>
 </div>
 </div>
 <div class="section" id="installazione-server-completo-basato-su-rocky-linux-8">
@@ -1884,8 +2333,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </div>
 <div class="section" id="installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">
 <h2>Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8<a class="headerlink" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id29">
-<h3>Installazione sistema operativo<a class="headerlink" href="#id29" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id39">
+<h3>Installazione sistema operativo<a class="headerlink" href="#id39" title="Link a questa intestazione">¶</a></h3>
 <p>Installare Rocky Linux 8.</p>
 <p>Aggiunta repository e installazione pacchetti</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
@@ -1914,8 +2363,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 <p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rmap/rmap-site.cfg">/etc/rmap/rmap-site.cfg</a></p>
 <p>cambiare la password dell'utente amministratore.</p>
 </div>
-<div class="section" id="id30">
-<h3>Mosquitto<a class="headerlink" href="#id30" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id40">
+<h3>Mosquitto<a class="headerlink" href="#id40" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
 <span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
@@ -1932,8 +2381,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </pre></div>
 </div>
 </div>
-<div class="section" id="id31">
-<h3>Rabbitmq<a class="headerlink" href="#id31" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id41">
+<h3>Rabbitmq<a class="headerlink" href="#id41" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span><span class="n">bash</span>
 <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">erlang</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">bash</span>
 
@@ -1964,8 +2413,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/rabbitmq/rabbit_server_data_ingestion.json">rabbit_server_data_ingestion.json</a></p>
 <p>dalla stessa interfaccia di management web impostare le password per tutti gli utenti, rimuovere l'utente &quot;guest&quot; e fare login con uno dei nuovi utenti definiti.</p>
 </div>
-<div class="section" id="id32">
-<h3>Monit<a class="headerlink" href="#id32" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id42">
+<h3>Monit<a class="headerlink" href="#id42" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
@@ -1980,8 +2429,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <div class="section" id="sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">
 <h3>Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend<a class="headerlink" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend" title="Link a questa intestazione">¶</a></h3>
-<div class="section" id="id33">
-<h4>Server di origine<a class="headerlink" href="#id33" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id43">
+<h4>Server di origine<a class="headerlink" href="#id43" title="Link a questa intestazione">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportsha</span> <span class="o">&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttsha</span> <span class="o">&gt;&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttacl</span> <span class="o">&gt;</span> <span class="n">aclfile</span>
@@ -1990,8 +2439,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <p>eventualmente rimuovere le prime righe di messaggistica del logging</p>
 </div>
-<div class="section" id="id34">
-<h4>Server di destinazione<a class="headerlink" href="#id34" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id44">
+<h4>Server di destinazione<a class="headerlink" href="#id44" title="Link a questa intestazione">¶</a></h4>
 <p>Trasferire i file in /etc/mosquitto/ sul nostro server per la data ingestion.
 Imparire il comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">systemctl</span> <span class="n">reload</span> <span class="n">mosquitto</span><span class="o">.</span><span class="n">service</span>

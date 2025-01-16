@@ -998,7 +998,8 @@
 <li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#specifiche-per-file-di-configurazione-stazione">Specifiche per file di configurazione stazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#esempio-di-notification-json-rpc">Esempio di notification JSON-RPC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#broker-mqtt">Broker MQTT</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#generazione-dei-file-di-autenticazione-autorizzazione">Generazione dei file di autenticazione/autorizzazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#tools">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#daemon">Daemon</a></li>
 <li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#url">URL</a></li>
 </ul>
 </li>
@@ -1007,6 +1008,7 @@
 <li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#nomenclatura-convenzionale">Nomenclatura convenzionale</a></li>
 <li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#sistema-di-autenticazione-e-autorizzazione-di-rmap">Sistema di autenticazione e autorizzazione di RMAP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#amqp-url-reference">URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#id2">Daemon</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#log">Log</a></li>
@@ -1014,70 +1016,83 @@
 <li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#stations-app">stations app</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#descrizione">Descrizione</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#database">DataBase</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id2">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id3">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id4">Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#network-app">network app</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id3">Descrizione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id4">DataBase</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id5">URL</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#http2mqtt-app">http2mqtt app</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id6">Descrizione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#registration-app">registration app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id5">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id6">DataBase</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id7">URL</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#firmware-updater-e-firmware-updater-stima-app">firmware_updater e firmware_updater_stima app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#network-app">network app</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id8">Descrizione</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id9">DataBase</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id10">URL</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#geoimage-app">geoimage app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#http2mqtt-app">http2mqtt app</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id11">Descrizione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id12">DataBase</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id13">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id12">URL</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#rpc-app">rpc app</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id14">Descrizione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id15">DataBase</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id16">URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#firmware-updater-e-firmware-updater-stima-app">firmware_updater e firmware_updater_stima app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id13">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id14">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id15">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id16">DataBase</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#ticket-app">ticket app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#geoimage-app">geoimage app</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id17">Descrizione</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id18">DataBase</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id19">URL</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#borinud-app">borinud app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#rpc-app">rpc app</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id20">Descrizione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id21">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id21">DataBase</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id22">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id23">Daemon</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id24">Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#graphite-dballe-app">graphite-dballe  app</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id22">Descrizione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id23">URL</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#insertdata-app">insertdata app</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id24">Descrizione</a></li>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id25">URL</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#showdata-app">showdata app</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id26">Descrizione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#ticket-app">ticket app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id25">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id26">DataBase</a></li>
 <li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id27">URL</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#borinud-app">borinud app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id28">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id29">URL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id30">Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#daemon">Daemon</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#tools">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#graphite-dballe-app">graphite-dballe  app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id31">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id32">URL</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#insertdata-app">insertdata app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id33">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id34">URL</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#showdata-app">showdata app</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id35">Descrizione</a></li>
+<li class="toctree-l5"><a class="reference internal" href="server_rmap/server_rmap.html#id36">URL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id37">Daemon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id38">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#configurazione">Configurazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#operazioni-per-l-aggiornamento">Operazioni per l'aggiornamento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#operazioni-periodiche-di-manutenzione">Operazioni periodiche di manutenzione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#struttura-cartelle">Struttura cartelle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id28">Data ingestion</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="server_rmap/server_rmap.html#installazione-server-completo-basato-su-rocky-linux-8">Installazione server completo basato su  Rocky Linux 8</a><ul>
@@ -1100,13 +1115,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="server_rmap/server_rmap.html#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id29">Installazione sistema operativo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id30">Mosquitto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id31">Rabbitmq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id32">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id39">Installazione sistema operativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id40">Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id41">Rabbitmq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#id42">Monit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="server_rmap/server_rmap.html#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#id33">Server di origine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#id34">Server di destinazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#id43">Server di origine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="server_rmap/server_rmap.html#id44">Server di destinazione</a></li>
 </ul>
 </li>
 </ul>
@@ -1248,7 +1263,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dispense/cambiamento_climatico/cambiamento_climatico.html#il-ciclo-del-carbonio">Il ciclo del carbonio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dispense/cambiamento_climatico/cambiamento_climatico.html#l-effetto-serra">L'effetto serra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dispense/cambiamento_climatico/cambiamento_climatico.html#cause-del-cambiamento-climatico">Cause del cambiamento climatico</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dispense/cambiamento_climatico/cambiamento_climatico.html#documenti-uffiali-sul-cambiamento-climatico">documenti uffiali sul cambiamento climatico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dispense/cambiamento_climatico/cambiamento_climatico.html#documenti-uffiali-sul-cambiamento-climatico">Documenti uffiali sul cambiamento climatico</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dispense/metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a><ul>

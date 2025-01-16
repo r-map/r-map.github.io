@@ -1037,6 +1037,9 @@ la chiave "t".
 
 payload : **{ "v": VALUE, "a": { "BXXYYY": VALUE, … } }**
 
+
+.. _rmaprfc_estensioni-reference:
+
 Estensioni
 ^^^^^^^^^^
 
@@ -1140,6 +1143,9 @@ Tabella E
                   "B13003"]={"timerange":"254,0,0","level":"103,2000,-,-"},
                   "B15198"]={"timerange":"254,0,0","level":"103,2000,-,-"}}
    }
+
+
+.. _rmaprfc_rpc-reference:
 
 Remote procedure over MQTT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
