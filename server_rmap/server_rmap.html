@@ -126,6 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id2">Daemon</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#stunnel">Stunnel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#log">Log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#descrizione-applicazioni-django">Descrizione applicazioni Django</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#stations-app">stations app</a></li>
@@ -140,6 +141,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#graphite-dballe-app">graphite-dballe  app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#insertdata-app">insertdata app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#showdata-app">showdata app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-apps">other apps</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id37">Daemon</a></li>
@@ -155,7 +157,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#firewall">Firewall</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">postgresql</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apache">apache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stunnel">Stunnel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Stunnel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#arkimet">Arkimet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mosquitto">Mosquitto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rabbitmq">Rabbitmq</a></li>
@@ -170,13 +172,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id39">Installazione sistema operativo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id40">Mosquitto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id41">Rabbitmq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id42">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Installazione sistema operativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Rabbitmq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">Monit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id43">Server di origine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id44">Server di destinazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">Server di origine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">Server di destinazione</a></li>
 </ul>
 </li>
 </ul>
@@ -863,6 +865,7 @@ tabelle di interesse per la configurazione. Questo un esempio:</p>
 </div>
 <div class="section" id="esempio-di-notification-json-rpc">
 <h3>Esempio di notification JSON-RPC<a class="headerlink" href="#esempio-di-notification-json-rpc" title="Link a questa intestazione">¶</a></h3>
+<p>configurazione stazione Stima V4:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;reset&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">}}</span>
 <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
 <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;configure&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sd&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;B01019&quot;</span><span class="p">:</span> <span class="s2">&quot;stimawifi&quot;</span><span class="p">}}}</span>
@@ -1139,6 +1142,16 @@ quali delle 4 istanze eseguire</p></li>
 </ul>
 </div>
 </div>
+<div class="section" id="stunnel">
+<h3>Stunnel<a class="headerlink" href="#stunnel" title="Link a questa intestazione">¶</a></h3>
+<p>Stunnel permette l'accesso https tramite PSK su apache che invece non lo supporta.
+Viene utilizzato dalle stazioni Stima V4 per servizi non disponibili tramite MQTT (aggiornamento firmware e configurazioni)
+Stunnel utilizza un file di autenticazione statico con le psk keys; l'aggiornamento è temporizzato tramite crontab</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttpsk</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">stunnel</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">psk</span>
+</pre></div>
+</div>
+<p>se il file è modificato stunnel viene fatto ripartire.</p>
+</div>
 <div class="section" id="log">
 <h3>Log<a class="headerlink" href="#log" title="Link a questa intestazione">¶</a></h3>
 <p>Tutti i log relativi ai daemon coinvolti in RMAP si trovano nella directory <strong>/var/log/rmap/</strong>.</p>
@@ -1176,7 +1189,14 @@ modifiche</p></li>
 con l'unica caratteristica nella Category:template (&quot;used to generate
 new station&quot;) oltre a essere disattivate per non entrare negli elenchi
 delle stazioni &quot;reali&quot;.</p>
-<p>All'installazione vengono precaricate alcuni template tramite le fixture di Django; ad esempio: <a class="reference external" href="https://github.com/r-map/rmap/blob/master/python/rmap/stations/fixtures/template_stations_02.json">https://github.com/r-map/rmap/blob/master/python/rmap/stations/fixtures/template_stations_02.json</a></p>
+<p>All'installazione vengono precaricate alcuni template tramite le
+fixture di Django; ad esempio:
+<a class="reference external" href="https://github.com/r-map/rmap/blob/master/python/rmap/stations/fixtures/template_stations_02.json">https://github.com/r-map/rmap/blob/master/python/rmap/stations/fixtures/template_stations_02.json</a></p>
+<p>Bisogna prestare attenzione al fatto che le stazioni e quindi anche i
+tamplate stazione non possono avere le stesse coordinate e quindi su
+questo vanno differenziate, non avendo comunque tali valori
+significato in quanto valorizzati solo al momento della creazione di
+una vera stazione.</p>
 <p>Le definizioni stazioni possono essere trasferite tra differenti
 istanze del server (server remoto e DB Django locale).</p>
 </div>
@@ -1771,18 +1791,94 @@ gli explorer di Arkimet tramite questo script:</p>
 che utilizza borinud come <a class="reference external" href="https://graphite.readthedocs.io/en/stable/storage-backends.html">storage-backends</a></p>
 </div>
 <div class="section" id="id32">
-<h5>URL<a class="headerlink" href="#id32" title="Link a questa intestazione">¶</a></h5>
+<h5>DataBase<a class="headerlink" href="#id32" title="Link a questa intestazione">¶</a></h5>
+<img alt="../_images/model_graphite-rmap.png" src="../_images/model_graphite-rmap.png" />
+</div>
+<div class="section" id="id33">
+<h5>URL<a class="headerlink" href="#id33" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>^graphite/ ^render/</p></li>
+<li><p>^graphite/ ^composer/</p></li>
+<li><p>^graphite/ ^metrics/</p></li>
+<li><p>^graphite/ ^browser/</p></li>
+<li><p>^graphite/ ^account/</p></li>
+<li><p>^graphite/ ^dashboard/</p></li>
+<li><p>^graphite/ ^whitelist/</p></li>
+<li><p>^graphite/ ^version/</p></li>
+<li><p>^graphite/ ^events/</p></li>
+<li><p>^graphite/ ^tags/</p></li>
+<li><p>^graphite/ ^functions/</p></li>
+<li><p>^graphite/ ^s/(?P&lt;path&gt;.*)</p></li>
+<li><p>^graphite/ ^S/(?P&lt;link_id&gt;[a-zA-Z0-9]+)/?$</p></li>
+<li><p>^graphite/ ^$</p></li>
+</ul>
 <p>Consultare la <a class="reference external" href="https://graphite.readthedocs.io/en/stable/render_api.html">documentazione</a>.</p>
 </div>
 </div>
 <div class="section" id="insertdata-app">
 <h4>insertdata app<a class="headerlink" href="#insertdata-app" title="Link a questa intestazione">¶</a></h4>
-<div class="section" id="id33">
-<h5>Descrizione<a class="headerlink" href="#id33" title="Link a questa intestazione">¶</a></h5>
-<p>TODO</p>
-</div>
 <div class="section" id="id34">
-<h5>URL<a class="headerlink" href="#id34" title="Link a questa intestazione">¶</a></h5>
+<h5>Descrizione<a class="headerlink" href="#id34" title="Link a questa intestazione">¶</a></h5>
+<p>Con questa app è possibile inserire immagini georeferenziate, dati e
+creare nuovi punti di osservazione.</p>
+<p>Quindi questa app è utilizzata anche per definire nuovi punti di
+osservazione e quindi stazioni sia manuali che automatiche.</p>
+<p>Dal menù partecipa la creazione di una nuovo punto di osservazione si
+attua tramite una apposita form:</p>
+<ul class="simple">
+<li><p>tramite una ricerca partendo dall'indirizzo</p></li>
+<li><p>tramite un marker sulla mappa</p></li>
+</ul>
+<p>salvo alcuni specifici metadati quali:</p>
+<ul class="simple">
+<li><p>nome</p></li>
+<li><p>latitudine e longitudine</p></li>
+<li><p>altezza</p></li>
+</ul>
+<p>tutti gli altri metadati vengono definiti tramite un template di
+stazioni tipiche.  <strong>Template stazione</strong>: i template per le stazioni
+con configurazione predefinita non sono altro che comuni stazioni in
+DB StationMetadata non attive e con Category = &quot;template&quot; (&quot;used to
+generate new station&quot;), ma sono normalmente attribuite all'utente
+&quot;rmap&quot;.  E' possibile quindi usare differenti metodi per creare un
+nuovo template, ad esempio creando una nuova stazione da web partendo
+da un template preesistente e modificandola a piacere; la
+classificazione come template in questo caso sarà possibile solo da
+interfaccia admin di Django modificando la Category a &quot;template&quot;
+(&quot;used to generate new station&quot;).</p>
+<p>Dalla propria pagina personale la
+modifica si può effettuare su:</p>
+<ul class="simple">
+<li><p>metadati della stazione</p></li>
+<li><p>metadati della singola board</p></li>
+</ul>
+<p>Dal menù partecipa è possibile inserire immagini georeferenziate
+tramite una apposita form:</p>
+<ul class="simple">
+<li><p>su punti di osservazione predefiniti</p></li>
+<li><p>tramite una ricerca partendo dall'indirizzo</p></li>
+<li><p>tramite un marker sulla mappa</p></li>
+</ul>
+<p>E' ammesso definire un breve ritardo la il momento dell'osservazione e
+quello della pubblicazione.</p>
+<p>Le immagini vengono inserite direttamente nel dataBase.</p>
+<p>Dal menù partecipa è possibile inserire dati
+tramite una apposita form:</p>
+<ul class="simple">
+<li><p>su punti di osservazione predefiniti</p></li>
+<li><p>tramite una ricerca partendo dall'indirizzo</p></li>
+<li><p>tramite un marker sulla mappa</p></li>
+</ul>
+<p>I dati sono pubblicati come &quot;report&quot;.  Esiste una differenza
+sostanziale tra l'inserimento dei dati su punti osservazione
+predefiniti (stazioni) e no: nel caso di punti predefiniti i dati sono
+pubblicati con root topic &quot;fixed&quot; altrimenti &quot;mobile&quot; dando quindi ai
+dati differenti DB come destinazione.  Nel caso di DB &quot;mobile&quot; la rete
+sarà &quot;mobile&quot;, lo slug stazione &quot;auto_mobile&quot; che risulta quindi essere un valore riservato, ident pari alla
+username, nome stazione &quot;Auto mobile&quot; e  board_slug &quot;default&quot;.</p>
+<p>I dati non vengono inseriti in DB direttamente ma vengono pubblicati
+sul broker MQTT.</p>
+<p>'''</p>
 <ul class="simple">
 <li><p>'^insertdata/image$'</p></li>
 <li><p>'^insertdata/manualdata$'</p></li>
@@ -1795,7 +1891,9 @@ che utilizza borinud come <a class="reference external" href="https://graphite.r
 <h4>showdata app<a class="headerlink" href="#showdata-app" title="Link a questa intestazione">¶</a></h4>
 <div class="section" id="id35">
 <h5>Descrizione<a class="headerlink" href="#id35" title="Link a questa intestazione">¶</a></h5>
-<p>TODO</p>
+<p>Mostra i dati su mappa o con grafici con apposita navigazione nel
+tempo e nello spazio potendo passare da una vista all'altra.
+Per i grafici viene utilizzata l'app graphite-rmap.</p>
 </div>
 <div class="section" id="id36">
 <h5>URL<a class="headerlink" href="#id36" title="Link a questa intestazione">¶</a></h5>
@@ -1816,6 +1914,25 @@ che utilizza borinud come <a class="reference external" href="https://graphite.r
 <li><p>basepattern + '/stations$'</p></li>
 </ul>
 </div>
+</div>
+<div class="section" id="other-apps">
+<h4>other apps<a class="headerlink" href="#other-apps" title="Link a questa intestazione">¶</a></h4>
+<p>TODO</p>
+<ul class="simple">
+<li><p>django_hosts</p></li>
+<li><p>corsheaders</p></li>
+<li><p>leaflet</p></li>
+<li><p>djgeojson</p></li>
+<li><p>imagekit</p></li>
+<li><p>cookielaw</p></li>
+<li><p>tagging</p></li>
+<li><p>django_extensions</p></li>
+<li><p>rainbo</p></li>
+<li><p>borinud_sos</p></li>
+<li><p>contacts</p></li>
+<li><p>dynamic (cosudo)</p></li>
+<li><p>hijack</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="id37">
@@ -1891,11 +2008,57 @@ in scrittura a DBall.e</p></li>
 </div>
 <div class="section" id="operazioni-per-l-aggiornamento">
 <h3>Operazioni per l'aggiornamento<a class="headerlink" href="#operazioni-per-l-aggiornamento" title="Link a questa intestazione">¶</a></h3>
-<p>TODO</p>
+<dl class="simple">
+<dt>::</dt><dd><p>dnf install python3-rmap
+cd /tmp/
+rmap-manage migrate
+rmap-manage collectstatic</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="operazioni-periodiche-di-manutenzione">
 <h3>Operazioni periodiche di manutenzione<a class="headerlink" href="#operazioni-periodiche-di-manutenzione" title="Link a questa intestazione">¶</a></h3>
-<p>TODO</p>
+<p><strong>Pulizia sessions</strong></p>
+<ul class="simple">
+<li><p>rmap-manage clearsessions</p></li>
+</ul>
+<p><strong>Pulizia registration</strong></p>
+<ul class="simple">
+<li><p>rmap-manage cleanupregistration</p></li>
+</ul>
+<p><strong>Pulizia RPC:</strong></p>
+<ul>
+<li><p>rmapctrl</p>
+<ul>
+<li><dl class="option-list">
+<dt><kbd><span class="option">--purge_rpc</span></kbd></dt>
+<dd><p>remove non active RPC (submitted, running and completed)</p>
+</dd>
+</dl>
+</li>
+<li><p>--purge_rpc_completed remove non active RPC and completed</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Backup del Data Base Django:</strong></p>
+<ul>
+<li><p>rmapctrl
+- --dumpdata            dump Data Base</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>--station_slug=STATION_SLUG work on station defined by this slug</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><dl class="option-list">
+<dt><kbd><span class="option">--loaddata=<var>LOADDATA</var></span></kbd></dt>
+<dd><p>restore Data Base</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="struttura-cartelle">
 <h3>Struttura cartelle<a class="headerlink" href="#struttura-cartelle" title="Link a questa intestazione">¶</a></h3>
@@ -2122,8 +2285,8 @@ chown -R apache /etc/httpd/certs</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="stunnel">
-<h3>Stunnel<a class="headerlink" href="#stunnel" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id39">
+<h3>Stunnel<a class="headerlink" href="#id39" title="Link a questa intestazione">¶</a></h3>
 <p>Create file with psk keys:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttpsk</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">stunnel</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">psk</span>
 </pre></div>
@@ -2333,8 +2496,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </div>
 <div class="section" id="installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8">
 <h2>Installazione server solo funzionalità DATA INGESTION basato su  Rocky Linux 8<a class="headerlink" href="#installazione-server-solo-funzionalita-data-ingestion-basato-su-rocky-linux-8" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id39">
-<h3>Installazione sistema operativo<a class="headerlink" href="#id39" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id40">
+<h3>Installazione sistema operativo<a class="headerlink" href="#id40" title="Link a questa intestazione">¶</a></h3>
 <p>Installare Rocky Linux 8.</p>
 <p>Aggiunta repository e installazione pacchetti</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
@@ -2363,8 +2526,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 <p>scaricare il file <a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/server-data-ingestion/etc/rmap/rmap-site.cfg">/etc/rmap/rmap-site.cfg</a></p>
 <p>cambiare la password dell'utente amministratore.</p>
 </div>
-<div class="section" id="id40">
-<h3>Mosquitto<a class="headerlink" href="#id40" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id41">
+<h3>Mosquitto<a class="headerlink" href="#id41" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mosquitto</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>
 <span class="n">mkdir</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
 <span class="n">chown</span> <span class="n">mosquitto</span><span class="p">:</span><span class="n">mosquitto</span> <span class="o">/</span><span class="n">rmap</span><span class="o">/</span><span class="n">mosquitto</span>
@@ -2381,8 +2544,8 @@ bisognerebbe riuscire a settare &quot;user_id&quot; tramite il parametro &quot;d
 </pre></div>
 </div>
 </div>
-<div class="section" id="id41">
-<h3>Rabbitmq<a class="headerlink" href="#id41" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id42">
+<h3>Rabbitmq<a class="headerlink" href="#id42" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span><span class="n">bash</span>
 <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packagecloud</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">rabbitmq</span><span class="o">/</span><span class="n">erlang</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="n">rpm</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">bash</span>
 
@@ -2413,8 +2576,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 <p><a class="reference external" href="https://raw.githubusercontent.com/r-map/rmap/master/rabbitmq/rabbit_server_data_ingestion.json">rabbit_server_data_ingestion.json</a></p>
 <p>dalla stessa interfaccia di management web impostare le password per tutti gli utenti, rimuovere l'utente &quot;guest&quot; e fare login con uno dei nuovi utenti definiti.</p>
 </div>
-<div class="section" id="id42">
-<h3>Monit<a class="headerlink" href="#id42" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="id43">
+<h3>Monit<a class="headerlink" href="#id43" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">monit</span>
 </pre></div>
 </div>
@@ -2429,8 +2592,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <div class="section" id="sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend">
 <h3>Sincronizzazione file statici per autenticazione e autorizzazione da un server RMAP backend<a class="headerlink" href="#sincronizzazione-file-statici-per-autenticazione-e-autorizzazione-da-un-server-rmap-backend" title="Link a questa intestazione">¶</a></h3>
-<div class="section" id="id43">
-<h4>Server di origine<a class="headerlink" href="#id43" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id44">
+<h4>Server di origine<a class="headerlink" href="#id44" title="Link a questa intestazione">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportsha</span> <span class="o">&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttsha</span> <span class="o">&gt;&gt;</span> <span class="n">file</span><span class="o">.</span><span class="n">pwd</span>
 <span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttacl</span> <span class="o">&gt;</span> <span class="n">aclfile</span>
@@ -2439,8 +2602,8 @@ con user &quot;guest&quot; e password &quot;guest&quot;, quindi utilizzare la fu
 </div>
 <p>eventualmente rimuovere le prime righe di messaggistica del logging</p>
 </div>
-<div class="section" id="id44">
-<h4>Server di destinazione<a class="headerlink" href="#id44" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="id45">
+<h4>Server di destinazione<a class="headerlink" href="#id45" title="Link a questa intestazione">¶</a></h4>
 <p>Trasferire i file in /etc/mosquitto/ sul nostro server per la data ingestion.
 Imparire il comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">systemctl</span> <span class="n">reload</span> <span class="n">mosquitto</span><span class="o">.</span><span class="n">service</span>
