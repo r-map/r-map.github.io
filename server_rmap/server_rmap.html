@@ -1670,9 +1670,12 @@ Django</p></li>
 <li><p>rmapctrl</p>
 <ul>
 <li><p>--rpc_mqtt_admin_fdownload_v4 : invia richiesta RPC per un firmware download
-over MQTT per stazioni Stima V4
-- --username=USERNAME : work on station managed by this username
-- --station_slug=STATION_SLUG : work on station defined by this slug</p></li>
+over MQTT per stazioni Stima V4</p>
+<ul>
+<li><p>--username=USERNAME : work on station managed by this username</p></li>
+<li><p>--station_slug=STATION_SLUG : work on station defined by this slug</p></li>
+</ul>
+</li>
 <li><p>--purge_rpc : remove all non active RPC (submitted, running and completed)</p></li>
 <li><p>--purge_rpc_completed : remove non active RPC and completed</p></li>
 </ul>
@@ -2036,16 +2039,15 @@ in scrittura a DBall.e</p></li>
 </li>
 </ul>
 <p><strong>Backup del Data Base Django:</strong></p>
-<ul>
-<li><p>rmapctrl
-- --dumpdata : dump Data Base</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>--station_slug=STATION_SLUG work on station defined by this slug</p></li>
-</ul>
-</div></blockquote>
 <ul class="simple">
+<li><p>rmapctrl</p>
+<ul>
+<li><p>--dumpdata : dump Data Base</p>
+<ul>
+<li><p>--station_slug=STATION_SLUG work on station defined by this slug</p></li>
 <li><p>--loaddata=LOADDATA :  restore Data Base</p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

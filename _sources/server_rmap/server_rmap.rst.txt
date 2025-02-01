@@ -1454,6 +1454,7 @@ Tools
   
   - --rpc_mqtt_admin_fdownload_v4 : invia richiesta RPC per un firmware download
     over MQTT per stazioni Stima V4
+
     - --username=USERNAME : work on station managed by this username
     - --station_slug=STATION_SLUG : work on station defined by this slug
 
@@ -1852,11 +1853,11 @@ Operazioni periodiche di manutenzione
 **Backup del Data Base Django:**
 
 * rmapctrl
+
   - --dumpdata : dump Data Base
 
     * --station_slug=STATION_SLUG work on station defined by this slug
-
-  - --loaddata=LOADDATA :  restore Data Base 
+    * --loaddata=LOADDATA :  restore Data Base 
 
 
 Struttura cartelle
