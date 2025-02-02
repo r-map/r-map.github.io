@@ -141,14 +141,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#graphite-dballe-app">graphite-dballe  app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#insertdata-app">insertdata app</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#showdata-app">showdata app</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#other-apps">other apps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#altre-app">Altre app</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id38">Daemon</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id39">Tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operazioni-per-l-aggiornamento">Operazioni per l'aggiornamento</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operazioni-periodiche-di-manutenzione">Operazioni periodiche di manutenzione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operazioni-straordinarie-periodiche-di-manutenzione">Operazioni straordinarie/periodiche di manutenzione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#struttura-cartelle">Struttura cartelle</a></li>
 </ul>
 </li>
@@ -296,7 +296,7 @@ all’interno del sistema. I client che devono inviare dati via MQTT o
 AMQP devono passare da un sistema di autenticazione e autorizzazione,
 sostanzialmente per garantire che i dati siano inviati solo da utenti
 autenticati e che non vadano a sovrapporsi a dati altrui. Entrambi i
-broker interrogano il sistema di autenticazione<strong>,</strong> un servizio web
+broker interrogano il sistema di autenticazione, un servizio web
 che implementa gli endpoint richiesti da RabbitMQ e Mosquitto. Il
 servizio di autorizzazione su AMQP (cioè cosa può pubblicare un utente
 autenticato) è invece delegato al demone <em>identvalidationd</em>, che prende
@@ -1144,9 +1144,11 @@ quali delle 4 istanze eseguire</p></li>
 </div>
 <div class="section" id="stunnel">
 <h3>Stunnel<a class="headerlink" href="#stunnel" title="Link a questa intestazione">¶</a></h3>
-<p>Stunnel permette l'accesso https tramite PSK su apache che invece non lo supporta.
-Viene utilizzato dalle stazioni Stima V4 per servizi non disponibili tramite MQTT (aggiornamento firmware e configurazioni)
-Stunnel utilizza un file di autenticazione statico con le psk keys; l'aggiornamento è temporizzato tramite crontab</p>
+<p>Stunnel permette l'accesso https tramite PSK su apache che invece non
+lo supporta.  Viene utilizzato dalle stazioni Stima V4 per servizi non
+disponibili tramite MQTT (aggiornamento firmware e configurazioni)
+Stunnel utilizza un file di autenticazione statico con le psk keys;
+l'aggiornamento è temporizzato tramite crontab</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rmapctrl</span> <span class="o">--</span><span class="n">exportmqttpsk</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">stunnel</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">psk</span>
 </pre></div>
 </div>
@@ -1154,7 +1156,8 @@ Stunnel utilizza un file di autenticazione statico con le psk keys; l'aggiorname
 </div>
 <div class="section" id="log">
 <h3>Log<a class="headerlink" href="#log" title="Link a questa intestazione">¶</a></h3>
-<p>Tutti i log relativi ai daemon coinvolti in RMAP si trovano nella directory <strong>/var/log/rmap/</strong>.</p>
+<p>Tutti i log relativi ai daemon coinvolti in RMAP si trovano nella
+directory <strong>/var/log/rmap/</strong>.</p>
 </div>
 <div class="section" id="descrizione-applicazioni-django">
 <h3>Descrizione applicazioni Django<a class="headerlink" href="#descrizione-applicazioni-django" title="Link a questa intestazione">¶</a></h3>
@@ -1503,9 +1506,11 @@ dell'aggiornamento).</p>
 <li><p>Se il firmware non esiste torna 500</p></li>
 <li><p>Se la versione non è corretta torna 300</p></li>
 <li><p>Se non c'è un nuovo firmware torna 304</p></li>
-<li><p>Se l'md5 del firmware attualmente running è uguale a quello dell'ultimo firmware disponibile torna 304</p></li>
+<li><p>Se l'md5 del firmware attualmente running è uguale a quello
+dell'ultimo firmware disponibile torna 304</p></li>
 </ul>
-<p>altrimenti risponde con il firmware con header 'x-MD5' pari all'md5 del firmware che segue</p>
+<p>altrimenti risponde con il firmware con header 'x-MD5' pari all'md5
+del firmware che segue.</p>
 <p>Il tutto si riassume con questa richiesta tramite curl:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">agent</span> <span class="s2">&quot;ESP8266-http-Update&quot;</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;X-ESP8266-STA-MAC:</span>
 <span class="mi">1234</span><span class="s2">&quot; -H &quot;</span><span class="n">X</span><span class="o">-</span><span class="n">ESP8266</span><span class="o">-</span><span class="n">AP</span><span class="o">-</span><span class="n">MAC</span><span class="p">:</span> <span class="mi">1234</span><span class="s2">&quot; -H &quot;</span><span class="n">X</span><span class="o">-</span><span class="n">ESP8266</span><span class="o">-</span><span class="n">FREE</span><span class="o">-</span><span class="n">SPACE</span><span class="p">:</span> <span class="mi">1234</span><span class="s2">&quot; -H</span>
@@ -1919,23 +1924,68 @@ Per i grafici viene utilizzata l'app graphite-rmap.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="other-apps">
-<h4>other apps<a class="headerlink" href="#other-apps" title="Link a questa intestazione">¶</a></h4>
-<p>TODO</p>
+<div class="section" id="altre-app">
+<h4>Altre app<a class="headerlink" href="#altre-app" title="Link a questa intestazione">¶</a></h4>
+<p><strong>Queste sono applicazioni minori, obsolete o non complete:</strong></p>
 <ul class="simple">
-<li><p>django_hosts</p></li>
-<li><p>corsheaders</p></li>
-<li><p>leaflet</p></li>
-<li><p>djgeojson</p></li>
-<li><p>imagekit</p></li>
-<li><p>cookielaw</p></li>
-<li><p>tagging</p></li>
-<li><p>django_extensions</p></li>
-<li><p>rainbo</p></li>
-<li><p>borinud_sos</p></li>
-<li><p>contacts</p></li>
-<li><p>dynamic (cosudo)</p></li>
-<li><p>hijack</p></li>
+<li><p><strong>rainbo</strong>: progetto EU rainbo, permette di avere viste specifiche per
+inserimento e visualizzazione dati <a class="reference external" href="https://partecipa.rainbolife.eu/">https://partecipa.rainbolife.eu/</a></p></li>
+<li><p><strong>borinud_sos</strong>: SOS standard OGC dal 2007
+<a class="reference external" href="http://www.opengeospatial.org/standards/sos">http://www.opengeospatial.org/standards/sos</a> Standard che definisce
+l’interfaccia di un servizio web per l’interrogazione di
+osservazioni, metadati dei sensori e rappresentazione delle
+caratteristiche osservate Tre servizi di base:</p>
+<ul>
+<li><p>GetCapabilities: informazioni sul servizio e sui sensori disponibli</p></li>
+<li><p>DescribeSensor: metadati del sensore (SensorML)</p></li>
+<li><p>GetObservation: valori misurati dai sensori (Observations and
+Measurements) compatibilità con rmap Una procedure può coincidere
+con un sensore
+e.g. -/1212345,4312345/rmap/254,0,0/103,2000,-,-/B12101 Una
+observed property può coincidere con La terna (timerange, livello,
+var) e.g. 254,0,0/103,2000,-,-/B12101 La sola var e.g. B12101 Una
+feature of interest può coincidere con la stazione
+e.g. -/1212345,4312345/rmap</p></li>
+</ul>
+</li>
+<li><p><strong>contacts</strong>: gestisce invio mail per contattare l'amministratore;
+utilizzata dall'app rainbo</p></li>
+</ul>
+<p><strong>Queste sono app esterne al pacchetto RMAP utilizzate dalle app RMAP:</strong></p>
+<ul class="simple">
+<li><p><strong>dynamic</strong> (cosudo): fare riferimento a :
+<a class="reference external" href="https://github.com/ARPA-SIMC/cosudo">https://github.com/ARPA-SIMC/cosudo</a></p></li>
+<li><p><strong>django_hosts</strong>: this Django app routes requests for specific hosts to
+different URL schemes defined in modules called &quot;hostconfs&quot;.</p></li>
+<li><p><strong>corsheaders</strong>: a Django App that adds Cross-Origin Resource Sharing
+(CORS) headers to responses. This allows in-browser requests to your
+Django application from other origins.</p></li>
+<li><p><strong>leaflet</strong>: allows you to use Leaflet in your Django projects.</p></li>
+<li><p><strong>djgeojson</strong>: is a set of tools to manipulate GeoJSON with Django :</p>
+<ul>
+<li><p>(De)Serializer for (Geo)Django objects, querysets and lists</p></li>
+<li><p>Base views to serve GeoJSON map layers from models</p></li>
+<li><p>GeoJSON model and form fields to avoid spatial database backends
+(compatible with <em>django-leaflet</em> for map widgets)</p></li>
+</ul>
+</li>
+<li><p><strong>imagekit</strong>: for processing images. Need a thumbnail? A black-and-white
+version of a user-uploaded image? ImageKit will make them for you. If
+you need to programatically generate one image from another, you need
+ImageKit.
+ImageKit comes with a bunch of image processors for common tasks like resizing
+and cropping, but you can also create your own.</p></li>
+<li><p><strong>cookielaw</strong>: helps your Django project comply with the
+EU cookie regulations &lt;<a class="reference external" href="http://www.aboutcookies.org/default.aspx?page=3">http://www.aboutcookies.org/default.aspx?page=3</a>
+by displaying a cookie information banner until it is dismissed by the user.</p></li>
+<li><p><strong>tagging</strong>: a generic tagging application for Django projects, which allows association
+of a number of tags with any Model instance and makes retrieval of tags
+simple.</p></li>
+<li><p><strong>django_extensions</strong>: is a collection of custom extensions for the Django Framework.
+These include management commands, additional database fields,
+admin extensions and much more.</p></li>
+<li><p><strong>hijack</strong>: With Django Hijack, admins can log in and work on behalf
+of other users without having to know their credentials.</p></li>
 </ul>
 </div>
 </div>
@@ -2008,19 +2058,46 @@ in scrittura a DBall.e</p></li>
 </div>
 <div class="section" id="configurazione">
 <h3>Configurazione<a class="headerlink" href="#configurazione" title="Link a questa intestazione">¶</a></h3>
-<p>TODO</p>
+<p>Il file di configurazione al lancio dei tools e delle app viene
+cercato nella cartella corrente con nome file rmap.cfg.  Questi i
+default: <a class="reference external" href="https://github.com/r-map/rmap/blob/master/python/rmap.cfg">https://github.com/r-map/rmap/blob/master/python/rmap.cfg</a></p>
+<p>Se il file è assente viene utilizzato il file installato in /etc/rmap/rmap-site.cfg.
+Questi i default: <a class="reference external" href="https://github.com/r-map/rmap/blob/master/python/rmap-site.cfg">https://github.com/r-map/rmap/blob/master/python/rmap-site.cfg</a></p>
 </div>
 <div class="section" id="operazioni-per-l-aggiornamento">
 <h3>Operazioni per l'aggiornamento<a class="headerlink" href="#operazioni-per-l-aggiornamento" title="Link a questa intestazione">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">rmap</span>
 <span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">global_static</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">manage</span> <span class="n">migrate</span>
 <span class="n">rmap</span><span class="o">-</span><span class="n">manage</span> <span class="n">collectstatic</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="operazioni-periodiche-di-manutenzione">
-<h3>Operazioni periodiche di manutenzione<a class="headerlink" href="#operazioni-periodiche-di-manutenzione" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="operazioni-straordinarie-periodiche-di-manutenzione">
+<h3>Operazioni straordinarie/periodiche di manutenzione<a class="headerlink" href="#operazioni-straordinarie-periodiche-di-manutenzione" title="Link a questa intestazione">¶</a></h3>
+<p><strong>Operazioni di supporto a utenti</strong></p>
+<p>Tramite l'app hijack è ppossibile impersonare l'identità di qualsiasi
+utente e agire, quando necessario, come tale.</p>
+<p><strong>Sostituzione hardware delle stazioni stimawifi e stima V4</strong></p>
+<p>Durante la fase di aggiornamento del firmware le stazioni nell'header
+della richiesta inviano HTTP_X_STIMA4_BOARD_MAC o
+X_ESP8266_STA_MAC/HTTP_X_ESP32_STA_MAC. Essendo la richiesta
+d'aggiornamento del firmware non autenticata, la board dispone di un
+MAC che viene inviato nell'header X_ESP8266_STA_MAC il cui hash viene
+salvato la prima volta sul server e tutte le volte successive deve
+fare match per poter aggiornare le info sul server.
+Il campo mac viene utilizzato:</p>
+<ul class="simple">
+<li><p>valorizzato al primo tentativo di aggiornamento</p></li>
+<li><p>verificato i successivi aggiornamenti</p></li>
+<li><p>i restanti campi sono aggiornati solo se la verifica ha successo</p></li>
+</ul>
+<p>Questo serve come semplice metodo di autenticazione della richiesta
+http di aggiornamento del firmware delle board. Se l'hardware viene
+cambiato a una stazione preesistente il mac deve essere resettato
+tramite l'interfaccia admin di Django: il campo è <strong>mac</strong> della
+tabella <strong>BoardFirmwareMetadata</strong>.</p>
 <p><strong>Pulizia sessions</strong></p>
 <ul class="simple">
 <li><p>rmap-manage clearsessions</p></li>
@@ -2045,9 +2122,9 @@ in scrittura a DBall.e</p></li>
 <li><p>--dumpdata : dump Data Base</p>
 <ul>
 <li><p>--station_slug=STATION_SLUG work on station defined by this slug</p></li>
-<li><p>--loaddata=LOADDATA :  restore Data Base</p></li>
 </ul>
 </li>
+<li><p>--loaddata=LOADDATA :  restore Data Base</p></li>
 </ul>
 </li>
 </ul>
