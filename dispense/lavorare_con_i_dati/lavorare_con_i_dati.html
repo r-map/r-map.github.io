@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lavorare con i dati &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="prev" title="Complottismo" href="../complottismo/complottismo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../misure/protocollo_misurazioni.html">Protocollo misurazioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_di_tutti/la_scienza_di_tutti.html">Citizen Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualit%C3%A0_aria/qualit%C3%A0_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilit%C3%A0/probabilit%C3%A0.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cambiamento_climatico/cambiamento_climatico.html">Cambiamento climatico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lavorare con i dati</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#teoria-degli-errori">Teoria degli errori</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errore-statistico-e-deviazione-standard">Errore statistico e deviazione standard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Lavorare con i dati</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/lavorare_con_i_dati/lavorare_con_i_dati.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lavorare-con-i-dati">
+<h1>Lavorare con i dati<a class="headerlink" href="#lavorare-con-i-dati" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="teoria-degli-errori">
+<h2>Teoria degli errori<a class="headerlink" href="#teoria-degli-errori" title="Link a questa intestazione">¶</a></h2>
+<p>Licenza CC BY-NC-ND 2.5 <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/2.5/">https://creativecommons.org/licenses/by-nc-nd/2.5/</a></p>
+<p>Copyright <strong>WeSchool srl</strong> Rome, 00186, Via Dei Barbieri, 6, VAT
+no. 11514241006. For contacts:
+<a class="reference external" href="mailto:rpd&#37;&#52;&#48;weschool&#46;com">rpd<span>&#64;</span>weschool<span>&#46;</span>com</a>. <a class="reference external" href="https://library.weschool.com/corso/metrologia-e-teoria-degli-errori-dalla-varianza-alla-deviazione-standard-6310.html">https://library.weschool.com/corso/metrologia-e-teoria-degli-errori-dalla-varianza-alla-deviazione-standard-6310.html</a></p>
+<p>La misura è un'operazione fondamentale in Fisica come in tutte le
+Scienze. Per questa ragione c'è un'intera disciplina che se ne occupa
+sia dal punto di vista teorico, sia per quello che riguarda gli
+aspetti pratici: la metrologia.</p>
+<p>Una delle sue articolazioni è la teoria degli errori, la quale studia
+come l'errore, inevitabile in qualsiasi misurazione, può essere
+stimato, controllato ed eventualmente ridotto.</p>
+<p>Per misurare una grandezza fisica occorre seguire una serie di
+operazioni il cui risultato è esprimibile con un numero e con un'unità
+di misura. Tuttavia, nessuna misura sarà mai esatta: a ciascuna
+misura, cioè, sarà associata un’incertezza, che rappresenta la
+magnitudine degli errori inevitabilmente effettuati durante la
+misurazione. Quindi ogni misura non rappresenta il valore “vero” di
+una grandezza, ma solo una sua sensibile approssimazione.</p>
+<p>Esistono due tipi di errori:</p>
+<ul class="simple">
+<li><p><strong>Errori sistematici</strong>: sono gli errori insiti nello strumento di
+misura. Non possono essere eliminati del tutto ma è possibile
+ridurre l'errore usando uno strumento più preciso. Le fonti
+principali di questi errori sono, il difetto dello strumento usato,
+l'interazione strumento - sperimentatore, l’interazione strumento -
+fenomeno in esame, le errate condizioni di lavoro o l’imperfetta
+realizzazione del fenomeno. Gli errori sistematici sono difficili da
+individuare e da ridurre poiché, per loro stessa natura, si ripetono
+appunto sistematicamente ad ogni misurazione.</p></li>
+<li><p><strong>Errori casuali</strong>: sono gli errori dovuti a fenomeni casuali e non
+controllabili, che influenzano la lettura della misura. Sono errori
+casuali tutte quelle incertezze sperimentali che possono essere
+rilevate mediante la ripetizione delle misure: non possono mai
+essere eliminati del tutto, ma la loro influenza sulla misurazione
+può essere fortemente ridotta grazie a strumenti statistici.
+Proprio questi strumenti sono oggetto di questo corso: grazie a
+questi strumenti, al ripetersi delle misure, si possono determinare
+dei parametri (principalmente media e deviazione standard) in modo
+tale che le misurazioni che si ottengono oscillano attorno ad un
+valore pressoché costante.</p></li>
+</ul>
+<p>Gli <strong>errori aleatori</strong> possono essere <strong>ridotti mediante l’impiego di
+alcuni strumenti statistici</strong>.</p>
+<p>Supponiamo di voler effettuare la misura di un aspetto di
+un’esperienza fisica. Per poter ridurre l’influenza degli errori
+casuali è necessario poter effettuare molte misure della stessa
+quantità: è quindi necessario che l’<strong>esperienza fisica</strong> della quale
+vogliamo misurare un aspetto <strong>sia riproducibile</strong> a piacimento,
+<strong>sempre nelle medesime condizioni</strong>.</p>
+<p>Assicuratici di questo, possiamo proseguire, ed effettuiamo un certo
+numero N di misure. Indichiamo con x1​ il risultato (sbagliato)
+della prima misurazione, con x2 il risultato della seconda,
+eccetera, sino ad xN.</p>
+<p><strong>Definizione</strong></p>
+<p>Si chiama <strong>media aritmetica</strong> o <strong>valor medio</strong> la quantità</p>
+<div class="math notranslate nohighlight">
+\[X_{m} = \bar{X} = \frac{x1​+x2​+⋯+xN}{N}\]</div>
+<p>cioè la somma complessiva delle misure, diviso il numero delle
+misurazioni effettuate.</p>
+<p>Questo valore viene comunemente confuso con il Valore Atteso, il quale
+però è un risultato teorico (e quindi esatto), mentre la media
+arimetica è un valore sperimentale ed errato che approssima il valore
+atteso.</p>
+<p>La media aritmetica consiste di individuare una approssimazione del
+valore “vero” della quantità misurata, la cui precisione aumenta
+all’aumentare del numero di misurazioni effettuate.</p>
+<p><strong>Definizione</strong></p>
+<p>Si chiama <strong>errore assoluto</strong>, e si indica con EaE_aEa​, la differenza in
+modulo tra il valore teorico della misura effettuata e il valore
+effettivamente misurato: questo dà un’idea di quanto i dati raccolti
+si discostino dal valore che si vuole misurare. In questo modo, ogni
+misurazione può essere indicata con</p>
+<div class="math notranslate nohighlight">
+\[(quantitaˋ da misurare)= X_{} \pm E_{a}\]</div>
+<p>il che indica che ci si trova vicino al valor medio, più o meno
+distanti, ma al massimo una quantità pari all’errore assoluto. Quindi,
+tanto è più piccolo l’errore assoluto, tanto più precisa sarà la
+misurazione.</p>
+<p>Il problema sorge quando il valore teoricamente esatto della quantità
+da misurare non è disponibile, il che accade la maggior parte delle
+volte. Come procedere in questi casi al computo dell’errore assoluto?</p>
+<p><strong>Ci sono diversi modi di calcolare l’errore assoluto</strong>: se si hanno a
+disposizione pochi dati è sufficiente calcolare la <strong>semidispersione
+massima</strong>, ma al crescere dei dati si usa la <strong>deviazione standard</strong>.</p>
+<p><strong>Definizione</strong></p>
+<p>Si definisce <strong>semidispersione massima</strong>, indicata con d o Δx, la
+semi-differenza massima tra i valori osservati: se xmax ​ è il valore
+più grande e xminx​ quello più piccolo, allora la semi-dispersione
+massima è</p>
+<div class="math notranslate nohighlight">
+\[\Delta x = d = \frac{x_{max}-x_{min}}{2}\]</div>
+<p>A volte è necessario sapere di quanto si sbaglia a fronte di una
+misurazione, soprattutto per accorgersi di quanto il valore
+dell’errore influisca sulla misurazione effettuata.</p>
+<p><strong>Definizione</strong></p>
+<p>Si dice <strong>errore relativo</strong>, indicato da Er​, il rapporto tra errore
+assoluto e la media delle misurazioni:</p>
+<div class="math notranslate nohighlight">
+\[E_{r}​=\frac{E_{a}}{X_{m}}​​\]</div>
+<p>Si dice <strong>errore percentuale</strong>, indicato da E%E_{%}E%​, l’indicazione
+percentuale dell’errore relativo:</p>
+<div class="math notranslate nohighlight">
+\[E\% = E_{r} \cdot 100 \%\]</div>
+<p>Errore relativo e percentuale, essendo rapporti fra grandezze
+omologhe, non hanno unità di misura: sono semplicemente
+numeri. L’errore assoluto e il valor medio, invece, posseggono la
+stessa unità di misura della quantità che si desidera misurare.</p>
+</div>
+<div class="section" id="errore-statistico-e-deviazione-standard">
+<h2>Errore statistico e deviazione standard<a class="headerlink" href="#errore-statistico-e-deviazione-standard" title="Link a questa intestazione">¶</a></h2>
+<p>Per effettuare il più correttamente possibile una misurazione, è
+necessario ridurre al minimo l’errore assoluto. L’<strong>errore assoluto</strong>,
+tuttavia, essendo la differenza tra il valore medio delle valori
+ottenuti e il valore teorico della misura desiderata, non può essere
+assunto a priori, ma deve essere calcolato a fronte delle misurazioni
+effettuate.</p>
+<p>A seconda della misurazione da effettuare, per valutare l’errore
+assoluto si possono usare metodi differenti. Nella gran parte dei casi
+si ricorre alla deviazione <strong>standard</strong>.</p>
+<p><strong>Definizione</strong></p>
+<p>Effettuiamo una serie di misurazioni x1,x2,…,xN​ e calcoliamone il valor medio</p>
+<div class="math notranslate nohighlight">
+\[x_{m}=\frac{x_{1}+...+x_{N}}{N}\]</div>
+<p>Lo <strong>scarto</strong>, indicato con la lettera ξ (“csi” greca), è la
+differenza tra il valore medio e il valore di una singola misurazione:</p>
+<div class="math notranslate nohighlight">
+\[\xi_{k} = x_{k} - \bar{X}\]</div>
+<p><strong>Definizione</strong></p>
+<p>Ora definiamo la varianza campionaria come la media aritmetica del
+quadrato degli scarti:</p>
+<div class="math notranslate nohighlight">
+\[S_{n}^{2} = \frac{\xi_{1}​^{2}+\xi_{2}​^{2}+...+\xi_{N}​^{2}}{N} = \frac{(x_{1}-x_{m})^{2}+...+(x_{N}-x_{m})^{2}}{N}\]</div>
+<p><strong>Definizione</strong></p>
+<p>La <strong>deviazione standard</strong> è la radice quadrata (positiva) della varianza
+campionaria:</p>
+<div class="math notranslate nohighlight">
+\[\sigma = \sqrt{S_{N}^{2}} = \sqrt{\frac{(x_{1}-x_{m})^{2}+...+(x_{N}-x_{m})^{2}}{N}}\]</div>
+<p>Per motivi di correttezza statistica, al crescere del numero di
+misurazioni effettuate, si usa una formula leggermente diversa, lo
+<strong>scarto quadratico medio</strong>, dividendo per N−1 invece che per N:</p>
+<div class="math notranslate nohighlight">
+\[S_{x} =  \frac{\xi_{1}​^{2}+\xi_{2}​^{2}+...+\xi_{N}​^{2}}{N-1} = \sqrt{\frac{(x_{1}-x_{m})^{2}+...+(x_{N}-x_{m})^{2}}{N-1}}\]</div>
+<p>La deviazione standard, in presenza di un numero abbastanza alto di
+misurazioni, rappresenta al meglio l’errore assoluto, ed è quindi di
+fondamentale importanza per determinare con correttezza l’entità delle
+fluttuazioni riscontrate in una misura.</p>
+<img alt="../../_images/normale.jpg" src="../../_images/normale.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../complottismo/complottismo.html" class="btn btn-neutral float-left" title="Complottismo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

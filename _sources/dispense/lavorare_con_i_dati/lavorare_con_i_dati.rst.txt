@@ -1,0 +1,203 @@
+Lavorare con i dati
+===================
+
+
+Teoria degli errori
+...................
+
+Licenza CC BY-NC-ND 2.5 https://creativecommons.org/licenses/by-nc-nd/2.5/
+
+Copyright **WeSchool srl** Rome, 00186, Via Dei Barbieri, 6, VAT
+no. 11514241006. For contacts:
+rpd@weschool.com. https://library.weschool.com/corso/metrologia-e-teoria-degli-errori-dalla-varianza-alla-deviazione-standard-6310.html
+ 
+La misura è un'operazione fondamentale in Fisica come in tutte le
+Scienze. Per questa ragione c'è un'intera disciplina che se ne occupa
+sia dal punto di vista teorico, sia per quello che riguarda gli
+aspetti pratici: la metrologia.
+
+Una delle sue articolazioni è la teoria degli errori, la quale studia
+come l'errore, inevitabile in qualsiasi misurazione, può essere
+stimato, controllato ed eventualmente ridotto.
+
+Per misurare una grandezza fisica occorre seguire una serie di
+operazioni il cui risultato è esprimibile con un numero e con un'unità
+di misura. Tuttavia, nessuna misura sarà mai esatta: a ciascuna
+misura, cioè, sarà associata un’incertezza, che rappresenta la
+magnitudine degli errori inevitabilmente effettuati durante la
+misurazione. Quindi ogni misura non rappresenta il valore “vero” di
+una grandezza, ma solo una sua sensibile approssimazione.
+
+Esistono due tipi di errori:
+
+* **Errori sistematici**: sono gli errori insiti nello strumento di
+  misura. Non possono essere eliminati del tutto ma è possibile
+  ridurre l'errore usando uno strumento più preciso. Le fonti
+  principali di questi errori sono, il difetto dello strumento usato,
+  l'interazione strumento - sperimentatore, l’interazione strumento -
+  fenomeno in esame, le errate condizioni di lavoro o l’imperfetta
+  realizzazione del fenomeno. Gli errori sistematici sono difficili da
+  individuare e da ridurre poiché, per loro stessa natura, si ripetono
+  appunto sistematicamente ad ogni misurazione.
+* **Errori casuali**: sono gli errori dovuti a fenomeni casuali e non
+  controllabili, che influenzano la lettura della misura. Sono errori
+  casuali tutte quelle incertezze sperimentali che possono essere
+  rilevate mediante la ripetizione delle misure: non possono mai
+  essere eliminati del tutto, ma la loro influenza sulla misurazione
+  può essere fortemente ridotta grazie a strumenti statistici.
+  Proprio questi strumenti sono oggetto di questo corso: grazie a
+  questi strumenti, al ripetersi delle misure, si possono determinare
+  dei parametri (principalmente media e deviazione standard) in modo
+  tale che le misurazioni che si ottengono oscillano attorno ad un
+  valore pressoché costante.
+
+Gli **errori aleatori** possono essere **ridotti mediante l’impiego di
+alcuni strumenti statistici**.
+
+Supponiamo di voler effettuare la misura di un aspetto di
+un’esperienza fisica. Per poter ridurre l’influenza degli errori
+casuali è necessario poter effettuare molte misure della stessa
+quantità: è quindi necessario che l’**esperienza fisica** della quale
+vogliamo misurare un aspetto **sia riproducibile** a piacimento,
+**sempre nelle medesime condizioni**.
+
+Assicuratici di questo, possiamo proseguire, ed effettuiamo un certo
+numero N di misure. Indichiamo con x1​ il risultato (sbagliato)
+della prima misurazione, con x2 il risultato della seconda,
+eccetera, sino ad xN.
+
+**Definizione** 
+
+Si chiama **media aritmetica** o **valor medio** la quantità
+
+.. math::
+   X_{m} = \bar{X} = \frac{x1​+x2​+⋯+xN}{N}
+
+cioè la somma complessiva delle misure, diviso il numero delle
+misurazioni effettuate.
+
+Questo valore viene comunemente confuso con il Valore Atteso, il quale
+però è un risultato teorico (e quindi esatto), mentre la media
+arimetica è un valore sperimentale ed errato che approssima il valore
+atteso.
+
+La media aritmetica consiste di individuare una approssimazione del
+valore “vero” della quantità misurata, la cui precisione aumenta
+all’aumentare del numero di misurazioni effettuate.
+
+
+**Definizione**
+
+Si chiama **errore assoluto**, e si indica con EaE_aEa​, la differenza in
+modulo tra il valore teorico della misura effettuata e il valore
+effettivamente misurato: questo dà un’idea di quanto i dati raccolti
+si discostino dal valore che si vuole misurare. In questo modo, ogni
+misurazione può essere indicata con
+
+.. math::
+   (quantitaˋ da misurare)= X_{} \pm E_{a}
+
+il che indica che ci si trova vicino al valor medio, più o meno
+distanti, ma al massimo una quantità pari all’errore assoluto. Quindi,
+tanto è più piccolo l’errore assoluto, tanto più precisa sarà la
+misurazione.
+
+Il problema sorge quando il valore teoricamente esatto della quantità
+da misurare non è disponibile, il che accade la maggior parte delle
+volte. Come procedere in questi casi al computo dell’errore assoluto?
+
+**Ci sono diversi modi di calcolare l’errore assoluto**: se si hanno a
+disposizione pochi dati è sufficiente calcolare la **semidispersione
+massima**, ma al crescere dei dati si usa la **deviazione standard**.
+
+
+**Definizione**
+
+Si definisce **semidispersione massima**, indicata con d o Δx, la
+semi-differenza massima tra i valori osservati: se xmax ​ è il valore
+più grande e xminx​ quello più piccolo, allora la semi-dispersione
+massima è
+
+.. math::
+   \Delta x = d = \frac{x_{max}-x_{min}}{2}
+
+A volte è necessario sapere di quanto si sbaglia a fronte di una
+misurazione, soprattutto per accorgersi di quanto il valore
+dell’errore influisca sulla misurazione effettuata.
+
+**Definizione**
+
+Si dice **errore relativo**, indicato da Er​, il rapporto tra errore
+assoluto e la media delle misurazioni:
+
+.. math::
+   E_{r}​=\frac{E_{a}}{X_{m}}​​
+
+Si dice **errore percentuale**, indicato da E%E_{\%}E%​, l’indicazione
+percentuale dell’errore relativo:
+
+.. math::
+   E\% = E_{r} \cdot 100 \%
+
+Errore relativo e percentuale, essendo rapporti fra grandezze
+omologhe, non hanno unità di misura: sono semplicemente
+numeri. L’errore assoluto e il valor medio, invece, posseggono la
+stessa unità di misura della quantità che si desidera misurare.
+
+Errore statistico e deviazione standard
+.......................................
+
+Per effettuare il più correttamente possibile una misurazione, è
+necessario ridurre al minimo l’errore assoluto. L’**errore assoluto**,
+tuttavia, essendo la differenza tra il valore medio delle valori
+ottenuti e il valore teorico della misura desiderata, non può essere
+assunto a priori, ma deve essere calcolato a fronte delle misurazioni
+effettuate.
+
+A seconda della misurazione da effettuare, per valutare l’errore
+assoluto si possono usare metodi differenti. Nella gran parte dei casi
+si ricorre alla deviazione **standard**.
+
+**Definizione**
+
+Effettuiamo una serie di misurazioni x1,x2,…,xN​ e calcoliamone il valor medio
+
+.. math::
+   x_{m}=\frac{x_{1}+...+x_{N}}{N}
+
+Lo **scarto**, indicato con la lettera ξ (“csi” greca), è la
+differenza tra il valore medio e il valore di una singola misurazione:
+
+
+.. math::
+   \xi_{k} = x_{k} - \bar{X}
+
+**Definizione**
+
+Ora definiamo la varianza campionaria come la media aritmetica del
+quadrato degli scarti:
+
+.. math::
+   S_{n}^{2} = \frac{\xi_{1}​^{2}+\xi_{2}​^{2}+...+\xi_{N}​^{2}}{N} = \frac{(x_{1}-x_{m})^{2}+...+(x_{N}-x_{m})^{2}}{N}
+
+**Definizione**
+
+La **deviazione standard** è la radice quadrata (positiva) della varianza
+campionaria:
+
+.. math::
+   \sigma = \sqrt{S_{N}^{2}} = \sqrt{\frac{(x_{1}-x_{m})^{2}+...+(x_{N}-x_{m})^{2}}{N}}
+
+Per motivi di correttezza statistica, al crescere del numero di
+misurazioni effettuate, si usa una formula leggermente diversa, lo
+**scarto quadratico medio**, dividendo per N−1 invece che per N:
+
+.. math::
+   S_{x} =  \frac{\xi_{1}​^{2}+\xi_{2}​^{2}+...+\xi_{N}​^{2}}{N-1} = \sqrt{\frac{(x_{1}-x_{m})^{2}+...+(x_{N}-x_{m})^{2}}{N-1}}
+
+La deviazione standard, in presenza di un numero abbastanza alto di
+misurazioni, rappresenta al meglio l’errore assoluto, ed è quindi di
+fondamentale importanza per determinare con correttezza l’entità delle
+fluttuazioni riscontrate in una misura.
+
+.. image :: normale.jpg
