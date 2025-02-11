@@ -397,6 +397,7 @@ pratica, il valore della "r" guida gli analisti nel determinare la
 prevedibilità e la forza della relazione
 
 test:
+
 * lo scatter plot deve mostrare una relazione di tipo lineare tra le due variabili
 * non devo essere presenti outliers influenti
 * la distribuzione di entrambe le variabili deve essere normale
@@ -628,6 +629,7 @@ di regressione di Passing e Bablok su una serie di dati ottenuti
 misurando la concentrazione di bilirubina totale nel siero dei
 pazienti con due diversi analizzatori automatici è presentato in
 figura 1.
+
 .. figure:: 21_1_Bilic-Zulle_L._Figure_1.jpg
 
    figura 1
