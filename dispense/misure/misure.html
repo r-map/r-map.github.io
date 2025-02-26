@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Protocollo misurazioni &mdash; RMAP e Stima 3 documentazione</title>
+  <title>Misurare &mdash; RMAP e Stima 3 documentazione</title>
   
 
   
@@ -97,10 +97,29 @@
 <li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Protocollo misurazioni</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Misurare</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#campionamenti-e-osservazioni">Campionamenti e osservazioni</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#data-level">Data Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#campionamento">Campionamento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#campione">Campione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#un-osservazione">Un'osservazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#una-misura">Una misura</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tempo-di-campionamento-o-periodo-di-osservazione">Tempo di campionamento o periodo di osservazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intervallo-di-campionamento">Intervallo di campionamento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#funzione-di-campionamento-o-funzione-di-ponderazione">Funzione di campionamento o funzione di ponderazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frequenza-di-campionamento">Frequenza di campionamento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attenuazione">Attenuazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filtro">Filtro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accuratezza-e-precisione">Accuratezza e Precisione</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#leggi-di-scala">Leggi di scala</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#campionamento-delle-variabili-meteorologiche">Campionamento delle variabili meteorologiche</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rappresentativita-nel-tempo-e-nello-spazio">Rappresentatività nel tempo e nello spazio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gli-spettri-delle-grandezze-atmosferiche">Gli spettri delle grandezze atmosferiche</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errore-standard">Errore standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esempio-di-campionamento">Esempio di campionamento</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#taratura-e-calibrazione">Taratura e calibrazione</a><ul>
@@ -126,12 +145,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../la_scienza_di_tutti/la_scienza_di_tutti.html">Citizen Science</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../qualit%C3%A0_aria/qualit%C3%A0_aria.html">Qualità dell'aria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../probabilit%C3%A0/probabilit%C3%A0.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cambiamento_climatico/cambiamento_climatico.html">Cambiamento climatico</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
 </ul>
 </li>
@@ -185,13 +205,13 @@
         
           <li><a href="../index.html">Dispense</a> &raquo;</li>
         
-      <li>Protocollo misurazioni</li>
+      <li>Misurare</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/dispense/misure/protocollo_misurazioni.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/dispense/misure/misure.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -204,9 +224,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="protocollo-misurazioni">
-<h1>Protocollo misurazioni<a class="headerlink" href="#protocollo-misurazioni" title="Link a questa intestazione">¶</a></h1>
-<p>Protocollo per effettuare corrette misurazioni di parametri ambientali.</p>
+  <div class="section" id="misurare">
+<h1>Misurare<a class="headerlink" href="#misurare" title="Link a questa intestazione">¶</a></h1>
+<p>Come effettuare corrette misurazioni di parametri ambientali.</p>
 <div class="section" id="definizioni">
 <h2>Definizioni<a class="headerlink" href="#definizioni" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="campionamenti-e-osservazioni">
@@ -234,6 +254,334 @@ consistenti, generalmente su grigliato.</p></li>
 </ul>
 <p>I dati scambiati a livello internazionale sono livello II o livello III</p>
 </div>
+<div class="section" id="campionamento">
+<h3>Campionamento<a class="headerlink" href="#campionamento" title="Link a questa intestazione">¶</a></h3>
+<p>Processo per ottenere una sequenza discreta di misurazioni di una
+grandezza.</p>
+</div>
+<div class="section" id="campione">
+<h3>Campione<a class="headerlink" href="#campione" title="Link a questa intestazione">¶</a></h3>
+<p>Una singola misura, in genere una di una serie di letture spot di un
+sistema di sensori. Si noti che questo differisce dal significato
+usuale in statistica di un insieme di numeri o misure che fa parte di
+una popolazione.</p>
+</div>
+<div class="section" id="un-osservazione">
+<h3>Un'osservazione<a class="headerlink" href="#un-osservazione" title="Link a questa intestazione">¶</a></h3>
+<p>Il risultato del processo di campionamento, ovvero la quantità
+riportata o registrata (spesso chiamata anche misura). Nel contesto
+dell'analisi delle serie temporali, un'osservazione deriva da un certo
+numero di campioni.</p>
+</div>
+<div class="section" id="una-misura">
+<h3>Una misura<a class="headerlink" href="#una-misura" title="Link a questa intestazione">¶</a></h3>
+<p>La definizione ISO è &quot;un insieme di operazioni aventi per oggetto la
+determinazione del valore di una grandezza&quot;. Nell'uso comune, il
+termine può essere utilizzato per indicare il valore di un campione o
+di un'osservazione.</p>
+</div>
+<div class="section" id="tempo-di-campionamento-o-periodo-di-osservazione">
+<h3>Tempo di campionamento o periodo di osservazione<a class="headerlink" href="#tempo-di-campionamento-o-periodo-di-osservazione" title="Link a questa intestazione">¶</a></h3>
+<p>La durata del tempo in cui viene effettuata un'osservazione, durante
+la quale vengono prelevati un certo numero di campioni individuali.</p>
+</div>
+<div class="section" id="intervallo-di-campionamento">
+<h3>Intervallo di campionamento<a class="headerlink" href="#intervallo-di-campionamento" title="Link a questa intestazione">¶</a></h3>
+<p>L'intervallo di tempo tra osservazioni successive.</p>
+</div>
+<div class="section" id="funzione-di-campionamento-o-funzione-di-ponderazione">
+<h3>Funzione di campionamento o funzione di ponderazione<a class="headerlink" href="#funzione-di-campionamento-o-funzione-di-ponderazione" title="Link a questa intestazione">¶</a></h3>
+<p>Nella sua definizione più semplice, un algoritmo per calcolare la
+media o filtrare i singoli campioni.</p>
+</div>
+<div class="section" id="frequenza-di-campionamento">
+<h3>Frequenza di campionamento<a class="headerlink" href="#frequenza-di-campionamento" title="Link a questa intestazione">¶</a></h3>
+<p>La frequenza con cui vengono prelevati i campioni. La distanza tra i
+campioni è il tempo che intercorre tra un campione e l'altro.</p>
+</div>
+<div class="section" id="attenuazione">
+<h3>Attenuazione<a class="headerlink" href="#attenuazione" title="Link a questa intestazione">¶</a></h3>
+<p>Processo di attenuazione delle componenti ad alta frequenza dello
+spettro senza influenzare in modo significativo le frequenze più
+basse. Di solito viene effettuato per rimuovere il rumore (errori e
+fluttuazioni casuali non rilevanti per l'applicazione).</p>
+</div>
+<div class="section" id="filtro">
+<h3>Filtro<a class="headerlink" href="#filtro" title="Link a questa intestazione">¶</a></h3>
+<p>Dispositivo che consente di attenuare o selezionare le frequenze
+prescelte. L'attenuazione viene eseguita da un filtro passa-basso e i
+termini attenuazione e filtraggio sono spesso usati in modo
+intercambiabile in questo senso. In questo senso. Tuttavia, esistono
+anche filtri passa-alto e passa-banda. Il filtraggio può essere una
+proprietà dello strumento, come l'inerzia, oppure può essere eseguito
+elettronicamente o numericamente.</p>
+</div>
+<div class="section" id="accuratezza-e-precisione">
+<h3>Accuratezza e Precisione<a class="headerlink" href="#accuratezza-e-precisione" title="Link a questa intestazione">¶</a></h3>
+<p><strong>L’accuratezza</strong> è la vicinanza di un valore misurato al suo valore reale
+(accuracy is the closeness of a measured value to its true value) e in
+buona parte dipende dallo strumento. Per esempio, nelle misure
+ecologiche, il metodo delle trappole per la stima della quantità di
+individui in una popolazione e quello del C-14 per la produzione di
+plancton nell’oceano tropicale hanno una accuratezza molto bassa; cioè
+possono essere molto distanti dal valore reale. Ogni stima, ripetuta
+nelle stesse condizioni, può dare la metà del valore reale. Uno
+strumento o un reagente che forniscono una risposta sbagliata spesso
+sono tarati in modo non corretto e sono definiti inaccurati; i valori
+ottenuti sono biased.</p>
+<p>Nel processo di misurazione con uno strumento inaccurato si commette
+un errore sistematico, chiamato appunto bias. Esso rappresenta un
+problema importante e ricorrente, in molte tecniche di stima di una
+quantità. In varie discipline, il progresso è spesso collegato alla
+ricerca di metodi di misurazione più accurati.</p>
+<p><strong>La precisione (ripetibilità)</strong> è la vicinanza di misure ripetute al medesimo valore (precision is the closeness of repeated measuments to the same item). Spesso dipende dalla capacità del tecnico di ripetere la misurazione con le stesse modalità e ha origine  dalla sua esperienza o abilità.</p>
+<p>I concetti di accuracy, precision e bias applicati a una misura di
+peso sono rappresentati graficamente nella figura successiva tratta
+dall’ottimo testo, per la stima di popolazioni animali e vegetali, di
+Charles J. Krebs del 1999 (Ecological methodology, 2nd ed. Menlo Park,
+CA, Cummings, pp. XII, 620),</p>
+<div class="figure align-default">
+<img alt="../../_images/image119.gif" src="../../_images/image119.gif" />
+</div>
+<p>figura A e B</p>
+<div class="figure align-default">
+<img alt="../../_images/image120.gif" src="../../_images/image120.gif" />
+</div>
+<p>figura C e D</p>
+<ul class="simple">
+<li><p>Nella figura A le misure sono accurate, vicine al valore vero (true
+value), e molto precise (high precision).</p></li>
+<li><p>Nella figura B le misure sono accurate ma poco precise (low
+precision), cioè differenti tra loro.</p></li>
+<li><p>Nella figura C le misure sono non accurate (biased) ma molto precise
+(high precision).</p></li>
+<li><p>Nella figura D le misure sono non accurate (biased) e poco
+precise (low precision).</p></li>
+</ul>
+<p><strong>Esempio</strong>: la differenza tra accuratezza e precisione si può
+spiegare facilmente utilizzando l’analogia di una freccia lanciata
+verso un bersaglio.  L’accuratezza descrive la vicinanza della freccia
+al barilotto.</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/sensor-precision-example1.png"><img alt="../../_images/sensor-precision-example1.png" src="../../_images/sensor-precision-example1.png" style="width: 183.0px; height: 161.7px;" /></a>
+<p class="caption"><span class="caption-text">tiro accurato</span><a class="headerlink" href="#id3" title="Link a questa immagine">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/sensor-accuracy-example1.webp"><img alt="../../_images/sensor-accuracy-example1.webp" src="../../_images/sensor-accuracy-example1.webp" style="width: 183.0px; height: 161.7px;" /></a>
+<p class="caption"><span class="caption-text">tiro preciso</span><a class="headerlink" href="#id4" title="Link a questa immagine">¶</a></p>
+</div>
+<p>Se venissero lanciate diverse frecce, la precisione verrebbe indicata
+dalle dimensioni del gruppo di frecce.  Se le frecce sono raggruppate
+tutte insieme, il tiro viene considerato preciso.</p>
+</div>
+</div>
+<div class="section" id="leggi-di-scala">
+<h2>Leggi di scala<a class="headerlink" href="#leggi-di-scala" title="Link a questa intestazione">¶</a></h2>
+<p>Le leggi di scala riguardano il comportamento di una struttura in
+funzione della scala da cui la si guarda. Per i sistemi regolari, sia
+matematici sia fisici e naturali, il sistema a grande scala è, in
+genere, molto diverso da quello a piccola scala. Per esempio, la Terra
+è un punto rispetto alla scala galattica, poi se ci si avvicina appare
+come una sfera, dopo ancora come una superficie quasi piana, in
+seguito appaiono i rilievi montuosi e le coste, poi le città, e così
+via. Le strutture matematiche usuali sono, in genere, molto più
+semplici e perdono struttura alle scale molto piccole. Per esempio,
+una sfera può essere approssimata dal suo piano tangente.</p>
+<p>A partire dalla struttura stessa dell'Universo a grande scala,
+passando per le complesse forme delle strutture biologiche, fino alle
+interazioni elementari tra i costituenti fondamentali della materia,
+tutti questi sistemi mostrano delle ben definite leggi di
+scala. Queste leggi caratterizzano il cambiamento del sistema sotto
+l'effetto di una trasformazione della scala delle lunghezze, e
+rappresentano un elemento essenziale per la comprensione della
+complessità del sistema.</p>
+<p>Per un sistema con una scala caratteristica, come un atomo, le leggi
+di scala non sono particolarmente interessanti. Infatti, se
+consideriamo una scala di lunghezze dell'ordine di quella dell'atomo
+stesso, potremo definire in modo adeguato tutte le sue proprietà: il
+nucleo centrale e la distribuzione degli elettroni intorno a esso. Se
+però consideriamo una scala molto più grande, l'atomo diventa a tutti
+gli effetti puntiforme e non mostra proprietà particolarmente
+interessanti. Questa situazione cambia completamente se prendiamo in
+esame una struttura molto familiare, ma abbastanza complessa, come
+quella di un albero. In questo caso possiamo partire dagli atomi che
+formano molecole, che poi formano le cellule, le fibre, quindi le più
+piccole foglie e i rami, i quali sono man mano più grandi e mostrano
+ramificazioni sia a piccole sia a grandi scale. Infine, arriviamo
+all'intero albero che, per scale molto più grandi, può essere
+considerato anch'esso puntiforme. Esiste però un'ampia varietà di
+scale in cui le proprietà sono abbastanza simili, per esempio la
+biforcazione dei rami avviene sia per i rami piccoli sia per quelli
+più grandi. In questa regione di scale, diciamo dalle fibre al tronco,
+possiamo definire un'approssimativa invarianza di scala con le sue
+proprietà caratteristiche. Questa proprietà naturalmente si estende da
+una scala minima, quella delle fibre, a una massima, quella del tronco
+o dell'albero stesso. Queste proprietà di scala sono essenziali per la
+comprensione delle complessità della struttura e della sua
+funzionalità, e costituiscono una delle caratterizzazioni fondamentali
+delle strutture complesse.</p>
+<p><a class="reference internal" href="../../rmap_rfc/rfc.html#data-level-reference"><span class="std std-ref">Data level nelle RMAP RFC</span></a></p>
+<div class="section" id="campionamento-delle-variabili-meteorologiche">
+<h3>Campionamento delle variabili meteorologiche<a class="headerlink" href="#campionamento-delle-variabili-meteorologiche" title="Link a questa intestazione">¶</a></h3>
+<p>Le variabili atmosferiche come la velocità del vento, la temperatura,
+la pressione e l'umidità sono funzioni di quattro dimensioni: due
+orizzontali, una verticale e una temporale. Esse variano
+irregolarmente in tutte e quattro e lo scopo dello studio del
+campionamento è quello di definire procedure di misurazione pratiche
+per ottenere osservazioni rappresentative con incertezze accettabili
+nelle stime della media e della variabilità.</p>
+<p>L'argomento può essere affrontato a due livelli:</p>
+<ol class="loweralpha simple">
+<li><p>A livello elementare, si può discutere il problema meteorologico di
+base, che consiste nell'ottenere un valore medio di una grandezza
+fluttuante rappresentativa di un determinato intervallo di
+campionamento in un dato momento, utilizzando sistemi strumentali
+con tempi di risposta lunghi rispetto alle fluttuazioni. Al livello
+più semplice, ciò comporta considerazioni sulle statistiche di
+un insieme di misure e dei tempi di risposta degli strumenti e dei
+circuiti elettronici;</p></li>
+<li><p>Il problema può essere considerato in modo più preciso facendo uso
+della teoria dell'analisi delle serie temporali, del concetto di
+spettro delle fluttuazioni e del comportamento dei filtri. Questi
+argomenti sono necessari per il problema più complesso
+dell'utilizzo di strumenti a risposta relativamente rapida per
+ottenere misure soddisfacenti della media o dello spettro di una
+grandezza che varia rapidamente, come il vento.</p></li>
+</ol>
+<p>È importante riconoscere che una variabile atmosferica in realtà non
+viene mai campionata. È solo possibile avvicinarsi il più possibile
+campionando l'uscita di un sensore di quella variabile.  La
+distinzione è importante perché i sensori non creano un analogo esatto
+della variabile rilevata.  In generale, i sensori rispondono più
+lentamente dei cambiamenti dell'atmosfera e aggiungono rumore.</p>
+<p>I sensori fanno anche altre cose, di solito indesiderabili, come la
+deriva nella calibrazione, la risposta non lineare, l'interferenza con
+la grandezza che stanno misurando, il fallimento più frequente di
+quanto previsto e così via, ma questa discussione riguarderà solo la
+risposta e l'aggiunta di rumore.</p>
+</div>
+<div class="section" id="rappresentativita-nel-tempo-e-nello-spazio">
+<h3>Rappresentatività nel tempo e nello spazio<a class="headerlink" href="#rappresentativita-nel-tempo-e-nello-spazio" title="Link a questa intestazione">¶</a></h3>
+<p>Le osservazioni campionarie vengono effettuate a una frequenza e per
+un intervallo di tempo limitati su un'area circoscritta. In pratica,
+le osservazioni dovrebbero essere progettate in modo da essere
+sufficientemente frequenti da essere rappresentative delle parti non
+campionate della variabile (continua) e sono spesso considerate
+rappresentative di un intervallo di tempo più lungo e di un'area più
+ampia.</p>
+<p>L'utente di un'osservazione si aspetta che sia rappresentativa, o
+tipica, di un'area e di un tempo, e di un intervallo di
+tempo. Quest'area, ad esempio, può essere &quot;l'aeroporto&quot; o l'area
+compresa in un raggio di diversi chilometri e facilmente visibile da
+un osservatore umano. L'ora è quella in cui è stata fatta la
+segnalazione o è stato trasmesso il messaggio, mentre l'intervallo è
+una quantità concordata, spesso 1, 2 o 10 minuti.</p>
+<p>Per rendere rappresentative le osservazioni, i sensori vengono esposti
+ad altezze standard e in posizioni non ostruite e i campioni vengono
+elaborati per ottenere valori medi. In alcuni casi, i sensori, ad
+esempio i trasmissometri, hanno una media spaziale intrinseca, che
+contribuisce alla rappresentatività dell'osservazione. L'osservazione
+umana della visibilità ne è un altro esempio. Tuttavia, il resto della
+discussione in questo capitolo ignorerà il campionamento spaziale e si
+concentrerà sul campionamento temporale delle misure effettuate in un
+punto.</p>
+<p>Un esempio tipico di campionamento e media temporale è la misurazione
+della temperatura ogni minuto (i campioni), il calcolo di una media di
+10 minuti (l'intervallo di campionamento e la funzione di
+campionamento) e la trasmissione di questa media (l'osservazione) in
+un rapporto sinottico ogni 3 ore.</p>
+<p>Quando queste osservazioni vengono raccolte per un periodo dallo
+stesso sito, diventano esse stesse campioni in una nuova sequenza
+temporale con uno spazio di 3 ore. Quando vengono raccolte da un gran
+numero di siti, anche queste osservazioni diventano campioni in una
+sequenza spaziale. In questo senso, le osservazioni rappresentative
+sono anche campioni rappresentativi. In questo capitolo discutiamo
+dell'osservazione iniziale.</p>
+</div>
+<div class="section" id="gli-spettri-delle-grandezze-atmosferiche">
+<h3>Gli spettri delle grandezze atmosferiche<a class="headerlink" href="#gli-spettri-delle-grandezze-atmosferiche" title="Link a questa intestazione">¶</a></h3>
+<p>Applicando l'operazione matematica nota come trasformata di Fourier,
+una funzione irregolare del tempo (o della distanza) può essere
+ridotta al suo spettro, che è la somma di un gran numero di sinusoidi,
+ciascuna con la propria ampiezza, lunghezza d'onda (o periodo o
+frequenza) e fase. In generale, queste lunghezze d'onda (o frequenze)
+definiscono &quot;scale&quot; o &quot;scale di moto&quot; dell'atmosfera.</p>
+<p>La gamma di queste scale è limitata nell'atmosfera. A un estremo dello
+spettro, le scale orizzontali non possono superare la circonferenza
+della Terra o circa 40 000 km. Per scopi meteorologici, le scale
+verticali non superano le poche decine di chilometri. Nella dimensione
+temporale, invece, le scale più lunghe sono quelle climatologiche e,
+in linea di principio, non hanno limiti, ma in pratica il periodo più
+lungo non supera la lunghezza dei record. All'estremità breve, la
+dissipazione viscosa dell'energia turbolenta in calore stabilisce un
+limite inferiore. Vicino alla superficie della Terra, questo limite si
+trova a una lunghezza d'onda di pochi centimetri e aumenta con
+l'altezza fino a pochi metri nella stratosfera. Nella dimensione
+temporale, queste lunghezze d'onda corrispondono a frequenze di decine
+di hertz. È corretto dire che le variabili atmosferiche hanno una
+larghezza di banda limitata.</p>
+<p>La Figura 2.1 è una rappresentazione schematica dello spettro di una
+grandezza meteorologica come il vento, misurato in una particolare
+stazione e in un determinato momento.</p>
+<p>L'ordinata, comunemente chiamata energia o densità spettrale, è legata
+alla varianza delle fluttuazioni del vento ad ogni frequenza n. Lo
+spettro della Figura 2.1 ha un minimo di energia alla mesoscala
+intorno a un ciclo all'ora, tra picchi nella scala sinottica intorno a
+un ciclo ogni quattro giorni e nella microscala intorno a un ciclo al
+minuto. Le lunghezze d'onda più piccole sono di pochi centimetri e le
+frequenze più grandi sono di decine di hertz.</p>
+<img alt="../../_images/A_typical_spectrum_of_a_meteorological_quantity.png" src="../../_images/A_typical_spectrum_of_a_meteorological_quantity.png" />
+</div>
+<div class="section" id="errore-standard">
+<h3>Errore standard<a class="headerlink" href="#errore-standard" title="Link a questa intestazione">¶</a></h3>
+<p>Derivato da un'opera di:
+Andrea Minini - email: <a class="reference external" href="mailto:info&#37;&#52;&#48;andreaminini&#46;com">info<span>&#64;</span>andreaminini<span>&#46;</span>com</a> - PEC <a class="reference external" href="mailto:andreaminini&#37;&#52;&#48;pec&#46;it">andreaminini<span>&#64;</span>pec<span>&#46;</span>it</a></p>
+<p>licenza CC BY 4.0 Attribution 4.0 International
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
+<p>L'errore standard ex rappresenta la deviazione standard della media
+campionaria, ovvero quanto ci si aspetta che la media E(X) calcolata
+su un campione X differisca dalla vera media μ della popolazione.</p>
+<p>L'errore standard è dato dalla formula:</p>
+<div class="math notranslate nohighlight">
+\[e_{x}=\frac{\sigma}{\sqrt{n}}\]</div>
+<p>Dove:</p>
+<ul class="simple">
+<li><p>σ è la deviazione standard della popolazione, cioè una misura della
+dispersione dei dati nella popolazione.</p></li>
+<li><p>n è la dimensione del campione, cioè il numero di osservazioni
+raccolte dal campione.</p></li>
+</ul>
+<p>Se la media campionaria è E(X), allora si posso ragionevolmente
+affermare che la media della popolazione μ si trova
+approssimativamente all'interno dell'intervallo</p>
+<p>E(X)±ex</p>
+<p>Dalla formula</p>
+<div class="math notranslate nohighlight">
+\[e_{x}=\frac{\sigma}{\sqrt{n}}\]</div>
+<p>deduco che all'aumentare della dimensione del campione n l'errore
+standard diminuisce.</p>
+<p>Questo avviene perché con campioni più grandi la media campionaria
+tende a essere più vicina alla media reale della popolazione.</p>
+<p><strong>Stima</strong></p>
+<p>La deviazione standard σ della popolazione campionata è raramente
+nota. Pertanto, l'errore standard della media viene solitamente
+stimato sostituendo σ con la deviazione standard σx del campione:</p>
+<div class="math notranslate nohighlight">
+\[e_{x}\sim \frac{\sigma_{x}}{\sqrt{n}}\]</div>
+</div>
+<div class="section" id="esempio-di-campionamento">
+<h3>Esempio di campionamento<a class="headerlink" href="#esempio-di-campionamento" title="Link a questa intestazione">¶</a></h3>
+<p>Questo un esempio di campionamento di temperatura con la retta di
+regressione lineare:</p>
+<img alt="../../_images/turbolenza_temperature.png" src="../../_images/turbolenza_temperature.png" />
+<p>come ordine di grandezza si deduce che campionando ogni 30 secondi
+l'errore sulla temperatura media oraria è dell'ordine di grandezza del
+decimo di grado con campionamneti ogni 30 secondi</p>
+<div class="math notranslate nohighlight">
+\[0.09 = \frac{1}{\sqrt{120}}\]</div>
+<p>Qui alcune considerazioni sulla costante di tempo:
+<a class="reference external" href="https://www.unirc.it/documentazione/materiale_didattico/597_2011_289_11765.pdf">https://www.unirc.it/documentazione/materiale_didattico/597_2011_289_11765.pdf</a></p>
+</div>
 </div>
 <div class="section" id="taratura-e-calibrazione">
 <h2>Taratura e calibrazione<a class="headerlink" href="#taratura-e-calibrazione" title="Link a questa intestazione">¶</a></h2>
@@ -244,17 +592,22 @@ strumento più accurato e spesso, conseguentemente, migliorarne la
 precisione</p>
 <div class="section" id="la-taratura">
 <h3>La taratura<a class="headerlink" href="#la-taratura" title="Link a questa intestazione">¶</a></h3>
-<p>La taratura può essere usata per la determinazione delle caratteristiche metrologiche dello strumento (es. accuratezza, ripetibilità, riproducibilità, linearità, ecc.) necessari per definirne la funzionalità, o per verificarne la rispondenza a dei requisiti. Inoltre permette di sapere qual è la variazione del valore della grandezza.</p>
+<p>La taratura può essere usata per la determinazione delle
+caratteristiche metrologiche dello strumento (es. accuratezza,
+ripetibilità, riproducibilità, linearità, ecc.) necessari per
+definirne la funzionalità, o per verificarne la rispondenza a dei
+requisiti. Inoltre permette di sapere qual è la variazione del valore
+della grandezza.</p>
 </div>
 <div class="section" id="la-calibrazione">
 <h3>La calibrazione<a class="headerlink" href="#la-calibrazione" title="Link a questa intestazione">¶</a></h3>
-<p>l'insieme di operazioni svolte su un sistema di misura, affinché esso
+<p>L'insieme di operazioni svolte su un sistema di misura, affinché esso
 fornisca indicazioni prescritte in corrispondenza di determinati
 valori di una grandezza da sottoporre a misurazione</p>
 </div>
 <div class="section" id="metodologia">
 <h3>Metodologia<a class="headerlink" href="#metodologia" title="Link a questa intestazione">¶</a></h3>
-<p>a confronto, dove una medesima grandezza viene contemporaneamente
+<p>A confronto, dove una medesima grandezza viene contemporaneamente
 letta dallo strumento in calibrazione e da quello campione; a
 sostituzione, dove il campione genera direttamente la grandezza di
 riferimento che viene fatta misurare allo strumento in calibrazione;</p>
@@ -302,8 +655,8 @@ doppia schermatura. La disposizione della capannina, con la porta
 disposta verso nord, evita che l'insolazione diretta penetri fino ai
 sensori di temperatura durante l'osservazione / manutenzione.</p>
 </div>
-<div class="section" id="instructions-for-building-an-instrument-shelter">
-<h4>Instructions for Building an Instrument Shelter<a class="headerlink" href="#instructions-for-building-an-instrument-shelter" title="Link a questa intestazione">¶</a></h4>
+<div class="section" id="istruzioni-per-la-costruzione-di-una-capannina-meteorologica">
+<h4>Istruzioni per la costruzione di una capannina meteorologica<a class="headerlink" href="#istruzioni-per-la-costruzione-di-una-capannina-meteorologica" title="Link a questa intestazione">¶</a></h4>
 <p>The instrument shelter should be constructed of approximately 2 cm thick
 White Pine or similar wood and painted white, inside and out. A lock
 should be installed to prevent tampering with the instruments. Mounting
@@ -641,6 +994,119 @@ nell'elenco. Man mano ci si sposta in alto nell'elenco, si trovano
 eventi meno rilevanti. L'osservatore dovrà selezionare l'evento
 osservato partendo dal basso e potrà inserirne uno solo. Utilizzando
 questa procedura, inserirà automaticamente l'evento più significativo.</p>
+<p><strong>Tabella tempo presente</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 92%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Codice</p></th>
+<th class="head"><p>Descrizione</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>Nessun fenomeno significativo osservato</p></td>
+</tr>
+<tr class="row-odd"><td><p>101</p></td>
+<td><p>Nubi generalmente in dissolvimento o con sviluppo in riduzione durante l'ultima ora</p></td>
+</tr>
+<tr class="row-even"><td><p>102</p></td>
+<td><p>Stato del cielo generalmente invariato durante l'ultima ora</p></td>
+</tr>
+<tr class="row-odd"><td><p>103</p></td>
+<td><p>Nubi generalmente in formazione o sviluppo durante l'ultima ora</p></td>
+</tr>
+<tr class="row-even"><td><p>112</p></td>
+<td><p>Fulmini in lontananza</p></td>
+</tr>
+<tr class="row-odd"><td><p>110</p></td>
+<td><p>Foschia (1000m &lt; visibilita' &lt; 10Km)</p></td>
+</tr>
+<tr class="row-even"><td><p>127</p></td>
+<td><p>Neve o sabbia sollevata o trasportata dal vento</p></td>
+</tr>
+<tr class="row-odd"><td><p>130</p></td>
+<td><p>Nebbia (visibilita' &lt; 1000m)</p></td>
+</tr>
+<tr class="row-even"><td><p>150</p></td>
+<td><p>Pioviggine (non congelantesi)</p></td>
+</tr>
+<tr class="row-odd"><td><p>155</p></td>
+<td><p>Pioviggine congelantesi al suolo (moderata)</p></td>
+</tr>
+<tr class="row-even"><td><p>160</p></td>
+<td><p>Pioggia (non congelantesi)</p></td>
+</tr>
+<tr class="row-odd"><td><p>165</p></td>
+<td><p>Pioggia congelantesi al suolo (moderata)</p></td>
+</tr>
+<tr class="row-even"><td><p>167</p></td>
+<td><p>Pioggia (o pioviggine) mista a neve, debole</p></td>
+</tr>
+<tr class="row-odd"><td><p>168</p></td>
+<td><p>Pioggia (o pioviggine) mista a neve, moderata o intensa</p></td>
+</tr>
+<tr class="row-even"><td><p>171</p></td>
+<td><p>Neve, debole</p></td>
+</tr>
+<tr class="row-odd"><td><p>172</p></td>
+<td><p>Neve, moderata</p></td>
+</tr>
+<tr class="row-even"><td><p>173</p></td>
+<td><p>Neve, forte</p></td>
+</tr>
+<tr class="row-odd"><td><p>174</p></td>
+<td><p>Palline di ghiaccio, debole</p></td>
+</tr>
+<tr class="row-even"><td><p>175</p></td>
+<td><p>Palline di ghiaccio, moderata</p></td>
+</tr>
+<tr class="row-odd"><td><p>176</p></td>
+<td><p>Palline di ghiaccio, forte</p></td>
+</tr>
+<tr class="row-even"><td><p>177</p></td>
+<td><p>Granelli di neve</p></td>
+</tr>
+<tr class="row-odd"><td><p>178</p></td>
+<td><p>Cristalli di ghiaccio</p></td>
+</tr>
+<tr class="row-even"><td><p>184</p></td>
+<td><p>Rovesci di pioggia o pioggia intermittente,violenta</p></td>
+</tr>
+<tr class="row-odd"><td><p>185</p></td>
+<td><p>Rovesci di neve o neve intermittente, debole</p></td>
+</tr>
+<tr class="row-even"><td><p>186</p></td>
+<td><p>Rovesci di neve o neve intermittente, moderata</p></td>
+</tr>
+<tr class="row-odd"><td><p>187</p></td>
+<td><p>Rovesci di neve o neve intermittente, forte</p></td>
+</tr>
+<tr class="row-even"><td><p>191</p></td>
+<td><p>Temporale, debole o moderato, senza precipitazione</p></td>
+</tr>
+<tr class="row-odd"><td><p>192</p></td>
+<td><p>Temporale, debole o moderato, con rovesci di pioggia e/o neve</p></td>
+</tr>
+<tr class="row-even"><td><p>193</p></td>
+<td><p>Temporale, debole o moderato, con grandine</p></td>
+</tr>
+<tr class="row-odd"><td><p>194</p></td>
+<td><p>Temporale, forte, senza precipitazione</p></td>
+</tr>
+<tr class="row-even"><td><p>195</p></td>
+<td><p>Temporale, forte, con rovesci di pioggia e/o neve</p></td>
+</tr>
+<tr class="row-odd"><td><p>196</p></td>
+<td><p>Temporale, forte, con grandine</p></td>
+</tr>
+<tr class="row-even"><td><p>199</p></td>
+<td><p>Tromba d'aria (Tornado)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

@@ -1,0 +1,1086 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Biometeorologia &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="prev" title="Lavorare con i dati" href="../lavorare_con_i_dati/lavorare_con_i_dati.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../misure/misure.html">Misurare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_di_tutti/la_scienza_di_tutti.html">Citizen Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cambiamento_climatico/cambiamento_climatico.html">Cambiamento climatico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Biometeorologia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#indici-termici">Indici Termici</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indici-termici-empirici">Indici Termici Empirici</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wet-bulb-globe-temperature-wbgt">Wet Bulb Globe Temperature (WBGT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indice-di-thom-discomfort-index">Indice di Thom (Discomfort Index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wind-chill">Wind Chill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temperatura-apparente">Temperatura Apparente</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#humidex">Humidex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#indicatori-di-qualita-dell-aria">Indicatori di qualità dell'aria</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sai-cose-lindice-di-qualita-dellaria">Sai cos’è l’indice di qualità dell’aria?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#l-indice-di-qualita-dell-aria-europeo">L'indice di qualità dell'aria europeo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metodologia">Metodologia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tempo-di-mediazione-per-gli-inquinanti">Tempo di mediazione per gli inquinanti</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dati-mancanti-e-riempimento-delle-lacune">Dati mancanti e riempimento delle lacune</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#messaggi-sulla-salute">Messaggi sulla salute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Biometeorologia</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/biometeorologia/biometeorologia.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="biometeorologia">
+<h1>Biometeorologia<a class="headerlink" href="#biometeorologia" title="Link a questa intestazione">¶</a></h1>
+<p>La biometeorologia è una disciplina scientifica interdisciplinare che
+analizza le interazioni tra la biosfera e l'atmosfera
+terrestre. Questa branca della meteorologia si focalizza
+sull'influenza delle condizioni meteo come temperatura, pressione,
+umidità e intensità della radiazione solare sugli esseri viventi,
+inclusi piante, animali e esseri umani.</p>
+<div class="section" id="indici-termici">
+<h2>Indici Termici<a class="headerlink" href="#indici-termici" title="Link a questa intestazione">¶</a></h2>
+<p>Gli effetti dell'ambiente termico sugli esseri umani sono meglio
+determinati con l'ausilio di indici termici basati sul bilancio
+energetico del corpo umano.</p>
+<p>Applicazioni comuni sono la PMV (Predicted MeanVote) (Fanger 1972), la
+PET (Physiologically Equivalent Temperature) (VDI 1998; Höppe 1999;
+Matzarakis et al. 1999), la SET* (Standard Effective Temperature)
+(Gagge et al. 1986) o Outdoor Standard Effective Temperature
+(Out_SET*) (Spagnolo e de Dear 2003) e la Temperatura percepita (Tinz
+e Jendritzky2003).</p>
+<p>Questi indici termici, ben documentati, hanno obiettivi diversi, ma
+sono essenzialmente combinazioni diverse dello stesso insieme di
+importanti parametri meteorologici e termofisiologici (Matzarakis
+2001).</p>
+<p>Sfortunatamente, i dati su molti di questi parametri, come le onde
+corte e lunghe, non sono generalmente disponibili nelle registrazioni
+climatiche. Di conseguenza, le valutazioni climatiche e gli studi sul
+comfort termico sono spesso ricorsi all'uso di indici climatici che
+non includono questi fattori chiave. Ad esempio, il rapporto
+dell'Intergovermental Panel onClimate Change (IPCC 2001) descrive gli
+effetti del tempo e del clima sull'uomo con un semplice indice basato
+sulla combinazione di temperatura dell'aria e umidità
+relativa. L'esclusione di importanti variabili meteorologiche
+(velocità del vento e flussi di radiazione) e termofisiologiche
+(attività dell'uomo e abbigliamento) riduce notevolmente la
+significatività dei risultati.</p>
+<p>Dai dati sinottici, climatologici e astronomici si possono ottenere
+stime dei flussi di radiazione a onde corte e lunghe (Verein Deutscher
+Ingenieure 1998; Matzarakis et al. 2000).</p>
+<p>A partire dagli anni '60, i modelli di bilancio termico del corpo
+umano sono stati sempre più accettati nella valutazione del comfort
+termico. La base di questi modelli è l'equazione del bilancio
+energetico umano. Uno dei primi modelli di bilancio termico, tuttora
+molto diffuso, è l'equazione del comfort definita da Fanger
+(1972). Fanger introdusse gli indici termici &quot;Predicted Mean Vote&quot;
+(PMV) e &quot;Predicted Percentage Dissatisfied&quot; (PPD) per aiutare gli
+ingegneri della climatizzazione a creare ambienti interni termicamente
+confortevoli. Due decenni dopo, Jendritzky et al. (1990) sono riusciti
+a rendere l'approccio di Fanger applicabile alle condizioni esterne,
+assegnando parametri appropriati per adattare il modello alle
+condizioni di irraggiamento esterno, molto più complesse. Poiché
+questo modello è stato concepito solo per stimare un indice integrale
+della componente termica del clima e non per rappresentare una
+descrizione realistica delle condizioni termiche del corpo, è in grado
+di funzionare senza considerare i processi fondamentali di regolazione
+termofisiologica. Ad esempio, nell'approccio di Fanger la temperatura
+media della pelle e il tasso di sudorazione sono quantificati come
+&quot;valori di comfort&quot;, essendo dipendenti solo dall'attività e non dalle
+condizioni climatiche (Höppe 1999).</p>
+<p>I modelli più universalmente applicabili tengono conto di tutti i
+processi termoregolatori di base, come la costrizione o la dilatazione
+dei vasi sanguigni periferici e il tasso di sudorazione fisiologico
+(Höppe 1993, 1999). Essi consentono all'utente di prevedere i &quot;valori
+reali&quot; delle grandezze termiche del corpo, come la temperatura della
+pelle, la temperatura interna, il tasso di sudorazione o l'umidità
+della pelle.</p>
+<p>Il modello di bilancio energetico di Monaco per gli individui&quot; (MEMI)
+(Höppe 1993) è un modello di bilancio termico fisiologico. È la base
+per il calcolo della temperatura fisiologicamente equivalente
+(PET). In dettaglio, il modello MEMI si basa sull'equazione del
+bilancio energetico per il corpo umano:</p>
+<p>M + W + R + C + Ed + Ere + Esw + S = 0</p>
+<p>Dove, M è il tasso metabolico (produzione interna di energia), W è il
+rendimento fisico, R è la radiazione netta del corpo, C è il flusso di
+calore convettivo, Ed è il flusso di calore latente per l'evaporazione
+dell'acqua che si diffonde attraverso la pelle (sudorazione
+impercettibile), Ere è la somma dei flussi di calore per il
+riscaldamento e l'umidificazione dell'aria inspirata, Esw è il flusso
+di calore dovuto all'evaporazione del sudore e S è il flusso di calore
+di accumulo per il riscaldamento o il raffreddamento della massa
+corporea. I singoli termini di questa equazione hanno segno positivo
+se determinano un guadagno di energia per il corpo e segno negativo in
+caso di perdita di energia (Mis è sempre positivo; W, ED ed Esw sono
+sempre negativi). L'unità di misura di tutti i flussi di calore è il
+Watt (Höppe 1999).I singoli flussi di calore dell'equazione sono
+controllati dai seguenti parametri meteorologici (Verein Deutscher
+Ingenieure 1998; Höppe 1999):</p>
+<ul class="simple">
+<li><p>Temperatura dell'aria: C, Ere- Umidità dell'aria: Ed, Ere, Esw</p></li>
+<li><p>Velocità del vento: C, Esw</p></li>
+<li><p>Temperatura media radiante: R</p></li>
+</ul>
+<p>Sono inoltre necessari parametri termofisiologici:</p>
+<ul class="simple">
+<li><p>Resistenza termica degli indumenti (unità clo)</p></li>
+<li><p>Attività dell'uomo (in Watt)</p></li>
+</ul>
+<p>La resistenza termica del vestiario rappresenta la resistenza al
+flusso di calore opposta dai vestiti e dallo strato d’aria presente
+tra i vestiti e la pelle. Nel sistema internazionale la resistenza
+termica è espressa in m2 °C/W, anche se, in genere, viene utilizzata
+un’unità di misura incoerente, il “clo”:</p>
+<p>1 clo = 0.155 m2 °C/W</p>
+<p>Il corpo umano non dispone di sensori selettivi per la percezione dei
+singoli parametri climatici, ma può solo registrare (tramite
+termorecettori) e dare una risposta termoregolatoria alla temperatura
+(e alle sue eventuali variazioni) della pelle e al flusso sanguigno
+che passa dall'ipotalamo (Höppe 1993, 1999). Queste temperature,
+tuttavia, sono influenzate dall'effetto integrato di tutti i parametri
+climatici, che sono in qualche modo interrelati, cioè si influenzano a
+vicenda. In situazioni climatiche senza velocità del vento, per
+esempio, la temperatura media radiante ha più o meno la stessa
+importanza della temperatura dell'aria per il bilancio termico del
+corpo umano. Nei giorni in cui la velocità del vento è più elevata, la
+temperatura dell'aria è più importante della temperatura media
+radiante, perché ora domina l'aumento dello scambio termico
+convettivo. Queste interazioni sono quantificabili in modo realistico
+solo attraverso modelli di bilancio termico (Verein Deutscher
+Ingenieure 1998; Höppe 1999).</p>
+<p>Gli indici termici possono essere classificati come empirici o
+razionali. Gli indici empirici [ad esempio la temperatura del bulbo
+umido (WBGT) sono stati sviluppati per condizioni termiche o
+meteorologiche specifiche e limitate, come gli ambienti interni o gli
+ambienti caldi o freddi. Gli indici empirici sono regolarmente
+espressi attraverso una formula semplice e non sono adatti per
+l'applicazione ad altre condizioni termiche o per un uso generale. Gli
+indici razionali sono calcolati utilizzando complicati modelli
+computazionali basati sull'equilibrio energetico umano. Uno studio
+ha proposto che alcuni indici termici razionali, come
+l'Indice Universale di Clima Termico in C (UTCI), la Temperatura
+Percepita in C (PT), la Temperatura Fisiologicamente Equivalente in
+C (PET) e la Temperatura Standard Efficace Esterna in C (SET*),
+siano efficaci per valutare gli ambienti termici generali a livello
+globale.</p>
+<p>La PET è definita come equivalente alla temperatura dell'aria
+necessaria per riprodurre in un ambiente interno standardizzato e per
+una persona standardizzata le temperature del nucleo e della pelle
+osservate nelle condizioni oggetto di valutazione (VereinDeutscher
+Ingenieure 1998; Höppe 1999). La persona standardizzata è
+caratterizzata da un metabolismo lavorativo di 80 W di attività
+leggera, oltre al metabolismo di base, e da una resistenza termica di
+0,9 clo dovuta all'abbigliamento.</p>
+<p>Per il clima interno di riferimento sono state fatte le seguenti ipotesi:</p>
+<ul class="simple">
+<li><p>La temperatura media radiante è uguale alla temperatura dell'aria (Tmrt = Ta).</p></li>
+<li><p>La velocità dell'aria (velocità del vento) è fissata a v = 0,1 m/s.</p></li>
+<li><p>La pressione del vapore acqueo è impostata a 12 hPa
+(approssimativamente equivalente a un'umidità relativa del 50% a Ta
+= 20°C).</p></li>
+</ul>
+<p>Il calcolo del PET comprende le seguenti fasi:</p>
+<ul class="simple">
+<li><p>Calcolo delle condizioni termiche del corpo con MEMI per una
+determinata combinazione di parametri meteorologici.</p></li>
+<li><p>Inserimento dei valori calcolati per la temperatura media della
+pelle e la temperatura del nucleo nel modello MEMI e risoluzione del
+sistema di equazioni del bilancio energetico per la temperatura
+dell'aria Ta (con v = 0,1 m/s, VP = 12 hPa e Tmrt = Ta).</p></li>
+</ul>
+<p>Infine la temperatura dell'aria risultante è equivalente alla PET. La
+PET consente di valutare le condizioni termiche anche in modo
+fisiologicamente significativo. A questo proposito, Matzarakis e
+Mayer (1996) hanno trasferito gli intervalli di PMV per la percezione
+termica e il grado di stress fisiologico sull'uomo (Fanger 1972) nei
+corrispondenti intervalli di PET.</p>
+<p>Intervalli della temperatura equivalente fisiologica (PET) per diversi
+gradi di percezione termica da parte dell'uomo e di stress fisiologico
+sull'uomo; produzione di calore interno: 80 W, resistenza al
+trasferimento di calore dell'abbigliamento: 0,9 clo (secondo
+Matzarakis e Mayer 1996).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 40%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PET</p></th>
+<th class="head"><p>Thermal perception</p></th>
+<th class="head"><p>Grade of physiological stress</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>Very cold</p></td>
+<td><p>Extreme cold stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>4°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Cold</p></td>
+<td><p>Strong cold stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>8°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Cool</p></td>
+<td><p>Moderate cold stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>13°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Slightly cool</p></td>
+<td><p>Slight cold stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>18°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Comfortable</p></td>
+<td><p>No thermal stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>23°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Slightly warm</p></td>
+<td><p>Slight heat stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>29°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Warm</p></td>
+<td><p>Moderate heat stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>35°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Hot</p></td>
+<td><p>Strong heat stress</p></td>
+</tr>
+<tr class="row-odd"><td><p>41°C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Very hot</p></td>
+<td><p>Extreme heat stress</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="indici-termici-empirici">
+<h2>Indici Termici Empirici<a class="headerlink" href="#indici-termici-empirici" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="wet-bulb-globe-temperature-wbgt">
+<h3>Wet Bulb Globe Temperature (WBGT)<a class="headerlink" href="#wet-bulb-globe-temperature-wbgt" title="Link a questa intestazione">¶</a></h3>
+<p>Il WBGT è un indicatore di stress da caldo espresso in °C che
+considera la combinazione di diverse importanti variabili per la
+valutazione delle condizioni microclimatiche, e in particolare la
+temperatura naturale del bulbo umido (Tnwb, °C), la temperatura
+globotermometrica (Tg, °C) e la temperatura del bulbo secco (Ta, °C),
+stimando in questo modo l'esposizione della persona allo stress
+termico considerando anche il contributo radiativo legato
+all’esposizione al sole o considerando solo zone d’ombra.</p>
+<p>L'indicatore permette l'individuazione di soglie di criticità da caldo
+per specifici livelli di attività fisica, corretti anche in funzione
+del vestiario indossato, oltre le quali sarebbe necessario prendere
+dei provvedimenti per contrastare gli effetti del caldo. Permette
+quindi una personalizzazione dello stress da caldo anche sulla base
+delle caratteristiche fisiche di una persona (in particolare altezza e
+peso), oltre che del tipo di vestiario indossato, del livello di
+attività fisica svolta, dell’ambiente (esposto al sole o all’ombra),
+tenendo anche conto se la persona è acclimatata o meno al caldo.</p>
+<p>WBGT = (0.7 * Tw) + (0.2 * Tg) + (0.1 * T)</p>
+<ul class="simple">
+<li><p>T = Temperatura a bulbo secco (temperatura dell'aria) in gradi Celsius.</p></li>
+<li><p>Tg = Temperatura del termometro a globo in Celsius, misurata utilizzando un globo nero per valutare il calore radiante.</p></li>
+<li><p>Tw = Temperatura a bulbo umido (in gradi Celsius).</p></li>
+</ul>
+<img alt="../../_images/WETBULB.avif" src="../../_images/WETBULB.avif" />
+<p><strong>Temperatura del globo</strong></p>
+<p>La temperatura del globo Tg è una grandezza che si misura direttamente
+con il termometro a globo.</p>
+<p>Il termometro a globo è uno dei più comuni strumenti di misurazione
+della temperatura radiante, introdotto da Vernon (1930). È costituito
+da una sfera di rame cava del diametro di 150 mm (o 100 mm), rivestita
+di vernice nera opaca e contenente un normale termometro con il bulbo
+fissato al centro della sfera, senza fonte di calore.</p>
+<p><a class="reference external" href="http://www.engineeringmechanics.cz/pdf/20_3_319.pdf">http://www.engineeringmechanics.cz/pdf/20_3_319.pdf</a></p>
+<p><strong>temperatura di bulbo umido</strong></p>
+<p>La temperatura di bulbo umido (in inglese wet bulb temperature) è la
+temperatura a cui si porta l'acqua in condizioni di equilibrio di
+scambio convettivo con una massa d'aria in moto turbolento
+completamente sviluppato. Viene solitamente misurata da un apposito
+termometro coperto da un panno imbevuto d'acqua.[1]</p>
+<p>Tale temperatura riflette l'effetto refrigerante dell'evaporazione
+dell’acqua. Può essere determinata facendo passare l’aria sopra un
+termometro che sia stato avvolto con un tessuto umido. L'effetto
+refrigerante dell’evaporazione dell'acqua causa una temperatura più
+bassa rispetto a quella del bulbo secco.</p>
+<p>A partire dal valore della temperatura di bulbo umido si ricava
+l'umidità assoluta di un ambiente.</p>
+<p><a class="reference external" href="https://it.wikipedia.org/wiki/Temperatura_di_bulbo_umido">https://it.wikipedia.org/wiki/Temperatura_di_bulbo_umido</a></p>
+</div>
+<div class="section" id="indice-di-thom-discomfort-index">
+<h3>Indice di Thom (Discomfort Index)<a class="headerlink" href="#indice-di-thom-discomfort-index" title="Link a questa intestazione">¶</a></h3>
+<p>L'Indice di Thom, noto anche come Indice di Disagio (Discomfort Index,
+DI), è una misura utilizzata per valutare il disagio umano causato
+dagli effetti combinati della temperatura e dell'umidità. È
+particolarmente utile per valutare lo stress termico in ambienti caldi
+e umidi.</p>
+<p>Caratteristiche principali</p>
+<ul class="simple">
+<li><p>Tiene conto sia della temperatura dell'aria che dell'umidità relativa.</p></li>
+<li><p>Facile da calcolare, non richiede dati meteorologici complessi.</p></li>
+</ul>
+<p>L'indice di Thom si calcola con la seguente formula:</p>
+<div class="math notranslate nohighlight">
+\[\text{Indice di Thom (DI)} = T - (0.55 - 0.0055 \times RH) \times (T - 14.5)\]</div>
+<p>Dove:</p>
+<blockquote>
+<div><p>:math:T = Temperatura dell'aria in °C (temperatura secca).</p>
+<p>:math:RH = Umidità relativa in percentuale (%).</p>
+</div></blockquote>
+<p>Il valore dell'indice di Thom può essere interpretato come segue:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Indice di Thom (DI)</p></th>
+<th class="head"><p>Livello di Disagio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt; 21°C</p></td>
+<td><p>Nessun disagio</p></td>
+</tr>
+<tr class="row-odd"><td><p>21–24°C</p></td>
+<td><p>Meno della metà della popolazione
+avverte disagio</p></td>
+</tr>
+<tr class="row-even"><td><p>24–27°C</p></td>
+<td><p>Più della metà della popolazione
+avverte disagio</p></td>
+</tr>
+<tr class="row-odd"><td><p>27–29°C</p></td>
+<td><p>La maggior parte della popolazione
+avverte disagio</p></td>
+</tr>
+<tr class="row-even"><td><p>29–32°C</p></td>
+<td><p>Tutti avvertono un forte disagio</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt; 32°C</p></td>
+<td><p>Allerta sanitaria: rischio di malattie
+legate al calore</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../../_images/Indice-di-Thom-matrice-T-umidita.png" src="../../_images/Indice-di-Thom-matrice-T-umidita.png" />
+<p>Limiti: ignora gli effetti del vento e della radiazione solare.</p>
+</div>
+<div class="section" id="wind-chill">
+<h3>Wind Chill<a class="headerlink" href="#wind-chill" title="Link a questa intestazione">¶</a></h3>
+<p>L'indice di raffreddamento, chiamato Wind Chill, esprime la sensazione
+di raffreddamento causato dall'effetto combinato di temperatura e
+vento.</p>
+<p>Il corpo umano non percepisce infatti la temperatura dell'aria
+misurata dal termometro. La sensazione di freddo percepita è legata
+alla temperatura della nostra pelle: in caso di vento la temperatura
+cutanea è più bassa perché aumenta la perdita di calore a causa del
+mescolamento dell’aria a contatto con la pelle.</p>
+<p>Questa sensazione è ciò che il Wind Chill tenta di misurare.</p>
+<p>Autori: Osczevski R.,Bluestein M. (2001)
+Formula:</p>
+<p>WC =13.12+(0.6215 * T)-(11.37 * V^0.16) +(0.3965 * T * V^0.16)</p>
+<ul class="simple">
+<li><p>T[°C] = temperatura dell’aria</p></li>
+<li><p>V [km/h] = velocità del vento</p></li>
+</ul>
+<p>La formula indicata è valida solo per velocità del vento maggiori o
+uguali a 1,3 metri al secondo (4,68 km/h) e per temperature effettive
+inferiori a 10 °C</p>
+<p>Rischio di congelamento definito in letteratura:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>-27≤WC&lt;0</p></td>
+<td><p>Basso rischio di congelamento</p></td>
+</tr>
+<tr class="row-even"><td><p>-39≤WC&lt;-27</p></td>
+<td><p>Rischio: la pelle esposta può gelare in 10-30 minuti</p></td>
+</tr>
+<tr class="row-odd"><td><p>-47≤WC&lt;-39</p></td>
+<td><p>Rischio elevato: la pelle esposta può gelare in 5-10 minuti</p></td>
+</tr>
+<tr class="row-even"><td><p>-54≤WC&lt;-47</p></td>
+<td><p>Rischio molto elevato: la pelle esposta può gelare in 2-5 minuti</p></td>
+</tr>
+<tr class="row-odd"><td><p>WC&lt; - 55</p></td>
+<td><p>Rischio estremamente elevato</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="temperatura-apparente">
+<h3>Temperatura Apparente<a class="headerlink" href="#temperatura-apparente" title="Link a questa intestazione">¶</a></h3>
+<p>Questo indice considera tutte le conzioni ambientali e corporee che
+condizionano la termoregolazione umana.  Nel 1984 Steadman implementa
+una scala di &quot;temperatura apparente&quot; basata sulle reazioni di una
+popolazione campione sottoposta a differenti condizioni.</p>
+<p>Steadman implementa la formula empirica per stimare la temperatura
+apparente in ambiente esterno all'ombra tenendo conto dei valori di
+temperatura dell'aria, pressione di vapore e velocità del vento.</p>
+<p>Autore: R.G. Steadman
+<a class="reference external" href="https://journals.ametsoc.org/view/journals/apme/23/12/1520-0450_1984_023_1674_ausoat_2_0_co_2.xml?tab_body=pdf">https://journals.ametsoc.org/view/journals/apme/23/12/1520-0450_1984_023_1674_ausoat_2_0_co_2.xml?tab_body=pdf</a></p>
+<p>Formula:</p>
+<p>AT[°C] = -2.7+1.04 * T + 2.0 * e/10  -0.65 * V</p>
+<ul class="simple">
+<li><p>T [K]=temperatura aria</p></li>
+<li><p>e [hPa]=tensione di vapore</p></li>
+<li><p>V [m/s]= Vento a 10 m dal suolo (media in 1 minuto)</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 58%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AT&lt;27 °C</p></td>
+<td><p>Benessere</p></td>
+</tr>
+<tr class="row-even"><td><p>27 ≤ AT &lt; 32</p></td>
+<td><p>Cautela</p></td>
+</tr>
+<tr class="row-odd"><td><p>32 ≤ AT &lt; 40</p></td>
+<td><p>Estrema cautela</p></td>
+</tr>
+<tr class="row-even"><td><p>40 ≤ AT &lt; 54</p></td>
+<td><p>Pericolo</p></td>
+</tr>
+<tr class="row-odd"><td><p>AT  ≥54</p></td>
+<td><p>Elevato pericolo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="humidex">
+<h3>Humidex<a class="headerlink" href="#humidex" title="Link a questa intestazione">¶</a></h3>
+<p>E’ uno degli indici utilizzati per valutare il benessere climatico
+dell’uomo in relazione all’umidità ed alla temperatura.</p>
+<p>I primi studi sono stati effettuati nel 1965 in Canada, ma solo
+successivamente, alcuni meteorologi canadesi, hanno individuato una
+scala, chiamata appunto Humidex, la quale cerca, considerando la
+temperatura dell’aria e l’umidità relativa, di calcolare un singolo
+valore in grado di descrivere il disagio, per l’uomo, che si verifica
+in giorni umidi e caldi.</p>
+<p>Tale indice si basa su di una semplice relazione empirica che prende
+in considerazione la temperatura dell’aria e la tensione di vapore.</p>
+<p>L’equazione che consente di calcolare l’indice Humidex, individua
+diversi gradi di stress da calore descritti nella tabella.</p>
+<p>Autori: Masterton J.M, Richardson F.A.
+<a class="reference external" href="https://publications.gc.ca/collections/collection_2018/eccc/En57-23-1-79-eng.pdf">https://publications.gc.ca/collections/collection_2018/eccc/En57-23-1-79-eng.pdf</a></p>
+<p>Formula:</p>
+<p>H = T + ( 0.5555 * ( e–10 ) )</p>
+<ul class="simple">
+<li><p>T [°C] = temperatura dell’aria</p></li>
+<li><p>e [hPa] = tensione di vapore</p></li>
+</ul>
+<blockquote>
+<div><p>Soglie di disagio fisiologico definite in letteratura:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 54%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>H&lt;27 °C</p></td>
+<td><p>Benessere</p></td>
+</tr>
+<tr class="row-even"><td><p>27 ≤ H &lt; 30</p></td>
+<td><p>Cautela</p></td>
+</tr>
+<tr class="row-odd"><td><p>30 ≤ H &lt; 40</p></td>
+<td><p>Estrema cautela</p></td>
+</tr>
+<tr class="row-even"><td><p>40 ≤ 55</p></td>
+<td><p>Pericolo</p></td>
+</tr>
+<tr class="row-odd"><td><p>H  ≥ 55</p></td>
+<td><p>Elevato pericolo</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../../_images/benessere.jpg" src="../../_images/benessere.jpg" />
+<img alt="../../_images/tabellaHumidex.png" src="../../_images/tabellaHumidex.png" />
+</div>
+</div>
+<div class="section" id="indicatori-di-qualita-dell-aria">
+<h2>Indicatori di qualità dell'aria<a class="headerlink" href="#indicatori-di-qualita-dell-aria" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="sai-cose-lindice-di-qualita-dellaria">
+<h3>Sai cos’è l’indice di qualità dell’aria?<a class="headerlink" href="#sai-cose-lindice-di-qualita-dellaria" title="Link a questa intestazione">¶</a></h3>
+<p>Diversi studi hanno evidenziato la correlazione tra esposizione a
+inquinanti dell’atmosfera, effetti negativi sulla salute e crescita
+della mortalità. Allo scopo di controllare la qualità dell'aria
+ambiente, in particolare nelle città, viene effettuato un monitoraggio
+continuo delle concentrazioni di vari inquinanti. I dati raccolti sono
+utilizzabili da esperti del settore per analizzare le tendenze a medio
+e lungo termine, ma non sono adatti a fornire un’informazione
+comprensibile e immediata sugli impatti a breve termine della qualità
+dell’aria.</p>
+<p>L’indice di qualità dell’aria (IQA) è un indicatore che permette di
+fornire una stima immediata e sintetica sullo stato dell’aria. Non
+esiste un modo univoco di definire un tale indice ed attualmente sono
+adoperate in Italia ed in Europa diverse formulazioni che tengono
+conto delle concentrazioni misurate, stimate o previste di un numero
+variabile di inquinanti che hanno effetti sulla salute, specialmente
+di tipo respiratorio, cardiaco e cardiovascolare.</p>
+</div>
+<div class="section" id="l-indice-di-qualita-dell-aria-europeo">
+<h3>L'indice di qualità dell'aria europeo<a class="headerlink" href="#l-indice-di-qualita-dell-aria-europeo" title="Link a questa intestazione">¶</a></h3>
+<p>L'Indice europeo della qualità dell'aria permette agli utenti di
+capire meglio la qualità dell'aria nel luogo in cui vivono, lavorano o
+viaggiano. Visualizzando informazioni aggiornate informazioni
+aggiornate per l'Europa, gli utenti possono ottenere approfondimenti
+sulla qualità dell'aria nei singoli paesi, regioni e città.</p>
+<p>L'indice si basa sui valori di concentrazione di un massimo di cinque inquinanti chiave, tra cui:</p>
+<ul class="simple">
+<li><p>polveri (PM10);</p></li>
+<li><p>polveri sottili (PM2.5);</p></li>
+<li><p>ozone (O3);</p></li>
+<li><p>biossido di azoto (NO2);</p></li>
+<li><p>biossido di zolfo (SO2).</p></li>
+</ul>
+<p>Riflette l'impatto potenziale della qualità dell'aria sulla salute, in
+base all'inquinante per il quale le concentrazioni sono più scarse a
+causa degli impatti sulla salute associati.</p>
+<p>L'indice viene calcolato ogni ora per oltre 3.500 stazioni di
+monitoraggio della qualità dell'aria in tutta Europa, utilizzando una
+combinazione di dati aggiornati riportati dai Paesi membri dell'AEA
+(non verificati formalmente dai Paesi) e previsioni del livello di
+qualità dell'aria fornite dal Copernicus Atmospheric Monitoring
+Service (CAMS).</p>
+<p>Per impostazione predefinita, l'indice di qualità dell'aria
+rappresenta la situazione di 3 ore fa. Gli utenti possono poi
+selezionare qualsiasi ora delle 48 ore precedenti e visualizzare i
+valori previsti per le 24 ore successive.</p>
+<img alt="../../_images/map_air_quality_index.png" src="../../_images/map_air_quality_index.png" />
+<p>L'utente può filtrare la selezione per paese e per tipo di
+stazione. Le stazioni sono classificate in relazione alle fonti di
+emissione predominanti: traffico, industria e fondo (dove il livello
+di inquinamento non è dominato né dal traffico né
+dall'industria). L'utente può visualizzare tutte le stazioni, solo
+quelle di traffico o solo quelle non di traffico (cioè quelle
+industriali e di fondo).</p>
+<p>La legislazione dell'Unione Europea stabilisce standard di qualità
+dell'aria sia a breve termine (orari o giornalieri) che a lungo
+termine (annuali). Gli standard per i livelli a lungo termine sono più
+severi di quelli a breve termine, poiché l'esposizione a lungo termine
+agli inquinanti può avere gravi effetti sulla salute.</p>
+<p>L'Indice indica la situazione della qualità dell'aria a breve
+termine. Non riflette la situazione della qualità dell'aria a lungo
+termine (annuale), che può essere molto diversa.</p>
+<p>L'indice di qualità dell'aria non è uno strumento per verificare la
+conformità agli standard di qualità dell'aria e non può essere
+utilizzato a tale scopo.</p>
+</div>
+<div class="section" id="metodologia">
+<h3>Metodologia<a class="headerlink" href="#metodologia" title="Link a questa intestazione">¶</a></h3>
+<p>L'indice utilizza dati &quot;aggiornati&quot; sulla qualità dell'aria comunicati
+ufficialmente ogni ora dai Paesi membri del SEE, integrati, ove
+necessario, da dati modellati sulla qualità dell'aria provenienti dal
+Copernicus Atmosphere Monitoring Service (CAMS) dell'Unione Europea.</p>
+<p>I valori delle concentrazioni di fino a cinque inquinanti chiave
+determinano il livello dell'indice che riflette la qualità dell'aria
+in ogni stazione di monitoraggio. L'indice corrisponde al livello più
+basso per uno qualsiasi dei cinque inquinanti, secondo la tabella
+riportata di seguito.</p>
+<p>I cerchi e i punti sulla mappa rappresentano le posizioni delle
+stazioni di monitoraggio della qualità dell'aria. I colori riflettono
+la qualità dell'aria alla data ora in quella stazione.</p>
+<p><strong>Calcolo dell'indice per le stazioni di traffico</strong></p>
+<p>Nel calcolare l'indice per le stazioni di traffico si utilizzano solo
+i dati relativi a NO2 e PM (PM2,5, PM10 o entrambi). Questo perché le
+concentrazioni di SO2 possono essere elevate in aree localizzate e
+distorcere il quadro della qualità dell'aria locale, mentre i livelli
+di ozono sono normalmente molto bassi nelle stazioni di traffico.</p>
+<p><strong>Calcolo dell'indice per le stazioni industriali e di fondo</strong></p>
+<p>Nelle stazioni industriali e di fondo, l'indice viene calcolato per le
+stazioni con dati (misurati o modellati) per almeno i tre inquinanti
+NO2, O3 e PM (PM2,5, PM10 o entrambi).</p>
+<p><strong>Stazioni con dati mancanti per alcuni inquinanti</strong></p>
+<p>Per evitare di escludere le stazioni che non riportano dati per tutti
+gli inquinanti o per le quali i dati mancanti non possono essere
+colmati, l'indice viene calcolato per tutte le stazioni di
+monitoraggio con dati per almeno un inquinante. Le stazioni che non
+riportano dati o per le quali non è possibile colmare le lacune per
+gli inquinanti minimi per quel tipo di stazione sono rappresentate
+come cerchi semitrasparenti, a indicare che l'indice non viene
+calcolato con la gamma minima di inquinanti. La stazione è colorata in
+grigio a meno che l'indice non sia scarso o peggiore, quando si
+utilizza il colore dell'indice corrente.</p>
+<p>I punti grigi indicano le stazioni per le quali non sono stati
+riportati dati che consentano di calcolare l'indice.</p>
+</div>
+<div class="section" id="tempo-di-mediazione-per-gli-inquinanti">
+<h3>Tempo di mediazione per gli inquinanti<a class="headerlink" href="#tempo-di-mediazione-per-gli-inquinanti" title="Link a questa intestazione">¶</a></h3>
+<p>Per NO2, O3 e SO2, le concentrazioni orarie vengono inserite nel
+calcolo dell'indice.</p>
+<p>Per il PM10 e il PM2,5, le medie consecutive delle ultime 24 ore
+vengono inserite nel calcolo dell'indice. La media mobile su 24 ore
+viene calcolata se sono presenti valori per almeno 18 delle 24 ore.</p>
+</div>
+<div class="section" id="dati-mancanti-e-riempimento-delle-lacune">
+<h3>Dati mancanti e riempimento delle lacune<a class="headerlink" href="#dati-mancanti-e-riempimento-delle-lacune" title="Link a questa intestazione">¶</a></h3>
+<p>Quando i dati non sono riportati per una determinata ora, i valori
+vengono approssimati o &quot;riempiti&quot; utilizzando i dati sulla qualità
+dell'aria modellati da CAMS. In questi casi, sono contrassegnati da un
+asterisco.</p>
+<p>Il metodo utilizzato per colmare le lacune dipende dall'inquinante.</p>
+<ul class="simple">
+<li><p>Per NO2, PM2,5 e PM10 si utilizza il metodo della differenza.</p></li>
+<li><p>Per l'O3 si utilizza il metodo moltiplicativo.</p></li>
+<li><p>Per l'SO2 non viene effettuato alcun riempimento delle lacune.</p></li>
+</ul>
+<p>Metodo della differenza: Il valore viene approssimato prendendo il
+valore modellato da CAMS e aggiungendo o sottraendo una differenza di
+correzione. Questa correzione è la differenza media tra i valori
+misurati in precedenza e il valore modellato da CAMS per la stessa ora
+per almeno tre dei quattro giorni precedenti.</p>
+<p>Metodo moltiplicativo: Il valore viene approssimato prendendo il
+valore modellato da CAMS e applicando un fattore di correzione. Questa
+correzione è il rapporto medio tra i valori misurati in precedenza e i
+valori modellati da CAMS per la stessa ora per almeno tre dei quattro
+giorni precedenti.</p>
+<p>Nel caso in cui non vi siano valori misurati per la stessa ora in tre
+dei quattro giorni precedenti, il valore per il determinato inquinante
+non viene calcolato.  Indice di previsione</p>
+<p>I valori previsti sono rappresentati da cerchi trasparenti. I cerchi
+sono colorati in grigio se non è stato possibile prevedere il numero
+minimo di inquinanti richiesti, a seconda del tipo di stazione, e se
+l'indice di previsione è buono, discreto o moderato.</p>
+<p>Per calcolare i valori di previsione per le 24 ore successive, vengono
+utilizzati i dati sulla qualità dell'aria modellati da CAMS e corretti
+utilizzando i metodi di riempimento delle lacune descritti in
+precedenza. Non vengono forniti valori di previsione per l'SO2.</p>
+<p>Fasce di concentrazioni e livelli di indice</p>
+<p>Le fasce si basano sui rischi relativi associati all'esposizione a
+breve termine a PM2,5, O3 e NO2, come definito dall'Organizzazione
+Mondiale della Sanità nel suo rapporto sul progetto Health Risks of
+Air Pollution in Europe (rapporto del progetto HRAPIE).</p>
+<p>Il rischio relativo di esposizione al PM2,5 è assunto come base per la
+determinazione dell'indice, in particolare l'aumento del rischio di
+mortalità per ogni incremento di 10 µg/m3 della concentrazione media
+giornaliera di PM2,5.</p>
+<p>Assumendo la linearità delle funzioni di rischio relativo per O3 e
+NO2, si calcolano le concentrazioni di questi inquinanti che
+comportano un rischio relativo equivalente a un aumento di 10 µg/m3
+della media giornaliera di PM2,5.</p>
+<p>Per le concentrazioni di PM10, si assume un rapporto costante tra PM10
+e PM2,5 di 1:2, in linea con le linee guida dell'Organizzazione
+Mondiale della Sanità sulla qualità dell'aria in Europa.</p>
+<p>Per l'SO2, le fasce riflettono i valori limite stabiliti dalla
+Direttiva UE sulla qualità dell'aria.</p>
+<p>Livello dell'indice di inquinamento (basato sulle concentrazioni di inquinanti in µg/m3)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pollulant</p></th>
+<th class="head"><p>Good</p></th>
+<th class="head"><p>Fair</p></th>
+<th class="head"><p>Moderate</p></th>
+<th class="head"><p>Poor</p></th>
+<th class="head"><p>Very poor</p></th>
+<th class="head"><p>Extremely poor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Particles less than 2.5 µm (PM2.5)</p></td>
+<td><p>0-10</p></td>
+<td><p>10-20</p></td>
+<td><p>20-25</p></td>
+<td><p>25-50</p></td>
+<td><p>50-75</p></td>
+<td><p>75-800</p></td>
+</tr>
+<tr class="row-odd"><td><p>Particles less than 10 µm (PM10)</p></td>
+<td><p>0-20</p></td>
+<td><p>20-40</p></td>
+<td><p>40-50</p></td>
+<td><p>50-100</p></td>
+<td><p>100-150</p></td>
+<td><p>150-1200</p></td>
+</tr>
+<tr class="row-even"><td><p>Nitrogen dioxide (NO2)</p></td>
+<td><p>0-40</p></td>
+<td><p>40-90</p></td>
+<td><p>90-120</p></td>
+<td><p>120-230</p></td>
+<td><p>230-340</p></td>
+<td><p>340-1000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ozone (O3)</p></td>
+<td><p>0-50</p></td>
+<td><p>50-100</p></td>
+<td><p>100-130</p></td>
+<td><p>130-240</p></td>
+<td><p>240-380</p></td>
+<td><p>380-800</p></td>
+</tr>
+<tr class="row-even"><td><p>Sulphur dioxide (SO2)</p></td>
+<td><p>0-100</p></td>
+<td><p>100-200</p></td>
+<td><p>200-350</p></td>
+<td><p>350-500</p></td>
+<td><p>500-750</p></td>
+<td><p>750-1250</p></td>
+</tr>
+</tbody>
+</table>
+<p>Le misurazioni della qualità dell'aria che superano i valori massimi
+della categoria &quot;estremamente scarsa&quot; non vengono prese in
+considerazione per il calcolo dell'indice, poiché questi valori sono
+in genere ritenuti errati.</p>
+</div>
+<div class="section" id="messaggi-sulla-salute">
+<h3>Messaggi sulla salute<a class="headerlink" href="#messaggi-sulla-salute" title="Link a questa intestazione">¶</a></h3>
+<p>Le fasce dell'indice sono integrate da messaggi sulla salute che
+forniscono raccomandazioni sia per la popolazione generale che per le
+popolazioni sensibili. Quest'ultima comprende adulti e bambini con
+problemi respiratori e adulti con patologie cardiache.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 36%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AQ index</p></th>
+<th class="head"><p>Popolazione generale</p></th>
+<th class="head"><p>Popolazione sensibile</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Buono</p></td>
+<td><p>La qualità dell'aria è buona. Godetevi le vostre
+consuete attività all'aperto.</p></td>
+<td><p>La qualità dell'aria è buona. Godetevi le vostre consuete attività all'aperto.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Giusto</p></td>
+<td><p>Godetevi le vostre abituali attività all'aperto</p></td>
+<td><p>Godetevi le vostre abituali attività all'aperto</p></td>
+</tr>
+<tr class="row-even"><td><p>Moderato</p></td>
+<td><p>Godetevi le vostre abituali attività all'aperto</p></td>
+<td><p>Considerare la possibilità di ridurre le attività intense all'aperto, se si manifestano i sintomi.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scarso</p></td>
+<td><p>Considerate la possibilità di ridurre le attività
+intense all'aperto, se avvertite sintomi come mal
+d'occhi, tosse o mal di gola.</p></td>
+<td><p>Considerare la possibilità di ridurre le attività fisiche, in particolare
+quelle all'aperto, soprattutto se si avvertono i sintomi.</p></td>
+</tr>
+<tr class="row-even"><td><p>Molto scarso</p></td>
+<td><p>Considerate la possibilità di ridurre le attività intense
+all'aperto, se avvertite sintomi come mal d'occhi, tosse
+o mal di gola.</p></td>
+<td><p>Ridurre le attività fisiche, in particolare
+quelle all'aperto, soprattutto se si avvertono i sintomi.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Estremamente
+scarso</p></td>
+<td><p>Ridurre le attività fisiche all'aperto.</p></td>
+<td><p>Evitare le attività fisiche all'aperto</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Informazioni aggiuntive</strong></p>
+<p>Facendo clic su una stazione sulla mappa, viene visualizzata una
+finestra pop-up con le seguenti informazioni aggiuntive:</p>
+<ol class="arabic simple">
+<li><p>Il nome della stazione e l'indice di qualità dell'aria in quella
+stazione e ora.</p></li>
+<li><p>Un'opzione &quot;Visualizza stazione&quot;, che fornisce la posizione della
+stazione utilizzando © Google Maps.</p></li>
+<li><p>Un'opzione &quot;Mostra dettagli&quot;, con un riepilogo delle informazioni
+sulla stazione; l'indice di qualità dell'aria e i consigli sanitari
+associati per la popolazione generale e per le popolazioni
+sensibili; collegamenti a informazioni sull'inquinamento
+atmosferico per il Paese in cui si trova la stazione e alla pagina
+web dell'amministrazione incaricata di riportare le concentrazioni
+per quella stazione e due grafici.</p></li>
+</ol>
+<p>I valori indicati quando si passa il mouse sui diagrammi orizzontali
+mostrano l'indice AQ orario, le concentrazioni orarie di NO2, O3 e SO2
+e le medie consecutive di 24 ore per il PM misurate nella stazione o
+in gap-filled negli ultimi 7 giorni. Un asterisco accanto a un valore
+indica che il valore è stato riempito di lacune.</p>
+<p>Il grafico a torta indica il numero di giorni in cui si è sentito
+sotto ogni fascia dell'Indice negli ultimi 365 giorni. Il livello
+orario più alto dell'Indice in un giorno determina il livello
+giornaliero dell'Indice preso in considerazione.  Ulteriori
+informazioni</p>
+<p>L'Agenzia europea dell'ambiente pubblica una serie di informazioni
+sulla qualità dell'aria:</p>
+<ul class="simple">
+<li><p>Pagina web sull'inquinamento atmosferico</p></li>
+<li><p>Qualità dell'aria in diretta: Misurazione aggiornata della qualità
+dell'aria</p></li>
+<li><p>Statistiche chiave sulla qualità dell'aria per i principali
+inquinanti atmosferici: visualizzatore di mappe</p></li>
+<li><p>Qualità dell'aria in Europa - ultimo rapporto</p></li>
+<li><p>Profili dei Paesi con inquinamento atmosferico</p></li>
+</ul>
+<p>L'Indice europeo della qualità dell'aria è stato sviluppato
+congiuntamente dalla Direzione generale Ambiente della Commissione
+europea e dall'Agenzia europea dell'ambiente per informare i cittadini
+e le autorità pubbliche sul recente stato della qualità dell'aria in
+Europa.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../lavorare_con_i_dati/lavorare_con_i_dati.html" class="btn btn-neutral float-left" title="Lavorare con i dati" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
