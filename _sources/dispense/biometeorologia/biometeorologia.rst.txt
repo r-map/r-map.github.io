@@ -324,6 +324,8 @@ dove:
 * T = temperatura di bulbo secco (°C)
 * e = Pressione del vapore acqueo (hPa)
 
+.. image:: wbgt_approximation.gif
+
 
 Indice di Thom (Discomfort Index)
 .................................
@@ -396,6 +398,8 @@ mescolamento dell’aria a contatto con la pelle.
 
 Questa sensazione è ciò che il Wind Chill tenta di misurare.
 
+.. image:: tabella-wind-chill.jpg
+
 Autori: Osczevski R.,Bluestein M. (2001)
 Formula:
 
@@ -422,6 +426,19 @@ Rischio di congelamento definito in letteratura:
 | WC< - 55   | Rischio estremamente elevato                                      |
 +------------+-------------------------------------------------------------------+
 
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| Da 4 a –6°C      | FREDDO, impressione sgradevole                                                                                            |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| Da –7°C a –17°C  | MOLTO FREDDO, impressione molto sgradevole                                                                                |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| Da –18°C a –28°C | GELIDO, congelamento possibile. La pelle esposta può gelare in 5 minuti. Evitare l’attività all’aperto                    |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| Da –29°C a –56°C | ESTREMAMENTE FREDDO, congelamento probabile. La pelle esposta può gelare in un minuto. L’attività all’aperto è pericolosa |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+| Oltre –56°C      | GELATO, congelamento sicuro. La pelle esposta può gelare in 30 secondi                                                    |
++------------------+---------------------------------------------------------------------------------------------------------------------------+
+
+.. image:: tabella-wind-chill.jpg
  
 Temperatura Apparente
 .....................
