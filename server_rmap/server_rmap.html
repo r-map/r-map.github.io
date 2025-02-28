@@ -108,7 +108,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#porte-utilizzate">Porte utilizzate</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#documentazione-implementazione">Documentazione implementazione</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implementazione">Implementazione</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione-stazioni">Configurazione stazioni</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#specifiche-per-immagini-georeferenziate">Specifiche per immagini georeferenziate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#specifiche-per-file-di-configurazione-stazione">Specifiche per file di configurazione stazione</a></li>
@@ -149,6 +149,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id39">Tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione">Configurazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operazioni-per-l-aggiornamento">Operazioni per l'aggiornamento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autenticazione-e-autorizzazioni-apps-django">Autenticazione e autorizzazioni apps Django</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operazioni-straordinarie-periodiche-di-manutenzione">Operazioni straordinarie/periodiche di manutenzione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#struttura-cartelle">Struttura cartelle</a></li>
 </ul>
@@ -497,8 +498,8 @@ singola funzionalità che dipende dalle app Django richieste.</p>
 </table>
 </div>
 </div>
-<div class="section" id="documentazione-implementazione">
-<h2>Documentazione implementazione<a class="headerlink" href="#documentazione-implementazione" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="implementazione">
+<h2>Implementazione<a class="headerlink" href="#implementazione" title="Link a questa intestazione">¶</a></h2>
 <p>Il funzionamento del back-end e del front-end è basato su due broker,
 una suite di applicazioni Django, alcuni tools e da una suite di daemon.</p>
 <p>I dati seguono flussi e archivi differenti secondo questa classificazione:</p>
@@ -1390,8 +1391,8 @@ stazioni su mappa</p></li>
 <div class="section" id="id5">
 <h5>Descrizione<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h5>
 <p>Se la funzione è abilitata da configurazione questa app gestisce la
-possibilità che gli utenti si registrino in modo sutonomo dovendo
-fornire come minimi una email.</p>
+possibilità che gli utenti si registrino in modo autonomo dovendo
+fornire come minimo una email.</p>
 </div>
 <div class="section" id="id6">
 <h5>DataBase<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h5>
@@ -2075,10 +2076,70 @@ Questi i default: <a class="reference external" href="https://github.com/r-map/r
 </pre></div>
 </div>
 </div>
+<div class="section" id="autenticazione-e-autorizzazioni-apps-django">
+<h3>Autenticazione e autorizzazioni apps Django<a class="headerlink" href="#autenticazione-e-autorizzazioni-apps-django" title="Link a questa intestazione">¶</a></h3>
+<p>Se la registration app risulta abilitata tramite il parametro di
+configurazione REGISTRATION_OPEN l'app gestisce la
+possibilità che gli utenti si registrino in modo autonomo.</p>
+<p>Se la funzione è disabilitata  gli utenti possono essere aggiunti
+manualmente tramite Django authentication system dall'interfaccia di
+amministrazione di Django nella sezione Autenticazione e
+Autorizzazione.</p>
+<p>Le autorizzazioni vengono gestite tramite i gruppi del Django
+authentication system dall'interfaccia di amministrazione di Django
+nella sezione Autenticazione e Autorizzazione.</p>
+<p>Gruppi:</p>
+<ul class="simple">
+<li><p>&quot;<strong>dashboard</strong>&quot; : gli utenti di questo gruppo possono modificare e
+salvare le dashboard di graphite</p></li>
+<li><p>&quot;<strong>status alert recipients</strong>&quot; : gli utenti di questo gruppo ricevono
+le mail di segnalazione dell'autodiagnostica</p></li>
+<li><p>&quot;<strong>firmware</strong>&quot; : gestione aggiornamento firmware direttamente
+dall'interfaccia di amministrazione di Django</p>
+<ul>
+<li><p>il gruppo deve essere impostato con tutti i privilegi firmware_updater*</p></li>
+<li><p>il gruppo deve essere impostato con tutti i privilegi firmware_updater_stima*</p></li>
+</ul>
+</li>
+<li><p>&quot;<strong>ticket</strong>&quot; : gestione tickets direttamente dall'interfaccia di
+amministrazione di Django</p>
+<ul>
+<li><p>il gruppo deve essere impostato con tutti i privilegi ticket*</p></li>
+</ul>
+</li>
+</ul>
+<p>Gruppi opzionali:</p>
+<ul class="simple">
+<li><p>&quot;<strong>controllo qualità</strong>&quot; : autorizzazione per l'app cosudo per
+estrazione grib</p></li>
+<li><p>&quot;<strong>rpc</strong>&quot; : abilita gestione RPC direttamente dall'interfaccia di
+amministrazione di Django</p>
+<ul>
+<li><p>il gruppo deve essere impostato con tutti i privilegi rpc*</p></li>
+</ul>
+</li>
+<li><p>&quot;<strong>station metadata admin</strong>&quot; : abilita modifica delle configurazioni
+stazione direttamente dall'interfaccia di amministrazione di Django</p>
+<ul>
+<li><p>il gruppo deve essere impostato con tutti i privilegi stations*</p></li>
+</ul>
+</li>
+</ul>
+<p>Oltre ai gruppi un utente può avere privilegi:</p>
+<ul class="simple">
+<li><p>Privilegi di staff : Stabilisce se l'utente può accedere
+all'interfaccia di amministrazione.</p></li>
+<li><p>Privilegi di superutente : Attribuisce all'utente tutti i privilegi,
+senza che sia necessario assegnarli esplicitamente.</p></li>
+</ul>
+<p>Con i privilegi di superutente da interfaccia admin di django nella
+gestione utenti è possibile con il pulsante &quot;<strong>hijack</strong>&quot; impersonare
+l'identità di qualsiasi utente e agire, quando necessario, come tale.</p>
+</div>
 <div class="section" id="operazioni-straordinarie-periodiche-di-manutenzione">
 <h3>Operazioni straordinarie/periodiche di manutenzione<a class="headerlink" href="#operazioni-straordinarie-periodiche-di-manutenzione" title="Link a questa intestazione">¶</a></h3>
 <p><strong>Operazioni di supporto a utenti</strong></p>
-<p>Tramite l'app hijack è ppossibile impersonare l'identità di qualsiasi
+<p>Tramite l'app hijack è possibile impersonare l'identità di qualsiasi
 utente e agire, quando necessario, come tale.</p>
 <p><strong>Sostituzione hardware delle stazioni stimawifi e stima V4</strong></p>
 <p>Durante la fase di aggiornamento del firmware le stazioni nell'header
