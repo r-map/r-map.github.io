@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cosa si intende per Data Model? &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Global Observing System" href="../global_observing_system/global_observing_system.html" />
+    <link rel="prev" title="Software, Hardware e Dati liberi" href="../software_hardware_dati_liberi/software_hardware_dati_liberi.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../misure/misure.html">Misurare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_partecipata/la_scienza_partecipata.html">La scienza partecipata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_hardware_dati_liberi/software_hardware_dati_liberi.html">Software, Hardware e Dati liberi</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cosa si intende per Data Model?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conceptual-data-model">Conceptual data model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#db-all-e-conceptual-data-model">DB-All.e Conceptual data model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-data-model-ldm">Logical data model (LDM)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#db-all-e-ldm">DB-All.e LDM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../global_observing_system/global_observing_system.html">Global Observing System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Cosa si intende per Data Model?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/data_model/data_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cosa-si-intende-per-data-model">
+<h1>Cosa si intende per Data Model?<a class="headerlink" href="#cosa-si-intende-per-data-model" title="Link a questa intestazione">¶</a></h1>
+<p>I modelli di dati sono più che progetti di database, definiscono
+esplicitamente la struttura dei dati e aiutano nella progettazione di
+sistemi informativi e scambi di dati.</p>
+<ul class="simple">
+<li><p>Lo scopo principale dei modelli di dati è quello di supportare lo
+sviluppo di sistemi informativi fornendo la definizione e il formato
+dei dati.</p></li>
+<li><p>Se questo viene fatto in modo coerente tra i vari sistemi, è
+possibile ottenere la compatibilità dei dati. Se si utilizzano le
+stesse strutture di dati per memorizzare e accedere ai dati, le
+diverse applicazioni possono condividere i dati.</p></li>
+<li><p>Tuttavia, i sistemi e le interfacce spesso costano più del dovuto
+per la costruzione, il funzionamento e la manutenzione. Inoltre,
+possono limitare l'attività aziendale anziché supportarla. Una delle
+cause principali è la scarsa qualità dei modelli di dati
+implementati nei sistemi e nelle interfacce&quot;.</p></li>
+</ul>
+<div class="section" id="conceptual-data-model">
+<h2>Conceptual data model<a class="headerlink" href="#conceptual-data-model" title="Link a questa intestazione">¶</a></h2>
+<p>Questi modelli, talvolta chiamati modelli di dominio, sono tipicamente
+utilizzati per esplorare i concetti di dominio con gli stakeholder del
+progetto.</p>
+<div class="section" id="db-all-e-conceptual-data-model">
+<h3>DB-All.e Conceptual data model<a class="headerlink" href="#db-all-e-conceptual-data-model" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Il modello è orientato all'applicazione (bisogna capire cosa sono i
+dati, normalizzarli e ricondurli a metadati stardard in fase di
+accoglienza), quindi si lavora pre e non post</p></li>
+<li><p>I dati sono legati ai metadati in modo univoco</p></li>
+<li><p>Una osservazione è univoca nello spazio dei suoi metadati</p></li>
+<li><p>L'unica possibilità di far coesistere due osservazioni dello stesso
+parametro nello stesso punto è atraverso il metadato “network”
+associabile alla classe dello strumento</p></li>
+<li><p>La tracciabilità di un sensore, una stazione, un osservatore nello
+spazio, nel tempo etc. Avviene attraverso il metadato “ident”</p></li>
+<li><p>Alcuni metadati sono table driven (level,timerange,network)</p></li>
+<li><p>Ogni dato può essere associato a un certo numero di attributi</p></li>
+<li><p>Nessuna dimensione è vincolata (intervalli temporali tra dati,
+numero attributi....)</p></li>
+<li><p>E' contemplata la gestione di previsioni; il datetime è sempre
+quello di verifica</p></li>
+<li><p>Misure e metadati hanno troncamenti sulle cifre significative
+dettati dalla loro possibilità reale di misura e stabiliti a priori</p></li>
+<li><p>Esistono due categorie di dato: una che varia tutti i metadati
+(osservazioni classiche) e l'altra che non prevede l'uso di alcuni
+metadati e che quindi sono da considerarsi come ulteriori metadati
+di quella singola stazione (constant station data: es. Nome
+stazione)</p></li>
+<li><p>Nessuno vieta di espandere i metadati estendendo esternamente questo
+data model</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="logical-data-model-ldm">
+<h2>Logical data model (LDM)<a class="headerlink" href="#logical-data-model-ldm" title="Link a questa intestazione">¶</a></h2>
+<p>I LDM vengono utilizzati per esplorare i concetti del dominio e le
+loro relazioni nel dominio del problema.</p>
+<div class="section" id="db-all-e-ldm">
+<h3>DB-All.e LDM<a class="headerlink" href="#db-all-e-ldm" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p><strong>METADATI</strong>:</p>
+<ul>
+<li><p>Datetime: tempo di fine misurazione</p></li>
+<li><p>Ana: <strong>Longitudine</strong>, <strong>latitudine</strong> ed un <strong>identificativo</strong></p></li>
+<li><p><strong>network</strong>: definisce stazioni con caratteristiche omogenee
+(classe degli strumenti)</p></li>
+<li><p><strong>Time range</strong>: Tr,P1,P2 indica osservazione o tempo previsione ed
+eventuale elaborazione “statistica”</p></li>
+<li><p><strong>Level</strong>: TL1,L1,TL2,L2 le coordinate verticali (eventualmente
+strato)</p></li>
+<li><p><strong>Variable</strong>: Btable parametro fisico</p></li>
+</ul>
+</li>
+<li><p><strong>DATI</strong>:</p>
+<ul>
+<li><p>Valori rappresentabili come interi, reali, doppia precisione,
+stringhe</p>
+<ul>
+<li><p><strong>Attributi</strong> (alla stregua di dati)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../global_observing_system/global_observing_system.html" class="btn btn-neutral float-right" title="Global Observing System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../software_hardware_dati_liberi/software_hardware_dati_liberi.html" class="btn btn-neutral float-left" title="Software, Hardware e Dati liberi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

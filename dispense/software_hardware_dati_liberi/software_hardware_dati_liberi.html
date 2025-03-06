@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Software, Hardware e Dati liberi &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Cosa si intende per Data Model?" href="../data_model/data_model.html" />
+    <link rel="prev" title="Biometeorologia umana" href="../biometeorologia/biometeorologia.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../misure/misure.html">Misurare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Istruzioni per partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_partecipata/la_scienza_partecipata.html">La scienza partecipata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Software, Hardware e Dati liberi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-libero-foss">Software libero (FOSS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-libero-osh">Hardware libero (OSH)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#i-principi-dellopen-source-hardware-osh">I principi dell’Open Source Hardware (OSH)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#la-definizione-1-0-dellopen-source-hardware">La Definizione 1.0 dell’Open Source Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#diritto-sui-generis-e-il-concetto-di-derivazione-nel-mondo-delle-banche-dati">Diritto sui generis e il concetto di “derivazione” nel mondo delle banche dati</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tipi-di-licence-open-per-i-dati">Tipi di licence open per i dati</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#importanza-dellopen-source-hardware-e-degli-open-data">Importanza dell’open source hardware e degli open data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model/data_model.html">Cosa si intende per Data Model?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global_observing_system/global_observing_system.html">Global Observing System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Software, Hardware e Dati liberi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/software_hardware_dati_liberi/software_hardware_dati_liberi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-hardware-e-dati-liberi">
+<h1>Software, Hardware e Dati liberi<a class="headerlink" href="#software-hardware-e-dati-liberi" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="software-libero-foss">
+<h2>Software libero (FOSS)<a class="headerlink" href="#software-libero-foss" title="Link a questa intestazione">¶</a></h2>
+<p>E' un software reso pubblico sotto i termini di una licenza di che ne
+concede lo <strong>studio</strong>, l'<strong>utilizzo</strong>, la <strong>modifica</strong> e la
+<strong>redistribuzione</strong>.</p>
+</div>
+<div class="section" id="hardware-libero-osh">
+<h2>Hardware libero (OSH)<a class="headerlink" href="#hardware-libero-osh" title="Link a questa intestazione">¶</a></h2>
+<p>Con hardware libero il progetto è reso pubblico in modo che chiunque
+possa studiare, modificare, distribuire, realizzare, utilizzare e
+vendere il progetto o l’hardware basato su di esso.</p>
+<p>La fonte dell’hardware, il progetto da cui è stato realizzato, è
+disponibile nel formato migliore per apportarvi modifiche. Idealmente,
+l’hardware open source utilizza componenti e materiali disponibili,
+processi standard, infrastruttura aperta, contenuti senza restrizione
+e strumenti di progettazione open-source per massimizzare la capacità
+degli individui di produrre e utilizzare l’hardware.</p>
+<div class="section" id="i-principi-dellopen-source-hardware-osh">
+<h3>I principi dell’Open Source Hardware (OSH)<a class="headerlink" href="#i-principi-dellopen-source-hardware-osh" title="Link a questa intestazione">¶</a></h3>
+<p>hardware il cui progetto è reso pubblico in modo che chiunque possa
+studiare, modificare, distribuire, realizzare, e vendere il progetto o
+l’hardware basato su di esso</p>
+<p>La fonte dell’hardware, il progetto da cui è stato realizzato, è
+disponibile nel formato migliore per apportarvi modifiche. Idealmente,
+l’hardware open source utilizza componenti e materiali disponibili,
+processi standard, infrastruttura aperta, contenuti senza restrizione
+e strumenti di progettazione open-source per massimizzare la capacità
+degli individui di produrre e utilizzare l’hardware.</p>
+<p>L’hardware open source dà alle persone la libertà di controllare la
+loro tecnologia, la condivisione della conoscenza ed incoraggia il
+commercio attraverso lo scambio aperto di progetti.</p>
+<p>Open Source Hardware Association <a class="reference external" href="http://www.oshwa.org/definition/italian/">http://www.oshwa.org/definition/italian/</a></p>
+</div>
+<div class="section" id="la-definizione-1-0-dellopen-source-hardware">
+<h3>La Definizione 1.0 dell’Open Source Hardware<a class="headerlink" href="#la-definizione-1-0-dellopen-source-hardware" title="Link a questa intestazione">¶</a></h3>
+<p>La documentazione :La documentazione deve includere i file del
+progetto nel formato preferito per apportare modifiche, ad esempio, il
+formato nativo del file di un programma CAD</p>
+<ul class="simple">
+<li><p>Il Software necessario:</p>
+<ul>
+<li><p>Le interfacce sono sufficientemente documentate tale che si possa
+scrivere il software open source che consente al dispositivo di
+funzionare</p></li>
+<li><p>Il software necessario è rilasciato sotto una licenza open source</p></li>
+</ul>
+</li>
+<li><p>I lavori derivati: permettere modifiche e lavori derivati</p></li>
+<li><p>La ridistribuzione libera</p></li>
+<li><p>L’attribuzione: riportare l’attribuzione ai licenzianti quando si fa
+la distribuzione; può richiedere che i lavori derivati abbiano un
+nome o un numero di versione diversi dal progetto originale</p></li>
+<li><p>Nessuna discriminazione di persone o gruppi</p></li>
+<li><p>La licenza non deve essere specifica per un prodotto</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="diritto-sui-generis-e-il-concetto-di-derivazione-nel-mondo-delle-banche-dati">
+<h2>Diritto sui generis e il concetto di “derivazione” nel mondo delle banche dati<a class="headerlink" href="#diritto-sui-generis-e-il-concetto-di-derivazione-nel-mondo-delle-banche-dati" title="Link a questa intestazione">¶</a></h2>
+<p>Le banche dati sono tutelate non tanto da diritto d’autore in senso
+classico quanto dal cosiddetto diritto sui generis del costitutore di
+banche dati istituito dalla Direttiva 96/9/CE.</p>
+<p>Tale diritto copre operazioni di estrazione e reimpiego di parti
+sostanziali di banche dati per la cui costituzione è stato necessario
+un rilevante investimento.</p>
+<p>In Italia il 18 Dicembre 2012 il Decreto Legge 18.10.2012, n. 179 è
+stato convertito in legge (17.12.2012 n.  221 e pubblicato nella
+Gazzetta Ufficiale: l'art. 9 prevede che I dati e le informazioni
+forniti dalla pubblica amministrazione dovranno essere
+obbligatoriamente pubblicati in formato aperto</p>
+<div class="section" id="tipi-di-licence-open-per-i-dati">
+<h3>Tipi di licence open per i dati<a class="headerlink" href="#tipi-di-licence-open-per-i-dati" title="Link a questa intestazione">¶</a></h3>
+<ol class="upperalpha simple">
+<li><p>Public domain dedications / no-copyright disclaimers</p></li>
+<li><p>Attribution licenses</p></li>
+<li><p>Share Alike licenses</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="importanza-dellopen-source-hardware-e-degli-open-data">
+<h2>Importanza dell’open source hardware e degli open data<a class="headerlink" href="#importanza-dellopen-source-hardware-e-degli-open-data" title="Link a questa intestazione">¶</a></h2>
+<p>L’hardware open source dà alle persone la libertà di controllare la
+loro tecnologia, la condivisione della conoscenza ed incoraggia il
+commercio attraverso lo scambio aperto di progetti.</p>
+<p>Open Data sono più informazione a disposizione di tutti, quindi, con
+tutti i vantaggi che questo comporta: aumento della conoscenza della
+collettività, trasparenza di un ente pubblico o privato e non ultimo
+stimolo all'economia permettendo alle aziende di offrire servizi che
+riusino questi dati.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../data_model/data_model.html" class="btn btn-neutral float-right" title="Cosa si intende per Data Model?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../biometeorologia/biometeorologia.html" class="btn btn-neutral float-left" title="Biometeorologia umana" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
