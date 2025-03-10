@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Isola di calore urbana &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Biometeorologia umana" href="../biometeorologia/biometeorologia.html" />
+    <link rel="prev" title="Lavorare con i dati" href="../lavorare_con_i_dati/lavorare_con_i_dati.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_partecipata/la_scienza_partecipata.html">La scienza partecipata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global_observing_system/global_observing_system.html">Global Observing System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_hardware_dati_liberi/software_hardware_dati_liberi.html">Software, Hardware e Dati liberi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misure/misure.html">Misurare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Isola di calore urbana</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classificazione-delle-aree-urbane">Classificazione delle Aree Urbane</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>Isola di calore urbana</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/isoladicaloreurbana/isoladicaloreurbana.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="isola-di-calore-urbana">
+<h1>Isola di calore urbana<a class="headerlink" href="#isola-di-calore-urbana" title="Link a questa intestazione">¶</a></h1>
+<p>Isola di calore urbana: un’area superficiale urbanizzata relativamente
+più calda dell’ambiente (rurale o naturale) circostante</p>
+<img alt="../../_images/modelllotipicouhii.png" src="../../_images/modelllotipicouhii.png" />
+<img alt="../../_images/isola.jpg" src="../../_images/isola.jpg" />
+<p>Un semplice indice dell’isola di calore è dato dalla differenza di
+temperatura tra ambiente urbano e ambiente naturale circostante
+(talvolta definita anche come Intensità: UHII):</p>
+<p>Indice o Intensità UHI: IUHI ≡ UHII ≡ ∆ T = Turb – Trur</p>
+<img alt="../../_images/uhii.png" src="../../_images/uhii.png" />
+<p>L’indice UHI di una grande città (∼ 10 milioni di abitanti) può essere di 1° ÷
+2°C in una media annua, mentre in singole notti calme e serene può
+raggiungere quasi 12°C.</p>
+<img alt="../../_images/mappaisoladicolore.png" src="../../_images/mappaisoladicolore.png" />
+<img alt="../../_images/isola.png" src="../../_images/isola.png" />
+<img alt="../../_images/bilancio.png" src="../../_images/bilancio.png" />
+<div class="section" id="classificazione-delle-aree-urbane">
+<h2>Classificazione delle Aree Urbane<a class="headerlink" href="#classificazione-delle-aree-urbane" title="Link a questa intestazione">¶</a></h2>
+<p>Il sistema di classificazione delle Local Climate Zone (LCZ) è uno
+strumento utile allo studio dell’isola di calore urbana e, più in
+generale, agli studi micro-climatici.</p>
+<p>Il sistema divide l’ambiente urbano in classi sulla base di proprietà
+che influiscono sulla temperatura dell’aria nei più bassi strati
+atmosferici: struttura (altezza e spaziatura di edifici ed alberi) e
+copertura (permeabile o impermeabile) delle superfici.</p>
+<p>Le LCZ sono regioni uniformi in termini di copertura, struttura, e
+materiale delle superfici e si estendono da alcune centinaia di metri
+fino a diversi chilometri</p>
+<p>In funzione di:</p>
+<p>Altezza</p>
+<img alt="../../_images/classificazione1.png" src="../../_images/classificazione1.png" />
+<p>Suolo</p>
+<img alt="../../_images/classificazione2.png" src="../../_images/classificazione2.png" />
+<p>Compattezza</p>
+<img alt="../../_images/classificazione3.png" src="../../_images/classificazione3.png" />
+<p>Materiale</p>
+<img alt="../../_images/classificazione4.png" src="../../_images/classificazione4.png" />
+<p>Classificazione</p>
+<img alt="../../_images/lcz.png" src="../../_images/lcz.png" />
+<p>Isola di calore a Trento</p>
+<div class="figure align-default" id="id1">
+<img alt="../../_images/isola2.png" src="../../_images/isola2.png" />
+<p class="caption"><span class="caption-text">LCZ 1</span><a class="headerlink" href="#id1" title="Link a questa immagine">¶</a></p>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="../../_images/isola3.png" src="../../_images/isola3.png" />
+<p class="caption"><span class="caption-text">LCZ 3</span><a class="headerlink" href="#id2" title="Link a questa immagine">¶</a></p>
+</div>
+<div class="figure align-default" id="id3">
+<img alt="../../_images/isola5.png" src="../../_images/isola5.png" />
+<p class="caption"><span class="caption-text">LCZ 5</span><a class="headerlink" href="#id3" title="Link a questa immagine">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<img alt="../../_images/isola8.png" src="../../_images/isola8.png" />
+<p class="caption"><span class="caption-text">LCZ 8</span><a class="headerlink" href="#id4" title="Link a questa immagine">¶</a></p>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="../../_images/isola9.png" src="../../_images/isola9.png" />
+<p class="caption"><span class="caption-text">LCZ 9</span><a class="headerlink" href="#id5" title="Link a questa immagine">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../biometeorologia/biometeorologia.html" class="btn btn-neutral float-right" title="Biometeorologia umana" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../lavorare_con_i_dati/lavorare_con_i_dati.html" class="btn btn-neutral float-left" title="Lavorare con i dati" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -241,7 +241,7 @@ versioni.</p>
 <span id="id2"></span><h3>Installazione ambiente di sviluppo<a class="headerlink" href="#installazione-ambiente-di-sviluppo" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="sdk-arduino">
 <span id="id3"></span><h4>SDK Arduino<a class="headerlink" href="#sdk-arduino" title="Link a questa intestazione">¶</a></h4>
-<ul class="simple">
+<ul>
 <li><p>Installare arduino 1.8.1 da <a class="reference external" href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a></p></li>
 <li><p>scaricare l'ultima versione del software stima (file
 stimasketchbookbluetooth) da <a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a></p></li>
@@ -250,14 +250,13 @@ stimasketchbookbluetooth) da <a class="reference external" href="https://github.
 cartella degli sketch selezionare la cartella sketchbook appena
 scompattata dal file scaricato</p></li>
 <li><p>chiudere e riaprire l'ide</p></li>
-<li><p>sezionare in -&gt; strumenti</p></li>
-</ul>
+<li><p>sezionare in -&gt; strumenti</p>
 <div class="line-block">
-<div class="line">``       Scheda: Microduino Core+ (644pa)``</div>
-<div class="line">``       Processore: ATmega644pa&#64;16M5V``</div>
-<div class="line">``       Porta: (quella disponibile) ``</div>
+<div class="line">Scheda: Microduino Core+ (644pa)``</div>
+<div class="line">Processore: ATmega644pa&#64;16M5V``</div>
+<div class="line">Porta: (quella disponibile) ``</div>
 </div>
-<ul class="simple">
+</li>
 <li><p>selezionare in -&gt; Sketch -&gt; Verifica e compila</p></li>
 </ul>
 <p>Ora per uplodare il firmware sul microprocessore dovrete collegare tra
@@ -323,12 +322,12 @@ di vernice protettiva rimuovere la protezione adesiva del sensore HIH</p>
 <p>alla porta seriale inviare i comandi:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">Sensor to config:</span></code></div>
-<div class="line">`` w = i2c-wind``</div>
-<div class="line">`` s = i2c-windsonic``</div>
-<div class="line">`` t = i2c-th``</div>
-<div class="line">`` r = i2c-rain``</div>
-<div class="line">`` h = hih humidity sensor``</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">? = help - this page</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">= i2c-wind</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">= i2c-windsonic</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">= i2c-th</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">= i2c-rain</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">= hih humidity sensor</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">= help - this page</span></code></div>
 </div>
 <p>h</p>
 <div class="line-block">
@@ -393,16 +392,16 @@ strato di silicone protettivo spray del tipo Electrolube DCR200H.</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">Terminal ready</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">Start sensor config</span></code></div>
-<div class="line">``       Sensor configuration - 1.0``</div>
+<div class="line">``     Sensor configuration - 1.0``</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">scan I2C bus:</span></code></div>
-<div class="line">``  i = scan one time``</div>
+<div class="line">`` i = scan one time``</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">Sensor to config:</span></code></div>
-<div class="line">``  w = i2c-wind``</div>
-<div class="line">``  s = i2c-windsonic``</div>
-<div class="line">``  t = i2c-th``</div>
-<div class="line">``  r = i2c-rain``</div>
-<div class="line">``  h = hih humidity sensor``</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">? = help - this page</span></code></div>
+<div class="line">`` w = i2c-wind``</div>
+<div class="line">`` s = i2c-windsonic``</div>
+<div class="line">`` t = i2c-th``</div>
+<div class="line">`` r = i2c-rain``</div>
+<div class="line">`` h = hih humidity sensor``</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">= help - this page</span></code></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">digit new i2c address for i2c-th (1-127)</span></code></p>
 <p>35</p>
@@ -505,14 +504,14 @@ for rx)</p></li>
 rmap_config.h</p>
 <p>In sketchbook/libraries/PubSubClient/PubSubClient.h modificare come
 segue:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use sim800 client</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;sim800Client.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#define TCPCLIENT sim800Client</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use arduino_uip or etherclient</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Client.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Stream.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#define TCPCLIENT Client</span></code></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="k">if</span> <span class="n">use</span> <span class="n">sim800</span> <span class="n">client</span>
+<span class="c1">#include &quot;sim800Client.h&quot;</span>
+<span class="c1">#define TCPCLIENT sim800Client</span>
+<span class="o">//</span> <span class="k">if</span> <span class="n">use</span> <span class="n">arduino_uip</span> <span class="ow">or</span> <span class="n">etherclient</span>
+<span class="o">//</span><span class="c1">#include &quot;Client.h&quot;</span>
+<span class="o">//</span><span class="c1">#include &quot;Stream.h&quot;</span>
+<span class="o">//</span><span class="c1">#define TCPCLIENT Client</span>
+</pre></div>
 </div>
 <p>Caricare il firmware rmap tramite microduino FT232RL.</p>
 </div>
@@ -580,14 +579,14 @@ possibile rimuovere le schede Microduino FT232RL dai moduli.</p>
 rmap_config.h</p>
 <p>In sketchbook/libraries/PubSubClient/PubSubClient.h modificare come
 segue:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use sim800 client</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;sim800Client.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#define TCPCLIENT sim800Client</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use arduino_uip or etherclient</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;Client.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;Stream.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#define TCPCLIENT Client</span></code></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="k">if</span> <span class="n">use</span> <span class="n">sim800</span> <span class="n">client</span>
+<span class="o">//</span><span class="c1">#include &quot;sim800Client.h&quot;</span>
+<span class="o">//</span><span class="c1">#define TCPCLIENT sim800Client</span>
+<span class="o">//</span> <span class="k">if</span> <span class="n">use</span> <span class="n">arduino_uip</span> <span class="ow">or</span> <span class="n">etherclient</span>
+<span class="c1">#include &quot;Client.h&quot;</span>
+<span class="c1">#include &quot;Stream.h&quot;</span>
+<span class="c1">#define TCPCLIENT Client</span>
+</pre></div>
 </div>
 <p>Caricare il firmware rmap tramite microduino FT232RL.</p>
 </div>
@@ -808,15 +807,19 @@ lato dei connettori:</p>
 </div>
 <div class="section" id="firmware-stima-bluetooth">
 <span id="id38"></span><h3>Firmware STIMA-BlueTooth<a class="headerlink" href="#firmware-stima-bluetooth" title="Link a questa intestazione">¶</a></h3>
-<p>``   installare arduino 1.6.5 da <code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">```https://www.arduino.cc/en/Main/Software</span></code> &lt;<a class="reference external" href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a>&gt;`__`` o tramite la propria distribuzione``</p>
-<div class="line-block">
-<div class="line">``   scaricare l'ultima versione del software stima (file stimasketchbook) da <code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">```https://github.com/r-map/rmap/releases</span></code> &lt;<a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a>&gt;`__</div>
-<div class="line">``   scompattare il file zip``</div>
-</div>
-<div class="line-block">
-<div class="line">``   aprire l'ide arduino e in file -&gt; impostazioni -&gt; percorso della cartella degli sketch selezionare la cartella sketchbook appena scompattata dal file scaricato``</div>
-<div class="line">``   chiudere e riaprire l'ide``</div>
-</div>
+<p>installare arduino 1.6.5 da:</p>
+<p><a class="reference external" href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a></p>
+<p>o tramite la propria distribuzione</p>
+<p>scaricare l'ultima versione del software stima (file stimasketchbook) da</p>
+<p><a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a></p>
+<ul class="simple">
+<li><p>scompattare il file zip</p></li>
+<li><p>aprire l'ide arduino e in file -&gt; impostazioni -&gt; percorso della
+cartella degli sketch</p></li>
+<li><p>selezionare la cartella sketchbook appena
+scompattata dal file scaricato</p></li>
+<li><p>chiudere e riaprire l'ide</p></li>
+</ul>
 <div class="section" id="modulo-stima-bluetooth-1">
 <span id="id39"></span><h4>modulo Stima-bluetooth<a class="headerlink" href="#modulo-stima-bluetooth-1" title="Link a questa intestazione">¶</a></h4>
 <p>Se in questo modulo avete montato anche la board microduino nRF24 e
@@ -831,21 +834,27 @@ l'opzione</p>
 opzione solo ai più esperti.</p>
 <p>In sketchbook/rmap/rmap copiare il file stima_bluetooth.h in
 rmap_config.h</p>
-<div class="line-block">
-<div class="line">``   sezionare in -&gt; strumenti``</div>
-<div class="line">``       Scheda: Microduino Core+ (644pa)``</div>
-<div class="line">``       Processore: ATmega644pa&#64;16M5V``</div>
-<div class="line">``       Porta: (quella disponibile) ``</div>
-</div>
-<p>``   selezionare in -&gt; Sketch -&gt; Verifica e compila ``</p>
+<ul class="simple">
+<li><p>sezionare in -&gt; strumenti</p>
+<ul>
+<li><p>Scheda: Microduino Core+ (644pa)``</p></li>
+<li><p>Processore: <a class="reference external" href="mailto:ATmega644pa&#37;&#52;&#48;16M5V">ATmega644pa<span>&#64;</span>16M5V</a></p></li>
+<li><p>Porta: (quella disponibile)</p></li>
+</ul>
+</li>
+<li><p>selezionare in -&gt; Sketch -&gt; Verifica e compila</p></li>
+</ul>
 <p>Ora per uplodare il firmware sul microprocessore dovrete collegare tra
 loro SOLO</p>
-<div class="line-block">
-<div class="line">``   MICRODUINO Core+ ATMEGA644PA``</div>
-<div class="line">``   MICRODUINO Shield USB/TTL ``</div>
-</div>
+<ul class="simple">
+<li><p>MICRODUINO Core+ ATMEGA644PA</p></li>
+<li><p>MICRODUINO Shield USB/TTL</p></li>
+</ul>
 <p>poi selezionate nella IDE di arduino:</p>
-<p>``   selezionare in -&gt; Sketch -&gt; Carica``</p>
+<ul class="simple">
+<li><p>selezionare in -&gt; Sketch -&gt; Carica</p>
+</li>
+</ul>
 </div>
 <div class="section" id="modulo-stima-master-2">
 <span id="id40"></span><h4>modulo Stima-master<a class="headerlink" href="#modulo-stima-master-2" title="Link a questa intestazione">¶</a></h4>
@@ -858,11 +867,11 @@ abiliterete anche la crittografia AES ma consigliamo questa ultima
 opzione solo ai più esperti.</p>
 <p>In sketchbook/rmap/rmap copiare il file stima_master.h in rmap_config.h</p>
 <p>sezionare in -&gt; strumenti</p>
-<div class="line-block">
-<div class="line">``   Scheda: Microduino Core+ (1284pa)``</div>
-<div class="line">``   Processore: ATmega1284pa&#64;16M5V``</div>
-<div class="line">``   Porta: (quella disponibile) ``</div>
-</div>
+<ul class="simple">
+<li><p>Scheda: Microduino Core+ (1284pa)</p></li>
+<li><p>Processore: <a class="reference external" href="mailto:ATmega1284pa&#37;&#52;&#48;16M5V">ATmega1284pa<span>&#64;</span>16M5V</a></p></li>
+<li><p>Porta: (quella disponibile)</p></li>
+</ul>
 <p>sezionare in -&gt; strumenti -&gt; cartella degli sketch -&gt; rmap -&gt; rmap</p>
 <p>selezionare in -&gt; Sketch -&gt; Carica</p>
 </div>
@@ -871,11 +880,11 @@ opzione solo ai più esperti.</p>
 <p>In sketchbook/rmap/rmap copiare il file stima_satellite.h in
 rmap_config.h</p>
 <p>sezionare in -&gt; strumenti</p>
-<div class="line-block">
-<div class="line">``   Scheda: Microduino Core+ (644pa)``</div>
-<div class="line">``   Processore: ATmega644pa&#64;16M5V``</div>
-<div class="line">``   Porta: (quella disponibile) ``</div>
-</div>
+<ul class="simple">
+<li><p>Scheda: Microduino Core+ (644pa)</p></li>
+<li><p>Processore: <a class="reference external" href="mailto:ATmega644pa&#37;&#52;&#48;16M5V">ATmega644pa<span>&#64;</span>16M5V</a></p></li>
+<li><p>Porta: (quella disponibile)</p></li>
+</ul>
 <p>sezionare in -&gt; strumenti -&gt; cartella degli sketch -&gt; rmap -&gt; rmap</p>
 <p>selezionare in -&gt; Sketch -&gt; Carica</p>
 </div>
@@ -892,23 +901,22 @@ rmap_config.h:</p>
 <p>con gli opportuni valori.</p>
 <p>In sketchbook/libraries/PubSubClient/PubSubClient.h modificare come
 segue:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use sim800 client</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#include &quot;sim800Client.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">#define TCPCLIENT sim800Client</span></code></div>
-</div>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">// if use arduino_uip or etherclient</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Client.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#include &quot;Stream.h&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">//#define TCPCLIENT Client</span></code></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="k">if</span> <span class="n">use</span> <span class="n">sim800</span> <span class="n">client</span>
+<span class="c1">#include &quot;sim800Client.h&quot;</span>
+<span class="c1">#define TCPCLIENT sim800Client</span>
+
+<span class="o">//</span> <span class="k">if</span> <span class="n">use</span> <span class="n">arduino_uip</span> <span class="ow">or</span> <span class="n">etherclient</span>
+<span class="o">//</span><span class="c1">#include &quot;Client.h&quot;</span>
+<span class="o">//</span><span class="c1">#include &quot;Stream.h&quot;</span>
+<span class="o">//</span><span class="c1">#define TCPCLIENT Client</span>
+</pre></div>
 </div>
 <p>sezionare in -&gt; strumenti</p>
-<div class="line-block">
-<div class="line">``   Scheda: Microduino Core+ (1284pa)``</div>
-<div class="line">``   Processore: ATmega1284pa&#64;16M5V``</div>
-<div class="line">``   Porta: (quella disponibile) ``</div>
-</div>
+<ul class="simple">
+<li><p>Scheda: Microduino Core+ (1284pa)</p></li>
+<li><p>Processore: <a class="reference external" href="mailto:ATmega1284pa&#37;&#52;&#48;16M5V">ATmega1284pa<span>&#64;</span>16M5V</a></p></li>
+<li><p>Porta: (quella disponibile)</p></li>
+</ul>
 <p>sezionare in -&gt; strumenti -&gt; cartella degli sketch -&gt; rmap -&gt; rmap</p>
 <p>selezionare in -&gt; Sketch -&gt; Carica</p>
 </div>
@@ -931,39 +939,49 @@ comando pip nelle distribuzioni Linux più diffure lo si ottiene
 installando il pacchetto python-pip. Per installare da utente non
 privilegiato l'ambiente rmap si può usare virtualenv e pip; da terminale
 eseguire:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">virtualenv --system-site-packages rmap</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">source rmap/bin/activate</span></code></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="o">--</span><span class="n">system</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="n">rmap</span>
+<span class="n">source</span> <span class="n">rmap</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">rmap</span>
+</pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></p>
 <p>Poi attivare l'interfaccia utente grafica:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">source rmap/bin/activate</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">rmapgui</span></code></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">rmap</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">rmapgui</span>
+</pre></div>
 </div>
 <p>In alternativa si può provare a installare Kivy tramite pip:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install cython</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install kivy</span></code></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">kivy</span>
+</pre></div>
 </div>
 <p>Per aggiornare l'App una volta chiusa la finestra grafica nella finestra
 dei comandi al prompt digitare:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">rmap</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link a questa intestazione">¶</a></h4>
 <p>Seguire le istruzioni a
 <a class="reference external" href="https://kivy.org/docs/installation/installation-windows.html">https://kivy.org/docs/installation/installation-windows.html</a></p>
 <p>poi:</p>
-<p><code class="docutils literal notranslate"><span class="pre">python -m pip install rmap</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">rmap</span>
+</pre></div>
+</div>
 <p>Le istruzioni che seguono sono per una vecchia modalità per un vecchio
 pacchetto:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">L'installazione in windows è molto semplice in quanto il file d scaricare è autoscompattante e comprende tutto l'ambiente necessario a</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Rmap. Sacricare quindi il file rmapwindows da: ``\</span> <span class="pre">```https://github.com/r-map/rmap/releases/</span></code> &lt;<a class="reference external" href="https://github.com/r-map/rmap/releases/">https://github.com/r-map/rmap/releases/</a>&gt;`__`` ed eseguirlo per scompattarlo.``</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Per far partire l'applicazione a questo punto basterà eseguire il file rmapgui contenuto nella cartella rmap</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Per aggiornare l'App una volta chiusa la finestra grafica nella finestra dei comandi al prompt digitare:</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">pip install --upgrade rmap</span></code></div>
+<p>L'installazione in windows è molto semplice in quanto il file da
+scaricare è autoscompattante e comprende tutto l'ambiente necessario a
+Rmap.  Sacricare quindi il file rmapwindows da:</p>
+<p><a class="reference external" href="https://github.com/r-map/rmap/releases">https://github.com/r-map/rmap/releases</a></p>
+<p>ed eseguirlo per scompattarlo.</p>
+<p>Per far partire l'applicazione a questo punto basterà eseguire il file
+rmapgui contenuto nella cartella rmap</p>
+<p>Per aggiornare l'App una volta chiusa la finestra grafica nella
+finestra dei comandi al prompt digitare:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">rmap</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="mac-osx">
@@ -989,15 +1007,16 @@ della registrazione che comunque è
 sarete in possesso di uno user e di una password.</p>
 <p>A questo punto dovrete trasferire la vostra configurazione sulla eeprom
 del microcontrollore; per farlo:</p>
-<div class="line-block">
-<div class="line">``   ponticellate sulla board Stima-I2C i pin contrassegnati con &quot;SET&quot; con un jumper.``</div>
-<div class="line">``   collegate il modulo con la board Microduino FT232RL alla USB del vostro PC. ``</div>
-</div>
+<ul class="simple">
+<li><p>ponticellate sulla board Stima-I2C i pin contrassegnati con &quot;SET&quot; con un jumper.</p></li>
+<li><p>collegate il modulo con la board Microduino FT232RL alla USB del vostro PC.</p></li>
+</ul>
 <div class="section" id="configurazione-tramite-l-applicazione-grafica">
 <span id="configurazione-tramite-lapplicazione-grafica"></span><h4>Configurazione tramite l'applicazione grafica<a class="headerlink" href="#configurazione-tramite-l-applicazione-grafica" title="Link a questa intestazione">¶</a></h4>
 <p>Dovrete accedere al menu &quot;Impostazioni&quot; che si aprirà automaticamente al
 primo avvio e accedere alle sottosezioni:</p>
-<p>``   Nella sezione &quot;Rmap&quot; dovrete inserire &quot;RMAP user&quot; e &quot;RMAP password&quot; ottenuti durante la registrazione a rmap.cc ``</p>
+<p>Nella sezione &quot;Rmap&quot; dovrete inserire &quot;RMAP user&quot; e &quot;RMAP password&quot;
+ottenuti durante la registrazione a rmap.cc.</p>
 <p>Dopo aver accoppiato il dispositivo bluetooth (dispositivo HC-05
 inserendo come pin &quot;1234&quot;) si può attivare il programma. In windows
 tramite le apposite interfacce di windows procedere all'accoppiamento
@@ -1009,29 +1028,29 @@ con l'interfaccia grafica risulta molto facile accoppiare il dispositivo
 HC-05 inserendo come pin &quot;1234&quot;; il device RFCOM0 viene utilizzato per
 la comunicazione seriale.</p>
 <p>Ora dal menu Impostazioni selezionate la sezione &quot;Sensors&quot; e impostate:</p>
-<div class="line-block">
-<div class="line">``   per il modulo Stima-Bluetooth``</div>
-<div class="line">``       Name: HC-05``</div>
-<div class="line">``       Station: BT_fixed``</div>
-<div class="line">``       Board:``</div>
-<div class="line">``           su android: BT_fixed``</div>
-<div class="line">``           su linux: BT_fixed_LINUX``</div>
-<div class="line">``           su windows: BT_fixed_WINDOWS``</div>
-<div class="line">``           su OSX: BT_fixed_OSX ``</div>
-<div class="line">``       Template: test_indirect``</div>
-<div class="line">``       Remote Board: stima_bt``</div>
-<div class="line">``       Remote Template: test ``</div>
-<div class="line">``   per il modulo Stima-Master o Stima-gsm``</div>
-<div class="line">``       Station: ETH_fixed``</div>
-<div class="line">``       Board:``</div>
-<div class="line">``           su linux: rmapgui_LINUX``</div>
-<div class="line">``           su windows: rmapgui_WINDOWS``</div>
-<div class="line">``           su OSX: rmapgui_OSX ``</div>
-<div class="line">``       Template: test_indirect``</div>
-<div class="line">``       Remote Board: master_eth_fixed``</div>
-<div class="line">``       Remote Template: test (test_master se avete la board nRF24) ``</div>
-<div class="line">``   per il modulo Stima-Satellite``</div>
-<div class="line">``       come per il modulo Stima-Master ma come Remote Board: satellite_eth_fixed ``</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">per</span> <span class="n">il</span> <span class="n">modulo</span> <span class="n">Stima</span><span class="o">-</span><span class="n">Bluetooth</span>
+    <span class="n">Name</span><span class="p">:</span> <span class="n">HC</span><span class="o">-</span><span class="mi">05</span>
+    <span class="n">Station</span><span class="p">:</span> <span class="n">BT_fixed</span>
+    <span class="n">Board</span><span class="p">:</span>
+        <span class="n">su</span> <span class="n">android</span><span class="p">:</span> <span class="n">BT_fixed</span>
+        <span class="n">su</span> <span class="n">linux</span><span class="p">:</span> <span class="n">BT_fixed_LINUX</span>
+        <span class="n">su</span> <span class="n">windows</span><span class="p">:</span> <span class="n">BT_fixed_WINDOWS</span>
+        <span class="n">su</span> <span class="n">OSX</span><span class="p">:</span> <span class="n">BT_fixed_OSX</span>
+    <span class="n">Template</span><span class="p">:</span> <span class="n">test_indirect</span>
+    <span class="n">Remote</span> <span class="n">Board</span><span class="p">:</span> <span class="n">stima_bt</span>
+    <span class="n">Remote</span> <span class="n">Template</span><span class="p">:</span> <span class="n">test</span>
+<span class="n">per</span> <span class="n">il</span> <span class="n">modulo</span> <span class="n">Stima</span><span class="o">-</span><span class="n">Master</span> <span class="n">o</span> <span class="n">Stima</span><span class="o">-</span><span class="n">gsm</span>
+    <span class="n">Station</span><span class="p">:</span> <span class="n">ETH_fixed</span>
+    <span class="n">Board</span><span class="p">:</span>
+        <span class="n">su</span> <span class="n">linux</span><span class="p">:</span> <span class="n">rmapgui_LINUX</span>
+        <span class="n">su</span> <span class="n">windows</span><span class="p">:</span> <span class="n">rmapgui_WINDOWS</span>
+        <span class="n">su</span> <span class="n">OSX</span><span class="p">:</span> <span class="n">rmapgui_OSX</span>
+    <span class="n">Template</span><span class="p">:</span> <span class="n">test_indirect</span>
+    <span class="n">Remote</span> <span class="n">Board</span><span class="p">:</span> <span class="n">master_eth_fixed</span>
+    <span class="n">Remote</span> <span class="n">Template</span><span class="p">:</span> <span class="n">test</span> <span class="p">(</span><span class="n">test_master</span> <span class="n">se</span> <span class="n">avete</span> <span class="n">la</span> <span class="n">board</span> <span class="n">nRF24</span><span class="p">)</span>
+<span class="n">per</span> <span class="n">il</span> <span class="n">modulo</span> <span class="n">Stima</span><span class="o">-</span><span class="n">Satellite</span>
+    <span class="n">come</span> <span class="n">per</span> <span class="n">il</span> <span class="n">modulo</span> <span class="n">Stima</span><span class="o">-</span><span class="n">Master</span> <span class="n">ma</span> <span class="n">come</span> <span class="n">Remote</span> <span class="n">Board</span><span class="p">:</span> <span class="n">satellite_eth_fixed</span>
+</pre></div>
 </div>
 <p>Nella sezione &quot;Location&quot; potete inserire manualmente le vostre
 coordinate e selezionare &quot;Close&quot; attivando la stazione. Se non conoscete
