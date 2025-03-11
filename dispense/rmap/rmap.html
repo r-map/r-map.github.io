@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>RMAP &mdash; RMAP e Stima 3 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../search.html" />
+    <link rel="next" title="Partecipare a RMAP" href="../partecipa/partecipa.html" />
+    <link rel="prev" title="Riscaldamento globale" href="../riscaldamento_globale/riscaldamento_globale.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RMAP e Stima
+          
+
+          
+            
+            <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../la_scienza_partecipata/la_scienza_partecipata.html">La scienza partecipata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global_observing_system/global_observing_system.html">Global Observing System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_hardware_dati_liberi/software_hardware_dati_liberi.html">Software, Hardware e Dati liberi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misure/misure.html">Misurare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../isoladicaloreurbana/isoladicaloreurbana.html">Isola di calore urbana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RMAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#obiettivi-r-map">Obiettivi R-map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#soggetti-coinvolti">Soggetti coinvolti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cosa-e-rmap">Cosa è Rmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#le-specifiche-rmap-per-stazioni-di-monitoraggio-ambientale">Le specifiche RMAP per stazioni di monitoraggio ambientale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schema-flusso-dati">Schema flusso dati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formati">Formati</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#json">JSON</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bufr">Bufr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#formato-geojson-per-punti-sparsi">Formato GeoJSON per punti sparsi</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#protocolli">Protocolli</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mqtt-message-queue-telemetry-transport">MQTT (Message Queue Telemetry Transport)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amqp-advanced-message-queuing-protocol">AMQP (Advanced Message Queuing Protocol)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http-https">HTTP/HTTPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json-rpc">Json-rpc</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sos">SOS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduzione">Introduzione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parole-chiave">Parole chiave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibilita-con-rmap">Compatibilità con rmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementazione-in-rmap">Implementazione in rmap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementazioni-hardware-e-software">Implementazioni hardware e software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Partecipare a RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RMAP e Stima</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Dispense</a> &raquo;</li>
+        
+      <li>RMAP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/dispense/rmap/rmap.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rmap">
+<h1>RMAP<a class="headerlink" href="#rmap" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="obiettivi-r-map">
+<h2>Obiettivi R-map<a class="headerlink" href="#obiettivi-r-map" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p>Raccogliere e distribuire dati ambientali rilevati dai cittadini</p></li>
+<li><p>Rendere disponibili questi dati ai servizi meteorologici, alle
+agenzie di prevenzione ambientale, alla protezione civile e istituti
+di ricerca</p></li>
+<li><p>Fornire feedback ai fornitori di dati in modo che essi abbiano
+servizi per testare e migliorare la qualità dei dati</p></li>
+<li><p>Divulgazione scientifica e sensibilizzazione ai temi ambientali</p></li>
+<li><p>Coinvolgimento di scuole e università a scopi formativi</p></li>
+<li><p>Creare un circolo virtuoso tra Enti Formativi, Pubbliche
+Amministazioni, Aziende private e cittadini.</p></li>
+</ul>
+</div>
+<div class="section" id="soggetti-coinvolti">
+<h2>Soggetti coinvolti<a class="headerlink" href="#soggetti-coinvolti" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p>ARPA Emilia Romagna SIMC</p></li>
+<li><p>ARPA Regione Veneto</p></li>
+<li><p>Cineca Consorzio Interuniversitario per il supercalcolo e
+l’innovazione tecnologica</p></li>
+<li><p>Dipartimento informatica Università di Bologna</p></li>
+<li><p>RaspiBO: gruppo informale di appassionati di elettronica ed
+informatica libera della zona di Bologna</p></li>
+<li><p>Soggetti privati
+* DigitEco SRL Via del Fonditore 16A, 40138 Bologna (BO), Italy
+* CAE S.p.A. - Via Colunga, 20 40068 San Lazzaro di Savena (BO) - Italy
+* ETG SRL Via di Porto 159 - 50018 Scandicci (FI),</p></li>
+<li><p>Associazione di volontariato Parco dei Cedri nel cuore</p></li>
+<li><p>Scuole</p></li>
+</ul>
+</div>
+<div class="section" id="cosa-e-rmap">
+<h2>Cosa è Rmap<a class="headerlink" href="#cosa-e-rmap" title="Link a questa intestazione">¶</a></h2>
+<p><strong>Un insieme di specifiche</strong></p>
+<ul class="simple">
+<li><p>Protocollo di rilevamento dati:</p>
+<ul>
+<li><p>Accuratezza dei sensori</p></li>
+<li><p>Collocazione sensori</p></li>
+<li><p>Elaborazioni</p></li>
+</ul>
+</li>
+<li><p>Sistema per lo scambio dati:</p>
+<ul>
+<li><p>Protocolli di trasmissione</p></li>
+<li><p>Formati dati</p></li>
+<li><p>Metadati</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="le-specifiche-rmap-per-stazioni-di-monitoraggio-ambientale">
+<h2>Le specifiche RMAP per stazioni di monitoraggio ambientale<a class="headerlink" href="#le-specifiche-rmap-per-stazioni-di-monitoraggio-ambientale" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p>RMAP è una rete di monitoraggio partecipativo promossa da più di
+dieci anni da vari soggetti pubblici e privati che si propone di
+definire metadati, protocolli e formati per raccogliere e
+condividere dati ambientali.</p></li>
+<li><p>La rappresentazione dei dati è basata su un data model equilibrato
+tra le necessità di rappresentare differenti tipologie di dati e la
+semplicità di utilizzo e di ottimizzazione dei sistemi. Questo data
+model è in grado di rappresentare sia stazioni fisse e mobili, che
+dati osservati e previsti.</p></li>
+<li><p>Lo standard RMAP permette l’adozione e l’interscambio di
+implementazioni software e hardware con differenti scelte tecniche,
+sia a livello server che nelle stazioni di misura; permette
+soluzioni modulari realizzate con open hardware stabile e basato su
+sviluppo cooperativo.</p></li>
+<li><p>RMAP, di fatto, comprende una serie di standard tra cui la
+comunicazione tra stazione e server di raccolta dati</p></li>
+</ul>
+</div>
+<div class="section" id="schema-flusso-dati">
+<h2>Schema flusso dati<a class="headerlink" href="#schema-flusso-dati" title="Link a questa intestazione">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/flow_chart.png"><img alt="../../_images/flow_chart.png" src="../../_images/flow_chart.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="formati">
+<h2>Formati<a class="headerlink" href="#formati" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="json">
+<h3>JSON<a class="headerlink" href="#json" title="Link a questa intestazione">¶</a></h3>
+<p><a class="reference external" href="http://www.json.org/json-it.html">http://www.json.org/json-it.html</a></p>
+<p>JSON (JavaScript Object Notation) è un semplice formato per lo scambio
+di dati. Per le persone è facile da leggere e scrivere, mentre per le
+macchine risulta facile da generare e analizzarne la sintassi.</p>
+<p>Rispetta il data model</p>
+<p>Ogni elemento è il report con i dati di una certa stazione per un
+certo istante di riferimento.</p>
+</div>
+<div class="section" id="bufr">
+<h3>Bufr<a class="headerlink" href="#bufr" title="Link a questa intestazione">¶</a></h3>
+<p>Il Binary Universal Form for the Representation of meteorological data
+(BUFR) è un formato di dati binari gestito dall'Organizzazione
+meteorologica mondiale (WMO).</p>
+<p>Il BUFR è stato progettato per essere portatile, compatto e
+universale. È possibile rappresentare qualsiasi tipo di dato, insieme
+al suo specifico contesto spazio-temporale e a qualsiasi altro
+metadato associato. Nella terminologia dell'OMM, il BUFR appartiene
+alla categoria delle forme di codice guidate da tabelle, in cui il
+significato degli elementi dei dati è determinato facendo riferimento
+a un insieme di tabelle che sono conservate e mantenute separatamente
+dal messaggio stesso.</p>
+<p>Descrittori: tutti i descrittori degli elementi si trovano nella
+sezione delle specifiche BUFR nota come &quot;Tabella B&quot;.  La definizione
+della Tabella B di un descrittore di elemento comprende il numero, la
+definizione di testo breve, i parametri di decodifica (larghezza di
+bit, fattore di scala e bias) e il tipo (numerico, stringa di
+caratteri, tabella di codice, ecc.).</p>
+</div>
+<div class="section" id="formato-geojson-per-punti-sparsi">
+<h3>Formato GeoJSON per punti sparsi<a class="headerlink" href="#formato-geojson-per-punti-sparsi" title="Link a questa intestazione">¶</a></h3>
+<p><a class="reference external" href="http://geojson.org/">http://geojson.org/</a> <a class="reference external" href="https://macwright.org/2015/03/23/geojson-second-bite.html">https://macwright.org/2015/03/23/geojson-second-bite.html</a>
+the Internet Engineering Task Force (IETF) ha pubblicato in Agosto 2016 RFC 7946</p>
+<p>E' un formato molto verboso (soprattutto per le serie temporali) ma
+rispetta il data model RMAP (anche se in modo non ottimale)</p>
+<p>E' uno dei formati vettoriali interpretati da
+* GDAL/OGR
+* OpenLayers
+* QGIS
+* ...</p>
+<div class="section" id="software-di-decodifica-bufr">
+<h4>Software di decodifica Bufr<a class="headerlink" href="#software-di-decodifica-bufr" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>WREPORT: a featureful C++ library for BUFR and CREX encoding and
+decoding <a class="reference external" href="http://sourceforge.net/p/wreport/home/Home/">http://sourceforge.net/p/wreport/home/Home/</a></p></li>
+<li><p>ecCodes <a class="reference external" href="https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home">https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="protocolli">
+<h2>Protocolli<a class="headerlink" href="#protocolli" title="Link a questa intestazione">¶</a></h2>
+<p>E' fondamentale: aderire a standard IOT e l'integrazione con le
+funzioni e le specifiche richieste dalle applicazioni per la domotica</p>
+<div class="section" id="mqtt-message-queue-telemetry-transport">
+<h3>MQTT (Message Queue Telemetry Transport)<a class="headerlink" href="#mqtt-message-queue-telemetry-transport" title="Link a questa intestazione">¶</a></h3>
+<p>E' un protocollo publish/subscribe particolarmente leggero, adatto per
+la comunicazione M2M tra dispositivi con poca memoria o potenza di
+calcolo e server o message broker.</p>
+<p>Il mittente di un messaggio si limita a &quot;pubblicare&quot; il proprio
+messaggio al broker. I destinatari si rivolgono a loro volta al broker
+&quot;abbonandosi&quot; alla ricezione di messaggi.</p>
+<p>Il meccanismo di sottoscrizione consente ai subscriber di precisare a
+quali messaggi sono interessati tramite un pattern (topic).</p>
+<p>Client e broker si scambiano messaggi di polling per monitorare lo
+stato delle comunicazioni; sono previsti messaggi &quot;will and testament&quot;</p>
+</div>
+<div class="section" id="amqp-advanced-message-queuing-protocol">
+<h3>AMQP (Advanced Message Queuing Protocol)<a class="headerlink" href="#amqp-advanced-message-queuing-protocol" title="Link a questa intestazione">¶</a></h3>
+<p>E' protocollo per comunicazioni attraverso code di messaggi. Sono
+garantite l'interoperabilità, la sicurezza, l'affidabilità, la
+persistenza. Nella sua implementazione Rabbitmq exporta un broker MQTT
+e fornisce delle api web Json è il formato per il payload</p>
+</div>
+<div class="section" id="http-https">
+<h3>HTTP/HTTPS<a class="headerlink" href="#http-https" title="Link a questa intestazione">¶</a></h3>
+<p>E' possibile utilizzare il protocollo http con una get per inviare i
+dati; la get http sarà immediatamente convertita dal server in una
+&quot;pub&quot; al broker mqtt. Http è molto inefficiente rispetto mqtt e qui è
+utilizzato solo come &quot;bridge&quot; a mqtt quando dovesse essere necessario.</p>
+</div>
+<div class="section" id="json-rpc">
+<h3>Json-rpc<a class="headerlink" href="#json-rpc" title="Link a questa intestazione">¶</a></h3>
+<p>Json (JavaScript Object Notation) ed è un formato adatto ad
+immagazzinare varie tipologie di informazioni, e quindi a scambiare
+queste informazioni tra applicazioni client/server.  JSON possiede una
+struttura semplicissima</p>
+<p>JSON-RPC è un protocollo leggero per remote procedure call simile a
+XML-RPC. E' progettato per essere semplice!</p>
+<p>Esempi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;subtract&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;subtrahend&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;minuend&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&lt;--</span> <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="o">--&gt;</span> <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;subtract&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;minuend&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;subtrahend&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="o">&lt;--</span> <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="la-richiesta">
+<h4>La richiesta<a class="headerlink" href="#la-richiesta" title="Link a questa intestazione">¶</a></h4>
+<p>Tutti i parametri trasferiti di ogni tipo sono singoli oggetti,
+serializzati usando JSON. Una richiesta è una chiamata a uno specifico
+metodo disponibile sul sistema remoto; deve contenere tre specifiche
+proprietà:</p>
+<ul class="simple">
+<li><p>method  -  Una stringa col nome del metodo da invocare.</p></li>
+<li><p>Params - Un array di oggetti come parametri al metodo invocato.</p></li>
+<li><p>id - Un valore di qualsiasi tipo, usato per riferire la risposta alla richiesta a cui si sta rispondendo.</p></li>
+</ul>
+</div>
+<div class="section" id="la-risposta">
+<h4>La risposta<a class="headerlink" href="#la-risposta" title="Link a questa intestazione">¶</a></h4>
+<p>Il server che riceve la richiesta deve rispondere con una risposta
+valida a tutte le richieste ricevute. Una risposta deve contenere le
+proprietà descritte qui sotto:</p>
+<ul class="simple">
+<li><p>result - I dati ritornati dal metodo invocato. Se c'è un errore invocando il metodo, il valore deve essere null.</p></li>
+<li><p>error - Uno specifico codice di errore se l'invocazione del metodo ha dato luogo a un errore, altrimenti null.</p></li>
+<li><p>id - L'id della richiesta a cui si sta rispondendo.</p></li>
+</ul>
+</div>
+<div class="section" id="json-rpc-un-modo-per-fare-tutto">
+<h4>Json-rpc un modo per fare tutto...<a class="headerlink" href="#json-rpc-un-modo-per-fare-tutto" title="Link a questa intestazione">¶</a></h4>
+<p>Questo un esempio di interrogazione e risposta di un sensore di
+temperatura</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SEND</span><span class="p">:{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;getjson&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:{</span><span class="s2">&quot;node&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span> <span class="s2">&quot;driver&quot;</span><span class="p">:</span><span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="mi">72</span><span class="p">},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">RECEIVE</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:{</span><span class="s2">&quot;B12101&quot;</span><span class="p">:</span><span class="mi">30633</span><span class="p">},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>B12101 indica che il numero che segue è una temperatura in centesimi
+di gradi Kelvin, quindi 33.18 C.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sos">
+<h2>SOS<a class="headerlink" href="#sos" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="introduzione">
+<h3>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Standard OGC dal 2007</p></li>
+<li><p><a class="reference external" href="http://www.opengeospatial.org/standards/sos">http://www.opengeospatial.org/standards/sos</a></p></li>
+<li><p>Standard che definisce l’interfaccia di un servizio web per
+l’interrogazione di osservazioni, metadati dei sensori e
+rappresentazione delle caratteristiche osservate</p></li>
+</ul>
+<p>Tre servizi di base:</p>
+<ul class="simple">
+<li><p>GetCapabilities: informazioni sul servizio e sui sensori disponibli</p></li>
+<li><p>DescribeSensor: metadati del sensore (SensorML)</p></li>
+<li><p>GetObservation: valori misurati dai sensori (Observations and
+Measurements)</p></li>
+</ul>
+<p>Più Servizi opzionali</p>
+</div>
+<div class="section" id="parole-chiave">
+<h3>Parole chiave<a class="headerlink" href="#parole-chiave" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Procedure</strong> è ciò che produce l’osservazione</p>
+<ul>
+<li><p>Sensore</p></li>
+<li><p>Postprocessamento (e.g. media, massima, minima)</p></li>
+</ul>
+</li>
+<li><p><strong>Observed property</strong> è la proprietà osservata</p></li>
+<li><p><strong>Feature Of Interest</strong> è l’oggetto georeferenziato che viene
+misurato. Nel nostri casi, generalmente coincide con la stazione</p></li>
+<li><p><strong>Observation offering</strong> è un gruppo di osservazioni che sono
+fornite insieme</p>
+<ul>
+<li><p>Singolo sensore</p></li>
+<li><p>Stazione</p></li>
+<li><p>Rete</p></li>
+<li><p>...</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="compatibilita-con-rmap">
+<h3>Compatibilità con rmap<a class="headerlink" href="#compatibilita-con-rmap" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Una <strong>procedure</strong> può coincidere con un sensore
+e.g. -/1212345,4312345/rmap/254,0,0/103,2000,-,-/B12101</p></li>
+<li><p>Una <strong>observed property</strong> può coincidere con</p>
+<ul>
+<li><p>La terna (timerange, livello, var) e.g. 254,0,0/103,2000,-,-/B12101</p></li>
+<li><p>La sola var e.g. B12101</p></li>
+</ul>
+</li>
+<li><p>Una <strong>feature of interest</strong> può coincidere con la stazione
+e.g. -/1212345,4312345/rmap</p></li>
+</ul>
+</div>
+<div class="section" id="implementazione-in-rmap">
+<h3>Implementazione in rmap<a class="headerlink" href="#implementazione-in-rmap" title="Link a questa intestazione">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://rmap.cc/sos?service=SOS&amp;acceptVersions=1.0.0&amp;request=GetCapabilities
+http://rmap.cc/sos/?service=SOS&amp;version=1.0.0&amp;request=DescribeSensor&amp;procedure=urn:rmap:procedure:digiteco/1162336,4465346/rmap/254,0,0/103,2000,-,-/B12101
+http://rmap.cc/sos/?service=SOS&amp;version=1.0.0&amp;request=GetObservation&amp;responseFormat=text/xml;subtype=&quot;om/1.0.0&quot;&amp;offering=urn:rmap:procedure:digiteco/1162336,4465346/rmap/254,0,0/103,2000,-,-/B12101&amp;observedProperty=urn:rmap:procedure:digiteco/1162336,4465346/rmap/254,0,0/103,2000,-,-/B12101
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implementazioni-hardware-e-software">
+<h2>Implementazioni hardware e software<a class="headerlink" href="#implementazioni-hardware-e-software" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p>Sono specifiche realizzazioni che aderiscono allo standard Rmap</p></li>
+<li><p>Un punto di valore sono le caratteristiche open hardware e open
+software delle implementazioni</p></li>
+</ul>
+<p>Implementazioni disponibili:</p>
+<ul class="simple">
+<li><p>stazioni Stima</p></li>
+<li><p>Server RMAP</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../partecipa/partecipa.html" class="btn btn-neutral float-right" title="Partecipare a RMAP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../riscaldamento_globale/riscaldamento_globale.html" class="btn btn-neutral float-left" title="Riscaldamento globale" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CC BY-SA 4.0, Arpae https://www.arpae.it.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
