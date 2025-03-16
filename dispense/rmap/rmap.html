@@ -39,8 +39,8 @@
     
     <link rel="index" title="Indice" href="../../genindex.html" />
     <link rel="search" title="Cerca" href="../../search.html" />
-    <link rel="next" title="Partecipare a RMAP" href="../partecipa/partecipa.html" />
-    <link rel="prev" title="Riscaldamento globale" href="../riscaldamento_globale/riscaldamento_globale.html" /> 
+    <link rel="next" title="RMAP e Stima: cronistoria del progetto" href="rmap_cronistoria.html" />
+    <link rel="prev" title="RMAP" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,33 +110,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">RMAP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#obiettivi-r-map">Obiettivi R-map</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#soggetti-coinvolti">Soggetti coinvolti</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cosa-e-rmap">Cosa è Rmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#le-specifiche-rmap-per-stazioni-di-monitoraggio-ambientale">Le specifiche RMAP per stazioni di monitoraggio ambientale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#schema-flusso-dati">Schema flusso dati</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#formati">Formati</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#json">JSON</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bufr">Bufr</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#formato-geojson-per-punti-sparsi">Formato GeoJSON per punti sparsi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">RMAP</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RMAP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#obiettivi-r-map">Obiettivi R-map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#soggetti-coinvolti">Soggetti coinvolti</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cosa-e-rmap">Cosa è RMAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le-specifiche-rmap-per-stazioni-di-monitoraggio-ambientale">Le specifiche RMAP per stazioni di monitoraggio ambientale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementazioni-hardware-e-software">Implementazioni Hardware e Software</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#protocolli">Protocolli</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mqtt-message-queue-telemetry-transport">MQTT (Message Queue Telemetry Transport)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#amqp-advanced-message-queuing-protocol">AMQP (Advanced Message Queuing Protocol)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#http-https">HTTP/HTTPS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#json-rpc">Json-rpc</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sos">SOS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#introduzione">Introduzione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parole-chiave">Parole chiave</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#compatibilita-con-rmap">Compatibilità con rmap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#implementazione-in-rmap">Implementazione in rmap</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#implementazioni-hardware-e-software">Implementazioni hardware e software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rmap_cronistoria.html">RMAP e Stima: cronistoria del progetto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Co-creazione_e_responsabilita_nellinnovazione_tecnoscientifica_dal_basso_3.1.html">RMAP e innovazione</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Partecipare a RMAP</a></li>
@@ -193,6 +177,8 @@
         
           <li><a href="../index.html">Dispense</a> &raquo;</li>
         
+          <li><a href="index.html">RMAP</a> &raquo;</li>
+        
       <li>RMAP</li>
     
     
@@ -232,30 +218,35 @@ Amministazioni, Aziende private e cittadini.</p></li>
 <div class="section" id="soggetti-coinvolti">
 <h2>Soggetti coinvolti<a class="headerlink" href="#soggetti-coinvolti" title="Link a questa intestazione">¶</a></h2>
 <ul class="simple">
-<li><p>ARPA Emilia Romagna SIMC</p></li>
+<li><p>ARPAE Emilia Romagna SIMC</p></li>
 <li><p>ARPA Regione Veneto</p></li>
 <li><p>Cineca Consorzio Interuniversitario per il supercalcolo e
 l’innovazione tecnologica</p></li>
 <li><p>Dipartimento informatica Università di Bologna</p></li>
 <li><p>RaspiBO: gruppo informale di appassionati di elettronica ed
 informatica libera della zona di Bologna</p></li>
-<li><p>Soggetti privati
-* DigitEco SRL Via del Fonditore 16A, 40138 Bologna (BO), Italy
-* CAE S.p.A. - Via Colunga, 20 40068 San Lazzaro di Savena (BO) - Italy
-* ETG SRL Via di Porto 159 - 50018 Scandicci (FI),</p></li>
+<li><p>Soggetti privati</p>
+<ul>
+<li><p>DigitEco SRL Via del Fonditore 16A, 40138 Bologna (BO), Italy</p></li>
+<li><p>CAE S.p.A. - Via Colunga, 20 40068 San Lazzaro di Savena (BO) - Italy</p></li>
+<li><p>ETG SRL Via di Porto 159 - 50018 Scandicci (FI),</p></li>
+<li><p>BE20 Innovation srl</p></li>
+<li><p>MEEO srl <a class="reference external" href="https://www.meeo.it/company/">https://www.meeo.it/company/</a></p></li>
+</ul>
+</li>
 <li><p>Associazione di volontariato Parco dei Cedri nel cuore</p></li>
 <li><p>Scuole</p></li>
 </ul>
 </div>
 <div class="section" id="cosa-e-rmap">
-<h2>Cosa è Rmap<a class="headerlink" href="#cosa-e-rmap" title="Link a questa intestazione">¶</a></h2>
+<h2>Cosa è RMAP<a class="headerlink" href="#cosa-e-rmap" title="Link a questa intestazione">¶</a></h2>
 <p><strong>Un insieme di specifiche</strong></p>
 <ul class="simple">
 <li><p>Protocollo di rilevamento dati:</p>
 <ul>
-<li><p>Accuratezza dei sensori</p></li>
-<li><p>Collocazione sensori</p></li>
-<li><p>Elaborazioni</p></li>
+<li><p>Specifiche metrologiche dei sensori</p></li>
+<li><p>Specifiche per la rappresentatività delle misure</p></li>
+<li><p>Post elaborazioni</p></li>
 </ul>
 </li>
 <li><p>Sistema per lo scambio dati:</p>
@@ -265,6 +256,14 @@ informatica libera della zona di Bologna</p></li>
 <li><p>Metadati</p></li>
 </ul>
 </li>
+</ul>
+<p><strong>Implementazioni hardware e software</strong></p>
+<p>Sono specifiche realizzazioni che aderiscono allo standard RMAP
+tramite open hardware e open software</p>
+<p>Implementazioni disponibili:</p>
+<ul class="simple">
+<li><p>stazioni Stima</p></li>
+<li><p>Server RMAP</p></li>
 </ul>
 </div>
 <div class="section" id="le-specifiche-rmap-per-stazioni-di-monitoraggio-ambientale">
@@ -287,15 +286,14 @@ sviluppo cooperativo.</p></li>
 <li><p>RMAP, di fatto, comprende una serie di standard tra cui la
 comunicazione tra stazione e server di raccolta dati</p></li>
 </ul>
-</div>
 <div class="section" id="schema-flusso-dati">
-<h2>Schema flusso dati<a class="headerlink" href="#schema-flusso-dati" title="Link a questa intestazione">¶</a></h2>
+<h3>Schema flusso dati<a class="headerlink" href="#schema-flusso-dati" title="Link a questa intestazione">¶</a></h3>
 <a class="reference internal image-reference" href="../../_images/flow_chart.png"><img alt="../../_images/flow_chart.png" src="../../_images/flow_chart.png" style="width: 100%;" /></a>
 </div>
 <div class="section" id="formati">
-<h2>Formati<a class="headerlink" href="#formati" title="Link a questa intestazione">¶</a></h2>
+<h3>Formati<a class="headerlink" href="#formati" title="Link a questa intestazione">¶</a></h3>
 <div class="section" id="json">
-<h3>JSON<a class="headerlink" href="#json" title="Link a questa intestazione">¶</a></h3>
+<h4>JSON<a class="headerlink" href="#json" title="Link a questa intestazione">¶</a></h4>
 <p><a class="reference external" href="http://www.json.org/json-it.html">http://www.json.org/json-it.html</a></p>
 <p>JSON (JavaScript Object Notation) è un semplice formato per lo scambio
 di dati. Per le persone è facile da leggere e scrivere, mentre per le
@@ -305,7 +303,7 @@ macchine risulta facile da generare e analizzarne la sintassi.</p>
 certo istante di riferimento.</p>
 </div>
 <div class="section" id="bufr">
-<h3>Bufr<a class="headerlink" href="#bufr" title="Link a questa intestazione">¶</a></h3>
+<h4>Bufr<a class="headerlink" href="#bufr" title="Link a questa intestazione">¶</a></h4>
 <p>Il Binary Universal Form for the Representation of meteorological data
 (BUFR) è un formato di dati binari gestito dall'Organizzazione
 meteorologica mondiale (WMO).</p>
@@ -325,7 +323,7 @@ bit, fattore di scala e bias) e il tipo (numerico, stringa di
 caratteri, tabella di codice, ecc.).</p>
 </div>
 <div class="section" id="formato-geojson-per-punti-sparsi">
-<h3>Formato GeoJSON per punti sparsi<a class="headerlink" href="#formato-geojson-per-punti-sparsi" title="Link a questa intestazione">¶</a></h3>
+<h4>Formato GeoJSON per punti sparsi<a class="headerlink" href="#formato-geojson-per-punti-sparsi" title="Link a questa intestazione">¶</a></h4>
 <p><a class="reference external" href="http://geojson.org/">http://geojson.org/</a> <a class="reference external" href="https://macwright.org/2015/03/23/geojson-second-bite.html">https://macwright.org/2015/03/23/geojson-second-bite.html</a>
 the Internet Engineering Task Force (IETF) ha pubblicato in Agosto 2016 RFC 7946</p>
 <p>E' un formato molto verboso (soprattutto per le serie temporali) ma
@@ -336,7 +334,7 @@ rispetta il data model RMAP (anche se in modo non ottimale)</p>
 * QGIS
 * ...</p>
 <div class="section" id="software-di-decodifica-bufr">
-<h4>Software di decodifica Bufr<a class="headerlink" href="#software-di-decodifica-bufr" title="Link a questa intestazione">¶</a></h4>
+<h5>Software di decodifica Bufr<a class="headerlink" href="#software-di-decodifica-bufr" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>WREPORT: a featureful C++ library for BUFR and CREX encoding and
 decoding <a class="reference external" href="http://sourceforge.net/p/wreport/home/Home/">http://sourceforge.net/p/wreport/home/Home/</a></p></li>
@@ -346,11 +344,11 @@ decoding <a class="reference external" href="http://sourceforge.net/p/wreport/ho
 </div>
 </div>
 <div class="section" id="protocolli">
-<h2>Protocolli<a class="headerlink" href="#protocolli" title="Link a questa intestazione">¶</a></h2>
+<h3>Protocolli<a class="headerlink" href="#protocolli" title="Link a questa intestazione">¶</a></h3>
 <p>E' fondamentale: aderire a standard IOT e l'integrazione con le
 funzioni e le specifiche richieste dalle applicazioni per la domotica</p>
 <div class="section" id="mqtt-message-queue-telemetry-transport">
-<h3>MQTT (Message Queue Telemetry Transport)<a class="headerlink" href="#mqtt-message-queue-telemetry-transport" title="Link a questa intestazione">¶</a></h3>
+<h4>MQTT (Message Queue Telemetry Transport)<a class="headerlink" href="#mqtt-message-queue-telemetry-transport" title="Link a questa intestazione">¶</a></h4>
 <p>E' un protocollo publish/subscribe particolarmente leggero, adatto per
 la comunicazione M2M tra dispositivi con poca memoria o potenza di
 calcolo e server o message broker.</p>
@@ -363,21 +361,21 @@ quali messaggi sono interessati tramite un pattern (topic).</p>
 stato delle comunicazioni; sono previsti messaggi &quot;will and testament&quot;</p>
 </div>
 <div class="section" id="amqp-advanced-message-queuing-protocol">
-<h3>AMQP (Advanced Message Queuing Protocol)<a class="headerlink" href="#amqp-advanced-message-queuing-protocol" title="Link a questa intestazione">¶</a></h3>
+<h4>AMQP (Advanced Message Queuing Protocol)<a class="headerlink" href="#amqp-advanced-message-queuing-protocol" title="Link a questa intestazione">¶</a></h4>
 <p>E' protocollo per comunicazioni attraverso code di messaggi. Sono
 garantite l'interoperabilità, la sicurezza, l'affidabilità, la
 persistenza. Nella sua implementazione Rabbitmq exporta un broker MQTT
 e fornisce delle api web Json è il formato per il payload</p>
 </div>
 <div class="section" id="http-https">
-<h3>HTTP/HTTPS<a class="headerlink" href="#http-https" title="Link a questa intestazione">¶</a></h3>
+<h4>HTTP/HTTPS<a class="headerlink" href="#http-https" title="Link a questa intestazione">¶</a></h4>
 <p>E' possibile utilizzare il protocollo http con una get per inviare i
 dati; la get http sarà immediatamente convertita dal server in una
 &quot;pub&quot; al broker mqtt. Http è molto inefficiente rispetto mqtt e qui è
 utilizzato solo come &quot;bridge&quot; a mqtt quando dovesse essere necessario.</p>
 </div>
 <div class="section" id="json-rpc">
-<h3>Json-rpc<a class="headerlink" href="#json-rpc" title="Link a questa intestazione">¶</a></h3>
+<h4>Json-rpc<a class="headerlink" href="#json-rpc" title="Link a questa intestazione">¶</a></h4>
 <p>Json (JavaScript Object Notation) ed è un formato adatto ad
 immagazzinare varie tipologie di informazioni, e quindi a scambiare
 queste informazioni tra applicazioni client/server.  JSON possiede una
@@ -393,7 +391,7 @@ XML-RPC. E' progettato per essere semplice!</p>
 </pre></div>
 </div>
 <div class="section" id="la-richiesta">
-<h4>La richiesta<a class="headerlink" href="#la-richiesta" title="Link a questa intestazione">¶</a></h4>
+<h5>La richiesta<a class="headerlink" href="#la-richiesta" title="Link a questa intestazione">¶</a></h5>
 <p>Tutti i parametri trasferiti di ogni tipo sono singoli oggetti,
 serializzati usando JSON. Una richiesta è una chiamata a uno specifico
 metodo disponibile sul sistema remoto; deve contenere tre specifiche
@@ -405,7 +403,7 @@ proprietà:</p>
 </ul>
 </div>
 <div class="section" id="la-risposta">
-<h4>La risposta<a class="headerlink" href="#la-risposta" title="Link a questa intestazione">¶</a></h4>
+<h5>La risposta<a class="headerlink" href="#la-risposta" title="Link a questa intestazione">¶</a></h5>
 <p>Il server che riceve la richiesta deve rispondere con una risposta
 valida a tutte le richieste ricevute. Una risposta deve contenere le
 proprietà descritte qui sotto:</p>
@@ -416,7 +414,7 @@ proprietà descritte qui sotto:</p>
 </ul>
 </div>
 <div class="section" id="json-rpc-un-modo-per-fare-tutto">
-<h4>Json-rpc un modo per fare tutto...<a class="headerlink" href="#json-rpc-un-modo-per-fare-tutto" title="Link a questa intestazione">¶</a></h4>
+<h5>Json-rpc un modo per fare tutto...<a class="headerlink" href="#json-rpc-un-modo-per-fare-tutto" title="Link a questa intestazione">¶</a></h5>
 <p>Questo un esempio di interrogazione e risposta di un sensore di
 temperatura</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SEND</span><span class="p">:{</span><span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;getjson&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">:{</span><span class="s2">&quot;node&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;TMP&quot;</span><span class="p">,</span> <span class="s2">&quot;driver&quot;</span><span class="p">:</span><span class="s2">&quot;I2C&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="mi">72</span><span class="p">},</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
@@ -427,11 +425,10 @@ temperatura</p>
 di gradi Kelvin, quindi 33.18 C.</p>
 </div>
 </div>
-</div>
 <div class="section" id="sos">
-<h2>SOS<a class="headerlink" href="#sos" title="Link a questa intestazione">¶</a></h2>
+<h4>SOS<a class="headerlink" href="#sos" title="Link a questa intestazione">¶</a></h4>
 <div class="section" id="introduzione">
-<h3>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h3>
+<h5>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>Standard OGC dal 2007</p></li>
 <li><p><a class="reference external" href="http://www.opengeospatial.org/standards/sos">http://www.opengeospatial.org/standards/sos</a></p></li>
@@ -447,9 +444,8 @@ rappresentazione delle caratteristiche osservate</p></li>
 Measurements)</p></li>
 </ul>
 <p>Più Servizi opzionali</p>
-</div>
 <div class="section" id="parole-chiave">
-<h3>Parole chiave<a class="headerlink" href="#parole-chiave" title="Link a questa intestazione">¶</a></h3>
+<h6>Parole chiave<a class="headerlink" href="#parole-chiave" title="Link a questa intestazione">¶</a></h6>
 <ul class="simple">
 <li><p><strong>Procedure</strong> è ciò che produce l’osservazione</p>
 <ul>
@@ -471,8 +467,9 @@ fornite insieme</p>
 </li>
 </ul>
 </div>
+</div>
 <div class="section" id="compatibilita-con-rmap">
-<h3>Compatibilità con rmap<a class="headerlink" href="#compatibilita-con-rmap" title="Link a questa intestazione">¶</a></h3>
+<h5>Compatibilità con rmap<a class="headerlink" href="#compatibilita-con-rmap" title="Link a questa intestazione">¶</a></h5>
 <ul class="simple">
 <li><p>Una <strong>procedure</strong> può coincidere con un sensore
 e.g. -/1212345,4312345/rmap/254,0,0/103,2000,-,-/B12101</p></li>
@@ -487,7 +484,7 @@ e.g. -/1212345,4312345/rmap</p></li>
 </ul>
 </div>
 <div class="section" id="implementazione-in-rmap">
-<h3>Implementazione in rmap<a class="headerlink" href="#implementazione-in-rmap" title="Link a questa intestazione">¶</a></h3>
+<h5>Implementazione in rmap<a class="headerlink" href="#implementazione-in-rmap" title="Link a questa intestazione">¶</a></h5>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://rmap.cc/sos?service=SOS&amp;acceptVersions=1.0.0&amp;request=GetCapabilities
 http://rmap.cc/sos/?service=SOS&amp;version=1.0.0&amp;request=DescribeSensor&amp;procedure=urn:rmap:procedure:digiteco/1162336,4465346/rmap/254,0,0/103,2000,-,-/B12101
 http://rmap.cc/sos/?service=SOS&amp;version=1.0.0&amp;request=GetObservation&amp;responseFormat=text/xml;subtype=&quot;om/1.0.0&quot;&amp;offering=urn:rmap:procedure:digiteco/1162336,4465346/rmap/254,0,0/103,2000,-,-/B12101&amp;observedProperty=urn:rmap:procedure:digiteco/1162336,4465346/rmap/254,0,0/103,2000,-,-/B12101
@@ -495,18 +492,24 @@ http://rmap.cc/sos/?service=SOS&amp;version=1.0.0&amp;request=GetObservation&amp
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="section" id="implementazioni-hardware-e-software">
-<h2>Implementazioni hardware e software<a class="headerlink" href="#implementazioni-hardware-e-software" title="Link a questa intestazione">¶</a></h2>
+<h2>Implementazioni Hardware e Software<a class="headerlink" href="#implementazioni-hardware-e-software" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="stazioni-stima">
+<h3>Stazioni Stima<a class="headerlink" href="#stazioni-stima" title="Link a questa intestazione">¶</a></h3>
+<p>TODO</p>
 <ul class="simple">
-<li><p>Sono specifiche realizzazioni che aderiscono allo standard Rmap</p></li>
-<li><p>Un punto di valore sono le caratteristiche open hardware e open
-software delle implementazioni</p></li>
+<li><p>StimaWiFi</p></li>
+<li><p>Stima V3</p></li>
+<li><p>Stima V4</p></li>
 </ul>
-<p>Implementazioni disponibili:</p>
-<ul class="simple">
-<li><p>stazioni Stima</p></li>
-<li><p>Server RMAP</p></li>
-</ul>
+</div>
+<div class="section" id="server-rmap">
+<h3>Server RMAP<a class="headerlink" href="#server-rmap" title="Link a questa intestazione">¶</a></h3>
+<p>TODO</p>
+<p>Server RMAP</p>
+</div>
 </div>
 </div>
 
@@ -516,8 +519,8 @@ software delle implementazioni</p></li>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../partecipa/partecipa.html" class="btn btn-neutral float-right" title="Partecipare a RMAP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../riscaldamento_globale/riscaldamento_globale.html" class="btn btn-neutral float-left" title="Riscaldamento globale" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rmap_cronistoria.html" class="btn btn-neutral float-right" title="RMAP e Stima: cronistoria del progetto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="RMAP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
