@@ -171,7 +171,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rmap/index.html">RMAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Partecipare a RMAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#presentazione">Presentazione</a></li>
 </ul>
 </li>
 </ul>
@@ -660,7 +659,7 @@ più alta che può essere rilevata è 1/(2Δt), e che in realtà qualsiasi
 sinusoide di frequenza più alta che possa essere presente nella serie
 temporale è rappresentata nei dati come se avesse una frequenza più
 bassa. La frequenza 1/(2Δt) è chiamata frequenza di Nyquist, qui
-indicata come ny . La frequenza di Nyquist è talvolta chiamata
+indicata come <span class="math notranslate nohighlight">\(n_{y}\)</span> . La frequenza di Nyquist è talvolta chiamata
 frequenza di ripiegamento. Questa terminologia deriva dalla
 considerazione dell'aliasing dei dati. Il concetto è illustrato
 schematicamente nella Figura successiva.</p>
@@ -669,7 +668,8 @@ causa della natura discreta dei dati, il contributo alla stima alla
 frequenza n contiene anche contributi da frequenze più alte, cioè da 2
 jn y ± n (j = 1 a ∞). Un modo per visualizzare questo aspetto è quello
 di considerare il dominio delle frequenze come se fosse piegato, in
-modo concertato, a n = 0 e n = ny e così via a passi di ny .</p>
+modo concertato, a n = 0 e n = <span class="math notranslate nohighlight">\(n_{y}\)</span> e così via a passi
+di <span class="math notranslate nohighlight">\(n_{y}\)</span>.</p>
 <p>La stima spettrale a ciascuna frequenza dell'intervallo è la somma di
 tutti i contributi delle frequenze superiori che la sovrastano.</p>
 <p>Gli effetti pratici dell'aliasing sono illustrati al <a class="reference internal" href="#frequenza-di-campionamento-reference"><span class="std std-ref">capitolo
@@ -677,12 +677,13 @@ frequenza di campionamento</span></a>. È
 un problema potenzialmente serio e deve essere preso in considerazione
 quando si progettano sistemi strumentali. Può essere evitato
 minimizzando, o riducendo a zero, l'intensità del segnale a frequenze
-superiori a ny . Ci sono un paio di modi per ottenere questo
+superiori a <span class="math notranslate nohighlight">\(n_{y}\)</span>. Ci sono un paio di modi per ottenere questo
 risultato. In primo luogo, il sistema può contenere un filtro
-passa-basso che attenua i contributi alle frequenze superiori a ny
-prima che il segnale venga digitalizzato. L'unico svantaggio di questo
-approccio è che la tempistica e l'entità delle variazioni rapide non
-saranno registrate bene, o addirittura per niente.</p>
+passa-basso che attenua i contributi alle frequenze superiori a
+<span class="math notranslate nohighlight">\(n_{y}\)</span> prima che il segnale venga digitalizzato. L'unico
+svantaggio di questo approccio è che la tempistica e l'entità delle
+variazioni rapide non saranno registrate bene, o addirittura per
+niente.</p>
 <p>Il secondo approccio consiste nell'avere un Δt abbastanza piccolo da
 rendere insignificanti i contributi al di sopra della frequenza di
 Nyquist. Questo è possibile perché gli spettri della maggior parte
@@ -700,19 +701,18 @@ può essere appropriato.</p>
 <h4>Misurazione degli spettri<a class="headerlink" href="#misurazione-degli-spettri" title="Link a questa intestazione">¶</a></h4>
 <p>La densità spettrale, almeno così come viene stimata da una serie
 temporale, è definita come:</p>
-<p>S n j = A 2 j + B 2 j
-)
-n y = α 2 j n y</p>
+<div class="math notranslate nohighlight">
+\[S(n_{j}) = (A_{j}^{2}+B_{j}^{2})/n_{y} = \alpha_{j}^{2}/n_{j}\]</div>
 <p>Si noti che la fase non è rilevante in questo caso.</p>
 <div class="figure align-default" id="id7">
 <img alt="../../_images/aliasing.png" src="../../_images/aliasing.png" />
 <p class="caption"><span class="caption-text">Illustrazione schematica dell'aliasing di uno spettro
 calcolato da una serie temporale stazionaria. Lo spettro
 può essere calcolato solo nell'intervallo di frequenza da
-zero alla frequenza di Nyquist ny . I valori reali delle
+zero alla frequenza di Nyquist <span class="math notranslate nohighlight">\(n_{y}\)</span>. I valori reali delle
 energie alle frequenze più alte sono indicati dai settori
 contrassegnati con a, b e c. Questi sono &quot;ripiegati&quot; sul
-settore da n = 0 a ny, come indicato dalle linee spezzate
+settore da n = 0 a <span class="math notranslate nohighlight">\(n_{y}\)</span>, come indicato dalle linee spezzate
 (a), (b), (c). Lo spettro calcolato, indicato dalla linea
 spezzata in grassetto (S), include la somma di questi
 settori.</span><a class="headerlink" href="#id7" title="Link a questa immagine">¶</a></p>
@@ -745,7 +745,7 @@ non è un problema serio, poiché nella maggior parte dei casi ci sono
 dati sufficienti per organizzare convenientemente la serie a tale
 lunghezza. In alternativa, alcuni programmi informatici FFT possono
 utilizzare un numero arbitrario di termini e aggiungere dati sintetici
-per arrivare a 2^k .</p>
+per arrivare a <span class="math notranslate nohighlight">\(2^{k}\)</span> .</p>
 <p>Poiché la serie temporale ha una durata finita (N termini),
 rappresenta solo un campione del segnale di interesse. Pertanto, i
 coefficienti di Fourier sono solo una stima del valore vero, o della
@@ -759,10 +759,11 @@ soddisfacente per scopi pratici. Pertanto, poiché ogni stima
 effettuata durante la trasformata di Fourier ha 2 gradi di libertà
 (associati ai coefficienti dei termini seno e coseno), di solito
 vengono mediati circa 15 termini. Si noti che 16 è un numero migliore
-se si utilizza un approccio FFT, poiché è 2 4 e ci sono esattamente
-2k/24 (= 2^(k-4) ) stime spettrali; ad esempio, se ci sono 1 024 termini
-nella serie temporale (quindi k = 10), ci saranno 512 stime degli As e
-dei Bs, e 64 (= 2^(10-4) ) stime smussate.</p>
+se si utilizza un approccio FFT, poiché è <span class="math notranslate nohighlight">\(2^{4}\)</span> e ci sono
+esattamente <span class="math notranslate nohighlight">\(2k/24 (= 2^{k-4})\)</span> stime spettrali; ad esempio, se
+ci sono 1 024 termini nella serie temporale (quindi k = 10), ci
+saranno 512 stime degli As e dei Bs, e <span class="math notranslate nohighlight">\(64 (= 2^{10-4})\)</span> stime
+smussate.</p>
 <p>L'uso di queste analisi è sempre più parte integrante dei sistemi
 meteorologici e non riguarda solo l'analisi dei dati. La forma esatta
 degli spettri che si incontrano in meteorologia può presentare
@@ -778,17 +779,13 @@ frequenza. Per periodi inferiori a 1 minuto, lo spettro assume spesso
 valori proporzionali a n - 5/3. Pertanto, il contributo delle
 frequenze superiori a 1 Hz è spesso relativamente scarso.</p>
 <p>Una delle proprietà importanti dello spettro è che:</p>
-<p>∑ S ( n j ) = σ 2
-(2.4)
-j = 0</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=0}^{\infty} S(n_{j}) = \sigma^{2}\]</div>
 <p>dove σ^2 è la varianza della grandezza misurata. Spesso è conveniente,
 per l'analisi, esprimere lo spettro in forma continua, in modo che
 l'equazione 2.4 diventi:</p>
-<p>∞
-∫ S ( n ) dn = σ
-2
-(2.5)
-0</p>
+<div class="math notranslate nohighlight">
+\[\int_{0}^{\infty }S(n)dn = \sigma^{2}\]</div>
 <p>Dalle equazioni si evince che i cambiamenti causati allo
 spettro, ad esempio dal sistema strumentale, altereranno il valore di
 σ^2 e quindi le proprietà statistiche dell'uscita rispetto
@@ -822,12 +819,8 @@ differenza tra il valore registrato dallo strumento e il valore reale
 della variabile. Pertanto, se il valore vero al tempo t è s(t) e il
 valore misurato dal sensore è s0(t), il sistema è descritto
 dall'equazione differenziale del primo ordine:</p>
-<p>ds 0 ( t )
-dt
-=
-s ( t ) − s 0 ( t )
-(2.6)
-T I</p>
+<div class="math notranslate nohighlight">
+\[\frac{ds_{0}(t)}{dt} = \frac{s(t)-s_{0}(t)}{T_{I}}\]</div>
 <p>dove TI è una costante con la dimensione del tempo, caratteristica del
 sistema. La risposta di un sistema del primo ordine a una funzione
 passo-passo è proporzionale a exp(-t/TI), e TI è osservabile come il
@@ -854,12 +847,8 @@ esempio, un pendolo). Le pale, sia per natura che per progettazione,
 sono smorzate. Ciò avviene a causa di una forza resistiva
 proporzionale e contraria alla sua velocità di variazione. Pertanto,
 l'equazione differenziale che descrive l'azione della paletta è:</p>
-<p>d 2 φ 0 ( t )
-dt
-2
-= k 1  φ 0 ( t ) − φ ( t )  − k 2
-d φ 0 ( t )
-dt</p>
+<div class="math notranslate nohighlight">
+\[\frac{d^{2}\phi_{0}(t)}{dt^{2}} = k_{1}\left[ \phi_{0}(t) - \phi(t) \right] -k_{2}\frac{d\phi_{0}(t)}{dt}\]</div>
 <p>dove ϕ è la direzione vera del vento; ϕ0 è la direzione della
 banderuola; e k1 e k2 sono costanti. La soluzione è un'oscillazione
 smorzata alla frequenza naturale della banderuola (determinata dalla
@@ -879,7 +868,8 @@ può avere un grande effetto sulle uscite.</p>
 di risposta in frequenza o funzione di trasferimento H(n). Questa
 funzione indica la quantità di spettro trasmessa dal sistema.</p>
 <p>Può essere definita come:</p>
-<p>S ( n ) out = H ( n ) S ( n ) in</p>
+<div class="math notranslate nohighlight">
+\[S(n)_{out} = H(n)S(n)_{in}\]</div>
 <p>dove i pedici si riferiscono agli spettri di ingresso e di uscita. Si
 noti che, in virtù della relazione dell'equazione 2.5, la varianza
 dell'uscita dipende da H(n). H(n) definisce l'effetto del sensore come
@@ -918,20 +908,14 @@ fattore di smorzamento è correlato a k2 nell'equazione
 indicata. Ad esempio, in una serie temporale discreta di N campioni
 numerati da 0 a N, con valore yi , il valore dell'osservazione
 filtrata ӯi può essere definito come:</p>
-<p>y i =
-m
-∑
-j = − m
-(2.9)
-w j y i + j</p>
+<div class="math notranslate nohighlight">
+\[\overline{y_{i}} = \sum_{J=-m}^{m}w_{j}y_{i+j}\]</div>
 <p>Qui ci sono 2m + 1 termini nel filtro, numerati dalla variabile dummy
 j da -m a +m, e ӯi è centrato su j = 0. Alcuni dati vengono scartati
 all'inizio e alla fine del tempo di campionamento.  wj è comunemente
 chiamata funzione di ponderazione e tipicamente è:</p>
-<p>∑
-j = − m
-(2.10)
-w j = 1</p>
+<div class="math notranslate nohighlight">
+\[\sum_{J=-m}^{m}w_{j} = 1\]</div>
 <p>in modo che almeno il valore medio della serie filtrata abbia lo
 stesso valore di quella originale.</p>
 <p>L'esempio precedente utilizza il filtraggio digitale. Effetti simili
