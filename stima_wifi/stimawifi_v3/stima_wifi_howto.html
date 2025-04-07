@@ -97,6 +97,35 @@
 <li class="toctree-l2"><a class="reference internal" href="../stimawifi_v2/stima_wifi_howto.html">Stima WiFi V2</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Stima WiFi V3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduzione">Introduzione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schema-a-blocchi">Schema a blocchi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#componenti-hardware">Componenti Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mcu-espressif-esp32-c3">MCU - Espressif ESP32 C3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power-shield">Power Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oled-shield">Oled Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#base-board">Base Board</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bus-i2c">BUS I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scatola">Scatola</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schermo-solare">Schermo solare</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connessione-device">Connessione Device</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sensori">Sensori</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sensirion-sps30-sensore-per-le-polveri-sottili">Sensirion SPS30 (Sensore per le polveri sottili)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensirion-scd30-sensore-co-2">Sensirion SCD30 (Sensore CO 2 )</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensirion-sht85-sensore-umidita-temperatura">Sensirion SHT85 (Sensore Umidità &amp; Temperatura)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#software">Software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#thread-loop-arduino">thread loop arduino</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threadmeasure">threadMeasure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threadpublish">threadPublish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threaddb">threadDb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threadudp">threadUdp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threadgps">threadGps</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#messa-in-opera-della-stazione">Messa in opera della stazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assemblaggio-scheda-elettronica">Assemblaggio scheda elettronica</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#strumentazione-necessaria">Strumentazione necessaria</a></li>
@@ -131,9 +160,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#installazione-in-loco">Installazione in loco</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installazione-schermo-solare-e-sensore-temperatura">Installazione schermo solare e sensore temperatura</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ancora-da-scrivere">Ancora da scrivere</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#todo">TODO</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#configurazione-firmware-software-python-json-nodered">Configurazione // Firmware + Software // Python + Json // NodeRed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendice-a">Appendice A</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendice-b">Appendice B</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pin">Pin</a></li>
@@ -217,32 +247,19 @@
             
   <div class="section" id="stima-wifi-v3">
 <span id="stimawifi-v3-reference"></span><h1>Stima WiFi V3<a class="headerlink" href="#stima-wifi-v3" title="Link a questa intestazione">¶</a></h1>
-<ul class="simple">
-<li><p>Citizen Science // Progetto RMAP // La Stazione STiMA</p>
-<ul>
-<li><p>Versione pdf <a class="reference download internal" download="" href="../../_downloads/0a91a5832588f3f0db18c9110f0996fd/stimawifi_intro.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p></li>
-<li><p>Versione open documet <a class="reference download internal" download="" href="../../_downloads/a7338dc6bfc282769c6a0528f7f3a3f3/stimawifi_intro.odp"><code class="xref download docutils literal notranslate"><span class="pre">odp</span></code></a></p></li>
-</ul>
-</li>
-<li><p>Stazione Stima // Hardware // Sensori</p>
-<ul>
-<li><p>Versione pdf <a class="reference download internal" download="" href="../../_downloads/8b2b47edfff1b1aea8f759164e386fa1/stimawifi_hardware.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p></li>
-<li><p>Versione open documet <a class="reference download internal" download="" href="../../_downloads/af02f8c370ecdda96f59df9ac5db2694/stimawifi_hardware.odp"><code class="xref download docutils literal notranslate"><span class="pre">odp</span></code></a></p></li>
-</ul>
-</li>
-<li><p>Configurazione // Firmware + Software // Python + Json // NodeRed</p>
-<ul>
-<li><p>Versione pdf <a class="reference download internal" download="" href="../../_downloads/b05a610f8260bc20b6f53fa8bd322285/stimawifi_programming.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p></li>
-<li><p>Versione open documet <a class="reference download internal" download="" href="../../_downloads/4497a94b2aa4f687713d1d7bab6d1fef/stimawifi_programming.odp"><code class="xref download docutils literal notranslate"><span class="pre">odp</span></code></a></p></li>
-</ul>
-</li>
-</ul>
 <div class="section" id="introduzione">
 <h2>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h2>
 <p>Stima Wi-Fi è una stazione di monitoraggio ambientale, uno strumento
 che misura in modo continuativo, a intervalli regolari, alcuni
 parametri chimici e fisici che caratterizzano l’inquinamento e le
 proprietà dell’ambiente in cui viviamo.</p>
+<p>La stazione Stima WiFi è un apparato pensato per il monitoraggio
+ambientale non troppo complicato da assemblare e di costo
+relativamento contenuto.  Il software e, nei limiti del possibile,
+l’hardware utilizzato è stato selezionato per permettere la
+condivisione di schemi di assemblaggio, firmware e software di
+supporto sotto licenze libere.  Anche i dati raccolti vengono sono
+rilasciati con una licenza permissiva CC-BY 4.0</p>
 <p>Non è una stazione di rilevamento meteorologico che segue i rigorosi
 standard dell’organizzazione meteorologica mondiale. I criteri per la
 sua installazione sono diversi e meno stringenti da quelli da seguire
@@ -254,23 +271,348 @@ differenti.  Il kit di autocostruzione è progettato per poter essere
 assemblato senza richiedere particolari capacità o competenze, giusto
 un po’ di attenzione e manualità.</p>
 <img alt="../../_images/stimawifi.png" src="../../_images/stimawifi.png" />
+<p><strong>Pavimenti bassi, soffitti alti e stanze spaziose</strong></p>
+<p>Quando discuteva di tecnologie di supporto alla didattica Seymour
+Papert sottolineava spesso l’importanza di &quot;pavimenti bassi&quot; e dei
+&quot;soffitti alti&quot;. Per essere efficace, affermava, una tecnologia deve
+essere facile da apprendere ed esplorare per i principianti (pavimenti
+bassi) ma, con il tempo, deve permettere di lavorare su progetti
+sempre più sofisticati (soffitti alti).</p>
+<p>Per un quadro più completo, bisogna aggiungere una dimensione in più
+l’ampiezza dell’ambiente [di apprendimento] (stanze spaziose). Non
+basta prevedere un percorso di apprendimento dal pavimento basso al
+soffitto alto; dobbiamo offrire la possibilità di esplorare differenti
+percorsi significativi.</p>
+<p>[libera interpretazione del pensiero di] Mitchel Resnick</p>
+<img alt="../../_images/stimawifi_open1.png" src="../../_images/stimawifi_open1.png" />
+<img alt="../../_images/stimawifi_open2.png" src="../../_images/stimawifi_open2.png" />
+</div>
+<div class="section" id="schema-a-blocchi">
+<h2>Schema a blocchi<a class="headerlink" href="#schema-a-blocchi" title="Link a questa intestazione">¶</a></h2>
+<img alt="../../_images/stimawifi_blocchi.png" src="../../_images/stimawifi_blocchi.png" />
+<p>Caratteristiche del progetto:</p>
+<ul class="simple">
+<li><p>Precisione delle misure;</p></li>
+<li><p>Economicità dell’hardware</p></li>
+<li><p>Facilità di assemblaggio</p></li>
+<li><p>Possibilità di personalizzazione</p></li>
+</ul>
+<p>Il progetto RMAP, di cui la stazione Stima fa parte, è in continua
+evoluzione e così la stazione di monitoraggio ha vissuto diverse
+incarnazioni, variando la sua conﬁgurazione in base all’hardware via
+via disponibile.</p>
+</div>
+<div class="section" id="componenti-hardware">
+<h2>Componenti Hardware<a class="headerlink" href="#componenti-hardware" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="mcu-espressif-esp32-c3">
+<h3>MCU - Espressif ESP32 C3<a class="headerlink" href="#mcu-espressif-esp32-c3" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>risc V</p></li>
+<li><p>WiFi 2.4Ghz con antenna integrata (direct, AP, client)</p></li>
+<li><p>I2C, I2S, SPI, PWM, UART</p></li>
+</ul>
+<p>La scheda di sviluppo, basata su esp32, è stata lanciata da Wemos,
+come alternativa alle schede Arduino. Nella versione mini misura
+(35x26mm).</p>
+<p>Come con arduino, il modulo è espandibile con apposite schede di
+espansione dette shield.</p>
+</div>
+<div class="section" id="power-shield">
+<h3>Power Shield<a class="headerlink" href="#power-shield" title="Link a questa intestazione">¶</a></h3>
+<p>La scheda D1 mini può essere alimentata tramite connessione
+usb (micro).
+Per utilizzare la scheda lontano da un computer si può
+utilizzare uno shield di alimentazione
+Alla scheda di espansione possibile connettere un
+alimentatore esterno ( da 7 a 24 V ).</p>
+</div>
+<div class="section" id="oled-shield">
+<h3>Oled Shield<a class="headerlink" href="#oled-shield" title="Link a questa intestazione">¶</a></h3>
+<p>Dimensione dello schermo: 64x48 pixel
+VCC: 3.3V
+Driver IC: SSD1306
+Indirizzo I2C: 0x3C or 0x3D
+Può essere utilizzato sia impilato sullo stack principale, sia
+collegato alla base di espansione (in entrambi i casi via I2C bus)</p>
+</div>
+<div class="section" id="base-board">
+<h3>Base Board<a class="headerlink" href="#base-board" title="Link a questa intestazione">¶</a></h3>
+<p>Esporta le connessioni al bus I2C.</p>
+<p>Può essere popolata con diversi tipi di connettori (passo 2.54mm)</p>
+<p>Dei sensori in dotazione, quello per il particolato è alimentato a 5V,
+gli altri componenti a 3.3v.</p>
+<p>La base board permette di selezionare il voltaggio adatto al sensore
+tramite un cavallotto.  Se il selettore non è popolato, la periferica
+collegata, non riceve alimentazione.</p>
+</div>
+</div>
+<div class="section" id="bus-i2c">
+<h2>BUS I2C<a class="headerlink" href="#bus-i2c" title="Link a questa intestazione">¶</a></h2>
+<p>StimaWiFi controlla i sensori via bus I2C.
+<a class="reference external" href="http://www.i2c-bus.org/">http://www.i2c-bus.org/</a>
+<a class="reference external" href="https://www.nxp.com/docs/en/application-note/AN10216.pdf">https://www.nxp.com/docs/en/application-note/AN10216.pdf</a></p>
+<ul class="simple">
+<li><p>Protocollo seriale (sincrono)</p></li>
+<li><p>due sole linee comunicazione
+* SCL (Serial CLock) (sincronia)
+* SDA (Serial DAta)</p></li>
+<li><p>Single Master ~ slave // Multi-master</p></li>
+<li><p>Lento (100/400 kbit/s)</p></li>
+<li><p>Supporta ﬁno a 127 device</p></li>
+<li><p>Ogni device ha indirizzo univoco (sul bus)</p></li>
+</ul>
+<p>Semplice interazione basata su messaggi (Master invia richiesta ad
+indirizzo device slave, slave device risponde solo se interpellato)</p>
+</div>
+<div class="section" id="scatola">
+<h2>Scatola<a class="headerlink" href="#scatola" title="Link a questa intestazione">¶</a></h2>
+<img alt="../../_images/scatola.png" src="../../_images/scatola.png" />
+<p>Serve a proteggere l’elettronica ed alloggiare parte dei sensori.</p>
+<p>Deve essere divisa in due sezioni principali, una ospita i componenti
+elettronici, l’altra (divisa a sua volta in due camere separate) il
+sensore per le polveri sottili e quello per la rilevazione della
+concentrazione di CO2</p>
+<img alt="../../_images/scatola_interno.png" src="../../_images/scatola_interno.png" />
+<p>Nella parte alta della foto si nota l’alloggiamento
+delle componenti elettroniche principali.</p>
+<img alt="../../_images/scatola_elettronica.png" src="../../_images/scatola_elettronica.png" />
+<p>La parte bassa è divisa in due sezioni e queste sezioni sono aperte
+verso l’esterno a differenza di quella superiore</p>
+<img alt="../../_images/scatola_inferiore.png" src="../../_images/scatola_inferiore.png" />
+<p>I cavi per i sensori passano attraverso piccole incisioni del
+polietilene per mantere il più possibile la camera superiore stagna</p>
+<p>La ﬁnestra per il monitor è ricavata incollando un riquadro di
+policarbonato con della colla a caldo.</p>
+<img alt="../../_images/scatola_display.png" src="../../_images/scatola_display.png" />
+</div>
+<div class="section" id="schermo-solare">
+<h2>Schermo solare<a class="headerlink" href="#schermo-solare" title="Link a questa intestazione">¶</a></h2>
+<img alt="../../_images/schermo_solare.png" src="../../_images/schermo_solare.png" />
+<p>Alloggiamento esterno alla stazione per sensore
+umidità e temperatura</p>
+<ul class="simple">
+<li><p>Protegge il sensore da intemperie</p></li>
+<li><p>Protegge il sensore da radiazione solare diretta</p></li>
+<li><p>Evita surriscaldamento e migliora precisione</p></li>
+<li><p>Può essere autocostruito <a class="reference external" href="https://e.pavlin.si/2019/02/04/low-cost-solar-radiation-shield/">https://e.pavlin.si/2019/02/04/low-cost-solar-radiation-shield/</a></p></li>
+<li><p>Modelli molto economici già pronti</p></li>
+</ul>
+<div class="section" id="connessione-device">
+<h3>Connessione Device<a class="headerlink" href="#connessione-device" title="Link a questa intestazione">¶</a></h3>
+<p>Connettere i device necessari è semplice</p>
+<ul class="simple">
+<li><p>assicurarsi che la stazione non sia alimentata</p></li>
+<li><p>selezionare appropriato voltaggio alimentazione</p></li>
+<li><p>assicurarsi che i collegamenti siano corretti (SCl -&gt; SCl, SDA-&gt;SDA, GND -&gt; GND, Vcc -&gt;Vcc)</p></li>
+</ul>
+<p>NOTE</p>
+<ul class="simple">
+<li><p>Alcuni device hanno più dei quattro pin necessari alla connessione
+al bus I2C</p></li>
+<li><p>VCC, Vcc, Vdd e VDD sono denominazioni equivalenti</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sensori">
+<h2>Sensori<a class="headerlink" href="#sensori" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="sensirion-sps30-sensore-per-le-polveri-sottili">
+<h3>Sensirion SPS30 (Sensore per le polveri sottili)<a class="headerlink" href="#sensirion-sps30-sensore-per-le-polveri-sottili" title="Link a questa intestazione">¶</a></h3>
+<img alt="../../_images/sps30.png" src="../../_images/sps30.png" />
+<ul class="simple">
+<li><p>Tecnologia: Scatter Beam OPC (Optical Particulate Counter)</p></li>
+<li><p>VCC: 5V</p></li>
+<li><p>Indirizzo I2C: 0x69</p></li>
+<li><p>Data Sheet: <a class="reference external" href="https://sensirion.com/products/catalog/SPS30/">https://sensirion.com/products/catalog/SPS30/</a></p></li>
+</ul>
+<p>Note: Connettore a 5 poli.</p>
+<p>Il quinto ﬁlo del connettore deve essere collegato a GND per
+selezionare la modalità I2C (se lasciato non collegato il
+sensore comunica con la modalità UART</p>
+<img alt="../../_images/sps30_pinout.png" src="../../_images/sps30_pinout.png" />
+</div>
+<div class="section" id="sensirion-scd30-sensore-co-2">
+<h3>Sensirion SCD30 (Sensore CO 2 )<a class="headerlink" href="#sensirion-scd30-sensore-co-2" title="Link a questa intestazione">¶</a></h3>
+<img alt="../../_images/scd30_pinout.png" src="../../_images/scd30_pinout.png" />
+<ul class="simple">
+<li><p>Tecnologia: NonDispersive InfraRed (NDIR)</p></li>
+<li><p>VCC: 3.3V ~ 5.5V</p></li>
+<li><p>Indirizzo I2C: 0x61</p></li>
+<li><p>Data Sheet: <a class="reference external" href="https://sensirion.com/products/catalog/SCD30/">https://sensirion.com/products/catalog/SCD30/</a></p></li>
+</ul>
+<img alt="../../_images/scd30_pinout.png" src="../../_images/scd30_pinout.png" />
+</div>
+<div class="section" id="sensirion-sht85-sensore-umidita-temperatura">
+<h3>Sensirion SHT85 (Sensore Umidità &amp; Temperatura)<a class="headerlink" href="#sensirion-sht85-sensore-umidita-temperatura" title="Link a questa intestazione">¶</a></h3>
+<img alt="../../_images/scd30.png" src="../../_images/scd30.png" />
+<ul class="simple">
+<li><p>Tecnologia: Scatter Beam OPC (Optical Particulate Counter)</p></li>
+<li><p>VCC: 2.5V ~ 3.3V ~ 5V (Typical 3.3V)</p></li>
+<li><p>Indirizzo I2C: 0x44</p></li>
+<li><p>Data Sheet: <a class="reference external" href="https://sensirion.com/products/catalog/SHT85/">https://sensirion.com/products/catalog/SHT85/</a></p></li>
+</ul>
+<img alt="../../_images/sht85_pinout.png" src="../../_images/sht85_pinout.png" />
+</div>
+</div>
+<div class="section" id="software">
+<h2>Software<a class="headerlink" href="#software" title="Link a questa intestazione">¶</a></h2>
+<p>FreeRtos viene utilizzato attraverso un wrapper C++.  Ogni thread ha
+una struttura dati utilizzata per comunicare trutture dati e dati.
+Nessun dato possibilmente è definito globalmente.</p>
+<p>Il colore del led indica lo stato di funzionamento:</p>
+<ul class="simple">
+<li><p>spento: sconosciuto</p></li>
+<li><p>blu: in elaborazione</p></li>
+<li><p>verde : tutto funziona</p></li>
+<li><p>Rosso: almeno un errore è presente</p></li>
+</ul>
+<p>Il display è opzionale e visualizza comunicazioni, ogni 3 secondi lo
+stato aggiornato riassuntivo di funzionamento e un riassunto delle
+ultime misurazioni effettuate</p>
+<p>L'SD card è opzionale; se presente è utilizzata per memorizzare i dati
+in sqlite3; la struttura del DB e visibile nel file DB_structure.pdf</p>
+<p>Dopo essere passati dal DB sqlite i file vengono trasferiti in un
+archivio, integrato in modalità append.</p>
+<p>Per poter utilizzare la stazione in modalità &quot;mobile&quot; ossia con
+posizione continuamente aggiornata ci sono due possibilità:</p>
+<ul class="simple">
+<li><p>connettere un modulo GPS con Ublox neo6m</p></li>
+<li><p>utilizzare l'app android GPSD_forwarder</p></li>
+</ul>
+<p>La configurazione è gestita sul server e i thread sono attivati
+automaticamente. Quando la geolocalizzazione è possibile i dati
+vengono generati, in caso contrario no.</p>
+<p>E' attivo un web server accessibile quando ci si connette allo stesso Wifi
+a cui è connessa la stazione, Sono forniti le seguenti URL/servizi:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http:/">http:/</a>/&lt;station slug&gt;             Full main page</p></li>
+<li><p><a class="reference external" href="http:/">http:/</a>/&lt;station slug&gt;/data.json   Data in json format</p></li>
+<li><p><a class="reference external" href="http:/">http:/</a>/&lt;station slug&gt;/geo         Coordinate of the station</p></li>
+</ul>
+<p>I dati sono visualizzabile da browser sempre se connessi allo stesso WiFi
+autenticandosi sul server RMAP e accedendo alla propria pagina personale,
+selezionando la stazione e poi alla voce &quot;Mostra i dettagli stazione&quot; e poi
+&quot;Dati locali in tempo reale&quot;.</p>
+<p>Il reset delle configurazioni è effettuabile a stazione disalimentata
+collegando a massa il pin RESET_PIN  o premendo il pulsante A della
+board del display, alimentare la stazione e dopo 10 secondi scollegare il
+RESET_PIN o rilasciare il pulsante. Il reset della configurazione effettua:</p>
+<ul class="simple">
+<li><p>rimozione delle configurazioni del wifi</p></li>
+<li><p>rimozione delle configurazioni stazione (utente slug password)</p></li>
+<li><p>completa formattazione dell'SD card con rimozione definitiva di
+tutti i dati presenti</p></li>
+</ul>
+<p>Il frusso dei dati nelle code è il seguente:</p>
+<p>i dati e metadati sono generati da threadMeasure e accodati nella coda
+mqttqueue per la pubblicazione, ricevuti da threadPublish per la
+pubblicazione sul broker MQTT; se non c'è spazio
+vanno direttamente nella coda dbqueue per l'archiviazione su SD card.
+threadMeasure è attivato periodicamente.</p>
+<p>threadPublish prova la pubblicazione MQTT.</p>
+<p>Dopo ogni tentativo di pubblicazione al broker MQTT
+i dati vengono accodati per l'archiviazione nella coda dbqueue
+etichettati relativamente al risultato della pubblicazione.</p>
+<p>Il thread threadDb gestisce due tipi di archiviazione dati.</p>
+<p>Il primo (DB) che contiene gli ultimi dati misurati (solitamente 24 ore)
+con sovrascrittura nel database e una etichetta a indicare lo stato di
+pubblicazione; fino a quando i dati sono presenti in questo
+DB i dati possono essere recuperati per la pubblicazione fino al successo della
+pubblicazione.</p>
+<p>Quando i dati nel DB invecchiano oltre il limite vengono trasferiti nell'archivio
+dove potranno essere riletti solo tramite un PC.</p>
+<p>Ogni thread ha una struttura dati che descrive
+lo stato di funzionamento. Il thread loop di arduino effettua una
+sintesi degli stati di tutti i thread e li visualizza tramite i
+colori del LED e tramite il display opzionale.</p>
+<p>Per pubblicare e archiviare i dati è necessario avere un corretto timestamp.
+Data e ora possono essere impostati tramite:</p>
+<ul class="simple">
+<li><p>NTP</p></li>
+<li><p>GPS</p></li>
+<li><p>UDP</p></li>
+</ul>
+<p>Se presente un RTC locale (DS1307) data e ora sono impostate sull'RTC
+automaticamente con uno dei metodi precedenti e poi se tutti i metodi
+precedenti non sono più disponibili riletti dall'RTC.</p>
+<p>Senza un corretto timestamp i dati non possono essere gestiti e
+vengono subito ignorati.</p>
+<p>Threads:</p>
+<div class="section" id="thread-loop-arduino">
+<h3>thread loop arduino<a class="headerlink" href="#thread-loop-arduino" title="Link a questa intestazione">¶</a></h3>
+<p>Questo thread esegue tutte le operazioni iniziali di configurazione e
+attivazione degli altri thread. Prima si configura la connessione WiFi
+insieme ad alcuni parametri univoci della stazione. Tramite questi
+ultimi la configurazione stazione viene scaricata dal server. Il
+thread governa la visualizzazione sul display e la colorazione del
+LED. Inoltre è possibile visualizzare i dati misurati tramite un
+browser indirizzandolo sulla pagina personale sul server RMAP.
+La libreria TimeAlarm gestisce l'attivazione dei segnali ai
+thread per attivazioni perioche.</p>
+</div>
+<div class="section" id="threadmeasure">
+<h3>threadMeasure<a class="headerlink" href="#threadmeasure" title="Link a questa intestazione">¶</a></h3>
+<p>Questo thread si occupa di interrogare i sensori, associare i metadati
+e accodarli per la pubblicazione e archiviazione. I sensori vengono
+interrogati in parallelo tramite delle macchine a stati finiti.
+Inoltre viene prodotta una struttura di dati di riassunto delle misure
+effettuate. Insieme alla libreria di driver per sensori viene gestita
+la loro inizializzazione e il restart in caso di ripetuti errori.</p>
+</div>
+<div class="section" id="threadpublish">
+<h3>threadPublish<a class="headerlink" href="#threadpublish" title="Link a questa intestazione">¶</a></h3>
+<p>Pubblica i dati in MQTT secondo lo standard RMAP.  Se la
+configurazione è per una stazione mobile della struttura con la
+geolocalizzazione viene controllato il timestamp e se ancora attuale
+associate le coordinate ai dati.</p>
+</div>
+<div class="section" id="threaddb">
+<h3>threadDb<a class="headerlink" href="#threaddb" title="Link a questa intestazione">¶</a></h3>
+<p>Archivia i dati su SD card. Il formato del DB è quello portabile di sqlite3 e
+possono essere letti tramite la stessa libreria da PC. Più scritture
+con gli stessi metadati aggiornano i dati, non creano record
+duplicati. L'archivio invece è composto da due file, uno di descrizione
+e il secondo con i dati.</p>
+<p>Il thread threadDb viene attivato periodicamente
+per recuperare l'invio dei dati presenti nel DB e non ancora pubblicati
+inviando un piccolo blocco di dati a mqttqueue fino a quando avanzi
+sufficiente spazio nella coda di pubblicazione per altri thread.</p>
+<p>Il thread threadDb esegue a priorità più alta degli altri per garantire
+l'archiviazione senza perdita di dati in tempi utili e non riempire le code.</p>
+<p>I dati vengo continuamente traferiti dal DB all'archivio eliminando dal
+database i dati più vecchi trasferendoli in un semplice archivio su file
+sempre sull'SD card. I dati in archivio possono essere letti e traferiti
+sul server RMAP tramite mqtt2bufr, un tool della suite RMAP.</p>
+<p>Se all'avvio i dati presenti nel DB risultano essere
+tutti vecchi i dati vengono traferiti all'archivio e l'intero DB viene eliminato
+e ricreato vuoto per limiti di memoria e performance.</p>
+</div>
+<div class="section" id="threadudp">
+<h3>threadUdp<a class="headerlink" href="#threadudp" title="Link a questa intestazione">¶</a></h3>
+<p>Legge i dati UDP inviati dalla app GPSD forwarder di uno smartphone
+riempiendo una struttura dati con la geolocalizzazione e un timestamp.</p>
+</div>
+<div class="section" id="threadgps">
+<h3>threadGps<a class="headerlink" href="#threadgps" title="Link a questa intestazione">¶</a></h3>
+<p>Legge i dati dal GPS se presente (porta seriale) riempiendo una struttura dati con
+la geolocalizzazione e un timestamp.</p>
+</div>
 </div>
 <div class="section" id="messa-in-opera-della-stazione">
 <h2>Messa in opera della stazione<a class="headerlink" href="#messa-in-opera-della-stazione" title="Link a questa intestazione">¶</a></h2>
-<p>La messa in opera della stazione può essere affrontata in più fasi,
+<p>La messa in opera della stazione può essere affrontata in più fasi:
 dopo aver assemblato la scheda elettronica ed averla posizionata nel
 proprio guscio bisognerà configurare la stazione, registrarla presso
-il sito che raccoglierà i dati per una prima elaborazione ed
-installare la stazione in una posizione individuata in precedenza.</p>
+il sito che raccoglierà i dati e installare la stazione nel sito
+prescelto.</p>
 <p>In queste pagine tratteremo sommariamente queste operazioni
-preoccupandoci di dare delle direttive di massima su cosa fare e su
+preoccupandoci di dare delle indicazioni di massima su cosa fare, sui
 materiali e strumenti necessari alla corretta esecuzione delle
 procedure necessarie alla messa in opera.</p>
 </div>
 <div class="section" id="assemblaggio-scheda-elettronica">
 <h2>Assemblaggio scheda elettronica<a class="headerlink" href="#assemblaggio-scheda-elettronica" title="Link a questa intestazione">¶</a></h2>
 <p>La prima fase della messa in opera presuppone l’assemblaggio del
-modulo di sistema, la parte della stazione che si occupa di consultare
+data logger, la parte della stazione che si occupa di consultare
 periodicamente i sensori installati e di inviare i campionamenti al
 server centrale.</p>
 <p>A seconda del kit utilizzato, potrebbe essere necessario utilizzare un
@@ -296,13 +638,17 @@ provare il metodo ad alimentare la stazione verificando anche la
 modalità di alimentazione che non si è ancora utilizzata.</p>
 <div class="section" id="strumentazione-necessaria">
 <h3>Strumentazione necessaria<a class="headerlink" href="#strumentazione-necessaria" title="Link a questa intestazione">¶</a></h3>
-<p>cavo micro usb
-computer/Alimentatore per smartphone
-saldatore a stagno*</p>
+<ul class="simple">
+<li><p>cavo micro usb</p></li>
+<li><p>computer/Alimentatore per smartphone</p></li>
+<li><p>saldatore a stagno*</p></li>
+</ul>
 </div>
 <div class="section" id="dotazione-software">
 <h3>Dotazione Software<a class="headerlink" href="#dotazione-software" title="Link a questa intestazione">¶</a></h3>
-<p>Nessuna</p>
+<ul class="simple">
+<li><p>Nessuna</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="caricamento-firmware">
@@ -340,13 +686,17 @@ questo caso bisognerà caricare l’apposito driver prima di poter
 procedere.</p>
 <div class="section" id="id1">
 <h3>Strumentazione necessaria<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
-<p>cavo micro usb
-computer</p>
+<ul class="simple">
+<li><p>cavo micro usb</p></li>
+<li><p>computer</p></li>
+</ul>
 </div>
 <div class="section" id="id2">
 <h3>Dotazione Software<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
-<p>Ambiente di sviluppo Python
-Platformio (Piattaforma per lo sviluppo embedded)</p>
+<ul class="simple">
+<li><p>Ambiente di sviluppo Python</p></li>
+<li><p>Platformio (Piattaforma per lo sviluppo embedded)</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="collegamento-dei-sensori">
@@ -383,13 +733,17 @@ in special modo quello per il particolato, comincino a perdere di
 precisione.</p>
 <div class="section" id="id3">
 <h3>Strumentazione necessaria<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
-<p>Multimetro
-Computer, tablet o smartphone con connettività Wi-Fi</p>
+<ul class="simple">
+<li><p>Multimetro</p></li>
+<li><p>Computer, tablet o smartphone con connettività Wi-Fi</p></li>
+</ul>
 </div>
 <div class="section" id="id4">
 <h3>Dotazione Software<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
-<p>Un qualunque browser web
-Accesso alla rete Wi-Fi</p>
+<ul class="simple">
+<li><p>Un qualunque browser web</p></li>
+<li><p>Accesso alla rete Wi-Fi</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="censimento-stazione">
@@ -425,11 +779,15 @@ stazione verso i 4 punti cardinali</p></li>
 usato in fase di configurazione iniziale.</p>
 <div class="section" id="id5">
 <h3>Strumentazione necessaria<a class="headerlink" href="#id5" title="Link a questa intestazione">¶</a></h3>
-<p>Computer, tablet o smartphone</p>
+<ul class="simple">
+<li><p>Computer, tablet o smartphone</p></li>
+</ul>
 </div>
 <div class="section" id="id6">
 <h3>Dotazione Software<a class="headerlink" href="#id6" title="Link a questa intestazione">¶</a></h3>
-<p>Un qualunque browser web</p>
+<ul class="simple">
+<li><p>Un qualunque browser web</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="collaudo-stazione">
@@ -464,12 +822,16 @@ Questo video mostra una modalità per procedere alla riconfigurazione.</p>
 <video controls="True" preload="auto" width="100%"><source src="../../_images/stimawifi_v3_reset.mp4" type="video/mp4"></video></div>
 <div class="section" id="id7">
 <h3>Strumentazione necessaria<a class="headerlink" href="#id7" title="Link a questa intestazione">¶</a></h3>
-<p>Computer, tablet o smartphone con connettività Wi-Fi</p>
+<ul class="simple">
+<li><p>Computer, tablet o smartphone con connettività Wi-Fi</p></li>
+</ul>
 </div>
 <div class="section" id="id8">
 <h3>Dotazione Software<a class="headerlink" href="#id8" title="Link a questa intestazione">¶</a></h3>
-<p>Un qualunque browser web
-Accesso alla rete Wi-Fi</p>
+<ul class="simple">
+<li><p>Un qualunque browser web</p></li>
+<li><p>Accesso alla rete Wi-Fi</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="preparazione-del-guscio">
@@ -503,17 +865,21 @@ temperatura.</p>
 <p>Infine andranno rimossi i passacavi posti sul lato inferiore per permettere il ricircolo d’aria.</p>
 <div class="section" id="id9">
 <h3>Strumentazione necessaria<a class="headerlink" href="#id9" title="Link a questa intestazione">¶</a></h3>
-<p>Forbici o taglierino
-Colla a caldo
-Nastro biadesivo
-Un foglio di Foam a celle chiuse (schiuma per imballaggi)
-Multimetro
-Cacciavite
-Plexiglas</p>
+<ul class="simple">
+<li><p>Forbici o taglierino</p></li>
+<li><p>Colla a caldo</p></li>
+<li><p>Nastro biadesivo</p></li>
+<li><p>Un foglio di Foam a celle chiuse (schiuma per imballaggi)</p></li>
+<li><p>Multimetro</p></li>
+<li><p>Cacciavite</p></li>
+<li><p>Plexiglas</p></li>
+</ul>
 </div>
 <div class="section" id="id10">
 <h3>Dotazione Software<a class="headerlink" href="#id10" title="Link a questa intestazione">¶</a></h3>
-<p>Nessuna</p>
+<ul class="simple">
+<li><p>Nessuna</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="installazione-in-loco">
@@ -532,9 +898,18 @@ protetto dalle intemperie secondi gli standard vigenti.</p>
 <div class="section" id="installazione-schermo-solare-e-sensore-temperatura">
 <h2>Installazione schermo solare e sensore temperatura<a class="headerlink" href="#installazione-schermo-solare-e-sensore-temperatura" title="Link a questa intestazione">¶</a></h2>
 <img alt="../../_images/schermo.png" src="../../_images/schermo.png" />
-<div class="section" id="ancora-da-scrivere">
-<h3>Ancora da scrivere<a class="headerlink" href="#ancora-da-scrivere" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="todo">
+<h3>TODO<a class="headerlink" href="#todo" title="Link a questa intestazione">¶</a></h3>
 </div>
+</div>
+<div class="section" id="configurazione-firmware-software-python-json-nodered">
+<h2>Configurazione // Firmware + Software // Python + Json // NodeRed<a class="headerlink" href="#configurazione-firmware-software-python-json-nodered" title="Link a questa intestazione">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Versione pdf <a class="reference download internal" download="" href="../../_downloads/b05a610f8260bc20b6f53fa8bd322285/stimawifi_programming.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p></li>
+<li><p>Versione open documet <a class="reference download internal" download="" href="../../_downloads/4497a94b2aa4f687713d1d7bab6d1fef/stimawifi_programming.odp"><code class="xref download docutils literal notranslate"><span class="pre">odp</span></code></a></p></li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="appendice-a">
 <h2>Appendice A<a class="headerlink" href="#appendice-a" title="Link a questa intestazione">¶</a></h2>
