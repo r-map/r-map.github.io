@@ -102,6 +102,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#mcu-espressif-esp32-c3">MCU - Espressif ESP32 C3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#power-shield">Power Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#oled-shield">Oled Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#micro-sd-card-shield">Micro SD Card Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rtc-and-microsd-data-logger-shield">RTC and Microsd Data Logger Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#base-board">Base Board</a></li>
 </ul>
 </li>
@@ -284,8 +286,8 @@ basta prevedere un percorso di apprendimento dal pavimento basso al
 soffitto alto; dobbiamo offrire la possibilità di esplorare differenti
 percorsi significativi.</p>
 <p>[libera interpretazione del pensiero di] Mitchel Resnick</p>
-<img alt="../../_images/stimawifi_open1.png" src="../../_images/stimawifi_open1.png" />
-<img alt="../../_images/stimawifi_open2.png" src="../../_images/stimawifi_open2.png" />
+<a class="reference internal image-reference" href="../../_images/stimawifi_open1.png"><img alt="../../_images/stimawifi_open1.png" src="../../_images/stimawifi_open1.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../../_images/stimawifi_open2.png"><img alt="../../_images/stimawifi_open2.png" src="../../_images/stimawifi_open2.png" style="width: 50%;" /></a>
 </div>
 <div class="section" id="schema-a-blocchi">
 <h2>Schema a blocchi<a class="headerlink" href="#schema-a-blocchi" title="Link a questa intestazione">¶</a></h2>
@@ -306,19 +308,32 @@ via disponibile.</p>
 <h2>Componenti Hardware<a class="headerlink" href="#componenti-hardware" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="mcu-espressif-esp32-c3">
 <h3>MCU - Espressif ESP32 C3<a class="headerlink" href="#mcu-espressif-esp32-c3" title="Link a questa intestazione">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/c3_mini_v2.1.0_1_16x16.jpg"><img alt="../../_images/c3_mini_v2.1.0_1_16x16.jpg" src="../../_images/c3_mini_v2.1.0_1_16x16.jpg" style="width: 50%;" /></a>
 <ul class="simple">
-<li><p>risc V</p></li>
-<li><p>WiFi 2.4Ghz con antenna integrata (direct, AP, client)</p></li>
-<li><p>I2C, I2S, SPI, PWM, UART</p></li>
+<li><p>based ESP32-C3 WIFI &amp; Bluetooth LE RISC-V Single-Core CPU</p></li>
+<li><p>Type-C USB</p></li>
+<li><p>4MB Flash</p></li>
+<li><p>1x WS2812B RGB LED</p></li>
+<li><p>Digital I/O Pins 12</p></li>
+<li><p>ADC, I2C, SPI, UART</p></li>
+<li><p>Compatible with LOLIN D1 mini shields</p></li>
+<li><p>Compatible with MicroPython, Arduino, CircuitPython and ESP-IDF</p></li>
+<li><p>Operating Voltage 3.3V</p></li>
+<li><p>Clock Speed 160MHz</p></li>
+<li><p>Flash 4M Bytes</p></li>
+<li><p>Size 34.3*25.4mm</p></li>
+<li><p>Weight 2.6g</p></li>
 </ul>
 <p>La scheda di sviluppo, basata su esp32, è stata lanciata da Wemos,
 come alternativa alle schede Arduino. Nella versione mini misura
 (35x26mm).</p>
+<img alt="../../_images/c3_mini_v2.webp" src="../../_images/c3_mini_v2.webp" />
 <p>Come con arduino, il modulo è espandibile con apposite schede di
 espansione dette shield.</p>
 </div>
 <div class="section" id="power-shield">
 <h3>Power Shield<a class="headerlink" href="#power-shield" title="Link a questa intestazione">¶</a></h3>
+<img alt="../../_images/power_shield.png" src="../../_images/power_shield.png" />
 <p>La scheda D1 mini può essere alimentata tramite connessione
 usb (micro).
 Per utilizzare la scheda lontano da un computer si può
@@ -328,6 +343,7 @@ alimentatore esterno ( da 7 a 24 V ).</p>
 </div>
 <div class="section" id="oled-shield">
 <h3>Oled Shield<a class="headerlink" href="#oled-shield" title="Link a questa intestazione">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/oled_v2.1.0_1_16x16.jpg"><img alt="../../_images/oled_v2.1.0_1_16x16.jpg" src="../../_images/oled_v2.1.0_1_16x16.jpg" style="width: 50%;" /></a>
 <p>Dimensione dello schermo: 64x48 pixel
 VCC: 3.3V
 Driver IC: SSD1306
@@ -335,15 +351,28 @@ Indirizzo I2C: 0x3C or 0x3D
 Può essere utilizzato sia impilato sullo stack principale, sia
 collegato alla base di espansione (in entrambi i casi via I2C bus)</p>
 </div>
+<div class="section" id="micro-sd-card-shield">
+<h3>Micro SD Card Shield<a class="headerlink" href="#micro-sd-card-shield" title="Link a questa intestazione">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/sd_v1.2.0_1_16x16.jpg"><img alt="../../_images/sd_v1.2.0_1_16x16.jpg" src="../../_images/sd_v1.2.0_1_16x16.jpg" style="width: 50%;" /></a>
+<p>Micro SD(TF) card per D1 mini</p>
+</div>
+<div class="section" id="rtc-and-microsd-data-logger-shield">
+<h3>RTC and Microsd Data Logger Shield<a class="headerlink" href="#rtc-and-microsd-data-logger-shield" title="Link a questa intestazione">¶</a></h3>
+<img alt="../../_images/rtc-sd-shield.png" src="../../_images/rtc-sd-shield.png" />
+<p>Data logger shield per la memorizzazione dei dati tramite scheda
+MicroSD e orologio in tempo reale integrato DS1307 con quarzo</p>
+</div>
 <div class="section" id="base-board">
 <h3>Base Board<a class="headerlink" href="#base-board" title="Link a questa intestazione">¶</a></h3>
 <p>Esporta le connessioni al bus I2C.</p>
 <p>Può essere popolata con diversi tipi di connettori (passo 2.54mm)</p>
+<img alt="../../_images/base1.jpg" src="../../_images/base1.jpg" />
 <p>Dei sensori in dotazione, quello per il particolato è alimentato a 5V,
 gli altri componenti a 3.3v.</p>
 <p>La base board permette di selezionare il voltaggio adatto al sensore
 tramite un cavallotto.  Se il selettore non è popolato, la periferica
 collegata, non riceve alimentazione.</p>
+<img alt="../../_images/base2.jpg" src="../../_images/base2.jpg" />
 </div>
 </div>
 <div class="section" id="bus-i2c">
@@ -366,28 +395,28 @@ indirizzo device slave, slave device risponde solo se interpellato)</p>
 </div>
 <div class="section" id="scatola">
 <h2>Scatola<a class="headerlink" href="#scatola" title="Link a questa intestazione">¶</a></h2>
-<img alt="../../_images/scatola.png" src="../../_images/scatola.png" />
+<a class="reference internal image-reference" href="../../_images/scatola.png"><img alt="../../_images/scatola.png" src="../../_images/scatola.png" style="width: 50%;" /></a>
 <p>Serve a proteggere l’elettronica ed alloggiare parte dei sensori.</p>
 <p>Deve essere divisa in due sezioni principali, una ospita i componenti
 elettronici, l’altra (divisa a sua volta in due camere separate) il
 sensore per le polveri sottili e quello per la rilevazione della
 concentrazione di CO2</p>
-<img alt="../../_images/scatola_interno.png" src="../../_images/scatola_interno.png" />
+<a class="reference internal image-reference" href="../../_images/scatola_interno.png"><img alt="../../_images/scatola_interno.png" src="../../_images/scatola_interno.png" style="width: 50%;" /></a>
 <p>Nella parte alta della foto si nota l’alloggiamento
 delle componenti elettroniche principali.</p>
-<img alt="../../_images/scatola_elettronica.png" src="../../_images/scatola_elettronica.png" />
+<a class="reference internal image-reference" href="../../_images/scatola_elettronica.png"><img alt="../../_images/scatola_elettronica.png" src="../../_images/scatola_elettronica.png" style="width: 50%;" /></a>
 <p>La parte bassa è divisa in due sezioni e queste sezioni sono aperte
 verso l’esterno a differenza di quella superiore</p>
-<img alt="../../_images/scatola_inferiore.png" src="../../_images/scatola_inferiore.png" />
+<a class="reference internal image-reference" href="../../_images/scatola_inferiore.png"><img alt="../../_images/scatola_inferiore.png" src="../../_images/scatola_inferiore.png" style="width: 50%;" /></a>
 <p>I cavi per i sensori passano attraverso piccole incisioni del
 polietilene per mantere il più possibile la camera superiore stagna</p>
 <p>La ﬁnestra per il monitor è ricavata incollando un riquadro di
 policarbonato con della colla a caldo.</p>
-<img alt="../../_images/scatola_display.png" src="../../_images/scatola_display.png" />
+<a class="reference internal image-reference" href="../../_images/scatola_display.png"><img alt="../../_images/scatola_display.png" src="../../_images/scatola_display.png" style="width: 30%;" /></a>
 </div>
 <div class="section" id="schermo-solare">
 <h2>Schermo solare<a class="headerlink" href="#schermo-solare" title="Link a questa intestazione">¶</a></h2>
-<img alt="../../_images/schermo_solare.png" src="../../_images/schermo_solare.png" />
+<a class="reference internal image-reference" href="../../_images/schermo_solare.png"><img alt="../../_images/schermo_solare.png" src="../../_images/schermo_solare.png" style="width: 20%;" /></a>
 <p>Alloggiamento esterno alla stazione per sensore
 umidità e temperatura</p>
 <ul class="simple">
@@ -417,7 +446,7 @@ al bus I2C</p></li>
 <h2>Sensori<a class="headerlink" href="#sensori" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="sensirion-sps30-sensore-per-le-polveri-sottili">
 <h3>Sensirion SPS30 (Sensore per le polveri sottili)<a class="headerlink" href="#sensirion-sps30-sensore-per-le-polveri-sottili" title="Link a questa intestazione">¶</a></h3>
-<img alt="../../_images/sps30.png" src="../../_images/sps30.png" />
+<a class="reference internal image-reference" href="../../_images/sps30.png"><img alt="../../_images/sps30.png" src="../../_images/sps30.png" style="width: 50%;" /></a>
 <ul class="simple">
 <li><p>Tecnologia: Scatter Beam OPC (Optical Particulate Counter)</p></li>
 <li><p>VCC: 5V</p></li>
@@ -428,29 +457,29 @@ al bus I2C</p></li>
 <p>Il quinto ﬁlo del connettore deve essere collegato a GND per
 selezionare la modalità I2C (se lasciato non collegato il
 sensore comunica con la modalità UART</p>
-<img alt="../../_images/sps30_pinout.png" src="../../_images/sps30_pinout.png" />
+<a class="reference internal image-reference" href="../../_images/sps30_pinout.png"><img alt="../../_images/sps30_pinout.png" src="../../_images/sps30_pinout.png" style="width: 50%;" /></a>
 </div>
 <div class="section" id="sensirion-scd30-sensore-co-2">
 <h3>Sensirion SCD30 (Sensore CO 2 )<a class="headerlink" href="#sensirion-scd30-sensore-co-2" title="Link a questa intestazione">¶</a></h3>
-<img alt="../../_images/scd30_pinout.png" src="../../_images/scd30_pinout.png" />
+<img alt="../../_images/scd30.png" src="../../_images/scd30.png" />
 <ul class="simple">
 <li><p>Tecnologia: NonDispersive InfraRed (NDIR)</p></li>
 <li><p>VCC: 3.3V ~ 5.5V</p></li>
 <li><p>Indirizzo I2C: 0x61</p></li>
 <li><p>Data Sheet: <a class="reference external" href="https://sensirion.com/products/catalog/SCD30/">https://sensirion.com/products/catalog/SCD30/</a></p></li>
 </ul>
-<img alt="../../_images/scd30_pinout.png" src="../../_images/scd30_pinout.png" />
+<a class="reference internal image-reference" href="../../_images/scd30_pinout.png"><img alt="../../_images/scd30_pinout.png" src="../../_images/scd30_pinout.png" style="width: 30%;" /></a>
 </div>
 <div class="section" id="sensirion-sht85-sensore-umidita-temperatura">
 <h3>Sensirion SHT85 (Sensore Umidità &amp; Temperatura)<a class="headerlink" href="#sensirion-sht85-sensore-umidita-temperatura" title="Link a questa intestazione">¶</a></h3>
-<img alt="../../_images/scd30.png" src="../../_images/scd30.png" />
+<a class="reference internal image-reference" href="../../_images/sht85.png"><img alt="../../_images/sht85.png" src="../../_images/sht85.png" style="width: 50%;" /></a>
 <ul class="simple">
 <li><p>Tecnologia: Scatter Beam OPC (Optical Particulate Counter)</p></li>
 <li><p>VCC: 2.5V ~ 3.3V ~ 5V (Typical 3.3V)</p></li>
 <li><p>Indirizzo I2C: 0x44</p></li>
 <li><p>Data Sheet: <a class="reference external" href="https://sensirion.com/products/catalog/SHT85/">https://sensirion.com/products/catalog/SHT85/</a></p></li>
 </ul>
-<img alt="../../_images/sht85_pinout.png" src="../../_images/sht85_pinout.png" />
+<a class="reference internal image-reference" href="../../_images/sht85_pinout.png"><img alt="../../_images/sht85_pinout.png" src="../../_images/sht85_pinout.png" style="width: 50%;" /></a>
 </div>
 </div>
 <div class="section" id="software">
