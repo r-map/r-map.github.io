@@ -166,10 +166,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione-firmware-software-python-json-nodered">Configurazione // Firmware + Software // Python + Json // NodeRed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#appendice-a">Appendice A</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#appendice-b">Appendice B</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pin">Pin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#accesso-wifi">Accesso WiFi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendice-a-checklist-installazione">Appendice A Checklist installazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendice-b-accesso-wifi">Appendice B Accesso WiFi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendice-c-pin">Appendice C PIN</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../testa_prelievo/testa_prelievo.html">Testa di prelievo per sensori Air Quality</a></li>
@@ -251,7 +250,7 @@
 <span id="stimawifi-v3-reference"></span><h1>Stima WiFi V3<a class="headerlink" href="#stima-wifi-v3" title="Link a questa intestazione">¶</a></h1>
 <div class="section" id="introduzione">
 <h2>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h2>
-<p>Stima Wi-Fi è una stazione di monitoraggio ambientale, uno strumento
+<p>Stima WiFi è una stazione di monitoraggio ambientale, uno strumento
 che misura in modo continuativo, a intervalli regolari, alcuni
 parametri chimici e fisici che caratterizzano l’inquinamento e le
 proprietà dell’ambiente in cui viviamo.</p>
@@ -299,10 +298,10 @@ percorsi significativi.</p>
 <li><p>Facilità di assemblaggio</p></li>
 <li><p>Possibilità di personalizzazione</p></li>
 </ul>
-<p>Il progetto RMAP, di cui la stazione Stima fa parte, è in continua
-evoluzione e così la stazione di monitoraggio ha vissuto diverse
-incarnazioni, variando la sua conﬁgurazione in base all’hardware via
-via disponibile.</p>
+<p>Il progetto RMAP, di cui la stazione Stima WiFi fa parte, è in
+continua evoluzione e così la stazione di monitoraggio ha vissuto
+diverse incarnazioni, variando la sua conﬁgurazione in base
+all’hardware via via disponibile.</p>
 </div>
 <div class="section" id="componenti-hardware">
 <h2>Componenti Hardware<a class="headerlink" href="#componenti-hardware" title="Link a questa intestazione">¶</a></h2>
@@ -377,7 +376,7 @@ collegata, non riceve alimentazione.</p>
 </div>
 <div class="section" id="bus-i2c">
 <h2>BUS I2C<a class="headerlink" href="#bus-i2c" title="Link a questa intestazione">¶</a></h2>
-<p>StimaWiFi controlla i sensori via bus I2C.
+<p>Stima WiFi controlla i sensori via bus I2C.
 <a class="reference external" href="http://www.i2c-bus.org/">http://www.i2c-bus.org/</a>
 <a class="reference external" href="https://www.nxp.com/docs/en/application-note/AN10216.pdf">https://www.nxp.com/docs/en/application-note/AN10216.pdf</a></p>
 <ul class="simple">
@@ -498,7 +497,8 @@ Nessun dato possibilmente è definito globalmente.</p>
 stato aggiornato riassuntivo di funzionamento e un riassunto delle
 ultime misurazioni effettuate</p>
 <p>L'SD card è opzionale; se presente è utilizzata per memorizzare i dati
-in sqlite3; la struttura del DB e visibile nel file DB_structure.pdf</p>
+in sqlite3; la struttura del DB è qui rappresentata</p>
+<img alt="../../_images/db_structure.png" src="../../_images/db_structure.png" />
 <p>Dopo essere passati dal DB sqlite i file vengono trasferiti in un
 archivio, integrato in modalità append.</p>
 <p>Per poter utilizzare la stazione in modalità &quot;mobile&quot; ossia con
@@ -688,8 +688,8 @@ in caso si voglia modificare l’utilizzo della stazione,
 personalizzarne le funzionalità o cogliere l’occasione di
 impratichirsi con questa operazione fondamentale nel ciclo di vita del
 software per microcontrollori,</p>
-<p>La stazione Stima è basata sul microcontrollore Esp8266 prodotto da
-ExpressIf. Si tratta di una soluzione economica e affidabile che da
+<p>La stazione Stima WiFi è basata sul microcontrollore Esp32 prodotto
+da ExpressIf. Si tratta di una soluzione economica e affidabile che da
 qualche anno sta aumentando esponenzialmente la propria popolarità.
 Il produttore mette a disposizione strumenti gratuiti e liberi per lo
 sviluppo, e sono diffuse librerie ed ambienti di progettazione per i
@@ -737,7 +737,7 @@ necessario collegare i sensori alla scheda e verificarne il
 funzionamento.</p>
 <p>Per farlo bisogna assemblare i cavi di collegamento secondo gli schemi
 forniti dal produttore dei sensori facendo in modo che corrispondono
-alla piedinatura dei connettori presenti sulla stazione Stima.</p>
+alla piedinatura dei connettori presenti sulla stazione Stima WiFi.</p>
 <img alt="../../_images/board.jpg" src="../../_images/board.jpg" />
 <p>Dopo aver messo a punto la cavetteria bisogna collegare i sensori
 ognuno secondo lo standard facendo attenzione alla polarità ed al
@@ -940,10 +940,11 @@ protetto dalle intemperie secondi gli standard vigenti.</p>
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="appendice-a">
-<h2>Appendice A<a class="headerlink" href="#appendice-a" title="Link a questa intestazione">¶</a></h2>
-<p>Checklist installazione Stima wifi
-Per mettere in opera una stazione stima bisogna tenere da conto tre fattori che permettono di farla operare al meglio:</p>
+<div class="section" id="appendice-a-checklist-installazione">
+<h2>Appendice A Checklist installazione<a class="headerlink" href="#appendice-a-checklist-installazione" title="Link a questa intestazione">¶</a></h2>
+<p>Checklist installazione Stima WiFi Per mettere in opera una stazione
+Stima WiFi bisogna tenere da conto tre fattori che permettono di farla
+operare al meglio:</p>
 <ul class="simple">
 <li><p>L’accesso all’alimentazione di rete</p></li>
 <li><p>L’accesso ad un access point wifi</p></li>
@@ -960,11 +961,30 @@ togliere alimentazione alla stazione, ad esempio nei weekend o in
 tarda serata, pena l’impossibilità di registrare e conferire i dati
 raccolti.</p>
 </div>
-<div class="section" id="appendice-b">
-<h2>Appendice B<a class="headerlink" href="#appendice-b" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="appendice-b-accesso-wifi">
+<h2>Appendice B Accesso WiFi<a class="headerlink" href="#appendice-b-accesso-wifi" title="Link a questa intestazione">¶</a></h2>
+<p>Le stazioni Stima WiFi, utilizzano una rete WiFi a 2.4Ghz* per collegarsi
+ad internet e non possono utilizzare un proxy.  Prima di procedere con
+l’installazione è bene confrontarsi con il personale dell’ufficio
+tecnico per assicurarsi che la rete che si vuole utilizzare per la
+connessione sia adatta</p>
+<p>Annotare l’SSID della rete wifi a cui dovrà connettersi la stazione
+Stabilire se l’accesso alla rete wifi è protetto da password.</p>
+<p>Assicurarsi che la stazione possa accedere ad internet senza passare
+per un proxy Solitamente, si può derogare al filtro dei dati,
+indicando all’ufficio tecnico della scuola l’indirizzo MAC della
+stazione La connessione WiFi deve essere assicurata 7/24</p>
+<p>Una volta soddisfatti i prerequisiti, basta assicurarsi che la rete
+WiFi copra con un segnale stabile il punto prescelto per
+l’installazione.</p>
+<p>[*] Anche se più veloce, la rete a 5Ghz non garantisce, nel nostro
+caso, migliorie significative rispetto a quella a 2.4Ghz e, di contro,
+è molto più sensibile agli ostacoli che dovessero frapporsi tra
+l’access point e la stazione.</p>
 </div>
-<div class="section" id="pin">
-<h2>Pin<a class="headerlink" href="#pin" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="appendice-c-pin">
+<h2>Appendice C PIN<a class="headerlink" href="#appendice-c-pin" title="Link a questa intestazione">¶</a></h2>
+<p><strong>Pin</strong></p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 5%" />
@@ -978,7 +998,7 @@ raccolti.</p>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Pin</p></th>
-<th class="head"><p>ESP-8285 Pin</p></th>
+<th class="head"><p>ESP-8286 Pin</p></th>
 <th class="head"><p>name</p></th>
 <th class="head"><p>Function</p></th>
 <th class="head"><p>ESP32 C3 Pin</p></th>
@@ -1138,27 +1158,6 @@ raccolti.</p>
 <p class="admonition-title">Nota</p>
 <p>All of the IO pins run at 3.3V.</p>
 </div>
-</div>
-<div class="section" id="accesso-wifi">
-<h2>Accesso WiFi<a class="headerlink" href="#accesso-wifi" title="Link a questa intestazione">¶</a></h2>
-<p>Le stazioni Stima, utilizzano una rete WiFi a 2.4Ghz* per collegarsi
-ad internet e non possono utilizzare un proxy.  Prima di procedere con
-l’installazione è bene confrontarsi con il personale dell’ufficio
-tecnico per assicurarsi che la rete che si vuole utilizzare per la
-connessione sia adatta</p>
-<p>Annotare l’SSID della rete wifi a cui dovrà connettersi la stazione
-Stabilire se l’accesso alla rete wifi è protetto da password.</p>
-<p>Assicurarsi che la stazione possa accedere ad internet senza passare
-per un proxy Solitamente, si può derogare al filtro dei dati,
-indicando all’ufficio tecnico della scuola l’indirizzo MAC della
-stazione La connessione WiFi deve essere assicurata 7/24</p>
-<p>Una volta soddisfatti i prerequisiti, basta assicurarsi che la rete
-WiFi copra con un segnale stabile il punto prescelto per
-l’installazione.</p>
-<p>[*] Anche se più veloce, la rete a 5Ghz non garantisce, nel nostro
-caso, migliorie significative rispetto a quella a 2.4Ghz e, di contro,
-è molto più sensibile agli ostacoli che dovessero frapporsi tra
-l’access point e la stazione.</p>
 </div>
 </div>
 
