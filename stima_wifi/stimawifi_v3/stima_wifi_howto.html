@@ -592,7 +592,11 @@ la loro inizializzazione e il restart in caso di ripetuti errori.</p>
 <p>Pubblica i dati in MQTT secondo lo standard RMAP.  Se la
 configurazione è per una stazione mobile della struttura con la
 geolocalizzazione viene controllato il timestamp e se ancora attuale
-associate le coordinate ai dati.</p>
+associate le coordinate ai dati.
+Periodicamente viene pubblicato anche lo stato della diagnostica fatta
+dalla stazione; il server provvederà a visualizzarne lo stato e a inviare
+delle email di segnalazione al proprietario della stazione e a un apposito
+gruppo di utenti di amministrazione.</p>
 </div>
 <div class="section" id="threaddb">
 <h3>threadDb<a class="headerlink" href="#threaddb" title="Link a questa intestazione">¶</a></h3>
@@ -987,136 +991,191 @@ l’access point e la stazione.</p>
 <p><strong>Pin</strong></p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 5%" />
 <col style="width: 11%" />
-<col style="width: 5%" />
-<col style="width: 24%" />
-<col style="width: 11%" />
-<col style="width: 6%" />
-<col style="width: 24%" />
-<col style="width: 15%" />
+<col style="width: 3%" />
+<col style="width: 8%" />
+<col style="width: 3%" />
+<col style="width: 17%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 17%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 17%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Pin</p></th>
-<th class="head"><p>ESP-8286 Pin</p></th>
+<tr class="row-odd"><th class="head"><p>Stima use</p></th>
+<th class="head"><p>Pin</p></th>
+<th class="head"><p>ESP-8286</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p>ESP32 C3</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p>ESP32 S3</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"></th>
+<th class="head"><p>Pin</p></th>
 <th class="head"><p>name</p></th>
 <th class="head"><p>Function</p></th>
-<th class="head"><p>ESP32 C3 Pin</p></th>
+<th class="head"><p>Pin</p></th>
 <th class="head"><p>name</p></th>
 <th class="head"><p>Function</p></th>
-<th class="head"><p>Stima use</p></th>
+<th class="head"><p>Pin</p></th>
+<th class="head"><p>name</p></th>
+<th class="head"><p>Function</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>dx8</p></td>
+<tr class="row-odd"><td><p>TXD/encA</p></td>
+<td><p>dx8</p></td>
 <td><p>TXD</p></td>
 <td><p>TX</p></td>
 <td><p>TXD</p></td>
 <td><p>TXD  (21)</p></td>
 <td><p>TX</p></td>
 <td><p>TXD</p></td>
-<td><p>TXD/encA</p></td>
+<td><p>TXD  (43)</p></td>
+<td><p>TX</p></td>
+<td><p>TXD</p></td>
 </tr>
-<tr class="row-odd"><td><p>dx7</p></td>
+<tr class="row-even"><td><p>RXD/encB</p></td>
+<td><p>dx7</p></td>
 <td><p>RXD</p></td>
 <td><p>RX</p></td>
 <td><p>RXD</p></td>
 <td><p>RXD  (20)</p></td>
 <td><p>RX</p></td>
 <td><p>RXD</p></td>
-<td><p>RXD/encB</p></td>
+<td><p>RXD  (44)</p></td>
+<td><p>RX</p></td>
+<td><p>RXD</p></td>
 </tr>
-<tr class="row-even"><td><p>sx7</p></td>
+<tr class="row-odd"><td><p>encBtn/CLEAR</p></td>
+<td><p>sx7</p></td>
 <td><p>A0</p></td>
 <td><p>A0</p></td>
 <td><p>Analog input, max 3.2V</p></td>
 <td><p>GPIO3</p></td>
 <td><p>D9/A3</p></td>
 <td><p>IO</p></td>
-<td><p>encBtn/CLEAR</p></td>
+<td><p>GPIO2</p></td>
+<td><p>D9/A3</p></td>
+<td><p>IO</p></td>
 </tr>
-<tr class="row-odd"><td><p>sx6</p></td>
+<tr class="row-even"><td><p>RAIN/Analog input</p></td>
+<td><p>sx6</p></td>
 <td><p>GPIO16</p></td>
 <td><p>D0</p></td>
 <td><p>IO</p></td>
 <td><p>GPIO2</p></td>
 <td><p>D0/A2</p></td>
 <td><p>IO, Analog input, max 3.2V</p></td>
-<td><p>RAIN/Analog input</p></td>
+<td><p>GPIO4</p></td>
+<td><p>D0/A2</p></td>
+<td><p>IO, Analog input, max 3.2V</p></td>
 </tr>
-<tr class="row-even"><td><p>dx6</p></td>
+<tr class="row-odd"><td><p>SCL</p></td>
+<td><p>dx6</p></td>
 <td><p>GPIO5</p></td>
 <td><p>D1</p></td>
 <td><p>IO, SCL</p></td>
 <td><p>GPIO10</p></td>
 <td><p>D1</p></td>
 <td><p>IO, SCL</p></td>
-<td><p>SCL</p></td>
+<td><p>GPIO36</p></td>
+<td><p>D1</p></td>
+<td><p>IO, SCL</p></td>
 </tr>
-<tr class="row-odd"><td><p>dx5</p></td>
+<tr class="row-even"><td><p>SDA</p></td>
+<td><p>dx5</p></td>
 <td><p>GPIO4</p></td>
 <td><p>D2</p></td>
 <td><p>IO, SDA</p></td>
 <td><p>GPIO8</p></td>
 <td><p>D2</p></td>
 <td><p>IO, SDA</p></td>
-<td><p>SDA</p></td>
+<td><p>GPIO35</p></td>
+<td><p>D2</p></td>
+<td><p>IO, SDA</p></td>
 </tr>
-<tr class="row-even"><td><p>dx4</p></td>
+<tr class="row-odd"><td><p>RGB LED (V3)</p></td>
+<td><p>dx4</p></td>
 <td><p>GPIO0</p></td>
 <td><p>D3</p></td>
 <td><p>IO</p></td>
 <td><p>GPIO7</p></td>
 <td><p>D3</p></td>
 <td><p>RGB_LED</p></td>
-<td><p>RGB LED (V3)</p></td>
+<td><p>GPIO18</p></td>
+<td><p>D3</p></td>
+<td><p>RGB_LED</p></td>
 </tr>
-<tr class="row-odd"><td><p>dx3</p></td>
+<tr class="row-even"><td><p>LED (V2) SS (V3)</p></td>
+<td><p>dx3</p></td>
 <td><p>GPIO2</p></td>
 <td><p>D4</p></td>
 <td><p>IO, 10k Pull-up, BUILTIN_LED</p></td>
 <td><p>GPIO6</p></td>
 <td><p>D4</p></td>
 <td><p>IO</p></td>
-<td><p>LED (V2) SS (V3)</p></td>
+<td><p>GPIO16</p></td>
+<td><p>D4</p></td>
+<td><p>IO</p></td>
 </tr>
-<tr class="row-even"><td><p>sx5</p></td>
+<tr class="row-odd"><td><p>SCK</p></td>
+<td><p>sx5</p></td>
 <td><p>GPIO14</p></td>
 <td><p>D5</p></td>
 <td><p>IO, SCK</p></td>
 <td><p>GPIO1</p></td>
 <td><p>D5/A1</p></td>
 <td><p>IO, SCK</p></td>
-<td><p>SCK</p></td>
+<td><p>GPIO12</p></td>
+<td><p>D5/A1</p></td>
+<td><p>IO, SCK</p></td>
 </tr>
-<tr class="row-odd"><td><p>sx4</p></td>
+<tr class="row-even"><td><p>MISO</p></td>
+<td><p>sx4</p></td>
 <td><p>GPIO12</p></td>
 <td><p>D6</p></td>
 <td><p>IO, MISO</p></td>
 <td><p>GPIO0</p></td>
 <td><p>D6/A0</p></td>
 <td><p>IO, MISO</p></td>
-<td><p>MISO</p></td>
+<td><p>GPIO13</p></td>
+<td><p>D6/A0</p></td>
+<td><p>IO, MISO</p></td>
 </tr>
-<tr class="row-even"><td><p>sx3</p></td>
+<tr class="row-odd"><td><p>MOSI</p></td>
+<td><p>sx3</p></td>
 <td><p>GPIO13</p></td>
 <td><p>D7</p></td>
 <td><p>IO, MOSI</p></td>
 <td><p>GPIO4</p></td>
 <td><p>D7/A4</p></td>
 <td><p>IO, MOSI</p></td>
-<td><p>MOSI</p></td>
+<td><p>GPIO11</p></td>
+<td><p>D7/A4</p></td>
+<td><p>IO, MOSI</p></td>
 </tr>
-<tr class="row-odd"><td><p>sx2</p></td>
+<tr class="row-even"><td><p>SS (V3 with RTC)</p></td>
+<td><p>sx2</p></td>
 <td><p>GPIO15</p></td>
 <td><p>D8</p></td>
 <td><p>IO, 10k Pull-down, SS</p></td>
 <td><p>GPIO5</p></td>
 <td><p>D8/A5</p></td>
 <td><p>IO, 10k Pull-down, SS</p></td>
-<td><p>SS (V3 with RTC)</p></td>
+<td><p>GPIO10</p></td>
+<td><p>D8/A5</p></td>
+<td><p>IO, 10k Pull-down, SS</p></td>
 </tr>
-<tr class="row-even"><td><p>dx2</p></td>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>dx2</p></td>
 <td><p>GND</p></td>
 <td><p>G</p></td>
 <td><p>Ground</p></td>
@@ -1124,17 +1183,23 @@ l’access point e la stazione.</p>
 <td><p>G</p></td>
 <td><p>Ground</p></td>
 <td><p>GND</p></td>
+<td><p>G</p></td>
+<td><p>Ground</p></td>
 </tr>
-<tr class="row-odd"><td><p>dx1</p></td>
+<tr class="row-even"><td><p>5v</p></td>
+<td><p>dx1</p></td>
 <td><p>-</p></td>
 <td><p>5V</p></td>
 <td><p>5V</p></td>
 <td><p>-</p></td>
 <td><p>5V</p></td>
 <td><p>5V</p></td>
-<td><p>5v</p></td>
+<td><p>-</p></td>
+<td><p>5V</p></td>
+<td><p>5V</p></td>
 </tr>
-<tr class="row-even"><td><p>sx1</p></td>
+<tr class="row-odd"><td><p>3.3V</p></td>
+<td><p>sx1</p></td>
 <td><p>3.3V</p></td>
 <td><p>3V3</p></td>
 <td><p>3.3V</p></td>
@@ -1142,8 +1207,11 @@ l’access point e la stazione.</p>
 <td><p>3V3</p></td>
 <td><p>3.3V</p></td>
 <td><p>3.3V</p></td>
+<td><p>3V3</p></td>
+<td><p>3.3V</p></td>
 </tr>
-<tr class="row-odd"><td><p>sx8</p></td>
+<tr class="row-even"><td><p>RST</p></td>
+<td><p>sx8</p></td>
 <td><p>RST</p></td>
 <td><p>RST</p></td>
 <td><p>Reset</p></td>
@@ -1151,6 +1219,8 @@ l’access point e la stazione.</p>
 <td><p>RST</p></td>
 <td><p>Reset</p></td>
 <td><p>RST</p></td>
+<td><p>RST</p></td>
+<td><p>Reset</p></td>
 </tr>
 </tbody>
 </table>
