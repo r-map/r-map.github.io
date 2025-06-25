@@ -99,6 +99,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#introduzione">Introduzione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#schema-a-blocchi">Schema a blocchi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#componenti-hardware">Componenti Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#elenco-componenti-elettroniche-e-sensori">Elenco componenti elettroniche e sensori</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assemblaggio-componenti-elettroniche-e-sensori">Assemblaggio componenti elettroniche e sensori</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mcu-espressif-esp32-c3">MCU - Espressif ESP32 C3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#power-shield">Power Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#oled-shield">Oled Shield</a></li>
@@ -169,6 +171,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#appendice-a-checklist-installazione">Appendice A Checklist installazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendice-b-accesso-wifi">Appendice B Accesso WiFi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendice-c-pin">Appendice C PIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendice-d-indirizzi-i2c">Appendice D Indirizzi I2C</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../testa_prelievo/testa_prelievo.html">Testa di prelievo per sensori Air Quality</a></li>
@@ -305,6 +308,16 @@ all’hardware via via disponibile.</p>
 </div>
 <div class="section" id="componenti-hardware">
 <h2>Componenti Hardware<a class="headerlink" href="#componenti-hardware" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="elenco-componenti-elettroniche-e-sensori">
+<h3>Elenco componenti elettroniche e sensori<a class="headerlink" href="#elenco-componenti-elettroniche-e-sensori" title="Link a questa intestazione">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/stimawifi_bom_mini.jpg"><img alt="../../_images/stimawifi_bom_mini.jpg" src="../../_images/stimawifi_bom_mini.jpg" style="width: 50%;" /></a>
+<p><a class="reference download internal" download="" href="../../_downloads/ae5db8689c59603d059a8783bf7845b8/stimawifi_bom.jpg"><code class="xref download docutils literal notranslate"><span class="pre">alta</span> <span class="pre">risoluzione</span></code></a>.</p>
+</div>
+<div class="section" id="assemblaggio-componenti-elettroniche-e-sensori">
+<h3>Assemblaggio componenti elettroniche e sensori<a class="headerlink" href="#assemblaggio-componenti-elettroniche-e-sensori" title="Link a questa intestazione">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/stimawifi_out_of_box_mini.jpg"><img alt="../../_images/stimawifi_out_of_box_mini.jpg" src="../../_images/stimawifi_out_of_box_mini.jpg" style="width: 50%;" /></a>
+<p><a class="reference download internal" download="" href="../../_downloads/673fe3433a0112532be535b6aff81b8c/stimawifi_out_of_box.jpg"><code class="xref download docutils literal notranslate"><span class="pre">alta</span> <span class="pre">risoluzione</span></code></a>.</p>
+</div>
 <div class="section" id="mcu-espressif-esp32-c3">
 <h3>MCU - Espressif ESP32 C3<a class="headerlink" href="#mcu-espressif-esp32-c3" title="Link a questa intestazione">¶</a></h3>
 <a class="reference internal image-reference" href="../../_images/c3_mini_v2.1.0_1_16x16.jpg"><img alt="../../_images/c3_mini_v2.1.0_1_16x16.jpg" src="../../_images/c3_mini_v2.1.0_1_16x16.jpg" style="width: 50%;" /></a>
@@ -495,7 +508,8 @@ Nessun dato possibilmente è definito globalmente.</p>
 </ul>
 <p>Il display è opzionale e visualizza comunicazioni, ogni 3 secondi lo
 stato aggiornato riassuntivo di funzionamento e un riassunto delle
-ultime misurazioni effettuate</p>
+ultime misurazioni effettuate. Sono supportati due differenti display
+con dimensioni differenti riconosciuti automaticamente.</p>
 <p>L'SD card è opzionale; se presente è utilizzata per memorizzare i dati
 in sqlite3; la struttura del DB è qui rappresentata</p>
 <img alt="../../_images/db_structure.png" src="../../_images/db_structure.png" />
@@ -1227,6 +1241,155 @@ l’access point e la stazione.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>All of the IO pins run at 3.3V.</p>
+</div>
+</div>
+<div class="section" id="appendice-d-indirizzi-i2c">
+<h2>Appendice D Indirizzi I2C<a class="headerlink" href="#appendice-d-indirizzi-i2c" title="Link a questa intestazione">¶</a></h2>
+<p><strong>Indirizzi I2C</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>DEC</p></th>
+<th class="head"><p>HEX</p></th>
+<th class="head"><p>Device</p></th>
+<th class="head"><p>50</p></th>
+<th class="head"><p>100</p></th>
+<th class="head"><p>200</p></th>
+<th class="head"><p>250</p></th>
+<th class="head"><p>400</p></th>
+<th class="head"><p>500</p></th>
+<th class="head"><p>800</p></th>
+<th class="head"><p>[KHz]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>0x31</p></td>
+<td><p>bottone</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>0x3C</p></td>
+<td><p>display
+64X48</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>60</p></td>
+<td><p>0x3D</p></td>
+<td><p>display
+128X64</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>68</p></td>
+<td><p>0x44</p></td>
+<td><p>SHT</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>80</p></td>
+<td><p>0x50</p></td>
+<td><p>GPS</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>0x54</p></td>
+<td><p>GPS</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>97</p></td>
+<td><p>0x61</p></td>
+<td><p>SCD</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>104</p></td>
+<td><p>0x68</p></td>
+<td><p>RTC</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>0x69</p></td>
+<td><p>SPS</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td><p>V</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>8 devices found</p>
 </div>
 </div>
 </div>
