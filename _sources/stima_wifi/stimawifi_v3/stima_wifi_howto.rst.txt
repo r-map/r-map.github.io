@@ -380,6 +380,10 @@ La pila dei moduli Wemos è rappresentata in modo semplificato.
 .. image:: ../../../../fritzing/stimawifi/v3/global_bb.png
    :width: 50%
 
+.. image:: ../../../../fritzing/stimawifi/v3/global_schem.png
+   :width: 50%
+
+
 Scatola
 -------
 
