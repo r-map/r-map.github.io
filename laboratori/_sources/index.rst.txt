@@ -1,0 +1,14 @@
+
+Laboratori RMAP
+===============
+
+Indice dei contenuti
+....................
+
+.. toctree::
+   :maxdepth: 5
+
+   laboratori/index
+   
+* :ref:`genindex`
+* :ref:`search`
