@@ -103,8 +103,8 @@ Datalogger
 ..........
 
 * S3 Mini V1.0.0 - LOLIN WiFi & Bluetooth 5 (LE) boards based ESP32-S3FH4R2
-  https://it.aliexpress.com/item/1005005449219195.html?gatewayAdapt=glo2ita4itemAdapt
-  7€
+  https://it.aliexpress.com/item/1005006646247867.html?gatewayAdapt=glo2ita
+  5.60€
 * DC Power Shield V1.1.0 per LOLIN (WEMOS) D1 mini
   https://it.aliexpress.com/item/32790327733.html
   2,63€
