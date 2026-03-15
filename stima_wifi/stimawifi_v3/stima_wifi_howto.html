@@ -61,7 +61,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#bus-i2c">BUS I2C</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#componenti-hardware">Componenti Hardware</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#elenco-componenti-elettroniche-e-sensori">Elenco componenti elettroniche e sensori</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mcu-espressif-esp32-c3">MCU - Espressif ESP32 C3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mcu-espressif-esp32-s3">MCU - Espressif ESP32 S3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rtc-and-microsd-data-logger-shield">RTC and Microsd Data Logger Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#oled-0-96-shield">OLED 0.96 Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tft-i2c-connector-shield">TFT I2C Connector Shield</a></li>
@@ -70,6 +70,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#hardware-alternativo-compatibile-sconsigliato-o-obsoleto">Hardware alternativo compatibile (sconsigliato o obsoleto)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mcu-shield">MCU Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#oled-shield">Oled Shield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#micro-sd-card-shield">Micro SD Card Shield</a></li>
 </ul>
@@ -257,9 +258,9 @@ indirizzo device slave, slave device risponde solo se interpellato)</p>
 <section id="datalogger">
 <h4>Datalogger<a class="headerlink" href="#datalogger" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>C3 Mini V2.1.0 - LOLIN WIFI Bluetooth LE BLE Scheda IOT ESP32-C3FH4 ESP32-C3 4MB FLASH
-<a class="reference external" href="https://it.aliexpress.com/item/1005006753245627.html">https://it.aliexpress.com/item/1005006753245627.html</a>
-5,49€</p></li>
+<li><p>S3 Mini V1.0.0 - LOLIN WiFi &amp; Bluetooth 5 (LE) boards based ESP32-S3FH4R2
+<a class="reference external" href="https://it.aliexpress.com/item/1005005449219195.html?gatewayAdapt=glo2ita4itemAdapt">https://it.aliexpress.com/item/1005005449219195.html?gatewayAdapt=glo2ita4itemAdapt</a>
+7€</p></li>
 <li><p>DC Power Shield V1.1.0 per LOLIN (WEMOS) D1 mini
 <a class="reference external" href="https://it.aliexpress.com/item/32790327733.html">https://it.aliexpress.com/item/32790327733.html</a>
 2,63€</p></li>
@@ -368,37 +369,23 @@ meteorologiche/termometro, protegge dalle precipitazioni
 </ul>
 </section>
 </section>
-<section id="mcu-espressif-esp32-c3">
-<h3>MCU - Espressif ESP32 C3<a class="headerlink" href="#mcu-espressif-esp32-c3" title="Link to this heading"></a></h3>
-<a class="reference internal image-reference" href="../../_images/c3_mini_v2.1.0_1_16x16.jpg"><img alt="../../_images/c3_mini_v2.1.0_1_16x16.jpg" src="../../_images/c3_mini_v2.1.0_1_16x16.jpg" style="width: 50%;" />
+<section id="mcu-espressif-esp32-s3">
+<h3>MCU - Espressif ESP32 S3<a class="headerlink" href="#mcu-espressif-esp32-s3" title="Link to this heading"></a></h3>
+<a class="reference internal image-reference" href="../../_images/s3_mini_v1.0.0_1_16x16.jpg"><img alt="../../_images/s3_mini_v1.0.0_1_16x16.jpg" src="../../_images/s3_mini_v1.0.0_1_16x16.jpg" style="width: 50%;" />
 </a>
 <ul class="simple">
-<li><p>based ESP32-C3 WIFI &amp; Bluetooth LE RISC-V Single-Core CPU</p></li>
-<li><p>Type-C USB</p></li>
+<li><p>based ESP32-S3FH4R2</p></li>
+<li><p>2.4 GHz Wi-Fi</p></li>
+<li><p>Bluetooth LE</p></li>
 <li><p>4MB Flash</p></li>
-<li><p>1x WS2812B RGB LED</p></li>
-<li><p>Digital I/O Pins 12</p></li>
-<li><p>ADC, I2C, SPI, UART</p></li>
-<li><p>Compatible with LOLIN D1 mini shields</p></li>
-<li><p>Compatible with MicroPython, Arduino, CircuitPython and ESP-IDF</p></li>
-<li><p>Operating Voltage 3.3V</p></li>
-<li><p>Clock Speed 160MHz</p></li>
-<li><p>Flash 4M Bytes</p></li>
-<li><p>Size 34.3*25.4mm</p></li>
-<li><p>Weight 2.6g</p></li>
+<li><p>2MB PSRAM</p></li>
+<li><p>27x IO</p></li>
+<li><p>1x RGB LED (IO47)</p></li>
+<li><p>ADC, DAC, I2C, SPI, UART, USB OTG</p></li>
+<li><p>Compatible with MicroPython, Arduino and ESP-IDF</p></li>
 </ul>
-<p>La scheda di sviluppo, basata su esp32, è stata lanciata da Wemos,
-come alternativa alle schede Arduino. Nella versione mini misura
-35x26mm.</p>
-<a class="reference internal image-reference" href="../../_images/c3_mini_v2.webp"><img alt="../../_images/c3_mini_v2.webp" src="../../_images/c3_mini_v2.webp" style="width: 50%;" />
+<a class="reference internal image-reference" href="../../_images/s3_mini_v1.0.0_4_16x9.jpg"><img alt="../../_images/s3_mini_v1.0.0_4_16x9.jpg" src="../../_images/s3_mini_v1.0.0_4_16x9.jpg" style="width: 50%;" />
 </a>
-<p>Come con arduino, il modulo è espandibile con apposite schede di
-espansione dette shield.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Schema elettrico <a class="reference download internal" download="" href="../../_downloads/0ddc3ba1fb6fe485f736d4fb529af899/sch_c3_mini_v2.1.0.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p></li>
-</ul>
-</div></blockquote>
 </section>
 <section id="rtc-and-microsd-data-logger-shield">
 <h3>RTC and Microsd Data Logger Shield<a class="headerlink" href="#rtc-and-microsd-data-logger-shield" title="Link to this heading"></a></h3>
@@ -478,6 +465,41 @@ collegata, non riceve alimentazione.</p>
 </section>
 <section id="hardware-alternativo-compatibile-sconsigliato-o-obsoleto">
 <h2>Hardware alternativo compatibile (sconsigliato o obsoleto)<a class="headerlink" href="#hardware-alternativo-compatibile-sconsigliato-o-obsoleto" title="Link to this heading"></a></h2>
+<section id="mcu-shield">
+<h3>MCU Shield<a class="headerlink" href="#mcu-shield" title="Link to this heading"></a></h3>
+<p>C3 Mini V2.1.0 - LOLIN WIFI Bluetooth LE BLE Scheda IOT ESP32-C3FH4 ESP32-C3 4MB FLASH
+<a class="reference external" href="https://it.aliexpress.com/item/1005006753245627.html">https://it.aliexpress.com/item/1005006753245627.html</a>
+5,49€</p>
+<a class="reference internal image-reference" href="../../_images/c3_mini_v2.1.0_1_16x16.jpg"><img alt="../../_images/c3_mini_v2.1.0_1_16x16.jpg" src="../../_images/c3_mini_v2.1.0_1_16x16.jpg" style="width: 50%;" />
+</a>
+<ul class="simple">
+<li><p>based ESP32-C3 WIFI &amp; Bluetooth LE RISC-V Single-Core CPU</p></li>
+<li><p>Type-C USB</p></li>
+<li><p>4MB Flash</p></li>
+<li><p>1x WS2812B RGB LED</p></li>
+<li><p>Digital I/O Pins 12</p></li>
+<li><p>ADC, I2C, SPI, UART</p></li>
+<li><p>Compatible with LOLIN D1 mini shields</p></li>
+<li><p>Compatible with MicroPython, Arduino, CircuitPython and ESP-IDF</p></li>
+<li><p>Operating Voltage 3.3V</p></li>
+<li><p>Clock Speed 160MHz</p></li>
+<li><p>Flash 4M Bytes</p></li>
+<li><p>Size 34.3*25.4mm</p></li>
+<li><p>Weight 2.6g</p></li>
+</ul>
+<p>La scheda di sviluppo, basata su esp32, è stata lanciata da Wemos,
+come alternativa alle schede Arduino. Nella versione mini misura
+35x26mm.</p>
+<a class="reference internal image-reference" href="../../_images/c3_mini_v2.webp"><img alt="../../_images/c3_mini_v2.webp" src="../../_images/c3_mini_v2.webp" style="width: 50%;" />
+</a>
+<p>Come con arduino, il modulo è espandibile con apposite schede di
+espansione dette shield.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Schema elettrico <a class="reference download internal" download="" href="../../_downloads/0ddc3ba1fb6fe485f736d4fb529af899/sch_c3_mini_v2.1.0.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="oled-shield">
 <h3>Oled Shield<a class="headerlink" href="#oled-shield" title="Link to this heading"></a></h3>
 <p>Questo è un display con un numero di pixel inferiore a queello
@@ -1584,7 +1606,12 @@ ESP32 C3</p></td>
 <td><p>10K</p></td>
 <td><p>---</p></td>
 </tr>
-<tr class="row-odd"><td><p>Totale</p></td>
+<tr class="row-odd"><td><p>MCU - Espressif
+ESP32 S3</p></td>
+<td><p>---</p></td>
+<td><p>---</p></td>
+</tr>
+<tr class="row-even"><td><p>Totale</p></td>
 <td><p>2.4K</p></td>
 <td><p>3.2K</p></td>
 </tr>
