@@ -134,6 +134,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#todo">TODO</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#uso-come-stazione-mobile">Uso come stazione mobile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configurazione">Configurazione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uso-del-modulo-gps">Uso del modulo GPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uso-dell-app-android-gpsdrelay">Uso dell'app Android gpsdRelay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calibrazione-sensore-co2">Calibrazione sensore CO2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#calibrate-rpc">Calibrate RPC</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#configurazione-firmware-software-python-json-nodered">Configurazione // Firmware + Software // Python + Json // NodeRed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendice-a-checklist-installazione">Appendice A Checklist installazione</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appendice-b-accesso-wifi">Appendice B Accesso WiFi</a></li>
@@ -661,8 +671,8 @@ archivio, integrato in modalità append.</p>
 <p>Per poter utilizzare la stazione in modalità &quot;mobile&quot; ossia con
 posizione continuamente aggiornata ci sono due possibilità:</p>
 <ul class="simple">
-<li><p>connettere un modulo GPS con Ublox neo6m</p></li>
-<li><p>utilizzare l'app android GPSD_forwarder</p></li>
+<li><p>connettere un modulo GPS Waveshare LC76G Multi-GNSS Module</p></li>
+<li><p>utilizzare l'app android gpsdRelay</p></li>
 </ul>
 <p>La configurazione è gestita sul server e i thread sono attivati
 automaticamente. Quando la geolocalizzazione è possibile i dati
@@ -781,7 +791,7 @@ e ricreato vuoto per limiti di memoria e performance.</p>
 </section>
 <section id="threadudp">
 <h3>threadUdp<a class="headerlink" href="#threadudp" title="Link to this heading"></a></h3>
-<p>Legge i dati UDP inviati dalla app GPSD forwarder di uno smartphone
+<p>Legge i dati UDP inviati dalla app gpsdRelay di uno smartphone
 riempiendo una struttura dati con la geolocalizzazione e un timestamp.</p>
 </section>
 <section id="threadgps">
@@ -903,9 +913,9 @@ modalità di alimentazione che non si è ancora utilizzata.</p>
 </section>
 <section id="caricamento-firmware">
 <h2>Caricamento firmware<a class="headerlink" href="#caricamento-firmware" title="Link to this heading"></a></h2>
-<p>Questa fase della messa in opera è facoltativa. La stazione arriva già
-con un firmware installato pronta per la configurazione iniziale ma,
-in caso si voglia modificare l’utilizzo della stazione,
+<p>Questa fase della messa in opera è necessaria per il funzionamento
+della stazione.  Dopo la prima attivazione può rendersi nuovamente
+necessario in caso si voglia modificare l’utilizzo della stazione,
 personalizzarne le funzionalità o cogliere l’occasione di
 impratichirsi con questa operazione fondamentale nel ciclo di vita del
 software per microcontrollori,</p>
@@ -943,10 +953,17 @@ procedere.</p>
 </section>
 <section id="id2">
 <h3>Dotazione Software<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Uso a linea di comando:</p>
 <ul class="simple">
 <li><p>Ambiente di sviluppo Python versione &gt;= 3.11</p></li>
 <li><p>Platformio (Piattaforma per lo sviluppo embedded)</p></li>
 </ul>
+<p>Ambiente grafico con IDE:</p>
+<ul class="simple">
+<li><p>VSCodium  <a class="reference external" href="https://vscodium.com/">https://vscodium.com/</a></p></li>
+<li><p>Pioarduino <a class="reference external" href="https://github.com/pioarduino/platform-espressif32?tab=readme-ov-file">https://github.com/pioarduino/platform-espressif32?tab=readme-ov-file</a></p></li>
+</ul>
+<p>TODO clone repository; compilazione e caricamento firmware</p>
 </section>
 </section>
 <section id="collegamento-dei-sensori">
@@ -998,9 +1015,8 @@ precisione.</p>
 </section>
 <section id="censimento-stazione">
 <h2>Censimento stazione<a class="headerlink" href="#censimento-stazione" title="Link to this heading"></a></h2>
-<p>Prima di poter operare, a meno che non sia stata dotata di un firmware
-specifico, la stazione deve essere censita presso un server di
-raccolta dati.</p>
+<p>Prima di poter operare la stazione deve essere censita presso un
+server di raccolta dati.</p>
 <p>Esistono due punti di raccolta dati, test.rmap.cc ed rmap.cc. Il primo
 viene utilizzato per le procedure di collaudo, per controllare il
 funzionamento di prototipi di nuove stazioni e per mettere a punto
@@ -1150,6 +1166,144 @@ protetto dalle intemperie secondi gli standard vigenti.</p>
 <img alt="../../_images/schermo.png" src="../../_images/schermo.png" />
 <section id="todo">
 <h3>TODO<a class="headerlink" href="#todo" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="uso-come-stazione-mobile">
+<h2>Uso come stazione mobile<a class="headerlink" href="#uso-come-stazione-mobile" title="Link to this heading"></a></h2>
+<p>Per poter utilizzare la stazione in modalità &quot;mobile&quot; ossia con
+posizione continuamente aggiornata ci sono due possibilità:</p>
+<ul class="simple">
+<li><p>connettere un modulo GPS Waveshare LC76G Multi-GNSS Module</p></li>
+<li><p>utilizzare l'app android gpsdRelay</p></li>
+</ul>
+<p>Durante il funzionamento è possibile monitorare lo stato di tutte le
+componenti tramite il LED e il display: se il LED è di colore verde
+e/o il diplay riporta &quot;status: OK&quot; allora tutte le funzioni sono
+attive, data e ora disponibili, coordinate disponibili, sensori
+funzionanti, pubblicazione e archiviazione dati funzionanti.  Il LED
+diventa per un breve periodo blu per segnalare che alcune funzioni
+periodiche sono attive e lo stato di funzionamento aggiornato.  Se il
+LED assume altri colori deve essere affettuata una verifica perchè è
+possibile che le misure non vengano effettuate/archiviate/pubblicate.</p>
+<section id="configurazione">
+<h3>Configurazione<a class="headerlink" href="#configurazione" title="Link to this heading"></a></h3>
+<p>Configurare la stazione come per stazione fissa con le seguenti eccezioni:</p>
+<ul class="simple">
+<li><p>non inserire Latitudine e Longitudine</p></li>
+<li><p>non inserire altezza stazione</p></li>
+<li><p>selezionare un modello stazione esplicitamente di tipo mobile
+(contenente &quot;mobile&quot; nel modello stazione)</p></li>
+</ul>
+</section>
+<section id="uso-del-modulo-gps">
+<h3>Uso del modulo GPS<a class="headerlink" href="#uso-del-modulo-gps" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://www.waveshare.com/lc76g-gnss-module.htm">https://www.waveshare.com/lc76g-gnss-module.htm</a>
+<a class="reference external" href="https://www.waveshare.com/wiki/LC76G_GNSS_Module">https://www.waveshare.com/wiki/LC76G_GNSS_Module</a></p>
+<p>LEDs POWER</p>
+<ul class="simple">
+<li><p>Luminoso: Module is powered well.</p></li>
+<li><p>Spento: Module is not powered.</p></li>
+</ul>
+<p>LED indicatore dello stato del GPS</p>
+<ul class="simple">
+<li><p>Lampeggiante Frequenza: 1 Hz: Successful position fix.</p></li>
+<li><p>Spento: No position fix.</p></li>
+</ul>
+</section>
+<section id="uso-dell-app-android-gpsdrelay">
+<h3>Uso dell'app Android gpsdRelay<a class="headerlink" href="#uso-dell-app-android-gpsdrelay" title="Link to this heading"></a></h3>
+<p>gpsdRelay effettua un Relay delle informazioni NMEA da Android alla
+rete locale tramite pacchetti UDP .
+<a class="reference external" href="https://f-droid.org/packages/io.github.project_kaat.gpsdrelay/">https://f-droid.org/packages/io.github.project_kaat.gpsdrelay/</a>
+<a class="reference external" href="https://github.com/project-kaat/gpsdRelay">https://github.com/project-kaat/gpsdRelay</a></p>
+<section id="come-installare-f-droid">
+<h4>Come installare F-Droid<a class="headerlink" href="#come-installare-f-droid" title="Link to this heading"></a></h4>
+<p>Per installare F-Droid, è necessario utilizzare il browser web dello
+smartphone o del tablet e recarsi sulla pagina ufficiale
+<a class="reference external" href="https://f-droid.org/it/">https://f-droid.org/it/</a> . Da lì, bisogna cliccare su “Scarica
+F-Droid”.</p>
+<p>Una volta scaricato non sarà possibile installarlo immediatamente, in
+quanto Google previene l’installazione di app provenienti da fonti
+sconosciute (come sistema di sicurezza), ovvero tutte quelle scaricate
+al di fuori del Play Store. Per ovviare a ciò, bisogna:</p>
+<p>Dalla home screen, tenere premuto sull’icona del browser web usato per
+scaricare F-Droid e poi toccare su “Informazioni App” Scorrere
+l’elenco fino all’opzione “Installa da fonti sconosciute” e abilitarla</p>
+<p>A questo punto è sufficiente recarsi nella cartella download da un
+file manager (oppure scaricare nuovamente F-Droid con il browser
+web). Stavolta comparirà un pop-up che invita all’installazione.</p>
+<p>Una volta installato, è necessario seguire la stessa procedura di
+prima per abilitare F-Droid ad installare le app (nel mentre
+consigliamo di disabilitare questa funzione per il browser web).</p>
+<p>Da adesso è possibile scaricare qualsiasi app presente e ottenere
+aggiornamenti automatici delle stesse quando gli sviluppatori li
+rendono disponibili.</p>
+<p>Perché F-Droid richiede di abilitare “Origini sconosciute” per
+installare le app di default?
+Perché una normale app Android non può fungere da gestore di pacchetti
+autonomamente. Per farlo, avrebbe bisogno di privilegi di sistema
+(vedi sotto), proprio come fa Google Play.</p>
+<p>Posso evitare di abilitare “Origini sconosciute” installando F-Droid
+come app di sistema privilegiata?
+In passato era così, ma ora non lo è più. Ora è l'estensione
+Privileged che deve essere inserita nel sistema. Può essere inclusa in
+una ROM o installata tramite un file zip.</p>
+</section>
+<section id="come-installare-gpsdrelay">
+<h4>Come Installare gpsdRelay<a class="headerlink" href="#come-installare-gpsdrelay" title="Link to this heading"></a></h4>
+<p>Dall'app F-Droid cercare gpsdRelay e installarlo.</p>
+</section>
+<section id="come-usare-gpsdrelay-insieme-a-stimawifi">
+<h4>Come Usare gpsdRelay insieme a StimaWiFi<a class="headerlink" href="#come-usare-gpsdrelay-insieme-a-stimawifi" title="Link to this heading"></a></h4>
+<p>Settings:</p>
+<a class="reference internal image-reference" href="../../_images/gpsdRelay_settings.jpg"><img alt="../../_images/gpsdRelay_settings.jpg" src="../../_images/gpsdRelay_settings.jpg" style="width: 50%;" />
+</a>
+<p>bottone +   -&gt; UDP server
+ipv4     -&gt; select broadcast
+port     -&gt; 8888
+add</p>
+<a class="reference internal image-reference" href="../../_images/gpsdRelay_addudp.jpg"><img alt="../../_images/gpsdRelay_addudp.jpg" src="../../_images/gpsdRelay_addudp.jpg" style="width: 50%;" />
+</a>
+<p>attivare la riga configurata</p>
+<p>premete il bottono con il triangolino</p>
+<a class="reference internal image-reference" href="../../_images/gpsdRelay_principale.jpg"><img alt="../../_images/gpsdRelay_principale.jpg" src="../../_images/gpsdRelay_principale.jpg" style="width: 50%;" />
+</a>
+</section>
+</section>
+</section>
+<section id="calibrazione-sensore-co2">
+<h2>Calibrazione sensore CO2<a class="headerlink" href="#calibrazione-sensore-co2" title="Link to this heading"></a></h2>
+<p>Sensori come SCD30 sono delicati sistemi ottici.  Bisogna prestare
+particolare attenzione durante gestione dei sensori. Stress meccanici
+sulla cavità ottica potrebbero modificare le proprietà fisiche del sensore
+causando una precisione ridotta.  SCD30 dispone di due algoritmi di
+calibrazione per ripristinare completamente precisione, nei casi in
+cui lo stress meccanico vari le proprietà fisiche del sensore. Questa
+procedura spiega come utilizzare la calibrazione in campo FRC (forced
+re - calibrazione) per ripristinare la piena accuratezza del SCD30</p>
+<section id="calibrate-rpc">
+<h3>Calibrate RPC<a class="headerlink" href="#calibrate-rpc" title="Link to this heading"></a></h3>
+<p>Portare la stazione in un ambiente con concentrazione nota di CO2 e
+attendere che le misure si stabilizzino (almeno 2 minuti).</p>
+<p>Dal sito rmap.cc ( o test.rmap.cc) autenticarsi con il proprio utente,
+dalla propria pagina personale selezionare la stazione con il sensore
+da calibrare e selezionare &quot;Invia Remote Procedure Call&quot;</p>
+<p>Nel modulo inserire:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Method</span><span class="p">:</span> <span class="n">calibrate</span>
+
+<span class="n">Params</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;sdc30&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="mi">430</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>dove 430 dovrà essere sostituito dal valore di calibrazione della CO2 in ppm.</p>
+<p>E' necessario monitorare lo stato di esecuzione delle RPC alla voce
+&quot;Monitor Remote Procedure Call&quot; dellla stazione dallla propria pagina
+personale sulla piattaforma RMAP.</p>
+<p>Se Status risulta &quot;completed&quot; il valore fornito viene utilizzato per
+aggiornare la calibrazione e ripristina la massima
+accuratezza. L'ultimo valore di riferimento viene salvato in una
+memoria non volatile sul sensore e persisterà fino a quando non viene
+sovrascritto da un nuovo valore di riferimento che è fornito tramite
+FRC.</p>
 </section>
 </section>
 <section id="configurazione-firmware-software-python-json-nodered">
