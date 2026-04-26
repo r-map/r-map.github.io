@@ -1,62 +1,111 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="it" data-content_root="../../">
+<html class="no-js" lang="it" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Misurare &mdash; http://rmap.cc</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=7a5cd723" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Misurare &mdash; http://rmap.cc</title>
+    
+        <link rel="shortcut icon" href="../../_static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-
-  
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-      <script src="../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=b3290714"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="../../_static/copybutton.js?v=f281be69"></script>
-      <script src="../../_static/translations.js?v=45930005"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../../_static/js/theme.js"></script>
-    <link rel="index" title="Indice" href="../../genindex.html" />
-    <link rel="search" title="Cerca" href="../../search.html" />
-    <link rel="next" title="Lavorare con i dati" href="../lavorare_con_i_dati/lavorare_con_i_dati.html" />
-    <link rel="prev" title="Probabilità" href="../probabilita/probabilita.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../../index.html" class="icon icon-home">
-            RMAP e Stima
-              <img src="../../_static/logo_stima.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Cerca documenti" aria-label="Cerca documenti" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu di navigazione">
-              <ul class="current">
+            <link rel="index" title="Indice" href="../../genindex.html" />
+            <link rel="search" title="Cerca" href="../../search.html" />
+            <link rel="top" title="http://rmap.cc" href="#" />
+            <link rel="up" title="Dispense" href="../index.html" />
+            <link rel="next" title="Lavorare con i dati" href="../lavorare_con_i_dati/lavorare_con_i_dati.html" />
+            <link rel="prev" title="Probabilità" href="../probabilita/probabilita.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="RMAP"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/../../../../logo_stima.png" width="150" height="150" alt="RMAP"
+                            class="logo-img"
+                        />
+                        RMAP documentation
+                    </a>
+                
+                
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav">
+                            
+                                
+                                
+                                <li class="nav-item"><a class="nav-link"  href="https://rmap.cc">RMAP</a></li>
+                            
+                        </ul>
+                    </div>
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Cerca nella documentazione" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../rmap_rfc/rfc.html">RFC rmap versione 3.3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../obsolete/index.html">Stima obsolete</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../obsolete/stima_v0/stima_v0.html">Stima V0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../obsolete/stima_v1/stima_v1.html">Stima V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../obsolete/stima_v2/stima_v2.html">Stima V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../obsolete/stima_base/stima_base.html">Stima base</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v3/stima_v3.html">Stima V3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v3/howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v3/howto_stima_v3.2/howto_stima_v3.2.html">Howto per Stima versione 3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v3/development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v3/stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v3/user_manual/user_manual.html">Manuale Utente</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_v4/stima_v4.html">Stima V4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v4/manual/manual_stima_V4_1.2.html">Manuale d'uso e manutenzione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v4/user_manual/user_manual.html">Manuale Utente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v4/software_manual/software_manual.html">Manuale software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v4/software_manual/software_manual.html#documentazione-del-codice">Documentazione del codice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_v4/pio_test/pio_test.html">Platformio unit tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../stima_wifi/index.html">Stima WiFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_wifi/stimawifi_v2/stima_wifi_howto.html">Stima WiFi V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_wifi/stimawifi_v3/stima_wifi_howto.html">Stima WiFi V3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stima_wifi/testa_prelievo/testa_prelievo.html">Testa di prelievo per sensori Air Quality</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../server_rmap/server_rmap.html">Server RMAP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../videotutorial/videotutorial.html">Videotutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../videotutorial/stimawifi/stimawifi.html">Stima WiFi</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dispense</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../la_scienza_partecipata/la_scienza_partecipata.html">La scienza partecipata</a></li>
@@ -65,108 +114,87 @@
 <li class="toctree-l2"><a class="reference internal" href="../software_hardware_dati_liberi/software_hardware_dati_liberi.html">Software, Hardware e Dati liberi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_model/data_model.html">Data Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../probabilita/probabilita.html">Probabilità</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Misurare</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#metrologia">Metrologia</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#monitoraggio-ambientale">Monitoraggio ambientale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-level">Data Level</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#campionamento">Campionamento</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#campione">Campione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#un-osservazione">Un'osservazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#una-misura">Una misura</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tempo-di-campionamento-o-periodo-di-osservazione">Tempo di campionamento o periodo di osservazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#intervallo-di-campionamento">Intervallo di campionamento</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#funzione-di-campionamento-o-funzione-di-ponderazione">Funzione di campionamento o funzione di ponderazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#frequenza-di-campionamento">Frequenza di campionamento</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#attenuazione">Attenuazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filtro">Filtro</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accuratezza-e-precisione">Accuratezza e Precisione</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#leggi-di-scala">Leggi di scala</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#campionamento-delle-variabili">Campionamento delle variabili</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rappresentativita-nel-tempo-e-nello-spazio">Rappresentatività nel tempo e nello spazio</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gli-spettri-delle-grandezze-atmosferiche">Gli spettri delle grandezze atmosferiche</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#serie-temporali-spettri-di-potenza-e-filtri">Serie temporali, spettri di potenza e filtri</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#determinazione-delle-caratteristiche-del-sistema">Determinazione delle caratteristiche del sistema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Campionamento</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#errore-standard">Errore standard</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#esempio-di-campionamento">Esempio di campionamento</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#taratura-e-calibrazione">Taratura e calibrazione</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#la-taratura">La taratura</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#la-calibrazione">La calibrazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metodologia">Metodologia</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#la-validazione-dei-dati">La validazione dei dati</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#misure-meteorologiche">Misure meteorologiche</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#criteri-generali-per-la-scelta-del-sito">Criteri generali per la scelta del sito</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#temperatura-e-umidita">Temperatura e umidità</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#strumenti-per-misurare-temperatura-e-umidita">Strumenti per misurare temperatura e umidità</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#osservazioni-manuali">Osservazioni manuali</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#misurare-l-isola-di-calore-urbana">Misurare l'isola di calore urbana</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ubicazione-delle-stazioni-in-ambito-urbano">Ubicazione delle stazioni in ambito urbano</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#la-scala-spaziale-verticale">La scala spaziale verticale:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#esposizione-dei-sensori-per-le-misure-in-ambito-urbano">Esposizione dei sensori per le misure in ambito urbano</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#misure-qualita-dell-aria">Misure Qualità dell'aria</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#classificazione-delle-stazioni-di-monitoraggio">Classificazione delle stazioni di monitoraggio</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#criteri-per-la-selezione-del-sito-di-installazione">Criteri per la selezione del sito di installazione</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#strumenti-per-misurare-il-particolato">Strumenti per misurare il particolato</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#strumenti-per-misurare-la-co2">Strumenti per misurare la CO2</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Misurare</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../isoladicaloreurbana/isoladicaloreurbana.html">Isola di calore urbana</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rmap/index.html">RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmap/index.html">RMAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rmap/rmap.html">RMAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rmap/rmap_cronistoria.html">RMAP e Stima: cronistoria del progetto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rmap/Co-creazione_e_responsabilita_nellinnovazione_tecnoscientifica_dal_basso_3.1.html">RMAP e innovazione</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../partecipa/partecipa.html">Partecipare a RMAP</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../progetti/index.html">Progetti</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../progetti/index.html">Progetti</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../progetti/mappe_mentali/mappe_mentali.html">Mappe mentali progetto formazione RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../progetti/percorsi_integrati_STEM-ESD/percorsi_integrati_STEM-ESD.html">Percorsi integrati STEM-ESD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../laboratori/laboratori.html">Laboratori</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../laboratori/misurare_il_clima/misurare_il_clima.html">Misurare il clima</a></li>
+</ul>
+</li>
 </ul>
 
-        </div>
-      </div>
     </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu navigazione dispositivi mobili" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">RMAP e Stima</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Naviga tra le pagine">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Dispense</a></li>
-      <li class="breadcrumb-item active">Misurare</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/dispense/misure/misure.rst.txt" rel="nofollow"> Visualizza sorgente pagina</a>
-      </li>
-  </ul>
-  <hr/>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="misurare">
-<h1>Misurare<a class="headerlink" href="#misurare" title="Link to this heading"></a></h1>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Dispense</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Misurare</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/r-map/rmap/tree/master/doc/sphinx/dispense/misure/misure.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/dispense/misure/misure.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="misurare">
+<h1>Misurare<a class="headerlink" href="#misurare" title="Link to this heading">¶</a></h1>
 <p>Come effettuare corrette misurazioni di parametri ambientali.</p>
 <section id="metrologia">
-<h2>Metrologia<a class="headerlink" href="#metrologia" title="Link to this heading"></a></h2>
+<h2>Metrologia<a class="headerlink" href="#metrologia" title="Link to this heading">¶</a></h2>
 <p>Scienza della misurazione e delle sue applicazioni</p>
 <ul class="simple">
 <li><p>Vocabolario internazionale di metrologia
@@ -178,7 +206,7 @@
 <img alt="../../_images/metrologia.jpg" src="../../_images/metrologia.jpg" />
 </section>
 <section id="monitoraggio-ambientale">
-<h2>Monitoraggio ambientale<a class="headerlink" href="#monitoraggio-ambientale" title="Link to this heading"></a></h2>
+<h2>Monitoraggio ambientale<a class="headerlink" href="#monitoraggio-ambientale" title="Link to this heading">¶</a></h2>
 <p>Il monitoraggio ambientale descrive i processi e le attività che
 devono aver luogo per caratterizzare e monitorare la qualità
 dell'ambiente.</p>
@@ -198,9 +226,9 @@ dell'inizio del monitoraggio.</p>
 <p>Componenti fisiche, chimiche, biologiche, radiologiche ...</p>
 </section>
 <section id="definizioni">
-<h2>Definizioni<a class="headerlink" href="#definizioni" title="Link to this heading"></a></h2>
+<h2>Definizioni<a class="headerlink" href="#definizioni" title="Link to this heading">¶</a></h2>
 <section id="data-level">
-<h3>Data Level<a class="headerlink" href="#data-level" title="Link to this heading"></a></h3>
+<h3>Data Level<a class="headerlink" href="#data-level" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Dati Level I , sono le letture dirette degli strumenti espresse in
 appropriate unità fisiche e georeferenziate</p></li>
@@ -213,59 +241,59 @@ consistenti, generalmente su grigliato.</p></li>
 <p>I dati scambiati a livello internazionale sono livello II o livello III</p>
 </section>
 <section id="campionamento">
-<h3>Campionamento<a class="headerlink" href="#campionamento" title="Link to this heading"></a></h3>
+<h3>Campionamento<a class="headerlink" href="#campionamento" title="Link to this heading">¶</a></h3>
 <p>Processo per ottenere una sequenza discreta di misurazioni di una
 grandezza.</p>
 </section>
 <section id="campione">
-<h3>Campione<a class="headerlink" href="#campione" title="Link to this heading"></a></h3>
+<h3>Campione<a class="headerlink" href="#campione" title="Link to this heading">¶</a></h3>
 <p>Una singola misura, in genere una di una serie di letture spot di un
 sistema di sensori. Si noti che questo differisce dal significato
 usuale in statistica di un insieme di numeri o misure che fa parte di
 una popolazione.</p>
 </section>
 <section id="un-osservazione">
-<h3>Un'osservazione<a class="headerlink" href="#un-osservazione" title="Link to this heading"></a></h3>
+<h3>Un'osservazione<a class="headerlink" href="#un-osservazione" title="Link to this heading">¶</a></h3>
 <p>Il risultato del processo di campionamento, ovvero la quantità
 riportata o registrata (spesso chiamata anche misura). Nel contesto
 dell'analisi delle serie temporali, un'osservazione deriva da un certo
 numero di campioni.</p>
 </section>
 <section id="una-misura">
-<h3>Una misura<a class="headerlink" href="#una-misura" title="Link to this heading"></a></h3>
+<h3>Una misura<a class="headerlink" href="#una-misura" title="Link to this heading">¶</a></h3>
 <p>La definizione ISO è &quot;un insieme di operazioni aventi per oggetto la
 determinazione del valore di una grandezza&quot;. Nell'uso comune, il
 termine può essere utilizzato per indicare il valore di un campione o
 di un'osservazione.</p>
 </section>
 <section id="tempo-di-campionamento-o-periodo-di-osservazione">
-<h3>Tempo di campionamento o periodo di osservazione<a class="headerlink" href="#tempo-di-campionamento-o-periodo-di-osservazione" title="Link to this heading"></a></h3>
+<h3>Tempo di campionamento o periodo di osservazione<a class="headerlink" href="#tempo-di-campionamento-o-periodo-di-osservazione" title="Link to this heading">¶</a></h3>
 <p>La durata del tempo in cui viene effettuata un'osservazione, durante
 la quale vengono prelevati un certo numero di campioni individuali.</p>
 </section>
 <section id="intervallo-di-campionamento">
-<h3>Intervallo di campionamento<a class="headerlink" href="#intervallo-di-campionamento" title="Link to this heading"></a></h3>
+<h3>Intervallo di campionamento<a class="headerlink" href="#intervallo-di-campionamento" title="Link to this heading">¶</a></h3>
 <p>L'intervallo di tempo tra osservazioni successive.</p>
 </section>
 <section id="funzione-di-campionamento-o-funzione-di-ponderazione">
-<h3>Funzione di campionamento o funzione di ponderazione<a class="headerlink" href="#funzione-di-campionamento-o-funzione-di-ponderazione" title="Link to this heading"></a></h3>
+<h3>Funzione di campionamento o funzione di ponderazione<a class="headerlink" href="#funzione-di-campionamento-o-funzione-di-ponderazione" title="Link to this heading">¶</a></h3>
 <p>Nella sua definizione più semplice, un algoritmo per calcolare la
 media o filtrare i singoli campioni.</p>
 </section>
 <section id="frequenza-di-campionamento">
-<h3>Frequenza di campionamento<a class="headerlink" href="#frequenza-di-campionamento" title="Link to this heading"></a></h3>
+<h3>Frequenza di campionamento<a class="headerlink" href="#frequenza-di-campionamento" title="Link to this heading">¶</a></h3>
 <p>La frequenza con cui vengono prelevati i campioni. La distanza tra i
 campioni è il tempo che intercorre tra un campione e l'altro.</p>
 </section>
 <section id="attenuazione">
-<h3>Attenuazione<a class="headerlink" href="#attenuazione" title="Link to this heading"></a></h3>
+<h3>Attenuazione<a class="headerlink" href="#attenuazione" title="Link to this heading">¶</a></h3>
 <p>Processo di attenuazione delle componenti ad alta frequenza dello
 spettro senza influenzare in modo significativo le frequenze più
 basse. Di solito viene effettuato per rimuovere il rumore (errori e
 fluttuazioni casuali non rilevanti per l'applicazione).</p>
 </section>
 <section id="filtro">
-<h3>Filtro<a class="headerlink" href="#filtro" title="Link to this heading"></a></h3>
+<h3>Filtro<a class="headerlink" href="#filtro" title="Link to this heading">¶</a></h3>
 <p>Dispositivo che consente di attenuare o selezionare le frequenze
 prescelte. L'attenuazione viene eseguita da un filtro passa-basso e i
 termini attenuazione e filtraggio sono spesso usati in modo
@@ -275,7 +303,7 @@ proprietà dello strumento, come l'inerzia, oppure può essere eseguito
 elettronicamente o numericamente.</p>
 </section>
 <section id="accuratezza-e-precisione">
-<h3>Accuratezza e Precisione<a class="headerlink" href="#accuratezza-e-precisione" title="Link to this heading"></a></h3>
+<h3>Accuratezza e Precisione<a class="headerlink" href="#accuratezza-e-precisione" title="Link to this heading">¶</a></h3>
 <p><strong>L’accuratezza</strong> è la vicinanza di un valore misurato al suo valore reale
 (accuracy is the closeness of a measured value to its true value) e in
 buona parte dipende dallo strumento. Per esempio, nelle misure
@@ -324,14 +352,14 @@ al barilotto.</p>
 <a class="reference internal image-reference" href="../../_images/sensor-precision-example1.png"><img alt="../../_images/sensor-precision-example1.png" src="../../_images/sensor-precision-example1.png" style="width: 183.0px; height: 161.7px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">tiro accurato</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-text">tiro accurato</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../../_images/sensor-accuracy-example1.webp"><img alt="../../_images/sensor-accuracy-example1.webp" src="../../_images/sensor-accuracy-example1.webp" style="width: 183.0px; height: 161.7px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">tiro preciso</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">tiro preciso</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Se venissero lanciate diverse frecce, la precisione verrebbe indicata
@@ -340,7 +368,7 @@ tutte insieme, il tiro viene considerato preciso.</p>
 </section>
 </section>
 <section id="leggi-di-scala">
-<h2>Leggi di scala<a class="headerlink" href="#leggi-di-scala" title="Link to this heading"></a></h2>
+<h2>Leggi di scala<a class="headerlink" href="#leggi-di-scala" title="Link to this heading">¶</a></h2>
 <p>Le leggi di scala riguardano il comportamento di una struttura in
 funzione della scala da cui la si guarda. Per i sistemi regolari, sia
 matematici sia fisici e naturali, il sistema a grande scala è, in
@@ -387,7 +415,7 @@ delle strutture complesse.</p>
 <p><a class="reference internal" href="../../rmap_rfc/rfc.html#data-level-reference"><span class="std std-ref">Data level nelle RMAP RFC</span></a></p>
 </section>
 <section id="campionamento-delle-variabili">
-<h2>Campionamento delle variabili<a class="headerlink" href="#campionamento-delle-variabili" title="Link to this heading"></a></h2>
+<h2>Campionamento delle variabili<a class="headerlink" href="#campionamento-delle-variabili" title="Link to this heading">¶</a></h2>
 <p>Le variabili atmosferiche come la velocità del vento, la temperatura,
 la pressione e l'umidità sono funzioni di quattro dimensioni: due
 orizzontali, una verticale e una temporale. Esse variano
@@ -425,7 +453,7 @@ la grandezza che stanno misurando, il fallimento più frequente di
 quanto previsto e così via, ma questa discussione riguarderà solo la
 risposta e l'aggiunta di rumore.</p>
 <section id="rappresentativita-nel-tempo-e-nello-spazio">
-<h3>Rappresentatività nel tempo e nello spazio<a class="headerlink" href="#rappresentativita-nel-tempo-e-nello-spazio" title="Link to this heading"></a></h3>
+<h3>Rappresentatività nel tempo e nello spazio<a class="headerlink" href="#rappresentativita-nel-tempo-e-nello-spazio" title="Link to this heading">¶</a></h3>
 <p>Le osservazioni campionarie vengono effettuate a una frequenza e per
 un intervallo di tempo limitati su un'area circoscritta. In pratica,
 le osservazioni dovrebbero essere progettate in modo da essere
@@ -463,7 +491,7 @@ sono anche campioni rappresentativi. In questo capitolo discutiamo
 dell'osservazione iniziale.</p>
 </section>
 <section id="gli-spettri-delle-grandezze-atmosferiche">
-<h3>Gli spettri delle grandezze atmosferiche<a class="headerlink" href="#gli-spettri-delle-grandezze-atmosferiche" title="Link to this heading"></a></h3>
+<h3>Gli spettri delle grandezze atmosferiche<a class="headerlink" href="#gli-spettri-delle-grandezze-atmosferiche" title="Link to this heading">¶</a></h3>
 <p>Applicando l'operazione matematica nota come trasformata di Fourier,
 una funzione irregolare del tempo (o della distanza) può essere
 ridotta al suo spettro, che è la somma di un gran numero di sinusoidi,
@@ -497,7 +525,7 @@ frequenze più grandi sono di decine di hertz.</p>
 <img alt="../../_images/A_typical_spectrum_of_a_meteorological_quantity.png" src="../../_images/A_typical_spectrum_of_a_meteorological_quantity.png" />
 </section>
 <section id="serie-temporali-spettri-di-potenza-e-filtri">
-<h3>Serie temporali, spettri di potenza e filtri<a class="headerlink" href="#serie-temporali-spettri-di-potenza-e-filtri" title="Link to this heading"></a></h3>
+<h3>Serie temporali, spettri di potenza e filtri<a class="headerlink" href="#serie-temporali-spettri-di-potenza-e-filtri" title="Link to this heading">¶</a></h3>
 <p>Questa sezione è un'introduzione per i non addetti ai lavori ai
 concetti di analisi delle serie temporali che sono alla base delle
 buone pratiche di campionamento. Nel contesto della presente Guida,
@@ -555,7 +583,7 @@ tutte cose che vanno ben oltre lo scopo di questo capitolo.</p>
 buona pratica nella misurazione delle medie e degli estremi e
 apprezzare i problemi associati alle misure degli spettri.</p>
 <section id="analisi-delle-serie-temporali">
-<h4>Analisi delle serie temporali<a class="headerlink" href="#analisi-delle-serie-temporali" title="Link to this heading"></a></h4>
+<h4>Analisi delle serie temporali<a class="headerlink" href="#analisi-delle-serie-temporali" title="Link to this heading">¶</a></h4>
 <p>È necessario considerare i segnali nel dominio del tempo o della
 frequenza. L'idea fondamentale fondamentale dell'analisi spettrale è
 il concetto di trasformata di Fourier. Una funzione, f(t), definita
@@ -624,7 +652,7 @@ relativamente grandi e alias forti. In questo caso, il primo metodo
 può essere appropriato.</p>
 </section>
 <section id="misurazione-degli-spettri">
-<h4>Misurazione degli spettri<a class="headerlink" href="#misurazione-degli-spettri" title="Link to this heading"></a></h4>
+<h4>Misurazione degli spettri<a class="headerlink" href="#misurazione-degli-spettri" title="Link to this heading">¶</a></h4>
 <p>La densità spettrale, almeno così come viene stimata da una serie
 temporale, è definita come:</p>
 <div class="math notranslate nohighlight">
@@ -642,7 +670,7 @@ contrassegnati con a, b e c. Questi sono &quot;ripiegati&quot; sul
 settore da n = 0 a <span class="math notranslate nohighlight">\(n_{y}\)</span>, come indicato dalle linee spezzate
 (a), (b), (c). Lo spettro calcolato, indicato dalla linea
 spezzata in grassetto (S), include la somma di questi
-settori.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+settori.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Lo spettro di una grandezza fluttuante può essere misurato in diversi
@@ -725,7 +753,7 @@ modificata dall'aliasing se la serie temporale è stazionaria, cioè se
 il suo spettro non cambia da un momento all'altro.</p>
 </section>
 <section id="risposta-del-sistema-strumentale">
-<h4>Risposta del sistema strumentale<a class="headerlink" href="#risposta-del-sistema-strumentale" title="Link to this heading"></a></h4>
+<h4>Risposta del sistema strumentale<a class="headerlink" href="#risposta-del-sistema-strumentale" title="Link to this heading">¶</a></h4>
 <p>I sensori, e i circuiti elettronici che possono essere utilizzati con
 essi e che costituiscono un sistema strumentale, hanno tempi di
 risposta e caratteristiche di filtraggio che influenzano le
@@ -807,7 +835,7 @@ essere calcolato o misurato sono illustrati nel paragrafo
 sistema</span></a>.</p>
 </section>
 <section id="i-filtri">
-<h4>I filtri<a class="headerlink" href="#i-filtri" title="Link to this heading"></a></h4>
+<h4>I filtri<a class="headerlink" href="#i-filtri" title="Link to this heading">¶</a></h4>
 <p>Questa sezione illustra le proprietà dei filtri, con esempi dei modi
 in cui possono influenzare i dati.</p>
 <p>Il filtraggio è l'elaborazione di una serie temporale (continua o
@@ -819,7 +847,7 @@ un altro momento.</p>
 <figcaption>
 <p><span class="caption-text">La risposta di un sistema del primo ordine a una funzione
 a gradino. Al tempo TI il sistema ha raggiunto il 63%
-del suo valore finale.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+del suo valore finale.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id9">
@@ -833,7 +861,7 @@ a fattori di smorzamento con valori di 0,1 (smorzamento
 molto leggero), 0,7 (smorzamento critico, ottimale per la
 maggior parte degli scopi) e 2,0 (smorzamento forte). Il
 fattore di smorzamento è correlato a k2 nell'equazione
-2.7</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+2.7</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Nella maggior parte dei casi, questi orari saranno adiacenti all'ora
@@ -880,7 +908,7 @@ del primo ordine (esponenziale) e per una funzione di
 ponderazione del box auto. Per il box car Ta è Ts , il
 tempo di campionamento, e w = 1/N. Per la funzione del
 primo ordine Ta è TI , la costante di tempo del filtro,
-e w(t) = (1/TI) exp (-t/TI).</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+e w(t) = (1/TI) exp (-t/TI).</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id11">
@@ -891,7 +919,7 @@ ponderazione del primo ordine (esponenziale) e una
 funzione di ponderazione box car. La frequenza è
 normalizzata per il filtro del primo ordine da T I, la
 costante di tempo, e per il filtro box car da T s, il
-tempo di campionamento.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+tempo di campionamento.</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Tuttavia, va notato che un filtro box car, che
@@ -947,7 +975,7 @@ dalla velocità del vento.  Le curve mostrate si
 riferiscono a fattori di smorzamento con valori di 0,1
 (smorzamento molto leggero), 0,7 (smorzamento critico,
 ottimale per la maggior parte degli scopi) e 2,0
-(smorzamento forte).</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+(smorzamento forte).</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Un problema legato al concetto di filtro è la lunghezza del
@@ -962,7 +990,7 @@ statistiche dei dati in uscita.</p>
 </section>
 </section>
 <section id="determinazione-delle-caratteristiche-del-sistema">
-<span id="determinazione-delle-caratteristiche-del-sistema-reference"></span><h3>Determinazione delle caratteristiche del sistema<a class="headerlink" href="#determinazione-delle-caratteristiche-del-sistema" title="Link to this heading"></a></h3>
+<span id="determinazione-delle-caratteristiche-del-sistema-reference"></span><h3>Determinazione delle caratteristiche del sistema<a class="headerlink" href="#determinazione-delle-caratteristiche-del-sistema" title="Link to this heading">¶</a></h3>
 <p>Le caratteristiche di filtraggio di un sensore o di un circuito
 elettronico, o del sistema che li compone, devono essere note per
 determinare la frequenza di campionamento appropriata per le serie
@@ -971,7 +999,7 @@ la funzione di trasferimento o di risposta H(n) di cui all'equazione
 2.8.  La funzione di trasferimento può essere ottenuta in almeno tre
 modi: tramite misurazione diretta, calcolo e stima.</p>
 <section id="misura-diretta-della-risposta">
-<h4>Misura diretta della risposta<a class="headerlink" href="#misura-diretta-della-risposta" title="Link to this heading"></a></h4>
+<h4>Misura diretta della risposta<a class="headerlink" href="#misura-diretta-della-risposta" title="Link to this heading">¶</a></h4>
 <p>La risposta può essere misurata direttamente con almeno due
 metodi. Nel primo metodo si applica al sensore o al filtro una
 variazione nota, ad esempio una funzione a gradino, e si misura il
@@ -1004,7 +1032,7 @@ digitale a due canali è probabilmente il più conveniente, ma è
 possibile utilizzare altri strumenti di test elettronici.</p>
 </section>
 <section id="calcolo-della-risposta">
-<h4>Calcolo della risposta<a class="headerlink" href="#calcolo-della-risposta" title="Link to this heading"></a></h4>
+<h4>Calcolo della risposta<a class="headerlink" href="#calcolo-della-risposta" title="Link to this heading">¶</a></h4>
 <p>È l'approccio descritto al punto 2.2.3. Se si conosce a sufficienza la
 fisica di un sensore/filtro, la risposta a una grande varietà di
 ingressi può essere determinata mediante una soluzione analitica o
@@ -1023,7 +1051,7 @@ figure 2.3 e 2.4 illustrano la risposta in funzione del tempo.</p>
 chiaramente la dipendenza dai vari parametri.</p>
 </section>
 <section id="stima-della-risposta">
-<h4>Stima della risposta<a class="headerlink" href="#stima-della-risposta" title="Link to this heading"></a></h4>
+<h4>Stima della risposta<a class="headerlink" href="#stima-della-risposta" title="Link to this heading">¶</a></h4>
 <p>Se le funzioni di trasferimento di un trasduttore e di ogni circuito
 successivo sono note, il loro prodotto è la funzione di trasferimento
 dell'intero sistema. Se, come di solito accade, le funzioni di
@@ -1041,9 +1069,9 @@ leggermente più grande.</p>
 </section>
 </section>
 <section id="id1">
-<h3>Campionamento<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Campionamento<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <section id="tecniche-di-campionamento">
-<h4>Tecniche di campionamento<a class="headerlink" href="#tecniche-di-campionamento" title="Link to this heading"></a></h4>
+<h4>Tecniche di campionamento<a class="headerlink" href="#tecniche-di-campionamento" title="Link to this heading">¶</a></h4>
 <p>Lo schema successivo illustra schematicamente un tipico sensore e circuito di
 campionamento. Quando è esposto all'atmosfera, alcune proprietà del
 trasduttore cambiano in funzione di una variabile atmosferica come la
@@ -1124,7 +1152,7 @@ deve anche rispondere in modo sufficientemente rapido da seguire le
 fluttuazioni atmosferiche di interesse.</p>
 </section>
 <section id="frequenza-di-campionamento-reference">
-<span id="id2"></span><h4>Frequenza di campionamento<a class="headerlink" href="#frequenza-di-campionamento-reference" title="Link to this heading"></a></h4>
+<span id="id2"></span><h4>Frequenza di campionamento<a class="headerlink" href="#frequenza-di-campionamento-reference" title="Link to this heading">¶</a></h4>
 <p>Per la maggior parte delle applicazioni meteorologiche e
 climatologiche, le osservazioni sono richieste a intervalli da 30
 minuti a 24 ore e ogni osservazione viene effettuata con un tempo di
@@ -1246,7 +1274,7 @@ economica, e preferibile se non sono richieste misure delle alte
 frequenze.</p>
 </section>
 <section id="frequenza-di-campionamento-e-controllo-di-qualita">
-<h4>Frequenza di campionamento e controllo di qualità<a class="headerlink" href="#frequenza-di-campionamento-e-controllo-di-qualita" title="Link to this heading"></a></h4>
+<h4>Frequenza di campionamento e controllo di qualità<a class="headerlink" href="#frequenza-di-campionamento-e-controllo-di-qualita" title="Link to this heading">¶</a></h4>
 <p>Molte tecniche di controllo della qualità dei dati utilizzate negli
 AWS dipendono dalla coerenza temporale, o persistenza, dei dati per la
 loro efficacia. A titolo di esempio molto semplice, è opportuno
@@ -1303,7 +1331,7 @@ senza essere contaminato da quel campione.</p>
 </section>
 </section>
 <section id="errore-standard">
-<h2>Errore standard<a class="headerlink" href="#errore-standard" title="Link to this heading"></a></h2>
+<h2>Errore standard<a class="headerlink" href="#errore-standard" title="Link to this heading">¶</a></h2>
 <p>Derivato da un'opera di:
 Andrea Minini - email: <a class="reference external" href="mailto:info&#37;&#52;&#48;andreaminini&#46;com">info<span>&#64;</span>andreaminini<span>&#46;</span>com</a> - PEC <a class="reference external" href="mailto:andreaminini&#37;&#52;&#48;pec&#46;it">andreaminini<span>&#64;</span>pec<span>&#46;</span>it</a></p>
 <p>licenza CC BY 4.0 Attribution 4.0 International
@@ -1339,7 +1367,7 @@ stimato sostituendo σ con la deviazione standard σx del campione:</p>
 <div class="math notranslate nohighlight">
 \[e_{x}\sim \frac{\sigma_{x}}{\sqrt{n}}\]</div>
 <section id="esempio-di-campionamento">
-<h3>Esempio di campionamento<a class="headerlink" href="#esempio-di-campionamento" title="Link to this heading"></a></h3>
+<h3>Esempio di campionamento<a class="headerlink" href="#esempio-di-campionamento" title="Link to this heading">¶</a></h3>
 <p>Questo un esempio di campionamento di temperatura con la retta di
 regressione lineare:</p>
 <img alt="../../_images/turbolenza_temperature.png" src="../../_images/turbolenza_temperature.png" />
@@ -1354,14 +1382,14 @@ decimo di grado con campionamneti ogni 30 secondi</p>
 </section>
 </section>
 <section id="taratura-e-calibrazione">
-<h2>Taratura e calibrazione<a class="headerlink" href="#taratura-e-calibrazione" title="Link to this heading"></a></h2>
+<h2>Taratura e calibrazione<a class="headerlink" href="#taratura-e-calibrazione" title="Link to this heading">¶</a></h2>
 <p>la taratura è un'operazione che permette di definire le
 caratteristiche metrologiche di uno strumento, allo scopo di definirne
 la precisione; la calibrazione ha come obiettivo quello di rendere lo
 strumento più accurato e spesso, conseguentemente, migliorarne la
 precisione</p>
 <section id="la-taratura">
-<h3>La taratura<a class="headerlink" href="#la-taratura" title="Link to this heading"></a></h3>
+<h3>La taratura<a class="headerlink" href="#la-taratura" title="Link to this heading">¶</a></h3>
 <p>La taratura può essere usata per la determinazione delle
 caratteristiche metrologiche dello strumento (es. accuratezza,
 ripetibilità, riproducibilità, linearità, ecc.) necessari per
@@ -1375,7 +1403,7 @@ tra la concentrazione e un dato segnale analitico (proprietà).</p>
 <img alt="../../_images/curvataratura.png" src="../../_images/curvataratura.png" />
 </section>
 <section id="la-calibrazione">
-<h3>La calibrazione<a class="headerlink" href="#la-calibrazione" title="Link to this heading"></a></h3>
+<h3>La calibrazione<a class="headerlink" href="#la-calibrazione" title="Link to this heading">¶</a></h3>
 <p>L'insieme di operazioni svolte su un sistema di misura, affinché esso
 fornisca indicazioni prescritte in corrispondenza di determinati
 valori di una grandezza da sottoporre a misurazione</p>
@@ -1394,7 +1422,7 @@ uno standard è necessario uno strumento con una maggiore precisione
 riferimento)</p>
 </section>
 <section id="metodologia">
-<h3>Metodologia<a class="headerlink" href="#metodologia" title="Link to this heading"></a></h3>
+<h3>Metodologia<a class="headerlink" href="#metodologia" title="Link to this heading">¶</a></h3>
 <p>A confronto, dove una medesima grandezza viene contemporaneamente
 letta dallo strumento in calibrazione e da quello campione; a
 sostituzione, dove il campione genera direttamente la grandezza di
@@ -1402,7 +1430,7 @@ riferimento che viene fatta misurare allo strumento in calibrazione;</p>
 </section>
 </section>
 <section id="la-validazione-dei-dati">
-<h2>La validazione dei dati<a class="headerlink" href="#la-validazione-dei-dati" title="Link to this heading"></a></h2>
+<h2>La validazione dei dati<a class="headerlink" href="#la-validazione-dei-dati" title="Link to this heading">¶</a></h2>
 <p>Per validazione dei dati si intende «il processo attraverso il quale
 si valuta se l’informazionepuò essere considerata consona alle
 finalità per le quali è stata prodotta» (ISTAT, 2001).</p>
@@ -1417,9 +1445,9 @@ effettivamente conseguiti».</p>
 </dl>
 </section>
 <section id="misure-meteorologiche">
-<h2>Misure meteorologiche<a class="headerlink" href="#misure-meteorologiche" title="Link to this heading"></a></h2>
+<h2>Misure meteorologiche<a class="headerlink" href="#misure-meteorologiche" title="Link to this heading">¶</a></h2>
 <section id="criteri-generali-per-la-scelta-del-sito">
-<h3>Criteri generali per la scelta del sito<a class="headerlink" href="#criteri-generali-per-la-scelta-del-sito" title="Link to this heading"></a></h3>
+<h3>Criteri generali per la scelta del sito<a class="headerlink" href="#criteri-generali-per-la-scelta-del-sito" title="Link to this heading">¶</a></h3>
 <p>La stazione meteorologica deve sorgere in un luogo piano e libero,
 possibilmente il suolo deve essere coperto da un tappeto erboso da cui
 vanno eliminate erbacce e cespugli. Il taglio della copertura erbosa
@@ -1446,11 +1474,11 @@ dettagliatamente le particolarità della collocazione della
 strumentazione</p>
 </section>
 <section id="temperatura-e-umidita">
-<h3>Temperatura e umidità<a class="headerlink" href="#temperatura-e-umidita" title="Link to this heading"></a></h3>
+<h3>Temperatura e umidità<a class="headerlink" href="#temperatura-e-umidita" title="Link to this heading">¶</a></h3>
 <section id="schermi">
-<h4>Schermi<a class="headerlink" href="#schermi" title="Link to this heading"></a></h4>
+<h4>Schermi<a class="headerlink" href="#schermi" title="Link to this heading">¶</a></h4>
 <section id="la-capannina-meteorologica">
-<h5>La capannina meteorologica<a class="headerlink" href="#la-capannina-meteorologica" title="Link to this heading"></a></h5>
+<h5>La capannina meteorologica<a class="headerlink" href="#la-capannina-meteorologica" title="Link to this heading">¶</a></h5>
 <p>La capannina solitamente di legno (scarsa conducibilità termica) e
 colorata con vernice bianca riflettente (minima assorbimento di
 radiazione); inoltre è realizzata in modo da garantire la circolazione
@@ -1461,7 +1489,7 @@ disposta verso nord, evita che l'insolazione diretta penetri fino ai
 sensori di temperatura durante l'osservazione / manutenzione.</p>
 </section>
 <section id="istruzioni-per-la-costruzione-di-una-capannina-meteorologica">
-<h5>Istruzioni per la costruzione di una capannina meteorologica<a class="headerlink" href="#istruzioni-per-la-costruzione-di-una-capannina-meteorologica" title="Link to this heading"></a></h5>
+<h5>Istruzioni per la costruzione di una capannina meteorologica<a class="headerlink" href="#istruzioni-per-la-costruzione-di-una-capannina-meteorologica" title="Link to this heading">¶</a></h5>
 <p>La capannina per gli strumenti deve essere costruito con uno spessore
 di circa 2 cm di pino bianco o legno simile e dipinto di bianco, sia
 all'interno che all'esterno. È necessario installare una serratura per
@@ -1487,7 +1515,7 @@ vedere l'immagine:</p>
 <img alt="../../_images/misure-001.png" src="../../_images/misure-001.png" />
 </section>
 <section id="schermo-solare">
-<h5>Schermo solare<a class="headerlink" href="#schermo-solare" title="Link to this heading"></a></h5>
+<h5>Schermo solare<a class="headerlink" href="#schermo-solare" title="Link to this heading">¶</a></h5>
 <p>Lo schermo o la protezione dalle radiazioni deve essere progettato per
 fornire un involucro con una temperatura interna uniforme e uguale a
 quella dell'aria esterna. Deve circondare completamente i termometri
@@ -1509,7 +1537,7 @@ requisiti di manutenzione. Il materiale termoisolante deve essere
 utilizzato se il sistema si basa sulla ventilazione naturale.</p>
 </section>
 <section id="schermi-a-lamelle">
-<h5>Schermi a lamelle<a class="headerlink" href="#schermi-a-lamelle" title="Link to this heading"></a></h5>
+<h5>Schermi a lamelle<a class="headerlink" href="#schermi-a-lamelle" title="Link to this heading">¶</a></h5>
 <p>La maggior parte delle numerose varietà di schermi a lamelle o
 piattelli si basa sulla ventilazione naturale. Le pareti di una
 zanzariera di questo tipo dovrebbero essere preferibilmente a doppia
@@ -1556,9 +1584,9 @@ temperatura reale dell'aria in una giornata.</p>
 </section>
 </section>
 <section id="temperatura-dell-aria">
-<h4>Temperatura dell'aria<a class="headerlink" href="#temperatura-dell-aria" title="Link to this heading"></a></h4>
+<h4>Temperatura dell'aria<a class="headerlink" href="#temperatura-dell-aria" title="Link to this heading">¶</a></h4>
 <section id="definizione">
-<h5>Definizione<a class="headerlink" href="#definizione" title="Link to this heading"></a></h5>
+<h5>Definizione<a class="headerlink" href="#definizione" title="Link to this heading">¶</a></h5>
 <p>Il WMO (1992) definisce la temperatura come una grandezza fisica che
 caratterizza il moto medio casuale delle molecole in un corpo
 fisico. La temperatura è caratterizzata dal comportamento per cui due
@@ -1579,7 +1607,7 @@ riparato dalla radiazione solare diretta&quot;.</p>
 </ul>
 </section>
 <section id="collocazione-degli-strumenti">
-<h5>Collocazione degli strumenti<a class="headerlink" href="#collocazione-degli-strumenti" title="Link to this heading"></a></h5>
+<h5>Collocazione degli strumenti<a class="headerlink" href="#collocazione-degli-strumenti" title="Link to this heading">¶</a></h5>
 <p>I sensori di temperatura vengono racchiusi entro involucri che
 proteggono dalla radiazione diretta, generalmente ventilati anche in
 modo artificiale dalle cui prestazione dipende in gran parte il
@@ -1588,9 +1616,9 @@ essere compresa tra 180 cm e 200 cm.</p>
 </section>
 </section>
 <section id="umidita-dell-aria">
-<h4>Umidità dell'aria<a class="headerlink" href="#umidita-dell-aria" title="Link to this heading"></a></h4>
+<h4>Umidità dell'aria<a class="headerlink" href="#umidita-dell-aria" title="Link to this heading">¶</a></h4>
 <section id="id3">
-<h5>Definizione<a class="headerlink" href="#id3" title="Link to this heading"></a></h5>
+<h5>Definizione<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h5>
 <p>Le definizioni semplici delle grandezze più frequentemente utilizzate
 nella misurazione dell'umidità sono le seguenti:</p>
 <ul class="simple">
@@ -1603,7 +1631,7 @@ temperatura e pressione;</p></li>
 </ul>
 </section>
 <section id="specifiche">
-<h5>Specifiche<a class="headerlink" href="#specifiche" title="Link to this heading"></a></h5>
+<h5>Specifiche<a class="headerlink" href="#specifiche" title="Link to this heading">¶</a></h5>
 <p><strong>Unità di misura e scala</strong></p>
 <table class="docutils align-default">
 <tbody>
@@ -1665,7 +1693,7 @@ temperatura e pressione;</p></li>
 <p>60 s</p>
 </section>
 <section id="id4">
-<h5>Collocazione degli strumenti<a class="headerlink" href="#id4" title="Link to this heading"></a></h5>
+<h5>Collocazione degli strumenti<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h5>
 <p>I sensori di umidità vengono racchiusi entro involucri che proteggono
 dalla radiazione diretta, generalmente ventilati anche in modo
 artificiale dalle cui prestazione dipende in gran parte il rendimento
@@ -1675,19 +1703,19 @@ compresa tra 180 cm e 200 cm.</p>
 </section>
 </section>
 <section id="strumenti-per-misurare-temperatura-e-umidita">
-<h3>Strumenti per misurare temperatura e umidità<a class="headerlink" href="#strumenti-per-misurare-temperatura-e-umidita" title="Link to this heading"></a></h3>
+<h3>Strumenti per misurare temperatura e umidità<a class="headerlink" href="#strumenti-per-misurare-temperatura-e-umidita" title="Link to this heading">¶</a></h3>
 <section id="strumenti-per-misurare-la-temperatura">
-<h4>Strumenti per misurare la temperatura<a class="headerlink" href="#strumenti-per-misurare-la-temperatura" title="Link to this heading"></a></h4>
+<h4>Strumenti per misurare la temperatura<a class="headerlink" href="#strumenti-per-misurare-la-temperatura" title="Link to this heading">¶</a></h4>
 <section id="come-funzionano-i-sensori-digitali">
-<h5>Come funzionano i sensori digitali<a class="headerlink" href="#come-funzionano-i-sensori-digitali" title="Link to this heading"></a></h5>
+<h5>Come funzionano i sensori digitali<a class="headerlink" href="#come-funzionano-i-sensori-digitali" title="Link to this heading">¶</a></h5>
 <p>I transistor CMOS hanno la deprecabile caratteristica di variare il guadagno di corrente in base alla temperatura in cui si trovano ad operare secondo una curva caratteristica (della specifica configurazione di sensori) che può essere misurata, a parità di corrente in ingresso per stabilire la temperatura dell’ambiente in cui il sensore opera.</p>
 <img alt="../../_images/cmos.png" src="../../_images/cmos.png" />
 </section>
 </section>
 <section id="strumenti-per-misurare-l-umidita">
-<h4>Strumenti per misurare l'umidità<a class="headerlink" href="#strumenti-per-misurare-l-umidita" title="Link to this heading"></a></h4>
+<h4>Strumenti per misurare l'umidità<a class="headerlink" href="#strumenti-per-misurare-l-umidita" title="Link to this heading">¶</a></h4>
 <section id="come-funzionano-i-sensori-capacitivi">
-<h5>Come funzionano i sensori capacitivi<a class="headerlink" href="#come-funzionano-i-sensori-capacitivi" title="Link to this heading"></a></h5>
+<h5>Come funzionano i sensori capacitivi<a class="headerlink" href="#come-funzionano-i-sensori-capacitivi" title="Link to this heading">¶</a></h5>
 <p>L'elemento del sensore è costituito da un condensatore. Il dielettrico
 è un polimero che assorbe o rilascia acqua in modo proporzionale
 all'umidità relativa dell'ambiente, modificando così la capacità del
@@ -1698,7 +1726,7 @@ relativa dell'aria.</p>
 </section>
 </section>
 <section id="sensirion-sht85-sensore-temperatura-e-umidita">
-<h4>Sensirion SHT85 sensore temperatura e umidità<a class="headerlink" href="#sensirion-sht85-sensore-temperatura-e-umidita" title="Link to this heading"></a></h4>
+<h4>Sensirion SHT85 sensore temperatura e umidità<a class="headerlink" href="#sensirion-sht85-sensore-temperatura-e-umidita" title="Link to this heading">¶</a></h4>
 <p>Uscita digitale completamente calibrata, linearizzata e compensata in
 temperatura.</p>
 <p>L'SHT85 è dotato di una membrana in PTFE dedicata a proteggere
@@ -1727,7 +1755,7 @@ applicazioni ad alto volume.</p>
 </section>
 </section>
 <section id="osservazioni-manuali">
-<h3>Osservazioni manuali<a class="headerlink" href="#osservazioni-manuali" title="Link to this heading"></a></h3>
+<h3>Osservazioni manuali<a class="headerlink" href="#osservazioni-manuali" title="Link to this heading">¶</a></h3>
 <p>All'interno del progetto RMAP vengono archiviate misure manuali delle
 seguenti grandezze:</p>
 <ul class="simple">
@@ -1738,9 +1766,9 @@ seguenti grandezze:</p>
 <p>nel seguito viene data una descrizione della metodologia da seguire
 per produrre misure corrette di tali grandezze.</p>
 <section id="altezza-del-manto-nevoso-total-snow-depth">
-<h4>Altezza del manto nevoso (total snow depth)<a class="headerlink" href="#altezza-del-manto-nevoso-total-snow-depth" title="Link to this heading"></a></h4>
+<h4>Altezza del manto nevoso (total snow depth)<a class="headerlink" href="#altezza-del-manto-nevoso-total-snow-depth" title="Link to this heading">¶</a></h4>
 <section id="quando-fare-la-misura">
-<h5>Quando fare la misura<a class="headerlink" href="#quando-fare-la-misura" title="Link to this heading"></a></h5>
+<h5>Quando fare la misura<a class="headerlink" href="#quando-fare-la-misura" title="Link to this heading">¶</a></h5>
 <p>L'altezza totale del manto nevoso va fatta in due casi:</p>
 <ul class="simple">
 <li><p>In presenza di manto nevoso (che verrà misurato in cm)</p></li>
@@ -1759,7 +1787,7 @@ prodotti osservativi a valle fino ad alterare le analisi globali di
 ECMWF.</p>
 </section>
 <section id="collocazione-del-sito-di-misura">
-<h5>Collocazione del sito di misura<a class="headerlink" href="#collocazione-del-sito-di-misura" title="Link to this heading"></a></h5>
+<h5>Collocazione del sito di misura<a class="headerlink" href="#collocazione-del-sito-di-misura" title="Link to this heading">¶</a></h5>
 <p>Il sito di misura deve consistere di una superficie piana regolare non
 soggetta ad accumuli anomali rispetto all'area circostante. Il sito
 quindi deve essere sufficientemente lontano da alberi, edifici, zone
@@ -1783,7 +1811,7 @@ ottenere così il valore della misura finale come media dei
 campionamenti.</p>
 </section>
 <section id="strumenti-di-misura">
-<h5>Strumenti di misura<a class="headerlink" href="#strumenti-di-misura" title="Link to this heading"></a></h5>
+<h5>Strumenti di misura<a class="headerlink" href="#strumenti-di-misura" title="Link to this heading">¶</a></h5>
 <p>La misura del manto nevoso va fatta utilizzando un righello rigido di
 lunghezza sufficiente o, meglio ancora, un metro ripiegabile di legno
 o di plastica, tipicamente utilizzato nei cantieri o dai falegnami,
@@ -1791,7 +1819,7 @@ simile a quello in figura.</p>
 <img alt="../../_images/Metro_ripiegabile.jpg" src="../../_images/Metro_ripiegabile.jpg" />
 </section>
 <section id="come-fare-la-misura">
-<h5>Come fare la misura<a class="headerlink" href="#come-fare-la-misura" title="Link to this heading"></a></h5>
+<h5>Come fare la misura<a class="headerlink" href="#come-fare-la-misura" title="Link to this heading">¶</a></h5>
 <p>Quando si fa la misura bisogna seguire le seguenti procedure:</p>
 <ul class="simple">
 <li><p>fare attenzione che il righello sia sempre in posizione
@@ -1805,7 +1833,7 @@ nel seguito).</p></li>
 </section>
 </section>
 <section id="visibilita">
-<h4>Visibilità<a class="headerlink" href="#visibilita" title="Link to this heading"></a></h4>
+<h4>Visibilità<a class="headerlink" href="#visibilita" title="Link to this heading">¶</a></h4>
 <p>La misura di visibilità va fatta possibilmente individuando una serie
 di oggetti o ostacoli (case gruppi di alberi, cartelli stradali,
 ecc...) a distanza nota dall'osservatore. L'osservazione va semper
@@ -1817,7 +1845,7 @@ dovrebbe essere rilevata in diverse direzioni. Il valore più basso tra
 queli rilevati rappresenta la misura finale di visibilità.</p>
 </section>
 <section id="tempo-presente">
-<h4>Tempo presente<a class="headerlink" href="#tempo-presente" title="Link to this heading"></a></h4>
+<h4>Tempo presente<a class="headerlink" href="#tempo-presente" title="Link to this heading">¶</a></h4>
 <p>Quando si seleziona il tipo di &quot;Tempo presente&quot; bisogna procedere alla
 selezione di una voce tra quelle riportate nell'elenco. L'elenco è
 ordinato in base all'intensità e quindi alla rilevanza del fenomeno
@@ -1939,7 +1967,7 @@ questa procedura, inserirà automaticamente l'evento più significativo.</p>
 </section>
 </section>
 <section id="misurare-l-isola-di-calore-urbana">
-<h2>Misurare l'isola di calore urbana<a class="headerlink" href="#misurare-l-isola-di-calore-urbana" title="Link to this heading"></a></h2>
+<h2>Misurare l'isola di calore urbana<a class="headerlink" href="#misurare-l-isola-di-calore-urbana" title="Link to this heading">¶</a></h2>
 <p>Strumenti e metodi di misura
 L’isola di calore può essere misurata a diversi livelli e con diversa strumentazione:</p>
 <ul class="simple">
@@ -1966,7 +1994,7 @@ ecc.)</p></li>
 </ul>
 <p>NB: Le incertezze (se indipendenti) si compongono al quadrato: u^2 = ∑ ui^2</p>
 <section id="ubicazione-delle-stazioni-in-ambito-urbano">
-<h3>Ubicazione delle stazioni in ambito urbano<a class="headerlink" href="#ubicazione-delle-stazioni-in-ambito-urbano" title="Link to this heading"></a></h3>
+<h3>Ubicazione delle stazioni in ambito urbano<a class="headerlink" href="#ubicazione-delle-stazioni-in-ambito-urbano" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Le misure devono essere rappresentative di un’area urbana omogenea</p></li>
 <li><p>E’ condizionata dalla necessità di risolvere spazialmente l’ambito
@@ -2006,12 +2034,12 @@ misura</p></li>
 <img alt="../../_images/rappresentativita.png" src="../../_images/rappresentativita.png" />
 <figcaption>
 <p><span class="caption-text">Oke, 2004: –Initial Guidance to Obtain Representative
-Meteorological Observations at Urban Sites</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+Meteorological Observations at Urban Sites</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="la-scala-spaziale-verticale">
-<h3>La scala spaziale verticale:<a class="headerlink" href="#la-scala-spaziale-verticale" title="Link to this heading"></a></h3>
+<h3>La scala spaziale verticale:<a class="headerlink" href="#la-scala-spaziale-verticale" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Altezza dell’UCL: altezza media degli edifici principali</p></li>
 <li><p>Alltezza del RSL: altezza dello strato di rugosità (influenzato dagli edifici)</p></li>
@@ -2025,7 +2053,7 @@ l’altezza dell’UCL</p></li>
 <img alt="../../_images/scalaspazialeverticale.png" src="../../_images/scalaspazialeverticale.png" />
 </section>
 <section id="esposizione-dei-sensori-per-le-misure-in-ambito-urbano">
-<h3>Esposizione dei sensori per le misure in ambito urbano<a class="headerlink" href="#esposizione-dei-sensori-per-le-misure-in-ambito-urbano" title="Link to this heading"></a></h3>
+<h3>Esposizione dei sensori per le misure in ambito urbano<a class="headerlink" href="#esposizione-dei-sensori-per-le-misure-in-ambito-urbano" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Le misure devono essere fatte su superﬁci che a microscala siano
 rappresentative dell’ambiente urbano a scala locale</p></li>
@@ -2057,9 +2085,9 @@ funzionare, ma richiedono lunghe serie in genere non disponibili)</p></li>
 </section>
 </section>
 <section id="misure-qualita-dell-aria">
-<h2>Misure Qualità dell'aria<a class="headerlink" href="#misure-qualita-dell-aria" title="Link to this heading"></a></h2>
+<h2>Misure Qualità dell'aria<a class="headerlink" href="#misure-qualita-dell-aria" title="Link to this heading">¶</a></h2>
 <section id="classificazione-delle-stazioni-di-monitoraggio">
-<h3>Classificazione delle stazioni di monitoraggio<a class="headerlink" href="#classificazione-delle-stazioni-di-monitoraggio" title="Link to this heading"></a></h3>
+<h3>Classificazione delle stazioni di monitoraggio<a class="headerlink" href="#classificazione-delle-stazioni-di-monitoraggio" title="Link to this heading">¶</a></h3>
 <p>Non tutte le stazioni di monitoraggio della qualità dell’aria sono
 uguali. Possono differenziarsi per il tipo di sensori installati, per
 la loro posizione, e per il tipo di misurazione a cui sono preposte.</p>
@@ -2115,7 +2143,7 @@ Ricerca Ambientale individua le scuole come luoghi adatti
 all’installazione di stazioni di background urbano e suburbano.</p>
 </section>
 <section id="criteri-per-la-selezione-del-sito-di-installazione">
-<h3>Criteri per la selezione del sito di installazione<a class="headerlink" href="#criteri-per-la-selezione-del-sito-di-installazione" title="Link to this heading"></a></h3>
+<h3>Criteri per la selezione del sito di installazione<a class="headerlink" href="#criteri-per-la-selezione-del-sito-di-installazione" title="Link to this heading">¶</a></h3>
 <p>Per far sì che i dati raccolti dalle stazioni possano essere
 paragonabili, è importante che il posizionamento di queste ultime sia
 il più possibile omogeneo. Due sensori che misurano la concentrazione
@@ -2153,9 +2181,9 @@ criteri per permettere un utilizzo sicuro e protetto della connessione
 più avanti in questa guida.</p>
 </section>
 <section id="strumenti-per-misurare-il-particolato">
-<h3>Strumenti per misurare il particolato<a class="headerlink" href="#strumenti-per-misurare-il-particolato" title="Link to this heading"></a></h3>
+<h3>Strumenti per misurare il particolato<a class="headerlink" href="#strumenti-per-misurare-il-particolato" title="Link to this heading">¶</a></h3>
 <section id="come-funzionano-i-sensori-di-particolato-atmosferico-a-base-ottica">
-<h4>Come funzionano i sensori di particolato atmosferico a base ottica<a class="headerlink" href="#come-funzionano-i-sensori-di-particolato-atmosferico-a-base-ottica" title="Link to this heading"></a></h4>
+<h4>Come funzionano i sensori di particolato atmosferico a base ottica<a class="headerlink" href="#come-funzionano-i-sensori-di-particolato-atmosferico-a-base-ottica" title="Link to this heading">¶</a></h4>
 <p>I sensori utilizzano le proprietà della diffusione della luce per
 misurare il conteggio, le dimensioni e la concentrazione delle
 particelle. I componenti di base sono: sorgente luminosa diretta alle
@@ -2164,7 +2192,7 @@ circuiti elettronici che elaborano e analizzano l’uscita del
 rivelatore.</p>
 <img alt="../../_images/opc.jpg" src="../../_images/opc.jpg" />
 <section id="sensore-per-particolato-sensirion-sps30">
-<h5>Sensore per particolato Sensirion SPS30<a class="headerlink" href="#sensore-per-particolato-sensirion-sps30" title="Link to this heading"></a></h5>
+<h5>Sensore per particolato Sensirion SPS30<a class="headerlink" href="#sensore-per-particolato-sensirion-sps30" title="Link to this heading">¶</a></h5>
 <p>Un laser con lunghezza d’onda adeguata, è intercettato da un flusso
 d’aria che porta in sospensione le particelle di particolato che
 intendiamo misurare.  Un diodo, in posizione defilata, misura la luce
@@ -2203,7 +2231,7 @@ massa</p></li>
 <figure class="align-default" id="id14">
 <img alt="../../_images/sps30_funzionamento.webp" src="../../_images/sps30_funzionamento.webp" />
 <figcaption>
-<p><span class="caption-text">Principio di funzionamento</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text">Principio di funzionamento</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Un flusso d'aria controllato viene creato all'interno del sensore per
@@ -2222,9 +2250,9 @@ Sensirion, eseguiti dal microcontrollore interno a SPS30.</p>
 </section>
 </section>
 <section id="strumenti-per-misurare-la-co2">
-<h3>Strumenti per misurare la CO2<a class="headerlink" href="#strumenti-per-misurare-la-co2" title="Link to this heading"></a></h3>
+<h3>Strumenti per misurare la CO2<a class="headerlink" href="#strumenti-per-misurare-la-co2" title="Link to this heading">¶</a></h3>
 <section id="come-funzionano-i-sensori-ndir">
-<h4>Come funzionano i sensori NDIR<a class="headerlink" href="#come-funzionano-i-sensori-ndir" title="Link to this heading"></a></h4>
+<h4>Come funzionano i sensori NDIR<a class="headerlink" href="#come-funzionano-i-sensori-ndir" title="Link to this heading">¶</a></h4>
 <p>Il sensore NDIR (Non Dispersive Infra-Red) sfrutta il fatto che le
 molecole di CO2 assorbono la radiazione infrarossa di determinate
 lunghezze d'onda. Maggiore è la concentrazione di CO2, maggiore è la
@@ -2258,7 +2286,7 @@ dell'intensità della radiazione. Quando l'intensità varia, sia Id che
 I0 cambiano in modo identico, quindi Id / I0 rimane invariato.</p>
 <img alt="../../_images/assorbimento_filtrato.jpg" src="../../_images/assorbimento_filtrato.jpg" />
 <section id="sesirion-scd30-ndir-co2-sensor">
-<h5>Sesirion SCD30 NDIR CO2 Sensor<a class="headerlink" href="#sesirion-scd30-ndir-co2-sensor" title="Link to this heading"></a></h5>
+<h5>Sesirion SCD30 NDIR CO2 Sensor<a class="headerlink" href="#sesirion-scd30-ndir-co2-sensor" title="Link to this heading">¶</a></h5>
 <p>Il sensore di CO2 funziona sfruttando la tecnologia NDIR.  Un laser
 infrarosso emette una radiazione con una lunghezza d’onda di
 4.26-micron (che è nella banda di assorbimento della CO2) in un
@@ -2276,7 +2304,7 @@ per effettuare la misura.  È il sistema più usato per misurare la CO2</p>
 <img alt="../../_images/scd30.jpg" src="../../_images/scd30.jpg" />
 </section>
 <section id="sensirion-scd40-sensore-co2-photo-acoustic-sensor">
-<h5>Sensirion SCD40 Sensore CO2 (Photo Acoustic Sensor)<a class="headerlink" href="#sensirion-scd40-sensore-co2-photo-acoustic-sensor" title="Link to this heading"></a></h5>
+<h5>Sensirion SCD40 Sensore CO2 (Photo Acoustic Sensor)<a class="headerlink" href="#sensirion-scd40-sensore-co2-photo-acoustic-sensor" title="Link to this heading">¶</a></h5>
 <p>Una tecnologia alternativa proposta da Sensirion, che permette sensori più compatti e, a detta loro, più precisi.
 Usa sempre una fonte a infrarossi con lunghezza d’onda di 4.26-micron (riga caratteristica della CO2) ma fa leva su un principio diverso. Le molecole di gas eccitate dalla fonte luminosa, vibrano e influenzano la pressione all’interno di una struttura rigida. Variazione di pressione che può essere valutata usando un microfono.
 Tecnica proprietaria senza ulteriori indicazioni
@@ -2288,35 +2316,187 @@ Tecnica proprietaria senza ulteriori indicazioni
 </section>
 </section>
 
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="../probabilita/probabilita.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Probabilità
+    </a>
+    <a class="float-right" href="../lavorare_con_i_dati/lavorare_con_i_dati.html" title="Next">
+        Lavorare con i dati <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Contenuto della pagina</p>
+                            <ul>
+<li><a class="reference internal" href="#">Misurare</a><ul>
+<li><a class="reference internal" href="#metrologia">Metrologia</a></li>
+<li><a class="reference internal" href="#monitoraggio-ambientale">Monitoraggio ambientale</a></li>
+<li><a class="reference internal" href="#definizioni">Definizioni</a><ul>
+<li><a class="reference internal" href="#data-level">Data Level</a></li>
+<li><a class="reference internal" href="#campionamento">Campionamento</a></li>
+<li><a class="reference internal" href="#campione">Campione</a></li>
+<li><a class="reference internal" href="#un-osservazione">Un'osservazione</a></li>
+<li><a class="reference internal" href="#una-misura">Una misura</a></li>
+<li><a class="reference internal" href="#tempo-di-campionamento-o-periodo-di-osservazione">Tempo di campionamento o periodo di osservazione</a></li>
+<li><a class="reference internal" href="#intervallo-di-campionamento">Intervallo di campionamento</a></li>
+<li><a class="reference internal" href="#funzione-di-campionamento-o-funzione-di-ponderazione">Funzione di campionamento o funzione di ponderazione</a></li>
+<li><a class="reference internal" href="#frequenza-di-campionamento">Frequenza di campionamento</a></li>
+<li><a class="reference internal" href="#attenuazione">Attenuazione</a></li>
+<li><a class="reference internal" href="#filtro">Filtro</a></li>
+<li><a class="reference internal" href="#accuratezza-e-precisione">Accuratezza e Precisione</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#leggi-di-scala">Leggi di scala</a></li>
+<li><a class="reference internal" href="#campionamento-delle-variabili">Campionamento delle variabili</a><ul>
+<li><a class="reference internal" href="#rappresentativita-nel-tempo-e-nello-spazio">Rappresentatività nel tempo e nello spazio</a></li>
+<li><a class="reference internal" href="#gli-spettri-delle-grandezze-atmosferiche">Gli spettri delle grandezze atmosferiche</a></li>
+<li><a class="reference internal" href="#serie-temporali-spettri-di-potenza-e-filtri">Serie temporali, spettri di potenza e filtri</a><ul>
+<li><a class="reference internal" href="#analisi-delle-serie-temporali">Analisi delle serie temporali</a></li>
+<li><a class="reference internal" href="#misurazione-degli-spettri">Misurazione degli spettri</a></li>
+<li><a class="reference internal" href="#risposta-del-sistema-strumentale">Risposta del sistema strumentale</a></li>
+<li><a class="reference internal" href="#i-filtri">I filtri</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#determinazione-delle-caratteristiche-del-sistema">Determinazione delle caratteristiche del sistema</a><ul>
+<li><a class="reference internal" href="#misura-diretta-della-risposta">Misura diretta della risposta</a></li>
+<li><a class="reference internal" href="#calcolo-della-risposta">Calcolo della risposta</a></li>
+<li><a class="reference internal" href="#stima-della-risposta">Stima della risposta</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Campionamento</a><ul>
+<li><a class="reference internal" href="#tecniche-di-campionamento">Tecniche di campionamento</a></li>
+<li><a class="reference internal" href="#frequenza-di-campionamento-reference">Frequenza di campionamento</a></li>
+<li><a class="reference internal" href="#frequenza-di-campionamento-e-controllo-di-qualita">Frequenza di campionamento e controllo di qualità</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#errore-standard">Errore standard</a><ul>
+<li><a class="reference internal" href="#esempio-di-campionamento">Esempio di campionamento</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#taratura-e-calibrazione">Taratura e calibrazione</a><ul>
+<li><a class="reference internal" href="#la-taratura">La taratura</a></li>
+<li><a class="reference internal" href="#la-calibrazione">La calibrazione</a></li>
+<li><a class="reference internal" href="#metodologia">Metodologia</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#la-validazione-dei-dati">La validazione dei dati</a></li>
+<li><a class="reference internal" href="#misure-meteorologiche">Misure meteorologiche</a><ul>
+<li><a class="reference internal" href="#criteri-generali-per-la-scelta-del-sito">Criteri generali per la scelta del sito</a></li>
+<li><a class="reference internal" href="#temperatura-e-umidita">Temperatura e umidità</a><ul>
+<li><a class="reference internal" href="#schermi">Schermi</a><ul>
+<li><a class="reference internal" href="#la-capannina-meteorologica">La capannina meteorologica</a></li>
+<li><a class="reference internal" href="#istruzioni-per-la-costruzione-di-una-capannina-meteorologica">Istruzioni per la costruzione di una capannina meteorologica</a></li>
+<li><a class="reference internal" href="#schermo-solare">Schermo solare</a></li>
+<li><a class="reference internal" href="#schermi-a-lamelle">Schermi a lamelle</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#temperatura-dell-aria">Temperatura dell'aria</a><ul>
+<li><a class="reference internal" href="#definizione">Definizione</a></li>
+<li><a class="reference internal" href="#collocazione-degli-strumenti">Collocazione degli strumenti</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#umidita-dell-aria">Umidità dell'aria</a><ul>
+<li><a class="reference internal" href="#id3">Definizione</a></li>
+<li><a class="reference internal" href="#specifiche">Specifiche</a></li>
+<li><a class="reference internal" href="#id4">Collocazione degli strumenti</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#strumenti-per-misurare-temperatura-e-umidita">Strumenti per misurare temperatura e umidità</a><ul>
+<li><a class="reference internal" href="#strumenti-per-misurare-la-temperatura">Strumenti per misurare la temperatura</a><ul>
+<li><a class="reference internal" href="#come-funzionano-i-sensori-digitali">Come funzionano i sensori digitali</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#strumenti-per-misurare-l-umidita">Strumenti per misurare l'umidità</a><ul>
+<li><a class="reference internal" href="#come-funzionano-i-sensori-capacitivi">Come funzionano i sensori capacitivi</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sensirion-sht85-sensore-temperatura-e-umidita">Sensirion SHT85 sensore temperatura e umidità</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#osservazioni-manuali">Osservazioni manuali</a><ul>
+<li><a class="reference internal" href="#altezza-del-manto-nevoso-total-snow-depth">Altezza del manto nevoso (total snow depth)</a><ul>
+<li><a class="reference internal" href="#quando-fare-la-misura">Quando fare la misura</a></li>
+<li><a class="reference internal" href="#collocazione-del-sito-di-misura">Collocazione del sito di misura</a></li>
+<li><a class="reference internal" href="#strumenti-di-misura">Strumenti di misura</a></li>
+<li><a class="reference internal" href="#come-fare-la-misura">Come fare la misura</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#visibilita">Visibilità</a></li>
+<li><a class="reference internal" href="#tempo-presente">Tempo presente</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#misurare-l-isola-di-calore-urbana">Misurare l'isola di calore urbana</a><ul>
+<li><a class="reference internal" href="#ubicazione-delle-stazioni-in-ambito-urbano">Ubicazione delle stazioni in ambito urbano</a></li>
+<li><a class="reference internal" href="#la-scala-spaziale-verticale">La scala spaziale verticale:</a></li>
+<li><a class="reference internal" href="#esposizione-dei-sensori-per-le-misure-in-ambito-urbano">Esposizione dei sensori per le misure in ambito urbano</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#misure-qualita-dell-aria">Misure Qualità dell'aria</a><ul>
+<li><a class="reference internal" href="#classificazione-delle-stazioni-di-monitoraggio">Classificazione delle stazioni di monitoraggio</a></li>
+<li><a class="reference internal" href="#criteri-per-la-selezione-del-sito-di-installazione">Criteri per la selezione del sito di installazione</a></li>
+<li><a class="reference internal" href="#strumenti-per-misurare-il-particolato">Strumenti per misurare il particolato</a><ul>
+<li><a class="reference internal" href="#come-funzionano-i-sensori-di-particolato-atmosferico-a-base-ottica">Come funzionano i sensori di particolato atmosferico a base ottica</a><ul>
+<li><a class="reference internal" href="#sensore-per-particolato-sensirion-sps30">Sensore per particolato Sensirion SPS30</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#strumenti-per-misurare-la-co2">Strumenti per misurare la CO2</a><ul>
+<li><a class="reference internal" href="#come-funzionano-i-sensori-ndir">Come funzionano i sensori NDIR</a><ul>
+<li><a class="reference internal" href="#sesirion-scd30-ndir-co2-sensor">Sesirion SCD30 NDIR CO2 Sensor</a></li>
+<li><a class="reference internal" href="#sensirion-scd40-sensore-co2-photo-acoustic-sensor">Sensirion SCD40 Sensore CO2 (Photo Acoustic Sensor)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Piè di pagina">
-        <a href="../probabilita/probabilita.html" class="btn btn-neutral float-left" title="Probabilità" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Precedente</a>
-        <a href="../lavorare_con_i_dati/lavorare_con_i_dati.html" class="btn btn-neutral float-right" title="Lavorare con i dati" accesskey="n" rel="next">Prossimo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2025, CC BY-SA 4.0, Parco dei Cedri nel cuore.</p>
-  </div>
-
-  Realizzato con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
-    fornito da <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, CC BY-SA 4.0, Parco dei Cedri nel cuore
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=b3290714"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=45930005"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
 </html>

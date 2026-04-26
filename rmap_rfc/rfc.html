@@ -1,187 +1,197 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="it" data-content_root="../">
+<html class="no-js" lang="it" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RFC rmap versione 3.3 &mdash; http://rmap.cc</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=7a5cd723" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>RFC rmap versione 3.3 &mdash; http://rmap.cc</title>
+    
+        <link rel="shortcut icon" href="../_static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-
-  
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=b3290714"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="../_static/copybutton.js?v=f281be69"></script>
-      <script src="../_static/translations.js?v=45930005"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Indice" href="../genindex.html" />
-    <link rel="search" title="Cerca" href="../search.html" />
-    <link rel="next" title="Stima obsolete" href="../obsolete/index.html" />
-    <link rel="prev" title="Benvenuti alla documentazione di RMAP e Stima" href="../index.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            RMAP e Stima
-              <img src="../_static/logo_stima.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Cerca documenti" aria-label="Cerca documenti" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu di navigazione">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 3.3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#definizioni">Definizioni</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-level">Data Level</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#report">Report</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#protocolli-per-r-map">Protocolli per R-map</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sistema-di-misura">Sistema di misura</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#visione-generale">Visione generale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-model-dati-e-metadati">Data Model: Dati e Metadati</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#time">Time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#longitudine-latitudine-e-identificativo">Longitudine, latitudine e identificativo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#network">Network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#time-range">Time range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#level">Level</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#variabile">Variabile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#units">Units</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scale">Scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#other-values-in-the-table-b-used-in-bufr-de-coding">Other values in the table B used in Bufr de/coding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tabella-variabile-b-table">Tabella variabile (B table)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#formati">Formati</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bufr">BUFR</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generic-template">generic template</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#json">Json</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#esempio">Esempio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#json-lines-text-format">JSON Lines text format</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#protocolli">Protocolli</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dati-e-metadati-su-mqtt">Dati e Metadati su MQTT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#versioni-del-protocollo-utilizzabili">Versioni del protocollo utilizzabili</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#autenticazione">Autenticazione</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#quality-of-service">Quality of Service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#client-id">Client ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#root-topics">Root topics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#version">Version</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Data Level</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stato-della-connessione">Stato della connessione</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-e-constant-data">Data e Constant Data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data">Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#constant-data">Constant Data</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#estensioni">Estensioni</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#prima-forma-contratta-tabella-d">Prima forma contratta tabella D</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#seconda-forma-contratta-tabella-e">Seconda forma contratta tabella E</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#remote-procedure-over-mqtt">Remote procedure over MQTT</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#remote-procedure-supportate">Remote procedure supportate</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#http">HTTP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#amqp">AMQP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#versioni-del-protocollo-supportate">Versioni del protocollo supportate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#autenticazione-1">Autenticazione</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tls">Tls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#formati-dei-messaggi">Formati dei messaggi</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bufr-messages-over-amqp">BUFR messages over AMQP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#json-line-messages-over-amqp">JSON Line messages over AMQP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#json-messages-over-amqp">JSON messages over AMQP</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#rmap-web-services">RMAP web services</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#composizione-degli-url-per-un-http-get-request">Composizione degli URL per un HTTP GET request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#format">Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#metadati">metadati</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#anagrafica">Anagrafica</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#serie-dei-dati-o-riassuntivo">Serie dei dati o riassuntivo</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#serie-temporale">Serie temporale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#serie-spaziale">Serie spaziale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#riassuntivo">Riassuntivo</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#formati-dati">Formati dati</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Json</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jsonline">Jsonline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#geojson">Geojson</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ritrasmissioni-e-correzioni">Ritrasmissioni e correzioni</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../obsolete/index.html">Stima obsolete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stima_v4/stima_v4.html">Stima V4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stima_wifi/index.html">Stima WiFi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../server_rmap/server_rmap.html">Server RMAP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dispense/index.html">Dispense</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../progetti/index.html">Progetti</a></li>
-</ul>
-
+            <link rel="index" title="Indice" href="../genindex.html" />
+            <link rel="search" title="Cerca" href="../search.html" />
+            <link rel="top" title="http://rmap.cc" href="#" />
+            <link rel="next" title="Stima obsolete" href="../obsolete/index.html" />
+            <link rel="prev" title="Benvenuti alla documentazione di RMAP e Stima" href="../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="RMAP"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../_static/../../../../logo_stima.png" width="150" height="150" alt="RMAP"
+                            class="logo-img"
+                        />
+                        RMAP documentation
+                    </a>
+                
+                
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav">
+                            
+                                
+                                
+                                <li class="nav-item"><a class="nav-link"  href="https://rmap.cc">RMAP</a></li>
+                            
+                        </ul>
+                    </div>
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
         </div>
-      </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Cerca nella documentazione" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RFC rmap versione 3.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obsolete/index.html">Stima obsolete</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../obsolete/stima_v0/stima_v0.html">Stima V0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../obsolete/stima_v1/stima_v1.html">Stima V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../obsolete/stima_v2/stima_v2.html">Stima V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../obsolete/stima_base/stima_base.html">Stima base</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v3/stima_v3.html">Stima V3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v3/howto_stima_v3/howto_stima_v3.html">Howto per Stima versione 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v3/howto_stima_v3.2/howto_stima_v3.2.html">Howto per Stima versione 3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v3/development_guide/development_guide.html">Guida per lo sviluppo software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v3/stimacode.html">Documentazione del codice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v3/user_manual/user_manual.html">Manuale Utente</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_v4/stima_v4.html">Stima V4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v4/manual/manual_stima_V4_1.2.html">Manuale d'uso e manutenzione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v4/user_manual/user_manual.html">Manuale Utente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v4/software_manual/software_manual.html">Manuale software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v4/software_manual/software_manual.html#documentazione-del-codice">Documentazione del codice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_v4/pio_test/pio_test.html">Platformio unit tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stima_wifi/index.html">Stima WiFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stima_wifi/stimawifi_v2/stima_wifi_howto.html">Stima WiFi V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_wifi/stimawifi_v3/stima_wifi_howto.html">Stima WiFi V3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stima_wifi/testa_prelievo/testa_prelievo.html">Testa di prelievo per sensori Air Quality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../server_rmap/server_rmap.html">Server RMAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../videotutorial/videotutorial.html">Videotutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../videotutorial/stimawifi/stimawifi.html">Stima WiFi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dispense/index.html">Dispense</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/metodo_scientifico/metodo_scientifico.html">Il metodo scientifico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/la_scienza_partecipata/la_scienza_partecipata.html">La scienza partecipata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/complottismo/complottismo.html">Complottismo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/global_observing_system/global_observing_system.html">Global Observing System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/software_hardware_dati_liberi/software_hardware_dati_liberi.html">Software, Hardware e Dati liberi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/data_model/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/probabilita/probabilita.html">Probabilità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/misure/misure.html">Misurare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/lavorare_con_i_dati/lavorare_con_i_dati.html">Lavorare con i dati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/isoladicaloreurbana/isoladicaloreurbana.html">Isola di calore urbana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/biometeorologia/biometeorologia.html">Biometeorologia umana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/qualita_aria/qualita_aria.html">Qualità dell'aria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/riscaldamento_globale/riscaldamento_globale.html">Riscaldamento globale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/rmap/index.html">RMAP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dispense/rmap/rmap.html">RMAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dispense/rmap/rmap_cronistoria.html">RMAP e Stima: cronistoria del progetto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dispense/rmap/Co-creazione_e_responsabilita_nellinnovazione_tecnoscientifica_dal_basso_3.1.html">RMAP e innovazione</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dispense/partecipa/partecipa.html">Partecipare a RMAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../progetti/index.html">Progetti</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../progetti/mappe_mentali/mappe_mentali.html">Mappe mentali progetto formazione RMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../progetti/percorsi_integrati_STEM-ESD/percorsi_integrati_STEM-ESD.html">Percorsi integrati STEM-ESD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratori/laboratori.html">Laboratori</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../laboratori/misurare_il_clima/misurare_il_clima.html">Misurare il clima</a></li>
+</ul>
+</li>
+</ul>
+
     </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu navigazione dispositivi mobili" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">RMAP e Stima</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Naviga tra le pagine">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">RFC rmap versione 3.3</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/rmap_rfc/rfc.rst.txt" rel="nofollow"> Visualizza sorgente pagina</a>
-      </li>
-  </ul>
-  <hr/>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="rfc-rmap-versione-3-3">
-<h1>RFC rmap versione 3.3<a class="headerlink" href="#rfc-rmap-versione-3-3" title="Link to this heading"></a></h1>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">RFC rmap versione 3.3</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/r-map/rmap/tree/master/doc/sphinx/rmap_rfc/rfc.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/rmap_rfc/rfc.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="rfc-rmap-versione-3-3">
+<h1>RFC rmap versione 3.3<a class="headerlink" href="#rfc-rmap-versione-3-3" title="Link to this heading">¶</a></h1>
 <section id="storia-del-documento">
-<h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link to this heading"></a></h2>
+<h2>Storia del documento<a class="headerlink" href="#storia-del-documento" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>2023/05/26 v. 3.2 : aggiunta alla Remote Procedure Call admin parametro fupdate; corretto root topic per il messaggio testamento mqtt</p></li>
 <li><p>2023/03/06 v. 3.2 : Revisionate le Remote Procedure Call</p></li>
@@ -196,9 +206,9 @@
 </ul>
 </section>
 <section id="definizioni">
-<h2>Definizioni<a class="headerlink" href="#definizioni" title="Link to this heading"></a></h2>
+<h2>Definizioni<a class="headerlink" href="#definizioni" title="Link to this heading">¶</a></h2>
 <section id="campionamento-e-processo-di-misurazione">
-<h3>Campionamento e processo di misurazione<a class="headerlink" href="#campionamento-e-processo-di-misurazione" title="Link to this heading"></a></h3>
+<h3>Campionamento e processo di misurazione<a class="headerlink" href="#campionamento-e-processo-di-misurazione" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Campionamento è il processo per ottenere una discretizzata sequenza
 di misure di una quantità.</p></li>
@@ -238,7 +248,7 @@ nelle stime delle medie e variabilità.</p></li>
 </ul>
 </section>
 <section id="data-level">
-<span id="data-level-reference"></span><h3>Data Level<a class="headerlink" href="#data-level" title="Link to this heading"></a></h3>
+<span id="data-level-reference"></span><h3>Data Level<a class="headerlink" href="#data-level" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Dati Level I , sono le letture dirette degli strumenti espresse in
 appropriate unità fisiche e georeferenziate (campionamenti)</p></li>
@@ -251,12 +261,12 @@ consistenti, generalmente su grigliato.</p></li>
 <p>I dati scambiati a livello internazionale sono livello II o livello III</p>
 </section>
 <section id="report">
-<h3>Report<a class="headerlink" href="#report" title="Link to this heading"></a></h3>
+<h3>Report<a class="headerlink" href="#report" title="Link to this heading">¶</a></h3>
 <p>Un report è un insieme (sincrono) di osservazioni a livello II completo
 di metadati o con la possibilità di ricostruire i metadati.</p>
 </section>
 <section id="protocolli-per-r-map">
-<h3>Protocolli per R-map<a class="headerlink" href="#protocolli-per-r-map" title="Link to this heading"></a></h3>
+<h3>Protocolli per R-map<a class="headerlink" href="#protocolli-per-r-map" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>MQTT (Message Queue Telemetry Transport) è un protocollo
 publish/subscribe particolarmente leggero, adatto per la
@@ -270,7 +280,7 @@ delle api web</p></li>
 </ul>
 </section>
 <section id="sistema-di-misura">
-<h3>Sistema di misura<a class="headerlink" href="#sistema-di-misura" title="Link to this heading"></a></h3>
+<h3>Sistema di misura<a class="headerlink" href="#sistema-di-misura" title="Link to this heading">¶</a></h3>
 <p>Un <cite>sistema di misura</cite> è costituito da 3
 componenti:</p>
 <ul class="simple">
@@ -291,7 +301,7 @@ sensore;</p></li>
 </section>
 </section>
 <section id="visione-generale">
-<h2>Visione generale<a class="headerlink" href="#visione-generale" title="Link to this heading"></a></h2>
+<h2>Visione generale<a class="headerlink" href="#visione-generale" title="Link to this heading">¶</a></h2>
 <p>Seguendo un semplice flusso dei dati di una rete rmap compatibile si
 possono prevedere le seguenti fasi:</p>
 <ul class="simple">
@@ -309,7 +319,7 @@ possono prevedere le seguenti fasi:</p>
 articolarlo replicando i servizi, distribuendoli in rete etc.</p>
 </section>
 <section id="data-model-dati-e-metadati">
-<h2>Data Model: Dati e Metadati<a class="headerlink" href="#data-model-dati-e-metadati" title="Link to this heading"></a></h2>
+<h2>Data Model: Dati e Metadati<a class="headerlink" href="#data-model-dati-e-metadati" title="Link to this heading">¶</a></h2>
 <p>Ogni dato è un valore associato a 6 metadati univoci.</p>
 <ul class="simple">
 <li><p>Time: date time della osservazione o di termine del periodo di
@@ -331,7 +341,7 @@ inoltre possibile associare dei dati statici (di anagrafica, ossia
 invariabili nel tempo, timerange e level) con i soli metadati
 longitudine, latitudine, identicativo, report</p>
 <section id="time">
-<h3>Time<a class="headerlink" href="#time" title="Link to this heading"></a></h3>
+<h3>Time<a class="headerlink" href="#time" title="Link to this heading">¶</a></h3>
 <p>L'istante di riferimento del dato in ora GMT: si riferisce all'istante
 finale della misurazione. Di conseguenza, una precipitazione cumulata su
 30 minuti con istante di riferimento &quot;2015-08-05T12:00:00Z&quot; è la
@@ -339,7 +349,7 @@ precipitazione cumulata tra le 11:30:00Z e le 12:00:00Z del giorno
 2015-08-05.</p>
 </section>
 <section id="longitudine-latitudine-e-identificativo">
-<h3>Longitudine, latitudine e identificativo<a class="headerlink" href="#longitudine-latitudine-e-identificativo" title="Link to this heading"></a></h3>
+<h3>Longitudine, latitudine e identificativo<a class="headerlink" href="#longitudine-latitudine-e-identificativo" title="Link to this heading">¶</a></h3>
 <p>Le coordinate sono espresse con rappresentazione sessadecimale.</p>
 <ul class="simple">
 <li><p>longitudine: coordinate geografiche (ETRF89 - WGS84)</p></li>
@@ -349,7 +359,7 @@ precipitazione cumulata tra le 11:30:00Z e le 12:00:00Z del giorno
 </ul>
 </section>
 <section id="network">
-<h3>Network<a class="headerlink" href="#network" title="Link to this heading"></a></h3>
+<h3>Network<a class="headerlink" href="#network" title="Link to this heading">¶</a></h3>
 <p>Definisce stazioni con caratteristiche omogenee: classe degli strumenti,
 rappresentatività e/o stazioni mobili o fisse. Per le stazioni che non
 appartengono a reti omogenee con un ente gestore il valore di &quot;network&quot;
@@ -362,7 +372,7 @@ cambiano nel tempo</p></li>
 </ul>
 </section>
 <section id="time-range">
-<h3>Time range<a class="headerlink" href="#time-range" title="Link to this heading"></a></h3>
+<h3>Time range<a class="headerlink" href="#time-range" title="Link to this heading">¶</a></h3>
 <p>Definition of the main concepts related to the description of time range
 and statistical processing for observed and forecast data:</p>
 <p>Validity time is defined as the time at which the data are measured or
@@ -463,7 +473,7 @@ inside the given period</p></td>
 </table>
 </section>
 <section id="level">
-<h3>Level<a class="headerlink" href="#level" title="Link to this heading"></a></h3>
+<h3>Level<a class="headerlink" href="#level" title="Link to this heading">¶</a></h3>
 <p>Level/layer</p>
 <p>This table lists the possible values for leveltype1 or leveltype2 and
 the interpretation of the corresponding numerical value l1 or l2.
@@ -858,7 +868,7 @@ level</p></td>
 </table>
 </section>
 <section id="variabile">
-<h3>Variabile<a class="headerlink" href="#variabile" title="Link to this heading"></a></h3>
+<h3>Variabile<a class="headerlink" href="#variabile" title="Link to this heading">¶</a></h3>
 <p>La tabella B (vedi codifica BUFR del WMO) descrive i dati e la loro
 eventuale codifica.</p>
 <p>I dati possono essere inviati come numeri a virgola mobile o stringhe di caratteri.
@@ -876,11 +886,11 @@ in formato Bufr e Crex. Fare riferimento a
 <a class="reference external" href="http://www.wmo.int/pages/prog/www/WMOCodes.html">http://www.wmo.int/pages/prog/www/WMOCodes.html</a></p>
 </section>
 <section id="description">
-<h3>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h3>
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
 <p>The description in table B is a simple description of the data.</p>
 </section>
 <section id="units">
-<h3>Units<a class="headerlink" href="#units" title="Link to this heading"></a></h3>
+<h3>Units<a class="headerlink" href="#units" title="Link to this heading">¶</a></h3>
 <p>The units of Table B entries refer to the format of how the data is
 represented. The data may be numeric or character. When data is in
 character form, the character representation is always according to the
@@ -891,7 +901,7 @@ units are in Standard International (SI) units, such as meters or
 degrees Kelvin.</p>
 </section>
 <section id="scale">
-<h3>Scale<a class="headerlink" href="#scale" title="Link to this heading"></a></h3>
+<h3>Scale<a class="headerlink" href="#scale" title="Link to this heading">¶</a></h3>
 <p>The scale refers to the power of 10 that the element has been multiplied
 by in order to retain the desired precision in the transmitted data when
 the integer format is used. For example, the units of temperature are
@@ -906,7 +916,7 @@ or tenths of millibars, a more reasonable precision for meteorological
 usage.</p>
 </section>
 <section id="other-values-in-the-table-b-used-in-bufr-de-coding">
-<h3>Other values in the table B used in Bufr de/coding<a class="headerlink" href="#other-values-in-the-table-b-used-in-bufr-de-coding" title="Link to this heading"></a></h3>
+<h3>Other values in the table B used in Bufr de/coding<a class="headerlink" href="#other-values-in-the-table-b-used-in-bufr-de-coding" title="Link to this heading">¶</a></h3>
 <p>The reference value is a value that is to be subtracted from the data
 after multiplication by the scale factor, if any, before encoding into
 Section 4 in order to produce, in all cases, a positive value. In the
@@ -922,7 +932,7 @@ scale (100) would obtain -35.50.</p>
 largest possible value of an individual data item occupies.</p>
 </section>
 <section id="tabella-variabile-b-table">
-<h3>Tabella variabile (B table)<a class="headerlink" href="#tabella-variabile-b-table" title="Link to this heading"></a></h3>
+<h3>Tabella variabile (B table)<a class="headerlink" href="#tabella-variabile-b-table" title="Link to this heading">¶</a></h3>
 <p>B table example; SAMPLE VALUES ONLY ! (the full table is big !)</p>
 <p>Get the full table from:
 <a class="reference external" href="https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt">https://github.com/ARPA-SIMC/dballe/blob/master/tables/dballe.txt</a></p>
@@ -1013,7 +1023,7 @@ TEMPERATURE</p></td>
 </section>
 </section>
 <section id="formati">
-<span id="formati-reference"></span><h2>Formati<a class="headerlink" href="#formati" title="Link to this heading"></a></h2>
+<span id="formati-reference"></span><h2>Formati<a class="headerlink" href="#formati" title="Link to this heading">¶</a></h2>
 <p>L'accentramento dei dati della rete comprende due passaggi:</p>
 <ul class="simple">
 <li><p>composizione di un report composto da una selezione di osservazioni
@@ -1021,7 +1031,7 @@ TEMPERATURE</p></td>
 <li><p>invio a un concentratore tramite protocollo AMQP</p></li>
 </ul>
 <section id="bufr">
-<h3>BUFR<a class="headerlink" href="#bufr" title="Link to this heading"></a></h3>
+<h3>BUFR<a class="headerlink" href="#bufr" title="Link to this heading">¶</a></h3>
 <p>Il formato BUFR è definito dal WMO:
 <a class="reference external" href="http://www.wmo.int/pages/prog/www/WMOCodes.html">http://www.wmo.int/pages/prog/www/WMOCodes.html</a></p>
 <p>Sono utilizzabili solo alcuni template definiti dal WMO o da ECMWF:</p>
@@ -1060,7 +1070,7 @@ specifico per il Data Model descritto sopra con il quale è possibile la
 codifica di tutti i dati pubblicabili secondo lo standard RMAP.</p>
 </section>
 <section id="generic-template">
-<h3>generic template<a class="headerlink" href="#generic-template" title="Link to this heading"></a></h3>
+<h3>generic template<a class="headerlink" href="#generic-template" title="Link to this heading">¶</a></h3>
 <p>Il template generic non è qui documentato in quanto al momento non
 esistono specifiche stabili. Per la scrittura e lettura di un messaggio
 BUFR con template &quot;generic&quot; si consiglia vivamente l'utilizzo della
@@ -1068,7 +1078,7 @@ libreria software DB-all.e <a class="reference external" href="https://github.co
 tramite tools disponibili.</p>
 </section>
 <section id="json">
-<h3>Json<a class="headerlink" href="#json" title="Link to this heading"></a></h3>
+<h3>Json<a class="headerlink" href="#json" title="Link to this heading">¶</a></h3>
 <p>Ogni oggetto json è un report con tutti i dati di una certa stazione per
 un certo istante di riferimento.</p>
 <p>La stazione è identificata univocamente dai seguenti campi:</p>
@@ -1109,7 +1119,7 @@ Tali dati sono relativi a dati invarianti della stazione in se (e.g. il
 nome, l'altezza, etc.)</p>
 </section>
 <section id="esempio">
-<h3>Esempio<a class="headerlink" href="#esempio" title="Link to this heading"></a></h3>
+<h3>Esempio<a class="headerlink" href="#esempio" title="Link to this heading">¶</a></h3>
 <p>Stazione fissa (<cite>ident: null</cite>) delle rete (<cite>network</cite>) `rer`
 posizionata nel punto `(9.15454, 4451485)` (<cite>lon</cite>, `lat`) con i
 seguenti dati (<cite>data</cite>) statici (l'elemento dell'array che non ha
@@ -1211,7 +1221,7 @@ manualmente (attributo `B33196: 1`).</p></li>
 <p><a class="reference internal" href="../_images/rmap_json.png"><img alt="imagejrmap_json" src="../_images/rmap_json.png" style="width: 25cm; height: 30cm;" /></a></p>
 </section>
 <section id="json-lines-text-format">
-<h3>JSON Lines text format<a class="headerlink" href="#json-lines-text-format" title="Link to this heading"></a></h3>
+<h3>JSON Lines text format<a class="headerlink" href="#json-lines-text-format" title="Link to this heading">¶</a></h3>
 <p>In alternativa al formato json è possibile utilizzare questa variante
 che in molti casi risulta vantaggiosa.</p>
 <p>La documentazione del formato JSON Lines text format, chiamato anche
@@ -1219,7 +1229,7 @@ newline-delimited JSON è reperibile qui: <a class="reference external" href="ht
 </section>
 </section>
 <section id="protocolli">
-<h2>Protocolli<a class="headerlink" href="#protocolli" title="Link to this heading"></a></h2>
+<h2>Protocolli<a class="headerlink" href="#protocolli" title="Link to this heading">¶</a></h2>
 <p>L'accentramento dei dati della rete può essere effettuato a differenti
 livelli determinati dall'hardware disponibile, dal tipo di connettività
 e dai dati da inviare:</p>
@@ -1230,33 +1240,33 @@ protocollo MQTT</p></li>
 di tipo II a un broker tramite protocollo AMQP</p></li>
 </ul>
 <section id="dati-e-metadati-su-mqtt">
-<h3>Dati e Metadati su MQTT<a class="headerlink" href="#dati-e-metadati-su-mqtt" title="Link to this heading"></a></h3>
+<h3>Dati e Metadati su MQTT<a class="headerlink" href="#dati-e-metadati-su-mqtt" title="Link to this heading">¶</a></h3>
 </section>
 <section id="versioni-del-protocollo-utilizzabili">
-<h3>Versioni del protocollo utilizzabili<a class="headerlink" href="#versioni-del-protocollo-utilizzabili" title="Link to this heading"></a></h3>
+<h3>Versioni del protocollo utilizzabili<a class="headerlink" href="#versioni-del-protocollo-utilizzabili" title="Link to this heading">¶</a></h3>
 <p>MQTT protocol versions 3.1 and 3.1.1</p>
 <p>Non utilizzare SSL/TLS</p>
 </section>
 <section id="autenticazione">
-<h3>Autenticazione<a class="headerlink" href="#autenticazione" title="Link to this heading"></a></h3>
+<h3>Autenticazione<a class="headerlink" href="#autenticazione" title="Link to this heading">¶</a></h3>
 <p>MQTT provides username/password authentication as part of the protocol.
 To pubblish mqtt messages on a rmap server follow standard registration
 procedure on rmap server and get username and password.</p>
 </section>
 <section id="quality-of-service">
-<h3>Quality of Service<a class="headerlink" href="#quality-of-service" title="Link to this heading"></a></h3>
+<h3>Quality of Service<a class="headerlink" href="#quality-of-service" title="Link to this heading">¶</a></h3>
 <p>E possibile utilizzare Quality of Service 0 o 1. Ovviamente quando
 possibile è consigliato utilizzare QoS 1.</p>
 </section>
 <section id="client-id">
-<h3>Client ID<a class="headerlink" href="#client-id" title="Link to this heading"></a></h3>
+<h3>Client ID<a class="headerlink" href="#client-id" title="Link to this heading">¶</a></h3>
 <p>MQTT 3.1.1 allows clients to connect with a zero length client id and
 have the broker generate a client id for them. Use this method as
 alternative method to the only allowed method that is to use an ID
 starting with the username used in authentication.</p>
 </section>
 <section id="root-topics">
-<span id="data-level-1"></span><h3>Root topics<a class="headerlink" href="#root-topics" title="Link to this heading"></a></h3>
+<span id="data-level-1"></span><h3>Root topics<a class="headerlink" href="#root-topics" title="Link to this heading">¶</a></h3>
 <p>root topic:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;/&lt;</span><span class="n">data_level</span><span class="o">&gt;</span>
 </pre></div>
@@ -1271,7 +1281,7 @@ starting with the username used in authentication.</p>
 </div>
 </section>
 <section id="version">
-<h3>Version<a class="headerlink" href="#version" title="Link to this heading"></a></h3>
+<h3>Version<a class="headerlink" href="#version" title="Link to this heading">¶</a></h3>
 <p>Versione del protocollo RMAP over MQTT</p>
 <p>attualmente corrisponde alla versione:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
@@ -1279,7 +1289,7 @@ starting with the username used in authentication.</p>
 </div>
 </section>
 <section id="id1">
-<h3>Data Level<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Data Level<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul>
 <li><p>I dati pubblicati nel root topic MQTT:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span>
@@ -1298,7 +1308,7 @@ starting with the username used in authentication.</p>
 <p>appartengono solo al data level type II</p>
 </section>
 <section id="stato-della-connessione">
-<h3>Stato della connessione<a class="headerlink" href="#stato-della-connessione" title="Link to this heading"></a></h3>
+<h3>Stato della connessione<a class="headerlink" href="#stato-della-connessione" title="Link to this heading">¶</a></h3>
 <p>Alla connessione deve essere inviato dalla stazione una eventuale
 segnalazione di sconnessione gestita male con will (retained):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">mainttopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">265</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B01213</span><span class="o">/</span>
@@ -1314,9 +1324,9 @@ segnalazione di sconnessione gestita male con will (retained):</p>
 <p>payload : <strong>{ &quot;v&quot;: &quot;disconn&quot;}</strong></p>
 </section>
 <section id="data-e-constant-data">
-<h3>Data e Constant Data<a class="headerlink" href="#data-e-constant-data" title="Link to this heading"></a></h3>
+<h3>Data e Constant Data<a class="headerlink" href="#data-e-constant-data" title="Link to this heading">¶</a></h3>
 <section id="data">
-<h4>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h4>
+<h4>Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h4>
 <p>Ogni topic corrisponde ai metadati univoci, mentre il payload è composto
 dal valore, eventuali attributi e dall'instante temporale. Json è il
 formato per il payload.</p>
@@ -1354,7 +1364,7 @@ la chiave fa riferimento alla tabella B e VALUE ha la stessa
 rappresentazione di VALUE descritto sopra.</p>
 </section>
 <section id="constant-data">
-<h4>Constant Data<a class="headerlink" href="#constant-data" title="Link to this heading"></a></h4>
+<h4>Constant Data<a class="headerlink" href="#constant-data" title="Link to this heading">¶</a></h4>
 <p>I metadati per i dati costanti (anagrafica) sono caratterizzati da
 questo topic:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">roottopic</span><span class="o">&gt;/</span><span class="n">USER</span><span class="o">/</span><span class="n">IDENT</span><span class="o">/</span><span class="n">COORDS</span><span class="o">/</span><span class="n">NETWORK</span><span class="o">/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">VAR</span>
@@ -1366,12 +1376,12 @@ la chiave &quot;t&quot;.</p>
 </section>
 </section>
 <section id="estensioni">
-<span id="rmaprfc-estensioni-reference"></span><h3>Estensioni<a class="headerlink" href="#estensioni" title="Link to this heading"></a></h3>
+<span id="rmaprfc-estensioni-reference"></span><h3>Estensioni<a class="headerlink" href="#estensioni" title="Link to this heading">¶</a></h3>
 <p>Queste estensioni sono state create per ottimizzare in alcuni casi
 l'invio dei dati. Possono essere utilizzate solo quando il loro utilizzo
 comporti un risparmio sul numero di byte necessari per la trasmissione.</p>
 <section id="prima-forma-contratta-tabella-d">
-<h4>Prima forma contratta tabella D<a class="headerlink" href="#prima-forma-contratta-tabella-d" title="Link to this heading"></a></h4>
+<h4>Prima forma contratta tabella D<a class="headerlink" href="#prima-forma-contratta-tabella-d" title="Link to this heading">¶</a></h4>
 <p>In questa forma contratta non è necessario inviare messaggi relativi
 allo stato della connessione.</p>
 <p>Il topic e come quello della forma standard senza l'ultimo parametro
@@ -1419,7 +1429,7 @@ di valori che si riferiscono posizionalmente ai relativi dati</p></li>
 </div>
 </section>
 <section id="seconda-forma-contratta-tabella-e">
-<h4>Seconda forma contratta tabella E<a class="headerlink" href="#seconda-forma-contratta-tabella-e" title="Link to this heading"></a></h4>
+<h4>Seconda forma contratta tabella E<a class="headerlink" href="#seconda-forma-contratta-tabella-e" title="Link to this heading">¶</a></h4>
 <p>In questa forma contratta non è previsto l'invio di attributi del dato.
 In questa forma contratta non è necessario inviare messaggi relativi
 allo stato della connessione. Il topic e come quello della forma
@@ -1452,7 +1462,7 @@ considerazione</p></li>
 </section>
 </section>
 <section id="remote-procedure-over-mqtt">
-<span id="rmaprfc-rpc-reference"></span><h3>Remote procedure over MQTT<a class="headerlink" href="#remote-procedure-over-mqtt" title="Link to this heading"></a></h3>
+<span id="rmaprfc-rpc-reference"></span><h3>Remote procedure over MQTT<a class="headerlink" href="#remote-procedure-over-mqtt" title="Link to this heading">¶</a></h3>
 <p>Le RPC sono in formato json (json-rpc) e utilizzano due topics MQTT:</p>
 <ul class="simple">
 <li><p>topiccom è il topic utilizzato per l'invio delle richieste RPC al
@@ -1475,7 +1485,7 @@ Specification</a></p>
 <p>Non sono ammessi accessi concorrenziali e ogni utente è tenuto a gestire
 di conseguenza gli accessi.</p>
 <section id="remote-procedure-supportate">
-<h4>Remote procedure supportate<a class="headerlink" href="#remote-procedure-supportate" title="Link to this heading"></a></h4>
+<h4>Remote procedure supportate<a class="headerlink" href="#remote-procedure-supportate" title="Link to this heading">¶</a></h4>
 <p>configure</p>
 <p>Configura la stazione.</p>
 <p>parametri:</p>
@@ -1665,7 +1675,7 @@ secondi [esempio: 2015,3,25,12,0,0]</p></li>
 </section>
 </section>
 <section id="http">
-<span id="rmaprfc-http-reference"></span><h3>HTTP<a class="headerlink" href="#http" title="Link to this heading"></a></h3>
+<span id="rmaprfc-http-reference"></span><h3>HTTP<a class="headerlink" href="#http" title="Link to this heading">¶</a></h3>
 <p>E' possibile utilizzare il protocollo http con una get per inviare i
 dati; la get http sarà immediatamente convertita dal server in una &quot;pub&quot;
 al broker mqtt. Http è molto inefficiente rispetto mqtt e qui è
@@ -1708,13 +1718,13 @@ utilizzato solo come &quot;bridge&quot; a mqtt quando dovesse essere necessario.
 <p><code class="docutils literal notranslate"><span class="pre">19/06/18,13:06:59+00</span> <span class="pre">please</span> <span class="pre">set</span> <span class="pre">topic</span></code></p>
 </section>
 <section id="amqp">
-<h3>AMQP<a class="headerlink" href="#amqp" title="Link to this heading"></a></h3>
+<h3>AMQP<a class="headerlink" href="#amqp" title="Link to this heading">¶</a></h3>
 <p>AMQP is a binary messaging protocol and semantic framework for
 microservices and enterprise messaging.</p>
 <p><a class="reference external" href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf</a></p>
 </section>
 <section id="versioni-del-protocollo-supportate">
-<h3>Versioni del protocollo supportate<a class="headerlink" href="#versioni-del-protocollo-supportate" title="Link to this heading"></a></h3>
+<h3>Versioni del protocollo supportate<a class="headerlink" href="#versioni-del-protocollo-supportate" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>0-9-1</p></li>
 <li><p>0-9</p></li>
@@ -1722,44 +1732,44 @@ microservices and enterprise messaging.</p>
 </ul>
 </section>
 <section id="autenticazione-1">
-<span id="id2"></span><h3>Autenticazione<a class="headerlink" href="#autenticazione-1" title="Link to this heading"></a></h3>
+<span id="id2"></span><h3>Autenticazione<a class="headerlink" href="#autenticazione-1" title="Link to this heading">¶</a></h3>
 <p>La pubblicazione dei messaggi è ammessa solo dopo autenticazione.</p>
 <p>L'autenticazione si effettua tramite una coppia username/password
 fornite dall'amministratore del server.</p>
 </section>
 <section id="tls">
-<h3>Tls<a class="headerlink" href="#tls" title="Link to this heading"></a></h3>
+<h3>Tls<a class="headerlink" href="#tls" title="Link to this heading">¶</a></h3>
 <p>L'uso di TLS (amqps) non è richiesto, ma potrà essere implementato in
 future versioni di queste specifiche.</p>
 </section>
 <section id="formati-dei-messaggi">
-<h3>Formati dei messaggi<a class="headerlink" href="#formati-dei-messaggi" title="Link to this heading"></a></h3>
+<h3>Formati dei messaggi<a class="headerlink" href="#formati-dei-messaggi" title="Link to this heading">¶</a></h3>
 <p>Il report che costituisce il messaggio dovrà essere scritto nei formati
 json, jsonline o bufr sopra descritti.</p>
 <section id="bufr-messages-over-amqp">
-<h4>BUFR messages over AMQP<a class="headerlink" href="#bufr-messages-over-amqp" title="Link to this heading"></a></h4>
+<h4>BUFR messages over AMQP<a class="headerlink" href="#bufr-messages-over-amqp" title="Link to this heading">¶</a></h4>
 <p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
 autenticazione su exchange &quot;rmap_bufr&quot;.</p>
 </section>
 <section id="json-line-messages-over-amqp">
-<h4>JSON Line messages over AMQP<a class="headerlink" href="#json-line-messages-over-amqp" title="Link to this heading"></a></h4>
+<h4>JSON Line messages over AMQP<a class="headerlink" href="#json-line-messages-over-amqp" title="Link to this heading">¶</a></h4>
 <p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
 autenticazione su exchange &quot;rmap_jsonline&quot;.</p>
 </section>
 <section id="json-messages-over-amqp">
-<h4>JSON messages over AMQP<a class="headerlink" href="#json-messages-over-amqp" title="Link to this heading"></a></h4>
+<h4>JSON messages over AMQP<a class="headerlink" href="#json-messages-over-amqp" title="Link to this heading">¶</a></h4>
 <p>Il payload dovrà essere inviato con protocollo AMQP al broker tramite
 autenticazione su exchange &quot;rmap_dbajson&quot;.</p>
 </section>
 </section>
 </section>
 <section id="rmap-web-services">
-<h2>RMAP web services<a class="headerlink" href="#rmap-web-services" title="Link to this heading"></a></h2>
+<h2>RMAP web services<a class="headerlink" href="#rmap-web-services" title="Link to this heading">¶</a></h2>
 <section id="composizione-degli-url-per-un-http-get-request">
-<h3>Composizione degli URL per un HTTP GET request<a class="headerlink" href="#composizione-degli-url-per-un-http-get-request" title="Link to this heading"></a></h3>
+<h3>Composizione degli URL per un HTTP GET request<a class="headerlink" href="#composizione-degli-url-per-un-http-get-request" title="Link to this heading">¶</a></h3>
 </section>
 <section id="versioning">
-<h3>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h3>
+<h3>Versioning<a class="headerlink" href="#versioning" title="Link to this heading">¶</a></h3>
 <p>Le `API` avranno come prefisso la versione in uso.</p>
 <p>Ad esempio, serie temporale mensile usando la versione 1:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">borinud</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span><span class="n">emr</span><span class="o">.</span><span class="n">it</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">dbajson</span><span class="o">/-/</span><span class="mi">1120000</span><span class="p">,</span><span class="mi">4450000</span><span class="o">/</span><span class="n">generic</span><span class="o">/</span><span class="mi">254</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">/</span><span class="mi">103</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/</span><span class="n">B12101</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="mi">2013</span><span class="o">/</span><span class="mi">09</span>
@@ -1767,7 +1777,7 @@ autenticazione su exchange &quot;rmap_dbajson&quot;.</p>
 </div>
 </section>
 <section id="format">
-<h3>Format<a class="headerlink" href="#format" title="Link to this heading"></a></h3>
+<h3>Format<a class="headerlink" href="#format" title="Link to this heading">¶</a></h3>
 <p>Il secondo prametro delle api è il formato; questa la scelta:</p>
 <ul class="simple">
 <li><p>dbajson</p></li>
@@ -1780,7 +1790,7 @@ autenticazione su exchange &quot;rmap_dbajson&quot;.</p>
 </div>
 </section>
 <section id="metadati">
-<h3>metadati<a class="headerlink" href="#metadati" title="Link to this heading"></a></h3>
+<h3>metadati<a class="headerlink" href="#metadati" title="Link to this heading">¶</a></h3>
 <p>La &quot;base&quot; della richiesta è quella descritta per il topic MQTT, i.e.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span>
 </pre></div>
@@ -1797,7 +1807,7 @@ stata presa a 2 metri dal suolo (<cite>103,2000,-,-</cite>) ed è una temperatur
 <p>Ogni parametro incluso nelle &quot;/&quot; può essere sostituito con &quot;*&quot;
 equivalente a dire &quot;tutti&quot;.</p>
 <section id="anagrafica">
-<h4>Anagrafica<a class="headerlink" href="#anagrafica" title="Link to this heading"></a></h4>
+<h4>Anagrafica<a class="headerlink" href="#anagrafica" title="Link to this heading">¶</a></h4>
 <p>Elenco stazioni indipendenti dal timerange e livello sono specificati così:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/-/&lt;</span><span class="n">lon</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">lat</span><span class="o">&gt;/&lt;</span><span class="n">network</span><span class="o">&gt;/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="o">-/*/</span><span class="n">stations</span>
 
@@ -1817,9 +1827,9 @@ dati.</p>
 </section>
 </section>
 <section id="serie-dei-dati-o-riassuntivo">
-<h3>Serie dei dati o riassuntivo<a class="headerlink" href="#serie-dei-dati-o-riassuntivo" title="Link to this heading"></a></h3>
+<h3>Serie dei dati o riassuntivo<a class="headerlink" href="#serie-dei-dati-o-riassuntivo" title="Link to this heading">¶</a></h3>
 <section id="serie-temporale">
-<h4>Serie temporale<a class="headerlink" href="#serie-temporale" title="Link to this heading"></a></h4>
+<h4>Serie temporale<a class="headerlink" href="#serie-temporale" title="Link to this heading">¶</a></h4>
 <p>Serie temporale annuale,mensile, giornaliera e oraria:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="n">year</span>
 <span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">timeseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span>
@@ -1840,7 +1850,7 @@ dati.</p>
 </div>
 </section>
 <section id="serie-spaziale">
-<h4>Serie spaziale<a class="headerlink" href="#serie-spaziale" title="Link to this heading"></a></h4>
+<h4>Serie spaziale<a class="headerlink" href="#serie-spaziale" title="Link to this heading">¶</a></h4>
 <p>Serie spaziale di una rete, con granularità giornaliera o oraria (± 30
 minuti):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ident</span><span class="o">/</span><span class="n">coords</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">timerange</span><span class="o">/</span><span class="n">level</span><span class="o">/</span><span class="n">bcode</span><span class="o">/</span><span class="n">spatialseries</span><span class="o">/</span><span class="n">year</span><span class="o">/</span><span class="n">month</span><span class="o">/</span><span class="n">day</span>
@@ -1859,7 +1869,7 @@ minuti):</p>
 </div>
 </section>
 <section id="riassuntivo">
-<h4>Riassuntivo<a class="headerlink" href="#riassuntivo" title="Link to this heading"></a></h4>
+<h4>Riassuntivo<a class="headerlink" href="#riassuntivo" title="Link to this heading">¶</a></h4>
 <p>Riassuntivo di tutto il database:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*/*/*/*/*/*/</span><span class="n">summaries</span>
 </pre></div>
@@ -1882,17 +1892,17 @@ dati fatto salvo che:
 </section>
 </section>
 <section id="formati-dati">
-<h2>Formati dati<a class="headerlink" href="#formati-dati" title="Link to this heading"></a></h2>
+<h2>Formati dati<a class="headerlink" href="#formati-dati" title="Link to this heading">¶</a></h2>
 <section id="id3">
-<h3>Json<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3>Json<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>Vedi sopra formato `Json`</p>
 </section>
 <section id="jsonline">
-<h3>Jsonline<a class="headerlink" href="#jsonline" title="Link to this heading"></a></h3>
+<h3>Jsonline<a class="headerlink" href="#jsonline" title="Link to this heading">¶</a></h3>
 <p>Vedi sopra formato `Jsonline`</p>
 </section>
 <section id="geojson">
-<h3>Geojson<a class="headerlink" href="#geojson" title="Link to this heading"></a></h3>
+<h3>Geojson<a class="headerlink" href="#geojson" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="http://geojson.org/">http://geojson.org/</a></p>
 <p>Questo un esempio di `GeoJSON`:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -1924,7 +1934,7 @@ dati fatto salvo che:
 </section>
 </section>
 <section id="ritrasmissioni-e-correzioni">
-<h2>Ritrasmissioni e correzioni<a class="headerlink" href="#ritrasmissioni-e-correzioni" title="Link to this heading"></a></h2>
+<h2>Ritrasmissioni e correzioni<a class="headerlink" href="#ritrasmissioni-e-correzioni" title="Link to this heading">¶</a></h2>
 <p>I dati possono essere ritrasmessi e sarà l'ultimo dato ricevuto a
 vincere sui vecchi.</p>
 <p>Attenzione va posta alla gestione degli attributi che possono contenere
@@ -1943,35 +1953,150 @@ agevolare molto il lavoro.</p>
 </section>
 </section>
 
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="../index.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Benvenuti alla documentazione di RMAP e Stima
+    </a>
+    <a class="float-right" href="../obsolete/index.html" title="Next">
+        Stima obsolete <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Contenuto della pagina</p>
+                            <ul>
+<li><a class="reference internal" href="#">RFC rmap versione 3.3</a><ul>
+<li><a class="reference internal" href="#storia-del-documento">Storia del documento</a></li>
+<li><a class="reference internal" href="#definizioni">Definizioni</a><ul>
+<li><a class="reference internal" href="#campionamento-e-processo-di-misurazione">Campionamento e processo di misurazione</a></li>
+<li><a class="reference internal" href="#data-level">Data Level</a></li>
+<li><a class="reference internal" href="#report">Report</a></li>
+<li><a class="reference internal" href="#protocolli-per-r-map">Protocolli per R-map</a></li>
+<li><a class="reference internal" href="#sistema-di-misura">Sistema di misura</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#visione-generale">Visione generale</a></li>
+<li><a class="reference internal" href="#data-model-dati-e-metadati">Data Model: Dati e Metadati</a><ul>
+<li><a class="reference internal" href="#time">Time</a></li>
+<li><a class="reference internal" href="#longitudine-latitudine-e-identificativo">Longitudine, latitudine e identificativo</a></li>
+<li><a class="reference internal" href="#network">Network</a></li>
+<li><a class="reference internal" href="#time-range">Time range</a></li>
+<li><a class="reference internal" href="#level">Level</a></li>
+<li><a class="reference internal" href="#variabile">Variabile</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#units">Units</a></li>
+<li><a class="reference internal" href="#scale">Scale</a></li>
+<li><a class="reference internal" href="#other-values-in-the-table-b-used-in-bufr-de-coding">Other values in the table B used in Bufr de/coding</a></li>
+<li><a class="reference internal" href="#tabella-variabile-b-table">Tabella variabile (B table)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formati">Formati</a><ul>
+<li><a class="reference internal" href="#bufr">BUFR</a></li>
+<li><a class="reference internal" href="#generic-template">generic template</a></li>
+<li><a class="reference internal" href="#json">Json</a></li>
+<li><a class="reference internal" href="#esempio">Esempio</a></li>
+<li><a class="reference internal" href="#json-lines-text-format">JSON Lines text format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#protocolli">Protocolli</a><ul>
+<li><a class="reference internal" href="#dati-e-metadati-su-mqtt">Dati e Metadati su MQTT</a></li>
+<li><a class="reference internal" href="#versioni-del-protocollo-utilizzabili">Versioni del protocollo utilizzabili</a></li>
+<li><a class="reference internal" href="#autenticazione">Autenticazione</a></li>
+<li><a class="reference internal" href="#quality-of-service">Quality of Service</a></li>
+<li><a class="reference internal" href="#client-id">Client ID</a></li>
+<li><a class="reference internal" href="#root-topics">Root topics</a></li>
+<li><a class="reference internal" href="#version">Version</a></li>
+<li><a class="reference internal" href="#id1">Data Level</a></li>
+<li><a class="reference internal" href="#stato-della-connessione">Stato della connessione</a></li>
+<li><a class="reference internal" href="#data-e-constant-data">Data e Constant Data</a><ul>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#constant-data">Constant Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estensioni">Estensioni</a><ul>
+<li><a class="reference internal" href="#prima-forma-contratta-tabella-d">Prima forma contratta tabella D</a></li>
+<li><a class="reference internal" href="#seconda-forma-contratta-tabella-e">Seconda forma contratta tabella E</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#remote-procedure-over-mqtt">Remote procedure over MQTT</a><ul>
+<li><a class="reference internal" href="#remote-procedure-supportate">Remote procedure supportate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#http">HTTP</a></li>
+<li><a class="reference internal" href="#amqp">AMQP</a></li>
+<li><a class="reference internal" href="#versioni-del-protocollo-supportate">Versioni del protocollo supportate</a></li>
+<li><a class="reference internal" href="#autenticazione-1">Autenticazione</a></li>
+<li><a class="reference internal" href="#tls">Tls</a></li>
+<li><a class="reference internal" href="#formati-dei-messaggi">Formati dei messaggi</a><ul>
+<li><a class="reference internal" href="#bufr-messages-over-amqp">BUFR messages over AMQP</a></li>
+<li><a class="reference internal" href="#json-line-messages-over-amqp">JSON Line messages over AMQP</a></li>
+<li><a class="reference internal" href="#json-messages-over-amqp">JSON messages over AMQP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rmap-web-services">RMAP web services</a><ul>
+<li><a class="reference internal" href="#composizione-degli-url-per-un-http-get-request">Composizione degli URL per un HTTP GET request</a></li>
+<li><a class="reference internal" href="#versioning">Versioning</a></li>
+<li><a class="reference internal" href="#format">Format</a></li>
+<li><a class="reference internal" href="#metadati">metadati</a><ul>
+<li><a class="reference internal" href="#anagrafica">Anagrafica</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#serie-dei-dati-o-riassuntivo">Serie dei dati o riassuntivo</a><ul>
+<li><a class="reference internal" href="#serie-temporale">Serie temporale</a></li>
+<li><a class="reference internal" href="#serie-spaziale">Serie spaziale</a></li>
+<li><a class="reference internal" href="#riassuntivo">Riassuntivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formati-dati">Formati dati</a><ul>
+<li><a class="reference internal" href="#id3">Json</a></li>
+<li><a class="reference internal" href="#jsonline">Jsonline</a></li>
+<li><a class="reference internal" href="#geojson">Geojson</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ritrasmissioni-e-correzioni">Ritrasmissioni e correzioni</a></li>
+</ul>
+</li>
+</ul>
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Piè di pagina">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Benvenuti alla documentazione di RMAP e Stima" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Precedente</a>
-        <a href="../obsolete/index.html" class="btn btn-neutral float-right" title="Stima obsolete" accesskey="n" rel="next">Prossimo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2025, CC BY-SA 4.0, Parco dei Cedri nel cuore.</p>
-  </div>
-
-  Realizzato con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
-    fornito da <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, CC BY-SA 4.0, Parco dei Cedri nel cuore
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=b3290714"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script src="../_static/translations.js?v=45930005"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
 </html>
