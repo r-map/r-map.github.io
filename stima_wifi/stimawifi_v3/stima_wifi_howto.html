@@ -467,16 +467,46 @@ alimentatore esterno ( da 7 a 24 V ).</p>
 </section>
 <section id="base-board">
 <h3>Base Board<a class="headerlink" href="#base-board" title="Link to this heading">¶</a></h3>
-<p>Esporta le connessioni al bus I2C.</p>
+<p>Permette la connessione di sensori, GPS e altri dispositivi,
+esportando tra l'altro le connessioni al bus I2C.</p>
 <p>Può essere popolata con diversi tipi di connettori (passo 2.54mm)</p>
+<p>Solo come esempio:</p>
 <a class="reference internal image-reference" href="../../_images/base1.jpg"><img alt="../../_images/base1.jpg" src="../../_images/base1.jpg" style="width: 50%;" />
 </a>
 <p>Dei sensori in dotazione, quello per il particolato è alimentato a 5V,
 gli altri componenti a 3.3v.</p>
-<p>La base board permette di selezionare il voltaggio adatto al sensore
-tramite un cavallotto.  Se il selettore non è popolato, la periferica
-collegata, non riceve alimentazione.</p>
+<p>La base board permette di selezionare il voltaggio adatto al sensore selezionando il pin di alimentazione.</p>
 <a class="reference internal image-reference" href="../../_images/base2.jpg"><img alt="../../_images/base2.jpg" src="../../_images/base2.jpg" style="width: 50%;" />
+</a>
+<p>Schema elettrico:</p>
+<a class="reference internal image-reference" href="../../_images/baseboard_schematic.png"><img alt="../../_images/baseboard_schematic.png" src="../../_images/baseboard_schematic.png" style="width: 50%;" />
+</a>
+</section>
+<section id="gps">
+<h3>GPS<a class="headerlink" href="#gps" title="Link to this heading">¶</a></h3>
+<p>Waveshare LC76G Multi-GNSS Module</p>
+<p>Il modulo GPS LC76G è un modulo Multi-GNSS (Global Navigation
+Satellite System) che supporta i sistemi GPS, BeiDou (BDS), GLONASS,
+Galileo e QZSS, consentendo il posizionamento combinato tra più
+sistemi o indipendente per singolo sistema. Supporta le funzioni EPO™
+(Extended Predictive Orbit) e EASY™ (Embedded Assist System), offrendo
+un'esperienza di posizionamento rapida, precisa e ad alte prestazioni.</p>
+<ul class="simple">
+<li><p>Supporta sistemi Multi-GNSS: GPS, BeiDou (BDS), GLONASS, Galileo e QZSS</p></li>
+<li><p>Supporta la comunicazione UART e I2C</p></li>
+<li><p>Amplificatore a basso rumore (LNA) integrato per una migliore
+sensibilità di ricezione</p></li>
+<li><p>Supporta le funzioni EPO™ (Extended Predictive Orbit) e EASY™ (Embedded Assist System)</p></li>
+<li><p>Supporta 1PPS Baud rate di comunicazione UART: 9600~921600 bps (115200 bps di
+default)</p></li>
+<li><p>Batteria al litio ricaricabile MS621FE integrata, per la
+conservazione delle informazioni effemeridi e l'avvio a caldo</p></li>
+<li><p>2 LED per indicare lo stato di funzionamento del modulo</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/LC76G-GNSS-Module-details-intro.jpg"><img alt="../../_images/LC76G-GNSS-Module-details-intro.jpg" src="../../_images/LC76G-GNSS-Module-details-intro.jpg" style="width: 50%;" />
+</a>
+<p>Questo lo schema elettrico:</p>
+<a class="reference internal image-reference" href="../../_images/LC76G_GNSS_Module_schematic.png"><img alt="../../_images/LC76G_GNSS_Module_schematic.png" src="../../_images/LC76G_GNSS_Module_schematic.png" style="width: 50%;" />
 </a>
 </section>
 </section>
@@ -867,7 +897,7 @@ l'alto mantenendo i moduli posizionati in questo modo:</p>
 <li><p>modulo Power con connettori in alto</p></li>
 <li><p>modulo TFT&amp;I2C con connettori in alto</p></li>
 </ul>
-<p>Procedere poi alla saldatura dei connettori sul modulo HUB secondo lo
+<p>Procedere poi alla saldatura dei connettori sul modulo BASE secondo lo
 schema in fotografia:</p>
 <a class="reference internal image-reference" href="../../_images/hub_assemblata.jpg"><img alt="../../_images/hub_assemblata.jpg" src="../../_images/hub_assemblata.jpg" style="width: 50%;" />
 </a>
@@ -876,7 +906,7 @@ rispettando la polarità e rispettando anche l'ordine dal basso verso
 l'alto riportato appena qui sopra.</p>
 <a class="reference internal image-reference" href="../../_images/pila.jpg"><img alt="../../_images/pila.jpg" src="../../_images/pila.jpg" style="width: 50%;" />
 </a>
-<p>Collegare la pila dei moduli all'HUB:</p>
+<p>Collegare la pila dei moduli al modulo BASE:</p>
 <a class="reference internal image-reference" href="../../_images/pila_hub.jpg"><img alt="../../_images/pila_hub.jpg" src="../../_images/pila_hub.jpg" style="width: 50%;" />
 </a>
 <section id="strumentazione-necessaria">
@@ -1084,19 +1114,20 @@ al bus I2C</p></li>
 </ul>
 <p>Prima di procedere con questa fase, disalimentare la stazione di
 monitoraggio.</p>
-<p>Per collegare i sensori al datalogger tramite l'HUB e verificarne il
-funzionamento bisogna assemblare i cavi di collegamento secondo gli schemi
-forniti dal produttore dei sensori facendo in modo che corrispondono
-alla piedinatura dei connettori presenti sulla stazione Stima WiFi.</p>
+<p>Per collegare i sensori al datalogger tramite la BASE BOARD e
+verificarne il funzionamento bisogna assemblare i cavi di collegamento
+secondo gli schemi forniti dal produttore dei sensori facendo in modo
+che corrispondono alla piedinatura dei connettori presenti sulla
+stazione Stima WiFi.</p>
 <p>Collegamento modulo Display:</p>
 <a class="reference internal image-reference" href="../../_images/cavo_display.jpg"><img alt="../../_images/cavo_display.jpg" src="../../_images/cavo_display.jpg" style="width: 50%;" />
 </a>
-<p>Collegamento HUB per SPS30:</p>
+<p>Collegamento BASE BOARD per SPS30:</p>
 <a class="reference internal image-reference" href="../../_images/cavo_sps30.jpg"><img alt="../../_images/cavo_sps30.jpg" src="../../_images/cavo_sps30.jpg" style="width: 50%;" />
 </a>
 <p>Per il sensore SHT85 utilizzare il cavo di prolunga per Ebike
 tagliandolo in modo asimmetrico a una lunghezza di 20 cm. dal lato
-della femmina collegando sempre la parte più corta all'HUB:</p>
+della femmina collegando sempre la parte più corta alla BASE BOARD:</p>
 <a class="reference internal image-reference" href="../../_images/cavo_sht85.jpg"><img alt="../../_images/cavo_sht85.jpg" src="../../_images/cavo_sht85.jpg" style="width: 50%;" />
 </a>
 <p>Complessivo collegamenti:</p>
@@ -1225,11 +1256,11 @@ dell'access point wifi, è possibile procedere al reset delle
 configurazioni tramite un apposito PIN.</p>
 <p>Attenzione che questa procedura cancella tutti i dati presenti su
 SDcard e ogni precedente configurazione.</p>
-<p>A stazione non alimentata collegare il pin C di J5 dell'HUB a massa
-(negativo) ad esempio con il pin di J8. poi alimentare la stazione.
-E' possibile anche procedere a stazione alimentata collegando il pin C
-di J5 dell'HUB a massa e procedendo a premere il pulsante RST del
-modulo MCU EPS32.</p>
+<p>A stazione non alimentata collegare il pin C di J5 della BASE BOARD a
+massa (negativo) ad esempio con il pin di J8. poi alimentare la
+stazione.  E' possibile anche procedere a stazione alimentata
+collegando il pin C di J5 della BASE BOARD a massa e procedendo a
+premere il pulsante RST del modulo MCU EPS32.</p>
 <p>Il display dovrebbe indicare le fasi del clear delle configurazione e
 la formattazione dei supporti di memoria permanente.</p>
 <p>Quando richiesto da display procedere a rimuovere il ponticello e
@@ -1991,6 +2022,7 @@ ESP32 S3</p></td>
 <li><a class="reference internal" href="#tft-i2c-connector-shield">TFT I2C Connector Shield</a></li>
 <li><a class="reference internal" href="#power-shield">Power Shield</a></li>
 <li><a class="reference internal" href="#base-board">Base Board</a></li>
+<li><a class="reference internal" href="#gps">GPS</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#hardware-alternativo-compatibile-sconsigliato-o-obsoleto">Hardware alternativo compatibile (sconsigliato o obsoleto)</a><ul>
