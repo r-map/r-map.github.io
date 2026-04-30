@@ -999,26 +999,24 @@ git di github:</p>
 <section id="id3">
 <h3>Dotazione Software<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>WINDOWS</p>
-<p>Provvedere innanzitutto al download del pacchetto di installazione di
-Python (scegliere solo tra le versioni superiori alla 3.4) presso
-questo link, dopodiché installare il pacchetto.  ATTENZIONE: è
-assolutamente necessario che l’installazione di Python includa la voce
-“Add Python to enviroment variables“. In caso non l’abbiate
-selezionato durante l’installazione, è possibile correggere
-rilanciando l’installer, selezionando “Modify” e, avanzando di uno
-step, selezionare la voce “Add Python to enviroment variables“. NON
-proseguire senza aver provveduto.</p>
+<p>Per installare Python su Windows, scarica l'installer ufficiale dal
+sito <a class="reference external" href="https://python.org">https://python.org</a>, avvialo e seleziona &quot;Add Python to PATH&quot; prima di
+cliccare su &quot;Install Now&quot;. Questa procedura garantisce che Python sia
+accessibile dal prompt dei comandi. Al termine, verifica
+l'installazione digitando python --version nel prompt.</p>
 <p>Effettuata l’installazione, riavviare il computer. A riavvio
-completato, recarsi presso prompt dei comandi ed eseguire il seguente
+completato, aprire il prompt dei comandi ed eseguire il seguente
 comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">esptool</span>
 </pre></div>
 </div>
 <p>MAC</p>
 <p>Provvedere innanzitutto al download del pacchetto di installazione di
-Python presso questo link, dopodiché installare il pacchetto e
-riavviare al termine.</p>
-<p>Recarsi poi presso terminale ed eseguire il seguente comando:</p>
+Python da <a class="reference external" href="https://python.org">https://python.org</a>, eseguendo il file .pkg e seguendo la procedura
+guidata. La versione 3 è raccomandata, poiché il Python preinstallato
+da Apple è obsoleto. In alternativa, si può usare Homebrew con il
+comando &quot;brew install python&quot;.</p>
+<p>Aprire poi il terminale ed eseguire il seguente comando:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">esptool</span>
 </pre></div>
 </div>
