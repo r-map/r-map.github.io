@@ -1142,19 +1142,19 @@ protocollo di comunicazione wireless definito da Espressif, che
 consente il controllo diretto, rapido e a basso consumo di dispositivi
 smart.
 Un pacchetto è definito da:</p>
-<blockquote>
-<div><p>1 byte  type of packet</p>
-<blockquote>
-<div><p>Sequenza per l'accoppiamento:
-master    : type 0  : pair request  : struct message_pair_crc
-satellite : type 1  : pair response : struct message_pair_crc
-master    : type 2  : pair ACK      : struct message_pair_crc</p>
-<p>Sequence for data:
-satellite : type 99 : data send     : struct message_data_crc
-master    : type 3  : data ACK      : struct message_pair_crc
-master    : type 10 : data NACK     : struct message_pair_crc      not managed by satellite</p>
-</div></blockquote>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">byte</span>  <span class="nb">type</span> <span class="n">of</span> <span class="n">packet</span>
+
+<span class="n">Sequenza</span> <span class="n">per</span> <span class="n">l</span><span class="s1">&#39;accoppiamento:</span>
+<span class="n">master</span>    <span class="p">:</span> <span class="nb">type</span> <span class="mi">0</span>  <span class="p">:</span> <span class="n">pair</span> <span class="n">request</span>  <span class="p">:</span> <span class="n">struct</span> <span class="n">message_pair_crc</span>
+<span class="n">satellite</span> <span class="p">:</span> <span class="nb">type</span> <span class="mi">1</span>  <span class="p">:</span> <span class="n">pair</span> <span class="n">response</span> <span class="p">:</span> <span class="n">struct</span> <span class="n">message_pair_crc</span>
+<span class="n">master</span>    <span class="p">:</span> <span class="nb">type</span> <span class="mi">2</span>  <span class="p">:</span> <span class="n">pair</span> <span class="n">ACK</span>      <span class="p">:</span> <span class="n">struct</span> <span class="n">message_pair_crc</span>
+
+<span class="n">Sequence</span> <span class="k">for</span> <span class="n">data</span><span class="p">:</span>
+<span class="n">satellite</span> <span class="p">:</span> <span class="nb">type</span> <span class="mi">99</span> <span class="p">:</span> <span class="n">data</span> <span class="n">send</span>     <span class="p">:</span> <span class="n">struct</span> <span class="n">message_data_crc</span>
+<span class="n">master</span>    <span class="p">:</span> <span class="nb">type</span> <span class="mi">3</span>  <span class="p">:</span> <span class="n">data</span> <span class="n">ACK</span>      <span class="p">:</span> <span class="n">struct</span> <span class="n">message_pair_crc</span>
+<span class="n">master</span>    <span class="p">:</span> <span class="nb">type</span> <span class="mi">10</span> <span class="p">:</span> <span class="n">data</span> <span class="n">NACK</span>     <span class="p">:</span> <span class="n">struct</span> <span class="n">message_pair_crc</span>   <span class="n">non</span> <span class="n">gestito</span> <span class="n">da</span> <span class="n">satelliye</span>
+</pre></div>
+</div>
 <p>Ogni pacchetto ha un numero di sequenza, incrementato di uno ogni
 trasmissione e un CRC calcolato per rilevare errori di trasmissione</p>
 <p>La ricezione e l'invio dei dati mantengono uno &quot;state&quot; definito da
@@ -1463,7 +1463,15 @@ sarà possibile censire una o più stazioni.</p>
 <li><p>Identificativo di stazione</p></li>
 <li><p>Coordinate</p></li>
 <li><p>Altezza dal livello del suolo</p></li>
-<li><p>Il modello di stazione che si possiede</p></li>
+<li><p>Il modello di stazione che si possiede che in generale potrà essere
+selezionato tra:</p>
+<ul>
+<li><p>&quot;airquality-sps-sht-scd&quot; per una stazione stimawifi normale</p></li>
+<li><p>&quot;airquality-mobile&quot; per una stazione stimawifi in modalità mobile</p></li>
+<li><p>&quot;airquality-now&quot; per una stazione stimawifi con i due moduli
+master e satellite che comunicano via radio con esp-now.</p></li>
+</ul>
+</li>
 </ul>
 <p>Alla richiesta (se corretta) il server risponde fornendo un gruppo di
 dati che saranno necessari per la successiva configurazione stazione e

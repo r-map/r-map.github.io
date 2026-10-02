@@ -1110,17 +1110,19 @@ consente il controllo diretto, rapido e a basso consumo di dispositivi
 smart.
 Un pacchetto è definito da:
 
- 1 byte  type of packet
-
-  Sequenza per l'accoppiamento:
-  master    : type 0  : pair request  : struct message_pair_crc
-  satellite : type 1  : pair response : struct message_pair_crc
-  master    : type 2  : pair ACK      : struct message_pair_crc
-
-  Sequence for data:
-  satellite : type 99 : data send     : struct message_data_crc
-  master    : type 3  : data ACK      : struct message_pair_crc
-  master    : type 10 : data NACK     : struct message_pair_crc      not managed by satellite
+::
+   
+   1 byte  type of packet
+   
+   Sequenza per l'accoppiamento:
+   master    : type 0  : pair request  : struct message_pair_crc
+   satellite : type 1  : pair response : struct message_pair_crc
+   master    : type 2  : pair ACK      : struct message_pair_crc
+   
+   Sequence for data:
+   satellite : type 99 : data send     : struct message_data_crc
+   master    : type 3  : data ACK      : struct message_pair_crc
+   master    : type 10 : data NACK     : struct message_pair_crc   non gestito da satelliye
 
 Ogni pacchetto ha un numero di sequenza, incrementato di uno ogni
 trasmissione e un CRC calcolato per rilevare errori di trasmissione
@@ -1481,7 +1483,13 @@ Censire una stazione consiste nel dichiararne le caratteristiche sulla piattafor
 * Identificativo di stazione 
 * Coordinate
 * Altezza dal livello del suolo
-* Il modello di stazione che si possiede
+* Il modello di stazione che si possiede che in generale potrà essere
+  selezionato tra:
+
+  * "airquality-sps-sht-scd" per una stazione stimawifi normale
+  * "airquality-mobile" per una stazione stimawifi in modalità mobile
+  * "airquality-now" per una stazione stimawifi con i due moduli
+    master e satellite che comunicano via radio con esp-now.
 
 Alla richiesta (se corretta) il server risponde fornendo un gruppo di
 dati che saranno necessari per la successiva configurazione stazione e
